@@ -1,0 +1,10 @@
+{
+    "title":"Linux实用手册",
+    "plugins": ["atoc"],
+    "pluginsConfig": {
+        "atoc": {
+            "addClass": true,
+            "className": "atoc"
+        }
+    }
+}
