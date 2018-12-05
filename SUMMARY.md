@@ -9,3 +9,4 @@
     * [用户态与内核态](chapter1/02-process-3.md)
   * [理解CPU](chapter1/03-cpu.md)
     * [上下文切换](chapter1/03-cpu-1.md)
+    * [CPU使用率](chapter1/03-cpu-2.md)

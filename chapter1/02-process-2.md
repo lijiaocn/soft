@@ -10,15 +10,15 @@
 
 现在，进程的状态主要有以下几种：
 
-0. 刚创建，Born or forked
-1. 可运行状态，Ready or Runnable
-2. 运行状态，Running in User Or Running in Kernel
-3. 阻塞状态，Blocked
-4. 等待状态，Waiting
-5. 睡眠状态，Sleeping
-6. 睡眠状态又可以分为可中断（ Interruptable）和不可中断（ Uninterruptable ）两种状态
-7. 睡觉状态还可以分为驻留在内存中和被交换到交换分区中两种状态
-8. 僵尸状态、终止状态，Terminated or stopped
+	0. 刚创建，Born or forked
+	1. 可运行状态，Ready or Runnable
+	2. 运行状态，Running in User Or Running in Kernel
+	3. 阻塞状态，Blocked
+	4. 等待状态，Waiting
+	5. 睡眠状态，Sleeping
+	6. 睡眠状态又可以分为可中断（ Interruptable）和不可中断（ Uninterruptable ）两种状态
+	7. 睡觉状态还可以分为驻留在内存中和被交换到交换分区中两种状态
+	8. 僵尸状态、终止状态，Terminated or stopped
 
 进程状态是`Runnable`，表示该进程万事具备，只缺CPU，可以随时被CPU执行。
 
