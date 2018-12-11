@@ -4,6 +4,10 @@
 
 正在被CPU执行的进程的状态是`Running`，没有被CPU执行的进程的状态是`Not Running`。
 
+在后面的火焰图章节中，正在运行的状态被称为`On-CPU`，没有在运行的状态被称为`Off-CPU`，一个进程要么在使用CPU，要么没有在使用CPU，在做性能分析的时候，这两段时间里发生的事情都需要跟踪。
+
+![Thread state transition diagram](http://www.brendangregg.com/FlameGraphs/hotcoldfigure.png)
+
 每个CPU核心同一时间只能执行一个进程，对一个CPU核心来说进程就是一组指令，CPU不停地吃进指令、执行执行，不能同时吃进两个指令（在CPU中使用流水线，可以一次给CPU塞进多个指令，但这些指令还是被一条一条执行的，不过CPU异常复杂，可能不能一言概之，但我们现在可以这样理解）。
 
 将进程状态只分为`Running`和`Not Running`是远远不够的，进程需要有状态，其实是调度算法要求，调度算法的目的是让有限的CPU在兼顾效率和公平的情况下，处理数量远远超过CPU数量、且各种各样的进程。调度算法越复杂，进程的状态就越多。

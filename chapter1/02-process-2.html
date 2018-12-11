@@ -1,0 +1,662 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>进程的状态 · Linux实用手册</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-atoc/atoc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="02-process-3.html" />
+    
+    
+    <link rel="prev" href="02-process-1.html" />
+    
+
+    <!--Google ads -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8176866190626448",
+        enable_page_level_ads: true
+      });
+    </script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105389858-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-105389858-1');
+    </script>
+    
+    <!--百度统计-->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8f59ea10145df28da8932c8743ec1d60";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
+    <!--百度收录-->
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+    <style type="text/css">
+    .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal a {color: #4183c4;}
+    </style>
+    </head>
+    <body>
+        
+<div class="book color-theme-1">
+    <div class="book-summary">
+        
+            
+            
+                
+<div style="height:150px;text-align:center">
+	<h2>记住网址：<a href="https://www.lijiaocn.com " style="color:#afa790">lijiaocn.com</a></h2>
+</div>
+
+
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+	<li><a href="https://www.lijiaocn.com">博客首页</a></li>
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    关于这本书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Linux性能优化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-concept.html">
+            
+                <a href="01-concept.html">
+            
+                    
+                    建立概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="02-process.html">
+            
+                <a href="02-process.html">
+            
+                    
+                    理解进程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="02-process-1.html">
+            
+                <a href="02-process-1.html">
+            
+                    
+                    进程的分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2.2" data-path="02-process-2.html">
+            
+                <a href="02-process-2.html">
+            
+                    
+                    进程的状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="02-process-3.html">
+            
+                <a href="02-process-3.html">
+            
+                    
+                    用户态与内核态
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="03-cpu.html">
+            
+                <a href="03-cpu.html">
+            
+                    
+                    理解CPU
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="03-cpu-1.html">
+            
+                <a href="03-cpu-1.html">
+            
+                    
+                    上下文切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="03-cpu-2.html">
+            
+                <a href="03-cpu-2.html">
+            
+                    
+                    CPU使用率
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="04-tool.html">
+            
+                <a href="04-tool.html">
+            
+                    
+                    分析工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="04-flame-graphs.html">
+            
+                <a href="04-flame-graphs.html">
+            
+                    
+                    火焰图介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1.1" data-path="04-flame-graphs-cpu.html">
+            
+                <a href="04-flame-graphs-cpu.html">
+            
+                    
+                    CPU火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.1.2" data-path="04-flame-graphs-memory.html">
+            
+                <a href="04-flame-graphs-memory.html">
+            
+                    
+                    内存火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.1.3" data-path="04-flame-graphs-off-cpu.html">
+            
+                <a href="04-flame-graphs-off-cpu.html">
+            
+                    
+                    Off-CPU火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.1.4" data-path="04-flame-graphs-hot-code.html">
+            
+                <a href="04-flame-graphs-hot-code.html">
+            
+                    
+                    冷热火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.1.5" data-path="04-flame-graphs-differential.html">
+            
+                <a href="04-flame-graphs-differential.html">
+            
+                    
+                    差异火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter2/">
+            
+                <a href="../chapter2/">
+            
+                    
+                    Linux系统工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/01-network.md">
+            
+                <span>
+            
+                    
+                    网络诊断
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../chapter2/01-network-ss.html">
+            
+                <a href="../chapter2/01-network-ss.html">
+            
+                    
+                    ss
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chapter3/">
+            
+                <a href="../chapter3/">
+            
+                    
+                    Linux系统知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+                
+<div style="text-align:center">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Summary_Bottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="2156601384"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >进程的状态</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                
+<!-- Page_Top -->
+<!--div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="5702052586"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div-->
+
+
+                                <h1 id="&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;">&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;</h1>
+<p>&#x8FDB;&#x7A0B;&#x662F;&#x52A8;&#x6001;&#x7684;&#xFF0C;&#x6709;&#x591A;&#x4E2A;&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x6B63;&#x5728;&#x88AB;CPU&#x6267;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x662F;<code>Running</code>&#xFF0C;&#x6CA1;&#x6709;&#x88AB;CPU&#x6267;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x662F;<code>Not Running</code>&#x3002;</p>
+<p>&#x5728;&#x540E;&#x9762;&#x7684;&#x706B;&#x7130;&#x56FE;&#x7AE0;&#x8282;&#x4E2D;&#xFF0C;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x72B6;&#x6001;&#x88AB;&#x79F0;&#x4E3A;<code>On-CPU</code>&#xFF0C;&#x6CA1;&#x6709;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x72B6;&#x6001;&#x88AB;&#x79F0;&#x4E3A;<code>Off-CPU</code>&#xFF0C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x8981;&#x4E48;&#x5728;&#x4F7F;&#x7528;CPU&#xFF0C;&#x8981;&#x4E48;&#x6CA1;&#x6709;&#x5728;&#x4F7F;&#x7528;CPU&#xFF0C;&#x5728;&#x505A;&#x6027;&#x80FD;&#x5206;&#x6790;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E24;&#x6BB5;&#x65F6;&#x95F4;&#x91CC;&#x53D1;&#x751F;&#x7684;&#x4E8B;&#x60C5;&#x90FD;&#x9700;&#x8981;&#x8DDF;&#x8E2A;&#x3002;</p>
+<p><img src="http://www.brendangregg.com/FlameGraphs/hotcoldfigure.png" alt="Thread state transition diagram"></p>
+<p>&#x6BCF;&#x4E2A;CPU&#x6838;&#x5FC3;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x53EA;&#x80FD;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x5BF9;&#x4E00;&#x4E2A;CPU&#x6838;&#x5FC3;&#x6765;&#x8BF4;&#x8FDB;&#x7A0B;&#x5C31;&#x662F;&#x4E00;&#x7EC4;&#x6307;&#x4EE4;&#xFF0C;CPU&#x4E0D;&#x505C;&#x5730;&#x5403;&#x8FDB;&#x6307;&#x4EE4;&#x3001;&#x6267;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x5403;&#x8FDB;&#x4E24;&#x4E2A;&#x6307;&#x4EE4;&#xFF08;&#x5728;CPU&#x4E2D;&#x4F7F;&#x7528;&#x6D41;&#x6C34;&#x7EBF;&#xFF0C;&#x53EF;&#x4EE5;&#x4E00;&#x6B21;&#x7ED9;CPU&#x585E;&#x8FDB;&#x591A;&#x4E2A;&#x6307;&#x4EE4;&#xFF0C;&#x4F46;&#x8FD9;&#x4E9B;&#x6307;&#x4EE4;&#x8FD8;&#x662F;&#x88AB;&#x4E00;&#x6761;&#x4E00;&#x6761;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x4E0D;&#x8FC7;CPU&#x5F02;&#x5E38;&#x590D;&#x6742;&#xFF0C;&#x53EF;&#x80FD;&#x4E0D;&#x80FD;&#x4E00;&#x8A00;&#x6982;&#x4E4B;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x7406;&#x89E3;&#xFF09;&#x3002;</p>
+<p>&#x5C06;&#x8FDB;&#x7A0B;&#x72B6;&#x6001;&#x53EA;&#x5206;&#x4E3A;<code>Running</code>&#x548C;<code>Not Running</code>&#x662F;&#x8FDC;&#x8FDC;&#x4E0D;&#x591F;&#x7684;&#xFF0C;&#x8FDB;&#x7A0B;&#x9700;&#x8981;&#x6709;&#x72B6;&#x6001;&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#x8981;&#x6C42;&#xFF0C;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#x7684;&#x76EE;&#x7684;&#x662F;&#x8BA9;&#x6709;&#x9650;&#x7684;CPU&#x5728;&#x517C;&#x987E;&#x6548;&#x7387;&#x548C;&#x516C;&#x5E73;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5904;&#x7406;&#x6570;&#x91CF;&#x8FDC;&#x8FDC;&#x8D85;&#x8FC7;CPU&#x6570;&#x91CF;&#x3001;&#x4E14;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;&#x8FDB;&#x7A0B;&#x3002;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#x8D8A;&#x590D;&#x6742;&#xFF0C;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x5C31;&#x8D8A;&#x591A;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#xFF0C;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#xFF1A;</p>
+<pre><code>0. &#x521A;&#x521B;&#x5EFA;&#xFF0C;Born or forked
+1. &#x53EF;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#xFF0C;Ready or Runnable
+2. &#x8FD0;&#x884C;&#x72B6;&#x6001;&#xFF0C;Running in User Or Running in Kernel
+3. &#x963B;&#x585E;&#x72B6;&#x6001;&#xFF0C;Blocked
+4. &#x7B49;&#x5F85;&#x72B6;&#x6001;&#xFF0C;Waiting
+5. &#x7761;&#x7720;&#x72B6;&#x6001;&#xFF0C;Sleeping
+6. &#x7761;&#x7720;&#x72B6;&#x6001;&#x53C8;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x53EF;&#x4E2D;&#x65AD;&#xFF08; Interruptable&#xFF09;&#x548C;&#x4E0D;&#x53EF;&#x4E2D;&#x65AD;&#xFF08; Uninterruptable &#xFF09;&#x4E24;&#x79CD;&#x72B6;&#x6001;
+7. &#x7761;&#x89C9;&#x72B6;&#x6001;&#x8FD8;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x9A7B;&#x7559;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x548C;&#x88AB;&#x4EA4;&#x6362;&#x5230;&#x4EA4;&#x6362;&#x5206;&#x533A;&#x4E2D;&#x4E24;&#x79CD;&#x72B6;&#x6001;
+8. &#x50F5;&#x5C38;&#x72B6;&#x6001;&#x3001;&#x7EC8;&#x6B62;&#x72B6;&#x6001;&#xFF0C;Terminated or stopped
+</code></pre><p>&#x8FDB;&#x7A0B;&#x72B6;&#x6001;&#x662F;<code>Runnable</code>&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x8FDB;&#x7A0B;&#x4E07;&#x4E8B;&#x5177;&#x5907;&#xFF0C;&#x53EA;&#x7F3A;CPU&#xFF0C;&#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x88AB;CPU&#x6267;&#x884C;&#x3002;</p>
+<p>&#x8FDB;&#x7A0B;&#x72B6;&#x6001;&#x662F;<code>Sleeping</code>&#xFF0C;&#x8868;&#x793A;&#x6539;&#x8FDB;&#x7A0B;&#x9700;&#x8981;&#x7684;&#x4E00;&#x4E9B;&#x8D44;&#x6E90;&#x9700;&#x8981;&#x65F6;&#x95F4;&#x51C6;&#x5907;&#xFF0C;&#x8C03;&#x5EA6;&#x5668;&#x5C06;&#x539F;&#x672C;&#x88AB;&#x5B83;&#x5360;&#x7528;&#x7684;CPU&#x8C03;&#x5EA6;&#x7ED9;<code>Runable</code>&#x72B6;&#x6001;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x76F4;&#x5230;&#x8FDB;&#x7A0B;&#x9700;&#x8981;&#x7684;&#x8D44;&#x6E90;&#x51C6;&#x5907;&#x5B8C;&#x6210;&#xFF0C;&#x91CD;&#x65B0;&#x8FDB;&#x5165;Runnable&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x7528;<code>ps -l</code>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7761;&#x7720;&#x7684;&#x8FDB;&#x7A0B;&#x505C;&#x7559;&#x5728;&#x54EA;&#x4E2A;&#x5185;&#x6838;&#x51FD;&#x6570;&#x4E0A;&#xFF08;<code>WCHAN</code>&#x5B57;&#x6BB5;&#xFF09;&#xFF08;&#x5728;&#x52A0;&#x4E0A;&#x53C2;&#x6570;<code>-e</code>&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x6240;&#x6709;&#x8FDB;&#x7A0B;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-bash">$ ps <span class="hljs-_">-l</span>
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S     0  7042  7040  0  80   0 - 28894 <span class="hljs-built_in">wait</span>   pts/0    00:00:00 bash
+0 R     0  7950  7042  0  80   0 - 34361 -      pts/0    00:00:00 ps
+</code></pre>
+<blockquote>
+<p>WCHAN&#xFF1A; name of the kernel function in which the process is sleeping, a &quot;-&quot; if the process is running, or a &quot;*&quot; if the process is multi-threaded and ps is not displaying threads.</p>
+</blockquote>
+<p>&#x5904;&#x4E8E;&#x7761;&#x7720;&#x72B6;&#x6001;&#x7684;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;<code>&#x53EF;&#x4E2D;&#x65AD;&#x7684;</code>&#x548C;<code>&#x4E0D;&#x53EF;&#x4E2D;&#x65AD;</code>&#x7684;&#xFF0C;&#x4E24;&#x8005;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x5BF9;&#x4FE1;&#x53F7;&#x6216;&#x8005;&#x4E8B;&#x4EF6;&#x7684;&#x6001;&#x5EA6;&#xFF0C;&#x524D;&#x8005;&#x5728;&#x6536;&#x5230;&#x4FE1;&#x53F7;&#x6216;&#x8005;&#x4E8B;&#x4EF6;&#x540E;&#xFF0C;&#x8FDB;&#x7A0B;&#x4F1A;&#x8DF3;&#x51FA;&#x7761;&#x7720;&#x72B6;&#x6001;&#xFF0C;&#x540E;&#x8005;&#x4E0D;&#x4F1A;&#xFF0C;&#x540E;&#x8005;&#x8981;&#x7B49;&#x5230;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x624D;&#x4F1A;&#x611F;&#x77E5;&#x5230;&#x7761;&#x7720;&#x671F;&#x95F4;&#x7684;&#x53D1;&#x751F;&#x4E8B;&#x4EF6;&#x3002; <code>&#x4E0D;&#x53EF;&#x4E2D;&#x65AD;</code>&#x7684;&#x8FDB;&#x7A0B;&#x901A;&#x5E38;&#x662F;&#x5728;&#x8FDB;&#x884C;&#x78C1;&#x76D8;&#x3001;&#x7F51;&#x7EDC;I/O&#x64CD;&#x4F5C;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x5B83;&#x4EEC;&#x9700;&#x8981;&#x7B49;&#x5230;&#x8BBE;&#x5907;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x3002;</p>
+<p>&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x9000;&#x51FA;&#x540E;&#xFF0C;&#x5B83;&#x5728;&#x8FDB;&#x7A0B;&#x8868;&#x4E2D;&#x5360;&#x7528;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x7531;&#x5B83;&#x7684;&#x7236;&#x8FDB;&#x7A0B;&#x8D1F;&#x8D23;&#x91CA;&#x653E;&#xFF0C;&#x5728;&#x7236;&#x8FDB;&#x7A0B;&#x8FD8;&#x6CA1;&#x6709;&#x91CA;&#x653E;&#x5B83;&#x5360;&#x7528;&#x7684;&#x4F4D;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FDB;&#x7A0B;&#x5904;&#x4E8E;&#x50F5;&#x5C38;&#x72B6;&#x6001;&#x3002;</p>
+<p><code>ps -l</code>&#x547D;&#x4EE4;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x7684;&#x7B2C;&#x4E8C;&#x5217;&#x662F;&#x8FDB;&#x7A0B;&#x6240;&#x5904;&#x7684;&#x72B6;&#x6001;&#xFF0C;ps&#x4E00;&#x5171;&#x5C55;&#x793A;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x72B6;&#x6001;&#xFF1A;</p>
+<pre><code>D    uninterruptible sleep (usually IO)
+R    running or runnable (on run queue)
+S    interruptible sleep (waiting for an event to complete)
+T    stopped by job control signal
+t    stopped by debugger during the tracing
+W    paging (not valid since the 2.6.xx kernel)
+X    dead (should never be seen)
+Z    defunct (&quot;zombie&quot;) process, terminated but not reaped by its parent
+</code></pre><p>&#x5728;<code>man ps</code>&#x4E2D;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x8BF4;&#x660E;&#x3002;</p>
+<script type="text/javascript">var className='atoc';</script>
+                                
+<div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Page_Bottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="7945072540"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-process-1.html" class="navigation navigation-prev " aria-label="Previous page: 进程的分类">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="02-process-3.html" class="navigation navigation-next " aria-label="Next page: 用户态与内核态">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"进程的状态","level":"1.2.2.2","depth":3,"next":{"title":"用户态与内核态","level":"1.2.2.3","depth":3,"path":"chapter1/02-process-3.md","ref":"chapter1/02-process-3.md","articles":[]},"previous":{"title":"进程的分类","level":"1.2.2.1","depth":3,"path":"chapter1/02-process-1.md","ref":"chapter1/02-process-1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Linux实用手册","gitbook":"*"},"file":{"path":"chapter1/02-process-2.md","mtime":"2018-12-09T12:35:24.924Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-09T14:27:07.107Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-atoc/atoc.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
