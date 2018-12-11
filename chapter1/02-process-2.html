@@ -124,15 +124,7 @@
             
                 
 <div style="height:150px;text-align:center">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Summary_Top_180x150 -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:180px;height:150px"
-     data-ad-client="ca-pub-8176866190626448"
-     data-ad-slot="6467682802"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+	<h2>记住网址：<a href="https://www.lijiaocn.com " style="color:#afa790">lijiaocn.com</a></h2>
 </div>
 
 
@@ -294,8 +286,175 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.4" data-path="04-tool.html">
+            
+                <a href="04-tool.html">
+            
+                    
+                    分析工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="04-flame-graphs.html">
+            
+                <a href="04-flame-graphs.html">
+            
+                    
+                    火焰图介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1.1" data-path="04-flame-graphs-cpu.html">
+            
+                <a href="04-flame-graphs-cpu.html">
+            
+                    
+                    CPU火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.1.2" data-path="04-flame-graphs-memory.html">
+            
+                <a href="04-flame-graphs-memory.html">
+            
+                    
+                    内存火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.1.3" data-path="04-flame-graphs-off-cpu.html">
+            
+                <a href="04-flame-graphs-off-cpu.html">
+            
+                    
+                    Off-CPU火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.1.4" data-path="04-flame-graphs-hot-code.html">
+            
+                <a href="04-flame-graphs-hot-code.html">
+            
+                    
+                    冷热火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.1.5" data-path="04-flame-graphs-differential.html">
+            
+                <a href="04-flame-graphs-differential.html">
+            
+                    
+                    差异火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter2/">
+            
+                <a href="../chapter2/">
+            
+                    
+                    Linux系统工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/01-network.md">
+            
+                <span>
+            
+                    
+                    网络诊断
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../chapter2/01-network-ss.html">
+            
+                <a href="../chapter2/01-network-ss.html">
+            
+                    
+                    ss
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chapter3/">
+            
+                <a href="../chapter3/">
+            
+                    
+                    Linux系统知识
+            
+                </a>
+            
+
             
         </li>
     
@@ -376,6 +535,8 @@
                                 <h1 id="&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;">&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;</h1>
 <p>&#x8FDB;&#x7A0B;&#x662F;&#x52A8;&#x6001;&#x7684;&#xFF0C;&#x6709;&#x591A;&#x4E2A;&#x72B6;&#x6001;&#x3002;</p>
 <p>&#x6B63;&#x5728;&#x88AB;CPU&#x6267;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x662F;<code>Running</code>&#xFF0C;&#x6CA1;&#x6709;&#x88AB;CPU&#x6267;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x662F;<code>Not Running</code>&#x3002;</p>
+<p>&#x5728;&#x540E;&#x9762;&#x7684;&#x706B;&#x7130;&#x56FE;&#x7AE0;&#x8282;&#x4E2D;&#xFF0C;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x72B6;&#x6001;&#x88AB;&#x79F0;&#x4E3A;<code>On-CPU</code>&#xFF0C;&#x6CA1;&#x6709;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x72B6;&#x6001;&#x88AB;&#x79F0;&#x4E3A;<code>Off-CPU</code>&#xFF0C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x8981;&#x4E48;&#x5728;&#x4F7F;&#x7528;CPU&#xFF0C;&#x8981;&#x4E48;&#x6CA1;&#x6709;&#x5728;&#x4F7F;&#x7528;CPU&#xFF0C;&#x5728;&#x505A;&#x6027;&#x80FD;&#x5206;&#x6790;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E24;&#x6BB5;&#x65F6;&#x95F4;&#x91CC;&#x53D1;&#x751F;&#x7684;&#x4E8B;&#x60C5;&#x90FD;&#x9700;&#x8981;&#x8DDF;&#x8E2A;&#x3002;</p>
+<p><img src="http://www.brendangregg.com/FlameGraphs/hotcoldfigure.png" alt="Thread state transition diagram"></p>
 <p>&#x6BCF;&#x4E2A;CPU&#x6838;&#x5FC3;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x53EA;&#x80FD;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x5BF9;&#x4E00;&#x4E2A;CPU&#x6838;&#x5FC3;&#x6765;&#x8BF4;&#x8FDB;&#x7A0B;&#x5C31;&#x662F;&#x4E00;&#x7EC4;&#x6307;&#x4EE4;&#xFF0C;CPU&#x4E0D;&#x505C;&#x5730;&#x5403;&#x8FDB;&#x6307;&#x4EE4;&#x3001;&#x6267;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x5403;&#x8FDB;&#x4E24;&#x4E2A;&#x6307;&#x4EE4;&#xFF08;&#x5728;CPU&#x4E2D;&#x4F7F;&#x7528;&#x6D41;&#x6C34;&#x7EBF;&#xFF0C;&#x53EF;&#x4EE5;&#x4E00;&#x6B21;&#x7ED9;CPU&#x585E;&#x8FDB;&#x591A;&#x4E2A;&#x6307;&#x4EE4;&#xFF0C;&#x4F46;&#x8FD9;&#x4E9B;&#x6307;&#x4EE4;&#x8FD8;&#x662F;&#x88AB;&#x4E00;&#x6761;&#x4E00;&#x6761;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x4E0D;&#x8FC7;CPU&#x5F02;&#x5E38;&#x590D;&#x6742;&#xFF0C;&#x53EF;&#x80FD;&#x4E0D;&#x80FD;&#x4E00;&#x8A00;&#x6982;&#x4E4B;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x7406;&#x89E3;&#xFF09;&#x3002;</p>
 <p>&#x5C06;&#x8FDB;&#x7A0B;&#x72B6;&#x6001;&#x53EA;&#x5206;&#x4E3A;<code>Running</code>&#x548C;<code>Not Running</code>&#x662F;&#x8FDC;&#x8FDC;&#x4E0D;&#x591F;&#x7684;&#xFF0C;&#x8FDB;&#x7A0B;&#x9700;&#x8981;&#x6709;&#x72B6;&#x6001;&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#x8981;&#x6C42;&#xFF0C;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#x7684;&#x76EE;&#x7684;&#x662F;&#x8BA9;&#x6709;&#x9650;&#x7684;CPU&#x5728;&#x517C;&#x987E;&#x6548;&#x7387;&#x548C;&#x516C;&#x5E73;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5904;&#x7406;&#x6570;&#x91CF;&#x8FDC;&#x8FDC;&#x8D85;&#x8FC7;CPU&#x6570;&#x91CF;&#x3001;&#x4E14;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;&#x8FDB;&#x7A0B;&#x3002;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#x8D8A;&#x590D;&#x6742;&#xFF0C;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x5C31;&#x8D8A;&#x591A;&#x3002;</p>
 <p>&#x73B0;&#x5728;&#xFF0C;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#xFF1A;</p>
@@ -454,7 +615,7 @@ Z    defunct (&quot;zombie&quot;) process, terminated but not reaped by its pare
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"进程的状态","level":"1.2.2.2","depth":3,"next":{"title":"用户态与内核态","level":"1.2.2.3","depth":3,"path":"chapter1/02-process-3.md","ref":"chapter1/02-process-3.md","articles":[]},"previous":{"title":"进程的分类","level":"1.2.2.1","depth":3,"path":"chapter1/02-process-1.md","ref":"chapter1/02-process-1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Linux实用手册","gitbook":"*"},"file":{"path":"chapter1/02-process-2.md","mtime":"2018-12-04T08:58:50.422Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-05T07:06:56.373Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"进程的状态","level":"1.2.2.2","depth":3,"next":{"title":"用户态与内核态","level":"1.2.2.3","depth":3,"path":"chapter1/02-process-3.md","ref":"chapter1/02-process-3.md","articles":[]},"previous":{"title":"进程的分类","level":"1.2.2.1","depth":3,"path":"chapter1/02-process-1.md","ref":"chapter1/02-process-1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Linux实用手册","gitbook":"*"},"file":{"path":"chapter1/02-process-2.md","mtime":"2018-12-09T12:35:24.924Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-09T14:27:07.107Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
