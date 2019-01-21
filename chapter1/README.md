@@ -7,3 +7,7 @@
 <span style="display:block;text-align:center"><img src="/img/linux/01-geek-linux-ercode.jpeg" width="250px" alt="极客时间倪鹏飞Linux性能优化海报"/></span>
 
 另外一份资料是IBM红宝书[Linux性能调优指南](https://lihz1990.gitbooks.io/transoflptg/content/)
+
+将硬件中断的处理任务分配个多个CPU：[SMP affinity and proper interrupt handling in Linux](http://www.alexonlinux.com/smp-affinity-and-proper-interrupt-handling-in-linux)
+
+[Hidden Costs of Memory Allocation](https://randomascii.wordpress.com/2014/12/10/hidden-costs-of-memory-allocation/)
