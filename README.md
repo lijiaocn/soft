@@ -10,6 +10,6 @@
 yum install -y man-pages
 ```
 
-譬如命令`man proc`中的proc文档就是位于man-pages中，这个手册里详细解释了`/proc`目录的结构和文件的含义。
+譬如，通过命令`man proc`可以查看/proc目录的说明手册，里面详细解释了`/proc`中的目录和文件的含义。
 
-[The Linux Documentation Project](http://tldp.org/)
+[The Linux Documentation Project](http://tldp.org/)看起来是一个非常好的资料库。
