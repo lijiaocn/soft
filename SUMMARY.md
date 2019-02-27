@@ -2,7 +2,7 @@
 
 * [Linux实用手册](README.md)
 * [Linux性能优化](chapter1/README.md)
-    * [建立概念](chapter1/01-concept.md)
+    * [建立认识](chapter1/01-concept.md)
     * [理解进程](chapter1/02-process.md)
         * [进程的分类](chapter1/02-process-1.md)
         * [进程的状态](chapter1/02-process-2.md)
@@ -18,6 +18,7 @@
             * [冷热火焰图](chapter1/04-flame-graphs-hot-code.md)
             * [差异火焰图](chapter1/04-flame-graphs-differential.md)
             * [火焰图生成](chapter1/04-flame-generate.md)
+        * [BCC系列工具](chapter1/04-bcc-tools.md)
 * [Linux系统工具](chapter2/README.md)
     * [网络诊断](chapter2/01-network.md)
         * [ss](chapter2/01-network-ss.md)
