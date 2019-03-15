@@ -1,10 +1,19 @@
 {
-    "title":"Linux实用手册",
-    "plugins": ["atoc"],
-    "pluginsConfig": {
-        "atoc": {
-            "addClass": true,
-            "className": "atoc"
-        }
-    }
+	"author": "lijiaocn@foxmail.com",
+	"isbn": "",
+	"language":"zh-hans",
+	"gitbook": ">=3.0.0",
+	"plugins":[
+		{
+			"name": "theme-lijiaocn",
+			"version": "git+https://github.com/lijiaocn/theme-lijiaocn.git"
+		},
+		"atoc"
+	],
+	"pluginsConfig": {
+		"atoc": {
+			"addClass": true,
+			"className": "atoc"
+		}
+	}
 }
