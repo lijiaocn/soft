@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Linux虚拟化技术 · GitBook</title>
+        <title>I/O操作分类 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,8 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="vfs.html" />
     
-    <link rel="prev" href="../chapter3/process_io.html" />
+    
+    <link rel="prev" href="01-filesystem.html" />
     
 
         
@@ -515,9 +517,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../chapter3/">
+        <li class="chapter " data-level="1.4" data-path="./">
             
-                <a href="../chapter3/">
+                <a href="./">
             
                     
                     Linux系统知识
@@ -529,9 +531,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../chapter3/01-filesystem.html">
+        <li class="chapter " data-level="1.4.1" data-path="01-filesystem.html">
             
-                <a href="../chapter3/01-filesystem.html">
+                <a href="01-filesystem.html">
             
                     
                     文件系统
@@ -543,9 +545,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1.1" data-path="../chapter3/02-io.html">
+        <li class="chapter active" data-level="1.4.1.1" data-path="02-io.html">
             
-                <a href="../chapter3/02-io.html">
+                <a href="02-io.html">
             
                     
                     I/O操作分类
@@ -556,9 +558,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.2" data-path="../chapter3/vfs.html">
+        <li class="chapter " data-level="1.4.1.2" data-path="vfs.html">
             
-                <a href="../chapter3/vfs.html">
+                <a href="vfs.html">
             
                     
                     VFS
@@ -569,9 +571,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.3" data-path="../chapter3/disk.html">
+        <li class="chapter " data-level="1.4.1.3" data-path="disk.html">
             
-                <a href="../chapter3/disk.html">
+                <a href="disk.html">
             
                     
                     磁盘
@@ -582,9 +584,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.4" data-path="../chapter3/process_io.html">
+        <li class="chapter " data-level="1.4.1.4" data-path="process_io.html">
             
-                <a href="../chapter3/process_io.html">
+                <a href="process_io.html">
             
                     
                     进程的I/O状态
@@ -605,9 +607,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="./">
+        <li class="chapter " data-level="1.5" data-path="../chapter4/">
             
-                <a href="./">
+                <a href="../chapter4/">
             
                     
                     Linux虚拟化技术
@@ -663,7 +665,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Linux虚拟化技术</a>
+        <a href=".." >I/O操作分类</a>
     </h1>
 </div>
 
@@ -693,9 +695,32 @@ var _hmt = _hmt || [];
 </div-->
 
 
-                                <h1 id="linux&#x865A;&#x62DF;&#x5316;&#x6280;&#x672F;">Linux&#x865A;&#x62DF;&#x5316;&#x6280;&#x672F;</h1>
-<p>&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</p>
-<p><a href="https://www.cnblogs.com/sammyliu/p/4543110.html" target="_blank">KVM&#x4ECB;&#x7ECD;&#x7CFB;&#x5217;&#x6587;&#x7AE0;</a></p>
+                                <h1 id="linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;io">Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;I/O</h1>
+<!-- toc -->
+<ul>
+<li><a href="#&#x6839;&#x636E;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x5E93;&#x7F13;&#x5B58;&#x533A;&#x5206;&#xFF1A;&#x7F13;&#x51B2;&#x4E0E;&#x975E;&#x7F13;&#x51B2;io">&#x6839;&#x636E;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x5E93;&#x7F13;&#x5B58;&#x533A;&#x5206;&#xFF1A;&#x7F13;&#x51B2;&#x4E0E;&#x975E;&#x7F13;&#x51B2;I/O</a></li>
+<li><a href="#&#x6839;&#x636E;&#x662F;&#x5426;&#x5229;&#x7528;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x9875;&#x7F13;&#x5B58;&#xFF1A;&#x76F4;&#x63A5;&#x4E0E;&#x975E;&#x76F4;&#x63A5;io">&#x6839;&#x636E;&#x662F;&#x5426;&#x5229;&#x7528;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x9875;&#x7F13;&#x5B58;&#xFF1A;&#x76F4;&#x63A5;&#x4E0E;&#x975E;&#x76F4;&#x63A5;I/O</a></li>
+<li><a href="#&#x6839;&#x636E;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x963B;&#x585E;&#x81EA;&#x8EAB;&#x8FD0;&#x884C;&#xFF1A;&#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E;io">&#x6839;&#x636E;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x963B;&#x585E;&#x81EA;&#x8EAB;&#x8FD0;&#x884C;&#xFF1A;&#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E;I/O</a></li>
+<li><a href="#&#x6839;&#x636E;&#x662F;&#x5426;&#x7B49;&#x5F85;&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#xFF1A;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;io">&#x6839;&#x636E;&#x662F;&#x5426;&#x7B49;&#x5F85;&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#xFF1A;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;I/O</a></li>
+</ul>
+<!-- tocstop -->
+<p>I/O&#x64CD;&#x4F5C;&#x5206;&#x4E3A;&#xFF1A;&#x7F13;&#x51B2;&#x4E0E;&#x975E;&#x7F13;&#x51B2;I/O&#x3001;&#x76F4;&#x63A5;&#x4E0E;&#x975E;&#x76F4;&#x63A5;I/O&#x3001;&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;I/O&#x3001;&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;I/O&#x3002;</p>
+<h2 id="&#x6839;&#x636E;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x5E93;&#x7F13;&#x5B58;&#x533A;&#x5206;&#xFF1A;&#x7F13;&#x51B2;&#x4E0E;&#x975E;&#x7F13;&#x51B2;io">&#x6839;&#x636E;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x5E93;&#x7F13;&#x5B58;&#x533A;&#x5206;&#xFF1A;&#x7F13;&#x51B2;&#x4E0E;&#x975E;&#x7F13;&#x51B2;I/O</h2>
+<p>&#x6807;&#x51C6;&#x5E93;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;I/O&#x64CD;&#x4F5C;&#x63A5;&#x53E3;&#xFF0C;&#x81EA;&#x8EAB;&#x5219;&#x662F;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x8BBF;&#x95EE;&#x6587;&#x4EF6;&#x3002;&#x6807;&#x51C6;&#x5E93;&#x7684;&#x5B9E;&#x73B0;&#x4E2D;&#x4F1A;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x7F13;&#x5B58;&#x673A;&#x5236;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;&#x6807;&#x51C6;&#x5E93;&#x7F13;&#x5B58;&#x7684;I/O&#x64CD;&#x4F5C;&#x662F; <strong>&#x7F13;&#x51B2;I/O</strong>&#xFF0C;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x8FDB;&#x884C;&#x7684;I/O&#x64CD;&#x4F5C;&#x662F; <strong>&#x975E;&#x7F13;&#x51B2;I/O</strong>&#x3002;</p>
+<h2 id="&#x6839;&#x636E;&#x662F;&#x5426;&#x5229;&#x7528;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x9875;&#x7F13;&#x5B58;&#xFF1A;&#x76F4;&#x63A5;&#x4E0E;&#x975E;&#x76F4;&#x63A5;io">&#x6839;&#x636E;&#x662F;&#x5426;&#x5229;&#x7528;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x9875;&#x7F13;&#x5B58;&#xFF1A;&#x76F4;&#x63A5;&#x4E0E;&#x975E;&#x76F4;&#x63A5;I/O</h2>
+<p>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E5F;&#x4F1A;&#x6709;&#x7F13;&#x5B58;&#xFF0C;&#x8DF3;&#x8FC7;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x9875;&#x7F13;&#x5B58;&#x7684;I/O&#x64CD;&#x4F5C;&#x662F; <strong>&#x76F4;&#x63A5;I/O</strong>&#xFF0C;&#x5728;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x65F6;&#x8981;&#x6307;&#x5B9A;<code>O_DIRECT</code>&#x6807;&#x5FD7;&#x3002;</p>
+<p>&#x6587;&#x4EF6;&#x8BFB;&#x5199;&#x65F6;&#xFF0C;&#x5148;&#x7ECF;&#x8FC7;&#x7CFB;&#x7EDF;&#x9875;&#x7F13;&#x5B58;&#x3001;&#x7136;&#x540E;&#x5728;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x843D;&#x5B9E;&#x5230;&#x78C1;&#x76D8;&#xFF0C;&#x8FD9;&#x6837;&#x7684;I/O&#x64CD;&#x4F5C;&#x662F; <strong>&#x975E;&#x76F4;&#x63A5;I/O</strong>&#x3002;</p>
+<p>&#x5728;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x573A;&#x666F;&#x4E2D;&#xFF0C;&#x8B6C;&#x5982;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x4F1A;&#x8FDE;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E00;&#x8D77;&#x8DF3;&#x8FC7;&#xFF0C;&#x76F4;&#x63A5;&#x8BFB;&#x5199;&#x78C1;&#x76D8;&#xFF0C; &#x8FD9;&#x79CD;&#x64CD;&#x4F5C;&#x901A;&#x5E38;&#x79F0;&#x4E3A; <strong>&#x88F8;I/O</strong>&#x3002;</p>
+<h2 id="&#x6839;&#x636E;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x963B;&#x585E;&#x81EA;&#x8EAB;&#x8FD0;&#x884C;&#xFF1A;&#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E;io">&#x6839;&#x636E;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x963B;&#x585E;&#x81EA;&#x8EAB;&#x8FD0;&#x884C;&#xFF1A;&#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E;I/O</h2>
+<p>&#x5982;&#x679C;&#x7A0B;&#x5E8F;&#x8981;&#x7B49;&#x6536;&#x5230;I/O&#x64CD;&#x4F5C;&#x7ED3;&#x679C;&#x540E;&#xFF0C;&#x624D;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#xFF0C;&#x8FD9;&#x662F; <strong>&#x963B;&#x585E;I/O</strong>&#x3002;</p>
+<p>&#x5982;&#x679C;&#x7A0B;&#x5E8F;&#x53D1;&#x8D77;I/O&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x4E0D;&#x7B49;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x5176;&#x5B83;&#x64CD;&#x4F5C;&#xFF0C;&#x4EE5;&#x8F6E;&#x8BE2;&#x6216;&#x8005;&#x4E8B;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x83B7;&#x5F97;I/O&#x64CD;&#x4F5C;&#x7ED3;&#x679C;&#xFF0C;
+&#x8FD9;&#x662F; <strong>&#x975E;&#x963B;&#x585E;I/O</strong>&#x3002;</p>
+<h2 id="&#x6839;&#x636E;&#x662F;&#x5426;&#x7B49;&#x5F85;&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#xFF1A;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;io">&#x6839;&#x636E;&#x662F;&#x5426;&#x7B49;&#x5F85;&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#xFF1A;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;I/O</h2>
+<p>&#x53D1;&#x8D77;I/O&#x64CD;&#x4F5C;&#xFF0C;&#x9700;&#x8981;&#x7B49;&#x6574;&#x4E2A;I/O&#x5B8C;&#x6210;&#x540E;&#x624D;&#x8FD4;&#x56DE;&#x54CD;&#x5E94;&#xFF0C;&#x8FD9;&#x662F; <strong>&#x540C;&#x6B65;I/O</strong>&#x3002;</p>
+<p>&#x53D1;&#x8D77;I/O&#x64CD;&#x4F5C;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x7B49;&#x6574;&#x4E2A;I/O&#x5B8C;&#x6210;&#xFF0C;I/O&#x64CD;&#x4F5C;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x54CD;&#x5E94;&#x4EE5;&#x4E8B;&#x4EF6;&#x7684;&#x5F62;&#x5F0F;&#x901A;&#x77E5;&#x8C03;&#x7528;&#x8005;&#xFF0C;&#x8FD9;&#x662F; <strong>&#x5F02;&#x6B65;I/O</strong>&#x3002;</p>
+<p>&#x5728;&#x64CD;&#x4F5C;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;<code>O_DSYNC</code>&#x6216;&#x8005;<code>O_SYNC</code>&#x6807;&#x5FD7;&#xFF0C;&#x8868;&#x793A;&#x540C;&#x6B65;I/O&#xFF0C;&#x524D;&#x8005;&#x8981;&#x7B49;&#x6587;&#x4EF6;&#x5199;&#x5165;&#x78C1;&#x76D8;&#x4EE5;&#x540E;&#x624D;&#x8FD4;&#x56DE;&#xFF0C;&#x540E;&#x8005;&#x8981;&#x5728;&#x524D;&#x8005;&#x7684;&#x57FA;&#x7840;&#xFF0C;&#x7EE7;&#x7EED;&#x7B49;&#x5F85;&#x6587;&#x4EF6;&#x7684;&#x5143;&#x6570;&#x636E;&#x5199;&#x5165;&#x78C1;&#x76D8;&#x540E;&#xFF0C;&#x518D;&#x8FD4;&#x56DE;&#x3002;</p>
+<p>&#x5728;&#x64CD;&#x4F5C;&#x7BA1;&#x9053;&#x6216;&#x8005;Socket&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;<code>O_ASYNC</code>&#xFF0C;&#x8868;&#x793A;&#x5F02;&#x6B65;I/O&#xFF0C;&#x5F53;&#x6587;&#x4EF6;&#x53EF;&#x8BFB;&#x5199;&#x65F6;&#xFF0C;&#x5185;&#x6838;&#x53D1;&#x9001;<code>SIGIO</code>&#x6216;&#x8005;<code>SIGPOLL</code>&#x3002;</p>
+<p>&#x4EE5;&#x4E0A;&#x5185;&#x5BB9;&#x6765;&#x81EA;<a href="https://www.lijiaocn.com/linux/img/linux/01-geek-linux-ercode.jpeg" target="_blank">&#x502A;&#x9E4F;&#x98DE;&#x7684;Linux&#x6027;&#x80FD;&#x4F18;&#x5316;</a>&#x3002;</p>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
@@ -751,10 +776,14 @@ var _hmt = _hmt || [];
 
             
                 
-                <a href="../chapter3/process_io.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 进程的I/O状态">
+                <a href="01-filesystem.html" class="navigation navigation-prev " aria-label="Previous page: 文件系统">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="vfs.html" class="navigation navigation-next " aria-label="Next page: VFS">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -763,7 +792,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Linux虚拟化技术","level":"1.5","depth":1,"previous":{"title":"进程的I/O状态","level":"1.4.1.4","depth":3,"path":"chapter3/process_io.md","ref":"chapter3/process_io.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter4/README.md","mtime":"2019-03-23T15:02:55.243Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-18T06:40:03.020Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"I/O操作分类","level":"1.4.1.1","depth":3,"next":{"title":"VFS","level":"1.4.1.2","depth":3,"path":"chapter3/vfs.md","ref":"chapter3/vfs.md","articles":[]},"previous":{"title":"文件系统","level":"1.4.1","depth":2,"path":"chapter3/01-filesystem.md","ref":"chapter3/01-filesystem.md","articles":[{"title":"I/O操作分类","level":"1.4.1.1","depth":3,"path":"chapter3/02-io.md","ref":"chapter3/02-io.md","articles":[]},{"title":"VFS","level":"1.4.1.2","depth":3,"path":"chapter3/vfs.md","ref":"chapter3/vfs.md","articles":[]},{"title":"磁盘","level":"1.4.1.3","depth":3,"path":"chapter3/disk.md","ref":"chapter3/disk.md","articles":[]},{"title":"进程的I/O状态","level":"1.4.1.4","depth":3,"path":"chapter3/process_io.md","ref":"chapter3/process_io.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter3/02-io.md","mtime":"2019-04-16T03:56:06.195Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-18T06:40:03.020Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
