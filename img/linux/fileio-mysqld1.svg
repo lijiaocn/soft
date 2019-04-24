@@ -1,0 +1,798 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" width="1200" height="546" onload="init(evt)" viewBox="0 0 1200 546" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!-- Flame graph stack visualization. See https://github.com/brendangregg/FlameGraph for latest version, and http://www.brendangregg.com/flamegraphs.html for examples. -->
+<!-- NOTES:  -->
+<defs >
+	<linearGradient id="background" y1="0" y2="1" x1="0" x2="0" >
+		<stop stop-color="#f8f8f8" offset="5%" />
+		<stop stop-color="#e8e8e8" offset="95%" />
+	</linearGradient>
+</defs>
+<style type="text/css">
+	.func_g:hover { stroke:black; stroke-width:0.5; cursor:pointer; }
+</style>
+<script type="text/ecmascript">
+<![CDATA[
+	var details, searchbtn, matchedtxt, svg;
+	function init(evt) {
+		details = document.getElementById("details").firstChild;
+		searchbtn = document.getElementById("search");
+		matchedtxt = document.getElementById("matched");
+		svg = document.getElementsByTagName("svg")[0];
+		searching = 0;
+	}
+
+	// mouse-over for info
+	function s(node) {		// show
+		info = g_to_text(node);
+		details.nodeValue = "Function: " + info;
+	}
+	function c() {			// clear
+		details.nodeValue = ' ';
+	}
+
+	// ctrl-F for search
+	window.addEventListener("keydown",function (e) {
+		if (e.keyCode === 114 || (e.ctrlKey && e.keyCode === 70)) {
+			e.preventDefault();
+			search_prompt();
+		}
+	})
+
+	// functions
+	function find_child(parent, name, attr) {
+		var children = parent.childNodes;
+		for (var i=0; i<children.length;i++) {
+			if (children[i].tagName == name)
+				return (attr != undefined) ? children[i].attributes[attr].value : children[i];
+		}
+		return;
+	}
+	function orig_save(e, attr, val) {
+		if (e.attributes["_orig_"+attr] != undefined) return;
+		if (e.attributes[attr] == undefined) return;
+		if (val == undefined) val = e.attributes[attr].value;
+		e.setAttribute("_orig_"+attr, val);
+	}
+	function orig_load(e, attr) {
+		if (e.attributes["_orig_"+attr] == undefined) return;
+		e.attributes[attr].value = e.attributes["_orig_"+attr].value;
+		e.removeAttribute("_orig_"+attr);
+	}
+	function g_to_text(e) {
+		var text = find_child(e, "title").firstChild.nodeValue;
+		return (text)
+	}
+	function g_to_func(e) {
+		var func = g_to_text(e);
+		// if there's any manipulation we want to do to the function
+		// name before it's searched, do it here before returning.
+		return (func);
+	}
+	function update_text(e) {
+		var r = find_child(e, "rect");
+		var t = find_child(e, "text");
+		var w = parseFloat(r.attributes["width"].value) -3;
+		var txt = find_child(e, "title").textContent.replace(/\([^(]*\)$/,"");
+		t.attributes["x"].value = parseFloat(r.attributes["x"].value) +3;
+
+		// Smaller than this size won't fit anything
+		if (w < 2*12*0.59) {
+			t.textContent = "";
+			return;
+		}
+
+		t.textContent = txt;
+		// Fit in full text width
+		if (/^ *$/.test(txt) || t.getSubStringLength(0, txt.length) < w)
+			return;
+
+		for (var x=txt.length-2; x>0; x--) {
+			if (t.getSubStringLength(0, x+2) <= w) {
+				t.textContent = txt.substring(0,x) + "..";
+				return;
+			}
+		}
+		t.textContent = "";
+	}
+
+	// zoom
+	function zoom_reset(e) {
+		if (e.attributes != undefined) {
+			orig_load(e, "x");
+			orig_load(e, "width");
+		}
+		if (e.childNodes == undefined) return;
+		for(var i=0, c=e.childNodes; i<c.length; i++) {
+			zoom_reset(c[i]);
+		}
+	}
+	function zoom_child(e, x, ratio) {
+		if (e.attributes != undefined) {
+			if (e.attributes["x"] != undefined) {
+				orig_save(e, "x");
+				e.attributes["x"].value = (parseFloat(e.attributes["x"].value) - x - 10) * ratio + 10;
+				if(e.tagName == "text") e.attributes["x"].value = find_child(e.parentNode, "rect", "x") + 3;
+			}
+			if (e.attributes["width"] != undefined) {
+				orig_save(e, "width");
+				e.attributes["width"].value = parseFloat(e.attributes["width"].value) * ratio;
+			}
+		}
+
+		if (e.childNodes == undefined) return;
+		for(var i=0, c=e.childNodes; i<c.length; i++) {
+			zoom_child(c[i], x-10, ratio);
+		}
+	}
+	function zoom_parent(e) {
+		if (e.attributes) {
+			if (e.attributes["x"] != undefined) {
+				orig_save(e, "x");
+				e.attributes["x"].value = 10;
+			}
+			if (e.attributes["width"] != undefined) {
+				orig_save(e, "width");
+				e.attributes["width"].value = parseInt(svg.width.baseVal.value) - (10*2);
+			}
+		}
+		if (e.childNodes == undefined) return;
+		for(var i=0, c=e.childNodes; i<c.length; i++) {
+			zoom_parent(c[i]);
+		}
+	}
+	function zoom(node) {
+		var attr = find_child(node, "rect").attributes;
+		var width = parseFloat(attr["width"].value);
+		var xmin = parseFloat(attr["x"].value);
+		var xmax = parseFloat(xmin + width);
+		var ymin = parseFloat(attr["y"].value);
+		var ratio = (svg.width.baseVal.value - 2*10) / width;
+
+		// XXX: Workaround for JavaScript float issues (fix me)
+		var fudge = 0.0001;
+
+		var unzoombtn = document.getElementById("unzoom");
+		unzoombtn.style["opacity"] = "1.0";
+
+		var el = document.getElementsByTagName("g");
+		for(var i=0;i<el.length;i++){
+			var e = el[i];
+			var a = find_child(e, "rect").attributes;
+			var ex = parseFloat(a["x"].value);
+			var ew = parseFloat(a["width"].value);
+			// Is it an ancestor
+			if (0 == 0) {
+				var upstack = parseFloat(a["y"].value) > ymin;
+			} else {
+				var upstack = parseFloat(a["y"].value) < ymin;
+			}
+			if (upstack) {
+				// Direct ancestor
+				if (ex <= xmin && (ex+ew+fudge) >= xmax) {
+					e.style["opacity"] = "0.5";
+					zoom_parent(e);
+					e.onclick = function(e){unzoom(); zoom(this);};
+					update_text(e);
+				}
+				// not in current path
+				else
+					e.style["display"] = "none";
+			}
+			// Children maybe
+			else {
+				// no common path
+				if (ex < xmin || ex + fudge >= xmax) {
+					e.style["display"] = "none";
+				}
+				else {
+					zoom_child(e, xmin, ratio);
+					e.onclick = function(e){zoom(this);};
+					update_text(e);
+				}
+			}
+		}
+	}
+	function unzoom() {
+		var unzoombtn = document.getElementById("unzoom");
+		unzoombtn.style["opacity"] = "0.0";
+
+		var el = document.getElementsByTagName("g");
+		for(i=0;i<el.length;i++) {
+			el[i].style["display"] = "block";
+			el[i].style["opacity"] = "1";
+			zoom_reset(el[i]);
+			update_text(el[i]);
+		}
+	}
+
+	// search
+	function reset_search() {
+		var el = document.getElementsByTagName("rect");
+		for (var i=0; i < el.length; i++) {
+			orig_load(el[i], "fill")
+		}
+	}
+	function search_prompt() {
+		if (!searching) {
+			var term = prompt("Enter a search term (regexp " +
+			    "allowed, eg: ^ext4_)", "");
+			if (term != null) {
+				search(term)
+			}
+		} else {
+			reset_search();
+			searching = 0;
+			searchbtn.style["opacity"] = "0.1";
+			searchbtn.firstChild.nodeValue = "Search"
+			matchedtxt.style["opacity"] = "0.0";
+			matchedtxt.firstChild.nodeValue = ""
+		}
+	}
+	function search(term) {
+		var re = new RegExp(term);
+		var el = document.getElementsByTagName("g");
+		var matches = new Object();
+		var maxwidth = 0;
+		for (var i = 0; i < el.length; i++) {
+			var e = el[i];
+			if (e.attributes["class"].value != "func_g")
+				continue;
+			var func = g_to_func(e);
+			var rect = find_child(e, "rect");
+			if (rect == null) {
+				// the rect might be wrapped in an anchor
+				// if nameattr href is being used
+				if (rect = find_child(e, "a")) {
+				    rect = find_child(r, "rect");
+				}
+			}
+			if (func == null || rect == null)
+				continue;
+
+			// Save max width. Only works as we have a root frame
+			var w = parseFloat(rect.attributes["width"].value);
+			if (w > maxwidth)
+				maxwidth = w;
+
+			if (func.match(re)) {
+				// highlight
+				var x = parseFloat(rect.attributes["x"].value);
+				orig_save(rect, "fill");
+				rect.attributes["fill"].value =
+				    "rgb(230,0,230)";
+
+				// remember matches
+				if (matches[x] == undefined) {
+					matches[x] = w;
+				} else {
+					if (w > matches[x]) {
+						// overwrite with parent
+						matches[x] = w;
+					}
+				}
+				searching = 1;
+			}
+		}
+		if (!searching)
+			return;
+
+		searchbtn.style["opacity"] = "1.0";
+		searchbtn.firstChild.nodeValue = "Reset Search"
+
+		// calculate percent matched, excluding vertical overlap
+		var count = 0;
+		var lastx = -1;
+		var lastw = 0;
+		var keys = Array();
+		for (k in matches) {
+			if (matches.hasOwnProperty(k))
+				keys.push(k);
+		}
+		// sort the matched frames by their x location
+		// ascending, then width descending
+		keys.sort(function(a, b){
+			return a - b;
+		});
+		// Step through frames saving only the biggest bottom-up frames
+		// thanks to the sort order. This relies on the tree property
+		// where children are always smaller than their parents.
+		var fudge = 0.0001;	// JavaScript floating point
+		for (var k in keys) {
+			var x = parseFloat(keys[k]);
+			var w = matches[keys[k]];
+			if (x >= lastx + lastw - fudge) {
+				count += w;
+				lastx = x;
+				lastw = w;
+			}
+		}
+		// display matched percent
+		matchedtxt.style["opacity"] = "1.0";
+		pct = 100 * count / maxwidth;
+		if (pct == 100)
+			pct = "100"
+		else
+			pct = pct.toFixed(1)
+		matchedtxt.firstChild.nodeValue = "Matched: " + pct + "%";
+	}
+	function searchover(e) {
+		searchbtn.style["opacity"] = "1.0";
+	}
+	function searchout(e) {
+		if (searching) {
+			searchbtn.style["opacity"] = "1.0";
+		} else {
+			searchbtn.style["opacity"] = "0.1";
+		}
+	}
+]]>
+</script>
+<rect x="0.0" y="0" width="1200.0" height="546.0" fill="url(#background)"  />
+<text text-anchor="middle" x="600.00" y="24" font-size="17" font-family="Verdana" fill="rgb(0,0,0)"  >File I/O Time Flame Graph</text>
+<text text-anchor="" x="10.00" y="529" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="details" > </text>
+<text text-anchor="" x="10.00" y="24" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="unzoom" onclick="unzoom()" style="opacity:0.0;cursor:pointer" >Reset Zoom</text>
+<text text-anchor="" x="1090.00" y="24" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="search" onmouseover="searchover()" onmouseout="searchout()" onclick="search_prompt()" style="opacity:0.1;cursor:pointer" >Search</text>
+<text text-anchor="" x="1090.00" y="529" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="matched" > </text>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (119,705 us, 0.66%)</title><rect x="31.1" y="337" width="7.8" height="15.0" fill="rgb(96,96,200)" rx="2" ry="2" />
+<text text-anchor="" x="34.11" y="347.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>start_thread (18,179,074 us, 100.00%)</title><rect x="10.0" y="465" width="1180.0" height="15.0" fill="rgb(123,123,231)" rx="2" ry="2" />
+<text text-anchor="" x="13.00" y="475.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >start_thread</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>buf_read_page(page_id_t const&amp;, page_size_t const&amp;) (5,022,867 us, 27.63%)</title><rect x="822.5" y="113" width="326.1" height="15.0" fill="rgb(132,132,209)" rx="2" ry="2" />
+<text text-anchor="" x="825.52" y="123.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >buf_read_page(page_id_t const&amp;, page_size_t ..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>handler::ha_index_read_idx_map(unsigned char*, unsigned int, unsigned char const*, unsigned long, ha_rkey_function) (5,200,019 us, 28.60%)</title><rect x="811.0" y="209" width="337.6" height="15.0" fill="rgb(137,137,208)" rx="2" ry="2" />
+<text text-anchor="" x="814.02" y="219.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >handler::ha_index_read_idx_map(unsigned char*..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (27,082 us, 0.15%)</title><rect x="820.8" y="113" width="1.7" height="15.0" fill="rgb(80,80,239)" rx="2" ry="2" />
+<text text-anchor="" x="823.76" y="123.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (8,846 us, 0.05%)</title><rect x="70.6" y="97" width="0.6" height="15.0" fill="rgb(115,115,214)" rx="2" ry="2" />
+<text text-anchor="" x="73.58" y="107.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>mysqld (18,179,074 us, 100.00%)</title><rect x="10.0" y="481" width="1180.0" height="15.0" fill="rgb(99,99,204)" rx="2" ry="2" />
+<text text-anchor="" x="13.00" y="491.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >mysqld</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>my_net_read (6,510 us, 0.04%)</title><rect x="11.5" y="385" width="0.4" height="15.0" fill="rgb(99,99,205)" rx="2" ry="2" />
+<text text-anchor="" x="14.49" y="395.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (15,655 us, 0.09%)</title><rect x="56.1" y="209" width="1.0" height="15.0" fill="rgb(135,135,232)" rx="2" ry="2" />
+<text text-anchor="" x="59.05" y="219.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (5,124,620 us, 28.19%)</title><rect x="815.9" y="161" width="332.7" height="15.0" fill="rgb(106,106,190)" rx="2" ry="2" />
+<text text-anchor="" x="818.92" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >[unknown]</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (35,968 us, 0.20%)</title><rect x="52.5" y="225" width="2.3" height="15.0" fill="rgb(112,112,214)" rx="2" ry="2" />
+<text text-anchor="" x="55.50" y="235.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>btr_cur_search_to_nth_level(dict_index_t*, unsigned long, dtuple_t const*, page_cur_mode_t, unsigned long, btr_cur_t*, unsigned long, char const*, unsigned long, mtr_t*) (11,153,193 us, 61.35%)</title><rect x="66.8" y="129" width="723.9" height="15.0" fill="rgb(85,85,231)" rx="2" ry="2" />
+<text text-anchor="" x="69.75" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >btr_cur_search_to_nth_level(dict_index_t*, unsigned long, dtuple_t const*, page_cur_mode_t, unsigned..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (25,157 us, 0.14%)</title><rect x="62.7" y="225" width="1.6" height="15.0" fill="rgb(100,100,243)" rx="2" ry="2" />
+<text text-anchor="" x="65.70" y="235.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (1,971 us, 0.01%)</title><rect x="800.9" y="225" width="0.2" height="15.0" fill="rgb(138,138,215)" rx="2" ry="2" />
+<text text-anchor="" x="803.95" y="235.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (4,112 us, 0.02%)</title><rect x="1150.8" y="225" width="0.2" height="15.0" fill="rgb(107,107,194)" rx="2" ry="2" />
+<text text-anchor="" x="1153.77" y="235.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>ha_innobase::index_read(unsigned char*, unsigned char const*, unsigned int, ha_rkey_function) (5,156,514 us, 28.37%)</title><rect x="813.8" y="193" width="334.8" height="15.0" fill="rgb(123,123,199)" rx="2" ry="2" />
+<text text-anchor="" x="816.84" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >ha_innobase::index_read(unsigned char*, unsig..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>JOIN::optimize() (17,040,253 us, 93.74%)</title><rect x="62.7" y="273" width="1106.1" height="15.0" fill="rgb(101,101,218)" rx="2" ry="2" />
+<text text-anchor="" x="65.70" y="283.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >JOIN::optimize()</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>ha_innobase::records_in_range(unsigned int, st_key_range*, st_key_range*) (11,334,728 us, 62.35%)</title><rect x="65.2" y="161" width="735.7" height="15.0" fill="rgb(101,101,202)" rx="2" ry="2" />
+<text text-anchor="" x="68.20" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >ha_innobase::records_in_range(unsigned int, st_key_range*, st_key_range*)</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (31,366 us, 0.17%)</title><rect x="38.9" y="305" width="2.0" height="15.0" fill="rgb(90,90,225)" rx="2" ry="2" />
+<text text-anchor="" x="41.88" y="315.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (34,513 us, 0.19%)</title><rect x="44.1" y="257" width="2.3" height="15.0" fill="rgb(102,102,207)" rx="2" ry="2" />
+<text text-anchor="" x="47.13" y="267.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (54,618 us, 0.30%)</title><rect x="25.2" y="385" width="3.6" height="15.0" fill="rgb(109,109,244)" rx="2" ry="2" />
+<text text-anchor="" x="28.23" y="395.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>JOIN::make_join_plan() (16,903,036 us, 92.98%)</title><rect x="62.7" y="257" width="1097.2" height="15.0" fill="rgb(83,83,231)" rx="2" ry="2" />
+<text text-anchor="" x="65.70" y="267.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >JOIN::make_join_plan()</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>mysql_execute_command(THD*, bool) (2,160 us, 0.01%)</title><rect x="29.3" y="369" width="0.2" height="15.0" fill="rgb(105,105,204)" rx="2" ry="2" />
+<text text-anchor="" x="32.33" y="379.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (8,648 us, 0.05%)</title><rect x="28.8" y="369" width="0.5" height="15.0" fill="rgb(99,99,238)" rx="2" ry="2" />
+<text text-anchor="" x="31.77" y="379.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (11,178,604 us, 61.49%)</title><rect x="65.2" y="145" width="725.6" height="15.0" fill="rgb(123,123,224)" rx="2" ry="2" />
+<text text-anchor="" x="68.20" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >[unknown]</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>buf_page_get_gen(page_id_t const&amp;, page_size_t const&amp;, unsigned long, buf_block_t*, unsigned long, char const*, unsigned long, mtr_t*, bool) (11,094,201 us, 61.03%)</title><rect x="70.6" y="113" width="720.1" height="15.0" fill="rgb(90,90,191)" rx="2" ry="2" />
+<text text-anchor="" x="73.58" y="123.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >buf_page_get_gen(page_id_t const&amp;, page_size_t const&amp;, unsigned long, buf_block_t*, unsigned long, ..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (4,158 us, 0.02%)</title><rect x="71.2" y="81" width="0.2" height="15.0" fill="rgb(105,105,242)" rx="2" ry="2" />
+<text text-anchor="" x="74.16" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>btr_cur_search_to_nth_level(dict_index_t*, unsigned long, dtuple_t const*, page_cur_mode_t, unsigned long, btr_cur_t*, unsigned long, char const*, unsigned long, mtr_t*) (5,087,387 us, 27.98%)</title><rect x="818.3" y="145" width="330.3" height="15.0" fill="rgb(113,113,237)" rx="2" ry="2" />
+<text text-anchor="" x="821.33" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >btr_cur_search_to_nth_level(dict_index_t*, u..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (10,789 us, 0.06%)</title><rect x="813.1" y="177" width="0.7" height="15.0" fill="rgb(108,108,231)" rx="2" ry="2" />
+<text text-anchor="" x="816.14" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (136,082 us, 0.75%)</title><rect x="1151.0" y="241" width="8.9" height="15.0" fill="rgb(103,103,229)" rx="2" ry="2" />
+<text text-anchor="" x="1154.04" y="251.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (86,773 us, 0.48%)</title><rect x="57.1" y="289" width="5.6" height="15.0" fill="rgb(82,82,217)" rx="2" ry="2" />
+<text text-anchor="" x="60.07" y="299.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>mysql_execute_command(THD*, bool) (17,575,438 us, 96.68%)</title><rect x="38.9" y="337" width="1140.8" height="15.0" fill="rgb(103,103,230)" rx="2" ry="2" />
+<text text-anchor="" x="41.88" y="347.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >mysql_execute_command(THD*, bool)</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (24,089 us, 0.13%)</title><rect x="822.5" y="97" width="1.6" height="15.0" fill="rgb(81,81,200)" rx="2" ry="2" />
+<text text-anchor="" x="825.52" y="107.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>join_read_const_table(JOIN_TAB*, st_position*) (5,353,277 us, 29.45%)</title><rect x="801.1" y="225" width="347.5" height="15.0" fill="rgb(93,93,236)" rx="2" ry="2" />
+<text text-anchor="" x="804.07" y="235.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >join_read_const_table(JOIN_TAB*, st_position*)</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>os_file_read_func(IORequest&amp;, int, void*, unsigned long, unsigned long) (4,998,697 us, 27.50%)</title><rect x="824.1" y="81" width="324.5" height="15.0" fill="rgb(137,137,240)" rx="2" ry="2" />
+<text text-anchor="" x="827.09" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >os_file_read_func(IORequest&amp;, int, void*, u..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (22,916 us, 0.13%)</title><rect x="10.0" y="385" width="1.5" height="15.0" fill="rgb(104,104,225)" rx="2" ry="2" />
+<text text-anchor="" x="13.00" y="395.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (11,910 us, 0.07%)</title><rect x="64.4" y="161" width="0.8" height="15.0" fill="rgb(102,102,219)" rx="2" ry="2" />
+<text text-anchor="" x="67.43" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (13,290 us, 0.07%)</title><rect x="43.3" y="273" width="0.8" height="15.0" fill="rgb(131,131,209)" rx="2" ry="2" />
+<text text-anchor="" x="46.27" y="283.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>dispatch_command(THD*, COM_DATA const*, enum_server_command) (17,944,499 us, 98.71%)</title><rect x="25.2" y="401" width="1164.8" height="15.0" fill="rgb(101,101,207)" rx="2" ry="2" />
+<text text-anchor="" x="28.23" y="411.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >dispatch_command(THD*, COM_DATA const*, enum_server_command)</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>mysql_lock_tables(THD*, TABLE**, unsigned long, unsigned int) (199,279 us, 1.10%)</title><rect x="44.1" y="273" width="13.0" height="15.0" fill="rgb(95,95,205)" rx="2" ry="2" />
+<text text-anchor="" x="47.13" y="283.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>Prepared_statement::set_parameters(String*, unsigned char*, unsigned char*) (18,032 us, 0.10%)</title><rect x="1179.7" y="353" width="1.2" height="15.0" fill="rgb(108,108,232)" rx="2" ry="2" />
+<text text-anchor="" x="1182.70" y="363.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>handle_connection (18,179,074 us, 100.00%)</title><rect x="10.0" y="433" width="1180.0" height="15.0" fill="rgb(107,107,212)" rx="2" ry="2" />
+<text text-anchor="" x="13.00" y="443.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >handle_connection</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (6,234 us, 0.03%)</title><rect x="11.5" y="353" width="0.4" height="15.0" fill="rgb(136,136,220)" rx="2" ry="2" />
+<text text-anchor="" x="14.49" y="363.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>JOIN::extract_func_dependent_tables() (5,355,248 us, 29.46%)</title><rect x="800.9" y="241" width="347.7" height="15.0" fill="rgb(96,96,204)" rx="2" ry="2" />
+<text text-anchor="" x="803.95" y="251.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >JOIN::extract_func_dependent_tables()</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (6,457 us, 0.04%)</title><rect x="11.5" y="369" width="0.4" height="15.0" fill="rgb(104,104,191)" rx="2" ry="2" />
+<text text-anchor="" x="14.49" y="379.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>my_micro_time (10,808 us, 0.06%)</title><rect x="28.8" y="385" width="0.7" height="15.0" fill="rgb(110,110,217)" rx="2" ry="2" />
+<text text-anchor="" x="31.77" y="395.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (17,543,862 us, 96.51%)</title><rect x="38.9" y="321" width="1138.8" height="15.0" fill="rgb(84,84,212)" rx="2" ry="2" />
+<text text-anchor="" x="41.88" y="331.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >[unknown]</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (29,426 us, 0.16%)</title><rect x="10.0" y="401" width="1.9" height="15.0" fill="rgb(93,93,241)" rx="2" ry="2" />
+<text text-anchor="" x="13.00" y="411.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>Prepared_statement::execute_loop(String*, bool, unsigned char*, unsigned char*) (17,818,748 us, 98.02%)</title><rect x="29.5" y="369" width="1156.6" height="15.0" fill="rgb(132,132,219)" rx="2" ry="2" />
+<text text-anchor="" x="32.47" y="379.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >Prepared_statement::execute_loop(String*, bool, unsigned char*, unsigned char*)</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (25,142 us, 0.14%)</title><rect x="29.5" y="321" width="1.6" height="15.0" fill="rgb(99,99,202)" rx="2" ry="2" />
+<text text-anchor="" x="32.48" y="331.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>row_search_mvcc(unsigned char*, page_cur_mode_t, row_prebuilt_t*, unsigned long, unsigned long) (5,124,620 us, 28.19%)</title><rect x="815.9" y="177" width="332.7" height="15.0" fill="rgb(113,113,196)" rx="2" ry="2" />
+<text text-anchor="" x="818.92" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >row_search_mvcc(unsigned char*, page_cur_mod..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (3,631 us, 0.02%)</title><rect x="1186.1" y="369" width="0.2" height="15.0" fill="rgb(81,81,205)" rx="2" ry="2" />
+<text text-anchor="" x="1189.08" y="379.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>DsMrr_impl::dsmrr_info_const(unsigned int, st_range_seq_if*, void*, unsigned int, unsigned int*, unsigned int*, Cost_estimate*) (11,348,115 us, 62.42%)</title><rect x="64.3" y="193" width="736.6" height="15.0" fill="rgb(116,116,215)" rx="2" ry="2" />
+<text text-anchor="" x="67.33" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >DsMrr_impl::dsmrr_info_const(unsigned int, st_range_seq_if*, void*, unsigned int, unsigned int*, unsig..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (58,992 us, 0.32%)</title><rect x="66.8" y="113" width="3.8" height="15.0" fill="rgb(88,88,223)" rx="2" ry="2" />
+<text text-anchor="" x="69.75" y="123.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (36,073 us, 0.20%)</title><rect x="40.9" y="273" width="2.4" height="15.0" fill="rgb(115,115,235)" rx="2" ry="2" />
+<text text-anchor="" x="43.92" y="283.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>my_micro_time (164,766 us, 0.91%)</title><rect x="46.4" y="257" width="10.7" height="15.0" fill="rgb(127,127,227)" rx="2" ry="2" />
+<text text-anchor="" x="49.37" y="267.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (27,403 us, 0.15%)</title><rect x="1148.9" y="161" width="1.8" height="15.0" fill="rgb(117,117,231)" rx="2" ry="2" />
+<text text-anchor="" x="1151.89" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>pfs_end_table_lock_wait_v1 (29,734 us, 0.16%)</title><rect x="55.1" y="225" width="2.0" height="15.0" fill="rgb(84,84,225)" rx="2" ry="2" />
+<text text-anchor="" x="58.14" y="235.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>handle_query(THD*, LEX*, Query_result*, unsigned long long, unsigned long long) (17,512,496 us, 96.33%)</title><rect x="40.9" y="305" width="1136.8" height="15.0" fill="rgb(120,120,202)" rx="2" ry="2" />
+<text text-anchor="" x="43.92" y="315.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >handle_query(THD*, LEX*, Query_result*, unsigned long long, unsigned long long)</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>buf_page_get_gen(page_id_t const&amp;, page_size_t const&amp;, unsigned long, buf_block_t*, unsigned long, char const*, unsigned long, mtr_t*, bool) (5,049,949 us, 27.78%)</title><rect x="820.8" y="129" width="327.8" height="15.0" fill="rgb(124,124,202)" rx="2" ry="2" />
+<text text-anchor="" x="823.76" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >buf_page_get_gen(page_id_t const&amp;, page_size..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (25,243 us, 0.14%)</title><rect x="29.5" y="337" width="1.6" height="15.0" fill="rgb(121,121,208)" rx="2" ry="2" />
+<text text-anchor="" x="32.47" y="347.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>do_command(THD*) (18,179,074 us, 100.00%)</title><rect x="10.0" y="417" width="1180.0" height="15.0" fill="rgb(111,111,232)" rx="2" ry="2" />
+<text text-anchor="" x="13.00" y="427.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >do_command(THD*)</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (212,569 us, 1.17%)</title><rect x="43.3" y="289" width="13.8" height="15.0" fill="rgb(129,129,194)" rx="2" ry="2" />
+<text text-anchor="" x="46.27" y="299.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (156,124 us, 0.86%)</title><rect x="790.8" y="145" width="10.1" height="15.0" fill="rgb(129,129,216)" rx="2" ry="2" />
+<text text-anchor="" x="793.80" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (3,587 us, 0.02%)</title><rect x="1186.1" y="353" width="0.2" height="15.0" fill="rgb(113,113,202)" rx="2" ry="2" />
+<text text-anchor="" x="1189.09" y="363.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (11,081,197 us, 60.96%)</title><rect x="71.4" y="49" width="719.3" height="15.0" fill="rgb(106,106,219)" rx="2" ry="2" />
+<text text-anchor="" x="74.43" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >[unknown]</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (34,189 us, 0.19%)</title><rect x="1148.6" y="225" width="2.2" height="15.0" fill="rgb(114,114,239)" rx="2" ry="2" />
+<text text-anchor="" x="1151.55" y="235.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (37,216 us, 0.20%)</title><rect x="815.9" y="145" width="2.4" height="15.0" fill="rgb(126,126,228)" rx="2" ry="2" />
+<text text-anchor="" x="818.92" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (38,301 us, 0.21%)</title><rect x="1148.6" y="241" width="2.4" height="15.0" fill="rgb(123,123,225)" rx="2" ry="2" />
+<text text-anchor="" x="1151.55" y="251.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (11,081,197 us, 60.96%)</title><rect x="71.4" y="33" width="719.3" height="15.0" fill="rgb(97,97,227)" rx="2" ry="2" />
+<text text-anchor="" x="74.43" y="43.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >__GI___libc_pread</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (56,694 us, 0.31%)</title><rect x="1186.3" y="369" width="3.7" height="15.0" fill="rgb(86,86,231)" rx="2" ry="2" />
+<text text-anchor="" x="1189.32" y="379.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>os_file_read_func(IORequest&amp;, int, void*, unsigned long, unsigned long) (11,081,197 us, 60.96%)</title><rect x="71.4" y="65" width="719.3" height="15.0" fill="rgb(106,106,209)" rx="2" ry="2" />
+<text text-anchor="" x="74.43" y="75.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >os_file_read_func(IORequest&amp;, int, void*, unsigned long, unsigned long)</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>st_select_lex::optimize(THD*) (17,176,920 us, 94.49%)</title><rect x="62.7" y="289" width="1115.0" height="15.0" fill="rgb(105,105,222)" rx="2" ry="2" />
+<text text-anchor="" x="65.70" y="299.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >st_select_lex::optimize(THD*)</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (31,763 us, 0.17%)</title><rect x="813.9" y="177" width="2.0" height="15.0" fill="rgb(91,91,203)" rx="2" ry="2" />
+<text text-anchor="" x="816.85" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (4,998,590 us, 27.50%)</title><rect x="824.1" y="65" width="324.4" height="15.0" fill="rgb(121,121,236)" rx="2" ry="2" />
+<text text-anchor="" x="827.09" y="75.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >[unknown]</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>Query_cache::store_query(THD*, TABLE_LIST*) (36,216 us, 0.20%)</title><rect x="40.9" y="289" width="2.4" height="15.0" fill="rgb(83,83,206)" rx="2" ry="2" />
+<text text-anchor="" x="43.92" y="299.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (35,189 us, 0.19%)</title><rect x="1175.4" y="257" width="2.3" height="15.0" fill="rgb(122,122,241)" rx="2" ry="2" />
+<text text-anchor="" x="1178.37" y="267.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (5,203 us, 0.03%)</title><rect x="1148.6" y="177" width="0.3" height="15.0" fill="rgb(88,88,214)" rx="2" ry="2" />
+<text text-anchor="" x="1151.55" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (94,456 us, 0.52%)</title><rect x="46.4" y="241" width="6.1" height="15.0" fill="rgb(91,91,235)" rx="2" ry="2" />
+<text text-anchor="" x="49.37" y="251.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>fil_io(IORequest const&amp;, bool, page_id_t const&amp;, page_size_t const&amp;, unsigned long, unsigned long, void*, void*) (11,081,197 us, 60.96%)</title><rect x="71.4" y="81" width="719.3" height="15.0" fill="rgb(124,124,201)" rx="2" ry="2" />
+<text text-anchor="" x="74.43" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >fil_io(IORequest const&amp;, bool, page_id_t const&amp;, page_size_t const&amp;, unsigned long, unsigned long, ..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>fil_io(IORequest const&amp;, bool, page_id_t const&amp;, page_size_t const&amp;, unsigned long, unsigned long, void*, void*) (4,998,778 us, 27.50%)</title><rect x="824.1" y="97" width="324.5" height="15.0" fill="rgb(105,105,223)" rx="2" ry="2" />
+<text text-anchor="" x="827.08" y="107.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >fil_io(IORequest const&amp;, bool, page_id_t co..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (101,478 us, 0.56%)</title><rect x="1168.8" y="273" width="6.6" height="15.0" fill="rgb(100,100,216)" rx="2" ry="2" />
+<text text-anchor="" x="1171.78" y="283.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>Prepared_statement::insert_params(unsigned char*, unsigned char*, unsigned char*, String*) (8,547 us, 0.05%)</title><rect x="1179.7" y="337" width="0.6" height="15.0" fill="rgb(122,122,199)" rx="2" ry="2" />
+<text text-anchor="" x="1182.70" y="347.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>test_quick_select(THD*, Bitmap&lt;64u&gt;, unsigned long long, unsigned long long, bool, st_order::enum_order, QEP_shared_owner const*, Item*, Bitmap&lt;64u&gt;*, QUICK_SELECT_I**) (11,348,248 us, 62.42%)</title><rect x="64.3" y="225" width="736.6" height="15.0" fill="rgb(128,128,199)" rx="2" ry="2" />
+<text text-anchor="" x="67.33" y="235.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >test_quick_select(THD*, Bitmap&lt;64u&gt;, unsigned long long, unsigned long long, bool, st_order::enum_orde..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (31,576 us, 0.17%)</title><rect x="1177.7" y="321" width="2.0" height="15.0" fill="rgb(117,117,216)" rx="2" ry="2" />
+<text text-anchor="" x="1180.65" y="331.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (33,993 us, 0.19%)</title><rect x="1148.6" y="209" width="2.2" height="15.0" fill="rgb(104,104,203)" rx="2" ry="2" />
+<text text-anchor="" x="1151.55" y="219.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (32,609 us, 0.18%)</title><rect x="811.0" y="193" width="2.1" height="15.0" fill="rgb(106,106,203)" rx="2" ry="2" />
+<text text-anchor="" x="814.02" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>all (18,179,074 us, 100%)</title><rect x="10.0" y="497" width="1180.0" height="15.0" fill="rgb(137,137,230)" rx="2" ry="2" />
+<text text-anchor="" x="13.00" y="507.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>Prepared_statement::execute(String*, bool) (17,720,386 us, 97.48%)</title><rect x="29.5" y="353" width="1150.2" height="15.0" fill="rgb(84,84,214)" rx="2" ry="2" />
+<text text-anchor="" x="32.47" y="363.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >Prepared_statement::execute(String*, bool)</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (11,348,157 us, 62.42%)</title><rect x="64.3" y="209" width="736.6" height="15.0" fill="rgb(133,133,222)" rx="2" ry="2" />
+<text text-anchor="" x="67.33" y="219.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >[unknown]</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (37,438 us, 0.21%)</title><rect x="818.3" y="129" width="2.5" height="15.0" fill="rgb(99,99,191)" rx="2" ry="2" />
+<text text-anchor="" x="821.33" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (137,103 us, 0.75%)</title><rect x="1159.9" y="257" width="8.9" height="15.0" fill="rgb(98,98,240)" rx="2" ry="2" />
+<text text-anchor="" x="1162.88" y="267.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>mysqld_stmt_execute(THD*, unsigned long, unsigned long, unsigned char*, unsigned long) (17,879,073 us, 98.35%)</title><rect x="29.5" y="385" width="1160.5" height="15.0" fill="rgb(125,125,241)" rx="2" ry="2" />
+<text text-anchor="" x="32.47" y="395.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >mysqld_stmt_execute(THD*, unsigned long, unsigned long, unsigned char*, unsigned long)</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>gettimeofday (70,310 us, 0.39%)</title><rect x="52.5" y="241" width="4.6" height="15.0" fill="rgb(113,113,226)" rx="2" ry="2" />
+<text text-anchor="" x="55.50" y="251.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (8,547 us, 0.05%)</title><rect x="1179.7" y="321" width="0.6" height="15.0" fill="rgb(96,96,217)" rx="2" ry="2" />
+<text text-anchor="" x="1182.70" y="331.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>ha_innobase::change_active_index(unsigned int) (10,896 us, 0.06%)</title><rect x="813.1" y="193" width="0.7" height="15.0" fill="rgb(132,132,215)" rx="2" ry="2" />
+<text text-anchor="" x="816.14" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (23,918 us, 0.13%)</title><rect x="65.2" y="129" width="1.6" height="15.0" fill="rgb(95,95,218)" rx="2" ry="2" />
+<text text-anchor="" x="68.20" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (4,998,590 us, 27.50%)</title><rect x="824.1" y="49" width="324.4" height="15.0" fill="rgb(93,93,231)" rx="2" ry="2" />
+<text text-anchor="" x="827.09" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >__GI___libc_pread</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (9,485 us, 0.05%)</title><rect x="1180.3" y="337" width="0.6" height="15.0" fill="rgb(107,107,216)" rx="2" ry="2" />
+<text text-anchor="" x="1183.25" y="347.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (80,330 us, 0.44%)</title><rect x="1180.9" y="353" width="5.2" height="15.0" fill="rgb(91,91,191)" rx="2" ry="2" />
+<text text-anchor="" x="1183.87" y="363.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (153,258 us, 0.84%)</title><rect x="801.1" y="209" width="9.9" height="15.0" fill="rgb(132,132,220)" rx="2" ry="2" />
+<text text-anchor="" x="804.07" y="219.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (6,234 us, 0.03%)</title><rect x="11.5" y="337" width="0.4" height="15.0" fill="rgb(129,129,234)" rx="2" ry="2" />
+<text text-anchor="" x="14.49" y="347.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>ha_innobase::table_flags() const (4,608 us, 0.03%)</title><rect x="54.8" y="225" width="0.3" height="15.0" fill="rgb(117,117,244)" rx="2" ry="2" />
+<text text-anchor="" x="57.84" y="235.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>buf_read_page(page_id_t const&amp;, page_size_t const&amp;) (11,085,355 us, 60.98%)</title><rect x="71.2" y="97" width="719.5" height="15.0" fill="rgb(104,104,241)" rx="2" ry="2" />
+<text text-anchor="" x="74.16" y="107.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >buf_read_page(page_id_t const&amp;, page_size_t const&amp;)</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>row_search_mvcc(unsigned char*, page_cur_mode_t, row_prebuilt_t*, unsigned long, unsigned long) (27,403 us, 0.15%)</title><rect x="1148.9" y="177" width="1.8" height="15.0" fill="rgb(90,90,229)" rx="2" ry="2" />
+<text text-anchor="" x="1151.89" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (14,079 us, 0.08%)</title><rect x="55.1" y="209" width="1.0" height="15.0" fill="rgb(109,109,192)" rx="2" ry="2" />
+<text text-anchor="" x="58.14" y="219.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>handler::multi_range_read_info_const(unsigned int, st_range_seq_if*, void*, unsigned int, unsigned int*, unsigned int*, Cost_estimate*) (11,346,672 us, 62.42%)</title><rect x="64.4" y="177" width="736.5" height="15.0" fill="rgb(123,123,211)" rx="2" ry="2" />
+<text text-anchor="" x="67.43" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >handler::multi_range_read_info_const(unsigned int, st_range_seq_if*, void*, unsigned int, unsigned int..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>pfs_spawn_thread (18,179,074 us, 100.00%)</title><rect x="10.0" y="449" width="1180.0" height="15.0" fill="rgb(104,104,221)" rx="2" ry="2" />
+<text text-anchor="" x="13.00" y="459.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >pfs_spawn_thread</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>st_select_lex::set_join(JOIN*) (35,189 us, 0.19%)</title><rect x="1175.4" y="273" width="2.3" height="15.0" fill="rgb(131,131,233)" rx="2" ry="2" />
+<text text-anchor="" x="1178.37" y="283.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (205,149 us, 1.13%)</title><rect x="11.9" y="401" width="13.3" height="15.0" fill="rgb(94,94,241)" rx="2" ry="2" />
+<text text-anchor="" x="14.91" y="411.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (14,079 us, 0.08%)</title><rect x="55.1" y="193" width="1.0" height="15.0" fill="rgb(82,82,239)" rx="2" ry="2" />
+<text text-anchor="" x="58.14" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>MDL_context::find_ticket(MDL_request*, enum_mdl_duration*) (32,606 us, 0.18%)</title><rect x="1148.6" y="193" width="2.1" height="15.0" fill="rgb(93,93,218)" rx="2" ry="2" />
+<text text-anchor="" x="1151.55" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (4,608 us, 0.03%)</title><rect x="54.8" y="209" width="0.3" height="15.0" fill="rgb(133,133,193)" rx="2" ry="2" />
+<text text-anchor="" x="57.84" y="219.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>JOIN::estimate_rowcount() (11,373,405 us, 62.56%)</title><rect x="62.7" y="241" width="738.2" height="15.0" fill="rgb(84,84,208)" rx="2" ry="2" />
+<text text-anchor="" x="65.70" y="251.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >JOIN::estimate_rowcount()</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__GI___libc_pread (2,099 us, 0.01%)</title><rect x="29.3" y="353" width="0.2" height="15.0" fill="rgb(133,133,200)" rx="2" ry="2" />
+<text text-anchor="" x="32.34" y="363.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+</svg>

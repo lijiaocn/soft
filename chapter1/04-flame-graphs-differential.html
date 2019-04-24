@@ -1,0 +1,867 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>差异火焰图 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="lijiaocn@foxmail.com">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-atoc/atoc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="04-flame-generate.html" />
+    
+    
+    <link rel="prev" href="04-flame-graphs-hot-code.html" />
+    
+
+        
+<!--Google ads -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8176866190626448",
+    enable_page_level_ads: true
+  });
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105389858-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-105389858-1');
+</script>
+
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8f59ea10145df28da8932c8743ec1d60";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!--百度收录-->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                
+<div style="text-align:center">
+    <h2><a href="https://www.lijiaocn.com" style="color:#afa790">www.lijiaocn.com</a></h2>
+</div>
+
+<div style="text-align:center">
+<!-- 250x250 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:250px;height:250px"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="9490087185"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div style="text-align:center">
+    <h4><a href="https://www.lijiaocn.com/linux" style="color:#afa790">《Linux使用手册》</a></h4>
+    <h4><a href="https://www.lijiaocn.com/programming" style="color:#afa790">《编程速查手册》</a></h4>
+    <h4><a href="https://www.lijiaocn.com/nginx" style="color:#afa790">《Nginx & Openresty》</a></h4>
+</div>
+
+
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    手册说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Linux性能优化与问题诊断
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="cpu-usage-high.html">
+            
+                <a href="cpu-usage-high.html">
+            
+                    
+                    案例: CPU使用率很高
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-concept.html">
+            
+                <a href="01-concept.html">
+            
+                    
+                    认知框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="03-cpu.html">
+            
+                <a href="03-cpu.html">
+            
+                    
+                    理解CPU
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="02-process-3.html">
+            
+                <a href="02-process-3.html">
+            
+                    
+                    CPU的状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="cpu-usage-analysis.html">
+            
+                <a href="cpu-usage-analysis.html">
+            
+                    
+                    CPU使用分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="03-cpu-1.html">
+            
+                <a href="03-cpu-1.html">
+            
+                    
+                    CPU上下文切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="interrupt.html">
+            
+                <a href="interrupt.html">
+            
+                    
+                    理解中断
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="sys-interrupt.html">
+            
+                <a href="sys-interrupt.html">
+            
+                    
+                    系统中断
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="02-process.html">
+            
+                <a href="02-process.html">
+            
+                    
+                    理解进程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="02-process-1.html">
+            
+                <a href="02-process-1.html">
+            
+                    
+                    进程的分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="02-process-2.html">
+            
+                <a href="02-process-2.html">
+            
+                    
+                    进程的状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../chapter3/01-filesystem.html">
+            
+                <a href="../chapter3/01-filesystem.html">
+            
+                    
+                    理解文件系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../chapter3/vfs.html">
+            
+                <a href="../chapter3/vfs.html">
+            
+                    
+                    VFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="../chapter3/disk.html">
+            
+                <a href="../chapter3/disk.html">
+            
+                    
+                    磁盘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.3" data-path="../chapter3/02-io.html">
+            
+                <a href="../chapter3/02-io.html">
+            
+                    
+                    I/O操作分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.4" data-path="../chapter3/process_sys_io.html">
+            
+                <a href="../chapter3/process_sys_io.html">
+            
+                    
+                    系统I/O状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.5" data-path="../chapter3/process_io.html">
+            
+                <a href="../chapter3/process_io.html">
+            
+                    
+                    进程的I/O状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="network.html">
+            
+                <a href="network.html">
+            
+                    
+                    理解网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.7.1" data-path="network-metrics.html">
+            
+                <a href="network-metrics.html">
+            
+                    
+                    性能指标
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" data-path="network-nic-stat.html">
+            
+                <a href="network-nic-stat.html">
+            
+                    
+                    网卡状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.3" data-path="network-stat.html">
+            
+                <a href="network-stat.html">
+            
+                    
+                    连接/协议栈状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.4" data-path="network-trace-pkt.html">
+            
+                <a href="network-trace-pkt.html">
+            
+                    
+                    报文跟踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="04-tool.html">
+            
+                <a href="04-tool.html">
+            
+                    
+                    分析工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="04-flame-graphs.html">
+            
+                <a href="04-flame-graphs.html">
+            
+                    
+                    火焰图介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1.1" data-path="04-flame-graphs-cpu.html">
+            
+                <a href="04-flame-graphs-cpu.html">
+            
+                    
+                    CPU火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.1.2" data-path="04-flame-graphs-memory.html">
+            
+                <a href="04-flame-graphs-memory.html">
+            
+                    
+                    内存火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.1.3" data-path="04-flame-graphs-off-cpu.html">
+            
+                <a href="04-flame-graphs-off-cpu.html">
+            
+                    
+                    Off-CPU火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.1.4" data-path="04-flame-graphs-hot-code.html">
+            
+                <a href="04-flame-graphs-hot-code.html">
+            
+                    
+                    冷热火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.8.1.5" data-path="04-flame-graphs-differential.html">
+            
+                <a href="04-flame-graphs-differential.html">
+            
+                    
+                    差异火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.1.6" data-path="04-flame-generate.html">
+            
+                <a href="04-flame-generate.html">
+            
+                    
+                    火焰图生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.2" data-path="04-bcc-tools.html">
+            
+                <a href="04-bcc-tools.html">
+            
+                    
+                    BCC系列工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter3/">
+            
+                <a href="../chapter3/">
+            
+                    
+                    Linux系统知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chapter4/">
+            
+                <a href="../chapter4/">
+            
+                    
+                    Linux虚拟化技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.lijiaocn.com" target="blank" class="gitbook-link">
+            本书由 lijiaocn 提供
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+                
+<br>
+<!--div style="text-align:center"-->
+<!-- Summary_Bottom -->
+<!--ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="2156601384"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div-->
+
+
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >差异火焰图</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                
+<!-- Page_Top -->
+<!--div>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="5702052586"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div-->
+
+
+                                <h1 id="&#x5DEE;&#x5F02;&#x706B;&#x7130;&#x56FE;&#xFF1A;&#x5C55;&#x793A;&#x4E24;&#x4E2A;&#x706B;&#x7130;&#x56FE;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;">&#x5DEE;&#x5F02;&#x706B;&#x7130;&#x56FE;&#xFF1A;&#x5C55;&#x793A;&#x4E24;&#x4E2A;&#x706B;&#x7130;&#x56FE;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;</h1>
+<p>&#x706B;&#x7130;&#x56FE;&#x662F;&#x7528;&#x6765;&#x505A;&#x6027;&#x80FD;&#x5206;&#x6790;&#x7684;&#xFF0C;&#x901A;&#x8FC7;&#x706B;&#x7130;&#x5EA6;&#x4E86;&#x89E3;&#x4E86;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x671F;&#x95F4;&#x7684;&#x60C5;&#x51B5;&#x4EE5;&#x540E;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x662F;&#x6709;&#x9488;&#x5BF9;&#x6027;&#x5730;&#x4FEE;&#x6539;&#x8C03;&#x4F18;&#x3002;
+&#x8C03;&#x6574;&#x4E4B;&#x540E;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x5728;&#x5236;&#x4F5C;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x706B;&#x7130;&#x56FE;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x6BD4;&#x8C03;&#x4F18;&#x524D;&#x548C;&#x8C03;&#x4F18;&#x540E;&#x7684;&#x706B;&#x7130;&#x56FE;&#xFF0C;&#x8BC4;&#x4F30;&#x8C03;&#x6574;&#x662F;&#x5426;&#x6709;&#x6548;&#x3002;</p>
+<p>&#x6709;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x53D1;&#x73B0;&#x7CFB;&#x7EDF;&#x5347;&#x7EA7;&#x4E4B;&#x540E;&#xFF0C;&#x67D0;&#x4E9B;&#x6307;&#x6807;&#x7A81;&#x7136;&#x5347;&#x9AD8;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;&#x6BD4;&#x5347;&#x7EA7;&#x524D;&#x548C;&#x5347;&#x7EA7;&#x540E;&#x7684;&#x706B;&#x7130;&#x56FE;&#xFF0C;&#x627E;&#x5230;&#x90A3;&#x4E9B;&#x8017;&#x65F6;&#x589E;&#x52A0;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x6700;&#x7B80;&#x5355;&#x7684;&#x5BF9;&#x6BD4;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x5C06;&#x4FEE;&#x6539;&#x524D;&#x540E;&#x4E24;&#x4E2A;&#x706B;&#x7130;&#x56FE;&#x5E76;&#x884C;&#x6392;&#x5217;&#xFF0C;&#x8089;&#x773C;&#x627E;&#x4E0D;&#x540C;&#xFF0C;&#x8FD9;&#x6837;&#x663E;&#x7136;&#x5F88;&#x4E0D;&#x65B9;&#x4FBF;&#x3002;Brendan Gregg&#x60F3;&#x51FA;&#x4E86;&#x4E00;&#x62DB;&#xFF1A;&#x5DEE;&#x5F02;&#x706B;&#x7130;&#x56FE;&#xFF08;Differential Flame Graphs&#xFF09;&#x3002;</p>
+<p>&#x5728;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x5236;&#x4F5C;&#x7684;&#x706B;&#x7130;&#x56FE;&#x4E0A;&#xFF0C;&#x8017;&#x65F6;&#x76F8;&#x6BD4;&#x524D;&#x4E00;&#x6B21;&#x589E;&#x52A0;&#x7684;&#x51FD;&#x6570;&#x7528;&#x7EA2;&#x8272;&#xFF0C;&#x8017;&#x65F6;&#x51CF;&#x5C11;&#x7684;&#x51FD;&#x6570;&#x7528;&#x84DD;&#x8272;&#xFF1A;</p>
+<p><img src="../img/linux/zfs-flamegraph-diff.svg" alt="&#x5DEE;&#x5F02;&#x706B;&#x7130;&#x56FE;"></p>
+<script type="text/javascript">var className='atoc';</script>
+                                
+<div>
+<!-- 匹配内容 -->
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="6443696990"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<!--div-->
+<!-- Page_Bottom -->
+<!--ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="7945072540"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div-->
+
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="04-flame-graphs-hot-code.html" class="navigation navigation-prev " aria-label="Previous page: 冷热火焰图">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="04-flame-generate.html" class="navigation navigation-next " aria-label="Next page: 火焰图生成">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"差异火焰图","level":"1.2.8.1.5","depth":4,"next":{"title":"火焰图生成","level":"1.2.8.1.6","depth":4,"path":"chapter1/04-flame-generate.md","ref":"chapter1/04-flame-generate.md","articles":[]},"previous":{"title":"冷热火焰图","level":"1.2.8.1.4","depth":4,"path":"chapter1/04-flame-graphs-hot-code.md","ref":"chapter1/04-flame-graphs-hot-code.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/04-flame-graphs-differential.md","mtime":"2019-04-24T07:03:15.852Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-24T06:47:51.014Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-atoc/atoc.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
