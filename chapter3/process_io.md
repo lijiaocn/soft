@@ -2,6 +2,8 @@
 
 ## pidstat查看进程的I/O状态
 
+`-d`表示展示IO信息，1表示每秒输出一次：
+
 ```bash
 $ pidstat -d 1 
 13:39:51      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s     iodelay  Command 
@@ -10,7 +12,20 @@ $ pidstat -d 1
                                单位KB    单位KB  单位KB       单位时钟周期
 ```
 
+如果要查看具体某个进程，使用-p指定进程号，下面间隔 1 秒输出 3 组数据：
+
+```sh
+$ pidstat -d -p 4344 1 3
+06:38:50      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+06:38:51        0      4344      0.00      0.00      0.00       0  app
+06:38:52        0      4344      0.00      0.00      0.00       0  app
+06:38:53        0      4344      0.00      0.00      0.00       0  app
+```
+
+
 ## iotop查看进程I/O排行
+
+iotop动态显示每个线程的IO操作情况，由高到底排序：
 
 ```bash
 Total DISK READ :	0.00 B/s | Total DISK WRITE :      11.28 K/s

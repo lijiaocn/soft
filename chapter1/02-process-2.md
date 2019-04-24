@@ -1,3 +1,4 @@
+<!-- toc -->
 # 进程的状态
 
 `ps -l`命令输出结果的第二列是进程所处的状态，ps一共展示以下几种状态：
@@ -13,7 +14,7 @@
 
 在`man ps`中可以找到更详细说明。
 
-## 进程状态详细介绍 
+## 进程状态介绍 
 
 进程是动态的，是有状态的，正在被CPU执行的进程的状态是`Running`，没有被CPU执行的进程的状态是`Not Running`。在后面的火焰图章节中，正在运行的状态被称为`On-CPU`，没有在运行的状态被称为`Off-CPU`，一个进程要么在使用CPU，要么没有在使用CPU，在做性能分析的时候，这两段时间里发生的事情都需要关注。
 
@@ -54,3 +55,22 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 
 进程运行结束退出后，在进程表中占用的位置由它的父进程负责释放，在父进程还没有释放它占用的位置的时候，进程处于僵尸状态。
 
+## 查找父进程
+
+用pstree可以直接展示出一个进程的父进程，以及父进程的父进程，直到1号继承，-a 表示输出命令行选项、 p 表 PID、s 表示指定进程的父进程
+
+```sh
+$ pstree -aps 3084
+systemd,1
+  └─dockerd,15006 -H fd://
+      └─docker-containe,15024 --config /var/run/docker/containerd/containerd.toml
+          └─docker-containe,3991 -namespace moby -workdir...
+              └─app,4009
+                  └─(app,3084)
+```
+
+pstree命令位于rpm包psmisc中：
+
+```sh
+yum install -y psmisc
+```

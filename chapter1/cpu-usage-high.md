@@ -111,6 +111,12 @@ $ pstree | grep stress
         |         |-3*[php-fpm---sh---stress---stress]
 ```
 
+pstree安装方法：
+
+```sh
+yum install -y psmisc
+```
+
 ## 检查php应用代码
 
 检查php应用代码发现，代码中调用了stress命令，模拟I/O压力，但是用top看到的现象是cpu使用率高，这是比较奇怪的地方：。
@@ -179,4 +185,36 @@ stress           30403  30402    0 /usr/local/bin/stress -t 1 -d 1
 sh               30405  30393    0
 stress           30407  30405    0 /usr/local/bin/stress -t 1 -d 1
 ...
+```
+
+## execsnoop安装方法
+
+安装bcc，execsnoop是bcc中的一个工具：
+
+```sh
+yum install -y bcc
+```
+
+需要注意的是，execsnoop不在`*/bin`目录中（取决于CentOS版本）：
+
+```sh
+$ ls /usr/share/bcc/tools/execsnoop
+/usr/share/bcc/tools/execsnoop
+```
+
+如果遇到下面的错误，说明内核版本太低，不支持ebpf，需要升级到4.1以上，并安装kernel-devel：
+
+```sh
+[root@prod-k8s-node-138-127 phops]# /usr/share/bcc/tools/execsnoop
+In file included from <built-in>:2:
+/virtual/include/bcc/bpf.h:13:10: fatal error: 'linux/bpf_common.h' file not found
+#include <linux/bpf_common.h>
+         ^~~~~~~~~~~~~~~~~~~~
+1 error generated.
+Traceback (most recent call last):
+  File "/usr/share/bcc/tools/execsnoop", line 166, in <module>
+    b = BPF(text=bpf_text)
+  File "/usr/lib/python2.7/site-packages/bcc/__init__.py", line 318, in __init__
+    raise Exception("Failed to compile BPF text")
+Exception: Failed to compile BPF text
 ```
