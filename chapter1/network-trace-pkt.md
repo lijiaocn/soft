@@ -58,3 +58,9 @@ $ perf report -g graph,0
 ```
 
 ![perf report](/img/nf_slow.png)
+
+## tcpdump捕获报文
+
+tcpdump过滤表达式：
+
+![tcpdump过滤表达式](/img/linux/tcpdump-flag.png)

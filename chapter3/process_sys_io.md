@@ -32,13 +32,13 @@ vda          0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00  
 vdb          0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-rrqm/s： 每秒合并读请求数
+rrqm/s：每秒合并读请求数
 
 r/s：每秒发送给磁盘的读请求数（合并后） 
 
 rkB/s：每秒从磁盘读取的数据量，单位KB
 
-r_await： 读响应时间
+r_await：读响应时间，单位毫秒
 
 wrqm/s： 合并写请求速率
 
@@ -46,10 +46,29 @@ w/s：每秒发送给磁盘的写请求数（合并后）
 
 wkB/s：每秒向磁盘写入的数据量，单位KB
 
-w_await：写响应时间
+w_await：写响应时间，单位毫秒
 
 avgqu-sz/aqu-sz：平均请求队列长度
 
 svctm： 推断的处理I/O请求需要的平均时间，单位是毫秒
 
 %util：磁盘处理I/O的时间占比，即使用率，使用率100%，说明I/O操作多（不等于磁盘饱和，饱和是不能再接收新的读写)
+
+## filetop查看读写频繁的文件
+
+filetop是一个bcc工具箱中的一个工具（bcc系列工具见[BCC系列工具](chapter1/04-bcc-tools.md)），它能够动态展示文件的读写情况，由高到低排序。
+
+在CentOS上用yum安装bcc-tools：yum install -y bcc-tools。需要注意的是bcc命令被安装在/usr/share/bcc/tools/目录中，该目录默认不在$PATH中。另外，如果内核版本不支持ebpf，bcc-tools中的有些命令使用的时候会报错。filetop在不支持ebpf的内核上可以工作。
+
+```
+$ /usr/share/bcc/tools/filetop    
+$ /usr/share/bcc/tools/filetop -C   # 刷新数据前不清除屏幕，这样可以看到变化情况
+```
+
+![filetop输出](/img/linux/filetop.png)
+
+## opensnoop跟踪系统调用open
+
+opensnoop也是bcc工具箱中的一个，用来跟踪系统调用open，显示被打开的文件：
+
+![opensnoop](/img/linux/opensnoop.png)
