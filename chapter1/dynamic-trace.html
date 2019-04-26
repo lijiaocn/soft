@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>火焰图介绍 · GitBook</title>
+        <title>动态追踪 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="04-flame-graphs-cpu.html" />
+    <link rel="next" href="03-cpu.html" />
     
     
-    <link rel="prev" href="04-tool.html" />
+    <link rel="prev" href="kernel.html" />
     
 
         
@@ -217,7 +217,7 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.2.1" data-path="dynamic-trace.html">
+        <li class="chapter active" data-level="1.2.2.1" data-path="dynamic-trace.html">
             
                 <a href="dynamic-trace.html">
             
@@ -610,7 +610,7 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.9.1" data-path="04-flame-graphs.html">
+        <li class="chapter " data-level="1.2.9.1" data-path="04-flame-graphs.html">
             
                 <a href="04-flame-graphs.html">
             
@@ -815,7 +815,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >火焰图介绍</a>
+        <a href=".." >动态追踪</a>
     </h1>
 </div>
 
@@ -845,27 +845,204 @@ var _hmt = _hmt || [];
 </div-->
 
 
-                                <h1 id="&#x706B;&#x7130;&#x56FE;&#x4ECB;&#x7ECD;">&#x706B;&#x7130;&#x56FE;&#x4ECB;&#x7ECD;</h1>
-<p>&#x706B;&#x7130;&#x56FE;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x597D;&#x7684;&#x5206;&#x6790;&#x5DE5;&#x5177;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x89C2;&#x5730;&#x663E;&#x793A;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x8017;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x5360;&#x6BD4;&#x3002;</p>
-<p>&#x706B;&#x7130;&#x56FE;&#x662F;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x9886;&#x57DF;&#x5927;&#x795E;<a href="http://www.brendangregg.com/" target="_blank">Brendan D. Gregg</a>&#x7684;&#x6770;&#x4F5C;&#xFF0C;&#x4ED6;&#x5728;<a href="http://www.brendangregg.com/flamegraphs.html" target="_blank">Flame Graphs</a>&#x4E00;&#x6587;&#x91CC;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x4E86;&#x706B;&#x7130;&#x56FE;&#x7684;&#x7528;&#x6CD5;&#x3002;
-&#x5E76;&#x4E14;&#x8D21;&#x732E;&#x4E86;&#x4E00;&#x4E2A;&#x706B;&#x7130;&#x751F;&#x6210;&#x5DE5;&#x5177;<a href="https://github.com/brendangregg/FlameGraph" target="_blank">FlameGraph</a>&#xFF0C;&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x53EF;&#x4EE5;&#x5C06;&#x8C03;&#x7528;&#x6808;&#x91C7;&#x6837;&#x6570;&#x636E;&#x8F6C;&#x6362;&#x6210;&#x706B;&#x7130;&#x56FE;&#xFF0C;<a href="http://www.brendangregg.com/perf.html#FlameGraphs" target="_blank">Perf Examples</a>&#x4E2D;&#x63D0;&#x5230;&#x4E86;&#x5B83;&#x7684;&#x7528;&#x6CD5;&#x3002;&#x91C7;&#x6837;&#x6570;&#x636E;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x5176;&#x5B83;&#x5DE5;&#x5177;&#x91C7;&#x96C6;&#xFF0C;&#x6BD4;&#x5982;OpenResty&#x7684;&#x4F5C;&#x8005;&#x7AE0;&#x5B9C;&#x6625;&#x8D21;&#x732E;&#x7684;<a href="https://github.com/openresty/stapxx" target="_blank">stapxx</a>&#x3002;</p>
-<p>Brendan D. Gregg&#x7684;&#x82F1;&#x6587;&#x6587;&#x7AE0;&#x770B;&#x8D77;&#x6765;&#x5403;&#x529B;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x962E;&#x4E00;&#x5CF0;&#x5199;&#x7684;<a href="http://www.ruanyifeng.com/blog/2017/09/flame-graph.html" target="_blank">&#x5982;&#x4F55;&#x8BFB;&#x61C2;&#x706B;&#x7130;&#x56FE;&#xFF1F;</a>&#x3002;</p>
-<p>&#x706B;&#x7130;&#x56FE;&#x662F;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;&#x7684;&#xFF08;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x52A8;&#x6001;&#x56FE;&#xFF0C;&#x53F3;&#x952E;&#x67E5;&#x770B;&#x56FE;&#x50CF;&#xFF09;&#xFF1A;</p>
-<p><img src="../img/linux/cpu-mysql-updated.svg" alt="&#x706B;&#x7130;&#x56FE;"></p>
-<p>&#x6A2A;&#x5411;&#x662F;&#x6309;&#x7167;&#x5B57;&#x6BCD;&#x987A;&#x5E8F;&#x6392;&#x5E8F;&#x7684;&#x51FD;&#x6570;&#x540D;&#xFF0C;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x5BBD;&#x5EA6;&#x5360;&#x6BD4;&#x7B49;&#x4E8E;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5728;&#x91C7;&#x6837;&#x4E2D;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#x5360;&#x6BD4;&#xFF0C;&#x4E5F;&#x5C31;&#x7B49;&#x540C;&#x4E8E;&#x5B83;&#x8017;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x6BD4;&#x4F8B;&#x3002;&#x8D8A;&#x5BBD;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x8017;&#x8D39;&#x7684;&#x7684;&#x65F6;&#x95F4;&#x5360;&#x6BD4;&#x8D8A;&#x5927;&#x3002;</p>
-<p>&#x7EB5;&#x5411;&#x662F;&#x8C03;&#x7528;&#x5173;&#x7CFB;&#xFF0C;&#x4E0A;&#x5C42;&#x7684;&#x51FD;&#x6570;&#x88AB;&#x4E0B;&#x5C42;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;&#x6700;&#x4E0A;&#x5C42;&#x7684;&#x51FD;&#x6570;&#x662F;&#x91C7;&#x6837;&#x65F6;&#x6B63;&#x5728;&#x5360;&#x7528;CPU&#x7684;&#x51FD;&#x6570;&#x3002;</p>
-<p>&#x5982;&#x679C;&#x5728;&#x6700;&#x4E0A;&#x5C42;&#x5B58;&#x5728;&#x5F88;&#x5BBD;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x5BFC;&#x81F4;&#x6027;&#x80FD;&#x65E0;&#x6CD5;&#x63D0;&#x5347;&#x7684;&#x7F6A;&#x9B41;&#x7978;&#x9996;&#xFF0C;&#x9700;&#x8981;&#x91CD;&#x70B9;&#x5206;&#x6790;&#x4F18;&#x5316;&#x3002;</p>
-<p>&#x706B;&#x7130;&#x56FE;&#x7684;&#x989C;&#x8272;&#x6CA1;&#x6709;&#x7279;&#x6B8A;&#x542B;&#x4E49;&#xFF0C;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x67E5;&#x770B;&#xFF0C;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x989C;&#x8272;&#x90FD;&#x662F;&#x968F;&#x673A;&#x751F;&#x6210;&#x7684;&#xFF0C;&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x8BEF;&#x4EE5;&#x4E3A;&#x548C;&#x989C;&#x8272;&#x6709;&#x5173;&#xFF0C;&#x4F60;&#x5E94;&#x5F53;&#x5173;&#x6CE8;&#x7684;&#x662F;&#x51FD;&#x6570;&#x7684;&#x5BBD;&#x5EA6;&#x3002;</p>
-<p>&#x4EFB;&#x4F55;&#x6027;&#x80FD;&#x5DE5;&#x5177;&#x751F;&#x6210;&#x7684;&#x91C7;&#x7528;&#x6570;&#x636E;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x751F;&#x6210;&#x706B;&#x7130;&#x56FE;&#xFF1A;</p>
-<pre><code>Linux: perf, eBPF, SystemTap, and ktap
-Solaris, illumos, FreeBSD: DTrace
-Mac OS X: DTrace and Instruments
-Windows: Xperf.exe
-</code></pre><p>&#x516B;&#x5366;&#x4E00;&#x4E0B;&#xFF1A;</p>
-<p>Brendan D. Gregg&#x5728;<a href="www.brendangregg.com/flamegraphs.html">&#x6587;&#x7AE0;</a>&#x4E2D;&#x5199;&#x9053;&#xFF0C;&#x4ED6;&#x662F;&#x5728;&#x89E3;&#x51B3;MySQL&#x7684;&#x6027;&#x80FD;&#x95EE;&#x9898;&#x65F6;&#xFF0C;&#x4EA7;&#x751F;&#x4E86;&#x706B;&#x7130;&#x56FE;&#x7684;&#x521B;&#x610F;&#x3002;&#x4F46;&#x662F;&#x4ED6;&#x91C7;&#x96C6;&#x4E86;&#x5F88;&#x591A;&#x7684;&#x6587;&#x672C;&#x6570;&#x636E;&#xFF0C;&#x4E0D;&#x65B9;&#x4FBF;&#x67E5;&#x770B;&#xFF0C;&#x4E8E;&#x662F;&#x7814;&#x7A76;&#x4E86;&#x4E00;&#x4E0B;&#x600E;&#x6837;&#x5C06;&#x91C7;&#x6837;&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x3002;&#x4ED6;&#x501F;&#x9274;&#x4E86;Neelakanth and Roch&#x7684;&#x76F8;&#x5173;&#x7814;&#x7A76;&#xFF0C;&#x7528;&#x91C7;&#x6837;&#x5360;&#x6BD4;&#x53D6;&#x4EE3;&#x4E86;&#x65F6;&#x95F4;&#x5360;&#x6BD4;&#xFF0C;&#x53EA;&#x9009;&#x53D6;&#x4E86;&#x6696;&#x8272;&#x8C03;&#x7684;&#x989C;&#x8272;&#xFF0C;&#x751F;&#x6210;&#x4E86;&#x706B;&#x7130;&#x4E00;&#x822C;&#x7684;&#x56FE;&#x5F62;&#x3002;&#x8FD9;&#x9879;&#x5DE5;&#x4F5C;&#x662F;&#x5728;2011&#x5E74;&#x5B8C;&#x6210;&#x3002;</p>
-<p>&#x540E;&#x6765;&#x706B;&#x7130;&#x56FE;&#x7684;&#x521B;&#x610F;&#x88AB;Google&#x501F;&#x9274;&#xFF0C;&#x690D;&#x5165;&#x4E86;Chrome&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x7528;&#x6765;&#x5206;&#x6790;&#x7F51;&#x9875;&#x6027;&#x80FD;&#xFF0C;&#x5728;&#x5F00;&#x53D1;&#x8005;&#x5DE5;&#x5177;&#x7684;&#x6027;&#x80FD;&#x9009;&#x9879;&#x5361;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x4E0D;&#x8FC7;chrome&#x4E2D;&#x7684;&#x706B;&#x7130;&#x56FE;&#x548C;&#x8FD9;&#x91CC;&#x7684;&#x706B;&#x7130;&#x56FE;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x5B83;&#x7684;x&#x8F74;&#x662F;&#x65F6;&#x95F4;&#x8F74;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x5012;&#x706B;&#x7130;&#x5F62;&#x72B6;&#xFF0C;&#x4E0A;&#x5C42;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E0B;&#x5C42;&#x51FD;&#x6570;&#x3002;</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017092505.jpg" alt="Chrome&#x4E2D;&#x7684;&#x706B;&#x7130;&#x56FE;"></p>
-<p>&#x5728;&#x5177;&#x4F53;&#x4F7F;&#x7528;&#x4E0A;&#xFF0C;&#x706B;&#x7130;&#x56FE;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5206;&#x6790;CPU&#x5360;&#x7528;&#x60C5;&#x51B5;&#x3001;&#x5185;&#x5B58;&#x7533;&#x8BF7;&#x60C5;&#x51B5;&#x3001;&#x672A;&#x5360;&#x7528;CPU&#x65F6;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5E76;&#x4E14;&#x6F14;&#x5316;&#x51FA;&#x201C;&#x51B7;&#x70ED;&#xFF08;aHHot/Code&#xFF09;&#x548C;&#x201C;&#x5DEE;&#x5F02;&#x706B;&#x7130;&#x56FE;&#xFF08;Differential&#xFF09;&#x201D;&#x3002;</p>
+                                <!-- toc -->
+<ul>
+<li><a href="#&#x52A8;&#x6001;&#x8FFD;&#x8E2A;&#x6280;&#x672F;">&#x52A8;&#x6001;&#x8FFD;&#x8E2A;&#x6280;&#x672F;</a><ul>
+<li><a href="#ftrace&#x4E0E;trace-cmd">ftrace&#x4E0E;trace-cmd</a></li>
+<li><a href="#perf-&#x8DDF;&#x8E2A;&#x5185;&#x6838;&#x51FD;&#x6570;">perf &#x8DDF;&#x8E2A;&#x5185;&#x6838;&#x51FD;&#x6570;</a></li>
+<li><a href="#perf-&#x8DDF;&#x8E2A;&#x94FE;&#x63A5;&#x5E93;&#x51FD;&#x6570;">perf &#x8DDF;&#x8E2A;&#x94FE;&#x63A5;&#x5E93;&#x51FD;&#x6570;</a></li>
+<li><a href="#perf-trace-&#x4E0E;-trace">perf trace &#x4E0E; trace</a></li>
+<li><a href="#ebpf&#x548C;bcc">eBPF&#x548C;BCC</a></li>
+<li><a href="#&#x652F;&#x6301;&#x65E7;&#x5185;&#x6838;&#x7684;systemtap">&#x652F;&#x6301;&#x65E7;&#x5185;&#x6838;&#x7684;SystemTap</a></li>
+<li><a href="#&#x5BB9;&#x5668;&#x52A8;&#x6001;&#x8FFD;&#x8E2A;sysdig">&#x5BB9;&#x5668;&#x52A8;&#x6001;&#x8FFD;&#x8E2A;sysdig</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="&#x52A8;&#x6001;&#x8FFD;&#x8E2A;&#x6280;&#x672F;">&#x52A8;&#x6001;&#x8FFD;&#x8E2A;&#x6280;&#x672F;</h1>
+<p>&#x4E3B;&#x8981;&#x7684;&#x52A8;&#x6001;&#x8FFD;&#x8E2A;&#x5DE5;&#x5177;&#x6709;&#xFF1A;ftrace&#x3001;perf&#x3001;eBPF(bcc)&#x3001;SystemTap&#x3001;sysdig&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x53EA;&#x7B80;&#x5355;&#x6574;&#x7406;&#x4E00;&#x4E0B;&#xFF0C;&#x4EE5;&#x540E;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#x52A0;&#x6DF1;&#x4E86;&#x89E3;&#x3002;</p>
+<p><img src="../img/linux/dynamic-trace-tool.png" alt="&#x5E38;&#x7528;&#x52A8;&#x6001;&#x8FFD;&#x8E2A;&#x573A;&#x666F;&#x548C;&#x5DE5;&#x5177;"></p>
+<p>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x65B0;&#x7248;&#x672C;&#x5185;&#x6838;&#xFF0C;eBPF&#x548C;BCC&#x662F;&#x6700;&#x7075;&#x6D3B;&#x7684;&#x52A8;&#x6001;&#x8FFD;&#x8E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x65E7;&#x7248;&#x672C;&#x7684;&#x5185;&#x6838;&#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;eBPF&#x53D7;&#x9650;&#xFF0C;SystemTap&#x548C;ftrace&#x662F;&#x6BD4;&#x8F83;&#x597D;&#x7684;&#x9009;&#x62E9;&#x3002;</p>
+<h2 id="ftrace&#x4E0E;trace-cmd">ftrace&#x4E0E;trace-cmd</h2>
+<p>ftrace&#x901A;&#x8FC7;debugfs&#x63D0;&#x4F9B;&#x7528;&#x6237;&#x6001;&#x63A5;&#x53E3;&#xFF0C;debugfs&#x9700;&#x8981;&#x4E8B;&#x5148;&#x6302;&#x8F7D;&#xFF1A;</p>
+<pre><code class="lang-sh">mount -t debugfs nodev /sys/kernel/debug
+</code></pre>
+<p>debugfs&#x4E2D;&#x63D0;&#x4F9B;&#x591A;&#x4E2A;&#x865A;&#x62DF;&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-sh">$ ls /sys/kernel/debug/tracing
+README                      instances            <span class="hljs-built_in">set</span>_ftrace_notrace  trace_marker_raw
+available_events            kprobe_events        <span class="hljs-built_in">set</span>_ftrace_pid      trace_options
+...
+</code></pre>
+<p>ftrace&#x7528;&#x8D77;&#x6765;&#x6BD4;&#x8F83;&#x7E41;&#x7410;&#xFF0C;trace-cmd&#x7B80;&#x5316;&#x4E86;ftrace&#x7684;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-sh">yum install trace-cmd
+</code></pre>
+<p>trace-cmd&#x7528;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-sh">$ trace-cmd record -p <span class="hljs-keyword">function</span>_graph -g <span class="hljs-keyword">do</span>_sys_open -O funcgraph-proc ls
+$ trace-cmd report
+...
+ls-12418 [000] 85558.075341: funcgraph_entry:              |  <span class="hljs-function"><span class="hljs-title">do_sys_open</span></span>() {
+ls-12418 [000] 85558.075363: funcgraph_entry:              |    <span class="hljs-function"><span class="hljs-title">getname</span></span>() {
+ls-12418 [000] 85558.075364: funcgraph_entry:              |      <span class="hljs-function"><span class="hljs-title">getname_flags</span></span>() {
+ls-12418 [000] 85558.075364: funcgraph_entry:              |        <span class="hljs-function"><span class="hljs-title">kmem_cache_alloc</span></span>() {
+ls-12418 [000] 85558.075365: funcgraph_entry:              |          <span class="hljs-function"><span class="hljs-title">_cond_resched</span></span>() {
+ls-12418 [000] 85558.075365: funcgraph_entry:   0.074 us   |            rcu_all_qs();
+ls-12418 [000] 85558.075366: funcgraph_<span class="hljs-built_in">exit</span>:    1.143 us   |          }
+ls-12418 [000] 85558.075366: funcgraph_entry:   0.064 us   |          should_failslab();
+ls-12418 [000] 85558.075367: funcgraph_entry:   0.075 us   |          prefetch_freepointer();
+ls-12418 [000] 85558.075368: funcgraph_entry:   0.085 us   |          memcg_kmem_put_cache();
+ls-12418 [000] 85558.075369: funcgraph_<span class="hljs-built_in">exit</span>:    4.447 us   |        }
+ls-12418 [000] 85558.075369: funcgraph_entry:              |        <span class="hljs-function"><span class="hljs-title">__check_object_size</span></span>() {
+ls-12418 [000] 85558.075370: funcgraph_entry:   0.132 us   |          __virt_addr_valid();
+ls-12418 [000] 85558.075370: funcgraph_entry:   0.093 us   |          __check_heap_object();
+ls-12418 [000] 85558.075371: funcgraph_entry:   0.059 us   |          check_stack_object();
+ls-12418 [000] 85558.075372: funcgraph_<span class="hljs-built_in">exit</span>:    2.323 us   |        }
+ls-12418 [000] 85558.075372: funcgraph_<span class="hljs-built_in">exit</span>:    8.411 us   |      }
+ls-12418 [000] 85558.075373: funcgraph_<span class="hljs-built_in">exit</span>:    9.195 us   |    }
+...
+</code></pre>
+<h2 id="perf-&#x8DDF;&#x8E2A;&#x5185;&#x6838;&#x51FD;&#x6570;">perf &#x8DDF;&#x8E2A;&#x5185;&#x6838;&#x51FD;&#x6570;</h2>
+<p>&#x67E5;&#x770B;perf&#x652F;&#x6301;&#x7684;&#x4E8B;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-sh">$ perf list
+
+List of pre-defined events (to be used <span class="hljs-keyword">in</span> <span class="hljs-_">-e</span>):
+
+  alignment-faults                                   [Software event]
+  context-switches OR cs                             [Software event]
+  cpu-clock                                          [Software event]
+  cpu-migrations OR migrations                       [Software event]
+  dummy                                              [Software event]
+  emulation-faults                                   [Software event]
+  ...
+</code></pre>
+<p>&#x6DFB;&#x52A0;&#x63A2;&#x9488;&#xFF1A;</p>
+<pre><code class="lang-sh">$ perf probe --add <span class="hljs-keyword">do</span>_sys_open
+Added new event:
+  probe:<span class="hljs-keyword">do</span>_sys_open    (on <span class="hljs-keyword">do</span>_sys_open)
+You can now use it <span class="hljs-keyword">in</span> all perf tools, such as:
+    perf record <span class="hljs-_">-e</span> probe:<span class="hljs-keyword">do</span>_sys_open <span class="hljs-_">-a</span>R sleep 1
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x63A2;&#x9488;&#x91C7;&#x6837;&#xFF1A;</p>
+<pre><code class="lang-sh">$ perf record <span class="hljs-_">-e</span> probe:<span class="hljs-keyword">do</span>_sys_open <span class="hljs-_">-a</span>R sleep 10
+[ perf record: Woken up 1 <span class="hljs-built_in">times</span> to write data ]
+[ perf record: Captured and wrote 0.148 MB perf.data (19 samples) ]
+</code></pre>
+<p>&#x67E5;&#x770B;&#x91C7;&#x6837;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-sh">$ perf script
+            perf 12886 [000] 89565.879875: probe:<span class="hljs-keyword">do</span>_sys_open: (ffffffffa807b290)
+           sleep 12889 [000] 89565.880362: probe:<span class="hljs-keyword">do</span>_sys_open: (ffffffffa807b290)
+           sleep 12889 [000] 89565.880382: probe:<span class="hljs-keyword">do</span>_sys_open: (ffffffffa807b290)
+           sleep 12889 [000] 89565.880635: probe:<span class="hljs-keyword">do</span>_sys_open: (ffffffffa807b290)
+           sleep 12889 [000] 89565.880669: probe:<span class="hljs-keyword">do</span>_sys_open: (ffffffffa807b290)
+</code></pre>
+<p>&#x67E5;&#x770B;&#x5185;&#x6838;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x9700;&#x8981;&#x5B89;&#x88C5;debufinfo&#xFF1A;</p>
+<pre><code class="lang-sh">yum --enablerepo=base-debuginfo install -y kernel-debuginfo-$(uname -r)&#xFF1A;
+</code></pre>
+<pre><code class="lang-sh">$ perf probe -V <span class="hljs-keyword">do</span>_sys_open
+Available variables at <span class="hljs-keyword">do</span>_sys_open
+        @&lt;<span class="hljs-keyword">do</span>_sys_open+0&gt;
+                char*   filename
+                int     dfd
+                int     flags
+                struct open_flags       op
+                umode_t mode
+</code></pre>
+<p>&#x5220;&#x9664;&#x63A2;&#x9488;&#xFF1A;</p>
+<pre><code class="lang-sh">perf probe --del probe:<span class="hljs-keyword">do</span>_sys_open
+</code></pre>
+<p>&#x6DFB;&#x52A0;&#x5E26;&#x53C2;&#x6570;&#x7684;&#x63A2;&#x9488;&#xFF1A;</p>
+<pre><code class="lang-sh">$ perf probe --add <span class="hljs-string">&apos;do_sys_open filename:string&apos;</span>
+Added new event:
+  probe:<span class="hljs-keyword">do</span>_sys_open    (on <span class="hljs-keyword">do</span>_sys_open with filename:string)
+You can now use it <span class="hljs-keyword">in</span> all perf tools, such as:
+    perf record <span class="hljs-_">-e</span> probe:<span class="hljs-keyword">do</span>_sys_open <span class="hljs-_">-a</span>R sleep 1
+</code></pre>
+<p>&#x91C7;&#x6837;&#x7ED3;&#x679C;&#x5C06;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-sh">$ perf script
+perf 13593 [000] 91846.053622: probe:<span class="hljs-keyword">do</span>_sys_open: (ffffffffa807b290) filename_string=<span class="hljs-string">&quot;/proc/13596/status&quot;</span>
+  ls 13596 [000] 91846.053995: probe:<span class="hljs-keyword">do</span>_sys_open: (ffffffffa807b290) filename_string=<span class="hljs-string">&quot;/etc/ld.so.cache&quot;</span>
+  ls 13596 [000] 91846.054011: probe:<span class="hljs-keyword">do</span>_sys_open: (ffffffffa807b290) filename_string=<span class="hljs-string">&quot;/lib/x86_64-linux-gnu/libselinux.so.1&quot;</span>
+  ls 13596 [000] 91846.054066: probe:<span class="hljs-keyword">do</span>_sys_open: (ffffffffa807b290) filename_string=<span class="hljs-string">&quot;/lib/x86_64-linux-gnu/libc.so.6&#x201D;
+  ...
+</span></code></pre>
+<h2 id="perf-&#x8DDF;&#x8E2A;&#x94FE;&#x63A5;&#x5E93;&#x51FD;&#x6570;">perf &#x8DDF;&#x8E2A;&#x94FE;&#x63A5;&#x5E93;&#x51FD;&#x6570;</h2>
+<p>&#x67E5;&#x770B;&#x6307;&#x5B9A;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF08;-x /bin/bash&#xFF09;&#x53EF;&#x4EE5;&#x8FFD;&#x8E2A;&#x7684;&#x6240;&#x6709;&#x7684;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-sh">$ perf probe -x /bin/bash &#x2014;funcs
+</code></pre>
+<p>&#x67E5;&#x770B;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x6709;&#x5BF9;&#x5E94;&#x7684;debuginfo&#xFF1A;</p>
+<pre><code class="lang-sh">$ perf probe -x /bin/bash -V readline
+Available variables at readline
+        @&lt;readline+0&gt;
+                char*   prompt
+</code></pre>
+<p>&#x4E3A; /bin/bash &#x6DFB;&#x52A0; readline &#x63A2;&#x9488;&#xFF1A;</p>
+<pre><code class="lang-sh">$ perf probe -x /bin/bash <span class="hljs-string">&apos;readline%return +0($retval):string&#x2019;
+</span></code></pre>
+<p>&#x5F00;&#x59CB;&#x91C7;&#x6837;&#xFF1A;</p>
+<pre><code class="lang-sh">$ perf record <span class="hljs-_">-e</span> probe_bash:readline__<span class="hljs-built_in">return</span> <span class="hljs-_">-a</span>R sleep 5
+</code></pre>
+<p>&#x67E5;&#x770B;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-sh">$ perf script
+    bash 13348 [000] 93939.142576: probe_bash:readline__<span class="hljs-built_in">return</span>: (5626ffac1610 &lt;- 5626ffa46739) arg1=<span class="hljs-string">&quot;ls&quot;</span>
+</code></pre>
+<p>&#x5220;&#x9664;&#x63A2;&#x9488;</p>
+<pre><code class="lang-sh">$ perf probe --del probe_bash:readline__<span class="hljs-built_in">return</span>
+</code></pre>
+<h2 id="perf-trace-&#x4E0E;-trace">perf trace &#x4E0E; trace</h2>
+<p>trace&#x547D;&#x4EE4;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;ptrace&#x83B7;&#x53D6;&#x8FDB;&#x7A0B;&#x7684;&#x8C03;&#x7528;&#x7CFB;&#x7EDF;&#x60C5;&#x51B5;&#xFF0C;&#x5B83;&#x4F1A;&#x9891;&#x7E41;&#x5728;&#x5185;&#x6838;&#x6001;&#x548C;&#x7528;&#x6237;&#x6001;&#x5207;&#x6362;&#xFF0C;&#x5F71;&#x54CD;&#x76EE;&#x6807;&#x8FDB;&#x7A0B;&#x7684;&#x6027;&#x80FD;&#xFF0C;ptrace&#x53C8;&#x4F1A;&#x7528;SIGSTOP&#x4FE1;&#x53F7;&#x6302;&#x8D77;&#x76EE;&#x6807;&#x8FDB;&#x7A0B;&#xFF0C;&#x5F71;&#x54CD;&#x76EE;&#x6807;&#x8FDB;&#x7A0B;&#x7684;&#x884C;&#x4E3A;&#x3002;</p>
+<p>perf trace&#x57FA;&#x4E8E;&#x5185;&#x6838;&#x4E8B;&#x4EF6;&#xFF0C;&#x6027;&#x80FD;&#x8981;&#x597D;&#x5F88;&#x591A;&#xFF1A;</p>
+<pre><code class="lang-sh">$ perf trace ls
+         ? (         ): ls/14234  ... [continued]: execve()) = 0
+     0.177 ( 0.013 ms): ls/14234 brk(                                                                  ) = 0x555d96be7000
+     0.224 ( 0.014 ms): ls/14234 access(filename: 0xad98082                                            ) = -1 ENOENT No such file or directory
+     0.248 ( 0.009 ms): ls/14234 access(filename: 0xad9add0, mode: R                                   ) = -1 ENOENT No such file or directory
+     0.267 ( 0.012 ms): ls/14234 openat(dfd: CWD, filename: 0xad98428, flags: CLOEXEC                  ) = 3
+     0.288 ( 0.009 ms): ls/14234 fstat(fd: 3&lt;/usr/lib/locale/C.UTF-8/LC_NAME&gt;, statbuf: 0x7ffd2015f230 ) = 0
+     0.305 ( 0.011 ms): ls/14234 mmap(len: 45560, prot: READ, flags: PRIVATE, fd: 3                    ) = 0x7efe0af92000
+     0.324 Dockerfile  test.sh
+( 0.008 ms): ls/14234 close(fd: 3&lt;/usr/lib/locale/C.UTF-8/LC_NAME&gt;                          ) = 0
+     ...
+</code></pre>
+<h2 id="ebpf&#x548C;bcc">eBPF&#x548C;BCC</h2>
+<p>eBPF&#x4EE5;&#x53CA;BCC&#x7684;&#x539F;&#x7406;&#x548C;&#x7528;&#x9014;&#xFF0C;&#x4EE5;&#x53CA;BCC&#x7CFB;&#x5217;&#x5DE5;&#x5177;&#x7684;&#x7528;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li><a href="https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2019/02/25/ebpf-introduction-1.html" target="_blank">Linux&#x5185;&#x6838;&#x529F;&#x80FD;eBPF&#x5165;&#x95E8;&#x5B66;&#x4E60;&#xFF08;&#x4E00;&#xFF09;&#xFF1A;BPF&#x3001;eBPF&#x3001;BCC&#x7B49;&#x57FA;&#x672C;&#x6982;&#x5FF5;</a></li>
+<li><a href="https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2019/02/26/ebpf-introduction-2-bcc-usage.html" target="_blank">Linux&#x5185;&#x6838;&#x529F;&#x80FD;eBPF&#x5165;&#x95E8;&#x5B66;&#x4E60;&#xFF08;&#x4E8C;&#xFF09;&#xFF1A;BCC&#x4E2D;&#x7684;eBPF&#x5E94;&#x7528;&#x4E0E;bpftrace&#x7B49;</a></li>
+<li><a href="https://github.com/iovisor/bcc/blob/master/docs/tutorial.md" target="_blank">BCC Tutorial</a></li>
+<li><a href="https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md" target="_blank">BCC Python Developer Tutorial</a></li>
+<li><a href="https://github.com/iovisor/bcc/blob/master/docs/kernel-versions.md" target="_blank">BPF Features by Linux Kernel Version</a></li>
+</ol>
+<p><img src="../img/linux/bcc-tools.png" alt="bcc&#x5DE5;&#x5177;&#x96C6;"></p>
+<p>CentOS&#x4E2D;&#x7528;yum&#x76F4;&#x63A5;&#x5B89;&#x88C5;&#xFF0C;&#x6709;&#x534F;&#x8BAE;&#x989D;</p>
+<pre><code class="lang-sh">yum install bcc-tools
+</code></pre>
+<p>&#x547D;&#x4EE4;&#x5B89;&#x88C5;&#x5728;/usr/share/bcc/tools/&#x4E2D;&#xFF1A;</p>
+<pre><code class="lang-sh">$ ls /usr/share/bcc/tools/
+argdist       dbstat               javacalls       offcputime   rubyobjnew   tcplife
+bashreadline  dcsnoop              javaflow        offwaketime  rubystat     tcpretrans
+biolatency    dcstat               javagc          oomkill      runqlat      tcpstates
+</code></pre>
+<p>&#x5982;&#x679C;&#x9047;&#x5230;&#x4E0B;&#x9762;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x8BF4;&#x660E;&#x5185;&#x6838;&#x7248;&#x672C;&#x592A;&#x4F4E;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x76F8;&#x5173;&#x7279;&#x6027;&#xFF1A;</p>
+<pre><code class="lang-sh">[root@prod-k8s-node-138-127 phops]<span class="hljs-comment"># /usr/share/bcc/tools/execsnoop</span>
+In file included from &lt;built-in&gt;:2:
+/virtual/include/bcc/bpf.h:13:10: fatal error: <span class="hljs-string">&apos;linux/bpf_common.h&apos;</span> file not found
+<span class="hljs-comment">#include &lt;linux/bpf_common.h&gt;</span>
+         ^~~~~~~~~~~~~~~~~~~~
+1 error generated.
+Traceback (most recent call last):
+  File <span class="hljs-string">&quot;/usr/share/bcc/tools/execsnoop&quot;</span>, line 166, <span class="hljs-keyword">in</span> &lt;module&gt;
+    b = BPF(text=bpf_text)
+  File <span class="hljs-string">&quot;/usr/lib/python2.7/site-packages/bcc/__init__.py&quot;</span>, line 318, <span class="hljs-keyword">in</span> __init__
+    raise Exception(<span class="hljs-string">&quot;Failed to compile BPF text&quot;</span>)
+Exception: Failed to compile BPF text
+</code></pre>
+<p><a href="https://github.com/iovisor/bcc/blob/master/docs/kernel-versions.md" target="_blank">BPF Features by Linux Kernel Version</a>&#x6C47;&#x603B;&#x4E86;&#x6BCF;&#x4E2A;&#x7279;&#x6027;&#x9700;&#x8981;&#x7684;&#x6700;&#x4F4E;&#x5185;&#x6838;&#x7248;&#x672C;&#xFF0C;&#x4E0B;&#x56FE;&#x63D0;&#x4F9B;&#x4E86;&#x90E8;&#x5206;&#x4FE1;&#x606F;&#xFF1A;</p>
+<p><img src="../img/linux/bcc-tool-version.png" alt="Linux&#x4E8B;&#x4EF6;&#x548C;BPF&#x652F;&#x6301;"></p>
+<p><a href="https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md" target="_blank">BCC Python Developer Tutorial</a>&#x4E2D;&#x4ECB;&#x7ECD;&#x4E86;eBPF&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x5F00;&#x53D1;&#x65B9;&#x6CD5;&#xFF0C;&#x638C;&#x63E1;&#x4EE5;&#x540E;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x5F00;&#x53D1;&#x8FFD;&#x8E2A;&#x5DE5;&#x5177;&#x3002;</p>
+<h2 id="&#x652F;&#x6301;&#x65E7;&#x5185;&#x6838;&#x7684;systemtap">&#x652F;&#x6301;&#x65E7;&#x5185;&#x6838;&#x7684;SystemTap</h2>
+<p>&#x548C;eBPF&#x6839;&#x690D;&#x4E8E;&#x5185;&#x6838;&#x4E0D;&#x540C;&#xFF0C;SystemTap&#x662F;&#x72EC;&#x7ACB;&#x4E8E;&#x5185;&#x6838;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x5728;RHEL&#x7CFB;&#x7EDF;&#x4E2D;&#x597D;&#x7528;&#xFF0C;&#x5728;&#x5176;&#x5B83;&#x53D1;&#x884C;&#x7248;&#x4E0A;&#x5BB9;&#x6613;&#x51FA;&#x73B0;&#x5404;&#x79CD;&#x5F02;&#x5E38;&#x95EE;&#x9898;&#x3002;eBPF&#x662F;&#x6BD4;&#x8F83;&#x65B0;&#x7684;&#x5185;&#x6838;&#x7279;&#x6027;&#xFF0C;&#x5BF9;&#x5185;&#x6838;&#x7248;&#x672C;&#x8981;&#x6C42;&#x9AD8;&#xFF0C;SystemTap&#x7684;&#x5148;&#x4E8E;eBPF&#x8BDE;&#x751F;&#xFF0C;&#x652F;&#x6301;3.x&#x7B49;&#x65E7;&#x7248;&#x672C;&#x7684;&#x5185;&#x6838;&#x3002;</p>
+<h2 id="&#x5BB9;&#x5668;&#x52A8;&#x6001;&#x8FFD;&#x8E2A;sysdig">&#x5BB9;&#x5668;&#x52A8;&#x6001;&#x8FFD;&#x8E2A;sysdig</h2>
+<p><a href="https://sysdig.com/blog/sysdig-vs-dtrace-vs-strace-a-technical-discussion/" target="_blank">Sysdig vs DTrace vs Strace: a Technical Discussion</a></p>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
@@ -921,12 +1098,12 @@ Windows: Xperf.exe
 
             
                 
-                <a href="04-tool.html" class="navigation navigation-prev " aria-label="Previous page: 分析工具">
+                <a href="kernel.html" class="navigation navigation-prev " aria-label="Previous page: 理解内核">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="04-flame-graphs-cpu.html" class="navigation navigation-next " aria-label="Next page: CPU火焰图">
+                <a href="03-cpu.html" class="navigation navigation-next " aria-label="Next page: 理解CPU">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -937,7 +1114,7 @@ Windows: Xperf.exe
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"火焰图介绍","level":"1.2.9.1","depth":3,"next":{"title":"CPU火焰图","level":"1.2.9.1.1","depth":4,"path":"chapter1/04-flame-graphs-cpu.md","ref":"chapter1/04-flame-graphs-cpu.md","articles":[]},"previous":{"title":"分析工具","level":"1.2.9","depth":2,"path":"chapter1/04-tool.md","ref":"chapter1/04-tool.md","articles":[{"title":"火焰图介绍","level":"1.2.9.1","depth":3,"path":"chapter1/04-flame-graphs.md","ref":"chapter1/04-flame-graphs.md","articles":[{"title":"CPU火焰图","level":"1.2.9.1.1","depth":4,"path":"chapter1/04-flame-graphs-cpu.md","ref":"chapter1/04-flame-graphs-cpu.md","articles":[]},{"title":"内存火焰图","level":"1.2.9.1.2","depth":4,"path":"chapter1/04-flame-graphs-memory.md","ref":"chapter1/04-flame-graphs-memory.md","articles":[]},{"title":"Off-CPU火焰图","level":"1.2.9.1.3","depth":4,"path":"chapter1/04-flame-graphs-off-cpu.md","ref":"chapter1/04-flame-graphs-off-cpu.md","articles":[]},{"title":"冷热火焰图","level":"1.2.9.1.4","depth":4,"path":"chapter1/04-flame-graphs-hot-code.md","ref":"chapter1/04-flame-graphs-hot-code.md","articles":[]},{"title":"差异火焰图","level":"1.2.9.1.5","depth":4,"path":"chapter1/04-flame-graphs-differential.md","ref":"chapter1/04-flame-graphs-differential.md","articles":[]},{"title":"火焰图生成","level":"1.2.9.1.6","depth":4,"path":"chapter1/04-flame-generate.md","ref":"chapter1/04-flame-generate.md","articles":[]}]},{"title":"BCC系列工具","level":"1.2.9.2","depth":3,"path":"chapter1/04-bcc-tools.md","ref":"chapter1/04-bcc-tools.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/04-flame-graphs.md","mtime":"2019-04-25T02:34:21.267Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-26T09:25:32.488Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"动态追踪","level":"1.2.2.1","depth":3,"next":{"title":"理解CPU","level":"1.2.3","depth":2,"path":"chapter1/03-cpu.md","ref":"chapter1/03-cpu.md","articles":[{"title":"CPU的状态","level":"1.2.3.1","depth":3,"path":"chapter1/02-process-3.md","ref":"chapter1/02-process-3.md","articles":[]},{"title":"CPU使用分析","level":"1.2.3.2","depth":3,"path":"chapter1/cpu-usage-analysis.md","ref":"chapter1/cpu-usage-analysis.md","articles":[]},{"title":"CPU上下文切换","level":"1.2.3.3","depth":3,"path":"chapter1/03-cpu-1.md","ref":"chapter1/03-cpu-1.md","articles":[]}]},"previous":{"title":"理解内核","level":"1.2.2","depth":2,"path":"chapter1/kernel.md","ref":"chapter1/kernel.md","articles":[{"title":"动态追踪","level":"1.2.2.1","depth":3,"path":"chapter1/dynamic-trace.md","ref":"chapter1/dynamic-trace.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/dynamic-trace.md","mtime":"2019-04-26T10:27:22.914Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-26T09:25:32.488Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

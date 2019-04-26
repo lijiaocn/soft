@@ -190,20 +190,7 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="cpu-usage-high.html">
-            
-                <a href="cpu-usage-high.html">
-            
-                    
-                    案例: CPU使用率很高
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="01-concept.html">
+        <li class="chapter " data-level="1.2.1" data-path="01-concept.html">
             
                 <a href="01-concept.html">
             
@@ -213,6 +200,38 @@ var _hmt = _hmt || [];
                 </a>
             
 
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="kernel.html">
+            
+                <a href="kernel.html">
+            
+                    
+                    理解内核
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="dynamic-trace.html">
+            
+                <a href="dynamic-trace.html">
+            
+                    
+                    动态追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -499,7 +518,7 @@ var _hmt = _hmt || [];
                 <a href="network-metrics.html">
             
                     
-                    性能指标
+                    性能指标与检测
             
                 </a>
             
@@ -538,7 +557,7 @@ var _hmt = _hmt || [];
                 <a href="network-netfilter.html">
             
                     
-                    netfilter
+                    连接跟踪netfilter
             
                 </a>
             
@@ -706,6 +725,19 @@ var _hmt = _hmt || [];
             
         </li>
     
+        <li class="chapter " data-level="1.2.10" data-path="cpu-usage-high.html">
+            
+                <a href="cpu-usage-high.html">
+            
+                    
+                    案例: CPU使用率很高
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -813,8 +845,31 @@ var _hmt = _hmt || [];
 </div-->
 
 
-                                <h1 id="&#x7406;&#x89E3;linux&#x7684;&#x7F51;&#x7EDC;">&#x7406;&#x89E3;Linux&#x7684;&#x7F51;&#x7EDC;</h1>
+                                <!-- toc -->
+<ul>
+<li><a href="#&#x7406;&#x89E3;linux&#x7684;&#x7F51;&#x7EDC;">&#x7406;&#x89E3;Linux&#x7684;&#x7F51;&#x7EDC;</a><ul>
+<li><a href="#&#x6307;&#x6807;&#x548C;&#x5DE5;&#x5177;&#x6620;&#x5C04;&#x8868;">&#x6307;&#x6807;&#x548C;&#x5DE5;&#x5177;&#x6620;&#x5C04;&#x8868;</a></li>
+<li><a href="#&#x62A5;&#x6587;&#x5904;&#x7406;&#x6D41;&#x7A0B;">&#x62A5;&#x6587;&#x5904;&#x7406;&#x6D41;&#x7A0B;</a></li>
+<li><a href="#tcp&#x8FDE;&#x63A5;&#x72B6;&#x6001;">TCP&#x8FDE;&#x63A5;&#x72B6;&#x6001;</a></li>
+<li><a href="#tcp&#x53C2;&#x6570;&#x8C03;&#x4F18;">TCP&#x53C2;&#x6570;&#x8C03;&#x4F18;</a></li>
+<li><a href="#&#x5176;&#x5B83;&#x6587;&#x7AE0;">&#x5176;&#x5B83;&#x6587;&#x7AE0;</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="&#x7406;&#x89E3;linux&#x7684;&#x7F51;&#x7EDC;">&#x7406;&#x89E3;Linux&#x7684;&#x7F51;&#x7EDC;</h1>
 <p>Linux&#x7F51;&#x7EDC;&#x76F8;&#x5173;&#x77E5;&#x8BC6;&#x3002;</p>
+<h2 id="&#x6307;&#x6807;&#x548C;&#x5DE5;&#x5177;&#x6620;&#x5C04;&#x8868;">&#x6307;&#x6807;&#x548C;&#x5DE5;&#x5177;&#x6620;&#x5C04;&#x8868;</h2>
+<p><img src="../img/linux/net-metric-tool.png" alt="&#x7F51;&#x7EDC;&#x6307;&#x6807;&#x5DE5;&#x5177;&#x6620;&#x5C04;&#x8868;"></p>
+<p><img src="../img/linux/net-tool-metric.png" alt="&#x7F51;&#x7EDC;&#x6307;&#x6807;&#x5DE5;&#x5177;&#x6620;&#x5C04;&#x8868;"></p>
+<h2 id="&#x62A5;&#x6587;&#x5904;&#x7406;&#x6D41;&#x7A0B;">&#x62A5;&#x6587;&#x5904;&#x7406;&#x6D41;&#x7A0B;</h2>
+<p><img src="../img/linux/pkt-process.png" alt="&#x62A5;&#x6587;&#x5904;&#x7406;&#x6D41;&#x7A0B;"></p>
+<h2 id="tcp&#x8FDE;&#x63A5;&#x72B6;&#x6001;">TCP&#x8FDE;&#x63A5;&#x72B6;&#x6001;</h2>
+<p><a href="https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2017/09/04/linux-net-tcp.html" target="_blank">TCP&#x8FDE;&#x63A5;&#x76F8;&#x5173;&#x77E5;&#x8BC6;</a></p>
+<p><img src="../img/linux/tcp-stat.png" alt="TCP&#x8FDE;&#x63A5;&#x72B6;&#x6001;"></p>
+<h2 id="tcp&#x53C2;&#x6570;&#x8C03;&#x4F18;">TCP&#x53C2;&#x6570;&#x8C03;&#x4F18;</h2>
+<p><img src="../img/linux/tcp-parameters.png" alt="TCP&#x53C2;&#x6570;&#x8C03;&#x4F18;"></p>
+<h2 id="&#x5176;&#x5B83;&#x6587;&#x7AE0;">&#x5176;&#x5B83;&#x6587;&#x7AE0;</h2>
 <p><a href="https://jvns.ca/blog/2017/09/05/finding-out-where-packets-are-being-dropped/" target="_blank">Finding out if/why a server is dropping packets</a></p>
 <p><a href="https://mp.weixin.qq.com/s/VYBs8iqf0HsNg9WAxktzYQ" target="_blank">SNAT&#x7AEF;&#x53E3;&#x51B2;&#x7A81;&#xFF0C;&#x5BFC;&#x81F4;&#x5BB9;&#x5668;&#x8BBF;&#x95EE;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x5076;&#x5C14;&#x8D85;&#x65F6;</a>&#xFF1A;</p>
 <blockquote>
@@ -881,7 +936,7 @@ var _hmt = _hmt || [];
                 </a>
                 
                 
-                <a href="network-metrics.html" class="navigation navigation-next " aria-label="Next page: 性能指标">
+                <a href="network-metrics.html" class="navigation navigation-next " aria-label="Next page: 性能指标与检测">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -892,7 +947,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"理解网络","level":"1.2.8","depth":2,"next":{"title":"性能指标","level":"1.2.8.1","depth":3,"path":"chapter1/network-metrics.md","ref":"chapter1/network-metrics.md","articles":[]},"previous":{"title":"进程的I/O状态","level":"1.2.7.6","depth":3,"path":"chapter3/process_io.md","ref":"chapter3/process_io.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/network.md","mtime":"2019-04-24T11:42:02.025Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-24T07:36:08.526Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"理解网络","level":"1.2.8","depth":2,"next":{"title":"性能指标与检测","level":"1.2.8.1","depth":3,"path":"chapter1/network-metrics.md","ref":"chapter1/network-metrics.md","articles":[]},"previous":{"title":"进程的I/O状态","level":"1.2.7.6","depth":3,"path":"chapter3/process_io.md","ref":"chapter3/process_io.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/network.md","mtime":"2019-04-26T07:10:07.492Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-26T09:25:32.488Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

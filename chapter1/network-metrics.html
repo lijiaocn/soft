@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>性能指标 · GitBook</title>
+        <title>性能指标与检测 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -190,20 +190,7 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="cpu-usage-high.html">
-            
-                <a href="cpu-usage-high.html">
-            
-                    
-                    案例: CPU使用率很高
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="01-concept.html">
+        <li class="chapter " data-level="1.2.1" data-path="01-concept.html">
             
                 <a href="01-concept.html">
             
@@ -213,6 +200,38 @@ var _hmt = _hmt || [];
                 </a>
             
 
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="kernel.html">
+            
+                <a href="kernel.html">
+            
+                    
+                    理解内核
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="dynamic-trace.html">
+            
+                <a href="dynamic-trace.html">
+            
+                    
+                    动态追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -499,7 +518,7 @@ var _hmt = _hmt || [];
                 <a href="network-metrics.html">
             
                     
-                    性能指标
+                    性能指标与检测
             
                 </a>
             
@@ -538,7 +557,7 @@ var _hmt = _hmt || [];
                 <a href="network-netfilter.html">
             
                     
-                    netfilter
+                    连接跟踪netfilter
             
                 </a>
             
@@ -706,6 +725,19 @@ var _hmt = _hmt || [];
             
         </li>
     
+        <li class="chapter " data-level="1.2.10" data-path="cpu-usage-high.html">
+            
+                <a href="cpu-usage-high.html">
+            
+                    
+                    案例: CPU使用率很高
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -783,7 +815,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >性能指标</a>
+        <a href=".." >性能指标与检测</a>
     </h1>
 </div>
 
@@ -818,6 +850,7 @@ var _hmt = _hmt || [];
 <li><a href="#&#x7F51;&#x7EDC;&#x6027;&#x80FD;&#x6307;&#x6807;">&#x7F51;&#x7EDC;&#x6027;&#x80FD;&#x6307;&#x6807;</a><ul>
 <li><a href="#hping3&#x68C0;&#x6D4B;&#x5EF6;&#x8FDF;">hping3&#x68C0;&#x6D4B;&#x5EF6;&#x8FDF;</a></li>
 <li><a href="#traceroute&#x68C0;&#x6D4B;&#x5EF6;&#x8FDF;">traceroute&#x68C0;&#x6D4B;&#x5EF6;&#x8FDF;</a></li>
+<li><a href="#pktgen&#x53D1;&#x5305;">pktgen&#x53D1;&#x5305;</a></li>
 </ul>
 </li>
 </ul>
@@ -861,6 +894,8 @@ traceroute to baidu.com (123.125.115.110), 30 hops max, 60 byte packets
 13  * * *
 14  123.125.115.110  20.684 ms *  20.798 ms
 </code></pre>
+<h2 id="pktgen&#x53D1;&#x5305;">pktgen&#x53D1;&#x5305;</h2>
+<p>pktgen&#x662F;&#x5185;&#x6838;&#x81EA;&#x5E26;&#x7684;&#x53D1;&#x5305;&#x5DE5;&#x5177;&#xFF0C;<a href="https://www.kernel.org/doc/Documentation/networking/pktgen.txt" target="_blank">networking/pktgen.txt</a>&#xFF0C;Intel&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;DPDK&#x7684;&#x540C;&#x540D;&#x5DE5;&#x5177;<a href="https://pktgen-dpdk.readthedocs.io/en/latest/" target="_blank">The Pktgen Application</a>&#x3002;</p>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
@@ -932,7 +967,7 @@ traceroute to baidu.com (123.125.115.110), 30 hops max, 60 byte packets
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"性能指标","level":"1.2.8.1","depth":3,"next":{"title":"网卡状态","level":"1.2.8.2","depth":3,"path":"chapter1/network-nic-stat.md","ref":"chapter1/network-nic-stat.md","articles":[]},"previous":{"title":"理解网络","level":"1.2.8","depth":2,"path":"chapter1/network.md","ref":"chapter1/network.md","articles":[{"title":"性能指标","level":"1.2.8.1","depth":3,"path":"chapter1/network-metrics.md","ref":"chapter1/network-metrics.md","articles":[]},{"title":"网卡状态","level":"1.2.8.2","depth":3,"path":"chapter1/network-nic-stat.md","ref":"chapter1/network-nic-stat.md","articles":[]},{"title":"连接/协议栈状态","level":"1.2.8.3","depth":3,"path":"chapter1/network-stat.md","ref":"chapter1/network-stat.md","articles":[]},{"title":"netfilter","level":"1.2.8.4","depth":3,"path":"chapter1/network-netfilter.md","ref":"chapter1/network-netfilter.md","articles":[]},{"title":"报文跟踪","level":"1.2.8.5","depth":3,"path":"chapter1/network-trace-pkt.md","ref":"chapter1/network-trace-pkt.md","articles":[]},{"title":"DNS解析追踪","level":"1.2.8.6","depth":3,"path":"chapter1/network-dns-trace.md","ref":"chapter1/network-dns-trace.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/network-metrics.md","mtime":"2019-04-24T07:12:53.845Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-24T07:36:08.526Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"性能指标与检测","level":"1.2.8.1","depth":3,"next":{"title":"网卡状态","level":"1.2.8.2","depth":3,"path":"chapter1/network-nic-stat.md","ref":"chapter1/network-nic-stat.md","articles":[]},"previous":{"title":"理解网络","level":"1.2.8","depth":2,"path":"chapter1/network.md","ref":"chapter1/network.md","articles":[{"title":"性能指标与检测","level":"1.2.8.1","depth":3,"path":"chapter1/network-metrics.md","ref":"chapter1/network-metrics.md","articles":[]},{"title":"网卡状态","level":"1.2.8.2","depth":3,"path":"chapter1/network-nic-stat.md","ref":"chapter1/network-nic-stat.md","articles":[]},{"title":"连接/协议栈状态","level":"1.2.8.3","depth":3,"path":"chapter1/network-stat.md","ref":"chapter1/network-stat.md","articles":[]},{"title":"连接跟踪netfilter","level":"1.2.8.4","depth":3,"path":"chapter1/network-netfilter.md","ref":"chapter1/network-netfilter.md","articles":[]},{"title":"报文跟踪","level":"1.2.8.5","depth":3,"path":"chapter1/network-trace-pkt.md","ref":"chapter1/network-trace-pkt.md","articles":[]},{"title":"DNS解析追踪","level":"1.2.8.6","depth":3,"path":"chapter1/network-dns-trace.md","ref":"chapter1/network-dns-trace.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/network-metrics.md","mtime":"2019-04-26T06:50:24.181Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-26T09:25:32.488Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

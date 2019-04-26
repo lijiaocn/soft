@@ -61,7 +61,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="cpu-usage-high.html" />
+    <link rel="next" href="01-concept.html" />
     
     
     <link rel="prev" href="../" />
@@ -190,20 +190,7 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="cpu-usage-high.html">
-            
-                <a href="cpu-usage-high.html">
-            
-                    
-                    案例: CPU使用率很高
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="01-concept.html">
+        <li class="chapter " data-level="1.2.1" data-path="01-concept.html">
             
                 <a href="01-concept.html">
             
@@ -213,6 +200,38 @@ var _hmt = _hmt || [];
                 </a>
             
 
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="kernel.html">
+            
+                <a href="kernel.html">
+            
+                    
+                    理解内核
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="dynamic-trace.html">
+            
+                <a href="dynamic-trace.html">
+            
+                    
+                    动态追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -499,7 +518,7 @@ var _hmt = _hmt || [];
                 <a href="network-metrics.html">
             
                     
-                    性能指标
+                    性能指标与检测
             
                 </a>
             
@@ -538,7 +557,7 @@ var _hmt = _hmt || [];
                 <a href="network-netfilter.html">
             
                     
-                    netfilter
+                    连接跟踪netfilter
             
                 </a>
             
@@ -706,6 +725,19 @@ var _hmt = _hmt || [];
             
         </li>
     
+        <li class="chapter " data-level="1.2.10" data-path="cpu-usage-high.html">
+            
+                <a href="cpu-usage-high.html">
+            
+                    
+                    案例: CPU使用率很高
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -813,9 +845,36 @@ var _hmt = _hmt || [];
 </div-->
 
 
-                                <h1 id="linux&#x6027;&#x80FD;&#x4F18;&#x5316;">Linux&#x6027;&#x80FD;&#x4F18;&#x5316;</h1>
+                                <!-- toc -->
+<ul>
+<li><a href="#linux&#x6027;&#x80FD;&#x4F18;&#x5316;">Linux&#x6027;&#x80FD;&#x4F18;&#x5316;</a><ul>
+<li><a href="#&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;">&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;</a></li>
+<li><a href="#&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;">&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;</a></li>
+<li><a href="#cpu&#x5206;&#x6790;&#x601D;&#x8DEF;">CPU&#x5206;&#x6790;&#x601D;&#x8DEF;</a></li>
+<li><a href="#&#x5185;&#x5B58;&#x5206;&#x6790;&#x601D;&#x8DEF;">&#x5185;&#x5B58;&#x5206;&#x6790;&#x601D;&#x8DEF;</a></li>
+<li><a href="#io&#x5206;&#x6790;&#x601D;&#x8DEF;">IO&#x5206;&#x6790;&#x601D;&#x8DEF;</a></li>
+<li><a href="#&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x601D;&#x8DEF;">&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x601D;&#x8DEF;</a></li>
+<li><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a></li>
+<li><a href="#&#x5176;&#x5B83;&#x96F6;&#x788E;&#x6587;&#x7AE0;">&#x5176;&#x5B83;&#x96F6;&#x788E;&#x6587;&#x7AE0;</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="linux&#x6027;&#x80FD;&#x4F18;&#x5316;">Linux&#x6027;&#x80FD;&#x4F18;&#x5316;</h1>
 <p>&#x8FD9;&#x4E2A;&#x7AE0;&#x8282;&#x4E2D;&#x8BB0;&#x5F55;&#x7684;Linux&#x6027;&#x80FD;&#x4F18;&#x5316;&#x76F8;&#x5173;&#x7684;&#x77E5;&#x8BC6;&#xFF0C;&#x5C31;&#x662F;&#x5982;&#x4F55;&#x8BCA;&#x65AD;&#x6027;&#x80FD;&#x74F6;&#x9888;&#xFF0C;&#x5982;&#x4F55;&#x4F18;&#x5316;&#x3002;</p>
-<h2 id="&#x8D44;&#x6599;">&#x8D44;&#x6599;</h2>
+<h2 id="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;">&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;</h2>
+<p><img src="../img/linux/benchmark-tool.png" alt="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;"></p>
+<h2 id="&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;">&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;</h2>
+<p><img src="../img/linux/analyst-tool.png" alt="&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;"></p>
+<h2 id="cpu&#x5206;&#x6790;&#x601D;&#x8DEF;">CPU&#x5206;&#x6790;&#x601D;&#x8DEF;</h2>
+<p><img src="../img/linux/cpu-analyst.png" alt="CPU&#x6027;&#x80FD;&#x5206;&#x6790;"></p>
+<h2 id="&#x5185;&#x5B58;&#x5206;&#x6790;&#x601D;&#x8DEF;">&#x5185;&#x5B58;&#x5206;&#x6790;&#x601D;&#x8DEF;</h2>
+<p><img src="../img/linux/cpu-analyst.png" alt="&#x5185;&#x5B58;&#x6027;&#x80FD;&#x5206;&#x6790;"></p>
+<h2 id="io&#x5206;&#x6790;&#x601D;&#x8DEF;">IO&#x5206;&#x6790;&#x601D;&#x8DEF;</h2>
+<p><img src="../img/linux/io-analyst.png" alt="IO&#x6027;&#x80FD;&#x5206;&#x6790;"></p>
+<h2 id="&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x601D;&#x8DEF;">&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x601D;&#x8DEF;</h2>
+<p><img src="../img/linux/net-analyst.png" alt="&#x7F51;&#x7EDC;&#x6027;&#x80FD;&#x5206;&#x6790;"></p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h2>
 <p>&#x76F8;&#x5F53;&#x4E00;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x6765;&#x81EA;&#x6781;&#x5BA2;&#x65F6;&#x95F4;&#x51FA;&#x54C1;&#x7684;&#x502A;&#x9E4F;&#x98DE;&#x4E13;&#x680F;&#x300A;Linux&#x6027;&#x80FD;&#x4F18;&#x5316;&#x300B;&#xFF0C;&#x662F;&#x8FD9;&#x4E2A;&#x4E13;&#x680F;&#x7684;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#xFF1A;</p>
 <p><span style="display:block;text-align:center"><img src="../img/linux/01-geek-linux-ercode.jpeg" width="250px" alt="&#x6781;&#x5BA2;&#x65F6;&#x95F4;&#x502A;&#x9E4F;&#x98DE;Linux&#x6027;&#x80FD;&#x4F18;&#x5316;&#x6D77;&#x62A5;"></span></p>
 <p>&#x53E6;&#x4E00;&#x4EFD;&#x8D44;&#x6599;&#x662F;IBM&#x7EA2;&#x5B9D;&#x4E66;<a href="https://lihz1990.gitbooks.io/transoflptg/content/" target="_blank">Linux&#x6027;&#x80FD;&#x8C03;&#x4F18;&#x6307;&#x5357;</a>&#x3002;</p>
@@ -883,7 +942,7 @@ var _hmt = _hmt || [];
                 </a>
                 
                 
-                <a href="cpu-usage-high.html" class="navigation navigation-next " aria-label="Next page: 案例: CPU使用率很高">
+                <a href="01-concept.html" class="navigation navigation-next " aria-label="Next page: 认知框架">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -894,7 +953,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Linux性能优化与问题诊断","level":"1.2","depth":1,"next":{"title":"案例: CPU使用率很高","level":"1.2.1","depth":2,"path":"chapter1/cpu-usage-high.md","ref":"chapter1/cpu-usage-high.md","articles":[]},"previous":{"title":"Linux实用手册说明","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/README.md","mtime":"2019-04-24T09:11:59.570Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-24T07:36:08.526Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Linux性能优化与问题诊断","level":"1.2","depth":1,"next":{"title":"认知框架","level":"1.2.1","depth":2,"path":"chapter1/01-concept.md","ref":"chapter1/01-concept.md","articles":[]},"previous":{"title":"Linux实用手册说明","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/README.md","mtime":"2019-04-26T10:54:36.525Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-26T09:25:32.488Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

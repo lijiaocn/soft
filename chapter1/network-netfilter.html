@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>netfilter · GitBook</title>
+        <title>连接跟踪netfilter · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -190,20 +190,7 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="cpu-usage-high.html">
-            
-                <a href="cpu-usage-high.html">
-            
-                    
-                    案例: CPU使用率很高
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="01-concept.html">
+        <li class="chapter " data-level="1.2.1" data-path="01-concept.html">
             
                 <a href="01-concept.html">
             
@@ -213,6 +200,38 @@ var _hmt = _hmt || [];
                 </a>
             
 
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="kernel.html">
+            
+                <a href="kernel.html">
+            
+                    
+                    理解内核
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="dynamic-trace.html">
+            
+                <a href="dynamic-trace.html">
+            
+                    
+                    动态追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -499,7 +518,7 @@ var _hmt = _hmt || [];
                 <a href="network-metrics.html">
             
                     
-                    性能指标
+                    性能指标与检测
             
                 </a>
             
@@ -538,7 +557,7 @@ var _hmt = _hmt || [];
                 <a href="network-netfilter.html">
             
                     
-                    netfilter
+                    连接跟踪netfilter
             
                 </a>
             
@@ -706,6 +725,19 @@ var _hmt = _hmt || [];
             
         </li>
     
+        <li class="chapter " data-level="1.2.10" data-path="cpu-usage-high.html">
+            
+                <a href="cpu-usage-high.html">
+            
+                    
+                    案例: CPU使用率很高
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -783,7 +815,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >netfilter</a>
+        <a href=".." >连接跟踪netfilter</a>
     </h1>
 </div>
 
@@ -816,6 +848,7 @@ var _hmt = _hmt || [];
                                 <!-- toc -->
 <ul>
 <li><a href="#linux&#x7684;netfilter">Linux&#x7684;netfilter</a><ul>
+<li><a href="#&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x53C2;&#x6570;">&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x53C2;&#x6570;</a></li>
 <li><a href="#conntrack&#x67E5;&#x770B;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x7684;&#x5185;&#x5BB9;">conntrack&#x67E5;&#x770B;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x7684;&#x5185;&#x5BB9;</a></li>
 <li><a href="#&#x7EDF;&#x8BA1;&#x603B;&#x7684;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x6570;">&#x7EDF;&#x8BA1;&#x603B;&#x7684;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x6570;</a></li>
 <li><a href="#&#x7EDF;&#x8BA1;tcp&#x534F;&#x8BAE;&#x5404;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x6570;">&#x7EDF;&#x8BA1;TCP&#x534F;&#x8BAE;&#x5404;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x6570;</a></li>
@@ -826,13 +859,21 @@ var _hmt = _hmt || [];
 <!-- tocstop -->
 <h1 id="linux&#x7684;netfilter">Linux&#x7684;netfilter</h1>
 <p><img src="../img/linux/net-filter.png" alt="net filter"></p>
-<p>&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;120&#x79D2;&#xFF1A;</p>
-<pre><code>sysctl net.netfilter.nf_conntrack_tcp_timeout_time_wait
-net.netfilter.nf_conntrack_tcp_timeout_time_wait = 120
-</code></pre><p>&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x5927;&#x5C0F;&#x8BBE;&#x7F6E;&#xFF1A;</p>
-<pre><code>$ sysctl net.netfilter.nf_conntrack_max=131072       //&#x8DDF;&#x8E2A;&#x8868;&#x5927;&#x5C0F;
-$ sysctl net.netfilter.nf_conntrack_buckets=65536    //&#x8DDF;&#x8E2A;&#x8868;&#x6876;&#x5927;&#x5C0F;
-</code></pre><h2 id="conntrack&#x67E5;&#x770B;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x7684;&#x5185;&#x5BB9;">conntrack&#x67E5;&#x770B;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x7684;&#x5185;&#x5BB9;</h2>
+<h2 id="&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x53C2;&#x6570;">&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x53C2;&#x6570;</h2>
+<p>&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;tcp&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;120&#x79D2;&#xFF1A;</p>
+<pre><code class="lang-sh">sysctl net.netfilter.nf_conntrack_tcp_timeout_time_<span class="hljs-built_in">wait</span>
+net.netfilter.nf_conntrack_tcp_timeout_time_<span class="hljs-built_in">wait</span> = 120
+</code></pre>
+<p>&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x5927;&#x5C0F;&#x8BBE;&#x7F6E;&#xFF1A;</p>
+<pre><code class="lang-sh">$ sysctl net.netfilter.nf_conntrack_max=131072       //&#x8DDF;&#x8E2A;&#x8868;&#x7684;&#x603B;&#x5BB9;&#x91CF;
+$ sysctl net.netfilter.nf_conntrack_buckets=65536    //&#x8DDF;&#x8E2A;&#x8868;&#x7684;&#x6876;&#x6570;&#x91CF;
+</code></pre>
+<p>&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x5185;&#x5B58;&#x5F00;&#x9500;&#x8BA1;&#x7B97;&#xFF0C;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x5BF9;&#x8C61;&#x5927;&#x5C0F;&#x4E3A;376&#xFF0C;&#x94FE;&#x8868;&#x9879;&#x5927;&#x5C0F;&#x4E3A;16&#xFF1A;</p>
+<pre><code class="lang-sh">nf_conntrack_max* &#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x5BF9;&#x8C61;&#x5927;&#x5C0F; +nf_conntrack_buckets* &#x94FE;&#x8868;&#x9879;&#x5927;&#x5C0F;
+= 1000*376+65536*16 B
+= 1.4 MB
+</code></pre>
+<h2 id="conntrack&#x67E5;&#x770B;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x7684;&#x5185;&#x5BB9;">conntrack&#x67E5;&#x770B;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x7684;&#x5185;&#x5BB9;</h2>
 <p>conntrack&#x67E5;&#x770B;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x8868;&#x7684;&#x5185;&#x5BB9;&#xFF0C; -L &#x8868;&#x793A;&#x5217;&#x8868;&#xFF0C;-o &#x8868;&#x793A;&#x4EE5;&#x6269;&#x5C55;&#x683C;&#x5F0F;&#x663E;&#x793A;&#xFF1A;</p>
 <pre><code class="lang-sh">$ conntrack -L -o extended
 ipv4     2 tcp      6 7 TIME_WAIT src=192.168.0.2 dst=192.168.0.96 sport=51744 dport=8080 src=172.17.0.2 dst=192.168.0.2 sport=8080 dport=51744 [ASSURED] mark=0 use=1
@@ -927,7 +968,7 @@ TIME_WAIT 9283
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"netfilter","level":"1.2.8.4","depth":3,"next":{"title":"报文跟踪","level":"1.2.8.5","depth":3,"path":"chapter1/network-trace-pkt.md","ref":"chapter1/network-trace-pkt.md","articles":[]},"previous":{"title":"连接/协议栈状态","level":"1.2.8.3","depth":3,"path":"chapter1/network-stat.md","ref":"chapter1/network-stat.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/network-netfilter.md","mtime":"2019-04-24T11:44:09.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-24T07:36:08.526Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"连接跟踪netfilter","level":"1.2.8.4","depth":3,"next":{"title":"报文跟踪","level":"1.2.8.5","depth":3,"path":"chapter1/network-trace-pkt.md","ref":"chapter1/network-trace-pkt.md","articles":[]},"previous":{"title":"连接/协议栈状态","level":"1.2.8.3","depth":3,"path":"chapter1/network-stat.md","ref":"chapter1/network-stat.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/network-netfilter.md","mtime":"2019-04-26T03:53:13.146Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-26T09:25:32.488Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
