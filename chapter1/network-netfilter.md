@@ -3,7 +3,9 @@
 
 ![net filter](/img/linux/net-filter.png)
 
-连接跟踪表超时时间，默认120秒：
+## 连接跟踪表参数
+
+连接跟踪表tcp超时时间，默认120秒：
 
 ```sh
 sysctl net.netfilter.nf_conntrack_tcp_timeout_time_wait
@@ -13,10 +15,17 @@ net.netfilter.nf_conntrack_tcp_timeout_time_wait = 120
 连接跟踪表大小设置：
 
 ```sh
-$ sysctl net.netfilter.nf_conntrack_max=131072       //跟踪表大小
-$ sysctl net.netfilter.nf_conntrack_buckets=65536    //跟踪表桶大小
+$ sysctl net.netfilter.nf_conntrack_max=131072       //跟踪表的总容量
+$ sysctl net.netfilter.nf_conntrack_buckets=65536    //跟踪表的桶数量
 ```
 
+连接跟踪表内存开销计算，连接跟踪对象大小为376，链表项大小为16：
+
+```sh
+nf_conntrack_max* 连接跟踪对象大小 +nf_conntrack_buckets* 链表项大小
+= 1000*376+65536*16 B
+= 1.4 MB
+```
 
 ## conntrack查看连接跟踪表的内容
 
