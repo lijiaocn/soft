@@ -61,7 +61,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="memory-stat.html" />
+    <link rel="next" href="memory-manage.html" />
     
     
     <link rel="prev" href="03-cpu-1.html" />
@@ -307,7 +307,33 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.4.1" data-path="memory-stat.html">
+        <li class="chapter " data-level="1.2.4.1" data-path="memory-manage.html">
+            
+                <a href="memory-manage.html">
+            
+                    
+                    内存管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="memory-cache.html">
+            
+                <a href="memory-cache.html">
+            
+                    
+                    内存缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="memory-stat.html">
             
                 <a href="memory-stat.html">
             
@@ -584,6 +610,19 @@ var _hmt = _hmt || [];
             
                     
                     DNS解析追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.7" data-path="netio-high-performance.html">
+            
+                <a href="netio-high-performance.html">
+            
+                    
+                    高性能网络IO
             
                 </a>
             
@@ -906,7 +945,7 @@ var _hmt = _hmt || [];
                 </a>
                 
                 
-                <a href="memory-stat.html" class="navigation navigation-next " aria-label="Next page: 内存状态">
+                <a href="memory-manage.html" class="navigation navigation-next " aria-label="Next page: 内存管理">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -917,7 +956,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"理解内存","level":"1.2.4","depth":2,"next":{"title":"内存状态","level":"1.2.4.1","depth":3,"path":"chapter1/memory-stat.md","ref":"chapter1/memory-stat.md","articles":[]},"previous":{"title":"CPU上下文切换","level":"1.2.3.3","depth":3,"path":"chapter1/03-cpu-1.md","ref":"chapter1/03-cpu-1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/memory.md","mtime":"2019-04-28T03:43:19.608Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-28T03:43:20.620Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"理解内存","level":"1.2.4","depth":2,"next":{"title":"内存管理","level":"1.2.4.1","depth":3,"path":"chapter1/memory-manage.md","ref":"chapter1/memory-manage.md","articles":[]},"previous":{"title":"CPU上下文切换","level":"1.2.3.3","depth":3,"path":"chapter1/03-cpu-1.md","ref":"chapter1/03-cpu-1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/memory.md","mtime":"2019-04-28T06:36:45.801Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-28T09:20:11.643Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
