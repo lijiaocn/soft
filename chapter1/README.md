@@ -3,6 +3,14 @@
 
 这个章节中记录的Linux性能优化相关的知识，就是如何诊断性能瓶颈，如何优化。
 
+## 方法论
+
+RED方法：监控服务的请求数（Rate）、错误数（Errors）、响应时间（Duration）。Weave Cloud在监控微服务性能时提出的思路。
+
+USE方法：监控系统资源的使用率（Utilization）、饱和度（Saturation）、错误数（Errors）。
+
+![USE方法常见指标分类](/img/linux/use-metrics.png)
+
 ## 基准测试工具
 
 ![基准测试工具](/img/linux/benchmark-tool.png)
