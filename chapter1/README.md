@@ -13,19 +13,36 @@
 
 ## CPU分析思路
 
+![CPU指标](/img/linux/cpu-metrics.png)
+
 ![CPU性能分析](/img/linux/cpu-analyst.png)
+
+![CPU分析工具](/img/linux/cpu-tools.png)
 
 ## 内存分析思路
 
+![内存性能指标](/img/linux/memory-metrics.png)
+
 ![内存性能分析](/img/linux/cpu-analyst.png)
+
+![内存分析工具](/img/linux/memory-tools.png)
 
 ## IO分析思路
 
+![文件系统IO指标](/img/linux/file-io-metrics.png)
+
 ![IO性能分析](/img/linux/io-analyst.png)
+
+![IO分析工具](/img/linux/file-io-tools.png)
+
 
 ## 网络分析思路
 
+![网络性能指标](/img/linux/net-metrics.png)
+
 ![网络性能分析](/img/linux/net-analyst.png)
+
+![网络性能工具](/img/linux/net-tools.png)
 
 ## 参考资料
 
@@ -34,8 +51,6 @@
 另一份资料是IBM红宝书[Linux性能调优指南](https://lihz1990.gitbooks.io/transoflptg/content/)。
 
 此外，[The Linux Documentation Project](http://tldp.org/)是一个非常好的资料库。
-
-## 其它零碎文章
 
 将硬件中断的处理任务分配个多个CPU：[SMP affinity and proper interrupt handling in Linux](http://www.alexonlinux.com/smp-affinity-and-proper-interrupt-handling-in-linux)
 
