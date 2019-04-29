@@ -8,12 +8,20 @@
 			"name": "theme-lijiaocn",
 			"version": "git+https://github.com/lijiaocn/theme-lijiaocn.git"
 		},
-		"atoc"
+		"atoc",
+		"rss"
 	],
 	"pluginsConfig": {
 		"atoc": {
 			"addClass": true,
 			"className": "atoc"
+		},
+		"rss": {
+			"title": "Linux问题诊断与性能优化（实用手册）",
+			"description": "Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具",
+			"author": "李佶澳",
+			"site_url": "https://www.lijiaocn.com/linux/",
+			"feed_url": "https://www.lijiaocn.com/linux/feed.xml"
 		}
 	}
 }
