@@ -254,7 +254,7 @@ var _hmt = _hmt || [];
                 <a href="../chapter1/02-process-3.html">
             
                     
-                    CPU的状态
+                    CPU的工作状态
             
                 </a>
             
@@ -262,25 +262,25 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.2" data-path="../chapter1/cpu-usage-analysis.html">
-            
-                <a href="../chapter1/cpu-usage-analysis.html">
-            
-                    
-                    CPU使用分析
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3.3" data-path="../chapter1/03-cpu-1.html">
+        <li class="chapter " data-level="1.2.3.2" data-path="../chapter1/03-cpu-1.html">
             
                 <a href="../chapter1/03-cpu-1.html">
             
                     
                     CPU上下文切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../chapter1/cpu-usage-analysis.html">
+            
+                <a href="../chapter1/cpu-usage-analysis.html">
+            
+                    
+                    CPU的使用情况
             
                 </a>
             
@@ -423,6 +423,19 @@ var _hmt = _hmt || [];
             
         </li>
     
+        <li class="chapter " data-level="1.2.6.3" data-path="../chapter1/process-resouce.html">
+            
+                <a href="../chapter1/process-resouce.html">
+            
+                    
+                    进程占用的资源
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -500,19 +513,6 @@ var _hmt = _hmt || [];
             
                     
                     系统I/O状态
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.7.6" data-path="process_io.html">
-            
-                <a href="process_io.html">
-            
-                    
-                    进程的I/O状态
             
                 </a>
             
@@ -891,7 +891,6 @@ var _hmt = _hmt || [];
 <li><a href="#&#x78C1;&#x76D8;&#x6570;&#x636E;&#x6700;&#x5C0F;&#x7BA1;&#x7406;&#x5355;&#x4F4D;">&#x78C1;&#x76D8;&#x6570;&#x636E;&#x6700;&#x5C0F;&#x7BA1;&#x7406;&#x5355;&#x4F4D;</a></li>
 <li><a href="#&#x78C1;&#x76D8;&#x6027;&#x80FD;&#x6307;&#x6807;">&#x78C1;&#x76D8;&#x6027;&#x80FD;&#x6307;&#x6807;</a></li>
 <li><a href="#&#x78C1;&#x76D8;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;">&#x78C1;&#x76D8;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;</a></li>
-<li><a href="#&#x78C1;&#x76D8;&#x72B6;&#x6001;&#x89C2;&#x6D4B;">&#x78C1;&#x76D8;&#x72B6;&#x6001;&#x89C2;&#x6D4B;</a></li>
 </ul>
 </li>
 </ul>
@@ -916,32 +915,6 @@ var _hmt = _hmt || [];
 <p>&#x78C1;&#x76D8;&#x4F7F;&#x7528;&#x7387;&#x9AD8;&#x4E0D;&#x7B49;&#x4E8E;&#x78C1;&#x76D8;&#x9971;&#x548C;&#xFF0C;&#x5982;&#x679C;&#x6BCF;&#x6B21;I/O&#x64CD;&#x4F5C;&#x7684;&#x6570;&#x636E;&#x91CF;&#x5F88;&#x5C11;&#xFF0C;&#x78C1;&#x76D8;&#x7684;&#x4F7F;&#x7528;&#x7387;&#x9AD8;&#xFF0C;&#x4F46;&#x662F;&#x9971;&#x548C;&#x5EA6;&#x4E0D;&#x9AD8;&#xFF0C;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x63A5;&#x6536;&#x65B0;&#x7684;I/O&#x8BF7;&#x6C42;&#x3002;(&#x611F;&#x89C9;&#x9971;&#x548C;&#x5EA6;&#x6709;&#x70B9;&#x7C7B;&#x4F3C;&#x4E8E;&#x5E26;&#x5BBD;&#x5360;&#x6BD4;&#xFF0C;&#x662F;&#x548C;&#x541E;&#x5410;&#x91CF;&#x76F8;&#x5173;&#x7684;)</p>
 <h2 id="&#x78C1;&#x76D8;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;">&#x78C1;&#x76D8;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;</h2>
 <p>fio&#xFF0C;&#x6D4B;&#x8BD5;&#x65F6;&#x9700;&#x8981;&#x8003;&#x8651;&#x4E0D;&#x540C;I/O&#x5927;&#x5C0F;&#x3001;&#x968F;&#x673A;&#x8BFB;&#x3001;&#x987A;&#x5E8F;&#x8BFB;&#x3001;&#x968F;&#x673A;&#x5199;&#x3001;&#x987A;&#x5E8F;&#x5199;&#x7B49;&#x3002;</p>
-<h2 id="&#x78C1;&#x76D8;&#x72B6;&#x6001;&#x89C2;&#x6D4B;">&#x78C1;&#x76D8;&#x72B6;&#x6001;&#x89C2;&#x6D4B;</h2>
-<p>iostat&#xFF0C;&#x5448;&#x73B0;&#x7684;&#x6570;&#x636E;&#x6765;&#x81EA;<code>/proc/diskstats</code>&#xFF0C;<code>-d -x</code> &#x663E;&#x793A;&#x6240;&#x6709;&#x78C1;&#x76D8; I/O &#x7684;&#x6307;&#x6807;&#x3002;</p>
-<pre><code class="lang-sh">$ iostat <span class="hljs-_">-d</span> -x 1
-Device:    rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
-vda          0.00     0.01    0.43    0.19    74.76     1.59   243.28     0.06    4.63    1.67   11.27  97.45   6.12
-vdb          0.00     0.00    0.72    0.01   146.07     0.19   402.12     0.00    1.43    1.26   11.25   0.15   0.01
-
-Device:    rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
-vda          0.00     0.00    1.00    0.00     8.00     0.00    16.00     0.00    4.00    4.00    0.00   4.00   0.40
-vdb          0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
-
-Device:    rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
-vda          0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
-vdb          0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
-</code></pre>
-<p>rrqm/s&#xFF1A; &#x6BCF;&#x79D2;&#x5408;&#x5E76;&#x8BFB;&#x8BF7;&#x6C42;&#x6570;</p>
-<p>r/s&#xFF1A;&#x6BCF;&#x79D2;&#x53D1;&#x9001;&#x7ED9;&#x78C1;&#x76D8;&#x7684;&#x8BFB;&#x8BF7;&#x6C42;&#x6570;&#xFF08;&#x5408;&#x5E76;&#x540E;&#xFF09; </p>
-<p>rkB/s&#xFF1A;&#x6BCF;&#x79D2;&#x4ECE;&#x78C1;&#x76D8;&#x8BFB;&#x53D6;&#x7684;&#x6570;&#x636E;&#x91CF;&#xFF0C;&#x5355;&#x4F4D;KB</p>
-<p>r_await&#xFF1A;&#x8BFB;&#x54CD;&#x5E94;&#x65F6;&#x95F4;&#xFF0C;&#x5355;&#x4F4D;&#x6BEB;&#x79D2;</p>
-<p>wrqm/s&#xFF1A; &#x5408;&#x5E76;&#x5199;&#x8BF7;&#x6C42;&#x901F;&#x7387;</p>
-<p>w/s&#xFF1A;&#x6BCF;&#x79D2;&#x53D1;&#x9001;&#x7ED9;&#x78C1;&#x76D8;&#x7684;&#x5199;&#x8BF7;&#x6C42;&#x6570;&#xFF08;&#x5408;&#x5E76;&#x540E;&#xFF09;</p>
-<p>wkB/s&#xFF1A;&#x6BCF;&#x79D2;&#x5411;&#x78C1;&#x76D8;&#x5199;&#x5165;&#x7684;&#x6570;&#x636E;&#x91CF;&#xFF0C;&#x5355;&#x4F4D;KB</p>
-<p>w_await&#xFF1A;&#x5199;&#x54CD;&#x5E94;&#x65F6;&#x95F4;&#xFF0C;&#x5355;&#x4F4D;&#x6BEB;&#x79D2;</p>
-<p>avgqu-sz/aqu-sz&#xFF1A;&#x5E73;&#x5747;&#x8BF7;&#x6C42;&#x961F;&#x5217;&#x957F;&#x5EA6;</p>
-<p>svctm&#xFF1A; &#x63A8;&#x65AD;&#x7684;&#x5904;&#x7406;I/O&#x8BF7;&#x6C42;&#x9700;&#x8981;&#x7684;&#x5E73;&#x5747;&#x65F6;&#x95F4;&#xFF0C;&#x5355;&#x4F4D;&#x662F;&#x6BEB;&#x79D2;</p>
-<p>%util&#xFF1A;&#x78C1;&#x76D8;&#x5904;&#x7406;I/O&#x7684;&#x65F6;&#x95F4;&#x5360;&#x6BD4;&#xFF0C;&#x5373;&#x4F7F;&#x7528;&#x7387;&#xFF0C;&#x4F7F;&#x7528;&#x7387;100%&#xFF0C;&#x8BF4;&#x660E;I/O&#x64CD;&#x4F5C;&#x591A;&#xFF08;&#x4E0D;&#x7B49;&#x4E8E;&#x78C1;&#x76D8;&#x9971;&#x548C;&#xFF0C;&#x9971;&#x548C;&#x662F;&#x4E0D;&#x80FD;&#x518D;&#x63A5;&#x6536;&#x65B0;&#x7684;&#x8BFB;&#x5199;)</p>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
@@ -1013,7 +986,7 @@ vdb          0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00  
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"磁盘","level":"1.2.7.2","depth":3,"next":{"title":"文件系统状态","level":"1.2.7.3","depth":3,"path":"chapter3/filesystem-stat.md","ref":"chapter3/filesystem-stat.md","articles":[]},"previous":{"title":"VFS","level":"1.2.7.1","depth":3,"path":"chapter3/vfs.md","ref":"chapter3/vfs.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter3/disk.md","mtime":"2019-04-28T06:36:45.808Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-28T09:20:11.643Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"磁盘","level":"1.2.7.2","depth":3,"next":{"title":"文件系统状态","level":"1.2.7.3","depth":3,"path":"chapter3/filesystem-stat.md","ref":"chapter3/filesystem-stat.md","articles":[]},"previous":{"title":"VFS","level":"1.2.7.1","depth":3,"path":"chapter3/vfs.md","ref":"chapter3/vfs.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter3/disk.md","mtime":"2019-04-29T07:26:48.387Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-29T07:42:59.422Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1024,10 +997,6 @@ vdb          0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00  
     
         
         <script src="../gitbook/gitbook-plugin-atoc/atoc.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

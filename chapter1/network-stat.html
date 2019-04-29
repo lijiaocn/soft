@@ -254,7 +254,7 @@ var _hmt = _hmt || [];
                 <a href="02-process-3.html">
             
                     
-                    CPU的状态
+                    CPU的工作状态
             
                 </a>
             
@@ -262,25 +262,25 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.2" data-path="cpu-usage-analysis.html">
-            
-                <a href="cpu-usage-analysis.html">
-            
-                    
-                    CPU使用分析
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3.3" data-path="03-cpu-1.html">
+        <li class="chapter " data-level="1.2.3.2" data-path="03-cpu-1.html">
             
                 <a href="03-cpu-1.html">
             
                     
                     CPU上下文切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="cpu-usage-analysis.html">
+            
+                <a href="cpu-usage-analysis.html">
+            
+                    
+                    CPU的使用情况
             
                 </a>
             
@@ -423,6 +423,19 @@ var _hmt = _hmt || [];
             
         </li>
     
+        <li class="chapter " data-level="1.2.6.3" data-path="process-resouce.html">
+            
+                <a href="process-resouce.html">
+            
+                    
+                    进程占用的资源
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -500,19 +513,6 @@ var _hmt = _hmt || [];
             
                     
                     系统I/O状态
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.7.6" data-path="../chapter3/process_io.html">
-            
-                <a href="../chapter3/process_io.html">
-            
-                    
-                    进程的I/O状态
             
                 </a>
             
@@ -921,11 +921,10 @@ tcp        0      0 127.0.0.1:54728         127.0.0.1:10248         TIME_WAIT   
 </code></pre>
 <p>ss&#x547D;&#x4EE4;&#x662F;netstat&#x7684;&#x66FF;&#x4EE3;&#x547D;&#x4EE4;&#xFF1A;</p>
 <pre><code class="lang-sh">$ ss -ntp
-State      Recv-Q Send-Q                                                         Local Address:Port                                                                        Peer Address:Port
-ESTAB      0      0                                                               10.19.180.92:10250                                                                       10.19.14.106:38292               users:((<span class="hljs-string">&quot;kubelet&quot;</span>,pid=15242,fd=41))
-ESTAB      0      0                                                               10.19.180.92:35154                                                                       10.19.61.146:2379                users:((<span class="hljs-string">&quot;flanneld&quot;</span>,pid=1042,fd=10))
-ESTAB      0      0                                                               10.19.180.92:45380                                                                       10.19.162.39:6443                users:((<span class="hljs-string">&quot;kube-proxy&quot;</span>,pid=14013,fd=8))
-ESTAB      0      0                                                               10.19.180.92:10250                                                                         10.19.11.7:49618
+State      Recv-Q Send-Q     Local Address:Port         Peer Address:Port
+ESTAB      0      0           10.19.180.92:10250        10.19.14.106:38292     users:((<span class="hljs-string">&quot;kubelet&quot;</span>,pid=15242,fd=41))
+ESTAB      0      0           10.19.180.92:35154        10.19.61.146:2379      users:((<span class="hljs-string">&quot;flanneld&quot;</span>,pid=1042,fd=10))
+ESTAB      0      0           10.19.180.92:45380        10.19.162.39:6443      users:((<span class="hljs-string">&quot;kube-proxy&quot;</span>,pid=14013,fd=8))
 </code></pre>
 <p>&#x5F53;&#x5957;&#x63A5;&#x5B57;&#x662F;&#x8FDE;&#x63A5;&#x72B6;&#x6001;&#x65F6;&#xFF0C;Established&#xFF1A;</p>
 <p><strong>Recv-Q</strong>&#xFF1A;&#x5957;&#x63A5;&#x5B57;&#x63A5;&#x6536;&#x961F;&#x5217;&#x4E2D;&#x8FD8;&#x6CA1;&#x6709;&#x88AB;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8BFB;&#x53D6;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;</p>
@@ -1074,7 +1073,7 @@ TcpExt:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"连接/协议栈状态","level":"1.2.8.3","depth":3,"next":{"title":"连接跟踪netfilter","level":"1.2.8.4","depth":3,"path":"chapter1/network-netfilter.md","ref":"chapter1/network-netfilter.md","articles":[]},"previous":{"title":"网卡状态","level":"1.2.8.2","depth":3,"path":"chapter1/network-nic-stat.md","ref":"chapter1/network-nic-stat.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/network-stat.md","mtime":"2019-04-28T06:36:45.804Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-28T09:20:11.643Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"连接/协议栈状态","level":"1.2.8.3","depth":3,"next":{"title":"连接跟踪netfilter","level":"1.2.8.4","depth":3,"path":"chapter1/network-netfilter.md","ref":"chapter1/network-netfilter.md","articles":[]},"previous":{"title":"网卡状态","level":"1.2.8.2","depth":3,"path":"chapter1/network-nic-stat.md","ref":"chapter1/network-nic-stat.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/network-stat.md","mtime":"2019-04-29T07:26:48.382Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-29T07:42:59.422Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1085,10 +1084,6 @@ TcpExt:
     
         
         <script src="../gitbook/gitbook-plugin-atoc/atoc.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
