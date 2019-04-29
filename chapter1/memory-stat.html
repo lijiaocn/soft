@@ -254,7 +254,7 @@ var _hmt = _hmt || [];
                 <a href="02-process-3.html">
             
                     
-                    CPU的状态
+                    CPU的工作状态
             
                 </a>
             
@@ -262,25 +262,25 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.2" data-path="cpu-usage-analysis.html">
-            
-                <a href="cpu-usage-analysis.html">
-            
-                    
-                    CPU使用分析
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3.3" data-path="03-cpu-1.html">
+        <li class="chapter " data-level="1.2.3.2" data-path="03-cpu-1.html">
             
                 <a href="03-cpu-1.html">
             
                     
                     CPU上下文切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="cpu-usage-analysis.html">
+            
+                <a href="cpu-usage-analysis.html">
+            
+                    
+                    CPU的使用情况
             
                 </a>
             
@@ -423,6 +423,19 @@ var _hmt = _hmt || [];
             
         </li>
     
+        <li class="chapter " data-level="1.2.6.3" data-path="process-resouce.html">
+            
+                <a href="process-resouce.html">
+            
+                    
+                    进程占用的资源
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -500,19 +513,6 @@ var _hmt = _hmt || [];
             
                     
                     系统I/O状态
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.7.6" data-path="../chapter3/process_io.html">
-            
-                <a href="../chapter3/process_io.html">
-            
-                    
-                    进程的I/O状态
             
                 </a>
             
@@ -894,7 +894,7 @@ var _hmt = _hmt || [];
 <!-- tocstop -->
 <h1 id="&#x67E5;&#x770B;&#x5185;&#x5B58;&#x72B6;&#x6001;">&#x67E5;&#x770B;&#x5185;&#x5B58;&#x72B6;&#x6001;</h1>
 <h2 id="vmstat&#x67E5;&#x770B;&#x5185;&#x5B58;&#x72B6;&#x6001;">vmstat&#x67E5;&#x770B;&#x5185;&#x5B58;&#x72B6;&#x6001;</h2>
-<pre><code class="lang-sh">vmstat 1
+<pre><code class="lang-sh">$ vmstat 1
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  r  b   swpd   free   buff  cache   si   so    bi    bo   <span class="hljs-keyword">in</span>   cs us sy id wa st
  0  1      0 6809304   1368 856744    0    0 32640     0   52  478  1  0 50 49  0
@@ -903,6 +903,12 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  0  0      0 6747540   1368 918576    0    0     0     0   40  141  1  0 100  0  0
  0  0      0 6747160   1368 918576    0    0     0     0   40  148  0  1 99  0  0
 </code></pre>
+<p>buff: &#x5199;&#x5165;&#x7F13;&#x51B2;&#x533A;&#x3002;</p>
+<p>cache: &#x8BFB;&#x53D6;&#x7F13;&#x51B2;&#x533A;&#x3002;</p>
+<p>bi: &#x6BCF;&#x79D2;&#x4ECE;&#x5757;&#x8BBE;&#x5907;&#x4E0A;&#x8BFB;&#x53D6;&#x7684;&#x5757;&#x6570;&#xFF08;block/s&#xFF09;&#x3002;</p>
+<p>bo: &#x6BCF;&#x79D2;&#x5411;&#x5757;&#x8BBE;&#x5907;&#x4E0A;&#x5199;&#x5165;&#x7684;&#x5757;&#x6570;&#xFF08;block/s&#xFF09;&#x3002;</p>
+<p>in: &#x6BCF;&#x79D2;&#x4E2D;&#x65AD;&#x6B21;&#x6570;&#xFF0C;&#x5305;&#x542B;&#x65F6;&#x949F;&#x4E2D;&#x65AD;&#x3002;</p>
+<p>cs: &#x6BCF;&#x79D2;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x6B21;&#x6570;&#x3002;</p>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
@@ -974,7 +980,7 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"内存状态","level":"1.2.4.3","depth":3,"next":{"title":"理解中断","level":"1.2.5","depth":2,"path":"chapter1/interrupt.md","ref":"chapter1/interrupt.md","articles":[{"title":"系统中断","level":"1.2.5.1","depth":3,"path":"chapter1/sys-interrupt.md","ref":"chapter1/sys-interrupt.md","articles":[]}]},"previous":{"title":"内存缓存","level":"1.2.4.2","depth":3,"path":"chapter1/memory-cache.md","ref":"chapter1/memory-cache.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/memory-stat.md","mtime":"2019-04-28T06:36:45.800Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-28T09:20:11.643Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"内存状态","level":"1.2.4.3","depth":3,"next":{"title":"理解中断","level":"1.2.5","depth":2,"path":"chapter1/interrupt.md","ref":"chapter1/interrupt.md","articles":[{"title":"系统中断","level":"1.2.5.1","depth":3,"path":"chapter1/sys-interrupt.md","ref":"chapter1/sys-interrupt.md","articles":[]}]},"previous":{"title":"内存缓存","level":"1.2.4.2","depth":3,"path":"chapter1/memory-cache.md","ref":"chapter1/memory-cache.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-lijiaocn@git+https://github.com/lijiaocn/theme-lijiaocn.git","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"chapter1/memory-stat.md","mtime":"2019-04-29T03:37:12.703Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-28T09:21:59.429Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
