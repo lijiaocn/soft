@@ -3,7 +3,7 @@
 
 ## dstat查看系统整体IO状态 
 
-dstat同时展示CPU、磁盘IO和网络IO的状态，以及系统终端和上下文切换数量，用yum直接安装即可：
+dstat同时展示CPU、磁盘IO和网络IO的状态，以及系统中断、内存换页和上下文切换数量，用yum直接安装即可：
 
 ```sh
 yum install -y dstat
@@ -58,7 +58,13 @@ svctm： 推断的处理I/O请求需要的平均时间，单位是毫秒
 
 filetop是一个bcc工具箱中的一个工具（bcc系列工具见[BCC系列工具](chapter1/04-bcc-tools.md)），它能够动态展示文件的读写情况，由高到低排序。
 
-在CentOS上用yum安装bcc-tools：yum install -y bcc-tools。需要注意的是bcc命令被安装在/usr/share/bcc/tools/目录中，该目录默认不在$PATH中。另外，如果内核版本不支持ebpf，bcc-tools中的有些命令使用的时候会报错。filetop在不支持ebpf的内核上可以工作。
+在CentOS上用yum安装bcc-tools：
+
+```sh
+yum install -y bcc-tools。
+```
+
+需要注意的是bcc命令被安装在/usr/share/bcc/tools/目录中，该目录默认不在$PATH中。另外，如果内核版本不支持ebpf，bcc-tools中的有些命令使用的时候会报错。filetop在不支持ebpf的内核上可以工作。
 
 ```
 $ /usr/share/bcc/tools/filetop    
@@ -72,3 +78,41 @@ $ /usr/share/bcc/tools/filetop -C   # 刷新数据前不清除屏幕，这样可
 opensnoop也是bcc工具箱中的一个，用来跟踪系统调用open，显示被打开的文件：
 
 ![opensnoop](/img/linux/opensnoop.png)
+## iotop查看进程I/O排行
+
+iotop动态显示每个线程的IO操作情况，由高到底排序：
+
+```bash
+Total DISK READ :	0.00 B/s | Total DISK WRITE :      11.28 K/s
+Actual DISK READ:	0.00 B/s | Actual DISK WRITE:       0.00 B/s
+  TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN     IO>    COMMAND
+  329 be/4 nobody      0.00 B/s    3.76 K/s  0.00 %  0.00 % nginx: worker process
+  446 be/4 root        0.00 B/s    7.52 K/s  0.00 %  0.00 % systemd-journald
+12800 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % dockerd
+    1 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % systemd --switched-root --system --deserialize 21
+    2 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [kthreadd]
+    3 be/0 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [rcu_gp]
+```
+
+## pidstat查看进程的I/O状态
+
+pidstat，`-d`表示展示IO信息，1表示每秒输出一次：
+
+```bash
+$ pidstat -d 1 
+13:39:51      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s     iodelay  Command 
+13:39:52      102       916      0.00      4.00      0.00           0  rsyslogd
+                               每秒读    每秒写  每秒取消的写 I/O延迟
+                               单位KB    单位KB  单位KB       单位时钟周期
+```
+
+如果要查看具体某个进程，使用-p指定进程号，下面间隔 1 秒输出 3 组数据：
+
+```sh
+$ pidstat -d -p 4344 1 3
+06:38:50      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+06:38:51        0      4344      0.00      0.00      0.00       0  app
+06:38:52        0      4344      0.00      0.00      0.00       0  app
+06:38:53        0      4344      0.00      0.00      0.00       0  app
+```
+

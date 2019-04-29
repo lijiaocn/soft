@@ -37,11 +37,10 @@ ss命令是netstat的替代命令：
 
 ```sh
 $ ss -ntp
-State      Recv-Q Send-Q                                                         Local Address:Port                                                                        Peer Address:Port
-ESTAB      0      0                                                               10.19.180.92:10250                                                                       10.19.14.106:38292               users:(("kubelet",pid=15242,fd=41))
-ESTAB      0      0                                                               10.19.180.92:35154                                                                       10.19.61.146:2379                users:(("flanneld",pid=1042,fd=10))
-ESTAB      0      0                                                               10.19.180.92:45380                                                                       10.19.162.39:6443                users:(("kube-proxy",pid=14013,fd=8))
-ESTAB      0      0                                                               10.19.180.92:10250                                                                         10.19.11.7:49618
+State      Recv-Q Send-Q     Local Address:Port         Peer Address:Port
+ESTAB      0      0           10.19.180.92:10250        10.19.14.106:38292     users:(("kubelet",pid=15242,fd=41))
+ESTAB      0      0           10.19.180.92:35154        10.19.61.146:2379      users:(("flanneld",pid=1042,fd=10))
+ESTAB      0      0           10.19.180.92:45380        10.19.162.39:6443      users:(("kube-proxy",pid=14013,fd=8))
 ```
 
 当套接字是连接状态时，Established：

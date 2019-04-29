@@ -2,7 +2,7 @@
 
 ## pidstat查看进程的I/O状态
 
-`-d`表示展示IO信息，1表示每秒输出一次：
+pidstat，`-d`表示展示IO信息，1表示每秒输出一次：
 
 ```bash
 $ pidstat -d 1 
