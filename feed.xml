@@ -2,330 +2,330 @@
     <channel>
         <title><![CDATA[Linux问题诊断与性能优化（实用手册）]]></title>
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
-        <link>https://www.lijiaocn.com/linux/</link>
+        <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 29 Apr 2019 09:41:50 GMT</lastBuildDate>
-        <atom:link href="https://www.lijiaocn.com/linux/feed.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sun, 04 Aug 2019 16:28:16 GMT</lastBuildDate>
+        <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
             <title><![CDATA[Linux实用手册说明]]></title>
             <description><![CDATA[个人学习笔记，记录Linux相关的知识，性能优化部分的内容主要来自极客时间出品的倪鹏飞专栏《Linux性能优化》。这里使用的操作系统是CentOS，索引了大量参考资料，为了能够查看内核文档，需要在系统上安装man-pages：]]></description>
-            <link>https://www.lijiaocn.com/linux/</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/</guid>
+            <link>https://www.lijiaocn.com/soft/</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux问题分析与性能优化]]></title>
             <description><![CDATA[这个章节中记录的Linux性能优化相关的知识，就是如何诊断性能瓶颈，如何优化。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/README.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/README.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/README.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[形成认识框架]]></title>
             <description><![CDATA[认识框架（也就是知识大纲）非常重要，宏观上有了理解之后：1）才能有的放矢的深入细节，并能将繁杂多样的细节串联起来；2）在遇到问题的时候，才有能够正确的思考，有头绪、有方法、有步骤的调查问题、解决问题。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/01-concept.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/01-concept.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/01-concept.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/01-concept.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux Kernel相关知识]]></title>
             <description><![CDATA[对kernel了解的越多，性能分析、优化就越顺畅。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/kernel.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/kernel.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/kernel.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/kernel.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[动态追踪技术]]></title>
             <description><![CDATA[主要的动态追踪工具有：ftrace、perf、eBPF(bcc)、SystemTap、sysdig。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/dynamic-trace.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/dynamic-trace.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/dynamic-trace.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/dynamic-trace.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[CPU相关知识]]></title>
             <description><![CDATA[这里记录CPU相关的知识。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/03-cpu.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/03-cpu.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/03-cpu.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/03-cpu.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[CPU的运行状态]]></title>
             <description><![CDATA[CPU一共有多种工作状态，其中只有idle状态是空闲状态。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/02-process-3.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/02-process-3.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/02-process-3.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/02-process-3.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[CPU运行上下文的切换]]></title>
             <description><![CDATA[CPU上下文就是CPU中所有寄存器、计数器的快照，是CPU工作环境。当CPU要执行另一个进程的时候，需要将一些寄存器的数值修改为目标进程的相应值，这个过程叫做CPU上下文切换。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/03-cpu-1.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/03-cpu-1.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/03-cpu-1.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/03-cpu-1.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux中查看CPU的使用情况]]></title>
             <description><![CDATA[CPU使用分析主要就是分析CPU的使用率，看看那些进程占用的CPU资源比较多。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/cpu-usage-analysis.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/cpu-usage-analysis.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/cpu-usage-analysis.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/cpu-usage-analysis.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[内存相关的知识]]></title>
-            <link>https://www.lijiaocn.com/linux/chapter1/memory.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/memory.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/memory.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/memory.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux的内存管理方法]]></title>
             <description><![CDATA[Linux虚拟地址空间划分]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/memory-manage.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/memory-manage.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/memory-manage.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/memory-manage.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[内存缓存]]></title>
             <description><![CDATA[free的命令中有一栏是buff/cache，buffer和cache都是内存缓存，但是又有区别。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/memory-cache.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/memory-cache.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/memory-cache.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/memory-cache.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[查看内存状态]]></title>
             <description><![CDATA[buff: 写入缓冲区。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/memory-stat.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/memory-stat.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/memory-stat.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/memory-stat.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[系统中断]]></title>
             <description><![CDATA[中断是重要的内核机制，是内核的事件处理机制。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/interrupt.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/interrupt.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/interrupt.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/interrupt.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux的系统中断]]></title>
             <description><![CDATA[中断分为硬中断和软中断，发生中断以后，中断处理程序会被调用。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/sys-interrupt.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/sys-interrupt.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/sys-interrupt.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/sys-interrupt.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[理解进程]]></title>
             <description><![CDATA[几个查看进程状态的工具：]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/02-process.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/02-process.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/02-process.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/02-process.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[进程的分类]]></title>
             <description><![CDATA[Understanding Linux Process States对Linux的进程（Process）做了很详细的介绍。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/02-process-1.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/02-process-1.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/02-process-1.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/02-process-1.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[进程的状态]]></title>
             <description><![CDATA[ps -l命令输出结果的第二列是进程所处的状态，ps一共展示以下几种状态：]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/02-process-2.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/02-process-2.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/02-process-2.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/02-process-2.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux查看指定进程占用的资源]]></title>
             <description><![CDATA[查看指定进程占用的资源。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/process-resouce.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/process-resouce.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/process-resouce.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/process-resouce.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux的文件系统]]></title>
             <description><![CDATA[IO问题排查过程：]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter3/01-filesystem.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter3/01-filesystem.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter3/01-filesystem.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter3/01-filesystem.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux虚拟文件系统VFS]]></title>
             <description><![CDATA[VFS是linux实现的虚拟文件系统，规定了数据结构和接口规范。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter3/vfs.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter3/vfs.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter3/vfs.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter3/vfs.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[磁盘相关知识]]></title>
             <description><![CDATA[机械磁盘，通常缩写为HDD，机械磁盘有磁道寻址的时间，随机读写是性能会变差。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter3/disk.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter3/disk.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter3/disk.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter3/disk.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[查看Linux文件系统状态]]></title>
             <description><![CDATA[可用空间，用df查看，可用inode，用df -i查看。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter3/filesystem-stat.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter3/filesystem-stat.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter3/filesystem-stat.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter3/filesystem-stat.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux系统中的I/O]]></title>
             <description><![CDATA[I/O操作分为：缓冲与非缓冲I/O、直接与非直接I/O、阻塞与非阻塞I/O、同步与异步I/O。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter3/02-io.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter3/02-io.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter3/02-io.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter3/02-io.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux系统的IO状态]]></title>
             <description><![CDATA[dstat同时展示CPU、磁盘IO和网络IO的状态，以及系统中断、内存换页和上下文切换数量，用yum直接安装即可：]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter3/process_sys_io.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter3/process_sys_io.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter3/process_sys_io.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter3/process_sys_io.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[理解Linux的网络]]></title>
             <description><![CDATA[Linux网络相关知识。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/network.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/network.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/network.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/network.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[网络性能指标]]></title>
             <description><![CDATA[带宽: 最大传输速率，单位b/s（比特/秒）。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/network-metrics.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/network-metrics.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/network-metrics.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/network-metrics.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[网卡状态]]></title>
             <description><![CDATA[ifconfig、netstat（yum install -y net-tool）或者ip（yum install -y iproute2）查看网卡详情。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/network-nic-stat.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/network-nic-stat.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/network-nic-stat.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/network-nic-stat.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux的连接与协议栈状态的查看方法]]></title>
             <description><![CDATA[用netstat查看连接状态的分布（用yum安装：yum install -y net-tools）：]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/network-stat.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/network-stat.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/network-stat.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/network-stat.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux的netfilter]]></title>
             <description><![CDATA[net filter]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/network-netfilter.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/network-netfilter.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/network-netfilter.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/network-netfilter.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[报文追踪]]></title>
             <description><![CDATA[stap的安装方法：]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/network-trace-pkt.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/network-trace-pkt.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/network-trace-pkt.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/network-trace-pkt.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[DNS解析追踪]]></title>
             <description><![CDATA[dig可以跟踪dns的解析过程，+trace 表示开启跟踪查询，+nodnssec 表示禁止 DNS 安全扩展：]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/network-dns-trace.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/network-dns-trace.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/network-dns-trace.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/network-dns-trace.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux高性能网络IO处理]]></title>
             <description><![CDATA[select和poll都是非阻塞的，监视一组文件描述的读写状态，对满足条件的文件描述符进行操作，实现单线程处理多请求。select监控的文件描述符数量有限制，32位系统默认1024个，poll对select进行了改进，只受系统文件描述符数量的限制。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/netio-high-performance.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/netio-high-performance.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/netio-high-performance.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/netio-high-performance.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[No title]]></title>
             <description><![CDATA[这里汇总Linux性能分析时常用的工具，内容力求简洁明了，适合作为速查手册使用。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/04-tool.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/04-tool.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/04-tool.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/04-tool.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[火焰图介绍]]></title>
             <description><![CDATA[火焰图是一个非常好的分析工具，可以直观地显示每个函数耗费的时间占比。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/04-flame-graphs.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/04-flame-graphs.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/04-flame-graphs.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/04-flame-graphs.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[用火焰图分析CPU占用情况]]></title>
             <description><![CDATA[CPU火焰图是最常用、最好理解的火焰图，它展现的是函数对CPU的占用情况，火焰图最上层是采样时正在使用CPU的函数：]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/04-flame-graphs-cpu.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/04-flame-graphs-cpu.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/04-flame-graphs-cpu.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/04-flame-graphs-cpu.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[用内存火焰图分析内存泄露]]></title>
             <description><![CDATA[内存泄露已经有几种分析工具，例如通过模拟运行进行分析的Valgrind，可以统计内存堆（heap）使用情况的libtcmalloc链接库。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/04-flame-graphs-memory.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/04-flame-graphs-memory.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/04-flame-graphs-memory.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/04-flame-graphs-memory.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[用火焰图分析未占用CPU期间的情况]]></title>
             <description><![CDATA[应用程序的效率不高，也可能是被CPU之外的资源限制卡住了。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/04-flame-graphs-off-cpu.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/04-flame-graphs-off-cpu.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/04-flame-graphs-off-cpu.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/04-flame-graphs-off-cpu.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[冷热火焰图：将On-CPU火焰图与Off-CPU火焰图合并]]></title>
             <description><![CDATA[把On-CPU火焰图和Off-CPU火焰图合并在一起或许更便于分析。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/04-flame-graphs-hot-code.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/04-flame-graphs-hot-code.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/04-flame-graphs-hot-code.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/04-flame-graphs-hot-code.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[差异火焰图：展示两个火焰图之间的差异]]></title>
             <description><![CDATA[火焰图是用来做性能分析的，通过火焰度了解了程序运行期间的情况以后，接下来是有针对性地修改调优。
 调整之后，还需要在制作一个新的火焰图，通过对比调优前和调优后的火焰图，评估调整是否有效。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/04-flame-graphs-differential.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/04-flame-graphs-differential.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/04-flame-graphs-differential.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/04-flame-graphs-differential.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[火焰图生成命令]]></title>
             <description><![CDATA[火焰图的生成分为采集数据和生成图片两个过程，这两个过程中有多种工具可选。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/04-flame-generate.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/04-flame-generate.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/04-flame-generate.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/04-flame-generate.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[BCC系列工具]]></title>
             <description><![CDATA[使用方法见bcc Tutorial]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/04-bcc-tools.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/04-bcc-tools.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/04-bcc-tools.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/04-bcc-tools.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[CPU使用率很高的排查方法]]></title>
             <description><![CDATA[这是倪鹏飞的《Linux性能优化实战》中的案例，这里做了二次加工，抽取了主要过程，案例是倪鹏飞原文中的。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter1/cpu-usage-high.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter1/cpu-usage-high.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter1/cpu-usage-high.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter1/cpu-usage-high.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[学校里学不到的Linux系统知识]]></title>
             <description><![CDATA[有非常、非常多的细节是从书本上学不到，这些细节通常分散在各种古朴、难度的文档和手册中。]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter3/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter3/README.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter3/README.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter3/README.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Linux虚拟化技术]]></title>
             <description><![CDATA[参考资料：]]></description>
-            <link>https://www.lijiaocn.com/linux/chapter4/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/chapter4/README.html</guid>
+            <link>https://www.lijiaocn.com/soft/chapter4/README.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/chapter4/README.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[No title]]></title>
-            <link>https://www.lijiaocn.com/linux/GLOSSARY.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/linux/GLOSSARY.html</guid>
+            <link>https://www.lijiaocn.com/soft/GLOSSARY.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/GLOSSARY.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
     </channel>
