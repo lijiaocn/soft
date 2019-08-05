@@ -1,9 +1,12 @@
-# Linux实用手册说明
+# 重要的系统软件使用手册
 
-个人学习笔记，记录Linux相关的知识，性能优化部分的内容主要来自极客时间出品的倪鹏飞专栏《Linux性能优化》。这里使用的操作系统是CentOS，索引了大量参考资料，为了能够查看内核文档，需要在系统上安装man-pages：
+记录工作中接触的一些重要的系统软件的使用方法，备忘录。
 
-	yum install -y man-pages
+文档结构和内容在持续优化中。
 
-倪朋飞专栏《Linux性能优化》：
+**联系方式：**
 
-<span style="display:block;text-align:center"><img src="/img/linux/01-geek-linux-ercode.jpeg" width="250px" alt="极客时间倪鹏飞Linux性能优化海报"/></span>
+![关注微信公众号](https://www.lijiaocn.com/img/class.jpg)
+
+![知识星球赚钱笔记免费版](https://www.lijiaocn.com/img/xiaomiquan-money-free.jpeg)
+
