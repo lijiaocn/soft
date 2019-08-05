@@ -1,0 +1,1247 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Nginx配置文件 · 李佶澳</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="lijiaocn@foxmail.com">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-atoc/atoc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="02-config-1.html" />
+    
+    
+    <link rel="prev" href="01-documents.html" />
+    
+
+    <link href="https://www.lijiaocn.com/soft/feed.xml" title="Linux问题诊断与性能优化（实用手册）" rel="alternate" type="application/rss+xml" />
+
+        
+<!--Google ads -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8176866190626448",
+    enable_page_level_ads: true
+  });
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105389858-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-105389858-1');
+</script>
+
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8f59ea10145df28da8932c8743ec1d60";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!--百度收录-->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                
+<div style="text-align:center">
+    <h2><a href="https://www.lijiaocn.com" style="color:#afa790">www.lijiaocn.com</a></h2>
+</div>
+
+<div style="text-align:center">
+<!-- 250x250 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:250px;height:250px"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="9490087185"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Linux实用手册说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../linux/README.md">
+            
+                <span>
+            
+                    
+                    Linux性能优化与问题诊断
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../linux/01-concept.md">
+            
+                <span>
+            
+                    
+                    认知框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../linux/kernel.md">
+            
+                <span>
+            
+                    
+                    理解内核
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../linux/dynamic-trace.md">
+            
+                <span>
+            
+                    
+                    动态追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../linux/03-cpu.md">
+            
+                <span>
+            
+                    
+                    理解CPU
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../linux/02-process-3.md">
+            
+                <span>
+            
+                    
+                    CPU的工作状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../linux/03-cpu-1.md">
+            
+                <span>
+            
+                    
+                    CPU上下文切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../linux/cpu-usage-analysis.md">
+            
+                <span>
+            
+                    
+                    CPU的使用情况
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../linux/memory.md">
+            
+                <span>
+            
+                    
+                    理解内存
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../linux/memory-manage.md">
+            
+                <span>
+            
+                    
+                    内存管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../linux/memory-cache.md">
+            
+                <span>
+            
+                    
+                    内存缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="../linux/memory-stat.md">
+            
+                <span>
+            
+                    
+                    内存状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../linux/interrupt.md">
+            
+                <span>
+            
+                    
+                    理解中断
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="../linux/sys-interrupt.md">
+            
+                <span>
+            
+                    
+                    系统中断
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../linux/02-process.md">
+            
+                <span>
+            
+                    
+                    理解进程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../linux/02-process-1.md">
+            
+                <span>
+            
+                    
+                    进程的分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="../linux/02-process-2.md">
+            
+                <span>
+            
+                    
+                    进程的状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.3" data-path="../linux/process-resouce.md">
+            
+                <span>
+            
+                    
+                    进程占用的资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../linux/01-filesystem.md">
+            
+                <span>
+            
+                    
+                    理解文件系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.7.1" data-path="../linux/vfs.md">
+            
+                <span>
+            
+                    
+                    VFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" data-path="../linux/disk.md">
+            
+                <span>
+            
+                    
+                    磁盘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.3" data-path="../linux/filesystem-stat.md">
+            
+                <span>
+            
+                    
+                    文件系统状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.4" data-path="../linux/02-io.md">
+            
+                <span>
+            
+                    
+                    I/O操作分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.5" data-path="../linux/process_sys_io.md">
+            
+                <span>
+            
+                    
+                    系统I/O状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../linux/network.md">
+            
+                <span>
+            
+                    
+                    理解网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../linux/network-metrics.md">
+            
+                <span>
+            
+                    
+                    性能指标与检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.2" data-path="../linux/network-nic-stat.md">
+            
+                <span>
+            
+                    
+                    网卡状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.3" data-path="../linux/network-stat.md">
+            
+                <span>
+            
+                    
+                    连接/协议栈状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="../linux/network-netfilter.md">
+            
+                <span>
+            
+                    
+                    连接跟踪netfilter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.5" data-path="../linux/network-trace-pkt.md">
+            
+                <span>
+            
+                    
+                    报文跟踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.6" data-path="../linux/network-dns-trace.md">
+            
+                <span>
+            
+                    
+                    DNS解析追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.7" data-path="../linux/netio-high-performance.md">
+            
+                <span>
+            
+                    
+                    高性能网络IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../linux/04-tool.md">
+            
+                <span>
+            
+                    
+                    分析工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.1" data-path="../linux/04-flame-graphs.md">
+            
+                <span>
+            
+                    
+                    火焰图介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.9.1.1" data-path="../linux/04-flame-graphs-cpu.md">
+            
+                <span>
+            
+                    
+                    CPU火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.2" data-path="../linux/04-flame-graphs-memory.md">
+            
+                <span>
+            
+                    
+                    内存火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.3" data-path="../linux/04-flame-graphs-off-cpu.md">
+            
+                <span>
+            
+                    
+                    Off-CPU火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.4" data-path="../linux/04-flame-graphs-hot-code.md">
+            
+                <span>
+            
+                    
+                    冷热火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.5" data-path="../linux/04-flame-graphs-differential.md">
+            
+                <span>
+            
+                    
+                    差异火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.1.6" data-path="../linux/04-flame-generate.md">
+            
+                <span>
+            
+                    
+                    火焰图生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9.2" data-path="../linux/04-bcc-tools.md">
+            
+                <span>
+            
+                    
+                    BCC系列工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../linux/cpu-usage-high.md">
+            
+                <span>
+            
+                    
+                    案例: CPU使用率很高
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../linux/todo.md">
+            
+                <span>
+            
+                    
+                    待学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Nginx介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="01-documents.html">
+            
+                <a href="01-documents.html">
+            
+                    
+                    Nginx学习资料
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="02-config.html">
+            
+                <a href="02-config.html">
+            
+                    
+                    Nginx配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-config-1.html">
+            
+                <a href="02-config-1.html">
+            
+                    
+                    Nginx高性能配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../openresty/">
+            
+                <a href="../openresty/">
+            
+                    
+                    OpenResty介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.lijiaocn.com" target="blank" class="gitbook-link">
+            www.lijiaocn.com 提供
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+                
+<br>
+<!--div style="text-align:center"-->
+<!-- Summary_Bottom -->
+<!--ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="2156601384"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div-->
+
+
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Nginx配置文件</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                
+<!-- Page_Top -->
+<div>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="5702052586"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+                                <!-- toc -->
+<ul>
+<li><a href="#nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;">Nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</a><ul>
+<li><a href="#centos&#x4E2D;nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;">CentOS&#x4E2D;Nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;</a><ul>
+<li><a href="#&#x52A0;&#x8F7D;nginx&#x6A21;&#x5757;">&#x52A0;&#x8F7D;Nginx&#x6A21;&#x5757;</a></li>
+<li><a href="#&#x52A0;&#x8F7D;server&#x914D;&#x7F6E;">&#x52A0;&#x8F7D;Server&#x914D;&#x7F6E;</a></li>
+<li><a href="#api&#x7F51;&#x5173;kong&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;">API&#x7F51;&#x5173;kong&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;">Nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</h1>
+<p>nginx&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x6709;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;<a href="https://github.com/nginx/nginx/blob/master/conf/nginx.conf" target="_blank">nginx.conf</a>&#x6837;&#x4F8B;&#xFF0C;&#x4F46;&#x662F;CentOS&#x5B89;&#x88C5;&#x7684;nginx&#x81EA;&#x5E26;&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7ED3;&#x6784;&#x66F4;&#x597D;&#x3002;</p>
+<h2 id="centos&#x4E2D;nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;">CentOS&#x4E2D;Nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2>
+<p>&#x7528;yum&#x547D;&#x4EE4;&#x5728;CentOS&#x4E2D;&#x5B89;&#x88C5;nginx&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x662F;<code>/etc/nginx/nginx.conf</code>&#xFF1A;</p>
+<pre><code class="lang-conf"># For more information on configuration, see:
+#   * Official English Documentation: http://nginx.org/en/docs/
+#   * Official Russian Documentation: http://nginx.org/ru/docs/
+
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+# &#x4E3A;&#x6BCF;&#x4E2A;&#x8981;&#x52A0;&#x8F7D;&#x7684;nginx&#x6A21;&#x5757;&#x5355;&#x72EC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;
+# &#x4F8B;&#x5982;/usr/share/ngxin/modules/mod-http-geoip.conf&#x7684;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;
+#
+#    load_module &quot;/usr/lib64/nginx/modules/ngx_http_geoip_module.so&quot;;
+#
+# Load dynamic modules. See /usr/share/nginx/README.dynamic.
+include /usr/share/nginx/modules/*.conf; 
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;
+                      &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;
+                      &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile            on;
+    tcp_nopush          on;
+    tcp_nodelay         on;
+    keepalive_timeout   65;
+    types_hash_max_size 2048;
+
+    include             /etc/nginx/mime.types;
+    default_type        application/octet-stream;
+
+    # Load modular configuration files from the /etc/nginx/conf.d directory.
+    # See http://nginx.org/en/docs/ngx_core_module.html#include
+    # for more information.
+    include /etc/nginx/conf.d/*.conf;
+
+    # &#x9ED8;&#x8BA4;&#x7684;server
+    server {
+        listen       80 default_server;
+        listen       [::]:80 default_server;
+        server_name  _;
+        root         /usr/share/nginx/html;
+
+        # &#x9ED8;&#x8BA4;server&#x7684;&#x914D;&#x7F6E;&#x4E5F;&#x5199;&#x5230;&#x5355;&#x72EC;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        location / {
+        }
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+    }
+
+# TLS&#x914D;&#x7F6E;&#x65B9;&#x6CD5;
+# Settings for a TLS enabled server.
+    server {
+        listen       443 ssl http2 default_server;
+        listen       [::]:443 ssl http2 default_server;
+        server_name  _;
+        root         /usr/share/nginx/html;
+
+        ssl_certificate &quot;/etc/pki/nginx/server.crt&quot;;
+        ssl_certificate_key &quot;/etc/pki/nginx/private/server.key&quot;;
+        ssl_session_cache shared:SSL:1m;
+        ssl_session_timeout  10m;
+        ssl_ciphers HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers on;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        location / {
+        }
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+    }
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6709;&#x4E24;&#x4E2A;<code>include</code>&#x6307;&#x4EE4;&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x6307;&#x4EE4;&#x53C8;&#x5F15;&#x5165;&#x4E86;&#x5176;&#x5B83;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x52A0;&#x8F7D;&#x4E86;Nginx&#x6A21;&#x5757;&#x548C;Server&#x914D;&#x7F6E;&#x3002;</p>
+<h3 id="&#x52A0;&#x8F7D;nginx&#x6A21;&#x5757;">&#x52A0;&#x8F7D;Nginx&#x6A21;&#x5757;</h3>
+<p>&#x7B2C;&#x4E00;&#x4E2A;include&#x6307;&#x4EE4;&#x662F;&#x5BFC;&#x5165;nginx&#x6A21;&#x5757;&#x7684;&#x52A0;&#x8F7D;&#x6307;&#x4EE4;&#xFF1A;</p>
+<pre><code class="lang-conf"># Load dynamic modules. See /usr/share/nginx/README.dynamic.
+include /usr/share/nginx/modules/*.conf;
+</code></pre>
+<p>&#x5728;/usr/share/nginx/modules&#x76EE;&#x5F55;&#x4E2D;&#x6709;&#x591A;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6BCF;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7528;&#x6765;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;nginx&#x6A21;&#x5757;&#xFF1A;</p>
+<pre><code class="lang-bash">$ ls  /usr/share/nginx/modules/
+mod-http-geoip.conf  mod-http-image-filter.conf  mod-http-perl.conf  
+mod-http-xslt-filter.conf  mod-mail.conf  mod-stream.conf
+</code></pre>
+<p>&#x4EE5;<code>mod-http-geoip.conf</code>&#x4E3A;&#x4F8B;&#xFF0C;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-conf">load_module &quot;/usr/lib64/nginx/modules/ngx_http_geoip_module.so&quot;;
+</code></pre>
+<h3 id="&#x52A0;&#x8F7D;server&#x914D;&#x7F6E;">&#x52A0;&#x8F7D;Server&#x914D;&#x7F6E;</h3>
+<p>&#x7B2C;&#x4E8C;&#x4E2A;include&#x662F;&#x52A0;&#x8F7D;server&#x7684;&#x914D;&#x7F6E;&#xFF1A;</p>
+<pre><code class="lang-conf">include /etc/nginx/conf.d/*.conf;
+</code></pre>
+<p>Nginx&#x662F;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x4EE3;&#x7406;&#x591A;&#x4E2A;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#xFF0C;&#x5C06;&#x8FD9;&#x4E9B;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x7684;&#x914D;&#x7F6E;&#x5199;&#x5230;&#x5404;&#x81EA;&#x7684;&#x5355;&#x72EC;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x6781;&#x5927;&#x7684;&#x7B80;&#x5316;&#x4E86;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x65B9;&#x4FBF;&#x7BA1;&#x7406;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x8BF4;/etc/nginx/conf.d/flarum.conf&#x4E2D;&#x5168;&#x90FD;&#x662F;flarum.local&#x670D;&#x52A1;&#x76F8;&#x5173;&#x7684;&#x914D;&#x7F6E;&#xFF1A;</p>
+<pre><code class="lang-conf">server {
+    listen       80 ;
+    listen       [::]:80 ;
+    server_name  flarum.local;                         # &#x5728;&#x672C;&#x5730;host&#x914D;&#x7F6E;&#x57DF;&#x540D;
+    root         /vagrant/flarum/2_flarum/project;     # &#x8FD9;&#x91CC;&#x662F;composer&#x5B89;&#x88C5;&#x7684;flarum&#x9879;&#x76EE;&#x76EE;&#x5F55;
+
+    location / { try_files $uri $uri/ /index.php?$query_string; }
+    location /api { try_files $uri $uri/ /api.php?$query_string; }
+    location /admin { try_files $uri $uri/ /admin.php?$query_string; }
+
+    location /flarum {
+            deny all;
+            return 404;
+    }
+
+    location ~* \.php$ {
+            fastcgi_split_path_info ^(.+.php)(/.+)$;
+            fastcgi_pass 127.0.0.1:9000;
+            include fastcgi_params;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_param HTTP_PROXY &quot;&quot;; # Fix for https://httpoxy.org/ vulnerability
+            fastcgi_index index.php;
+    }
+    #...&#x7701;&#x7565;&#x90E8;&#x5206;&#x5185;&#x5BB9;...
+    gzip on;
+    gzip_http_version 1.1;
+    gzip_vary on;
+}
+</code></pre>
+<h3 id="api&#x7F51;&#x5173;kong&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;">API&#x7F51;&#x5173;kong&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;</h3>
+<p>&#x53EF;&#x4EE5;&#x7528;&#x66F4;&#x5927;&#x7684;&#x7C92;&#x5EA6;&#x62C6;&#x5206;&#x914D;&#x7F6E;&#xFF0C;&#x4F8B;&#x5982;kong&#x4F7F;&#x7528;&#x7684;nginx.conf&#xFF1A;</p>
+<pre><code class="lang-conf">worker_processes auto;
+daemon off;
+
+pid pids/nginx.pid;
+error_log logs/error.log debug;
+
+worker_rlimit_nofile 1024;
+
+events {
+    worker_connections 1024;
+    multi_accept on;
+}
+
+http {
+    # kong&#x7684;&#x914D;&#x7F6E;&#x5355;&#x72EC;&#x5199;&#x5165;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;
+    include &apos;nginx-kong.conf&apos;;
+}
+</code></pre>
+<script type="text/javascript">var className='atoc';</script>
+                                
+<div>
+<!-- 匹配内容 -->
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="6443696990"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<!--div-->
+<!-- Page_Bottom -->
+<!--ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="7945072540"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div-->
+
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-documents.html" class="navigation navigation-prev " aria-label="Previous page: Nginx学习资料">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="02-config-1.html" class="navigation navigation-next " aria-label="Next page: Nginx高性能配置">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Nginx配置文件","level":"1.3.2","depth":2,"next":{"title":"Nginx高性能配置","level":"1.3.3","depth":2,"path":"nginx/02-config-1.md","ref":"nginx/02-config-1.md","articles":[]},"previous":{"title":"Nginx学习资料","level":"1.3.1","depth":2,"path":"nginx/01-documents.md","ref":"nginx/01-documents.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"nginx/02-config.md","mtime":"2019-08-05T03:15:29.833Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-05T03:39:42.600Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-atoc/atoc.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
