@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 05 Aug 2019 06:16:50 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 05 Aug 2019 12:49:15 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -16,8 +16,44 @@
         </item>
         <item>
             <title><![CDATA[Envoy]]></title>
+            <description><![CDATA[初次了解 Envoy 时做过一些笔记，这里是再次学习时，对原先笔记的进一步整理。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/README.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/README.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的配置文件格式]]></title>
+            <description><![CDATA[Envoy 的 API 文档 中，分别给出了每个配置项的格式，《Envoy Proxy使用介绍教程（五）：envoy的配置文件完全展开介绍》 将 envoy 1.8.0  的各个配置项格式组合了起来，呈现了 envoy 配置文件的完整轮廓：]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/config.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的动态配置（配置规则下发）]]></title>
+            <description><![CDATA[Envoy 的一些配置项可以动态下发，envoy 实例启动时从指定的配置文件中获取下发动态配置的服务地址，然后从通过这些事先配好的服务，实时获取动态配置。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/dynamic-config.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/dynamic-config.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的 Listener 配置详解]]></title>
+            <description><![CDATA[Listener 是 envoy 最重要的配置，也是最复杂的配置，它是 envoy 的监听配置，明确了 envoy 监听地址，以及到达监听地址的请求如何处理、转发到哪里。Listener 中可以包含多个不同 filter，有一些 filter 本身又是比较复杂的，譬如 HTTP Connection Manager。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/listener.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/listener.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的 Listener 中的 Fileter 详解]]></title>
+            <description><![CDATA[从 socket 中收取的请求先经过 listener_filters 处理，然后再由 filter_chains 处理，这是两组的 filter 的主要差异。因为 listener_filters 先起作用，因此它可以修改请求的信息，从而影响 filter_chains 的匹配。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/filter.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/filter.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的 Listener 中可以使用的 filter]]></title>
+            <description><![CDATA[都有哪些 filters 可以使用？]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/filter-list.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/filter-list.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Nginx配置文件 · 李佶澳</title>
+        <title>filter 详解 · 李佶澳</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -66,10 +66,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="02-config-1.html" />
+    <link rel="next" href="filter-list.html" />
     
     
-    <link rel="prev" href="01-documents.html" />
+    <link rel="prev" href="listener.html" />
     
 
     <link href="https://www.lijiaocn.com/soft/feed.xml" title="Linux问题诊断与性能优化（实用手册）" rel="alternate" type="application/rss+xml" />
@@ -177,9 +177,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../envoy/">
+        <li class="chapter " data-level="1.2" data-path="./">
             
-                <a href="../envoy/">
+                <a href="./">
             
                     
                     Envoy使用手册
@@ -191,9 +191,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../envoy/config.html">
+        <li class="chapter " data-level="1.2.1" data-path="config.html">
             
-                <a href="../envoy/config.html">
+                <a href="config.html">
             
                     
                     配置文件
@@ -204,9 +204,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../envoy/dynamic-config.html">
+        <li class="chapter " data-level="1.2.2" data-path="dynamic-config.html">
             
-                <a href="../envoy/dynamic-config.html">
+                <a href="dynamic-config.html">
             
                     
                     动态配置
@@ -217,9 +217,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../envoy/listener.html">
+        <li class="chapter " data-level="1.2.3" data-path="listener.html">
             
-                <a href="../envoy/listener.html">
+                <a href="listener.html">
             
                     
                     Listener 详解
@@ -231,9 +231,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.3.1" data-path="../envoy/filter.html">
+        <li class="chapter active" data-level="1.2.3.1" data-path="filter.html">
             
-                <a href="../envoy/filter.html">
+                <a href="filter.html">
             
                     
                     filter 详解
@@ -244,9 +244,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.2" data-path="../envoy/filter-list.html">
+        <li class="chapter " data-level="1.2.3.2" data-path="filter-list.html">
             
-                <a href="../envoy/filter-list.html">
+                <a href="filter-list.html">
             
                     
                     filter 列表
@@ -886,9 +886,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="./">
+        <li class="chapter " data-level="1.4" data-path="../nginx/">
             
-                <a href="./">
+                <a href="../nginx/">
             
                     
                     Nginx介绍
@@ -900,9 +900,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="01-documents.html">
+        <li class="chapter " data-level="1.4.1" data-path="../nginx/01-documents.html">
             
-                <a href="01-documents.html">
+                <a href="../nginx/01-documents.html">
             
                     
                     Nginx学习资料
@@ -913,9 +913,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter active" data-level="1.4.2" data-path="02-config.html">
+        <li class="chapter " data-level="1.4.2" data-path="../nginx/02-config.html">
             
-                <a href="02-config.html">
+                <a href="../nginx/02-config.html">
             
                     
                     Nginx配置文件
@@ -926,9 +926,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="02-config-1.html">
+        <li class="chapter " data-level="1.4.3" data-path="../nginx/02-config-1.html">
             
-                <a href="02-config-1.html">
+                <a href="../nginx/02-config-1.html">
             
                     
                     Nginx高性能配置
@@ -1003,7 +1003,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Nginx配置文件</a>
+        <a href=".." >filter 详解</a>
     </h1>
 </div>
 
@@ -1035,184 +1035,136 @@ var _hmt = _hmt || [];
 
                                 <!-- toc -->
 <ul>
-<li><a href="#nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;">Nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</a><ul>
-<li><a href="#centos&#x4E2D;nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;">CentOS&#x4E2D;Nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;</a><ul>
-<li><a href="#&#x52A0;&#x8F7D;nginx&#x6A21;&#x5757;">&#x52A0;&#x8F7D;Nginx&#x6A21;&#x5757;</a></li>
-<li><a href="#&#x52A0;&#x8F7D;server&#x914D;&#x7F6E;">&#x52A0;&#x8F7D;Server&#x914D;&#x7F6E;</a></li>
-<li><a href="#api&#x7F51;&#x5173;kong&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;">API&#x7F51;&#x5173;kong&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;</a></li>
+<li><a href="#envoy-&#x7684;-listener-&#x4E2D;&#x7684;-fileter-&#x8BE6;&#x89E3;">Envoy &#x7684; Listener &#x4E2D;&#x7684; Fileter &#x8BE6;&#x89E3;</a><ul>
+<li><a href="#&#x5728;-go-control-plane-&#x4E2D;&#x7684;&#x5B9A;&#x4E49;">&#x5728; go-control-plane &#x4E2D;&#x7684;&#x5B9A;&#x4E49;</a><ul>
+<li><a href="#listenerfilters-&#x7684;&#x5B9A;&#x4E49;">listener_filters &#x7684;&#x5B9A;&#x4E49;</a></li>
+<li><a href="#filterchains-&#x7684;&#x5B9A;&#x4E49;">filter_chains &#x7684;&#x5B9A;&#x4E49;</a></li>
 </ul>
 </li>
+<li><a href="#&#x5728;-go-control-plane-&#x4E2D;&#x586B;&#x5145;-filter">&#x5728; go-control-plane &#x4E2D;&#x586B;&#x5145; filter</a></li>
 </ul>
 </li>
 </ul>
 <!-- tocstop -->
-<h1 id="nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;">Nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</h1>
-<p>nginx&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x6709;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;<a href="https://github.com/nginx/nginx/blob/master/conf/nginx.conf" target="_blank">nginx.conf</a>&#x6837;&#x4F8B;&#xFF0C;&#x4F46;&#x662F;CentOS&#x5B89;&#x88C5;&#x7684;nginx&#x81EA;&#x5E26;&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7ED3;&#x6784;&#x66F4;&#x597D;&#x3002;</p>
-<h2 id="centos&#x4E2D;nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;">CentOS&#x4E2D;Nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2>
-<p>&#x7528;yum&#x547D;&#x4EE4;&#x5728;CentOS&#x4E2D;&#x5B89;&#x88C5;nginx&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x662F;<code>/etc/nginx/nginx.conf</code>&#xFF1A;</p>
-<pre><code class="lang-conf"># For more information on configuration, see:
-#   * Official English Documentation: http://nginx.org/en/docs/
-#   * Official Russian Documentation: http://nginx.org/ru/docs/
+<h1 id="envoy-&#x7684;-listener-&#x4E2D;&#x7684;-fileter-&#x8BE6;&#x89E3;">Envoy &#x7684; Listener &#x4E2D;&#x7684; Fileter &#x8BE6;&#x89E3;</h1>
+<p>&#x4ECE; socket &#x4E2D;&#x6536;&#x53D6;&#x7684;&#x8BF7;&#x6C42;&#x5148;&#x7ECF;&#x8FC7; <a href="https://www.envoyproxy.io/docs/envoy/latest/api-v2/api/v2/listener/listener.proto#envoy-api-msg-listener-listenerfilter" title="listener.ListenerFilter" target="_blank">listener_filters</a> &#x5904;&#x7406;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x7531; <a href="https://www.envoyproxy.io/docs/envoy/latest/api-v2/api/v2/listener/listener.proto#envoy-api-msg-listener-filterchain" title="listener.FilterChain" target="_blank">filter_chains</a> &#x5904;&#x7406;&#xFF0C;&#x8FD9;&#x662F;&#x4E24;&#x7EC4;&#x7684; filter &#x7684;&#x4E3B;&#x8981;&#x5DEE;&#x5F02;&#x3002;&#x56E0;&#x4E3A; listener_filters &#x5148;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x8BF7;&#x6C42;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4ECE;&#x800C;&#x5F71;&#x54CD; filter_chains &#x7684;&#x5339;&#x914D;&#x3002;</p>
+<h2 id="&#x5728;-go-control-plane-&#x4E2D;&#x7684;&#x5B9A;&#x4E49;">&#x5728; go-control-plane &#x4E2D;&#x7684;&#x5B9A;&#x4E49;</h2>
+<p><a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/29/envoy-07-features-2-dynamic-discovery.html#go-control-plane" title="go-control-plane" target="_blank">go-control-plane</a> &#x662F;&#x4E00;&#x4E2A;&#x63A7;&#x5236;&#x5E73;&#x9762;&#x7684;&#x5F00;&#x53D1;&#x6846;&#x67B6;&#xFF0C;&#x53C2;&#x8003;&#x4E4B;&#x524D;&#x7684; <a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/29/envoy-07-features-2-dynamic-discovery.html#go-control-plane" title="go-control-plane" target="_blank">&#x7B14;&#x8BB0;</a>&#x3002;Listener &#x5728;<a href="https://github.com/envoyproxy/go-control-plane/blob/v0.8.4/envoy/api/v2/lds.pb.go" title="go-control-plane/envoy/api/v2/lds.pb.go" target="_blank">go-control-plane/envoy/api/v2/lds.pb.go</a> &#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;filter &#x7684;&#x63A5;&#x53E3;&#x5728; <a href="https://github.com/envoyproxy/go-control-plane/blob/v0.8.4/envoy/api/v2/listener/listener.pb.go" title="envoy/api/v2/listener/listener.pb.go" target="_blank">envoy/api/v2/listener/listener.pb.go</a> &#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;filter &#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5728; <a href="https://github.com/envoyproxy/go-control-plane/tree/v0.8.4/envoy/config/filter" title="go-control-plane/envoy/config/filter/" target="_blank">go-control-plane/envoy/config/filter/</a> &#x4E2D;&#x3002;</p>
+<h3 id="listenerfilters-&#x7684;&#x5B9A;&#x4E49;">listener_filters &#x7684;&#x5B9A;&#x4E49;</h3>
+<p>&#x5148;&#x8D77;&#x4F5C;&#x7528;&#x7684; listener_filters &#x7684;&#x6210;&#x5458;&#x5728; go-control-plane &#x4E2D;&#x5B9A;&#x4E49;&#x4E3A; listener.ListenerFilter&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// go-control-plane/envoy/api/v2/lds.pb.go</span>
+ListenerFilters []*listener.ListenerFilter 
 
-user nginx;
-worker_processes auto;
-error_log /var/log/nginx/error.log;
-pid /run/nginx.pid;
-
-# &#x4E3A;&#x6BCF;&#x4E2A;&#x8981;&#x52A0;&#x8F7D;&#x7684;nginx&#x6A21;&#x5757;&#x5355;&#x72EC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;
-# &#x4F8B;&#x5982;/usr/share/ngxin/modules/mod-http-geoip.conf&#x7684;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;
-#
-#    load_module &quot;/usr/lib64/nginx/modules/ngx_http_geoip_module.so&quot;;
-#
-# Load dynamic modules. See /usr/share/nginx/README.dynamic.
-include /usr/share/nginx/modules/*.conf; 
-
-events {
-    worker_connections 1024;
-}
-
-http {
-    log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;
-                      &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;
-                      &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;
-
-    access_log  /var/log/nginx/access.log  main;
-
-    sendfile            on;
-    tcp_nopush          on;
-    tcp_nodelay         on;
-    keepalive_timeout   65;
-    types_hash_max_size 2048;
-
-    include             /etc/nginx/mime.types;
-    default_type        application/octet-stream;
-
-    # Load modular configuration files from the /etc/nginx/conf.d directory.
-    # See http://nginx.org/en/docs/ngx_core_module.html#include
-    # for more information.
-    include /etc/nginx/conf.d/*.conf;
-
-    # &#x9ED8;&#x8BA4;&#x7684;server
-    server {
-        listen       80 default_server;
-        listen       [::]:80 default_server;
-        server_name  _;
-        root         /usr/share/nginx/html;
-
-        # &#x9ED8;&#x8BA4;server&#x7684;&#x914D;&#x7F6E;&#x4E5F;&#x5199;&#x5230;&#x5355;&#x72EC;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        location / {
-        }
-
-        error_page 404 /404.html;
-            location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-            location = /50x.html {
-        }
-    }
-
-# TLS&#x914D;&#x7F6E;&#x65B9;&#x6CD5;
-# Settings for a TLS enabled server.
-    server {
-        listen       443 ssl http2 default_server;
-        listen       [::]:443 ssl http2 default_server;
-        server_name  _;
-        root         /usr/share/nginx/html;
-
-        ssl_certificate &quot;/etc/pki/nginx/server.crt&quot;;
-        ssl_certificate_key &quot;/etc/pki/nginx/private/server.key&quot;;
-        ssl_session_cache shared:SSL:1m;
-        ssl_session_timeout  10m;
-        ssl_ciphers HIGH:!aNULL:!MD5;
-        ssl_prefer_server_ciphers on;
-
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        location / {
-        }
-
-        error_page 404 /404.html;
-            location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-            location = /50x.html {
-        }
-    }
+<span class="hljs-comment">// go-control-plane/envoy/api/v2/listener/listener.pb.go</span>
+<span class="hljs-keyword">type</span> ListenerFilter <span class="hljs-keyword">struct</span> {
+    Name <span class="hljs-keyword">string</span> 
+    ConfigType           isListenerFilter_ConfigType 
+    XXX_NoUnkeyedLiteral <span class="hljs-keyword">struct</span>{}                    
+    XXX_unrecognized     []<span class="hljs-keyword">byte</span>                      
+    XXX_sizecache        <span class="hljs-keyword">int32</span>                       
 }
 </code></pre>
-<p>&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6709;&#x4E24;&#x4E2A;<code>include</code>&#x6307;&#x4EE4;&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x6307;&#x4EE4;&#x53C8;&#x5F15;&#x5165;&#x4E86;&#x5176;&#x5B83;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x52A0;&#x8F7D;&#x4E86;Nginx&#x6A21;&#x5757;&#x548C;Server&#x914D;&#x7F6E;&#x3002;</p>
-<h3 id="&#x52A0;&#x8F7D;nginx&#x6A21;&#x5757;">&#x52A0;&#x8F7D;Nginx&#x6A21;&#x5757;</h3>
-<p>&#x7B2C;&#x4E00;&#x4E2A;include&#x6307;&#x4EE4;&#x662F;&#x5BFC;&#x5165;nginx&#x6A21;&#x5757;&#x7684;&#x52A0;&#x8F7D;&#x6307;&#x4EE4;&#xFF1A;</p>
-<pre><code class="lang-conf"># Load dynamic modules. See /usr/share/nginx/README.dynamic.
-include /usr/share/nginx/modules/*.conf;
-</code></pre>
-<p>&#x5728;/usr/share/nginx/modules&#x76EE;&#x5F55;&#x4E2D;&#x6709;&#x591A;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6BCF;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7528;&#x6765;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;nginx&#x6A21;&#x5757;&#xFF1A;</p>
-<pre><code class="lang-bash">$ ls  /usr/share/nginx/modules/
-mod-http-geoip.conf  mod-http-image-filter.conf  mod-http-perl.conf  
-mod-http-xslt-filter.conf  mod-mail.conf  mod-stream.conf
-</code></pre>
-<p>&#x4EE5;<code>mod-http-geoip.conf</code>&#x4E3A;&#x4F8B;&#xFF0C;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-conf">load_module &quot;/usr/lib64/nginx/modules/ngx_http_geoip_module.so&quot;;
-</code></pre>
-<h3 id="&#x52A0;&#x8F7D;server&#x914D;&#x7F6E;">&#x52A0;&#x8F7D;Server&#x914D;&#x7F6E;</h3>
-<p>&#x7B2C;&#x4E8C;&#x4E2A;include&#x662F;&#x52A0;&#x8F7D;server&#x7684;&#x914D;&#x7F6E;&#xFF1A;</p>
-<pre><code class="lang-conf">include /etc/nginx/conf.d/*.conf;
-</code></pre>
-<p>Nginx&#x662F;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x4EE3;&#x7406;&#x591A;&#x4E2A;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#xFF0C;&#x5C06;&#x8FD9;&#x4E9B;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x7684;&#x914D;&#x7F6E;&#x5199;&#x5230;&#x5404;&#x81EA;&#x7684;&#x5355;&#x72EC;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x6781;&#x5927;&#x7684;&#x7B80;&#x5316;&#x4E86;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x65B9;&#x4FBF;&#x7BA1;&#x7406;&#x3002;</p>
-<p>&#x6BD4;&#x5982;&#x8BF4;/etc/nginx/conf.d/flarum.conf&#x4E2D;&#x5168;&#x90FD;&#x662F;flarum.local&#x670D;&#x52A1;&#x76F8;&#x5173;&#x7684;&#x914D;&#x7F6E;&#xFF1A;</p>
-<pre><code class="lang-conf">server {
-    listen       80 ;
-    listen       [::]:80 ;
-    server_name  flarum.local;                         # &#x5728;&#x672C;&#x5730;host&#x914D;&#x7F6E;&#x57DF;&#x540D;
-    root         /vagrant/flarum/2_flarum/project;     # &#x8FD9;&#x91CC;&#x662F;composer&#x5B89;&#x88C5;&#x7684;flarum&#x9879;&#x76EE;&#x76EE;&#x5F55;
+<h3 id="filterchains-&#x7684;&#x5B9A;&#x4E49;">filter_chains &#x7684;&#x5B9A;&#x4E49;</h3>
+<p>&#x540E;&#x8D77;&#x4F5C;&#x7528;&#x7684; filter_chains &#x7684;&#x6210;&#x5458;&#x5728; go-control-plane &#x4E2D;&#x5B9A;&#x4E49;&#x4E3A; listener.FilterChain&#xFF0C;&#x6210;&#x5458; FilterChain &#x53C8;&#x5305;&#x542B;&#x4E00;&#x6761; Filter &#x94FE;&#xFF1A;</p>
+<pre><code class="lang-go">FilterChains []*listener.FilterChain 
 
-    location / { try_files $uri $uri/ /index.php?$query_string; }
-    location /api { try_files $uri $uri/ /api.php?$query_string; }
-    location /admin { try_files $uri $uri/ /admin.php?$query_string; }
+<span class="hljs-keyword">type</span> FilterChain <span class="hljs-keyword">struct</span> {
+    FilterChainMatch *FilterChainMatch 
+    TlsContext *auth.DownstreamTlsContext 
+    Filters []*Filter 
+    UseProxyProto *types.BoolValue 
+    Metadata *core.Metadata 
+    TransportSocket      *core.TransportSocket 
 
-    location /flarum {
-            deny all;
-            return 404;
-    }
-
-    location ~* \.php$ {
-            fastcgi_split_path_info ^(.+.php)(/.+)$;
-            fastcgi_pass 127.0.0.1:9000;
-            include fastcgi_params;
-            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-            fastcgi_param HTTP_PROXY &quot;&quot;; # Fix for https://httpoxy.org/ vulnerability
-            fastcgi_index index.php;
-    }
-    #...&#x7701;&#x7565;&#x90E8;&#x5206;&#x5185;&#x5BB9;...
-    gzip on;
-    gzip_http_version 1.1;
-    gzip_vary on;
-}
-</code></pre>
-<h3 id="api&#x7F51;&#x5173;kong&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;">API&#x7F51;&#x5173;kong&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;</h3>
-<p>&#x53EF;&#x4EE5;&#x7528;&#x66F4;&#x5927;&#x7684;&#x7C92;&#x5EA6;&#x62C6;&#x5206;&#x914D;&#x7F6E;&#xFF0C;&#x4F8B;&#x5982;kong&#x4F7F;&#x7528;&#x7684;nginx.conf&#xFF1A;</p>
-<pre><code class="lang-conf">worker_processes auto;
-daemon off;
-
-pid pids/nginx.pid;
-error_log logs/error.log debug;
-
-worker_rlimit_nofile 1024;
-
-events {
-    worker_connections 1024;
-    multi_accept on;
+    XXX_NoUnkeyedLiteral <span class="hljs-keyword">struct</span>{}              
+    XXX_unrecognized     []<span class="hljs-keyword">byte</span>                
+    XXX_sizecache        <span class="hljs-keyword">int32</span>                 
 }
 
-http {
-    # kong&#x7684;&#x914D;&#x7F6E;&#x5355;&#x72EC;&#x5199;&#x5165;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;
-    include &apos;nginx-kong.conf&apos;;
+<span class="hljs-keyword">type</span> Filter <span class="hljs-keyword">struct</span> {
+    Name <span class="hljs-keyword">string</span> <span class="hljs-string">`protobuf:&quot;bytes,1,opt,name=name,proto3&quot; json:&quot;name,omitempty&quot;`</span>
+    ConfigType           isFilter_ConfigType <span class="hljs-string">`protobuf_oneof:&quot;config_type&quot;`</span>
+    XXX_NoUnkeyedLiteral <span class="hljs-keyword">struct</span>{}            <span class="hljs-string">`json:&quot;-&quot;`</span>
+    XXX_unrecognized     []<span class="hljs-keyword">byte</span>              <span class="hljs-string">`json:&quot;-&quot;`</span>
+    XXX_sizecache        <span class="hljs-keyword">int32</span>               <span class="hljs-string">`json:&quot;-&quot;`</span>
+}
+</code></pre>
+<h2 id="&#x5728;-go-control-plane-&#x4E2D;&#x586B;&#x5145;-filter">&#x5728; go-control-plane &#x4E2D;&#x586B;&#x5145; filter</h2>
+<p>&#x4EE5; listener_filters &#x7684;&#x586B;&#x5145;&#x4E3A;&#x4F8B;&#xFF0C;ConfigType &#x5C31;&#x662F;&#x586B;&#x5145;&#x7684; filter&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x7C7B;&#x578B;&#x7684;&#x6210;&#x5458;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// go-control-plane/envoy/api/v2/listener/listener.pb.go</span>
+<span class="hljs-keyword">type</span> ListenerFilter <span class="hljs-keyword">struct</span> {
+    Name <span class="hljs-keyword">string</span> 
+    ConfigType           isListenerFilter_ConfigType 
+    XXX_NoUnkeyedLiteral <span class="hljs-keyword">struct</span>{}                    
+    XXX_unrecognized     []<span class="hljs-keyword">byte</span>                      
+    XXX_sizecache        <span class="hljs-keyword">int32</span>                       
+}
+
+<span class="hljs-comment">// go-control-plane/envoy/api/v2/listener/listener.pb.go: 585</span>
+<span class="hljs-keyword">type</span> isListenerFilter_ConfigType <span class="hljs-keyword">interface</span> {
+    isListenerFilter_ConfigType()
+    Equal(<span class="hljs-keyword">interface</span>{}) <span class="hljs-keyword">bool</span>
+    MarshalTo([]<span class="hljs-keyword">byte</span>) (<span class="hljs-keyword">int</span>, error)
+    Size() <span class="hljs-keyword">int</span>
+}
+</code></pre>
+<p>ConfigType &#x7684;&#x7C7B;&#x578B;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x4F46;&#x9700;&#x8981; <code>&#x7279;&#x522B;&#x6CE8;&#x610F;</code> &#x6EE1;&#x8DB3;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x4E0D;&#x662F; <a href="https://github.com/envoyproxy/go-control-plane/tree/v0.8.4/envoy/config/filter" title="go-control-plane/envoy/config/filter/" target="_blank">go-control-plane/envoy/config/filter</a> &#x4E2D;&#x6BCF;&#x4E2A; filter &#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF0C;&#x800C;&#x662F;&#x4E24;&#x4E2A;&#x8D85;&#x7EA7;&#x7B80;&#x5355;&#x7684; struct&#xFF1A; <code>ListenerFilter_Config</code> &#x548C; <code>ListenerFilter_TypedConfig</code> &#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// go-control-plane/envoy/api/v2/listener/listener.pb.go: 592</span>
+<span class="hljs-keyword">type</span> ListenerFilter_Config <span class="hljs-keyword">struct</span> {
+    Config *types.Struct 
+}
+
+<span class="hljs-keyword">func</span> (*ListenerFilter_Config) isListenerFilter_ConfigType()      {}
+
+<span class="hljs-keyword">type</span> ListenerFilter_TypedConfig <span class="hljs-keyword">struct</span> {
+    TypedConfig *types.Any
+}
+
+<span class="hljs-keyword">func</span> (*ListenerFilter_TypedConfig) isListenerFilter_ConfigType() {}
+</code></pre>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD9;&#x4E24;&#x4E2A; struct &#x4EC5;&#x4EC5;&#x662F;&#x5B9A;&#x4E49;&#x4E86;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x800C;&#x5DF2;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x662F;&#x7A7A;&#x7684;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x6210;&#x5458; Config/TypedConfig &#x624D;&#x662F; <a href="https://github.com/envoyproxy/go-control-plane/tree/v0.8.4/envoy/config/filter" title="go-control-plane/envoy/config/filter/" target="_blank">go-control-plane/envoy/config/filter</a> &#x4E2D;&#x7684; filter &#x5B9E;&#x73B0;&#xFF0C;&#x5E76;&#x4E14;&#x8981;&#x7528; util.MessageToStruct() &#x65B9;&#x6CD5;&#x8F6C;&#x6362;&#x6210; *types.Struct&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#x662F;&#x6CA1;&#x6709;&#x914D;&#x7F6E;&#x5185;&#x5BB9;&#x7684;&#x68C0;&#x67E5;&#x3002;</p>
+<p>filter_chains &#x7684;&#x60C5;&#x51B5;&#x7C7B;&#x4F3C;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x5BF9;&#x5E94;&#x7684; struct &#x662F; <code>Filter_Config</code> &#x548C; <code>Filter_TypedConfig</code>&#x3002;</p>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6BD4;&#x8F83;&#x5947;&#x602A;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x76F4;&#x63A5;&#x7528; filter &#x7684; struct &#x5462;&#xFF1F;&#x662F;&#x53D7;&#x5236;&#x4E8E; grpc &#x8FD8;&#x662F;&#x53EA;&#x662F;&#x6682;&#x65F6;&#x8FD9;&#x6837;&#x5B9E;&#x73B0;&#x7684;&#xFF1F;&#x5BF9;&#x6B64;&#x4E0D;&#x662F;&#x5F88;&#x6E05;&#x695A;&#xFF0C;&#x7559;&#x4E2A;&#x7591;&#x95EE;&#x3002;</p>
+<p>&#x4EE5; <a href="https://www.envoyproxy.io/docs/envoy/latest/api-v2/config/filter/network/http_connection_manager/v2/http_connection_manager.proto#envoy-api-msg-config-filter-network-http-connection-manager-v2-httpconnectionmanager" title="HTTP Connection Manager" target="_blank">HTTP Connection Manager</a> &#x4E3A;&#x4F8B;&#xFF0C;&#x586B;&#x5145;&#x64CD;&#x4F5C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-sh">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A; HttpConnectionManager
+listen_filter_http_conn_ := &amp;http_conn_manager.HttpConnectionManager{
+    StatPrefix: <span class="hljs-string">&quot;ingress_http&quot;</span>,
+    RouteSpecifier: &amp;http_conn_manager.HttpConnectionManager_RouteConfig{
+        RouteConfig: &amp;api_v2.RouteConfiguration{
+            Name:         <span class="hljs-string">&quot;None&quot;</span>,
+            VirtualHosts: virtualHosts,
+        },
+    },
+    HttpFilters: httpFilters,
+}
+
+// &#x8F6C;&#x6362;&#x6210; *types.Struct
+listen_filter_http_conn, err := util.MessageToStruct(listen_filter_http_conn_)
+<span class="hljs-keyword">if</span> err != nil {
+    glog.Error(err)
+    <span class="hljs-built_in">return</span>
+}
+
+// &#x7528;&#x8F6C;&#x6362;&#x5F97;&#x5230; *types.Struct &#x6784;&#x9020; listener.Filter_Config&#xFF0C;&#x7EE7;&#x800C;&#x6784;&#x9020; Filter
+filter := &amp;listener.Filter{
+    Name: <span class="hljs-string">&quot;envoy.http_connection_manager&quot;</span>,
+    ConfigType: &amp;listener.Filter_Config{
+        Config: listen_filter_http_conn,
+    },
+}
+
+//&#x7136;&#x540E;&#x628A; filter &#x653E;&#x5165; filterChains &#x7684;&#x4E00;&#x4E2A;&#x6210;&#x5458;&#x7684; filters &#x94FE;&#x4E2D;&#x3002;
+filters = append(filters, filter)
+filterChain := &amp;listener.FilterChain{
+    Filters: filters,
+}
+
+//&#x6700;&#x540E;&#x5C06; filterChains &#x88C5;&#x5165; listener
+filterChains = append(filterChains, filterChain)
+lis := &amp;api_v2.Listener{
+    Name:         <span class="hljs-string">&quot;listener_with_static_route_port_9000&quot;</span>,
+    Address:      address,
+    FilterChains: filterChains,
 }
 </code></pre>
 <script type="text/javascript">var className='atoc';</script>
@@ -1270,12 +1222,12 @@ http {
 
             
                 
-                <a href="01-documents.html" class="navigation navigation-prev " aria-label="Previous page: Nginx学习资料">
+                <a href="listener.html" class="navigation navigation-prev " aria-label="Previous page: Listener 详解">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="02-config-1.html" class="navigation navigation-next " aria-label="Next page: Nginx高性能配置">
+                <a href="filter-list.html" class="navigation navigation-next " aria-label="Next page: filter 列表">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1286,7 +1238,7 @@ http {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Nginx配置文件","level":"1.4.2","depth":2,"next":{"title":"Nginx高性能配置","level":"1.4.3","depth":2,"path":"nginx/02-config-1.md","ref":"nginx/02-config-1.md","articles":[]},"previous":{"title":"Nginx学习资料","level":"1.4.1","depth":2,"path":"nginx/01-documents.md","ref":"nginx/01-documents.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"nginx/02-config.md","mtime":"2019-08-05T06:17:09.128Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-05T12:49:08.895Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"filter 详解","level":"1.2.3.1","depth":3,"next":{"title":"filter 列表","level":"1.2.3.2","depth":3,"path":"envoy/filter-list.md","ref":"envoy/filter-list.md","articles":[]},"previous":{"title":"Listener 详解","level":"1.2.3","depth":2,"path":"envoy/listener.md","ref":"envoy/listener.md","articles":[{"title":"filter 详解","level":"1.2.3.1","depth":3,"path":"envoy/filter.md","ref":"envoy/filter.md","articles":[]},{"title":"filter 列表","level":"1.2.3.2","depth":3,"path":"envoy/filter-list.md","ref":"envoy/filter-list.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/filter.md","mtime":"2019-08-05T12:31:48.371Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-05T12:49:08.895Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
