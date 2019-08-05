@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Nginx高性能配置 · 李佶澳</title>
+        <title>I/O操作分类 · 李佶澳</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -66,10 +66,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../openresty/" />
+    <link rel="next" href="process_sys_io.html" />
     
     
-    <link rel="prev" href="02-config.html" />
+    <link rel="prev" href="filesystem-stat.html" />
     
 
     <link href="https://www.lijiaocn.com/soft/feed.xml" title="Linux问题诊断与性能优化（实用手册）" rel="alternate" type="application/rss+xml" />
@@ -190,9 +190,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../linux/">
+        <li class="chapter " data-level="1.3" data-path="./">
             
-                <a href="../linux/">
+                <a href="./">
             
                     
                     Linux性能优化与问题诊断
@@ -204,9 +204,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../linux/01-concept.html">
+        <li class="chapter " data-level="1.3.1" data-path="01-concept.html">
             
-                <a href="../linux/01-concept.html">
+                <a href="01-concept.html">
             
                     
                     认知框架
@@ -217,9 +217,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../linux/kernel.html">
+        <li class="chapter " data-level="1.3.2" data-path="kernel.html">
             
-                <a href="../linux/kernel.html">
+                <a href="kernel.html">
             
                     
                     理解内核
@@ -231,9 +231,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.2.1" data-path="../linux/dynamic-trace.html">
+        <li class="chapter " data-level="1.3.2.1" data-path="dynamic-trace.html">
             
-                <a href="../linux/dynamic-trace.html">
+                <a href="dynamic-trace.html">
             
                     
                     动态追踪
@@ -249,9 +249,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../linux/03-cpu.html">
+        <li class="chapter " data-level="1.3.3" data-path="03-cpu.html">
             
-                <a href="../linux/03-cpu.html">
+                <a href="03-cpu.html">
             
                     
                     理解CPU
@@ -263,9 +263,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.3.1" data-path="../linux/02-process-3.html">
+        <li class="chapter " data-level="1.3.3.1" data-path="02-process-3.html">
             
-                <a href="../linux/02-process-3.html">
+                <a href="02-process-3.html">
             
                     
                     CPU的工作状态
@@ -276,9 +276,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.3.2" data-path="../linux/03-cpu-1.html">
+        <li class="chapter " data-level="1.3.3.2" data-path="03-cpu-1.html">
             
-                <a href="../linux/03-cpu-1.html">
+                <a href="03-cpu-1.html">
             
                     
                     CPU上下文切换
@@ -289,9 +289,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.3.3" data-path="../linux/cpu-usage-analysis.html">
+        <li class="chapter " data-level="1.3.3.3" data-path="cpu-usage-analysis.html">
             
-                <a href="../linux/cpu-usage-analysis.html">
+                <a href="cpu-usage-analysis.html">
             
                     
                     CPU的使用情况
@@ -307,9 +307,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../linux/memory.html">
+        <li class="chapter " data-level="1.3.4" data-path="memory.html">
             
-                <a href="../linux/memory.html">
+                <a href="memory.html">
             
                     
                     理解内存
@@ -321,9 +321,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.4.1" data-path="../linux/memory-manage.html">
+        <li class="chapter " data-level="1.3.4.1" data-path="memory-manage.html">
             
-                <a href="../linux/memory-manage.html">
+                <a href="memory-manage.html">
             
                     
                     内存管理
@@ -334,9 +334,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.4.2" data-path="../linux/memory-cache.html">
+        <li class="chapter " data-level="1.3.4.2" data-path="memory-cache.html">
             
-                <a href="../linux/memory-cache.html">
+                <a href="memory-cache.html">
             
                     
                     内存缓存
@@ -347,9 +347,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.4.3" data-path="../linux/memory-stat.html">
+        <li class="chapter " data-level="1.3.4.3" data-path="memory-stat.html">
             
-                <a href="../linux/memory-stat.html">
+                <a href="memory-stat.html">
             
                     
                     内存状态
@@ -365,9 +365,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../linux/interrupt.html">
+        <li class="chapter " data-level="1.3.5" data-path="interrupt.html">
             
-                <a href="../linux/interrupt.html">
+                <a href="interrupt.html">
             
                     
                     理解中断
@@ -379,9 +379,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.5.1" data-path="../linux/sys-interrupt.html">
+        <li class="chapter " data-level="1.3.5.1" data-path="sys-interrupt.html">
             
-                <a href="../linux/sys-interrupt.html">
+                <a href="sys-interrupt.html">
             
                     
                     系统中断
@@ -397,9 +397,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../linux/02-process.html">
+        <li class="chapter " data-level="1.3.6" data-path="02-process.html">
             
-                <a href="../linux/02-process.html">
+                <a href="02-process.html">
             
                     
                     理解进程
@@ -411,9 +411,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.6.1" data-path="../linux/02-process-1.html">
+        <li class="chapter " data-level="1.3.6.1" data-path="02-process-1.html">
             
-                <a href="../linux/02-process-1.html">
+                <a href="02-process-1.html">
             
                     
                     进程的分类
@@ -424,9 +424,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.6.2" data-path="../linux/02-process-2.html">
+        <li class="chapter " data-level="1.3.6.2" data-path="02-process-2.html">
             
-                <a href="../linux/02-process-2.html">
+                <a href="02-process-2.html">
             
                     
                     进程的状态
@@ -437,9 +437,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.6.3" data-path="../linux/process-resouce.html">
+        <li class="chapter " data-level="1.3.6.3" data-path="process-resouce.html">
             
-                <a href="../linux/process-resouce.html">
+                <a href="process-resouce.html">
             
                     
                     进程占用的资源
@@ -455,9 +455,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.7" data-path="../linux/01-filesystem.html">
+        <li class="chapter " data-level="1.3.7" data-path="01-filesystem.html">
             
-                <a href="../linux/01-filesystem.html">
+                <a href="01-filesystem.html">
             
                     
                     理解文件系统
@@ -469,9 +469,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.7.1" data-path="../linux/vfs.html">
+        <li class="chapter " data-level="1.3.7.1" data-path="vfs.html">
             
-                <a href="../linux/vfs.html">
+                <a href="vfs.html">
             
                     
                     VFS
@@ -482,9 +482,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.7.2" data-path="../linux/disk.html">
+        <li class="chapter " data-level="1.3.7.2" data-path="disk.html">
             
-                <a href="../linux/disk.html">
+                <a href="disk.html">
             
                     
                     磁盘
@@ -495,9 +495,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.7.3" data-path="../linux/filesystem-stat.html">
+        <li class="chapter " data-level="1.3.7.3" data-path="filesystem-stat.html">
             
-                <a href="../linux/filesystem-stat.html">
+                <a href="filesystem-stat.html">
             
                     
                     文件系统状态
@@ -508,9 +508,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.7.4" data-path="../linux/02-io.html">
+        <li class="chapter active" data-level="1.3.7.4" data-path="02-io.html">
             
-                <a href="../linux/02-io.html">
+                <a href="02-io.html">
             
                     
                     I/O操作分类
@@ -521,9 +521,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.7.5" data-path="../linux/process_sys_io.html">
+        <li class="chapter " data-level="1.3.7.5" data-path="process_sys_io.html">
             
-                <a href="../linux/process_sys_io.html">
+                <a href="process_sys_io.html">
             
                     
                     系统I/O状态
@@ -539,9 +539,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="../linux/network.html">
+        <li class="chapter " data-level="1.3.8" data-path="network.html">
             
-                <a href="../linux/network.html">
+                <a href="network.html">
             
                     
                     理解网络
@@ -553,9 +553,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.8.1" data-path="../linux/network-metrics.html">
+        <li class="chapter " data-level="1.3.8.1" data-path="network-metrics.html">
             
-                <a href="../linux/network-metrics.html">
+                <a href="network-metrics.html">
             
                     
                     性能指标与检测
@@ -566,9 +566,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.8.2" data-path="../linux/network-nic-stat.html">
+        <li class="chapter " data-level="1.3.8.2" data-path="network-nic-stat.html">
             
-                <a href="../linux/network-nic-stat.html">
+                <a href="network-nic-stat.html">
             
                     
                     网卡状态
@@ -579,9 +579,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.8.3" data-path="../linux/network-stat.html">
+        <li class="chapter " data-level="1.3.8.3" data-path="network-stat.html">
             
-                <a href="../linux/network-stat.html">
+                <a href="network-stat.html">
             
                     
                     连接/协议栈状态
@@ -592,9 +592,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.8.4" data-path="../linux/network-netfilter.html">
+        <li class="chapter " data-level="1.3.8.4" data-path="network-netfilter.html">
             
-                <a href="../linux/network-netfilter.html">
+                <a href="network-netfilter.html">
             
                     
                     连接跟踪netfilter
@@ -605,9 +605,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.8.5" data-path="../linux/network-trace-pkt.html">
+        <li class="chapter " data-level="1.3.8.5" data-path="network-trace-pkt.html">
             
-                <a href="../linux/network-trace-pkt.html">
+                <a href="network-trace-pkt.html">
             
                     
                     报文跟踪
@@ -618,9 +618,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.8.6" data-path="../linux/network-dns-trace.html">
+        <li class="chapter " data-level="1.3.8.6" data-path="network-dns-trace.html">
             
-                <a href="../linux/network-dns-trace.html">
+                <a href="network-dns-trace.html">
             
                     
                     DNS解析追踪
@@ -631,9 +631,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.8.7" data-path="../linux/netio-high-performance.html">
+        <li class="chapter " data-level="1.3.8.7" data-path="netio-high-performance.html">
             
-                <a href="../linux/netio-high-performance.html">
+                <a href="netio-high-performance.html">
             
                     
                     高性能网络IO
@@ -649,9 +649,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.9" data-path="../linux/04-tool.html">
+        <li class="chapter " data-level="1.3.9" data-path="04-tool.html">
             
-                <a href="../linux/04-tool.html">
+                <a href="04-tool.html">
             
                     
                     分析工具
@@ -663,9 +663,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.9.1" data-path="../linux/04-flame-graphs.html">
+        <li class="chapter " data-level="1.3.9.1" data-path="04-flame-graphs.html">
             
-                <a href="../linux/04-flame-graphs.html">
+                <a href="04-flame-graphs.html">
             
                     
                     火焰图介绍
@@ -677,9 +677,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.9.1.1" data-path="../linux/04-flame-graphs-cpu.html">
+        <li class="chapter " data-level="1.3.9.1.1" data-path="04-flame-graphs-cpu.html">
             
-                <a href="../linux/04-flame-graphs-cpu.html">
+                <a href="04-flame-graphs-cpu.html">
             
                     
                     CPU火焰图
@@ -690,9 +690,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.9.1.2" data-path="../linux/04-flame-graphs-memory.html">
+        <li class="chapter " data-level="1.3.9.1.2" data-path="04-flame-graphs-memory.html">
             
-                <a href="../linux/04-flame-graphs-memory.html">
+                <a href="04-flame-graphs-memory.html">
             
                     
                     内存火焰图
@@ -703,9 +703,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.9.1.3" data-path="../linux/04-flame-graphs-off-cpu.html">
+        <li class="chapter " data-level="1.3.9.1.3" data-path="04-flame-graphs-off-cpu.html">
             
-                <a href="../linux/04-flame-graphs-off-cpu.html">
+                <a href="04-flame-graphs-off-cpu.html">
             
                     
                     Off-CPU火焰图
@@ -716,9 +716,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.9.1.4" data-path="../linux/04-flame-graphs-hot-code.html">
+        <li class="chapter " data-level="1.3.9.1.4" data-path="04-flame-graphs-hot-code.html">
             
-                <a href="../linux/04-flame-graphs-hot-code.html">
+                <a href="04-flame-graphs-hot-code.html">
             
                     
                     冷热火焰图
@@ -729,9 +729,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.9.1.5" data-path="../linux/04-flame-graphs-differential.html">
+        <li class="chapter " data-level="1.3.9.1.5" data-path="04-flame-graphs-differential.html">
             
-                <a href="../linux/04-flame-graphs-differential.html">
+                <a href="04-flame-graphs-differential.html">
             
                     
                     差异火焰图
@@ -742,9 +742,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.9.1.6" data-path="../linux/04-flame-generate.html">
+        <li class="chapter " data-level="1.3.9.1.6" data-path="04-flame-generate.html">
             
-                <a href="../linux/04-flame-generate.html">
+                <a href="04-flame-generate.html">
             
                     
                     火焰图生成
@@ -760,9 +760,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.9.2" data-path="../linux/04-bcc-tools.html">
+        <li class="chapter " data-level="1.3.9.2" data-path="04-bcc-tools.html">
             
-                <a href="../linux/04-bcc-tools.html">
+                <a href="04-bcc-tools.html">
             
                     
                     BCC系列工具
@@ -778,9 +778,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.10" data-path="../linux/cpu-usage-high.html">
+        <li class="chapter " data-level="1.3.10" data-path="cpu-usage-high.html">
             
-                <a href="../linux/cpu-usage-high.html">
+                <a href="cpu-usage-high.html">
             
                     
                     案例: CPU使用率很高
@@ -791,9 +791,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.11" data-path="../linux/todo.html">
+        <li class="chapter " data-level="1.3.11" data-path="todo.html">
             
-                <a href="../linux/todo.html">
+                <a href="todo.html">
             
                     
                     待学习
@@ -809,9 +809,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="./">
+        <li class="chapter " data-level="1.4" data-path="../nginx/">
             
-                <a href="./">
+                <a href="../nginx/">
             
                     
                     Nginx介绍
@@ -823,9 +823,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="01-documents.html">
+        <li class="chapter " data-level="1.4.1" data-path="../nginx/01-documents.html">
             
-                <a href="01-documents.html">
+                <a href="../nginx/01-documents.html">
             
                     
                     Nginx学习资料
@@ -836,9 +836,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="02-config.html">
+        <li class="chapter " data-level="1.4.2" data-path="../nginx/02-config.html">
             
-                <a href="02-config.html">
+                <a href="../nginx/02-config.html">
             
                     
                     Nginx配置文件
@@ -849,9 +849,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter active" data-level="1.4.3" data-path="02-config-1.html">
+        <li class="chapter " data-level="1.4.3" data-path="../nginx/02-config-1.html">
             
-                <a href="02-config-1.html">
+                <a href="../nginx/02-config-1.html">
             
                     
                     Nginx高性能配置
@@ -926,7 +926,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Nginx高性能配置</a>
+        <a href=".." >I/O操作分类</a>
     </h1>
 </div>
 
@@ -956,55 +956,34 @@ var _hmt = _hmt || [];
 </div>
 
 
-                                <h1 id="nginx&#x9AD8;&#x6027;&#x80FD;&#x914D;&#x7F6E;">Nginx&#x9AD8;&#x6027;&#x80FD;&#x914D;&#x7F6E;</h1>
-<p>&#x5728;&#x505A;&#x538B;&#x6D4B;&#x65F6;&#xFF0C;&#x4E86;&#x89E3;&#x5230;&#x4E00;&#x4E9B;&#x914D;&#x7F6E;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x3002;</p>
-<p>&#x8C03;&#x6574;&#x7684;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF08;&#x4E0B;&#x9762;&#x53EA;&#x5217;&#x51FA;&#x8C03;&#x6574;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x6210;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF09;&#xFF1A;</p>
-<pre><code class="lang-conf">worker_processes 2;
-worker_cpu_affinity 0010 1000;
-worker_rlimit_nofile  10340;
-worker_priority -20;
-events {
-    worker_connections 10240;
-    worker_aio_requests 32;
-}
-http{
-...
-    upstream webshell_upstream{
-        keepalive 16;
-        keepalive_timeout 60s;                # nginx 1.15.3
-    }
-    ...
-    server {
-        ...
-        keepalive_requests  10000000;
-        location / {
-            ...
-            proxy_socket_keepalive on;
-            proxy_connect_timeout  60s;       # nginx 1.15.6
-            proxy_send_timeout     60s;
-            proxy_read_timeout     60s;
-            proxy_http_version     1.1;
-            proxy_set_header Connection &quot;&quot;;
-        }
-    }
-}
-</code></pre>
-<h2 id="core-functionality">Core functionality</h2>
-<p><a href="https://nginx.org/en/docs/ngx_core_module.html" target="_blank">Core functionality</a>&#x4E2D;&#x662F;nginx&#x7684;&#x6838;&#x5FC3;&#x53C2;&#x6570;&#xFF0C;&#x4E0E;&#x6027;&#x80FD;&#x76F4;&#x63A5;&#x76F8;&#x5173;&#x7684;&#x6709;&#xFF1A;</p>
-<p><a href="https://nginx.org/en/docs/ngx_core_module.html#worker_processes" target="_blank">worker_processes</a>&#x662F;nginx&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;<code>auto</code>&#xFF0C;nginx master&#x8FDB;&#x7A0B;&#x81EA;&#x4E3B;&#x51B3;&#x5B9A;&#x542F;&#x52A8;&#x51E0;&#x4E2A;nginx worker&#x3002;</p>
-<p><a href="https://nginx.org/en/docs/ngx_core_module.html#worker_cpu_affinity" target="_blank">worker_cpu_affinity</a>&#x5C06;nginx&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x7ED1;&#x5B9A;&#x5230;&#x6307;&#x5B9A;&#x7684;CPU&#x6838;&#x3002;</p>
-<p><a href="https://nginx.org/en/docs/ngx_core_module.html#worker_rlimit_nofile" target="_blank">worker_rlimit_nofile</a>&#x8BBE;&#x7F6E;nginx worker&#x53EF;&#x4EE5;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x76F4;&#x63A5;&#x5F71;&#x54CD;&#x5230;nginx worker&#x53EF;&#x4EE5;&#x5EFA;&#x7ACB;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#x91CF;&#x3002;</p>
-<p><a href="https://nginx.org/en/docs/ngx_core_module.html#worker_priority" target="_blank">worker_priority</a>&#x8BBE;&#x7F6E;nginx worker&#x7EE7;&#x627F;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x8303;&#x56F4;&#x662F;<code>-20~+20</code>&#xFF0C; <code>-20</code>&#x662F;&#x6700;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x3002;</p>
-<p><a href="https://nginx.org/en/docs/ngx_core_module.html#worker_connections" target="_blank">worker_connections</a>&#x662F;&#x6BCF;&#x4E2A;nginx worker&#x53EF;&#x4EE5;&#x5EFA;&#x7ACB;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#x91CF;&#xFF0C;&#x8FD9;&#x4E2A;&#x6570;&#x503C;<code>&#x4E0D;&#x80FD;&#x9AD8;&#x4E8E;</code>worker_rlimit_nofile&#x3002;</p>
-<h2 id="module-ngxhttpproxymodule">Module ngx_http_proxy_module</h2>
-<p><a href="https://nginx.org/en/docs/http/ngx_http_proxy_module.html" target="_blank">Module ngx_http_proxy_module</a>&#x4E2D;&#x662F;&#x4EE3;&#x7406;&#x76F8;&#x5173;&#x8BBE;&#x7F6E;&#xFF0C;&#x4E0E;&#x6027;&#x80FD;&#x76F4;&#x63A5;&#x76F8;&#x5173;&#x7684;&#x6709;&#xFF1A;</p>
-<p><a href="https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_http_version" target="_blank">proxy_http_version</a>&#x8BBE;&#x7F6E;nginx&#x5230;upstream&#x4E2D;&#x7684;server&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;http&#xFF0C;&#x4E0D;&#x4F1A;&#x5EFA;&#x7ACB;&#x957F;&#x8FDE;&#x63A5;&#x3002;&#x4FEE;&#x6539;&#x4E3A;http 1.1&#x4F7F;&#x7528;&#x957F;&#x8FDE;&#x63A5;&#xFF0C;&#x6027;&#x80FD;&#x4F1A;&#x663E;&#x8457;&#x63D0;&#x9AD8;&#x3002;&#x4F7F;&#x7528;http 1.1&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x7528;<a href="https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_header" target="_blank">proxy_set_header</a>&#x5C06;<code>Connection</code>&#x5934;&#x53BB;&#x6389;&#xFF0C;&#x5426;&#x5219;&#x56E0;&#x4E3A;&#x4F1A;Connection&#x7684;&#x503C;&#x662F;<code>Close</code>,&#x5BFC;&#x81F4;&#x8FDE;&#x63A5;&#x88AB;&#x65AD;&#x5F00;&#x3002;</p>
-<h2 id="module-ngxhttpupstreammodule">Module ngx_http_upstream_module</h2>
-<p><a href="https://nginx.org/en/docs/http/ngx_http_upstream_module.html" target="_blank">Module ngx_http_upstream_module</a>&#x4E2D;upstream&#x76F8;&#x5173;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5176;&#x4E2D;&#x4E0E;&#x6027;&#x80FD;&#x76F4;&#x63A5;&#x76F8;&#x5173;&#x7684;&#x6709;&#xFF1A;</p>
-<p><a href="https://nginx.org/en/docs/http/ngx_http_upstream_module.html#keepalive" target="_blank">keepalive</a>&#x662F;&#x6BCF;&#x4E2A;worker&#x53EF;&#x4EE5;&#x4E0E;backend server&#x4FDD;&#x6301;&#x7684;&#x7A7A;&#x95F2;&#x8FDE;&#x63A5;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x6570;&#x503C;&#x8FC7;&#x5C0F;&#xFF0C;nginx worker&#x4F1A;&#x4E0D;&#x505C;&#x5730;&#x4E0E;backend server&#x65B0;&#x5EFA;&#x8FDE;&#x63A5;&#x3001;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x3002;</p>
-<p><a href="https://nginx.org/en/docs/http/ngx_http_upstream_module.html#keepalive_timeout" target="_blank">keepalive_timeout</a>&#x662F;<code>1.15.3</code>&#x4E2D;&#x5F00;&#x59CB;&#x6709;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5B83;&#x7684;&#x7528;&#x9014;&#x662F;&#x8BBE;&#x7F6E;nginx worker&#x4E0E;backend server&#x4E4B;&#x95F4;&#x7684;&#x7A7A;&#x95F2;&#x7684;&#x8FDE;&#x63A5;&#x4FDD;&#x6301;&#x65F6;&#x95F4;&#x3002;&#x65E9;&#x671F;&#x7248;&#x672C;&#x4E2D;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x957F;&#x8FDE;&#x63A5;&#x662F;&#x4E00;&#x76F4;&#x4FDD;&#x6301;&#x3002;&#xFF08;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;keepalive_requests&#x7684;&#x53C2;&#x6570;&#x907F;&#x514D;&#xFF09;</p>
-<p><a href="https://nginx.org/en/docs/http/ngx_http_upstream_module.html#keepalive_requests" target="_blank">keepalive_requests</a>&#x8BBE;&#x7F6E;nginx worker&#x4E0E;backend server&#x5EFA;&#x7ACB;&#x7684;&#x957F;&#x8FDE;&#x63A5;&#x4E2D;&#x53EF;&#x4EE5;&#x4F20;&#x8F93;&#x7684;&#x8BF7;&#x6C42;&#x6570;&#xFF0C;&#x8D85;&#x8FC7;&#x8BBE;&#x7F6E;&#xFF0C;&#x8FDE;&#x63A5;&#x88AB;nginx&#x4E3B;&#x52A8;&#x5173;&#x95ED;&#x3002;</p>
-<p>&#x5173;&#x4E8E;&#x957F;&#x8FDE;&#x63A5;&#x7684;&#x8BBE;&#x7F6E;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#xFF1A;<a href="https://ma.ttias.be/enable-keepalive-connections-in-nginx-upstream-proxy-configurations/" target="_blank">Enable Keepalive connections in Nginx Upstream proxy configurations</a>&#x548C;<a href="http://tldp.org/HOWTO/TCP-Keepalive-HOWTO/overview.html" target="_blank">TCP keepalive overview</a>&#x3002;</p>
+                                <!-- toc -->
+<ul>
+<li><a href="#linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;io">Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;I/O</a><ul>
+<li><a href="#&#x5426;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x5E93;&#x7F13;&#x5B58;&#xFF1A;&#x7F13;&#x51B2;&#x4E0E;&#x975E;&#x7F13;&#x51B2;io">&#x5426;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x5E93;&#x7F13;&#x5B58;&#xFF1A;&#x7F13;&#x51B2;&#x4E0E;&#x975E;&#x7F13;&#x51B2;I/O</a></li>
+<li><a href="#&#x662F;&#x5426;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x7684;&#x9875;&#x7F13;&#x5B58;&#xFF1A;&#x76F4;&#x63A5;&#x4E0E;&#x975E;&#x76F4;&#x63A5;io">&#x662F;&#x5426;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x7684;&#x9875;&#x7F13;&#x5B58;&#xFF1A;&#x76F4;&#x63A5;&#x4E0E;&#x975E;&#x76F4;&#x63A5;I/O</a></li>
+<li><a href="#&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x963B;&#x585E;&#x81EA;&#x8EAB;&#x8FD0;&#x884C;&#xFF1A;&#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E;io">&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x963B;&#x585E;&#x81EA;&#x8EAB;&#x8FD0;&#x884C;&#xFF1A;&#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E;I/O</a></li>
+<li><a href="#&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x7B49;&#x5F85;&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#xFF1A;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;io">&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x7B49;&#x5F85;&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#xFF1A;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;I/O</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;io">Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;I/O</h1>
+<p>I/O&#x64CD;&#x4F5C;&#x5206;&#x4E3A;&#xFF1A;&#x7F13;&#x51B2;&#x4E0E;&#x975E;&#x7F13;&#x51B2;I/O&#x3001;&#x76F4;&#x63A5;&#x4E0E;&#x975E;&#x76F4;&#x63A5;I/O&#x3001;&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;I/O&#x3001;&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;I/O&#x3002;</p>
+<h2 id="&#x5426;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x5E93;&#x7F13;&#x5B58;&#xFF1A;&#x7F13;&#x51B2;&#x4E0E;&#x975E;&#x7F13;&#x51B2;io">&#x5426;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x5E93;&#x7F13;&#x5B58;&#xFF1A;&#x7F13;&#x51B2;&#x4E0E;&#x975E;&#x7F13;&#x51B2;I/O</h2>
+<p>&#x6807;&#x51C6;&#x5E93;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;I/O&#x64CD;&#x4F5C;&#x63A5;&#x53E3;&#xFF0C;&#x81EA;&#x8EAB;&#x5219;&#x662F;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x8BBF;&#x95EE;&#x6587;&#x4EF6;&#x3002;&#x6807;&#x51C6;&#x5E93;&#x7684;&#x5B9E;&#x73B0;&#x4E2D;&#x4F1A;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x7F13;&#x5B58;&#x673A;&#x5236;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;&#x6807;&#x51C6;&#x5E93;&#x7F13;&#x5B58;&#x7684;I/O&#x64CD;&#x4F5C;&#x662F; <strong>&#x7F13;&#x51B2;I/O</strong>&#xFF0C;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x8FDB;&#x884C;&#x7684;I/O&#x64CD;&#x4F5C;&#x662F; <strong>&#x975E;&#x7F13;&#x51B2;I/O</strong>&#x3002;</p>
+<h2 id="&#x662F;&#x5426;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x7684;&#x9875;&#x7F13;&#x5B58;&#xFF1A;&#x76F4;&#x63A5;&#x4E0E;&#x975E;&#x76F4;&#x63A5;io">&#x662F;&#x5426;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x7684;&#x9875;&#x7F13;&#x5B58;&#xFF1A;&#x76F4;&#x63A5;&#x4E0E;&#x975E;&#x76F4;&#x63A5;I/O</h2>
+<p>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E5F;&#x4F1A;&#x6709;&#x7F13;&#x5B58;&#xFF0C;&#x8DF3;&#x8FC7;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x9875;&#x7F13;&#x5B58;&#x7684;I/O&#x64CD;&#x4F5C;&#x662F; <strong>&#x76F4;&#x63A5;I/O</strong>&#xFF0C;&#x5728;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x65F6;&#x8981;&#x6307;&#x5B9A;<code>O_DIRECT</code>&#x6807;&#x5FD7;&#x3002;</p>
+<p>&#x6587;&#x4EF6;&#x8BFB;&#x5199;&#x65F6;&#xFF0C;&#x5148;&#x7ECF;&#x8FC7;&#x7CFB;&#x7EDF;&#x9875;&#x7F13;&#x5B58;&#x3001;&#x7136;&#x540E;&#x5728;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x843D;&#x5B9E;&#x5230;&#x78C1;&#x76D8;&#xFF0C;&#x8FD9;&#x6837;&#x7684;I/O&#x64CD;&#x4F5C;&#x662F; <strong>&#x975E;&#x76F4;&#x63A5;I/O</strong>&#x3002;</p>
+<p>&#x5728;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x573A;&#x666F;&#x4E2D;&#xFF0C;&#x8B6C;&#x5982;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x4F1A;&#x8FDE;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E00;&#x8D77;&#x8DF3;&#x8FC7;&#xFF0C;&#x76F4;&#x63A5;&#x8BFB;&#x5199;&#x78C1;&#x76D8;&#xFF0C; &#x8FD9;&#x79CD;&#x64CD;&#x4F5C;&#x901A;&#x5E38;&#x79F0;&#x4E3A; <strong>&#x88F8;I/O</strong>&#x3002;</p>
+<h2 id="&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x963B;&#x585E;&#x81EA;&#x8EAB;&#x8FD0;&#x884C;&#xFF1A;&#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E;io">&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x963B;&#x585E;&#x81EA;&#x8EAB;&#x8FD0;&#x884C;&#xFF1A;&#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E;I/O</h2>
+<p>&#x5982;&#x679C;&#x7A0B;&#x5E8F;&#x8981;&#x7B49;&#x6536;&#x5230;I/O&#x64CD;&#x4F5C;&#x7ED3;&#x679C;&#x540E;&#xFF0C;&#x624D;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#xFF0C;&#x8FD9;&#x662F; <strong>&#x963B;&#x585E;I/O</strong>&#x3002;</p>
+<p>&#x5982;&#x679C;&#x7A0B;&#x5E8F;&#x53D1;&#x8D77;I/O&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x4E0D;&#x7B49;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x5176;&#x5B83;&#x64CD;&#x4F5C;&#xFF0C;&#x4EE5;&#x8F6E;&#x8BE2;&#x6216;&#x8005;&#x4E8B;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x83B7;&#x5F97;I/O&#x64CD;&#x4F5C;&#x7ED3;&#x679C;&#xFF0C;
+&#x8FD9;&#x662F; <strong>&#x975E;&#x963B;&#x585E;I/O</strong>&#x3002;</p>
+<h2 id="&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x7B49;&#x5F85;&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#xFF1A;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;io">&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x7B49;&#x5F85;&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#xFF1A;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;I/O</h2>
+<p>&#x53D1;&#x8D77;I/O&#x64CD;&#x4F5C;&#xFF0C;&#x9700;&#x8981;&#x7B49;&#x6574;&#x4E2A;I/O&#x5B8C;&#x6210;&#x540E;&#x624D;&#x8FD4;&#x56DE;&#x54CD;&#x5E94;&#xFF0C;&#x8FD9;&#x662F; <strong>&#x540C;&#x6B65;I/O</strong>&#x3002;</p>
+<p>&#x53D1;&#x8D77;I/O&#x64CD;&#x4F5C;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x7B49;&#x6574;&#x4E2A;I/O&#x5B8C;&#x6210;&#xFF0C;I/O&#x64CD;&#x4F5C;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x54CD;&#x5E94;&#x4EE5;&#x4E8B;&#x4EF6;&#x7684;&#x5F62;&#x5F0F;&#x901A;&#x77E5;&#x8C03;&#x7528;&#x8005;&#xFF0C;&#x8FD9;&#x662F; <strong>&#x5F02;&#x6B65;I/O</strong>&#x3002;</p>
+<p>&#x64CD;&#x4F5C;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;<code>O_DSYNC</code>&#x6216;&#x8005;<code>O_SYNC</code>&#x6807;&#x5FD7;&#xFF0C;&#x8868;&#x793A;&#x540C;&#x6B65;I/O&#xFF0C;&#x524D;&#x8005;&#x8981;&#x7B49;&#x6587;&#x4EF6;&#x5199;&#x5165;&#x78C1;&#x76D8;&#x4EE5;&#x540E;&#x624D;&#x8FD4;&#x56DE;&#xFF0C;&#x540E;&#x8005;&#x8981;&#x5728;&#x524D;&#x8005;&#x7684;&#x57FA;&#x7840;&#xFF0C;&#x7EE7;&#x7EED;&#x7B49;&#x5F85;&#x6587;&#x4EF6;&#x7684;&#x5143;&#x6570;&#x636E;&#x5199;&#x5165;&#x78C1;&#x76D8;&#x540E;&#x518D;&#x8FD4;&#x56DE;&#x3002;</p>
+<p>&#x64CD;&#x4F5C;&#x7BA1;&#x9053;&#x6216;&#x8005;Socket&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;<code>O_ASYNC</code>&#xFF0C;&#x8868;&#x793A;&#x5F02;&#x6B65;I/O&#xFF0C;&#x5F53;&#x6587;&#x4EF6;&#x53EF;&#x8BFB;&#x5199;&#x65F6;&#xFF0C;&#x5185;&#x6838;&#x53D1;&#x9001;<code>SIGIO</code>&#x6216;&#x8005;<code>SIGPOLL</code>&#x3002;</p>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
@@ -1060,12 +1039,12 @@ http{
 
             
                 
-                <a href="02-config.html" class="navigation navigation-prev " aria-label="Previous page: Nginx配置文件">
+                <a href="filesystem-stat.html" class="navigation navigation-prev " aria-label="Previous page: 文件系统状态">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../openresty/" class="navigation navigation-next " aria-label="Next page: OpenResty介绍">
+                <a href="process_sys_io.html" class="navigation navigation-next " aria-label="Next page: 系统I/O状态">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1076,7 +1055,7 @@ http{
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Nginx高性能配置","level":"1.4.3","depth":2,"next":{"title":"OpenResty介绍","level":"1.5","depth":1,"path":"openresty/README.md","ref":"openresty/README.md","articles":[]},"previous":{"title":"Nginx配置文件","level":"1.4.2","depth":2,"path":"nginx/02-config.md","ref":"nginx/02-config.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"nginx/02-config-1.md","mtime":"2019-08-05T03:39:59.355Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-05T03:54:33.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"I/O操作分类","level":"1.3.7.4","depth":3,"next":{"title":"系统I/O状态","level":"1.3.7.5","depth":3,"path":"linux/process_sys_io.md","ref":"linux/process_sys_io.md","articles":[]},"previous":{"title":"文件系统状态","level":"1.3.7.3","depth":3,"path":"linux/filesystem-stat.md","ref":"linux/filesystem-stat.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"linux/02-io.md","mtime":"2019-08-05T03:39:52.843Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-05T03:54:33.155Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

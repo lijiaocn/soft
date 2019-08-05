@@ -1,0 +1,1156 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Linux性能优化与问题诊断 · 李佶澳</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="lijiaocn@foxmail.com">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-atoc/atoc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="01-concept.html" />
+    
+    
+    <link rel="prev" href="../envoy/" />
+    
+
+    <link href="https://www.lijiaocn.com/soft/feed.xml" title="Linux问题诊断与性能优化（实用手册）" rel="alternate" type="application/rss+xml" />
+
+        
+<!--Google ads -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8176866190626448",
+    enable_page_level_ads: true
+  });
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105389858-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-105389858-1');
+</script>
+
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8f59ea10145df28da8932c8743ec1d60";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!--百度收录-->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                
+<div style="text-align:center">
+    <h2><a href="https://www.lijiaocn.com" style="color:#afa790">www.lijiaocn.com</a></h2>
+</div>
+
+<div style="text-align:center">
+<!-- 250x250 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:250px;height:250px"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="9490087185"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    手册说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../envoy/">
+            
+                <a href="../envoy/">
+            
+                    
+                    Envoy使用手册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Linux性能优化与问题诊断
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="01-concept.html">
+            
+                <a href="01-concept.html">
+            
+                    
+                    认知框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="kernel.html">
+            
+                <a href="kernel.html">
+            
+                    
+                    理解内核
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="dynamic-trace.html">
+            
+                <a href="dynamic-trace.html">
+            
+                    
+                    动态追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="03-cpu.html">
+            
+                <a href="03-cpu.html">
+            
+                    
+                    理解CPU
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="02-process-3.html">
+            
+                <a href="02-process-3.html">
+            
+                    
+                    CPU的工作状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="03-cpu-1.html">
+            
+                <a href="03-cpu-1.html">
+            
+                    
+                    CPU上下文切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="cpu-usage-analysis.html">
+            
+                <a href="cpu-usage-analysis.html">
+            
+                    
+                    CPU的使用情况
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="memory.html">
+            
+                <a href="memory.html">
+            
+                    
+                    理解内存
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="memory-manage.html">
+            
+                <a href="memory-manage.html">
+            
+                    
+                    内存管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="memory-cache.html">
+            
+                <a href="memory-cache.html">
+            
+                    
+                    内存缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="memory-stat.html">
+            
+                <a href="memory-stat.html">
+            
+                    
+                    内存状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="interrupt.html">
+            
+                <a href="interrupt.html">
+            
+                    
+                    理解中断
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="sys-interrupt.html">
+            
+                <a href="sys-interrupt.html">
+            
+                    
+                    系统中断
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="02-process.html">
+            
+                <a href="02-process.html">
+            
+                    
+                    理解进程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="02-process-1.html">
+            
+                <a href="02-process-1.html">
+            
+                    
+                    进程的分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="02-process-2.html">
+            
+                <a href="02-process-2.html">
+            
+                    
+                    进程的状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="process-resouce.html">
+            
+                <a href="process-resouce.html">
+            
+                    
+                    进程占用的资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="01-filesystem.html">
+            
+                <a href="01-filesystem.html">
+            
+                    
+                    理解文件系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="vfs.html">
+            
+                <a href="vfs.html">
+            
+                    
+                    VFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="disk.html">
+            
+                <a href="disk.html">
+            
+                    
+                    磁盘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="filesystem-stat.html">
+            
+                <a href="filesystem-stat.html">
+            
+                    
+                    文件系统状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.4" data-path="02-io.html">
+            
+                <a href="02-io.html">
+            
+                    
+                    I/O操作分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.5" data-path="process_sys_io.html">
+            
+                <a href="process_sys_io.html">
+            
+                    
+                    系统I/O状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="network.html">
+            
+                <a href="network.html">
+            
+                    
+                    理解网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="network-metrics.html">
+            
+                <a href="network-metrics.html">
+            
+                    
+                    性能指标与检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="network-nic-stat.html">
+            
+                <a href="network-nic-stat.html">
+            
+                    
+                    网卡状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="network-stat.html">
+            
+                <a href="network-stat.html">
+            
+                    
+                    连接/协议栈状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="network-netfilter.html">
+            
+                <a href="network-netfilter.html">
+            
+                    
+                    连接跟踪netfilter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.5" data-path="network-trace-pkt.html">
+            
+                <a href="network-trace-pkt.html">
+            
+                    
+                    报文跟踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.6" data-path="network-dns-trace.html">
+            
+                <a href="network-dns-trace.html">
+            
+                    
+                    DNS解析追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.7" data-path="netio-high-performance.html">
+            
+                <a href="netio-high-performance.html">
+            
+                    
+                    高性能网络IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="04-tool.html">
+            
+                <a href="04-tool.html">
+            
+                    
+                    分析工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="04-flame-graphs.html">
+            
+                <a href="04-flame-graphs.html">
+            
+                    
+                    火焰图介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1.1" data-path="04-flame-graphs-cpu.html">
+            
+                <a href="04-flame-graphs-cpu.html">
+            
+                    
+                    CPU火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.1.2" data-path="04-flame-graphs-memory.html">
+            
+                <a href="04-flame-graphs-memory.html">
+            
+                    
+                    内存火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.1.3" data-path="04-flame-graphs-off-cpu.html">
+            
+                <a href="04-flame-graphs-off-cpu.html">
+            
+                    
+                    Off-CPU火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.1.4" data-path="04-flame-graphs-hot-code.html">
+            
+                <a href="04-flame-graphs-hot-code.html">
+            
+                    
+                    冷热火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.1.5" data-path="04-flame-graphs-differential.html">
+            
+                <a href="04-flame-graphs-differential.html">
+            
+                    
+                    差异火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.1.6" data-path="04-flame-generate.html">
+            
+                <a href="04-flame-generate.html">
+            
+                    
+                    火焰图生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.2" data-path="04-bcc-tools.html">
+            
+                <a href="04-bcc-tools.html">
+            
+                    
+                    BCC系列工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="cpu-usage-high.html">
+            
+                <a href="cpu-usage-high.html">
+            
+                    
+                    案例: CPU使用率很高
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="todo.html">
+            
+                <a href="todo.html">
+            
+                    
+                    待学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../nginx/">
+            
+                <a href="../nginx/">
+            
+                    
+                    Nginx介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../nginx/01-documents.html">
+            
+                <a href="../nginx/01-documents.html">
+            
+                    
+                    Nginx学习资料
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../nginx/02-config.html">
+            
+                <a href="../nginx/02-config.html">
+            
+                    
+                    Nginx配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../nginx/02-config-1.html">
+            
+                <a href="../nginx/02-config-1.html">
+            
+                    
+                    Nginx高性能配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../openresty/">
+            
+                <a href="../openresty/">
+            
+                    
+                    OpenResty介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.lijiaocn.com" target="blank" class="gitbook-link">
+            www.lijiaocn.com 提供
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+                
+<br>
+<!--div style="text-align:center"-->
+<!-- Summary_Bottom -->
+<!--ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="2156601384"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div-->
+
+
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Linux性能优化与问题诊断</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                
+<!-- Page_Top -->
+<div>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="5702052586"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+                                <!-- toc -->
+<ul>
+<li><a href="#linux&#x95EE;&#x9898;&#x5206;&#x6790;&#x4E0E;&#x6027;&#x80FD;&#x4F18;&#x5316;">Linux&#x95EE;&#x9898;&#x5206;&#x6790;&#x4E0E;&#x6027;&#x80FD;&#x4F18;&#x5316;</a><ul>
+<li><a href="#&#x6392;&#x67E5;&#x987A;&#x5E8F;">&#x6392;&#x67E5;&#x987A;&#x5E8F;</a></li>
+<li><a href="#&#x65B9;&#x6CD5;&#x8BBA;">&#x65B9;&#x6CD5;&#x8BBA;</a></li>
+<li><a href="#&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;">&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;</a></li>
+<li><a href="#cpu&#x5206;&#x6790;&#x601D;&#x8DEF;">CPU&#x5206;&#x6790;&#x601D;&#x8DEF;</a></li>
+<li><a href="#&#x5185;&#x5B58;&#x5206;&#x6790;&#x601D;&#x8DEF;">&#x5185;&#x5B58;&#x5206;&#x6790;&#x601D;&#x8DEF;</a></li>
+<li><a href="#io&#x5206;&#x6790;&#x601D;&#x8DEF;">IO&#x5206;&#x6790;&#x601D;&#x8DEF;</a></li>
+<li><a href="#&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x601D;&#x8DEF;">&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x601D;&#x8DEF;</a></li>
+<li><a href="#&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;">&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;</a></li>
+<li><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="linux&#x95EE;&#x9898;&#x5206;&#x6790;&#x4E0E;&#x6027;&#x80FD;&#x4F18;&#x5316;">Linux&#x95EE;&#x9898;&#x5206;&#x6790;&#x4E0E;&#x6027;&#x80FD;&#x4F18;&#x5316;</h1>
+<p>&#x4E2A;&#x4EBA;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#xFF0C;&#x8BB0;&#x5F55;Linux&#x76F8;&#x5173;&#x7684;&#x77E5;&#x8BC6;&#xFF0C;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x90E8;&#x5206;&#x7684;&#x5185;&#x5BB9;&#x4E3B;&#x8981;&#x6765;&#x81EA;&#x6781;&#x5BA2;&#x65F6;&#x95F4;&#x51FA;&#x54C1;&#x7684;&#x502A;&#x9E4F;&#x98DE;&#x4E13;&#x680F;&#x300A;Linux&#x6027;&#x80FD;&#x4F18;&#x5316;&#x300B;&#x3002;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x662F;CentOS&#xFF0C;&#x7D22;&#x5F15;&#x4E86;&#x5927;&#x91CF;&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF0C;&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x67E5;&#x770B;&#x5185;&#x6838;&#x6587;&#x6863;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x7CFB;&#x7EDF;&#x4E0A;&#x5B89;&#x88C5;man-pages&#xFF1A;</p>
+<pre><code>yum install -y man-pages
+</code></pre><p>&#x502A;&#x670B;&#x98DE;&#x4E13;&#x680F;&#x300A;Linux&#x6027;&#x80FD;&#x4F18;&#x5316;&#x300B;&#xFF1A;</p>
+<p><span style="display:block;text-align:center"><img src="../img/linux/01-geek-linux-ercode.jpeg" width="250px" alt="&#x6781;&#x5BA2;&#x65F6;&#x95F4;&#x502A;&#x9E4F;&#x98DE;Linux&#x6027;&#x80FD;&#x4F18;&#x5316;&#x6D77;&#x62A5;"></span></p>
+<h2 id="&#x6392;&#x67E5;&#x987A;&#x5E8F;">&#x6392;&#x67E5;&#x987A;&#x5E8F;</h2>
+<p>&#x6574;&#x4F53;&#x60C5;&#x51B5;&#xFF1A;</p>
+<ol>
+<li><code>top/htop/atop</code>&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x8FDB;&#x7A0B;/&#x7EBF;&#x7A0B;&#x3001;CPU&#x3001;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#xFF0C;<a href="../chapter1/cpu-usage-analysis.md">CPU&#x4F7F;&#x7528;&#x60C5;&#x51B5;</a>&#xFF1B;</li>
+<li><code>dstat 2</code>&#x67E5;&#x770B;CPU&#x3001;&#x78C1;&#x76D8;IO&#x3001;&#x7F51;&#x7EDC;IO&#x3001;&#x6362;&#x9875;&#x3001;&#x4E2D;&#x65AD;&#x3001;&#x5207;&#x6362;&#xFF0C;<a href="../chapter3/process_sys_io.md">&#x7CFB;&#x7EDF;I/O&#x72B6;&#x6001;</a>;</li>
+<li><code>vmstat 2</code>&#x67E5;&#x770B;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#xFF0C;<a href="../chapter1/memory-stat.md">&#x5185;&#x5B58;&#x72B6;&#x6001;</a>&#xFF1B;</li>
+<li><code>iostat -d -x 2</code>&#x67E5;&#x770B;&#x6240;&#x6709;&#x78C1;&#x76D8;&#x7684;IO&#x60C5;&#x51B5;&#xFF0C;<a href="../chapter3/process_sys_io.md">&#x7CFB;&#x7EDF;I/O&#x72B6;&#x6001;</a>&#xFF1B;</li>
+<li><code>iotop</code>&#x67E5;&#x770B;IO&#x9760;&#x524D;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;<a href="../chapter3/process_sys_io.md">&#x7CFB;&#x7EDF;&#x7684;I/O&#x72B6;&#x6001;</a>&#xFF1B;</li>
+<li><code>perf top</code>&#x67E5;&#x770B;&#x5360;&#x7528;CPU&#x6700;&#x591A;&#x7684;&#x51FD;&#x6570;&#xFF0C;<a href="../chapter1/cpu-usage-analysis.md">CPU&#x4F7F;&#x7528;&#x60C5;&#x51B5;</a>&#xFF1B;</li>
+<li><code>perf record -ag -- sleep 15;perf report</code>&#x67E5;&#x770B;CPU&#x4E8B;&#x4EF6;&#x5360;&#x6BD4;&#xFF0C;<a href="../chapter1/cpu-usage-analysis.md">CPU&#x4F7F;&#x7528;&#x60C5;&#x51B5;</a>&#xFF1B;</li>
+<li><code>sar -n DEV 2</code>&#x67E5;&#x770B;&#x7F51;&#x5361;&#x7684;&#x541E;&#x5410;&#xFF0C;<a href="../chapter1/network-nic-stat.md">&#x7F51;&#x5361;&#x72B6;&#x6001;</a>&#xFF1B;</li>
+<li><code>/usr/share/bcc/tools/filetop -C</code>&#x67E5;&#x770B;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x5199;&#x60C5;&#x51B5;&#xFF0C;<a href="../chapter3/process_sys_io.md">&#x7CFB;&#x7EDF;&#x7684;I/O&#x72B6;&#x6001;</a>&#xFF1B;</li>
+<li><code>/usr/share/bcc/tools/opensnoop</code>&#x663E;&#x793A;&#x6B63;&#x5728;&#x88AB;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#xFF0C;<a href="../chapter3/process_sys_io.md">&#x7CFB;&#x7EDF;&#x7684;I/O&#x72B6;&#x6001;</a>&#xFF1B;</li>
+</ol>
+<p>&#x8FDB;&#x7A0B;&#x5206;&#x6790;&#xFF0C;<a href="../chapter1/process-resouce.md">&#x8FDB;&#x7A0B;&#x5360;&#x7528;&#x7684;&#x8D44;&#x6E90;</a>&#xFF1A;</p>
+<ol>
+<li><code>pidstat 2 -p &#x8FDB;&#x7A0B;&#x53F7;</code>&#x67E5;&#x770B;&#x53EF;&#x7591;&#x8FDB;&#x7A0B;CPU&#x4F7F;&#x7528;&#x7387;&#x53D8;&#x5316;&#x60C5;&#x51B5;&#xFF1B;</li>
+<li><code>pidstat -w -p &#x8FDB;&#x7A0B;&#x53F7; 2</code>&#x67E5;&#x770B;&#x53EF;&#x7591;&#x8FDB;&#x7A0B;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x60C5;&#x51B5;&#xFF1B;</li>
+<li><code>pidstat -d -p &#x8FDB;&#x7A0B;&#x53F7; 2</code>&#x67E5;&#x770B;&#x53EF;&#x7591;&#x8FDB;&#x7A0B;&#x7684;IO&#x60C5;&#x51B5;&#xFF1B;</li>
+<li><code>lsof -p &#x8FDB;&#x7A0B;&#x53F7;</code>&#x67E5;&#x770B;&#x8FDB;&#x7A0B;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#xFF1B;</li>
+<li><code>strace -f -T -tt -p &#x8FDB;&#x7A0B;&#x53F7;</code>&#x663E;&#x793A;&#x8FDB;&#x7A0B;&#x53D1;&#x8D77;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF1B; </li>
+</ol>
+<p>&#x534F;&#x8BAE;&#x6808;&#x5206;&#x6790;&#xFF0C;<a href="../chapter1/network-stat.md">&#x8FDE;&#x63A5;/&#x534F;&#x8BAE;&#x6808;&#x72B6;&#x6001;</a>&#xFF1A;</p>
+<ol>
+<li><code>netstat -nat|awk &apos;{print awk $NF}&apos;|sort|uniq -c|sort -n</code>&#x67E5;&#x770B;&#x8FDE;&#x63A5;&#x72B6;&#x6001;&#x5206;&#x5E03;&#xFF1B;</li>
+<li><code>ss -ntp</code>&#x6216;&#x8005;<code>netstat -ntp</code>&#x67E5;&#x770B;&#x8FDE;&#x63A5;&#x961F;&#x5217;&#xFF1B;</li>
+</ol>
+<h2 id="&#x65B9;&#x6CD5;&#x8BBA;">&#x65B9;&#x6CD5;&#x8BBA;</h2>
+<p>RED&#x65B9;&#x6CD5;&#xFF1A;&#x76D1;&#x63A7;&#x670D;&#x52A1;&#x7684;&#x8BF7;&#x6C42;&#x6570;&#xFF08;Rate&#xFF09;&#x3001;&#x9519;&#x8BEF;&#x6570;&#xFF08;Errors&#xFF09;&#x3001;&#x54CD;&#x5E94;&#x65F6;&#x95F4;&#xFF08;Duration&#xFF09;&#x3002;Weave Cloud&#x5728;&#x76D1;&#x63A7;&#x5FAE;&#x670D;&#x52A1;&#x6027;&#x80FD;&#x65F6;&#x63D0;&#x51FA;&#x7684;&#x601D;&#x8DEF;&#x3002;</p>
+<p>USE&#x65B9;&#x6CD5;&#xFF1A;&#x76D1;&#x63A7;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#x7684;&#x4F7F;&#x7528;&#x7387;&#xFF08;Utilization&#xFF09;&#x3001;&#x9971;&#x548C;&#x5EA6;&#xFF08;Saturation&#xFF09;&#x3001;&#x9519;&#x8BEF;&#x6570;&#xFF08;Errors&#xFF09;&#x3002;</p>
+<p><img src="../img/linux/use-metrics.png" alt="USE&#x65B9;&#x6CD5;&#x5E38;&#x89C1;&#x6307;&#x6807;&#x5206;&#x7C7B;"></p>
+<h2 id="&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;">&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;</h2>
+<p><img src="../img/linux/analyst-tool.png" alt="&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;"></p>
+<h2 id="cpu&#x5206;&#x6790;&#x601D;&#x8DEF;">CPU&#x5206;&#x6790;&#x601D;&#x8DEF;</h2>
+<p><img src="../img/linux/cpu-metrics.png" alt="CPU&#x6307;&#x6807;"></p>
+<p><img src="../img/linux/cpu-analyst.png" alt="CPU&#x6027;&#x80FD;&#x5206;&#x6790;"></p>
+<p><img src="../img/linux/cpu-tools.png" alt="CPU&#x5206;&#x6790;&#x5DE5;&#x5177;"></p>
+<h2 id="&#x5185;&#x5B58;&#x5206;&#x6790;&#x601D;&#x8DEF;">&#x5185;&#x5B58;&#x5206;&#x6790;&#x601D;&#x8DEF;</h2>
+<p><img src="../img/linux/memory-metrics.png" alt="&#x5185;&#x5B58;&#x6027;&#x80FD;&#x6307;&#x6807;"></p>
+<p><img src="../img/linux/cpu-analyst.png" alt="&#x5185;&#x5B58;&#x6027;&#x80FD;&#x5206;&#x6790;"></p>
+<p><img src="../img/linux/memory-tools.png" alt="&#x5185;&#x5B58;&#x5206;&#x6790;&#x5DE5;&#x5177;"></p>
+<h2 id="io&#x5206;&#x6790;&#x601D;&#x8DEF;">IO&#x5206;&#x6790;&#x601D;&#x8DEF;</h2>
+<p><img src="../img/linux/file-io-metrics.png" alt="&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;IO&#x6307;&#x6807;"></p>
+<p><img src="../img/linux/io-analyst.png" alt="IO&#x6027;&#x80FD;&#x5206;&#x6790;"></p>
+<p><img src="../img/linux/file-io-tools.png" alt="IO&#x5206;&#x6790;&#x5DE5;&#x5177;"></p>
+<h2 id="&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x601D;&#x8DEF;">&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x601D;&#x8DEF;</h2>
+<p><img src="../img/linux/net-metrics.png" alt="&#x7F51;&#x7EDC;&#x6027;&#x80FD;&#x6307;&#x6807;"></p>
+<p><img src="../img/linux/net-analyst.png" alt="&#x7F51;&#x7EDC;&#x6027;&#x80FD;&#x5206;&#x6790;"></p>
+<p><img src="../img/linux/net-tools.png" alt="&#x7F51;&#x7EDC;&#x6027;&#x80FD;&#x5DE5;&#x5177;"></p>
+<h2 id="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;">&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;</h2>
+<p><img src="../img/linux/benchmark-tool.png" alt="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;"></p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h2>
+<p>&#x76F8;&#x5F53;&#x4E00;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x6765;&#x81EA;&#x6781;&#x5BA2;&#x65F6;&#x95F4;&#x51FA;&#x54C1;&#x7684;&#x502A;&#x9E4F;&#x98DE;&#x4E13;&#x680F;&#x300A;Linux&#x6027;&#x80FD;&#x4F18;&#x5316;&#x300B;&#xFF0C;&#x662F;&#x8FD9;&#x4E2A;<a href="..">&#x4E13;&#x680F;</a>&#x7684;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3002;</p>
+<p>&#x53E6;&#x4E00;&#x4EFD;&#x8D44;&#x6599;&#x662F;IBM&#x7EA2;&#x5B9D;&#x4E66;<a href="https://lihz1990.gitbooks.io/transoflptg/content/" target="_blank">Linux&#x6027;&#x80FD;&#x8C03;&#x4F18;&#x6307;&#x5357;</a>&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;<a href="http://tldp.org/" target="_blank">The Linux Documentation Project</a>&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x597D;&#x7684;&#x8D44;&#x6599;&#x5E93;&#x3002;</p>
+<p>&#x5C06;&#x786C;&#x4EF6;&#x4E2D;&#x65AD;&#x7684;&#x5904;&#x7406;&#x4EFB;&#x52A1;&#x5206;&#x914D;&#x4E2A;&#x591A;&#x4E2A;CPU&#xFF1A;<a href="http://www.alexonlinux.com/smp-affinity-and-proper-interrupt-handling-in-linux" target="_blank">SMP affinity and proper interrupt handling in Linux</a></p>
+<p><a href="https://randomascii.wordpress.com/2014/12/10/hidden-costs-of-memory-allocation/" target="_blank">Hidden Costs of Memory Allocation</a></p>
+<script type="text/javascript">var className='atoc';</script>
+                                
+<div>
+<!-- 匹配内容 -->
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="6443696990"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<!--div-->
+<!-- Page_Bottom -->
+<!--ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="7945072540"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div-->
+
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../envoy/" class="navigation navigation-prev " aria-label="Previous page: Envoy使用手册">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="01-concept.html" class="navigation navigation-next " aria-label="Next page: 认知框架">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Linux性能优化与问题诊断","level":"1.3","depth":1,"next":{"title":"认知框架","level":"1.3.1","depth":2,"path":"linux/01-concept.md","ref":"linux/01-concept.md","articles":[]},"previous":{"title":"Envoy使用手册","level":"1.2","depth":1,"path":"envoy/README.md","ref":"envoy/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"linux/README.md","mtime":"2019-08-05T03:52:38.766Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-05T03:54:33.155Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-atoc/atoc.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
