@@ -9,3 +9,11 @@
 设置本地可用的tcp端口：[Linux increase ip_local_port_range TCP port range](https://ma.ttias.be/linux-increase-ip_local_port_range-tcp-port-range/)
 
 [How to Enable Disk Quotas on an XFS File System](https://www.thegeekdiary.com/how-to-enable-disk-quotas-on-an-xfs-file-system/)
+
+[KVM介绍系列文章](https://www.cnblogs.com/sammyliu/p/4543110.html)
+
+[An Introduction to the ss Command](https://www.linux.com/learn/intro-to-linux/2017/7/introduction-sS-command)
+
+[perf的使用](http://linux.51yip.com/search/perf)
+
+[Debian Reference](https://www.debian.org/doc/manuals/debian-reference/index.en.html)

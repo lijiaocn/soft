@@ -18,12 +18,39 @@ $ netstat -nat|awk '{print awk $NF}'|sort|uniq -c|sort -n
    1548 ESTABLISHED
 ```
 
+## 查看本地临时端口占用情况
+
+```sh
+$ netstat -ntp |grep "11.0.110.0"  |awk '{print $4}' |sort |uniq |wc
+  18171   18171  308907
+```
+
+查看本地源端口范围：
+
+```sh
+$ sysctl  net.ipv4.ip_local_port_range  
+$ cat /proc/sys/net/ipv4/ip_local_port_range
+```
+
+设置本地源端口范围：
+
+```sh
+sysctl -w net.ipv4.ip_local_port_range="1024 64000"
+```
+
+临时端口不足时，Nginx会报下面的错误：
+
+```
+ (99: Cannot assign requested address) while connecting to upstream, client: 192.168.0.2, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "192.168.0.30"
+```
+
+
 ## netstat/ss查看单个连接状态
 
 用netstat查看详细连接，-t查看tcp连接，-u查看udp连接，-p显示对应进程：
 
 ```sh
-$netstat -ntp
+$ netstat -ntp
 Active Internet connections (w/o servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
 tcp        0      0 11.0.157.1:32888        11.0.157.6:8080         TIME_WAIT   -
@@ -128,3 +155,30 @@ TcpExt:
     285092354 acknowledgments not containing data payload received
 ...
 ```
+
+##  限制半开连接
+
+半开连接最大数量：
+
+```sh
+sysctl net.ipv4.tcp_max_syn_backlog
+net.ipv4.tcp_max_syn_backlog = 256
+```
+
+限制半开连接建立速度：
+
+```sh
+# 限制 syn 并发数为每秒 1 次
+$ iptables -A INPUT -p tcp --syn -m limit --limit 1/s -j ACCEPT
+
+# 限制单个 IP 在 60 秒新建立的连接数为 10
+$ iptables -I INPUT -p tcp --dport 80 --syn -m recent --name SYN_FLOOD --update --seconds 60 --hitcount 10 -j REJECT
+```
+
+启动synccookie：
+
+```sh
+sysctl -w net.ipv4.tcp_syncookies=1
+net.ipv4.tcp_syncookies = 1
+```
+

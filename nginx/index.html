@@ -1,0 +1,588 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Nginx介绍 · nginx、openresty、lua与kong</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-atoc/atoc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="01-documents.html" />
+    
+    
+    <link rel="prev" href="../chapter1/03-lua-performance-garbage-collect.html" />
+    
+
+    <!--Google ads -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8176866190626448",
+        enable_page_level_ads: true
+      });
+    </script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105389858-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-105389858-1');
+    </script>
+    
+    <!--百度统计-->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8f59ea10145df28da8932c8743ec1d60";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
+    <!--百度收录-->
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+    <style type="text/css">
+    .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal a {color: #4183c4;}
+    </style>
+    </head>
+    <body>
+        
+<div class="book color-theme-1">
+    <div class="book-summary">
+        
+            
+            
+                
+<div style="height:150px;text-align:center">
+	<h2>记住网址：<a href="https://www.lijiaocn.com " style="color:#afa790">lijiaocn.com</a></h2>
+</div>
+
+
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+	<li><a href="https://www.lijiaocn.com">博客首页</a></li>
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    关于这本书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chapter1/">
+            
+                <a href="../chapter1/">
+            
+                    
+                    Lua常用操作
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter1/01-standard-output.html">
+            
+                <a href="../chapter1/01-standard-output.html">
+            
+                    
+                    标准输出打印
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter1/02-string-operation.html">
+            
+                <a href="../chapter1/02-string-operation.html">
+            
+                    
+                    字符串操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../chapter1/03-lua-performance.html">
+            
+                <a href="../chapter1/03-lua-performance.html">
+            
+                    
+                    性能相关事项
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../chapter1/03-lua-performance-local-var.html">
+            
+                <a href="../chapter1/03-lua-performance-local-var.html">
+            
+                    
+                    局部变量比全局变量快30%
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../chapter1/03-lua-performance-load-dynamic.html">
+            
+                <a href="../chapter1/03-lua-performance-load-dynamic.html">
+            
+                    
+                    动态加载代码非常慢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../chapter1/03-lua-performance-table-space.html">
+            
+                <a href="../chapter1/03-lua-performance-table-space.html">
+            
+                    
+                    table自动扩容代价很高
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../chapter1/03-lua-performance-table-space-1.html">
+            
+                <a href="../chapter1/03-lua-performance-table-space-1.html">
+            
+                    
+                    清理table成员不会触发rehash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../chapter1/03-lua-performance-string.html">
+            
+                <a href="../chapter1/03-lua-performance-string.html">
+            
+                    
+                    慎用字符串拼接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../chapter1/03-lua-performance-less-var.html">
+            
+                <a href="../chapter1/03-lua-performance-less-var.html">
+            
+                    
+                    尽量少创建变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../chapter1/03-lua-performance-cache-result.html">
+            
+                <a href="../chapter1/03-lua-performance-cache-result.html">
+            
+                    
+                    缓存运算结果
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../chapter1/03-lua-performance-garbage-collect.html">
+            
+                <a href="../chapter1/03-lua-performance-garbage-collect.html">
+            
+                    
+                    主动控制垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Nginx介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="01-documents.html">
+            
+                <a href="01-documents.html">
+            
+                    
+                    Nginx学习资料
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-config.html">
+            
+                <a href="02-config.html">
+            
+                    
+                    Nginx配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-config-1.html">
+            
+                <a href="02-config-1.html">
+            
+                    
+                    Nginx高性能配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chapter3/">
+            
+                <a href="../chapter3/">
+            
+                    
+                    OpenResty介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapter4/">
+            
+                <a href="../chapter4/">
+            
+                    
+                    Kong介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+                
+<div style="text-align:center">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Summary_Bottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="2156601384"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Nginx介绍</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                
+<!-- Page_Top -->
+<!--div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="5702052586"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div-->
+
+
+                                <h1 id="nginx&#x5E38;&#x7528;&#x64CD;&#x4F5C;">Nginx&#x5E38;&#x7528;&#x64CD;&#x4F5C;</h1>
+<h2 id="&#x5B66;&#x4E60;&#x8D44;&#x6599;">&#x5B66;&#x4E60;&#x8D44;&#x6599;</h2>
+<h2 id="&#x4E00;&#x4E9B;&#x91CD;&#x8981;&#x6458;&#x8981;">&#x4E00;&#x4E9B;&#x91CD;&#x8981;&#x6458;&#x8981;</h2>
+<p>&#x63D0;&#x524D;&#x4E86;&#x89E3;&#x8FD9;&#x4E9B;&#xFF0C;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x8E29;&#x5751;&#xFF1A;</p>
+<p><a href="https://moonbingbing.gitbooks.io/openresty-best-practices/content/ngx/nginx_brief.html" title="Nginx &#x65B0;&#x624B;&#x8D77;&#x6B65;" target="_blank">Nginx &#x65B0;&#x624B;&#x8D77;&#x6B65;</a>&#x4E2D;&#x7ED9;&#x51FA;&#x7684;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#xFF1A; </p>
+<pre><code>&#x4E00;&#x822C;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;10000 &#x4E2A;&#x975E;&#x6D3B;&#x8DC3;&#x7684; HTTP Keep-Alive &#x8FDE;&#x63A5;&#x5728; Nginx &#x4E2D;&#x4EC5;&#x6D88;&#x8017; 2.5MB &#x7684;&#x5185;&#x5B58;
+</code></pre><p><a href="https://moonbingbing.gitbooks.io/openresty-best-practices/content/ngx/if_is_evil.html" title="if &#x662F;&#x90AA;&#x6076;&#x7684;" target="_blank">if &#x662F;&#x90AA;&#x6076;&#x7684;</a>&#xFF0C;&#x614E;&#x7528;if&#xFF0C;&#x5982;&#x679C;&#x975E;&#x8981;&#x7528;&#xFF0C;&#x6700;&#x597D;&#x53EA;&#x5728;if&#x4E2D;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre><code>&#x5728; location &#x533A;&#x5757;&#x91CC; if &#x6307;&#x4EE4;&#x4E0B;&#x552F;&#x4E00; 100% &#x5B89;&#x5168;&#x7684;&#x6307;&#x4EE4;&#x5E94;&#x8BE5;&#x53EA;&#x6709;:
+
+return &#x2026;; rewrite &#x2026; last;
+</code></pre><h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
+<ol>
+<li><a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/09/29/nginx-openresty-kong.html" title="API&#x7F51;&#x5173;Kong&#xFF08;&#x4E00;&#xFF09;&#xFF1A;Nginx&#x3001;OpenResty&#x548C;Kong&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x4E0E;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;" target="_blank">API&#x7F51;&#x5173;Kong&#xFF08;&#x4E00;&#xFF09;&#xFF1A;Nginx&#x3001;OpenResty&#x548C;Kong&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x4E0E;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</a></li>
+<li><a href="https://moonbingbing.gitbooks.io/openresty-best-practices/content/ngx/nginx_brief.html" title="Nginx &#x65B0;&#x624B;&#x8D77;&#x6B65;" target="_blank">Nginx &#x65B0;&#x624B;&#x8D77;&#x6B65;</a></li>
+<li><a href="https://moonbingbing.gitbooks.io/openresty-best-practices/content/ngx/if_is_evil.html" title="if &#x662F;&#x90AA;&#x6076;&#x7684;" target="_blank">if &#x662F;&#x90AA;&#x6076;&#x7684;</a></li>
+</ol>
+<script type="text/javascript">var className='atoc';</script>
+                                
+<div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Page_Bottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="7945072540"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../chapter1/03-lua-performance-garbage-collect.html" class="navigation navigation-prev " aria-label="Previous page: 主动控制垃圾回收">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="01-documents.html" class="navigation navigation-next " aria-label="Next page: Nginx学习资料">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Nginx介绍","level":"1.3","depth":1,"next":{"title":"Nginx学习资料","level":"1.3.1","depth":2,"path":"chapter2/01-documents.md","ref":"chapter2/01-documents.md","articles":[]},"previous":{"title":"主动控制垃圾回收","level":"1.2.3.8","depth":3,"path":"chapter1/03-lua-performance-garbage-collect.md","ref":"chapter1/03-lua-performance-garbage-collect.md","articles":[]},"dir":"ltr"},"config":{"plugins":["atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"nginx、openresty、lua与kong","gitbook":"*"},"file":{"path":"chapter2/README.md","mtime":"2018-12-11T05:28:45.933Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-11T05:34:49.807Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-atoc/atoc.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
