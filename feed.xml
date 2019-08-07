@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 05 Aug 2019 12:49:15 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 07 Aug 2019 06:28:49 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -43,17 +43,51 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Envoy 的 Listener 中的 Fileter 详解]]></title>
-            <description><![CDATA[从 socket 中收取的请求先经过 listener_filters 处理，然后再由 filter_chains 处理，这是两组的 filter 的主要差异。因为 listener_filters 先起作用，因此它可以修改请求的信息，从而影响 filter_chains 的匹配。]]></description>
+            <title><![CDATA[Envoy 的 Listener 中的 Filter 详解]]></title>
+            <description><![CDATA[从 socket 中收取的请求先经过 listener_filters 处理，然后再由 filter_chains 处理，这是两组的 filter 的主要差异，前者称为 listner filter，后者称为 network filter。因为 listener_filters 先起作用，因此它可以修改请求的信息，从而影响 filter_chains 的匹配。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/filter.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/filter.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Envoy 的 Listener 中可以使用的 filter]]></title>
-            <description><![CDATA[都有哪些 filters 可以使用？]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/filter-list.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/filter-list.html</guid>
+            <title><![CDATA[Envoy 的 listener filter 列表]]></title>
+            <description><![CDATA[下面是可以在加入到 listener_filter 的 listener filter。 这些 filter 的主要作用是检测协议、解析协议，通过它们解析出的信息用于匹配 filter_chains 中的 filter。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/listener-filter.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/listener-filter.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的 network filter 列表]]></title>
+            <description><![CDATA[可以加入到 filter_chains 中的 network filter 数量众多，Network filters 中列出了以下几个：]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/network-filter.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/network-filter.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[go-control-plane 中的 filter 定义]]></title>
+            <description><![CDATA[go-control-plane 是一个控制平面的开发框架，见之前的 笔记。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/filter-def.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/filter-def.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Linux 系统知识]]></title>
+            <link>https://www.lijiaocn.com/soft/linuxsys/README.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/README.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Linux 的透明代理]]></title>
+            <description><![CDATA[TODO: 待试验。]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/tpproxy.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/tpproxy.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Linux 的 Local 地址的认定]]></title>
+            <description><![CDATA[127.0.0.1 默认是 local 地址，其实认定为 local 地址的 IP 是可以设置的，下面的例子将所有 IP 都认定为 local。]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/localip.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/localip.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
