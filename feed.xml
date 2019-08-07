@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 07 Aug 2019 06:31:31 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 07 Aug 2019 06:38:02 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -426,6 +426,12 @@
             <description><![CDATA[内容准备中...移步Web开发平台OpenResty]]></description>
             <link>https://www.lijiaocn.com/soft/openresty/README.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/openresty/README.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 的使用方法]]></title>
+            <link>https://www.lijiaocn.com/soft/prometheus/README.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/README.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
