@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 07 Aug 2019 06:40:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 07 Aug 2019 07:56:02 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -16,7 +16,7 @@
         </item>
         <item>
             <title><![CDATA[Envoy]]></title>
-            <description><![CDATA[初次了解 Envoy 时做过一些笔记，这里是再次学习时，对原先笔记的进一步整理。]]></description>
+            <description><![CDATA[初次了解 Envoy 时做过一些笔记，这里是再次学习时，对原先笔记的进一步整理。下面是以前的笔记：]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/README.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/README.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -430,8 +430,16 @@
         </item>
         <item>
             <title><![CDATA[Prometheus 的使用方法]]></title>
+            <description><![CDATA[Prometheus 是一个比较流行的告警监控系统，以前写过几篇笔记：]]></description>
             <link>https://www.lijiaocn.com/soft/prometheus/README.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/README.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 安装启动]]></title>
+            <description><![CDATA[从 prometheus download 下载已经编译好的 prometheus 程序，该页面上还有 prometheus 提供的 exporter。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/start.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/start.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
