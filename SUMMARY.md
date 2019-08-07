@@ -60,3 +60,4 @@
   * [Nginx配置文件](nginx/02-config.md)
   * [Nginx高性能配置](nginx/02-config-1.md)
 * [OpenResty介绍](openresty/README.md)
+* [Prometheus使用](prometheus/README.md)
