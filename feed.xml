@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 08 Aug 2019 05:43:02 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 08 Aug 2019 06:06:06 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -68,6 +68,70 @@
             <description><![CDATA[go-control-plane 是一个控制平面的开发框架，见之前的 笔记。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/filter-def.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/filter-def.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 的使用方法]]></title>
+            <description><![CDATA[Prometheus 是一个比较流行的告警监控系统，以前写过几篇笔记：]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/README.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/README.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 安装启动]]></title>
+            <description><![CDATA[从 prometheus download 下载已经编译好的 prometheus 程序，该页面上还有 prometheus 提供的 exporter。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/start.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/start.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 的配置文件]]></title>
+            <description><![CDATA[配置文件是 yaml 格式的，分为 global、alerting、rule_files 和 scrape_configs 四部分。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/config.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/config.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 的查询语句]]></title>
+            <description><![CDATA[Prometheus 的数据查询语句叫做 Prometheus Query Language，提供了不少查询函数，表达能力比较丰富。
+语句的执行结果有四种类型：]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/query.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 指标查询]]></title>
+            <description><![CDATA[Prometheus 的指标查询语句基本格式为：]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/query-metrics.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-metrics.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 指标查询结果运算]]></title>
+            <description><![CDATA[Prometheus 的查询语句支持运算，可以使用二元运算符（算术运算符、比较运算符、集合运算符）和聚合运算符直接操作查询出来的数据集，也可以使用 Prometheus 提供的查询函数进行更复杂的运算。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/query-compute.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-compute.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 查询结果二元运算]]></title>
+            <description><![CDATA[两组查询出来的数据集之间的运算。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/query-binary.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-binary.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 的查询结果聚合运算]]></title>
+            <description><![CDATA[聚合运算符形态上与函数类似，用于分析查询得到的数据集：]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/query-aggre.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-aggre.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 的函数运算]]></title>
+            <description><![CDATA[Prometheus 的查询函数数量比较多，这里不罗列了，见 Prometheus Functions。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/query-function.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-function.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -389,70 +453,6 @@
             <description><![CDATA[有非常、非常多的细节是从书本上学不到，这些细节通常分散在各种古朴、难度的文档和手册中。]]></description>
             <link>https://www.lijiaocn.com/soft/linux/todo.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/linux/todo.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 的使用方法]]></title>
-            <description><![CDATA[Prometheus 是一个比较流行的告警监控系统，以前写过几篇笔记：]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/README.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 安装启动]]></title>
-            <description><![CDATA[从 prometheus download 下载已经编译好的 prometheus 程序，该页面上还有 prometheus 提供的 exporter。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/start.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/start.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 的配置文件]]></title>
-            <description><![CDATA[配置文件是 yaml 格式的，分为 global、alerting、rule_files 和 scrape_configs 四部分。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/config.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/config.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 的查询语句]]></title>
-            <description><![CDATA[Prometheus 的数据查询语句叫做 Prometheus Query Language，提供了不少查询函数，表达能力比较丰富。
-语句的执行结果有四种类型：]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 指标查询]]></title>
-            <description><![CDATA[Prometheus 的指标查询语句基本格式为：]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-metrics.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-metrics.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 指标查询结果运算]]></title>
-            <description><![CDATA[Prometheus 的查询语句支持运算，可以使用二元运算符（算术运算符、比较运算符、集合运算符）和聚合运算符直接操作查询出来的数据集，也可以使用 Prometheus 提供的查询函数进行更复杂的运算。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-compute.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-compute.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 查询结果二元运算]]></title>
-            <description><![CDATA[两组查询出来的数据集之间的运算。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-binary.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-binary.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 的查询结果聚合运算]]></title>
-            <description><![CDATA[聚合运算符形态上与函数类似，用于分析查询得到的数据集：]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-aggre.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-aggre.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 的函数运算]]></title>
-            <description><![CDATA[Prometheus 的查询函数数量比较多，这里不罗列了，见 Prometheus Functions。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-function.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-function.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
