@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 08 Aug 2019 05:41:25 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 08 Aug 2019 05:43:02 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -392,43 +392,6 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Nginx常用操作]]></title>
-            <description><![CDATA[提前了解这些，可以避免踩坑：]]></description>
-            <link>https://www.lijiaocn.com/soft/nginx/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/README.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Nginx 学习资料]]></title>
-            <description><![CDATA[OpenResty作者章宜春有一个agentzh 的 Nginx 教程（版本 2016.07.21），不过这个教程没写完，
-可以用来培养感性认识，中文阅读起来方便一些。OpenResty最佳实践中有一章是关于Nginx的，
-相对比较适合用来入门，并且指出了一些坑。]]></description>
-            <link>https://www.lijiaocn.com/soft/nginx/01-documents.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/01-documents.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Nginx配置文件格式]]></title>
-            <description><![CDATA[nginx的源代码中有个配置文件nginx.conf样例，但是CentOS安装的nginx自带的默认配置文件结构更好。]]></description>
-            <link>https://www.lijiaocn.com/soft/nginx/02-config.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/02-config.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Nginx高性能配置]]></title>
-            <description><![CDATA[在做压测时，了解到一些配置，在这里记录一下。]]></description>
-            <link>https://www.lijiaocn.com/soft/nginx/02-config-1.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/02-config-1.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[OpenResty介绍]]></title>
-            <description><![CDATA[内容准备中...移步Web开发平台OpenResty]]></description>
-            <link>https://www.lijiaocn.com/soft/openresty/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/openresty/README.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
             <title><![CDATA[Prometheus 的使用方法]]></title>
             <description><![CDATA[Prometheus 是一个比较流行的告警监控系统，以前写过几篇笔记：]]></description>
             <link>https://www.lijiaocn.com/soft/prometheus/README.html</link>
@@ -490,6 +453,43 @@
             <description><![CDATA[Prometheus 的查询函数数量比较多，这里不罗列了，见 Prometheus Functions。]]></description>
             <link>https://www.lijiaocn.com/soft/prometheus/query-function.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-function.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx常用操作]]></title>
+            <description><![CDATA[提前了解这些，可以避免踩坑：]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/README.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/README.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx 学习资料]]></title>
+            <description><![CDATA[OpenResty作者章宜春有一个agentzh 的 Nginx 教程（版本 2016.07.21），不过这个教程没写完，
+可以用来培养感性认识，中文阅读起来方便一些。OpenResty最佳实践中有一章是关于Nginx的，
+相对比较适合用来入门，并且指出了一些坑。]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/01-documents.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/01-documents.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx配置文件格式]]></title>
+            <description><![CDATA[nginx的源代码中有个配置文件nginx.conf样例，但是CentOS安装的nginx自带的默认配置文件结构更好。]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/02-config.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/02-config.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx高性能配置]]></title>
+            <description><![CDATA[在做压测时，了解到一些配置，在这里记录一下。]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/02-config-1.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/02-config-1.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[OpenResty介绍]]></title>
+            <description><![CDATA[内容准备中...移步Web开发平台OpenResty]]></description>
+            <link>https://www.lijiaocn.com/soft/openresty/README.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/openresty/README.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
