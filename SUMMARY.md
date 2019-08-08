@@ -1,6 +1,6 @@
 # Summary
 
-* [手册说明](README.md)
+* [软件手册说明](README.md)
 * [Envoy 使用手册](envoy/README.md)
   * [配置文件](envoy/config.md)
   * [动态配置](envoy/dynamic-config.md)
@@ -55,11 +55,6 @@
     * [BCC系列工具](linux/04-bcc-tools.md)
   * [案例: CPU使用率很高](linux/cpu-usage-high.md)
   * [待学习](linux/todo.md)
-* [Nginx 介绍](nginx/README.md)
-  * [Nginx学习资料](nginx/01-documents.md)
-  * [Nginx配置文件](nginx/02-config.md)
-  * [Nginx高性能配置](nginx/02-config-1.md)
-* [OpenResty 介绍](openresty/README.md)
 * [Prometheus 使用](prometheus/README.md)
   * [安装启动](prometheus/start.md)
   * [配置文件](prometheus/config.md)
@@ -69,3 +64,8 @@
       * [二元运算](prometheus/query-binary.md)
       * [聚合运算](prometheus/query-aggre.md)
       * [函数运算](prometheus/query-function.md)
+* [Nginx 介绍](nginx/README.md)
+  * [Nginx学习资料](nginx/01-documents.md)
+  * [Nginx配置文件](nginx/02-config.md)
+  * [Nginx高性能配置](nginx/02-config-1.md)
+* [OpenResty 介绍](openresty/README.md)
