@@ -1,6 +1,14 @@
+<!-- toc -->
 # Prometheus 查询结果的聚合运算
 
-聚合运算符形态上与函数类似，用于分析查询得到的数据集：
+聚合运算符形态上与函数类似，用于分析查询得到的数据集。
+
+```sh
+<aggr-op>([parameter,] <vector expression>) [without|by (<label list>)]
+```
+
+部分聚合运算符需要输入参数（parameter），例如 count_values、bottomk、topk 、quantile。支持分组聚合，分组聚合时，可以用 without 忽略指定的 label，或者 by 指定分组使用的 label：
+
 
 ```sh
 sum:    求和
@@ -14,12 +22,6 @@ count_values: 统计每个值出现的次数
 bottomk: 取结果中最小的 k 位数
 topk:    取结果中最大的 k 位数
 quantile: 取分位数 (0 ≤ φ ≤ 1）
-```
-
-聚合运算符使用方式如下，部分聚合运算符需要输入参数（parameter），例如 count_values、bottomk、topk 、quantile：
-
-```sh
-<aggr-op>([parameter,] <vector expression>) [without|by (<label list>)]
 ```
 
 ## 统计每个值出现的次数

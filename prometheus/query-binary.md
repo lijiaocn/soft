@@ -1,3 +1,4 @@
+<!-- toc -->
 # Prometheus 查询结果的二元运算
 
 两组查询出来的数据集之间的运算。
@@ -24,9 +25,11 @@
 
 ```sh
 http_server_requests_count{status="200"} and http_server_requests_count{method="POST",instance="10.12.3.5:8866"}
+```
 
 等同于：
 
+```sh
 http_server_requests_count{status="200",method="POST",instance="10.12.3.5:8866"}
 ```
 
@@ -41,9 +44,10 @@ vector1 unless vector2 取出不满足 vector2 筛选条件的所有 vector1 的
 
 ```sh
 http_server_requests_count{status="200",instance="10.12.3.5:8866"} unless http_server_requests_count{method="POST"}
+```
 
 等同于：
 
+```sh
 http_server_requests_count{status="200",instance="10.12.3.5:8866",method!="POST"}
 ```
-
