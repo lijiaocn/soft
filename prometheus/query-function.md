@@ -1,4 +1,4 @@
-# Prometheus 的函数运算
+# Prometheus 的查询函数
 
 Prometheus 的查询函数数量比较多，这里不罗列了，见 [Prometheus Functions][1]。
 
