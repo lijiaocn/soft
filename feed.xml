@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 08 Aug 2019 06:06:06 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 08 Aug 2019 06:11:56 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -114,21 +114,21 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Prometheus 查询结果二元运算]]></title>
+            <title><![CDATA[Prometheus 查询结果的二元运算]]></title>
             <description><![CDATA[两组查询出来的数据集之间的运算。]]></description>
             <link>https://www.lijiaocn.com/soft/prometheus/query-binary.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-binary.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Prometheus 的查询结果聚合运算]]></title>
+            <title><![CDATA[Prometheus 查询结果的聚合运算]]></title>
             <description><![CDATA[聚合运算符形态上与函数类似，用于分析查询得到的数据集：]]></description>
             <link>https://www.lijiaocn.com/soft/prometheus/query-aggre.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-aggre.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Prometheus 的函数运算]]></title>
+            <title><![CDATA[Prometheus 的查询函数]]></title>
             <description><![CDATA[Prometheus 的查询函数数量比较多，这里不罗列了，见 Prometheus Functions。]]></description>
             <link>https://www.lijiaocn.com/soft/prometheus/query-function.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-function.html</guid>
