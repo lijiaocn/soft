@@ -66,6 +66,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="config.html" />
+    
     
     <link rel="prev" href="./" />
     
@@ -1059,6 +1061,109 @@ var _hmt = _hmt || [];
             
         </li>
     
+        <li class="chapter " data-level="1.7.2" data-path="config.html">
+            
+                <a href="config.html">
+            
+                    
+                    配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="query.html">
+            
+                <a href="query.html">
+            
+                    
+                    查询语句
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.3.1" data-path="query-metrics.html">
+            
+                <a href="query-metrics.html">
+            
+                    
+                    指标查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.2" data-path="query-compute.html">
+            
+                <a href="query-compute.html">
+            
+                    
+                    指标运算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.3.2.1" data-path="query-binary.html">
+            
+                <a href="query-binary.html">
+            
+                    
+                    二元运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.2.2" data-path="query-aggre.html">
+            
+                <a href="query-aggre.html">
+            
+                    
+                    聚合运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.2.3" data-path="query-function.html">
+            
+                <a href="query-function.html">
+            
+                    
+                    函数运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
             </ul>
             
@@ -1142,6 +1247,20 @@ var _hmt = _hmt || [];
 
                                 <h1 id="prometheus-&#x5B89;&#x88C5;&#x542F;&#x52A8;">Prometheus &#x5B89;&#x88C5;&#x542F;&#x52A8;</h1>
 <p>&#x4ECE; <a href="https://prometheus.io/download/" title="prometheus download" target="_blank">prometheus download</a> &#x4E0B;&#x8F7D;&#x5DF2;&#x7ECF;&#x7F16;&#x8BD1;&#x597D;&#x7684; prometheus &#x7A0B;&#x5E8F;&#xFF0C;&#x8BE5;&#x9875;&#x9762;&#x4E0A;&#x8FD8;&#x6709; prometheus &#x63D0;&#x4F9B;&#x7684; exporter&#x3002;</p>
+<p>Prometheus &#x7684;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x4E0D;&#x662F;&#x7279;&#x522B;&#x591A;&#xFF0C;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;&#x6709;&#xFF1A;</p>
+<ul>
+<li>--config.file              &#x6307;&#x5B9A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</li>
+<li>--log.level                &#x65E5;&#x5FD7;&#x7EA7;&#x522B;</li>
+<li>--web.listen-address       &#x76D1;&#x542C;&#x5730;&#x5740;</li>
+<li>--web.read-timeout         &#x8BBF;&#x95EE;&#x8D85;&#x65F6;&#x65F6;&#x95F4;</li>
+<li>--web.enable-admin-api     &#x542F;&#x7528; admin api</li>
+<li>--web.external-url         &#x8BBF;&#x95EE;&#x5730;&#x5740;</li>
+<li>--query.max-concurrency    &#x8FDC;&#x7A0B;&#x8C03;&#x7528;&#x5E76;&#x53D1;&#x4E0A;&#x9650;</li>
+<li>--storage.tsdb.path        &#x6307;&#x5B9A;&#x6570;&#x636E;&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x76EE;&#x5F55;</li>
+<li>--storage.tsdb.retention.time            &#x8BBE;&#x7F6E;&#x6570;&#x636E;&#x4FDD;&#x7559;&#x671F;&#x9650;&#xFF0C;&#x4F8B;&#x5982; 15d</li>
+<li>--storage.remote.read-concurrent-limit   &#x8BFB;&#x53D6;&#x5E76;&#x53D1;&#x8FDE;&#x63A5;&#x6570;&#x4E0A;&#x9650;</li>
+</ul>
+<p>&#x914D;&#x7F6E;&#x6587;&#x4EF6; prometheus.yml &#x4E2D;&#x4E3B;&#x8981;&#x5305;&#x542B;&#x544A;&#x8B66;&#x89C4;&#x5219;&#x6587;&#x4EF6;&#x3001;&#x9759;&#x6001;&#x914D;&#x7F6E;&#x7684;&#x91C7;&#x96C6;&#x5730;&#x5740;&#x6216;&#x8005;&#x52A8;&#x6001;&#x53D1;&#x73B0;&#x91C7;&#x96C6;&#x5730;&#x5740;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
@@ -1197,10 +1316,14 @@ var _hmt = _hmt || [];
 
             
                 
-                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Prometheus 使用">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Prometheus 使用">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="config.html" class="navigation navigation-next " aria-label="Next page: 配置文件">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -1209,7 +1332,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"安装启动","level":"1.7.1","depth":2,"previous":{"title":"Prometheus 使用","level":"1.7","depth":1,"path":"prometheus/README.md","ref":"prometheus/README.md","articles":[{"title":"安装启动","level":"1.7.1","depth":2,"path":"prometheus/start.md","ref":"prometheus/start.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"prometheus/start.md","mtime":"2019-08-07T07:53:39.510Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-07T07:55:55.604Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"安装启动","level":"1.7.1","depth":2,"next":{"title":"配置文件","level":"1.7.2","depth":2,"path":"prometheus/config.md","ref":"prometheus/config.md","articles":[]},"previous":{"title":"Prometheus 使用","level":"1.7","depth":1,"path":"prometheus/README.md","ref":"prometheus/README.md","articles":[{"title":"安装启动","level":"1.7.1","depth":2,"path":"prometheus/start.md","ref":"prometheus/start.md","articles":[]},{"title":"配置文件","level":"1.7.2","depth":2,"path":"prometheus/config.md","ref":"prometheus/config.md","articles":[]},{"title":"查询语句","level":"1.7.3","depth":2,"path":"prometheus/query.md","ref":"prometheus/query.md","articles":[{"title":"指标查询","level":"1.7.3.1","depth":3,"path":"prometheus/query-metrics.md","ref":"prometheus/query-metrics.md","articles":[]},{"title":"指标运算","level":"1.7.3.2","depth":3,"path":"prometheus/query-compute.md","ref":"prometheus/query-compute.md","articles":[{"title":"二元运算","level":"1.7.3.2.1","depth":4,"path":"prometheus/query-binary.md","ref":"prometheus/query-binary.md","articles":[]},{"title":"聚合运算","level":"1.7.3.2.2","depth":4,"path":"prometheus/query-aggre.md","ref":"prometheus/query-aggre.md","articles":[]},{"title":"函数运算","level":"1.7.3.2.3","depth":4,"path":"prometheus/query-function.md","ref":"prometheus/query-function.md","articles":[]}]}]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"prometheus/start.md","mtime":"2019-08-07T08:48:11.686Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-08T05:41:16.527Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
