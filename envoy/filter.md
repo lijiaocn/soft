@@ -1,7 +1,6 @@
-<!-- toc -->
 # Envoy 的 Listener 中的 Filter 详解
 
-从 socket 中收取的请求先经过 [listener_filters][5] 处理，然后再由 [filter_chains][4] 处理，这是两组的 filter 的主要差异，前者称为 listner filter，后者称为 network filter。因为 listener_filters 先起作用，因此它可以修改请求的信息，从而影响 filter_chains 的匹配。
+从 socket 中收取的请求先经过 [listener_filters][5] 处理，然后再由 [filter_chains][4] 处理，前者包含的 filter 称为 listener filter，后者包含的 filter 称为 network filter。因为 listener_filters 先起作用，因此它可以修改请求的信息，从而影响 filter_chains 的匹配。
 
 [filter][11] 的文档在 [Extensions][12] 中，当前（2019-08-05 20:35:10）有以下几个大类：
 
@@ -16,8 +15,6 @@ Dubbo filters
 ```
 
 [Configuration reference][13] 中有一半的内容在介绍 filter，对每个 filter 的用途和用法作了简要介绍。
-
-可以在 listenr_filter 中加入的 filter，见 [Envoy 的 listener filter 列表](../envoy/listener-filter.md) 。 
 
 [1]: https://www.envoyproxy.io/docs/envoy/latest/api-v2/listeners/listeners "Listeners"
 [2]: https://www.envoyproxy.io/docs/envoy/latest/api-v2/config/filter/network/http_connection_manager/v2/http_connection_manager.proto#envoy-api-msg-config-filter-network-http-connection-manager-v2-httpconnectionmanager  "HTTP Connection Manager"

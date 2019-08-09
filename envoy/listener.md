@@ -1,7 +1,7 @@
 <!-- toc -->
 # Envoy 的 Listener 配置详解
 
-[Listener][1] 是 envoy 最重要的配置，也是最复杂的配置，它是 envoy 的监听配置，明确了 envoy 监听地址，以及到达监听地址的请求如何处理、转发到哪里。Listener 中可以包含多个不同 filter，有一些 filter 本身又是比较复杂的，譬如 [HTTP Connection Manager][2]。
+[Listener][1] 是 envoy 最重要的配置，也是最复杂的配置，它是 envoy 的监听配置，指定了 envoy 监听地址，以及请求如何处理、转发到哪里。Listener 中可以包含多个不同 filter，有一些 filter 本身又是比较复杂的，譬如 [HTTP Connection Manager][2]。
 
 ## Listener 配置格式
 
@@ -26,7 +26,7 @@ Listener 的配置格式如下，可以在 [api 文档][2] 中找到：
 }
 ```
 
-其中 [address][3] 是监听地址，Listener 的配置中最重要的也最复杂的是 [filter_chains][4] 和 [listener_filters][5]，剩余的都是一些细节配置，相对简单一些。
+其中 [address][3] 是监听地址，[filter_chains][4] 和 [listener_filters][5] 是 Listener 的配置中最重要的也最复杂的，剩余的都是一些细节配置，相对简单一些。
 
 
 [1]: https://www.envoyproxy.io/docs/envoy/latest/api-v2/listeners/listeners "Listeners"

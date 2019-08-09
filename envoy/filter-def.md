@@ -1,12 +1,11 @@
-# go-control-plane 中的 filter 定义
+<!-- toc -->
+# go-control-plane 中的 filter 定义与下发 
 
-[go-control-plane][7] 是一个控制平面的开发框架，见之前的 [笔记][7]。
-
-Listener 在 [go-control-plane/envoy/api/v2/lds.pb.go][8] 中定义，filter 的接口在 [envoy/api/v2/listener/listener.pb.go][9] 中定义，filter 的具体实现在 [go-control-plane/envoy/config/filter/][10]。
+filter 是填充在 listener 中作为 listener 的一部分下发的，Listener 在 [go-control-plane/envoy/api/v2/lds.pb.go][8] 中定义，filter 的接口在 [envoy/api/v2/listener/listener.pb.go][9] 中定义，filter 的具体实现在 [go-control-plane/envoy/config/filter/][10]中。
 
 ### listener_filters 的定义
 
-先起作用的 listener_filters 的成员在 go-control-plane 中定义为 listener.ListenerFilter，如下：
+Listener 中的 listener_filters 的在 go-control-plane 中定义如下：
 
 ```go
 // go-control-plane/envoy/api/v2/lds.pb.go
@@ -24,7 +23,7 @@ type ListenerFilter struct {
 
 ### filter_chains 的定义
 
-后起作用的 filter_chains 的成员在 go-control-plane 中定义为 listener.FilterChain，成员 FilterChain 又包含一条 Filter 链：
+Listener 中的 filter_chains 在 go-control-plane 中定义如下，其中FilterChain 继续包含 Filter 链：
 
 ```go
 FilterChains []*listener.FilterChain 
@@ -52,9 +51,11 @@ type Filter struct {
 
 ```
 
-## 在 go-control-plane 中填充 filter
+## filter 的定义
 
-以 listener_filters 的填充为例，ConfigType 就是填充的 filter，是一个接口类型的成员：
+filter 的定义在 [go-control-plane/envoy/config/filter][10] 中，不同类型的 filter 都有各自的定义。用 go-control-plane 下发时，需要用 util.MessageToStruct() 转换成 *types.Struct 类型，或者用 ptypes.MarshalAny() 转换成 * any.Any 类型后，填充到 Listener 中。
+
+以 listener_filters 的为例，ListenerFilter 中的 ConfigType 是一个接口变量：
 
 ```go
 // go-control-plane/envoy/api/v2/listener/listener.pb.go
@@ -75,7 +76,7 @@ type isListenerFilter_ConfigType interface {
 }
 ```
 
-ConfigType 的类型是一个很简单的接口，但需要 `特别注意` 满足该接口的不是 [go-control-plane/envoy/config/filter][10] 中每个 filter 的具体实现，而是两个超级简单的 struct： `ListenerFilter_Config` 和 `ListenerFilter_TypedConfig` 。
+isListenerFilter_ConfigType 是一个很简单的接口，实现该接口的 struct 是 ListenerFilter_Config 和 ListenerFilter_TypedConfig 。
 
 ```go
 // go-control-plane/envoy/api/v2/listener/listener.pb.go: 592
@@ -90,11 +91,61 @@ func (*ListenerFilter_Config) isListenerFilter_ConfigType()      {}
 func (*ListenerFilter_TypedConfig) isListenerFilter_ConfigType() {}
 ```
 
-从上面的代码可以看到这两个 struct 仅仅是定义了接口方法而已，函数体是空的。包含 filter 配置的成员 Config/TypedConfig 是 grpc 格式的数据 *types.Struct / *types.Any。
+上面的 Config 和 TypedConfig 就是 filter 转化而成的。
 
-filter 的实现位于 [go-control-plane/envoy/config/filter][10] 目录 ，需要用 util.MessageToStruct() 方法转换成 *types.Struct，或者用 ptypes.MarshalAny() 转换成 *any.Any后，作为 Config 或 TypedConfig 的值。
+filter_chains 的情况类似，对应的 struct 是 Filter_Config 和 Filter_TypedConfig。
 
-filter_chains 的情况类似，对应的 struct 是 `Filter_Config` 和 `Filter_TypedConfig`。
+## XX_Config 和 XX_TypedConfig 的区别
+
+将 filter 填充到 listener 时，可以用  XX_Config 类型，也可以用 XX_TypedConfig 的类型，区别如下：
+
+**XX_Config**：
+
+```yaml
+- name: envoy.http_connection_manager
+  config:
+    stat_prefix: ingress_http
+    generate_request_id: true
+    route_config:
+      name: local_route
+      virtual_hosts:
+      - name: local_service
+        domains: ["webshell.com"]
+        routes:
+        - match:
+            prefix: "/"
+          route:
+            host_rewrite: webshell.com
+            cluster: service_webshell
+    http_filters:
+    - name: envoy.router
+      config:
+        dynamic_stats: false
+```
+
+**XX_TypedConfig**：
+
+```yaml
+- name: envoy.http_connection_manager
+  typed_config:
+    "@type": type.googleapis.com/envoy.config.filter.network.http_connection_manager.v2.HttpConnectionManager
+    stat_prefix: ingress_http
+    route_config:
+      name: local_route
+      virtual_hosts:
+      - name: local_service
+        domains: ["*"]
+        routes:
+        - match:
+            prefix: "/"
+          route:
+            host_rewrite: www.baidu.com
+            cluster: service_baidu
+    http_filters:
+    - name: envoy.router
+```
+
+## HTTP Connection Manager 的填充过程
 
 以 [HTTP Connection Manager][2] 为例，填充操作如下：
 
@@ -140,6 +191,8 @@ lis := &api_v2.Listener{
     FilterChains: filterChains,
 }
 ```
+
+## 参考
 
 [1]: https://www.envoyproxy.io/docs/envoy/latest/api-v2/listeners/listeners "Listeners"
 [2]: https://www.envoyproxy.io/docs/envoy/latest/api-v2/config/filter/network/http_connection_manager/v2/http_connection_manager.proto#envoy-api-msg-config-filter-network-http-connection-manager-v2-httpconnectionmanager  "HTTP Connection Manager"

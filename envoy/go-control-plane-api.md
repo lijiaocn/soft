@@ -1,21 +1,51 @@
-<!-- toc -->
-# Envoy 的动态配置下发
+# go-control-plane 中的配置定义
 
-可以动态下发的配置有：
+[go-control-plane](https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/29/envoy-07-features-2-dynamic-discovery.html#go-control-plane) 中的配置定义与 [API 文档](https://www.envoyproxy.io/docs/envoy/latest/api/api) 中给出的相同。以 listener 为例，[listeners][12] 在 api 文档中定义：
 
-* [cluster][6]
-* [cluster][6] 中的 [endpoint][7]
-* [listener][8]
-* [listener][8] 的 [Network filter][2] 中的 [HTTP connection manager][1] 中的 [Virtualhost][3] 中的 [RouteConfiguration][4] 中的 [route][5]
-* [serect][9]
+```json
+{
+  "name": "...",
+  "address": "{...}",
+  "filter_chains": [],
+  "use_original_dst": "{...}",
+  "per_connection_buffer_limit_bytes": "{...}",
+  "metadata": "{...}",
+  "drain_type": "...",
+  "listener_filters": [],
+  "listener_filters_timeout": "{...}",
+  "transparent": "{...}",
+  "freebind": "{...}",
+  "socket_options": [],
+  "tcp_fast_open_queue_length": "{...}",
+  "traffic_direction": "..."
+}
+```
 
-对应的服务端分别称为 [cds][10]、[lds][13]、[rds][14]、[sds][11] 。
+go-control-plane 在 [envoy/api/v2/lds.pb.go](https://github.com/envoyproxy/go-control-plane/blob/v0.8.4/envoy/api/v2/lds.pb.go) 中实现的 Listener：
 
-## 配置下发协议
+```go
+type Listener struct {
+    Name string 
+    Address *core.Address 
+    FilterChains []*listener.FilterChain 
+    UseOriginalDst *types.BoolValue  
+    PerConnectionBufferLimitBytes *types.UInt32Value 
+    Metadata *core.Metadata 
+    DeprecatedV1 *Listener_DeprecatedV1 
+    DrainType Listener_DrainType 
+    ListenerFilters []*listener.ListenerFilter 
+    ListenerFiltersTimeout *time.Duration 
+    Transparent *types.BoolValue 
+    Freebind *types.BoolValue 
+    SocketOptions []*core.SocketOption 
+    TcpFastOpenQueueLength *types.UInt32Value 
+    XXX_NoUnkeyedLiteral   struct{}           
+    XXX_unrecognized       []byte             
+    XXX_sizecache          int32              
+}
+```
 
-[envoyproxy/data-plane-api][15] 定义 envoy 的 REST API 和使用的通信协议 [xDS REST and gRPC protocol][16]。
 
-不需要自己实现通信协议，Envoy 开源了一个控制层面的开发框架 [envoyproxy/go-control-plane][17]，使用该框架可以快速开发一个控制平面（也就是 xDS 服务），框架已经实现了通信过程，不需要再考虑通信细节。
 
 ## 参考
 
