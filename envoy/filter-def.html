@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>filter 下发 · 李佶澳</title>
+        <title>filter 的定义与下发 · 李佶澳</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -66,10 +66,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../prometheus/" />
+    <link rel="next" href="listener-filter.html" />
     
     
-    <link rel="prev" href="network-filter.html" />
+    <link rel="prev" href="filter.html" />
     
 
     <link href="https://www.lijiaocn.com/soft/feed.xml" title="Linux问题诊断与性能优化（实用手册）" rel="alternate" type="application/rss+xml" />
@@ -191,7 +191,20 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="config.html">
+        <li class="chapter " data-level="1.2.1" data-path="install.html">
+            
+                <a href="install.html">
+            
+                    
+                    安装运行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="config.html">
             
                 <a href="config.html">
             
@@ -202,68 +215,28 @@ var _hmt = _hmt || [];
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="config-static.html">
+            
+                <a href="config-static.html">
+            
+                    
+                    静态配置
+            
+                </a>
+            
+
+            
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="dynamic-config.html">
+        <li class="chapter " data-level="1.2.2.2" data-path="config-dynamic.html">
             
-                <a href="dynamic-config.html">
+                <a href="config-dynamic.html">
             
                     
                     动态配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3" data-path="listener.html">
-            
-                <a href="listener.html">
-            
-                    
-                    Listener 详解
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.3.1" data-path="filter.html">
-            
-                <a href="filter.html">
-            
-                    
-                    filter 用途
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.3.1.1" data-path="listener-filter.html">
-            
-                <a href="listener-filter.html">
-            
-                    
-                    listener filter
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3.1.2" data-path="network-filter.html">
-            
-                <a href="network-filter.html">
-            
-                    
-                    network filter
             
                 </a>
             
@@ -276,12 +249,97 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3.2" data-path="filter-def.html">
+        <li class="chapter " data-level="1.2.3" data-path="dynamic-config.html">
+            
+                <a href="dynamic-config.html">
+            
+                    
+                    配置下发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="go-control-plane-api.html">
+            
+                <a href="go-control-plane-api.html">
+            
+                    
+                    go-control-plane api
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="listener.html">
+            
+                <a href="listener.html">
+            
+                    
+                    Listener 详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="filter.html">
+            
+                <a href="filter.html">
+            
+                    
+                    Listener 的 filter 详解
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.5.1" data-path="filter-def.html">
             
                 <a href="filter-def.html">
             
                     
-                    filter 下发
+                    filter 的定义与下发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="listener-filter.html">
+            
+                <a href="listener-filter.html">
+            
+                    
+                    listener filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="network-filter.html">
+            
+                <a href="network-filter.html">
+            
+                    
+                    network filter
             
                 </a>
             
@@ -304,7 +362,7 @@ var _hmt = _hmt || [];
                 <a href="../prometheus/">
             
                     
-                    Prometheus 使用
+                    Prometheus 使用手册
             
                 </a>
             
@@ -1209,7 +1267,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >filter 下发</a>
+        <a href=".." >filter 的定义与下发</a>
     </h1>
 </div>
 
@@ -1239,11 +1297,25 @@ var _hmt = _hmt || [];
 </div>
 
 
-                                <h1 id="go-control-plane-&#x4E2D;&#x7684;-filter-&#x5B9A;&#x4E49;">go-control-plane &#x4E2D;&#x7684; filter &#x5B9A;&#x4E49;</h1>
-<p><a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/29/envoy-07-features-2-dynamic-discovery.html#go-control-plane" title="go-control-plane" target="_blank">go-control-plane</a> &#x662F;&#x4E00;&#x4E2A;&#x63A7;&#x5236;&#x5E73;&#x9762;&#x7684;&#x5F00;&#x53D1;&#x6846;&#x67B6;&#xFF0C;&#x89C1;&#x4E4B;&#x524D;&#x7684; <a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/29/envoy-07-features-2-dynamic-discovery.html#go-control-plane" title="go-control-plane" target="_blank">&#x7B14;&#x8BB0;</a>&#x3002;</p>
-<p>Listener &#x5728; <a href="https://github.com/envoyproxy/go-control-plane/blob/v0.8.4/envoy/api/v2/lds.pb.go" title="go-control-plane/envoy/api/v2/lds.pb.go" target="_blank">go-control-plane/envoy/api/v2/lds.pb.go</a> &#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;filter &#x7684;&#x63A5;&#x53E3;&#x5728; <a href="https://github.com/envoyproxy/go-control-plane/blob/v0.8.4/envoy/api/v2/listener/listener.pb.go" title="envoy/api/v2/listener/listener.pb.go" target="_blank">envoy/api/v2/listener/listener.pb.go</a> &#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;filter &#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5728; <a href="https://github.com/envoyproxy/go-control-plane/tree/v0.8.4/envoy/config/filter" title="go-control-plane/envoy/config/filter/" target="_blank">go-control-plane/envoy/config/filter/</a>&#x3002;</p>
+                                <!-- toc -->
+<ul>
+<li><a href="#go-control-plane-&#x4E2D;&#x7684;-filter-&#x5B9A;&#x4E49;&#x4E0E;&#x4E0B;&#x53D1;">go-control-plane &#x4E2D;&#x7684; filter &#x5B9A;&#x4E49;&#x4E0E;&#x4E0B;&#x53D1;</a><ul>
+<li><a href="#listenerfilters-&#x7684;&#x5B9A;&#x4E49;">listener_filters &#x7684;&#x5B9A;&#x4E49;</a></li>
+<li><a href="#filterchains-&#x7684;&#x5B9A;&#x4E49;">filter_chains &#x7684;&#x5B9A;&#x4E49;</a><ul>
+<li><a href="#filter-&#x7684;&#x5B9A;&#x4E49;">filter &#x7684;&#x5B9A;&#x4E49;</a></li>
+<li><a href="#xxconfig-&#x548C;-xxtypedconfig-&#x7684;&#x533A;&#x522B;">XX_Config &#x548C; XX_TypedConfig &#x7684;&#x533A;&#x522B;</a></li>
+<li><a href="#http-connection-manager-&#x7684;&#x586B;&#x5145;&#x8FC7;&#x7A0B;">HTTP Connection Manager &#x7684;&#x586B;&#x5145;&#x8FC7;&#x7A0B;</a></li>
+<li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="go-control-plane-&#x4E2D;&#x7684;-filter-&#x5B9A;&#x4E49;&#x4E0E;&#x4E0B;&#x53D1;">go-control-plane &#x4E2D;&#x7684; filter &#x5B9A;&#x4E49;&#x4E0E;&#x4E0B;&#x53D1;</h1>
+<p>filter &#x662F;&#x586B;&#x5145;&#x5728; listener &#x4E2D;&#x4F5C;&#x4E3A; listener &#x7684;&#x4E00;&#x90E8;&#x5206;&#x4E0B;&#x53D1;&#x7684;&#xFF0C;Listener &#x5728; <a href="https://github.com/envoyproxy/go-control-plane/blob/v0.8.4/envoy/api/v2/lds.pb.go" title="go-control-plane/envoy/api/v2/lds.pb.go" target="_blank">go-control-plane/envoy/api/v2/lds.pb.go</a> &#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;filter &#x7684;&#x63A5;&#x53E3;&#x5728; <a href="https://github.com/envoyproxy/go-control-plane/blob/v0.8.4/envoy/api/v2/listener/listener.pb.go" title="envoy/api/v2/listener/listener.pb.go" target="_blank">envoy/api/v2/listener/listener.pb.go</a> &#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;filter &#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5728; <a href="https://github.com/envoyproxy/go-control-plane/tree/v0.8.4/envoy/config/filter" title="go-control-plane/envoy/config/filter/" target="_blank">go-control-plane/envoy/config/filter/</a>&#x4E2D;&#x3002;</p>
 <h3 id="listenerfilters-&#x7684;&#x5B9A;&#x4E49;">listener_filters &#x7684;&#x5B9A;&#x4E49;</h3>
-<p>&#x5148;&#x8D77;&#x4F5C;&#x7528;&#x7684; listener_filters &#x7684;&#x6210;&#x5458;&#x5728; go-control-plane &#x4E2D;&#x5B9A;&#x4E49;&#x4E3A; listener.ListenerFilter&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>Listener &#x4E2D;&#x7684; listener_filters &#x7684;&#x5728; go-control-plane &#x4E2D;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-go"><span class="hljs-comment">// go-control-plane/envoy/api/v2/lds.pb.go</span>
 ListenerFilters []*listener.ListenerFilter 
 
@@ -1257,7 +1329,7 @@ ListenerFilters []*listener.ListenerFilter
 }
 </code></pre>
 <h3 id="filterchains-&#x7684;&#x5B9A;&#x4E49;">filter_chains &#x7684;&#x5B9A;&#x4E49;</h3>
-<p>&#x540E;&#x8D77;&#x4F5C;&#x7528;&#x7684; filter_chains &#x7684;&#x6210;&#x5458;&#x5728; go-control-plane &#x4E2D;&#x5B9A;&#x4E49;&#x4E3A; listener.FilterChain&#xFF0C;&#x6210;&#x5458; FilterChain &#x53C8;&#x5305;&#x542B;&#x4E00;&#x6761; Filter &#x94FE;&#xFF1A;</p>
+<p>Listener &#x4E2D;&#x7684; filter_chains &#x5728; go-control-plane &#x4E2D;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF0C;&#x5176;&#x4E2D;FilterChain &#x7EE7;&#x7EED;&#x5305;&#x542B; Filter &#x94FE;&#xFF1A;</p>
 <pre><code class="lang-go">FilterChains []*listener.FilterChain 
 
 <span class="hljs-keyword">type</span> FilterChain <span class="hljs-keyword">struct</span> {
@@ -1281,8 +1353,9 @@ ListenerFilters []*listener.ListenerFilter
     XXX_sizecache        <span class="hljs-keyword">int32</span>               <span class="hljs-string">`json:&quot;-&quot;`</span>
 }
 </code></pre>
-<h2 id="&#x5728;-go-control-plane-&#x4E2D;&#x586B;&#x5145;-filter">&#x5728; go-control-plane &#x4E2D;&#x586B;&#x5145; filter</h2>
-<p>&#x4EE5; listener_filters &#x7684;&#x586B;&#x5145;&#x4E3A;&#x4F8B;&#xFF0C;ConfigType &#x5C31;&#x662F;&#x586B;&#x5145;&#x7684; filter&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x7C7B;&#x578B;&#x7684;&#x6210;&#x5458;&#xFF1A;</p>
+<h2 id="filter-&#x7684;&#x5B9A;&#x4E49;">filter &#x7684;&#x5B9A;&#x4E49;</h2>
+<p>filter &#x7684;&#x5B9A;&#x4E49;&#x5728; <a href="https://github.com/envoyproxy/go-control-plane/tree/v0.8.4/envoy/config/filter" title="go-control-plane/envoy/config/filter/" target="_blank">go-control-plane/envoy/config/filter</a> &#x4E2D;&#xFF0C;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684; filter &#x90FD;&#x6709;&#x5404;&#x81EA;&#x7684;&#x5B9A;&#x4E49;&#x3002;&#x7528; go-control-plane &#x4E0B;&#x53D1;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x7528; util.MessageToStruct() &#x8F6C;&#x6362;&#x6210; <em>types.Struct &#x7C7B;&#x578B;&#xFF0C;&#x6216;&#x8005;&#x7528; ptypes.MarshalAny() &#x8F6C;&#x6362;&#x6210; </em> any.Any &#x7C7B;&#x578B;&#x540E;&#xFF0C;&#x586B;&#x5145;&#x5230; Listener &#x4E2D;&#x3002;</p>
+<p>&#x4EE5; listener_filters &#x7684;&#x4E3A;&#x4F8B;&#xFF0C;ListenerFilter &#x4E2D;&#x7684; ConfigType &#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#xFF1A;</p>
 <pre><code class="lang-go"><span class="hljs-comment">// go-control-plane/envoy/api/v2/listener/listener.pb.go</span>
 <span class="hljs-keyword">type</span> ListenerFilter <span class="hljs-keyword">struct</span> {
     Name <span class="hljs-keyword">string</span> 
@@ -1300,7 +1373,7 @@ ListenerFilters []*listener.ListenerFilter
     Size() <span class="hljs-keyword">int</span>
 }
 </code></pre>
-<p>ConfigType &#x7684;&#x7C7B;&#x578B;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x4F46;&#x9700;&#x8981; <code>&#x7279;&#x522B;&#x6CE8;&#x610F;</code> &#x6EE1;&#x8DB3;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x4E0D;&#x662F; <a href="https://github.com/envoyproxy/go-control-plane/tree/v0.8.4/envoy/config/filter" title="go-control-plane/envoy/config/filter/" target="_blank">go-control-plane/envoy/config/filter</a> &#x4E2D;&#x6BCF;&#x4E2A; filter &#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF0C;&#x800C;&#x662F;&#x4E24;&#x4E2A;&#x8D85;&#x7EA7;&#x7B80;&#x5355;&#x7684; struct&#xFF1A; <code>ListenerFilter_Config</code> &#x548C; <code>ListenerFilter_TypedConfig</code> &#x3002;</p>
+<p>isListenerFilter_ConfigType &#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x5B9E;&#x73B0;&#x8BE5;&#x63A5;&#x53E3;&#x7684; struct &#x662F; ListenerFilter_Config &#x548C; ListenerFilter_TypedConfig &#x3002;</p>
 <pre><code class="lang-go"><span class="hljs-comment">// go-control-plane/envoy/api/v2/listener/listener.pb.go: 592</span>
 <span class="hljs-keyword">type</span> ListenerFilter_Config <span class="hljs-keyword">struct</span> {
     Config *types.Struct 
@@ -1312,9 +1385,51 @@ ListenerFilters []*listener.ListenerFilter
 <span class="hljs-keyword">func</span> (*ListenerFilter_Config) isListenerFilter_ConfigType()      {}
 <span class="hljs-keyword">func</span> (*ListenerFilter_TypedConfig) isListenerFilter_ConfigType() {}
 </code></pre>
-<p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD9;&#x4E24;&#x4E2A; struct &#x4EC5;&#x4EC5;&#x662F;&#x5B9A;&#x4E49;&#x4E86;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x800C;&#x5DF2;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x662F;&#x7A7A;&#x7684;&#x3002;&#x5305;&#x542B; filter &#x914D;&#x7F6E;&#x7684;&#x6210;&#x5458; Config/TypedConfig &#x662F; grpc &#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E; <em>types.Struct / </em>types.Any&#x3002;</p>
-<p>filter &#x7684;&#x5B9E;&#x73B0;&#x4F4D;&#x4E8E; <a href="https://github.com/envoyproxy/go-control-plane/tree/v0.8.4/envoy/config/filter" title="go-control-plane/envoy/config/filter/" target="_blank">go-control-plane/envoy/config/filter</a> &#x76EE;&#x5F55; &#xFF0C;&#x9700;&#x8981;&#x7528; util.MessageToStruct() &#x65B9;&#x6CD5;&#x8F6C;&#x6362;&#x6210; <em>types.Struct&#xFF0C;&#x6216;&#x8005;&#x7528; ptypes.MarshalAny() &#x8F6C;&#x6362;&#x6210; </em>any.Any&#x540E;&#xFF0C;&#x4F5C;&#x4E3A; Config &#x6216; TypedConfig &#x7684;&#x503C;&#x3002;</p>
-<p>filter_chains &#x7684;&#x60C5;&#x51B5;&#x7C7B;&#x4F3C;&#xFF0C;&#x5BF9;&#x5E94;&#x7684; struct &#x662F; <code>Filter_Config</code> &#x548C; <code>Filter_TypedConfig</code>&#x3002;</p>
+<p>&#x4E0A;&#x9762;&#x7684; Config &#x548C; TypedConfig &#x5C31;&#x662F; filter &#x8F6C;&#x5316;&#x800C;&#x6210;&#x7684;&#x3002;</p>
+<p>filter_chains &#x7684;&#x60C5;&#x51B5;&#x7C7B;&#x4F3C;&#xFF0C;&#x5BF9;&#x5E94;&#x7684; struct &#x662F; Filter_Config &#x548C; Filter_TypedConfig&#x3002;</p>
+<h2 id="xxconfig-&#x548C;-xxtypedconfig-&#x7684;&#x533A;&#x522B;">XX_Config &#x548C; XX_TypedConfig &#x7684;&#x533A;&#x522B;</h2>
+<p>&#x5C06; filter &#x586B;&#x5145;&#x5230; listener &#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;  XX_Config &#x7C7B;&#x578B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528; XX_TypedConfig &#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x533A;&#x522B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><strong>XX_Config</strong>&#xFF1A;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">- name:</span> envoy.http_connection_manager
+<span class="hljs-attr">  config:</span>
+<span class="hljs-attr">    stat_prefix:</span> ingress_http
+<span class="hljs-attr">    generate_request_id:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    route_config:</span>
+<span class="hljs-attr">      name:</span> local_route
+<span class="hljs-attr">      virtual_hosts:</span>
+<span class="hljs-attr">      - name:</span> local_service
+<span class="hljs-attr">        domains:</span> [<span class="hljs-string">&quot;webshell.com&quot;</span>]
+<span class="hljs-attr">        routes:</span>
+<span class="hljs-attr">        - match:</span>
+<span class="hljs-attr">            prefix:</span> <span class="hljs-string">&quot;/&quot;</span>
+<span class="hljs-attr">          route:</span>
+<span class="hljs-attr">            host_rewrite:</span> webshell.com
+<span class="hljs-attr">            cluster:</span> service_webshell
+<span class="hljs-attr">    http_filters:</span>
+<span class="hljs-attr">    - name:</span> envoy.router
+<span class="hljs-attr">      config:</span>
+<span class="hljs-attr">        dynamic_stats:</span> <span class="hljs-literal">false</span>
+</code></pre>
+<p><strong>XX_TypedConfig</strong>&#xFF1A;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">- name:</span> envoy.http_connection_manager
+<span class="hljs-attr">  typed_config:</span>
+    <span class="hljs-string">&quot;@type&quot;</span>: type.googleapis.com/envoy.config.filter.network.http_connection_manager.v2.HttpConnectionManager
+<span class="hljs-attr">    stat_prefix:</span> ingress_http
+<span class="hljs-attr">    route_config:</span>
+<span class="hljs-attr">      name:</span> local_route
+<span class="hljs-attr">      virtual_hosts:</span>
+<span class="hljs-attr">      - name:</span> local_service
+<span class="hljs-attr">        domains:</span> [<span class="hljs-string">&quot;*&quot;</span>]
+<span class="hljs-attr">        routes:</span>
+<span class="hljs-attr">        - match:</span>
+<span class="hljs-attr">            prefix:</span> <span class="hljs-string">&quot;/&quot;</span>
+<span class="hljs-attr">          route:</span>
+<span class="hljs-attr">            host_rewrite:</span> www.baidu.com
+<span class="hljs-attr">            cluster:</span> service_baidu
+<span class="hljs-attr">    http_filters:</span>
+<span class="hljs-attr">    - name:</span> envoy.router
+</code></pre>
+<h2 id="http-connection-manager-&#x7684;&#x586B;&#x5145;&#x8FC7;&#x7A0B;">HTTP Connection Manager &#x7684;&#x586B;&#x5145;&#x8FC7;&#x7A0B;</h2>
 <p>&#x4EE5; <a href="https://www.envoyproxy.io/docs/envoy/latest/api-v2/config/filter/network/http_connection_manager/v2/http_connection_manager.proto#envoy-api-msg-config-filter-network-http-connection-manager-v2-httpconnectionmanager" title="HTTP Connection Manager" target="_blank">HTTP Connection Manager</a> &#x4E3A;&#x4F8B;&#xFF0C;&#x586B;&#x5145;&#x64CD;&#x4F5C;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-sh">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A; HttpConnectionManager
 listen_filter_http_conn_ := &amp;http_conn_manager.HttpConnectionManager{
@@ -1357,6 +1472,7 @@ lis := &amp;api_v2.Listener{
     FilterChains: filterChains,
 }
 </code></pre>
+<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
@@ -1412,12 +1528,12 @@ lis := &amp;api_v2.Listener{
 
             
                 
-                <a href="network-filter.html" class="navigation navigation-prev " aria-label="Previous page: network filter">
+                <a href="filter.html" class="navigation navigation-prev " aria-label="Previous page: Listener 的 filter 详解">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../prometheus/" class="navigation navigation-next " aria-label="Next page: Prometheus 使用">
+                <a href="listener-filter.html" class="navigation navigation-next " aria-label="Next page: listener filter">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1428,7 +1544,7 @@ lis := &amp;api_v2.Listener{
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"filter 下发","level":"1.2.3.2","depth":3,"next":{"title":"Prometheus 使用","level":"1.3","depth":1,"path":"prometheus/README.md","ref":"prometheus/README.md","articles":[{"title":"安装启动","level":"1.3.1","depth":2,"path":"prometheus/start.md","ref":"prometheus/start.md","articles":[]},{"title":"配置文件","level":"1.3.2","depth":2,"path":"prometheus/config.md","ref":"prometheus/config.md","articles":[]},{"title":"查询语句","level":"1.3.3","depth":2,"path":"prometheus/query.md","ref":"prometheus/query.md","articles":[{"title":"指标查询","level":"1.3.3.1","depth":3,"path":"prometheus/query-metrics.md","ref":"prometheus/query-metrics.md","articles":[]},{"title":"指标运算","level":"1.3.3.2","depth":3,"path":"prometheus/query-compute.md","ref":"prometheus/query-compute.md","articles":[]},{"title":"二元运算","level":"1.3.3.3","depth":3,"path":"prometheus/query-binary.md","ref":"prometheus/query-binary.md","articles":[]},{"title":"聚合运算","level":"1.3.3.4","depth":3,"path":"prometheus/query-aggre.md","ref":"prometheus/query-aggre.md","articles":[]},{"title":"查询函数","level":"1.3.3.5","depth":3,"path":"prometheus/query-function.md","ref":"prometheus/query-function.md","articles":[]}]}]},"previous":{"title":"network filter","level":"1.2.3.1.2","depth":4,"path":"envoy/network-filter.md","ref":"envoy/network-filter.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/filter-def.md","mtime":"2019-08-08T06:15:16.522Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-08T09:34:31.406Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"filter 的定义与下发","level":"1.2.5.1","depth":3,"next":{"title":"listener filter","level":"1.2.5.2","depth":3,"path":"envoy/listener-filter.md","ref":"envoy/listener-filter.md","articles":[]},"previous":{"title":"Listener 的 filter 详解","level":"1.2.5","depth":2,"path":"envoy/filter.md","ref":"envoy/filter.md","articles":[{"title":"filter 的定义与下发","level":"1.2.5.1","depth":3,"path":"envoy/filter-def.md","ref":"envoy/filter-def.md","articles":[]},{"title":"listener filter","level":"1.2.5.2","depth":3,"path":"envoy/listener-filter.md","ref":"envoy/listener-filter.md","articles":[]},{"title":"network filter","level":"1.2.5.3","depth":3,"path":"envoy/network-filter.md","ref":"envoy/network-filter.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/filter-def.md","mtime":"2019-08-09T11:37:32.044Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-09T11:37:55.987Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

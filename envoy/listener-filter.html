@@ -69,7 +69,7 @@
     <link rel="next" href="network-filter.html" />
     
     
-    <link rel="prev" href="filter.html" />
+    <link rel="prev" href="filter-def.html" />
     
 
     <link href="https://www.lijiaocn.com/soft/feed.xml" title="Linux问题诊断与性能优化（实用手册）" rel="alternate" type="application/rss+xml" />
@@ -191,7 +191,20 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="config.html">
+        <li class="chapter " data-level="1.2.1" data-path="install.html">
+            
+                <a href="install.html">
+            
+                    
+                    安装运行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="config.html">
             
                 <a href="config.html">
             
@@ -202,68 +215,28 @@ var _hmt = _hmt || [];
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="config-static.html">
+            
+                <a href="config-static.html">
+            
+                    
+                    静态配置
+            
+                </a>
+            
+
+            
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="dynamic-config.html">
+        <li class="chapter " data-level="1.2.2.2" data-path="config-dynamic.html">
             
-                <a href="dynamic-config.html">
+                <a href="config-dynamic.html">
             
                     
                     动态配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3" data-path="listener.html">
-            
-                <a href="listener.html">
-            
-                    
-                    Listener 详解
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.3.1" data-path="filter.html">
-            
-                <a href="filter.html">
-            
-                    
-                    filter 用途
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter active" data-level="1.2.3.1.1" data-path="listener-filter.html">
-            
-                <a href="listener-filter.html">
-            
-                    
-                    listener filter
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3.1.2" data-path="network-filter.html">
-            
-                <a href="network-filter.html">
-            
-                    
-                    network filter
             
                 </a>
             
@@ -276,12 +249,97 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.2" data-path="filter-def.html">
+        <li class="chapter " data-level="1.2.3" data-path="dynamic-config.html">
+            
+                <a href="dynamic-config.html">
+            
+                    
+                    配置下发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="go-control-plane-api.html">
+            
+                <a href="go-control-plane-api.html">
+            
+                    
+                    go-control-plane api
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="listener.html">
+            
+                <a href="listener.html">
+            
+                    
+                    Listener 详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="filter.html">
+            
+                <a href="filter.html">
+            
+                    
+                    Listener 的 filter 详解
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="filter-def.html">
             
                 <a href="filter-def.html">
             
                     
-                    filter 下发
+                    filter 的定义与下发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.5.2" data-path="listener-filter.html">
+            
+                <a href="listener-filter.html">
+            
+                    
+                    listener filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="network-filter.html">
+            
+                <a href="network-filter.html">
+            
+                    
+                    network filter
             
                 </a>
             
@@ -304,7 +362,7 @@ var _hmt = _hmt || [];
                 <a href="../prometheus/">
             
                     
-                    Prometheus 使用
+                    Prometheus 使用手册
             
                 </a>
             
@@ -1243,8 +1301,8 @@ var _hmt = _hmt || [];
 <ul>
 <li><a href="#envoy-&#x7684;-listener-filter-&#x5217;&#x8868;">Envoy &#x7684; listener filter &#x5217;&#x8868;</a><ul>
 <li><a href="#name-envoylistenerhttpinspector">name: envoy.listener.http_inspector</a></li>
-<li><a href="#name-envoylisteneroriginaldst">name: envoy.listener.original_dst</a></li>
 <li><a href="#name-envoylisteneroriginalsrc">name: envoy.listener.original_src</a></li>
+<li><a href="#name-envoylisteneroriginaldst">name: envoy.listener.original_dst</a></li>
 <li><a href="#name-envoylistenerproxyprotocol">name: envoy.listener.proxy_protocol</a></li>
 <li><a href="#name-envoylistenertlsinspector">name: envoy.listener.tls_inspector</a></li>
 <li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
@@ -1253,23 +1311,18 @@ var _hmt = _hmt || [];
 </ul>
 <!-- tocstop -->
 <h1 id="envoy-&#x7684;-listener-filter-&#x5217;&#x8868;">Envoy &#x7684; listener filter &#x5217;&#x8868;</h1>
-<p>&#x4E0B;&#x9762;&#x662F;&#x53EF;&#x4EE5;&#x5728;&#x52A0;&#x5165;&#x5230; listener_filter &#x7684; listener filter&#x3002; &#x8FD9;&#x4E9B; filter &#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#x662F;&#x68C0;&#x6D4B;&#x534F;&#x8BAE;&#x3001;&#x89E3;&#x6790;&#x534F;&#x8BAE;&#xFF0C;&#x901A;&#x8FC7;&#x5B83;&#x4EEC;&#x89E3;&#x6790;&#x51FA;&#x7684;&#x4FE1;&#x606F;&#x7528;&#x4E8E;&#x5339;&#x914D; filter_chains &#x4E2D;&#x7684; filter&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x53EF;&#x4EE5;&#x5728;&#x52A0;&#x5165;&#x5230; listener_filter &#x7684; listener filter&#x3002; &#x8FD9;&#x4E9B; filter &#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#x662F;&#x68C0;&#x6D4B;&#x534F;&#x8BAE;&#x3001;&#x89E3;&#x6790;&#x534F;&#x8BAE;&#xFF0C;&#x901A;&#x8FC7;&#x5B83;&#x4EEC;&#x89E3;&#x6790;&#x51FA;&#x7684;&#x4FE1;&#x606F;&#x88AB;&#x7528;&#x4E8E;&#x5339;&#x914D; filter_chains &#x4E2D;&#x7684; filter&#x3002;</p>
 <h2 id="name-envoylistenerhttpinspector">name: envoy.listener.http_inspector</h2>
 <p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/listener_filters/http_inspector" title="HTTP Inspector" target="_blank">HTTP Inspector</a> &#x5224;&#x65AD;&#x5E94;&#x7528;&#x5C42;&#x7684;&#x6570;&#x636E;&#x662F;&#x5426;&#x4F7F;&#x7528; HTTP &#x534F;&#x8BAE;&#xFF0C;&#x5982;&#x679C;&#x662F;&#xFF0C;&#x7EED;&#x7EE7;&#x5224;&#x65AD; HTTP &#x534F;&#x8BAE;&#x7684;&#x7248;&#x672C;&#x53F7;&#xFF08;HTTP 1.0&#x3001;HTTP 1.1&#x3001;HTTP 2&#xFF09;&#xFF0C;: </p>
 <pre><code class="lang-yaml"><span class="hljs-attr">listener_filters:</span>
 <span class="hljs-attr">  - name:</span> <span class="hljs-string">&quot;envoy.listener.http_inspector&quot;</span>
 <span class="hljs-attr">    typed_config:</span> {}
 </code></pre>
-<h2 id="name-envoylisteneroriginaldst">name: envoy.listener.original_dst</h2>
-<p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/listener_filters/original_dst_filter" title="Original Destination" target="_blank">Original Destination</a> &#x7528;&#x6765;&#x8BFB;&#x53D6; socket &#x7684;&#x914D;&#x7F6E;&#x9879; <code>SO_ORIGINAL_DST</code>&#xFF0C;&#x5728;&#x4F7F;&#x7528; <a href="https://www.envoyproxy.io/docs/envoy/latest/api-v2/api/v2/lds.proto#envoy-api-field-listener-transparent" title="transparent" target="_blank">&#x900F;&#x660E;&#x4EE3;&#x7406;&#x6A21;&#x5F0F;</a> &#x65F6;&#x7528;&#x5230;&#x3002;&#x900F;&#x660E;&#x4EE3;&#x7406;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x4EE3;&#x7406;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x62A5;&#x6587;&#x7684;&#x539F;&#x59CB;&#x76EE;&#x5730;&#x5740;&#xFF0C;&#x5728; envoy &#x4E2D;&#xFF0C;&#x7528;&#x8BE5; filter &#x83B7;&#x53D6;&#x3002;<a href="../linuxsys/tpproxy.html">Linux&#x7CFB;&#x7EDF;&#x77E5;&#x8BC6;/&#x900F;&#x660E;&#x4EE3;&#x7406;</a> &#x5BF9;&#x900F;&#x660E;&#x4EE3;&#x7406;&#x6709;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x3002;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">listener_filters:</span>
-<span class="hljs-attr">  - name:</span> <span class="hljs-string">&quot;envoy.listener.original_dst&quot;</span>
-</code></pre>
 <h2 id="name-envoylisteneroriginalsrc">name: envoy.listener.original_src</h2>
-<p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/listener_filters/original_src_filter" title="Original Source" target="_blank">Original Source</a> &#x7C7B;&#x4F3C;&#x4E8E; lvs &#x7684; <a href="http://www.linuxvirtualserver.org/VS-DRouting.html" title="Virtual Server via Direct Routing" target="_blank">DR &#x6A21;&#x5F0F;</a> &#xFF0C;&#x5047;&#x8BBE; downstream &#x7684; IP &#x662F; 10.1.2.3&#xFF0C;envoy &#x5C06;&#x62A5;&#x6587;&#x8F6C;&#x53D1;&#x7ED9; upstream &#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x540C;&#x6837;&#x7684;&#x6E90; IP&#xFF0C;upstream &#x770B;&#x5230;&#x7684;&#x6E90; IP &#x662F;&#x539F;&#x59CB;&#x7684; IP&#xFF0C;&#x4E0D;&#x662F; envoy &#x7684; IP&#x3002;</p>
-<p>&#x4E0E; lvs &#x7684; <a href="http://www.linuxvirtualserver.org/VS-DRouting.html" title="Virtual Server via Direct Routing" target="_blank">DR &#x6A21;&#x5F0F;</a> &#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x5728; lvs &#x4E2D;&#xFF0C;upsteram &#x662F;&#x76F4;&#x63A5;&#x5C06;&#x56DE;&#x5E94;&#x5305;&#x53D1;&#x9001;&#x7ED9; downstream&#xFF0C;&#x800C; envoy &#x7684;&#x6587;&#x6863;&#x4E2D;&#x5F3A;&#x8C03;&#xFF0C;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x7F51;&#x7EDC;&#x73AF;&#x5883;&#xFF0C;&#x8BA9; uptream &#x7684;&#x56DE;&#x5E94;&#x5305;&#x53D1;&#x9001;&#x5230; envoy &#xFF0C;&#x7531; envoy &#x8F6C;&#x53D1;&#x3002;</p>
-<p>&#x7531;&#x6B64;&#x5224;&#x65AD;&#xFF0C; <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/listener_filters/original_src_filter" title="Original Source" target="_blank">Original Source</a>  &#x7684;&#x7528;&#x9014;&#x662F;&#x8BA9; uptream &#x770B;&#x5230;&#x7684;&#x662F;&#x8BF7;&#x6C42;&#x7AEF;&#x7684; IP&#xFF0C;&#x8BA9;&#x53CC;&#x65B9;&#x611F;&#x77E5;&#x4E0D;&#x5230; envoy &#x7684;&#x5B58;&#x5728;&#x3002;</p>
-<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF0C;&#x7528;&#x5230;&#x4E86;&#x4E24;&#x4E2A; filter: envoy.listener.proxy_protocol &#x7684;&#x7528;&#x9014;&#x662F;&#x4ECE;&#x4EE3;&#x7406;&#x534F;&#x8BAE;&#x4E2D;&#x89E3;&#x6790;&#x51FA;&#x771F;&#x5B9E;&#x7684;&#x6E90; IP&#xFF0C;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x8BE5; filter &#x7684;&#x7528;&#x6CD5;&#x89C1;&#x4E0B;&#x4E00;&#x8282;&#xFF1B;envoy.listener.original_src &#x900F;&#x4F20;&#x539F;&#x59CB;&#x7684;&#x6E90; IP&#x3002;</p>
+<p><strong><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/listener_filters/original_src_filter" title="Original Source" target="_blank">Original Source</a>  &#x7528;&#x4E8E;<a href="https://www.envoyproxy.io/docs/envoy/latest/api-v2/api/v2/lds.proto#envoy-api-field-listener-transparent" title="transparent" target="_blank">&#x900F;&#x660E;&#x4EE3;&#x7406;</a>&#xFF0C;&#x8BA9; uptream &#x770B;&#x5230;&#x7684;&#x662F;&#x8BF7;&#x6C42;&#x7AEF;&#x7684; IP&#xFF0C;&#x53CC;&#x65B9;&#x5747;&#x611F;&#x77E5;&#x4E0D;&#x5230; envoy &#x7684;&#x5B58;&#x5728;&#x3002;</strong></p>
+<p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/listener_filters/original_src_filter" title="Original Source" target="_blank">Original Source</a> &#x6709;&#x70B9;&#x7C7B;&#x4F3C;&#x4E8E; lvs &#x7684; <a href="http://www.linuxvirtualserver.org/VS-DRouting.html" title="Virtual Server via Direct Routing" target="_blank">DR &#x6A21;&#x5F0F;</a> &#xFF0C;&#x5047;&#x8BBE; downstream &#x7684; IP &#x662F; 10.1.2.3&#xFF0C;envoy &#x7684; IP &#x662F; 10.2.2.3&#x3002;envoy &#x5C06;&#x62A5;&#x6587;&#x8F6C;&#x53D1;&#x7ED9; upstream &#x65F6;&#x590D;&#x7528; downstream &#x7684;&#x6E90; IP&#xFF0C;upstream &#x770B;&#x5230;&#x7684;&#x6E90; IP &#x662F; downstream &#x7684; IP  10.1.2.3&#xFF0C;&#x4E0D;&#x662F; envoy &#x7684; IP 10.2.2.3&#x3002;</p>
+<p>&#x4E0E; lvs &#x7684; <a href="http://www.linuxvirtualserver.org/VS-DRouting.html" title="Virtual Server via Direct Routing" target="_blank">DR &#x6A21;&#x5F0F;</a> &#x533A;&#x522B;&#x662F;&#xFF0C;&#x5728; lvs &#x4E2D;&#xFF0C;upsteram &#x662F;&#x76F4;&#x63A5;&#x5C06;&#x56DE;&#x5E94;&#x5305;&#x53D1;&#x9001;&#x7ED9; downstream&#xFF0C;&#x800C; envoy &#x7684;&#x6587;&#x6863;&#x4E2D;&#x5F3A;&#x8C03;&#xFF0C;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x7F51;&#x7EDC;&#x73AF;&#x5883;&#xFF0C;&#x8BA9; uptream &#x7684;&#x56DE;&#x5E94;&#x5305;&#x53D1;&#x9001;&#x5230; envoy &#xFF0C;&#x518D;&#x7531; envoy &#x8F6C;&#x53D1;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF0C;&#x7528;&#x5230;&#x4E86;&#x4E24;&#x4E2A; filter&#xFF1A;&#x7B2C;&#x4E00;&#x4E2A; filter &#x662F; envoy.listener.proxy_protocol&#xFF0C;&#x7528;&#x9014;&#x662F;&#x4ECE;&#x4EE3;&#x7406;&#x534F;&#x8BAE;&#x4E2D;&#x89E3;&#x6790;&#x51FA;&#x771F;&#x5B9E;&#x7684;&#x6E90; IP&#xFF0C;&#x8BE6;&#x60C5;&#x89C1;&#x4E0B;&#x4E00;&#x8282;&#xFF1B; &#x7B2C;&#x4E8C;&#x4E2A; filter &#x662F; envoy.listener.original_src &#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x900F;&#x4F20;&#x6E90; IP&#x3002;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">listeners:</span>
 <span class="hljs-attr">- address:</span>
 <span class="hljs-attr">    socket_address:</span>
@@ -1281,7 +1334,7 @@ var _hmt = _hmt || [];
 <span class="hljs-attr">      config:</span>
 <span class="hljs-attr">        mark:</span> <span class="hljs-number">123</span>
 </code></pre>
-<p><code>mark 123</code> &#x662F;&#x4E3A;&#x88AB;&#x900F;&#x4F20;&#x7684;&#x62A5;&#x6587;&#x6253;&#x4E0A; mark 123&#xFF0C;&#x5F53; upstream &#x548C; envoy &#x4F4D;&#x4E8E;&#x540C;&#x4E00;&#x53F0;&#x673A;&#x5668;&#x4E0A;&#x65F6;&#xFF0C;&#x5C06;&#x6807;&#x8BB0;&#x4E86;&#x8BE5; mark &#x7684;&#x62A5;&#x6587;&#x8F6C;&#x53D1;&#x5230;&#x672C;&#x5730;: </p>
+<p><code>mark 123</code> &#x8BBE;&#x7F6E;&#x4E86;&#x88AB;&#x900F;&#x4F20;&#x7684;&#x62A5;&#x6587;&#x9700;&#x8981;&#x6253;&#x4E0A;&#x7684;&#x6807;&#x8BB0;&#xFF0C;&#x5F53; upstream &#x548C; envoy &#x4F4D;&#x4E8E;&#x540C;&#x4E00;&#x53F0;&#x673A;&#x5668;&#x4E0A;&#x65F6;&#xFF0C;&#x5C06;&#x6253;&#x4E86;&#x6807;&#x8BB0;&#x7684;&#x62A5;&#x6587;&#x8F6C;&#x53D1;&#x5230;&#x672C;&#x5730;: </p>
 <pre><code class="lang-sh">iptables  -t mangle -I PREROUTING -m mark     --mark 123 -j CONNMARK --save-mark
 iptables  -t mangle -I OUTPUT     -m connmark --mark 123 -j CONNMARK --restore-mark
 ip6tables -t mangle -I PREROUTING -m mark     --mark 123 -j CONNMARK --save-mark
@@ -1293,15 +1346,19 @@ ip -6 route add <span class="hljs-built_in">local</span> ::/0 dev lo table 100
 <span class="hljs-built_in">echo</span> 1 &gt; /proc/sys/net/ipv4/conf/eth0/route_localnet
 </code></pre>
 <p>&#x4E0A;&#x9762;&#x7684;&#x8BBE;&#x7F6E;&#x89C4;&#x5219;&#x7528;&#x5230;&#x4E00;&#x4E2A; linux &#x77E5;&#x8BC6;: <a href="../linuxsys/localip.html">local &#x5730;&#x5740;&#x7684;&#x8BA4;&#x5B9A;</a>&#x3002;</p>
-<p>&#x5982;&#x679C; envoy &#x548C; upstream  &#x4E0D;&#x5728;&#x540C;&#x4E00;&#x4E2A; host&#xFF0C;&#x9700;&#x8981;&#x5728;&#x7F51;&#x7EDC;&#x4E0A;&#x8BBE;&#x7F6E;&#x3002;</p>
+<p>&#x5982;&#x679C; envoy &#x548C; upstream &#x4E0D;&#x5728;&#x540C;&#x4E00;&#x4E2A; host&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x8C03;&#x6574;&#x7F51;&#x7EDC;&#x73AF;&#x5883;&#x4F7F;&#x56DE;&#x5E94;&#x5305;&#x56DE;&#x5230; envoy&#x3002;</p>
+<h2 id="name-envoylisteneroriginaldst">name: envoy.listener.original_dst</h2>
+<p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/listener_filters/original_dst_filter" title="Original Destination" target="_blank">Original Destination</a> &#x7528;&#x6765;&#x8BFB;&#x53D6; socket &#x7684;&#x914D;&#x7F6E;&#x9879; <code>SO_ORIGINAL_DST</code>&#xFF0C;&#x5728;&#x4F7F;&#x7528; <a href="https://www.envoyproxy.io/docs/envoy/latest/api-v2/api/v2/lds.proto#envoy-api-field-listener-transparent" title="transparent" target="_blank">&#x900F;&#x660E;&#x4EE3;&#x7406;&#x6A21;&#x5F0F;</a> &#x65F6;&#x7528;&#x5230;&#xFF0C;&#x5728; envoy &#x4E2D;&#xFF0C;&#x7528;&#x8BE5; filter &#x83B7;&#x53D6;&#x62A5;&#x6587;&#x7684;&#x539F;&#x59CB;&#x76EE;&#x5730;&#x5730;&#x5740;&#xFF1A;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">listener_filters:</span>
+<span class="hljs-attr">  - name:</span> <span class="hljs-string">&quot;envoy.listener.original_dst&quot;</span>
+</code></pre>
 <h2 id="name-envoylistenerproxyprotocol">name: envoy.listener.proxy_protocol</h2>
-<p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/listener_filters/proxy_protocol#config-listener-filters-proxy-protocol" title="Proxy Protocol" target="_blank">Proxy Protocol</a> &#x73B0;&#x5728;&#xFF08;2019-08-06 17:33:53&#xFF09;&#x80FD;&#x591F;&#x89E3;&#x6790;&#x4EE3;&#x7406;&#x534F;&#x8BAE;&#xFF0C;&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x662F;&#x4EE3;&#x7406;&#x8F6C;&#x53D1;&#x8FC7;&#x6765;&#x7684;&#xFF0C;&#x7528;&#x8BE5; filter &#x53EF;&#x4EE5;&#x89E3;&#x6790;&#x51FA;&#x771F;&#x5B9E;&#x7684;&#x6E90; IP&#x3002;</p>
-<p>&#x5177;&#x4F53;&#x652F;&#x6301;&#x7684;&#x4EE3;&#x7406;&#x534F;&#x8BAE;&#x672A;&#x77E5;&#xFF0C;&#x5DF2;&#x77E5;&#x652F;&#x6301; <a href="https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt" title="The PROXY protocol" target="_blank">HAProxy Proxy Protocol</a>&#x3002;</p>
+<p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/listener_filters/proxy_protocol#config-listener-filters-proxy-protocol" title="Proxy Protocol" target="_blank">Proxy Protocol</a> &#x89E3;&#x6790;&#x4EE3;&#x7406;&#x534F;&#x8BAE;&#xFF0C;&#x7528;&#x8BE5; filter &#x53EF;&#x4EE5;&#x89E3;&#x6790;&#x51FA;&#x771F;&#x5B9E;&#x7684;&#x6E90; IP&#xFF0C;&#x5DF2;&#x77E5;&#x652F;&#x6301; <a href="https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt" title="The PROXY protocol" target="_blank">HAProxy Proxy Protocol</a>&#xFF08;2019-08-09 18:08:01&#xFF09;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">listener_filters:</span>
 <span class="hljs-attr">  - name:</span> envoy.listener.proxy_protocol
 </code></pre>
 <h2 id="name-envoylistenertlsinspector">name: envoy.listener.tls_inspector</h2>
-<p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/listener_filters/tls_inspector" title="TLS Inspector" target="_blank">TLS Inspector</a> &#x7528;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x542F;&#x7528;&#x4E86; TLS &#x52A0;&#x5BC6;&#xFF0C;&#x5982;&#x679C;&#x662F; TLS &#x534F;&#x8BAE;&#xFF0C;&#x89E3;&#x6790;&#x51FA; Server Name&#x3001;Negotiation &#x4FE1;&#x606F;&#x3002;&#x89E3;&#x6790;&#x51FA;&#x6765;&#x7684;&#x4FE1;&#x606F;&#x7528;&#x4E8E; FilterChain &#x7684;&#x5339;&#x914D;&#x3002;</p>
+<p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/listener_filters/tls_inspector" title="TLS Inspector" target="_blank">TLS Inspector</a> &#x7528;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x4F7F;&#x7528; TLS &#x534F;&#x8BAE;&#xFF0C;&#x5982;&#x679C;&#x662F; TLS &#x534F;&#x8BAE;&#xFF0C;&#x89E3;&#x6790;&#x51FA; Server Name&#x3001;Negotiation &#x4FE1;&#x606F;&#xFF0C;&#x89E3;&#x6790;&#x51FA;&#x6765;&#x7684;&#x4FE1;&#x606F;&#x7528;&#x4E8E; FilterChain &#x7684;&#x5339;&#x914D;&#x3002;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">listener_filters:</span>
 <span class="hljs-attr">  - name:</span> <span class="hljs-string">&quot;envoy.listener.tls_inspector&quot;</span>
 <span class="hljs-attr">    typed_config:</span> {}
@@ -1362,7 +1419,7 @@ ip -6 route add <span class="hljs-built_in">local</span> ::/0 dev lo table 100
 
             
                 
-                <a href="filter.html" class="navigation navigation-prev " aria-label="Previous page: filter 用途">
+                <a href="filter-def.html" class="navigation navigation-prev " aria-label="Previous page: filter 的定义与下发">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1378,7 +1435,7 @@ ip -6 route add <span class="hljs-built_in">local</span> ::/0 dev lo table 100
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"listener filter","level":"1.2.3.1.1","depth":4,"next":{"title":"network filter","level":"1.2.3.1.2","depth":4,"path":"envoy/network-filter.md","ref":"envoy/network-filter.md","articles":[]},"previous":{"title":"filter 用途","level":"1.2.3.1","depth":3,"path":"envoy/filter.md","ref":"envoy/filter.md","articles":[{"title":"listener filter","level":"1.2.3.1.1","depth":4,"path":"envoy/listener-filter.md","ref":"envoy/listener-filter.md","articles":[]},{"title":"network filter","level":"1.2.3.1.2","depth":4,"path":"envoy/network-filter.md","ref":"envoy/network-filter.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/listener-filter.md","mtime":"2019-08-08T06:15:16.522Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-08T09:34:31.406Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"listener filter","level":"1.2.5.2","depth":3,"next":{"title":"network filter","level":"1.2.5.3","depth":3,"path":"envoy/network-filter.md","ref":"envoy/network-filter.md","articles":[]},"previous":{"title":"filter 的定义与下发","level":"1.2.5.1","depth":3,"path":"envoy/filter-def.md","ref":"envoy/filter-def.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/listener-filter.md","mtime":"2019-08-09T10:10:27.030Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-09T11:37:55.987Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
