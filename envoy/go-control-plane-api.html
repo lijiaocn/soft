@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>go-control-plane api · 李佶澳</title>
+        <title>配置在 go-control-plane 中的定义 · 李佶澳</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -66,7 +66,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="listener.html" />
+    <link rel="next" href="go-control-plane-send.html" />
     
     
     <link rel="prev" href="dynamic-config.html" />
@@ -268,7 +268,33 @@ var _hmt = _hmt || [];
                 <a href="go-control-plane-api.html">
             
                     
-                    go-control-plane api
+                    配置在 go-control-plane 中的定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="go-control-plane-send.html">
+            
+                <a href="go-control-plane-send.html">
+            
+                    
+                    用 go-control-plane 下发配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="go-control-plane-code.html">
+            
+                <a href="go-control-plane-code.html">
+            
+                    
+                    go-control-plane 下发实现
             
                 </a>
             
@@ -1267,7 +1293,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >go-control-plane api</a>
+        <a href=".." >配置在 go-control-plane 中的定义</a>
     </h1>
 </div>
 
@@ -1297,8 +1323,9 @@ var _hmt = _hmt || [];
 </div>
 
 
-                                <h1 id="go-control-plane-&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x5B9A;&#x4E49;">go-control-plane &#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x5B9A;&#x4E49;</h1>
-<p><a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/29/envoy-07-features-2-dynamic-discovery.html#go-control-plane" target="_blank">go-control-plane</a> &#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x5B9A;&#x4E49;&#x4E0E; <a href="https://www.envoyproxy.io/docs/envoy/latest/api/api" target="_blank">API &#x6587;&#x6863;</a> &#x4E2D;&#x7ED9;&#x51FA;&#x7684;&#x76F8;&#x540C;&#x3002;&#x4EE5; listener &#x4E3A;&#x4F8B;&#xFF0C;<a href="https://www.envoyproxy.io/docs/envoy/latest/api-v2/api/v2/lds.proto#listener" title="listener" target="_blank">listeners</a> &#x5728; api &#x6587;&#x6863;&#x4E2D;&#x5B9A;&#x4E49;&#xFF1A;</p>
+                                <h1 id="&#x52A8;&#x6001;&#x914D;&#x7F6E;&#x5728;-go-control-plane-&#x4E2D;&#x7684;&#x5B9A;&#x4E49;">&#x52A8;&#x6001;&#x914D;&#x7F6E;&#x5728; go-control-plane &#x4E2D;&#x7684;&#x5B9A;&#x4E49;</h1>
+<p><a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/29/envoy-07-features-2-dynamic-discovery.html#go-control-plane" target="_blank">go-control-plane</a> &#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x5B9A;&#x4E49;&#x4E0E; <a href="https://www.envoyproxy.io/docs/envoy/latest/api/api" target="_blank">API &#x6587;&#x6863;</a> &#x4E2D;&#x7ED9;&#x51FA;&#x7684;&#x76F8;&#x540C;&#xFF0C;&#x4EE5; listener &#x4E3A;&#x4F8B;&#xFF1A;</p>
+<p>api &#x6587;&#x6863;&#x4E2D;&#x7684; <a href="https://www.envoyproxy.io/docs/envoy/latest/api-v2/api/v2/lds.proto#listener" title="listener" target="_blank">listeners</a> &#xFF1A;</p>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;...&quot;</span>,
   <span class="hljs-string">&quot;address&quot;</span>: <span class="hljs-string">&quot;{...}&quot;</span>,
@@ -1398,7 +1425,7 @@ var _hmt = _hmt || [];
                 </a>
                 
                 
-                <a href="listener.html" class="navigation navigation-next " aria-label="Next page: Listener 详解">
+                <a href="go-control-plane-send.html" class="navigation navigation-next " aria-label="Next page: 用 go-control-plane 下发配置">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1409,7 +1436,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"go-control-plane api","level":"1.2.3.1","depth":3,"next":{"title":"Listener 详解","level":"1.2.4","depth":2,"path":"envoy/listener.md","ref":"envoy/listener.md","articles":[]},"previous":{"title":"配置下发","level":"1.2.3","depth":2,"path":"envoy/dynamic-config.md","ref":"envoy/dynamic-config.md","articles":[{"title":"go-control-plane api","level":"1.2.3.1","depth":3,"path":"envoy/go-control-plane-api.md","ref":"envoy/go-control-plane-api.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/go-control-plane-api.md","mtime":"2019-08-10T10:17:52.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T16:35:10.246Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"配置在 go-control-plane 中的定义","level":"1.2.3.1","depth":3,"next":{"title":"用 go-control-plane 下发配置","level":"1.2.3.2","depth":3,"path":"envoy/go-control-plane-send.md","ref":"envoy/go-control-plane-send.md","articles":[]},"previous":{"title":"配置下发","level":"1.2.3","depth":2,"path":"envoy/dynamic-config.md","ref":"envoy/dynamic-config.md","articles":[{"title":"配置在 go-control-plane 中的定义","level":"1.2.3.1","depth":3,"path":"envoy/go-control-plane-api.md","ref":"envoy/go-control-plane-api.md","articles":[]},{"title":"用 go-control-plane 下发配置","level":"1.2.3.2","depth":3,"path":"envoy/go-control-plane-send.md","ref":"envoy/go-control-plane-send.md","articles":[]},{"title":"go-control-plane 下发实现","level":"1.2.3.3","depth":3,"path":"envoy/go-control-plane-code.md","ref":"envoy/go-control-plane-code.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/go-control-plane-api.md","mtime":"2019-08-12T03:38:10.742Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-12T11:45:29.299Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 11 Aug 2019 16:35:22 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 12 Aug 2019 11:45:39 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -30,21 +30,21 @@
         </item>
         <item>
             <title><![CDATA[Envoy 的配置文件格式]]></title>
-            <description><![CDATA[Envoy 的 API 文档 中，分别给出了每个配置项的格式，《Envoy Proxy使用介绍教程（五）：envoy的配置文件完全展开介绍》 将 envoy 1.8.0  的各个配置项格式组合了起来，呈现了 envoy 配置文件的完整轮廓：]]></description>
+            <description><![CDATA[Envoy 的 API 文档 中，分别给出了每个配置项的格式，《Envoy Proxy使用介绍教程（五）：envoy的配置文件完全展开介绍》 将 envoy 1.8.0  的各个配置项格式组合了起来，呈现了 envoy 配置文件的完整轮廓，如下：]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/config.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Envoy 的静态配置示例]]></title>
-            <description><![CDATA[监听转发配置（listener、cluster）可以在 static_resources 中静态配置。]]></description>
+            <description><![CDATA[监听转发配置（listener、cluster）可以静态配置也可以动态获取，在 static_resources 中静态配置。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/config-static.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config-static.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Envoy 的动态配置示例]]></title>
-            <description><![CDATA[Listner、Cluster 等除了在配置文件中静态配置，还可以从控制平面动态获取。]]></description>
+            <description><![CDATA[Listener、Cluster 等除了在配置文件中静态配置，还可以从控制平面动态获取，动态配置在 dynamic_resources 中设置。但是注意，提供动态配置的服务地址需要在文件中静态配置，动态配置里引用静态配置中的配置发现服务。配置发现服务通常称为 控制平面。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/config-dynamic.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config-dynamic.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -57,10 +57,24 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[go-control-plane 中的配置定义]]></title>
-            <description><![CDATA[go-control-plane 中的配置定义与 API 文档 中给出的相同。以 listener 为例，listeners 在 api 文档中定义：]]></description>
+            <title><![CDATA[动态配置在 go-control-plane 中的定义]]></title>
+            <description><![CDATA[go-control-plane 中的配置定义与 API 文档 中给出的相同，以 listener 为例：]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-api.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-api.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[用 go-controller-plane 下发配置的过程]]></title>
+            <description><![CDATA[go-control-plane 是一个框架，只需再配备一个 main 函数，进行配置即可，根据自己的需要开发其它功能。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-send.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-send.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[go-control-plane 下发配置实例]]></title>
+            <description><![CDATA[这里演示一个用 go-control-plane 下发配置的例子。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
