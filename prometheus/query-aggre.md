@@ -15,8 +15,8 @@ sum:    求和
 min:    最小值
 max:    最大值
 avg:    平均值
-stddev: 标准方差（stdvar的平方根）
-stdvar: 标准平方差
+stddev: 平方差（stdvar的平方根）
+stdvar: 方差
 count:  计数
 count_values: 统计每个值出现的次数
 bottomk: 取结果中最小的 k 位数

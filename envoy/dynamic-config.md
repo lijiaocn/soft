@@ -13,9 +13,7 @@
 
 ## 配置下发协议
 
-[envoyproxy/data-plane-api][15] 定义 envoy 的 REST API 和使用的通信协议 [xDS REST and gRPC protocol][16]。
-
-不需要自己实现通信协议，Envoy 开源了一个控制层面的开发框架 [envoyproxy/go-control-plane][17]，使用该框架可以快速开发一个控制平面（也就是 xDS 服务），框架已经实现了通信过程，不需要再考虑通信细节。
+[envoyproxy/data-plane-api][15] 定义了 envoy 的 REST API 和使用的通信协议 [xDS REST and gRPC protocol][16]，同时 Envoy 开源了一个控制层面的开发框架 [envoyproxy/go-control-plane][17]，使用该框架可以快速开发一个控制平面（也就是 xDS 服务），框架已经实现了通信过程，不需要自行实现通信协议。
 
 ## 参考
 

@@ -1,8 +1,11 @@
+<!-- toc -->
 # Envoy 的静态配置示例
 
-监听转发配置（listener、cluster）可以在 `static_resources` 中静态配置。
+监听转发配置（listener、cluster）可以静态配置也可以动态获取，在 `static_resources` 中静态配置。
 
-下面的配置文件中，静态配置了两个 listener 分别监听端口 9000 和 10000，将请求分别转发给静态配置的两个 cluster，一个 cluster 配置的是 IP，一个配置的是域名：
+## 静态配置示例
+
+下面的配置文件中，静态配置了两个 listener，分别监听端口 9000 和 10000，目标 cluster 也是静态配置的，一个 cluster 配置的是 IP，一个配置的是域名：
 
 ```yaml
 node:
@@ -114,7 +117,18 @@ static_resources:
       sni: www.baidu.com
 ```
 
-访问 127.0.0.1:9000 时，host 为 webshell.com 时，转发都IP 172.16.128.171，这是一个 echo 会显服务，可以看到回显的请求：
+## 静态配置效果
+
+访问 127.0.0.1:10000 时，无论 host 是多少，都转发到 www.baidu.com：
+
+```sh
+$ curl 127.0.0.1:10000
+...
+<title>百度一下，你就知道</title>
+...
+```
+
+访问 127.0.0.1:9000 时，host 为 webshell.com 时，转发到 172.16.128.171，例子中使用的这个 IP 是 echo 回显服务，可以看到回显的请求：
 
 ```sh
 $ curl  -H "Host: webshell.com"  127.0.0.1:9000
@@ -148,11 +162,3 @@ Request Body:
    -no body in request-
 ```
 
-访问 127.0.0.1:10000 时，无论 host 是多少，都转发到 www.baidu.com：
-
-```sh
-$ curl 127.0.0.1:10000
-...
-<title>百度一下，你就知道</title>
-...
-```

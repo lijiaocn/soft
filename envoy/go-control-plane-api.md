@@ -1,6 +1,8 @@
-# go-control-plane 中的配置定义
+# 动态配置在 go-control-plane 中的定义
 
-[go-control-plane](https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/29/envoy-07-features-2-dynamic-discovery.html#go-control-plane) 中的配置定义与 [API 文档](https://www.envoyproxy.io/docs/envoy/latest/api/api) 中给出的相同。以 listener 为例，[listeners][12] 在 api 文档中定义：
+[go-control-plane](https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/29/envoy-07-features-2-dynamic-discovery.html#go-control-plane) 中的配置定义与 [API 文档](https://www.envoyproxy.io/docs/envoy/latest/api/api) 中给出的相同，以 listener 为例：
+
+api 文档中的 [listeners][12] ：
 
 ```json
 {
@@ -44,8 +46,6 @@ type Listener struct {
     XXX_sizecache          int32              
 }
 ```
-
-
 
 ## 参考
 
