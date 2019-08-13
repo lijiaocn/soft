@@ -1,5 +1,5 @@
 <!-- toc -->
-# go-control-plane 下发配置实例
+# go-control-plane 下发配置示例
 
 这里演示一个用 go-control-plane 下发配置的例子。
 

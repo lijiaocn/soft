@@ -1,5 +1,5 @@
 <!-- toc -->
-# 用 go-controller-plane 下发配置的过程
+# go-controller-plane 的基本用法 
 
 [go-control-plane][1] 是一个框架，提供配置下发接口，在它的基础上根据自己的需要开发其它功能。
 
