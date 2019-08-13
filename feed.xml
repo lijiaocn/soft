@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 13 Aug 2019 03:33:57 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 13 Aug 2019 03:36:08 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -64,14 +64,14 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[用 go-controller-plane 下发配置的过程]]></title>
+            <title><![CDATA[go-controller-plane 的基本用法]]></title>
             <description><![CDATA[go-control-plane 是一个框架，提供配置下发接口，在它的基础上根据自己的需要开发其它功能。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-send.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-send.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[go-control-plane 下发配置实例]]></title>
+            <title><![CDATA[go-control-plane 下发配置示例]]></title>
             <description><![CDATA[这里演示一个用 go-control-plane 下发配置的例子。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</guid>
