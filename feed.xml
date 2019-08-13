@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 13 Aug 2019 03:36:08 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 13 Aug 2019 03:48:54 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -16,7 +16,7 @@
         </item>
         <item>
             <title><![CDATA[Envoy]]></title>
-            <description><![CDATA[初次了解 Envoy 时做过一些笔记，这里是再次学习时，对原先笔记的进一步整理。下面是以前的笔记：]]></description>
+            <description><![CDATA[初次了解 Envoy 时做过一些笔记，这里是再次学习时，对原先笔记的进一步整理。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/README.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/README.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
