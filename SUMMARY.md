@@ -11,7 +11,7 @@
     * [用 go-control-plane 下发配置](envoy/go-control-plane-send.md)
     * [go-control-plane 下发实现](envoy/go-control-plane-code.md)
   * [Listener 详解](envoy/listener.md)
-  * [Listener 的 filter 详解](envoy/filter.md)
+  * [Filter 详解](envoy/filter.md)
     * [filter 的定义与下发](envoy/filter-def.md)
     * [listener filter](envoy/listener-filter.md)
     * [network filter](envoy/network-filter.md)
