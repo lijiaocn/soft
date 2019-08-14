@@ -134,52 +134,7 @@ func (n NodeConfig) ID(node *core.Node) string {
 	return node.GetId()
 }
 
-
-func main() {
-	snapshotCache := cache.NewSnapshotCache(false, NodeConfig{}, nil)
-	server := xds.NewServer(snapshotCache, nil)
-	grpcServer := grpc.NewServer()
-	lis, _ := net.Listen("tcp", ":5678")
-
-	discovery.RegisterAggregatedDiscoveryServiceServer(grpcServer, server)
-	api_v2.RegisterEndpointDiscoveryServiceServer(grpcServer, server)
-	api_v2.RegisterClusterDiscoveryServiceServer(grpcServer, server)
-	api_v2.RegisterRouteDiscoveryServiceServer(grpcServer, server)
-	api_v2.RegisterListenerDiscoveryServiceServer(grpcServer, server)
-
-	go func() {
-		if err := grpcServer.Serve(lis); err != nil {
-			// error handling
-		}
-	}()
-
-	node := &core.Node{
-		Id:      "envoy-64.58",
-		Cluster: "test",
-	}
-
-	node_config := &NodeConfig{
-		node:      node,
-		endpoints: []cache.Resource{}, //[]*api_v2.ClusterLoadAssignment
-		clusters:  []cache.Resource{}, //[]*api_v2.Cluster
-		routes:    []cache.Resource{}, //[]*api_v2.RouteConfiguration
-		listeners: []cache.Resource{}, //[]*api_v2.Listener
-	}
-
-	input := ""
-
-	fmt.Printf("\nEnter to update version 6: ADD_Listener_With_ADS_Route")
-	_, _ = fmt.Scanf("\n", &input)
-	ADD_Listener_With_ADS_Route(node_config)
-	Update_SnapshotCache(snapshotCache, node_config, "6")
-	fmt.Printf("ok")
-
-	fmt.Printf("\nEnter to exit: ")
-	_, _ = fmt.Scanf("\n", &input)
-}
-
 func ADD_Listener_With_ADS_Route(n *NodeConfig) {
-
 	r := &route.Route{
 		Match: &route.RouteMatch{
 			PathSpecifier: &route.RouteMatch_Prefix{
@@ -310,6 +265,49 @@ func Update_SnapshotCache(s cache.SnapshotCache, n *NodeConfig, version string) 
 	if err != nil {
 		glog.Error(err)
 	}
+}
+
+func main() {
+	snapshotCache := cache.NewSnapshotCache(false, NodeConfig{}, nil)
+	server := xds.NewServer(snapshotCache, nil)
+	grpcServer := grpc.NewServer()
+	lis, _ := net.Listen("tcp", ":5678")
+
+	discovery.RegisterAggregatedDiscoveryServiceServer(grpcServer, server)
+	api_v2.RegisterEndpointDiscoveryServiceServer(grpcServer, server)
+	api_v2.RegisterClusterDiscoveryServiceServer(grpcServer, server)
+	api_v2.RegisterRouteDiscoveryServiceServer(grpcServer, server)
+	api_v2.RegisterListenerDiscoveryServiceServer(grpcServer, server)
+
+	go func() {
+		if err := grpcServer.Serve(lis); err != nil {
+			// error handling
+		}
+	}()
+
+	node := &core.Node{
+		Id:      "envoy-64.58",
+		Cluster: "test",
+	}
+
+	node_config := &NodeConfig{
+		node:      node,
+		endpoints: []cache.Resource{}, //[]*api_v2.ClusterLoadAssignment
+		clusters:  []cache.Resource{}, //[]*api_v2.Cluster
+		routes:    []cache.Resource{}, //[]*api_v2.RouteConfiguration
+		listeners: []cache.Resource{}, //[]*api_v2.Listener
+	}
+
+	input := ""
+
+	fmt.Printf("\nEnter to update version 6: ADD_Listener_With_ADS_Route")
+	_, _ = fmt.Scanf("\n", &input)
+	ADD_Listener_With_ADS_Route(node_config)
+	Update_SnapshotCache(snapshotCache, node_config, "6")
+	fmt.Printf("ok")
+
+	fmt.Printf("\nEnter to exit: ")
+	_, _ = fmt.Scanf("\n", &input)
 }
 
 ```
