@@ -1454,52 +1454,7 @@ docker run -idt --network=host -v `<span class="hljs-built_in">pwd</span>`/envoy
     <span class="hljs-keyword">return</span> node.GetId()
 }
 
-
-<span class="hljs-keyword">func</span> main() {
-    snapshotCache := cache.NewSnapshotCache(<span class="hljs-literal">false</span>, NodeConfig{}, <span class="hljs-literal">nil</span>)
-    server := xds.NewServer(snapshotCache, <span class="hljs-literal">nil</span>)
-    grpcServer := grpc.NewServer()
-    lis, _ := net.Listen(<span class="hljs-string">&quot;tcp&quot;</span>, <span class="hljs-string">&quot;:5678&quot;</span>)
-
-    discovery.RegisterAggregatedDiscoveryServiceServer(grpcServer, server)
-    api_v2.RegisterEndpointDiscoveryServiceServer(grpcServer, server)
-    api_v2.RegisterClusterDiscoveryServiceServer(grpcServer, server)
-    api_v2.RegisterRouteDiscoveryServiceServer(grpcServer, server)
-    api_v2.RegisterListenerDiscoveryServiceServer(grpcServer, server)
-
-    <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>() {
-        <span class="hljs-keyword">if</span> err := grpcServer.Serve(lis); err != <span class="hljs-literal">nil</span> {
-            <span class="hljs-comment">// error handling</span>
-        }
-    }()
-
-    node := &amp;core.Node{
-        Id:      <span class="hljs-string">&quot;envoy-64.58&quot;</span>,
-        Cluster: <span class="hljs-string">&quot;test&quot;</span>,
-    }
-
-    node_config := &amp;NodeConfig{
-        node:      node,
-        endpoints: []cache.Resource{}, <span class="hljs-comment">//[]*api_v2.ClusterLoadAssignment</span>
-        clusters:  []cache.Resource{}, <span class="hljs-comment">//[]*api_v2.Cluster</span>
-        routes:    []cache.Resource{}, <span class="hljs-comment">//[]*api_v2.RouteConfiguration</span>
-        listeners: []cache.Resource{}, <span class="hljs-comment">//[]*api_v2.Listener</span>
-    }
-
-    input := <span class="hljs-string">&quot;&quot;</span>
-
-    fmt.Printf(<span class="hljs-string">&quot;\nEnter to update version 6: ADD_Listener_With_ADS_Route&quot;</span>)
-    _, _ = fmt.Scanf(<span class="hljs-string">&quot;\n&quot;</span>, &amp;input)
-    ADD_Listener_With_ADS_Route(node_config)
-    Update_SnapshotCache(snapshotCache, node_config, <span class="hljs-string">&quot;6&quot;</span>)
-    fmt.Printf(<span class="hljs-string">&quot;ok&quot;</span>)
-
-    fmt.Printf(<span class="hljs-string">&quot;\nEnter to exit: &quot;</span>)
-    _, _ = fmt.Scanf(<span class="hljs-string">&quot;\n&quot;</span>, &amp;input)
-}
-
 <span class="hljs-keyword">func</span> ADD_Listener_With_ADS_Route(n *NodeConfig) {
-
     r := &amp;route.Route{
         Match: &amp;route.RouteMatch{
             PathSpecifier: &amp;route.RouteMatch_Prefix{
@@ -1631,6 +1586,49 @@ docker run -idt --network=host -v `<span class="hljs-built_in">pwd</span>`/envoy
         glog.Error(err)
     }
 }
+
+<span class="hljs-keyword">func</span> main() {
+    snapshotCache := cache.NewSnapshotCache(<span class="hljs-literal">false</span>, NodeConfig{}, <span class="hljs-literal">nil</span>)
+    server := xds.NewServer(snapshotCache, <span class="hljs-literal">nil</span>)
+    grpcServer := grpc.NewServer()
+    lis, _ := net.Listen(<span class="hljs-string">&quot;tcp&quot;</span>, <span class="hljs-string">&quot;:5678&quot;</span>)
+
+    discovery.RegisterAggregatedDiscoveryServiceServer(grpcServer, server)
+    api_v2.RegisterEndpointDiscoveryServiceServer(grpcServer, server)
+    api_v2.RegisterClusterDiscoveryServiceServer(grpcServer, server)
+    api_v2.RegisterRouteDiscoveryServiceServer(grpcServer, server)
+    api_v2.RegisterListenerDiscoveryServiceServer(grpcServer, server)
+
+    <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>() {
+        <span class="hljs-keyword">if</span> err := grpcServer.Serve(lis); err != <span class="hljs-literal">nil</span> {
+            <span class="hljs-comment">// error handling</span>
+        }
+    }()
+
+    node := &amp;core.Node{
+        Id:      <span class="hljs-string">&quot;envoy-64.58&quot;</span>,
+        Cluster: <span class="hljs-string">&quot;test&quot;</span>,
+    }
+
+    node_config := &amp;NodeConfig{
+        node:      node,
+        endpoints: []cache.Resource{}, <span class="hljs-comment">//[]*api_v2.ClusterLoadAssignment</span>
+        clusters:  []cache.Resource{}, <span class="hljs-comment">//[]*api_v2.Cluster</span>
+        routes:    []cache.Resource{}, <span class="hljs-comment">//[]*api_v2.RouteConfiguration</span>
+        listeners: []cache.Resource{}, <span class="hljs-comment">//[]*api_v2.Listener</span>
+    }
+
+    input := <span class="hljs-string">&quot;&quot;</span>
+
+    fmt.Printf(<span class="hljs-string">&quot;\nEnter to update version 6: ADD_Listener_With_ADS_Route&quot;</span>)
+    _, _ = fmt.Scanf(<span class="hljs-string">&quot;\n&quot;</span>, &amp;input)
+    ADD_Listener_With_ADS_Route(node_config)
+    Update_SnapshotCache(snapshotCache, node_config, <span class="hljs-string">&quot;6&quot;</span>)
+    fmt.Printf(<span class="hljs-string">&quot;ok&quot;</span>)
+
+    fmt.Printf(<span class="hljs-string">&quot;\nEnter to exit: &quot;</span>)
+    _, _ = fmt.Scanf(<span class="hljs-string">&quot;\n&quot;</span>, &amp;input)
+}
 </code></pre>
 <h2 id="&#x4E0B;&#x53D1;&#x6548;&#x679C;">&#x4E0B;&#x53D1;&#x6548;&#x679C;</h2>
 <p>&#x7528;&#x4E0A;&#x9762;&#x7684; ads &#x4E0B;&#x53D1;&#x914D;&#x7F6E;&#x540E;&#xFF0C;&#x5237;&#x65B0; IP:9901/config_dump &#x53EF;&#x4EE5;&#x770B;&#x5230;&#x53D8;&#x5316;&#xFF1A;</p>
@@ -1711,7 +1709,7 @@ docker run -idt --network=host -v `<span class="hljs-built_in">pwd</span>`/envoy
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"go-control-plane 使用示例","level":"1.2.3.3","depth":3,"next":{"title":"Listener 详解","level":"1.2.4","depth":2,"path":"envoy/listener.md","ref":"envoy/listener.md","articles":[]},"previous":{"title":"go-control-plane 使用介绍","level":"1.2.3.2","depth":3,"path":"envoy/go-control-plane-send.md","ref":"envoy/go-control-plane-send.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/go-control-plane-code.md","mtime":"2019-08-13T03:37:33.876Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-13T03:48:44.652Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"go-control-plane 使用示例","level":"1.2.3.3","depth":3,"next":{"title":"Listener 详解","level":"1.2.4","depth":2,"path":"envoy/listener.md","ref":"envoy/listener.md","articles":[]},"previous":{"title":"go-control-plane 使用介绍","level":"1.2.3.2","depth":3,"path":"envoy/go-control-plane-send.md","ref":"envoy/go-control-plane-send.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/go-control-plane-code.md","mtime":"2019-08-14T03:04:51.734Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-14T03:05:03.915Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
