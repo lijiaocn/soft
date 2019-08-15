@@ -15,10 +15,14 @@ Kong的开发语言是Lua，又去学习Lua。
 
 [OpenResty最佳实践](https://moonbingbing.gitbooks.io/openresty-best-practices/content/)是一份很好的学习资料，有一个名为“Kong/Envoy实践互助”的QQ群，是一个比较好的讨论场所，群号是：952503851。
 
+
+## 参考
+
 [1]: https://docs.konghq.com/ "kong"
 [2]: http://openresty.org/en/ "OpenResty"
 [3]: https://www.lijiaocn.com/tags/class.html "lijiaocn.com class"
 [4]: http://nginx.org/ "nginx"
 [5]: https://www.lijiaocn.com "lijiaocn.com"
 [6]: https://www.lijiaocn.com/programming/chapter-lua/ "lua"
+
 

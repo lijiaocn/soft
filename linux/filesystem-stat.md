@@ -29,6 +29,7 @@ tmpfs            998K    17  998K    1% /sys/fs/cgroup
 tmpfs            998K     1  998K    1% /run/user/0
 ```
 
+
 ## 页面缓存和slab缓存
 
 页缓存和可回收的slab缓存：
@@ -98,3 +99,5 @@ Number  Start  End    Size   File system  Flags
 
 (parted)
 ```
+
+## 参考

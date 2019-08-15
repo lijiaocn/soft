@@ -67,3 +67,5 @@ http{
 [keepalive_requests](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#keepalive_requests)设置nginx worker与backend server建立的长连接中可以传输的请求数，超过设置，连接被nginx主动关闭。
 
 关于长连接的设置可以参考：[Enable Keepalive connections in Nginx Upstream proxy configurations](https://ma.ttias.be/enable-keepalive-connections-in-nginx-upstream-proxy-configurations/)和[TCP keepalive overview](http://tldp.org/HOWTO/TCP-Keepalive-HOWTO/overview.html)。
+
+## 参考

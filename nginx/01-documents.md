@@ -16,4 +16,6 @@ OpenResty作者章宜春有一个[agentzh 的 Nginx 教程（版本 2016.07.21�
 
 **Nginx的源代码**：  [Nginx source code](https://github.com/nginx/nginx)
 
+## 参考
+
 [1]: https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/09/29/nginx-openresty-kong.html "API网关Kong（一）：Nginx、OpenResty和Kong的基本概念与使用方法"

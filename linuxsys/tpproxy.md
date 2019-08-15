@@ -59,5 +59,8 @@ iptables -t mangle -A PREROUTING -p tcp --dport 25 -j TPROXY \
   --tproxy-mark 0x1/0x1 --on-port 10025 --on-ip 127.0.0.1
 ```
 
+## 参考
+
 [1]: https://www.kernel.org/doc/Documentation/networking/tproxy.txt "Transparent proxy support"
 [2]: https://powerdns.org/tproxydoc/tproxy.md.html "Linux transparent proxy support"
+

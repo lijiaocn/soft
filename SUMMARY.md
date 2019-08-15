@@ -1,7 +1,7 @@
 # Summary
 
 * [软件手册说明](README.md)
-* [Envoy 使用手册](envoy/README.md)
+* [Envoy 使用手册（学习笔记）](envoy/README.md)
   * [安装运行](envoy/install.md)
   * [配置文件](envoy/config.md)
     * [静态配置](envoy/config-static.md)

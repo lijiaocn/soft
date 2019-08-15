@@ -69,3 +69,5 @@ method_code:http_errors:rate5m / ignoring(code) group_left method:http_requests:
 {method="post", code="500"} 0.05            //   6 / 120
 {method="post", code="404"} 0.175           //  21 / 120
 ```
+
+## 参考

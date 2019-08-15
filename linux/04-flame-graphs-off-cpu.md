@@ -35,3 +35,5 @@ I/O期间有File I/O、Block Device I/O，通过采集进程让出CPU时调用�
 ## Wakeup 火焰图
 
 ![进程唤醒火焰图](/img/linux/wakeup-mysqld1.svg)
+
+## 参考

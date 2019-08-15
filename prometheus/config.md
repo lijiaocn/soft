@@ -42,3 +42,5 @@ $ ./promtool check config prometheus.yml
 Checking prometheus.yml
   SUCCESS: 0 rule files found
 ```
+
+## 参考

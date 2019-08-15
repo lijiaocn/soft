@@ -32,3 +32,5 @@ DPDK直接在用户态轮询硬件网卡，绕过了内核协议栈，还通过h
 XDP（eXpress Data Path）是Linux内核（4.8以上）提供的高性能网络数据路径，在网络包进入内核协议栈之前进行处理。XDP是基于Linux内核的eBPF机制实现的：
 
 ![XDP工作原理](/img/linux/xdp.png)
+
+## 参考

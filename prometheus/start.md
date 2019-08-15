@@ -17,4 +17,6 @@ Prometheus 的命令行参数不是特别多，比较重要的有：
 
 配置文件 prometheus.yml 中主要包含告警规则文件、静态配置的采集地址或者动态发现采集地址的方法。
 
+## 参考
+
 [1]: https://prometheus.io/download/ "prometheus download"

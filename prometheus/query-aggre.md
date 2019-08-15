@@ -54,3 +54,5 @@ quantile(0.3,http_server_requests_count{status="200",instance="10.12.3.5:8866"})
 ```
 
 ![prometheus数据聚合结果：取0.3分位的数值](../img/prom/quantile.png)
+
+## 参考

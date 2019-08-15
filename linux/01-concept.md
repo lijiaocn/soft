@@ -21,4 +21,6 @@ Brendan Gregg制作了一份Linux性能工具图谱，这些工具可以用来�
 
 ![Linux性能优化知识框架](/img/linux/04-linux-performance-knowledge.png)
 
+## 参考
+
 [1]: https://www.lijiaocn.com/img/01-geek-linux-ercode.jpeg "倪鹏飞，极客时间，Linux性能优化"

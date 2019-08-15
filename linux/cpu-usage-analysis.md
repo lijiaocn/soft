@@ -1,6 +1,7 @@
 <!-- toc -->
 # Linux中查看CPU的使用情况
 
+
 CPU使用分析主要就是分析CPU的使用率，看看那些进程占用的CPU资源比较多。
 
 ## top/htop/atop查看CPU使用情况
@@ -236,3 +237,5 @@ PIW:          0          0          0          0   Posted-interrupt wakeup event
 ```
 
 `Rescheduling interrupts`是重调度中断，用来唤醒空闲的CPU执行新的任务。
+
+## 参考

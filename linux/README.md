@@ -1,6 +1,7 @@
 <!-- toc -->
 # Linux问题分析与性能优化
 
+
 个人学习笔记，记录Linux相关的知识，性能优化部分的内容主要来自极客时间出品的倪鹏飞专栏《Linux性能优化》。这里使用的操作系统是CentOS，索引了大量参考资料，为了能够查看内核文档，需要在系统上安装man-pages：
 
 	yum install -y man-pages
@@ -87,7 +88,7 @@ USE方法：监控系统资源的使用率（Utilization）、饱和度（Satura
 
 ![基准测试工具](/img/linux/benchmark-tool.png)
 
-## 参考资料
+## 参考
 
 相当一部分内容来自极客时间出品的倪鹏飞专栏《Linux性能优化》，是这个[专栏](/)的学习笔记。
 

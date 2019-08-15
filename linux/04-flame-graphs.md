@@ -36,3 +36,5 @@ Brendan D. Gregg在[文章](www.brendangregg.com/flamegraphs.html)中写道，�
 
 在具体使用上，火焰图可以用来分析CPU占用情况、内存申请情况、未占用CPU时的情况，并且演化出“冷热（aHHot/Code）和“差异火焰图（Differential）”。
 
+
+## 参考

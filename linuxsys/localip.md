@@ -12,5 +12,7 @@ ip route add local 0.0.0.0/0 dev lo table 100
 
 设置上述规则后，所有目标端口为 5301 的 UDP 报文，无论目的地址是多少，都被认为是发送到给本机（local）的。这时候如果监听本地地址 0.0.0.0:5301，会收到所有目标端口为 5301 的 udp 报文，无论报文的目的 IP 是不是本地 IP。
 
+## 参考
+
 [1]: https://www.kernel.org/doc/Documentation/networking/tproxy.txt "Transparent proxy support"
 [2]: https://powerdns.org/tproxydoc/tproxy.md.html "Linux transparent proxy support"
