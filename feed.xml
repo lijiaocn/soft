@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 14 Aug 2019 03:05:14 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 15 Aug 2019 08:13:29 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -71,10 +71,24 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[go-control-plane 下发配置示例]]></title>
+            <title><![CDATA[go-control-plane 下发配置示例——环境准备]]></title>
             <description><![CDATA[这里演示一个用 go-control-plane 下发配置的例子。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-env.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-env.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[go-control-plane 下发配置示例——代码说明]]></title>
+            <description><![CDATA[示例代码是 xds.go，这是一段超级简单、简陋的代码，只用来演示如何下发配置，下面是 xds.go 代码的说明，不包含完整代码，完整代码见 xds.go。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[go-control-plane 下发配置示例——运行和效果]]></title>
+            <description><![CDATA[envoy 启动之后，通过 admin 地址（浏览器打开 IP:9901 ） 查看 envoy 的当前配置以及内部情况：]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-run.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-run.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
