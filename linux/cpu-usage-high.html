@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
                 <a href="../envoy/">
             
                     
-                    Envoy 使用手册
+                    Envoy 使用手册（学习笔记）
             
                 </a>
             
@@ -1361,6 +1361,7 @@ var _hmt = _hmt || [];
 <li><a href="#&#x7528;perf&#x67E5;&#x770B;15&#x79D2;&#x5185;&#x7684;cpu&#x6027;&#x80FD;&#x62A5;&#x544A;">&#x7528;perf&#x67E5;&#x770B;15&#x79D2;&#x5185;&#x7684;CPU&#x6027;&#x80FD;&#x62A5;&#x544A;</a></li>
 <li><a href="#&#x5C0F;&#x7ED3;&#x4E0E;execsnoop">&#x5C0F;&#x7ED3;&#x4E0E;execsnoop</a></li>
 <li><a href="#execsnoop&#x5B89;&#x88C5;&#x65B9;&#x6CD5;">execsnoop&#x5B89;&#x88C5;&#x65B9;&#x6CD5;</a></li>
+<li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
 </ul>
 </li>
 </ul>
@@ -1523,6 +1524,7 @@ Traceback (most recent call last):
     raise Exception(<span class="hljs-string">&quot;Failed to compile BPF text&quot;</span>)
 Exception: Failed to compile BPF text
 </code></pre>
+<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
@@ -1594,7 +1596,7 @@ Exception: Failed to compile BPF text
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"案例: CPU 使用率很高","level":"1.5.10","depth":2,"next":{"title":"待学习","level":"1.5.11","depth":2,"path":"linux/todo.md","ref":"linux/todo.md","articles":[]},"previous":{"title":"BCC系列工具","level":"1.5.9.2","depth":3,"path":"linux/04-bcc-tools.md","ref":"linux/04-bcc-tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"linux/cpu-usage-high.md","mtime":"2019-08-14T03:05:26.256Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-15T08:13:20.313Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"案例: CPU 使用率很高","level":"1.5.10","depth":2,"next":{"title":"待学习","level":"1.5.11","depth":2,"path":"linux/todo.md","ref":"linux/todo.md","articles":[]},"previous":{"title":"BCC系列工具","level":"1.5.9.2","depth":3,"path":"linux/04-bcc-tools.md","ref":"linux/04-bcc-tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"linux/cpu-usage-high.md","mtime":"2019-08-15T08:30:43.797Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-15T08:31:52.218Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

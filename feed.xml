@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 15 Aug 2019 08:13:29 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 15 Aug 2019 08:32:02 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -192,6 +192,7 @@
         </item>
         <item>
             <title><![CDATA[Linux 系统知识]]></title>
+            <description><![CDATA[收集 Linux 系统相关的知识。]]></description>
             <link>https://www.lijiaocn.com/soft/linuxsys/README.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/README.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -239,7 +240,7 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[CPU相关知识]]></title>
+            <title><![CDATA[CPU 相关知识]]></title>
             <description><![CDATA[这里记录CPU相关的知识。]]></description>
             <link>https://www.lijiaocn.com/soft/linux/03-cpu.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/linux/03-cpu.html</guid>
