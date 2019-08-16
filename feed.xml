@@ -4,7 +4,7 @@
         <description><![CDATA[Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 15 Aug 2019 08:32:02 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 16 Aug 2019 12:09:58 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -26,6 +26,13 @@
             <description><![CDATA[Envoy 社区用 docker 镜像的方式分发 envoy，社区提供的镜像位于 envoyproxy 中，envoy 的分发镜像有：]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/install.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/install.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[用 echoserver 观察代理/转发效果]]></title>
+            <description><![CDATA[echoserver 是一个回显请求的 http 服务，用来观察 http 请求的代理/转发效果非常方便。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/echoserver.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/echoserver.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
