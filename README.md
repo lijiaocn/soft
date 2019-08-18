@@ -4,7 +4,7 @@
 
 文档结构和内容会随着工作学习进行而持续优化。
 
-**联系方式：微信扫一扫学习加微信   mail: lijiaocn@foxmail.com**
+**联系方式：微信扫一扫，加好友**   **mail: lijiaocn@foxmail.com**
 
 <div style="display:flex;flex-direction:row">
 <img height="250px" alt="关注微信公众号" src="https://www.lijiaocn.com/img/class.jpg"/>
