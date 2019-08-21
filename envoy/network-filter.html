@@ -66,7 +66,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../prometheus/" />
+    <link rel="next" href="http-filter.html" />
     
     
     <link rel="prev" href="listener-filter.html" />
@@ -406,6 +406,19 @@ var _hmt = _hmt || [];
             
                     
                     network filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="http-filter.html">
+            
+                <a href="http-filter.html">
+            
+                    
+                    http filter
             
                 </a>
             
@@ -1287,6 +1300,38 @@ var _hmt = _hmt || [];
             
         </li>
     
+        <li class="chapter " data-level="1.8" data-path="../mac/">
+            
+                <a href="../mac/">
+            
+                    
+                    Mac 使用手册
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mac/network.html">
+            
+                <a href="../mac/network.html">
+            
+                    
+                    Mac 使用手册
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
     
 
@@ -1439,8 +1484,8 @@ ratelimit.tcp_filter_enforcing   <span class="hljs-comment"># &#x5BF9;&#x5E94;&#
 <h2 id="name-envoyecho">name: envoy.echo</h2>
 <p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/network_filters/echo_filter" title="Echo" target="_blank">Echo</a> &#x5C06;&#x6536;&#x5230;&#x7684;&#x6570;&#x636E;&#x539F;&#x6837;&#x8FD4;&#x56DE;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x3002;</p>
 <h2 id="name-envoyhttpconnectionmanager">name: envoy.http_connection_manager</h2>
-<p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http_conn_man/http_conn_man" title="HTTP connection manager" target="_blank">HTTP connection manager</a> &#x662F;&#x4E13;&#x95E8;&#x5904;&#x7406; http &#x534F;&#x8BAE;&#x7684; network filter&#xFF0C;&#x56E0;&#x4E3A; http &#x6700;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x5BF9;&#x4EE3;&#x7406;&#x529F;&#x80FD;&#x9700;&#x6C42;&#x4E5F;&#x975E;&#x5E38;&#x591A;&#x6837;&#xFF0C; HTTP connection manager &#x672C;&#x8EAB;&#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684; network filter&#xFF0C;&#x5728; envoy &#x6587;&#x6863;&#x4E2D;&#x88AB;&#x5355;&#x72EC;&#x5217;&#x51FA;&#xFF0C;<a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http_conn_man/http_conn_man" title="HTTP connection manager" target="_blank">HTTP connection manager</a>&#x3002;</p>
-<p>HTTP connection manager &#x6709;&#x81EA;&#x5DF1;&#x4E13;&#x7528;&#x7684; <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http_filters/http_filters" title="HTTP filters" target="_blank">HTTP filters</a>&#x3002; </p>
+<p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http_conn_man/http_conn_man" title="HTTP connection manager" target="_blank">HTTP connection manager</a> &#x662F;&#x4E13;&#x95E8;&#x5904;&#x7406; http &#x534F;&#x8BAE;&#x7684; network filter&#xFF0C;&#x56E0;&#x4E3A; http &#x6700;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x5BF9;&#x4EE3;&#x7406;&#x529F;&#x80FD;&#x9700;&#x6C42;&#x4E5F;&#x975E;&#x5E38;&#x591A;&#x6837;&#xFF0C; HTTP connection manager &#x672C;&#x8EAB;&#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684; network filter&#xFF0C;&#x5728; envoy &#x6587;&#x6863;&#x4E2D;&#x88AB;&#x5355;&#x72EC;&#x5217;&#x51FA;&#xFF1A;<a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http_conn_man/http_conn_man" title="HTTP connection manager" target="_blank">HTTP connection manager</a>&#x3002;</p>
+<p>HTTP connection manager &#x6709;&#x81EA;&#x5DF1;&#x4E13;&#x7528;&#x7684; HTTP filters&#xFF0C;&#x5728; <a href="http-filter.html">http filters</a>  &#x4E2D;&#x5355;&#x72EC;&#x4ECB;&#x7ECD;&#x3002;</p>
 <h2 id="name-envoyfiltersnetworkthriftproxy">name: envoy.filters.network.thrift_proxy</h2>
 <p><a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/network_filters/thrift_proxy_filter" title="Thrift proxy" target="_blank">Thrift proxy</a> &#x80FD;&#x591F;&#x89E3;&#x6790; thrift &#x534F;&#x8BAE;&#x3002;</p>
 <p>Thrift proxy &#x6709;&#x81EA;&#x5DF1;&#x4E13;&#x7528;&#x7684; <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/thrift_filters/thrift_filters" title="Thrift filters" target="_blank">Thrift filters</a>&#x3002;</p>
@@ -1553,7 +1598,7 @@ ratelimit.tcp_filter_enforcing   <span class="hljs-comment"># &#x5BF9;&#x5E94;&#
                 </a>
                 
                 
-                <a href="../prometheus/" class="navigation navigation-next " aria-label="Next page: Prometheus 使用手册">
+                <a href="http-filter.html" class="navigation navigation-next " aria-label="Next page: http filter">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1564,7 +1609,7 @@ ratelimit.tcp_filter_enforcing   <span class="hljs-comment"># &#x5BF9;&#x5E94;&#
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"network filter","level":"1.2.8.3","depth":3,"next":{"title":"Prometheus 使用手册","level":"1.3","depth":1,"path":"prometheus/README.md","ref":"prometheus/README.md","articles":[{"title":"安装启动","level":"1.3.1","depth":2,"path":"prometheus/start.md","ref":"prometheus/start.md","articles":[]},{"title":"配置文件","level":"1.3.2","depth":2,"path":"prometheus/config.md","ref":"prometheus/config.md","articles":[]},{"title":"查询语句","level":"1.3.3","depth":2,"path":"prometheus/query.md","ref":"prometheus/query.md","articles":[{"title":"指标查询","level":"1.3.3.1","depth":3,"path":"prometheus/query-metrics.md","ref":"prometheus/query-metrics.md","articles":[]},{"title":"指标运算","level":"1.3.3.2","depth":3,"path":"prometheus/query-compute.md","ref":"prometheus/query-compute.md","articles":[]},{"title":"二元运算","level":"1.3.3.3","depth":3,"path":"prometheus/query-binary.md","ref":"prometheus/query-binary.md","articles":[]},{"title":"聚合运算","level":"1.3.3.4","depth":3,"path":"prometheus/query-aggre.md","ref":"prometheus/query-aggre.md","articles":[]},{"title":"查询函数","level":"1.3.3.5","depth":3,"path":"prometheus/query-function.md","ref":"prometheus/query-function.md","articles":[]}]}]},"previous":{"title":"listener filter","level":"1.2.8.2","depth":3,"path":"envoy/listener-filter.md","ref":"envoy/listener-filter.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/network-filter.md","mtime":"2019-08-18T14:46:48.066Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-19T07:36:03.683Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"network filter","level":"1.2.8.3","depth":3,"next":{"title":"http filter","level":"1.2.8.4","depth":3,"path":"envoy/http-filter.md","ref":"envoy/http-filter.md","articles":[]},"previous":{"title":"listener filter","level":"1.2.8.2","depth":3,"path":"envoy/listener-filter.md","ref":"envoy/listener-filter.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"Linux问题诊断与性能优化（实用手册）","description":"Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/network-filter.md","mtime":"2019-08-19T07:59:16.810Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-21T12:28:40.909Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
