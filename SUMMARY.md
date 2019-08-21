@@ -18,6 +18,7 @@
     * [filter 的定义与下发](envoy/filter-def.md)
     * [listener filter](envoy/listener-filter.md)
     * [network filter](envoy/network-filter.md)
+    * [http filter](envoy/http-filter.md)
 * [Prometheus 使用手册](prometheus/README.md)
   * [安装启动](prometheus/start.md)
   * [配置文件](prometheus/config.md)
@@ -78,3 +79,5 @@
   * [Nginx 配置文件](nginx/02-config.md)
   * [Nginx 高性能配置](nginx/02-config-1.md)
 * [OpenResty 介绍](openresty/README.md)
+* [Mac 使用手册](mac/README.md)
+  * [Mac 使用手册](mac/network.md)

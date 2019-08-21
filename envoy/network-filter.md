@@ -76,9 +76,9 @@ clusters:
 
 ## name: envoy.http_connection_manager
 
-[HTTP connection manager][18] 是专门处理 http 协议的 network filter，因为 http 最经常使用的协议，对代理功能需求也非常多样， HTTP connection manager 本身是一个比较复杂的 network filter，在 envoy 文档中被单独列出，[HTTP connection manager][18]。
+[HTTP connection manager][18] 是专门处理 http 协议的 network filter，因为 http 最经常使用的协议，对代理功能需求也非常多样， HTTP connection manager 本身是一个比较复杂的 network filter，在 envoy 文档中被单独列出：[HTTP connection manager][18]。
 
-HTTP connection manager 有自己专用的 [HTTP filters][3]。 
+HTTP connection manager 有自己专用的 HTTP filters，在 [http filters](./http-filter.md)  中单独介绍。
 
 ## name: envoy.filters.network.thrift_proxy
 
