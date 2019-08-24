@@ -18,8 +18,8 @@
 			"className": "atoc"
 		},
 		"rss": {
-			"title": "Linux问题诊断与性能优化（实用手册）",
-			"description": "Linux问题诊断与性能优化，实用手册，侧重于排查思路，收集了大量用于问题诊断的工具",
+			"title": "常见软件系统实用使用手册",
+			"description": "记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用",
 			"author": "李佶澳",
 			"site_url": "https://www.lijiaocn.com/soft/",
 			"feed_url": "https://www.lijiaocn.com/soft/feed.xml"
