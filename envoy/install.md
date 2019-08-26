@@ -1,6 +1,6 @@
 # Envoy 安装运行
 
-Envoy 社区用 docker 镜像的方式分发 envoy，社区提供的镜像位于 [envoyproxy][1] 中，envoy 的分发镜像有：
+Envoy 以 docker 镜像的方式分发，社区提供的镜像位于 [envoyproxy][1] 中，常用的有：
 
 * [envoyproxy/envoy-alpine][2]，基于 alpine 的发行镜像
 * [envoyproxy/envoy][3] 基于 centos 的发行镜像
@@ -11,33 +11,15 @@ Envoy 社区用 docker 镜像的方式分发 envoy，社区提供的镜像位于
 docker pull envoyproxy/envoy:v1.11.0
 ```
 
-镜像的启动命令为 envoy -c  /etc/envoy/envoy.yaml，因此只需要把镜像中 envoy.yaml 文件替换即可：
-
-```json
-"Cmd": [
-    "/bin/sh",
-    "-c",
-    "#(nop) ",
-    "CMD [\"envoy\" \"-c\" \"/etc/envoy/envoy.yaml\"]"
-],
-```
-
-用本地的 envoy.yaml 覆盖镜像中的 envoy.yaml：
+启动 envoy，用本地的 envoy.yaml 覆盖镜像中的 envoy.yaml：
 
 ```sh
 docker run -idt --network=host -v `pwd`/envoy.yaml:/etc/envoy/envoy.yaml envoyproxy/envoy:v1.11.0
 ```
 
-如果不使用 Host 模式，可以将 envoy 的端口映射到本地。
+## 本手册使用的运行方式
 
-本手册用的脚本文件和配置文件位于 [go-code-example/envoydev/xds/envoy-docker-run][4]，本手册中使用的 envoy 用到的端口有 9901、80-86，在 mac 上用非 host 模式运行，使用下面的运行方式：
-
-```sh
-# ./run.sh <配置文件>
-./run.sh envoy-0-default.yaml
-```
-
-run.sh 文件内容如下：
+envoy 的容器的运行模式根据自己的需要选取，上面使用的 host 模式，该手册后续演示使用端口映射的方式，在 mac 上用非 host 模式运行 envoy 容器，映射了 9901 和 80-86 端口：
 
 ```sh
 IMAGE=envoyproxy/envoy:v1.11.0
@@ -56,9 +38,30 @@ else
 fi
 ```
 
+运行脚本在 [go-code-example/envoydev/xds/envoy-docker-run][4] 中，目录中包含有多个配置文件：
+
+```sh
+▾ envoy-docker-run/
+  ▸ log/
+    envoy-0-default.yaml
+    envoy-0-example.yaml
+    envoy-1-ads.yaml
+    envoy-1-static.yaml
+    envoy-1-xds.yaml
+    envoy-to-grpc-svc.yaml
+    run.sh*
+```
+
+通过 run.sh 可以很方便地选择一个配置启动，例如： 
+
+```sh
+./run.sh envoy-0-example.yaml
+```
+
 ## 参考
 
 [1]: https://hub.docker.com/u/envoyproxy "docker hub: envoyproxy"
 [2]: https://hub.docker.com/r/envoyproxy/envoy-alpine/tags "envoyproxy/envoy-alpine"
 [3]: https://hub.docker.com/r/envoyproxy/envoy/tags "envoyproxy/envoy"
 [4]: https://github.com/introclass/go-code-example/tree/master/envoydev/xds/envoy-docker-run "envoy-docker-run"
+

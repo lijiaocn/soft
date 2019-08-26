@@ -3,7 +3,7 @@
 * [软件手册说明](README.md)
 * [Envoy 使用手册（学习笔记）](envoy/README.md)
   * [安装运行](envoy/install.md)
-  * [用 echoserver 观察](envoy/echoserver.md)
+  * [初次体验](envoy/echoserver.md)
   * [配置文件](envoy/config.md)
   * [静态配置](envoy/config-static.md)
   * [动态配置](envoy/config-dynamic.md)
