@@ -1,14 +1,14 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Nginx学习资料 · nginx、openresty、lua与kong</title>
+        <title>Nginx 学习资料 · 小鸟笔记·李佶澳</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
-        
+        <meta name="author" content="lijiaocn@foxmail.com">
         
         
     
@@ -18,6 +18,10 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-atoc/atoc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
                 
             
                 
@@ -53,6 +57,7 @@
         
     
     
+    
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -67,65 +72,89 @@
     <link rel="prev" href="./" />
     
 
-    <!--Google ads -->
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-8176866190626448",
-        enable_page_level_ads: true
-      });
-    </script>
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105389858-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-105389858-1');
-    </script>
-    
-    <!--百度统计-->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?8f59ea10145df28da8932c8743ec1d60";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
-    
-    <!--百度收录-->
-    <script>
-    (function(){
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-        }
-        else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-    </script>
-    <style type="text/css">
-    .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal a {color: #4183c4;}
-    </style>
+    <link href="https://www.lijiaocn.com/soft/feed.xml" title="常见软件系统实用使用手册" rel="alternate" type="application/rss+xml" />
+
+        
+<!--Google ads -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8176866190626448",
+    enable_page_level_ads: true
+  });
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105389858-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-105389858-1');
+</script>
+
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8f59ea10145df28da8932c8743ec1d60";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!--百度收录-->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
     </head>
     <body>
         
-<div class="book color-theme-1">
+<div class="book">
     <div class="book-summary">
         
             
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
             
                 
-<div style="height:150px;text-align:center">
-	<h2>记住网址：<a href="https://www.lijiaocn.com " style="color:#afa790">lijiaocn.com</a></h2>
+<div style="text-align:center">
+    <h1><a href="https://www.lijiaocn.com" style="color:#afa790">小鸟笔记</a></h1>
+    <h3><a href="https://www.lijiaocn.com" style="color:#afa790">www.lijiaocn.com</a></h3>
 </div>
+
+<div style="text-align:center">
+    <a href="/prog/" style="color:#afa790">编程</a>&nbsp;
+    <a href="/soft/" style="color:#afa790">软件</a>&nbsp;
+    <a href="/oper/" style="color:#afa790">运营</a>
+</div>
+
+<!--div style="text-align:center">
+< 250x250 >
+<ins class="adsbygoogle"
+     style="display:inline-block;width:250px;height:250px"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="9490087185"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div-->
 
 
                 <nav role="navigation">
@@ -133,7 +162,6 @@
 
 
 <ul class="summary">
-	<li><a href="https://www.lijiaocn.com">博客首页</a></li>
     
     
 
@@ -148,7 +176,7 @@
                 <a href="../">
             
                     
-                    关于这本书
+                    软件手册说明
             
                 </a>
             
@@ -156,12 +184,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../chapter1/">
+        <li class="chapter " data-level="1.2" data-path="../envoy/">
             
-                <a href="../chapter1/">
+                <a href="../envoy/">
             
                     
-                    Lua常用操作
+                    Envoy 使用手册（学习笔记）
             
                 </a>
             
@@ -170,12 +198,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../chapter1/01-standard-output.html">
+        <li class="chapter " data-level="1.2.1" data-path="../envoy/install.html">
             
-                <a href="../chapter1/01-standard-output.html">
+                <a href="../envoy/install.html">
             
                     
-                    标准输出打印
+                    安装运行
             
                 </a>
             
@@ -183,12 +211,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../chapter1/02-string-operation.html">
+        <li class="chapter " data-level="1.2.2" data-path="../envoy/echoserver.html">
             
-                <a href="../chapter1/02-string-operation.html">
+                <a href="../envoy/echoserver.html">
             
                     
-                    字符串操作
+                    初次体验
             
                 </a>
             
@@ -196,12 +224,51 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../chapter1/03-lua-performance.html">
+        <li class="chapter " data-level="1.2.3" data-path="../envoy/config.html">
             
-                <a href="../chapter1/03-lua-performance.html">
+                <a href="../envoy/config.html">
             
                     
-                    性能相关事项
+                    配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../envoy/config-static.html">
+            
+                <a href="../envoy/config-static.html">
+            
+                    
+                    静态配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../envoy/config-dynamic.html">
+            
+                <a href="../envoy/config-dynamic.html">
+            
+                    
+                    动态配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../envoy/dynamic-config.html">
+            
+                <a href="../envoy/dynamic-config.html">
+            
+                    
+                    配置下发
             
                 </a>
             
@@ -210,12 +277,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.3.1" data-path="../chapter1/03-lua-performance-local-var.html">
+        <li class="chapter " data-level="1.2.6.1" data-path="../envoy/go-control-plane-api.html">
             
-                <a href="../chapter1/03-lua-performance-local-var.html">
+                <a href="../envoy/go-control-plane-api.html">
             
                     
-                    局部变量比全局变量快30%
+                    配置在 go-control-plane 中的定义
             
                 </a>
             
@@ -223,12 +290,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.2" data-path="../chapter1/03-lua-performance-load-dynamic.html">
+        <li class="chapter " data-level="1.2.6.2" data-path="../envoy/go-control-plane-send.html">
             
-                <a href="../chapter1/03-lua-performance-load-dynamic.html">
+                <a href="../envoy/go-control-plane-send.html">
             
                     
-                    动态加载代码非常慢
+                    go-control-plane 使用介绍
             
                 </a>
             
@@ -236,12 +303,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.3" data-path="../chapter1/03-lua-performance-table-space.html">
+        <li class="chapter " data-level="1.2.6.3" data-path="../envoy/go-control-plane-env.html">
             
-                <a href="../chapter1/03-lua-performance-table-space.html">
+                <a href="../envoy/go-control-plane-env.html">
             
                     
-                    table自动扩容代价很高
+                    go-control-plane 示例准备
             
                 </a>
             
@@ -249,12 +316,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.4" data-path="../chapter1/03-lua-performance-table-space-1.html">
+        <li class="chapter " data-level="1.2.6.4" data-path="../envoy/go-control-plane-code.html">
             
-                <a href="../chapter1/03-lua-performance-table-space-1.html">
+                <a href="../envoy/go-control-plane-code.html">
             
                     
-                    清理table成员不会触发rehash
+                    go-control-plane 示例说明
             
                 </a>
             
@@ -262,12 +329,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.5" data-path="../chapter1/03-lua-performance-string.html">
+        <li class="chapter " data-level="1.2.6.5" data-path="../envoy/go-control-plane-run.html">
             
-                <a href="../chapter1/03-lua-performance-string.html">
+                <a href="../envoy/go-control-plane-run.html">
             
                     
-                    慎用字符串拼接
+                    go-control-plane 示例运行
             
                 </a>
             
@@ -275,12 +342,17 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.6" data-path="../chapter1/03-lua-performance-less-var.html">
+
+            </ul>
             
-                <a href="../chapter1/03-lua-performance-less-var.html">
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../envoy/listener.html">
+            
+                <a href="../envoy/listener.html">
             
                     
-                    尽量少创建变量
+                    Listener 详解
             
                 </a>
             
@@ -288,12 +360,26 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.7" data-path="../chapter1/03-lua-performance-cache-result.html">
+        <li class="chapter " data-level="1.2.8" data-path="../envoy/filter.html">
             
-                <a href="../chapter1/03-lua-performance-cache-result.html">
+                <a href="../envoy/filter.html">
             
                     
-                    缓存运算结果
+                    Filter 详解
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../envoy/filter-def.html">
+            
+                <a href="../envoy/filter-def.html">
+            
+                    
+                    filter 的定义与下发
             
                 </a>
             
@@ -301,12 +387,38 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.8" data-path="../chapter1/03-lua-performance-garbage-collect.html">
+        <li class="chapter " data-level="1.2.8.2" data-path="../envoy/listener-filter.html">
             
-                <a href="../chapter1/03-lua-performance-garbage-collect.html">
+                <a href="../envoy/listener-filter.html">
             
                     
-                    主动控制垃圾回收
+                    listener filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.3" data-path="../envoy/network-filter.html">
+            
+                <a href="../envoy/network-filter.html">
+            
+                    
+                    network filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="../envoy/http-filter.html">
+            
+                <a href="../envoy/http-filter.html">
+            
+                    
+                    http filter
             
                 </a>
             
@@ -324,12 +436,799 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="../prometheus/">
+            
+                <a href="../prometheus/">
+            
+                    
+                    Prometheus 使用手册
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../prometheus/start.html">
+            
+                <a href="../prometheus/start.html">
+            
+                    
+                    安装启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../prometheus/config.html">
+            
+                <a href="../prometheus/config.html">
+            
+                    
+                    配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../prometheus/query.html">
+            
+                <a href="../prometheus/query.html">
+            
+                    
+                    查询语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../prometheus/query-metrics.html">
+            
+                <a href="../prometheus/query-metrics.html">
+            
+                    
+                    指标查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../prometheus/query-compute.html">
+            
+                <a href="../prometheus/query-compute.html">
+            
+                    
+                    指标运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../prometheus/query-binary.html">
+            
+                <a href="../prometheus/query-binary.html">
+            
+                    
+                    二元运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../prometheus/query-aggre.html">
+            
+                <a href="../prometheus/query-aggre.html">
+            
+                    
+                    聚合运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../prometheus/query-function.html">
+            
+                <a href="../prometheus/query-function.html">
+            
+                    
+                    查询函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../linuxsys/">
+            
+                <a href="../linuxsys/">
+            
+                    
+                    Linux 系统知识
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../linuxsys/tpproxy.html">
+            
+                <a href="../linuxsys/tpproxy.html">
+            
+                    
+                    透明代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../linuxsys/localip.html">
+            
+                <a href="../linuxsys/localip.html">
+            
+                    
+                    local 地址
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                    Linux 性能优化与问题诊断
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../linux/01-concept.html">
+            
+                <a href="../linux/01-concept.html">
+            
+                    
+                    认知框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../linux/kernel.html">
+            
+                <a href="../linux/kernel.html">
+            
+                    
+                    理解内核
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../linux/dynamic-trace.html">
+            
+                <a href="../linux/dynamic-trace.html">
+            
+                    
+                    动态追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../linux/03-cpu.html">
+            
+                <a href="../linux/03-cpu.html">
+            
+                    
+                    理解 CPU
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../linux/02-process-3.html">
+            
+                <a href="../linux/02-process-3.html">
+            
+                    
+                    CPU 的工作状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../linux/03-cpu-1.html">
+            
+                <a href="../linux/03-cpu-1.html">
+            
+                    
+                    CPU 上下文切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.3" data-path="../linux/cpu-usage-analysis.html">
+            
+                <a href="../linux/cpu-usage-analysis.html">
+            
+                    
+                    CPU 的使用情况
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../linux/memory.html">
+            
+                <a href="../linux/memory.html">
+            
+                    
+                    理解内存
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.4.1" data-path="../linux/memory-manage.html">
+            
+                <a href="../linux/memory-manage.html">
+            
+                    
+                    内存管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.2" data-path="../linux/memory-cache.html">
+            
+                <a href="../linux/memory-cache.html">
+            
+                    
+                    内存缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.3" data-path="../linux/memory-stat.html">
+            
+                <a href="../linux/memory-stat.html">
+            
+                    
+                    内存状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../linux/interrupt.html">
+            
+                <a href="../linux/interrupt.html">
+            
+                    
+                    理解中断
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../linux/sys-interrupt.html">
+            
+                <a href="../linux/sys-interrupt.html">
+            
+                    
+                    系统中断
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../linux/02-process.html">
+            
+                <a href="../linux/02-process.html">
+            
+                    
+                    理解进程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.1" data-path="../linux/02-process-1.html">
+            
+                <a href="../linux/02-process-1.html">
+            
+                    
+                    进程的分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2" data-path="../linux/02-process-2.html">
+            
+                <a href="../linux/02-process-2.html">
+            
+                    
+                    进程的状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.3" data-path="../linux/process-resouce.html">
+            
+                <a href="../linux/process-resouce.html">
+            
+                    
+                    进程占用的资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../linux/01-filesystem.html">
+            
+                <a href="../linux/01-filesystem.html">
+            
+                    
+                    理解文件系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.1" data-path="../linux/vfs.html">
+            
+                <a href="../linux/vfs.html">
+            
+                    
+                    VFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.2" data-path="../linux/disk.html">
+            
+                <a href="../linux/disk.html">
+            
+                    
+                    磁盘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3" data-path="../linux/filesystem-stat.html">
+            
+                <a href="../linux/filesystem-stat.html">
+            
+                    
+                    文件系统状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.4" data-path="../linux/02-io.html">
+            
+                <a href="../linux/02-io.html">
+            
+                    
+                    I/O 操作分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.5" data-path="../linux/process_sys_io.html">
+            
+                <a href="../linux/process_sys_io.html">
+            
+                    
+                    系统 I/O 状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../linux/network.html">
+            
+                <a href="../linux/network.html">
+            
+                    
+                    理解网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.8.1" data-path="../linux/network-metrics.html">
+            
+                <a href="../linux/network-metrics.html">
+            
+                    
+                    性能指标与检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8.2" data-path="../linux/network-nic-stat.html">
+            
+                <a href="../linux/network-nic-stat.html">
+            
+                    
+                    网卡状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8.3" data-path="../linux/network-stat.html">
+            
+                <a href="../linux/network-stat.html">
+            
+                    
+                    连接/协议栈状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8.4" data-path="../linux/network-netfilter.html">
+            
+                <a href="../linux/network-netfilter.html">
+            
+                    
+                    连接跟踪 netfilter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8.5" data-path="../linux/network-trace-pkt.html">
+            
+                <a href="../linux/network-trace-pkt.html">
+            
+                    
+                    报文跟踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8.6" data-path="../linux/network-dns-trace.html">
+            
+                <a href="../linux/network-dns-trace.html">
+            
+                    
+                    DNS 解析追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8.7" data-path="../linux/netio-high-performance.html">
+            
+                <a href="../linux/netio-high-performance.html">
+            
+                    
+                    高性能网络 IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../linux/04-tool.html">
+            
+                <a href="../linux/04-tool.html">
+            
+                    
+                    分析工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.9.1" data-path="../linux/04-flame-graphs.html">
+            
+                <a href="../linux/04-flame-graphs.html">
+            
+                    
+                    火焰图介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.9.1.1" data-path="../linux/04-flame-graphs-cpu.html">
+            
+                <a href="../linux/04-flame-graphs-cpu.html">
+            
+                    
+                    CPU 火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9.1.2" data-path="../linux/04-flame-graphs-memory.html">
+            
+                <a href="../linux/04-flame-graphs-memory.html">
+            
+                    
+                    内存火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9.1.3" data-path="../linux/04-flame-graphs-off-cpu.html">
+            
+                <a href="../linux/04-flame-graphs-off-cpu.html">
+            
+                    
+                    Off-CPU 火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9.1.4" data-path="../linux/04-flame-graphs-hot-code.html">
+            
+                <a href="../linux/04-flame-graphs-hot-code.html">
+            
+                    
+                    冷热火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9.1.5" data-path="../linux/04-flame-graphs-differential.html">
+            
+                <a href="../linux/04-flame-graphs-differential.html">
+            
+                    
+                    差异火焰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9.1.6" data-path="../linux/04-flame-generate.html">
+            
+                <a href="../linux/04-flame-generate.html">
+            
+                    
+                    火焰图生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9.2" data-path="../linux/04-bcc-tools.html">
+            
+                <a href="../linux/04-bcc-tools.html">
+            
+                    
+                    BCC系列工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../linux/cpu-usage-high.html">
+            
+                <a href="../linux/cpu-usage-high.html">
+            
+                    
+                    案例: CPU 使用率很高
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../linux/todo.html">
+            
+                <a href="../linux/todo.html">
+            
+                    
+                    待学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
             
                 <a href="./">
             
                     
-                    Nginx介绍
+                    Nginx 介绍
             
                 </a>
             
@@ -338,12 +1237,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="01-documents.html">
+        <li class="chapter active" data-level="1.6.1" data-path="01-documents.html">
             
                 <a href="01-documents.html">
             
                     
-                    Nginx学习资料
+                    Nginx 学习资料
             
                 </a>
             
@@ -351,12 +1250,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="02-config.html">
+        <li class="chapter " data-level="1.6.2" data-path="02-config.html">
             
                 <a href="02-config.html">
             
                     
-                    Nginx配置文件
+                    Nginx 配置文件
             
                 </a>
             
@@ -364,12 +1263,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="02-config-1.html">
+        <li class="chapter " data-level="1.6.3" data-path="02-config-1.html">
             
                 <a href="02-config-1.html">
             
                     
-                    Nginx高性能配置
+                    Nginx 高性能配置
             
                 </a>
             
@@ -382,12 +1281,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../chapter3/">
+        <li class="chapter " data-level="1.7" data-path="../openresty/">
             
-                <a href="../chapter3/">
+                <a href="../openresty/">
             
                     
-                    OpenResty介绍
+                    OpenResty 介绍
             
                 </a>
             
@@ -395,16 +1294,35 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../chapter4/">
+        <li class="chapter " data-level="1.8" data-path="../mac/">
             
-                <a href="../chapter4/">
+                <a href="../mac/">
             
                     
-                    Kong介绍
+                    Mac 使用手册
             
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mac/network.html">
+            
+                <a href="../mac/network.html">
+            
+                    
+                    Mac 使用手册
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -414,8 +1332,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+        <a href="https://www.lijiaocn.com" target="blank" class="gitbook-link">
+            www.lijiaocn.com 提供
         </a>
     </li>
 </ul>
@@ -423,10 +1341,10 @@
 
                 </nav>
                 
-<div style="text-align:center">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<br>
+<!--div style="text-align:center"-->
 <!-- Summary_Bottom -->
-<ins class="adsbygoogle"
+<!--ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-8176866190626448"
      data-ad-slot="2156601384"
@@ -435,7 +1353,7 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-</div>
+</div-->
 
 
             
@@ -454,7 +1372,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Nginx学习资料</a>
+        <a href=".." >Nginx 学习资料</a>
     </h1>
 </div>
 
@@ -464,12 +1382,14 @@
                     <div class="page-wrapper" tabindex="-1" role="main">
                         <div class="page-inner">
                             
+<div id="book-search-results">
+    <div class="search-noresults">
+    
                                 <section class="normal markdown-section">
                                 
                                 
 <!-- Page_Top -->
-<!--div>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div>
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-8176866190626448"
@@ -479,10 +1399,10 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-</div-->
+</div>
 
 
-                                <h1 id="&#x5B66;&#x4E60;&#x8D44;&#x6599;">&#x5B66;&#x4E60;&#x8D44;&#x6599;</h1>
+                                <h1 id="nginx-&#x5B66;&#x4E60;&#x8D44;&#x6599;">Nginx &#x5B66;&#x4E60;&#x8D44;&#x6599;</h1>
 <p>OpenResty&#x4F5C;&#x8005;&#x7AE0;&#x5B9C;&#x6625;&#x6709;&#x4E00;&#x4E2A;<a href="https://openresty.org/download/agentzh-nginx-tutorials-zhcn.html" target="_blank">agentzh &#x7684; Nginx &#x6559;&#x7A0B;&#xFF08;&#x7248;&#x672C; 2016.07.21&#xFF09;</a>&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x4E2A;&#x6559;&#x7A0B;&#x6CA1;&#x5199;&#x5B8C;&#xFF0C;
 &#x53EF;&#x4EE5;&#x7528;&#x6765;&#x57F9;&#x517B;&#x611F;&#x6027;&#x8BA4;&#x8BC6;&#xFF0C;&#x4E2D;&#x6587;&#x9605;&#x8BFB;&#x8D77;&#x6765;&#x65B9;&#x4FBF;&#x4E00;&#x4E9B;&#x3002;OpenResty&#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x4E2D;&#x6709;&#x4E00;&#x7AE0;&#x662F;&#x5173;&#x4E8E;<a href="https://moonbingbing.gitbooks.io/openresty-best-practices/content/ngx/nginx.html" target="_blank">Nginx</a>&#x7684;&#xFF0C;
 &#x76F8;&#x5BF9;&#x6BD4;&#x8F83;&#x9002;&#x5408;&#x7528;&#x6765;&#x5165;&#x95E8;&#xFF0C;&#x5E76;&#x4E14;&#x6307;&#x51FA;&#x4E86;&#x4E00;&#x4E9B;&#x5751;&#x3002;</p>
@@ -492,12 +1412,25 @@
 <p><strong>Nginx&#x7684;&#x53D8;&#x91CF;&#x624B;&#x518C;</strong>&#xFF1A;<a href="https://nginx.org/en/docs/varindex.html" target="_blank">Alphabetical index of variables</a>&#xFF0C;&#x5217;&#x51FA;&#x4E86;nginx&#x7684;&#x6240;&#x6709;&#x53D8;&#x91CF;&#xFF0C;&#x6309;&#x7167;&#x5B57;&#x6BCD;&#x987A;&#x5E8F;&#x3002;</p>
 <p><strong>Nginx&#x7684;&#x5168;&#x5C40;&#x624B;&#x518C;</strong>&#xFF1A;<a href="http://nginx.org/en/docs/" target="_blank">Nginx documentation</a>&#xFF0C;nginx&#x5B98;&#x65B9;&#x6587;&#x6863;&#x7684;&#x9996;&#x9875;&#xFF0C;&#x5217;&#x51FA;&#x4E86;nginx&#x81EA;&#x5E26;&#x7684;&#x6240;&#x6709;module&#x3002;</p>
 <p><strong>Nginx&#x7684;&#x6E90;&#x4EE3;&#x7801;</strong>&#xFF1A;  <a href="https://github.com/nginx/nginx" target="_blank">Nginx source code</a></p>
+<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Page_Bottom -->
+<!-- 匹配内容 -->
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="6443696990"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<!--div-->
+<!-- Page_Bottom -->
+<!--ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-8176866190626448"
      data-ad-slot="7945072540"
@@ -506,12 +1439,28 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-</div>
+</div-->
 
 
                                 
                                 </section>
                             
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
                         </div>
                     </div>
                 
@@ -519,12 +1468,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Nginx介绍">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Nginx 介绍">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="02-config.html" class="navigation navigation-next " aria-label="Next page: Nginx配置文件">
+                <a href="02-config.html" class="navigation navigation-next " aria-label="Next page: Nginx 配置文件">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -535,7 +1484,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Nginx学习资料","level":"1.3.1","depth":2,"next":{"title":"Nginx配置文件","level":"1.3.2","depth":2,"path":"chapter2/02-config.md","ref":"chapter2/02-config.md","articles":[]},"previous":{"title":"Nginx介绍","level":"1.3","depth":1,"path":"chapter2/README.md","ref":"chapter2/README.md","articles":[{"title":"Nginx学习资料","level":"1.3.1","depth":2,"path":"chapter2/01-documents.md","ref":"chapter2/01-documents.md","articles":[]},{"title":"Nginx配置文件","level":"1.3.2","depth":2,"path":"chapter2/02-config.md","ref":"chapter2/02-config.md","articles":[]},{"title":"Nginx高性能配置","level":"1.3.3","depth":2,"path":"chapter2/02-config-1.md","ref":"chapter2/02-config-1.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"nginx、openresty、lua与kong","gitbook":"*"},"file":{"path":"chapter2/01-documents.md","mtime":"2018-12-11T05:28:45.932Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-11T05:34:49.807Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Nginx 学习资料","level":"1.6.1","depth":2,"next":{"title":"Nginx 配置文件","level":"1.6.2","depth":2,"path":"nginx/02-config.md","ref":"nginx/02-config.md","articles":[]},"previous":{"title":"Nginx 介绍","level":"1.6","depth":1,"path":"nginx/README.md","ref":"nginx/README.md","articles":[{"title":"Nginx 学习资料","level":"1.6.1","depth":2,"path":"nginx/01-documents.md","ref":"nginx/01-documents.md","articles":[]},{"title":"Nginx 配置文件","level":"1.6.2","depth":2,"path":"nginx/02-config.md","ref":"nginx/02-config.md","articles":[]},{"title":"Nginx 高性能配置","level":"1.6.3","depth":2,"path":"nginx/02-config-1.md","ref":"nginx/02-config-1.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"nginx/01-documents.md","mtime":"2019-08-26T10:01:38.865Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-26T10:02:00.624Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -549,7 +1498,11 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
         
     
         

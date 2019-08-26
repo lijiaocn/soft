@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 24 Aug 2019 15:32:04 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 26 Aug 2019 10:02:12 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -23,7 +23,7 @@
         </item>
         <item>
             <title><![CDATA[Envoy 安装运行]]></title>
-            <description><![CDATA[Envoy 社区用 docker 镜像的方式分发 envoy，社区提供的镜像位于 envoyproxy 中，envoy 的分发镜像有：]]></description>
+            <description><![CDATA[Envoy 以 docker 镜像的方式分发，社区提供的镜像位于 envoyproxy 中，常用的有：]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/install.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/install.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -44,7 +44,7 @@
         </item>
         <item>
             <title><![CDATA[Envoy 的静态配置示例]]></title>
-            <description><![CDATA[监听转发配置（listener、cluster）可以静态配置也可以动态获取，在 static_resources 中静态配置。]]></description>
+            <description><![CDATA[监听转发配置（listener、cluster）可以静态配置也可以动态获取，静态配置在 static_resources 中。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/config-static.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config-static.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
