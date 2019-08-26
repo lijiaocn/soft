@@ -83,7 +83,7 @@ stdvar_over_time(range-vector)
 线性预测时长 t 之后的数值。
 
 
-### 数组
+## 数组
 
 数组（instant-vector）是同一时刻的多个数值，
 
