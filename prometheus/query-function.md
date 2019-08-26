@@ -9,7 +9,7 @@ Prometheus 的查询函数数量比较多，这里不罗列了，见 [Prometheus
 
 区间数组（range-vector）是过去一段时间内的多个数值，数值（scalar）。
 
-### <aggregation>_over_time() -- 区间内聚合运算
+### **aggregation**_over_time() -- 区间内聚合运算
 
 这一组函数有多个，分别计算区间数组中的数据的平均值、最小值、最大值等：
 
