@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Nginx 配置文件 · 小鸟笔记·李佶澳</title>
+        <title>安装 minikube  · 小鸟笔记·李佶澳</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -66,10 +66,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="02-config-1.html" />
+    <link rel="next" href="deploy.html" />
     
     
-    <link rel="prev" href="01-documents.html" />
+    <link rel="prev" href="./" />
     
 
     <link href="https://www.lijiaocn.com/soft/feed.xml" title="常见软件系统实用使用手册" rel="alternate" type="application/rss+xml" />
@@ -604,9 +604,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../minikube/">
+        <li class="chapter " data-level="1.5" data-path="./">
             
-                <a href="../minikube/">
+                <a href="./">
             
                     
                     Minikube 使用手册
@@ -618,9 +618,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../minikube/install.html">
+        <li class="chapter active" data-level="1.5.1" data-path="install.html">
             
-                <a href="../minikube/install.html">
+                <a href="install.html">
             
                     
                     安装 minikube 
@@ -631,9 +631,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../minikube/deploy.html">
+        <li class="chapter " data-level="1.5.2" data-path="deploy.html">
             
-                <a href="../minikube/deploy.html">
+                <a href="deploy.html">
             
                     
                     启动 kubernetes 
@@ -644,9 +644,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../minikube/config.html">
+        <li class="chapter " data-level="1.5.3" data-path="config.html">
             
-                <a href="../minikube/config.html">
+                <a href="config.html">
             
                     
                     修改组件参数
@@ -657,9 +657,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="../minikube/oper.html">
+        <li class="chapter " data-level="1.5.4" data-path="oper.html">
             
-                <a href="../minikube/oper.html">
+                <a href="oper.html">
             
                     
                     操作 kubernetes
@@ -670,9 +670,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="../minikube/request.html">
+        <li class="chapter " data-level="1.5.5" data-path="request.html">
             
-                <a href="../minikube/request.html">
+                <a href="request.html">
             
                     
                     访问 kubernetes 中的服务
@@ -688,9 +688,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="./">
+        <li class="chapter " data-level="1.6" data-path="../nginx/">
             
-                <a href="./">
+                <a href="../nginx/">
             
                     
                     Nginx 介绍
@@ -702,9 +702,9 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="01-documents.html">
+        <li class="chapter " data-level="1.6.1" data-path="../nginx/01-documents.html">
             
-                <a href="01-documents.html">
+                <a href="../nginx/01-documents.html">
             
                     
                     Nginx 学习资料
@@ -715,9 +715,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter active" data-level="1.6.2" data-path="02-config.html">
+        <li class="chapter " data-level="1.6.2" data-path="../nginx/02-config.html">
             
-                <a href="02-config.html">
+                <a href="../nginx/02-config.html">
             
                     
                     Nginx 配置文件
@@ -728,9 +728,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="02-config-1.html">
+        <li class="chapter " data-level="1.6.3" data-path="../nginx/02-config-1.html">
             
-                <a href="02-config-1.html">
+                <a href="../nginx/02-config-1.html">
             
                     
                     Nginx 高性能配置
@@ -1456,7 +1456,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Nginx 配置文件</a>
+        <a href=".." >安装 minikube </a>
     </h1>
 </div>
 
@@ -1488,187 +1488,46 @@ var _hmt = _hmt || [];
 
                                 <!-- toc -->
 <ul>
-<li><a href="#nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;">Nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</a><ul>
-<li><a href="#centos&#x4E2D;nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;">CentOS&#x4E2D;Nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;</a><ul>
-<li><a href="#&#x52A0;&#x8F7D;nginx&#x6A21;&#x5757;">&#x52A0;&#x8F7D;Nginx&#x6A21;&#x5757;</a></li>
-<li><a href="#&#x52A0;&#x8F7D;server&#x914D;&#x7F6E;">&#x52A0;&#x8F7D;Server&#x914D;&#x7F6E;</a></li>
-<li><a href="#api&#x7F51;&#x5173;kong&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;">API&#x7F51;&#x5173;kong&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;</a></li>
-</ul>
-</li>
+<li><a href="#&#x5B89;&#x88C5;-minikube">&#x5B89;&#x88C5; Minikube</a><ul>
+<li><a href="#&#x67E5;&#x770B;&#x5B50;&#x547D;&#x4EE4;">&#x67E5;&#x770B;&#x5B50;&#x547D;&#x4EE4;</a></li>
+<li><a href="#&#x5B89;&#x88C5;&#x865A;&#x62DF;&#x5316;&#x8F6F;&#x4EF6;">&#x5B89;&#x88C5;&#x865A;&#x62DF;&#x5316;&#x8F6F;&#x4EF6;</a></li>
+<li><a href="#&#x5B89;&#x88C5;-kubectl">&#x5B89;&#x88C5; kubectl</a></li>
 <li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
 </ul>
 </li>
 </ul>
 <!-- tocstop -->
-<h1 id="nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;">Nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</h1>
-<p>nginx&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x6709;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;<a href="https://github.com/nginx/nginx/blob/master/conf/nginx.conf" target="_blank">nginx.conf</a>&#x6837;&#x4F8B;&#xFF0C;&#x4F46;&#x662F;CentOS&#x5B89;&#x88C5;&#x7684;nginx&#x81EA;&#x5E26;&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7ED3;&#x6784;&#x66F4;&#x597D;&#x3002;</p>
-<h2 id="centos&#x4E2D;nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;">CentOS&#x4E2D;Nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2>
-<p>&#x7528;yum&#x547D;&#x4EE4;&#x5728;CentOS&#x4E2D;&#x5B89;&#x88C5;nginx&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x662F;<code>/etc/nginx/nginx.conf</code>&#xFF1A;</p>
-<pre><code class="lang-conf"># For more information on configuration, see:
-#   * Official English Documentation: http://nginx.org/en/docs/
-#   * Official Russian Documentation: http://nginx.org/ru/docs/
+<h1 id="&#x5B89;&#x88C5;-minikube">&#x5B89;&#x88C5; Minikube</h1>
+<p>Minikube &#x7684;&#x5B89;&#x88C5;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x53EF;&#x4EE5;&#x7528; yum&#x3001;brew &#x7B49;&#x5DE5;&#x5177;&#x5B89;&#x88C5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4ECE; <a href="https://github.com/kubernetes/minikube/releases" title="kubernetes/minikube/releases" target="_blank">github</a> &#x4E0A;&#x4E0B;&#x8F7D;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF1A;</p>
+<p><a href="https://github.com/kubernetes/minikube/releases" title="kubernetes/minikube/releases" target="_blank">![minikube&#x4E0B;&#x8F7D;&#x5730;&#x5740;](../img/minikube/minikube.png</a></p>
+<h2 id="&#x67E5;&#x770B;&#x5B50;&#x547D;&#x4EE4;">&#x67E5;&#x770B;&#x5B50;&#x547D;&#x4EE4;</h2>
+<p>&#x7528; help &#x547D;&#x4EE4;&#x67E5;&#x770B; minkube &#x652F;&#x6301;&#x7684;&#x5B50;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre><code class="lang-sh">$ ./minkube <span class="hljs-built_in">help</span>
+Minikube is a CLI tool that provisions and manages single-node Kubernetes clusters optimized <span class="hljs-keyword">for</span> development workflows.
 
-user nginx;
-worker_processes auto;
-error_log /var/log/nginx/error.log;
-pid /run/nginx.pid;
+Basic Commands:
+  start          Starts a <span class="hljs-built_in">local</span> kubernetes cluster
+  status         Gets the status of a <span class="hljs-built_in">local</span> kubernetes cluster
+  stop           Stops a running <span class="hljs-built_in">local</span> kubernetes cluster
+  delete         Deletes a <span class="hljs-built_in">local</span> kubernetes cluster
+  dashboard      Access the kubernetes dashboard running within the minikube cluster
 
-# &#x4E3A;&#x6BCF;&#x4E2A;&#x8981;&#x52A0;&#x8F7D;&#x7684;nginx&#x6A21;&#x5757;&#x5355;&#x72EC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;
-# &#x4F8B;&#x5982;/usr/share/ngxin/modules/mod-http-geoip.conf&#x7684;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;
-#
-#    load_module &quot;/usr/lib64/nginx/modules/ngx_http_geoip_module.so&quot;;
-#
-# Load dynamic modules. See /usr/share/nginx/README.dynamic.
-include /usr/share/nginx/modules/*.conf; 
+Images Commands:
+  docker-env     Sets up docker env variables; similar to <span class="hljs-string">&apos;$(docker-machine env)&apos;</span>
+  cache          Add or delete an image from the <span class="hljs-built_in">local</span> cache.
 
-events {
-    worker_connections 1024;
-}
-
-http {
-    log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;
-                      &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;
-                      &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;
-
-    access_log  /var/log/nginx/access.log  main;
-
-    sendfile            on;
-    tcp_nopush          on;
-    tcp_nodelay         on;
-    keepalive_timeout   65;
-    types_hash_max_size 2048;
-
-    include             /etc/nginx/mime.types;
-    default_type        application/octet-stream;
-
-    # Load modular configuration files from the /etc/nginx/conf.d directory.
-    # See http://nginx.org/en/docs/ngx_core_module.html#include
-    # for more information.
-    include /etc/nginx/conf.d/*.conf;
-
-    # &#x9ED8;&#x8BA4;&#x7684;server
-    server {
-        listen       80 default_server;
-        listen       [::]:80 default_server;
-        server_name  _;
-        root         /usr/share/nginx/html;
-
-        # &#x9ED8;&#x8BA4;server&#x7684;&#x914D;&#x7F6E;&#x4E5F;&#x5199;&#x5230;&#x5355;&#x72EC;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        location / {
-        }
-
-        error_page 404 /404.html;
-            location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-            location = /50x.html {
-        }
-    }
-
-# TLS&#x914D;&#x7F6E;&#x65B9;&#x6CD5;
-# Settings for a TLS enabled server.
-    server {
-        listen       443 ssl http2 default_server;
-        listen       [::]:443 ssl http2 default_server;
-        server_name  _;
-        root         /usr/share/nginx/html;
-
-        ssl_certificate &quot;/etc/pki/nginx/server.crt&quot;;
-        ssl_certificate_key &quot;/etc/pki/nginx/private/server.key&quot;;
-        ssl_session_cache shared:SSL:1m;
-        ssl_session_timeout  10m;
-        ssl_ciphers HIGH:!aNULL:!MD5;
-        ssl_prefer_server_ciphers on;
-
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        location / {
-        }
-
-        error_page 404 /404.html;
-            location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-            location = /50x.html {
-        }
-    }
-}
-</code></pre>
-<p>&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6709;&#x4E24;&#x4E2A;<code>include</code>&#x6307;&#x4EE4;&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x6307;&#x4EE4;&#x53C8;&#x5F15;&#x5165;&#x4E86;&#x5176;&#x5B83;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x52A0;&#x8F7D;&#x4E86;Nginx&#x6A21;&#x5757;&#x548C;Server&#x914D;&#x7F6E;&#x3002;</p>
-<h3 id="&#x52A0;&#x8F7D;nginx&#x6A21;&#x5757;">&#x52A0;&#x8F7D;Nginx&#x6A21;&#x5757;</h3>
-<p>&#x7B2C;&#x4E00;&#x4E2A;include&#x6307;&#x4EE4;&#x662F;&#x5BFC;&#x5165;nginx&#x6A21;&#x5757;&#x7684;&#x52A0;&#x8F7D;&#x6307;&#x4EE4;&#xFF1A;</p>
-<pre><code class="lang-conf"># Load dynamic modules. See /usr/share/nginx/README.dynamic.
-include /usr/share/nginx/modules/*.conf;
-</code></pre>
-<p>&#x5728;/usr/share/nginx/modules&#x76EE;&#x5F55;&#x4E2D;&#x6709;&#x591A;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6BCF;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7528;&#x6765;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;nginx&#x6A21;&#x5757;&#xFF1A;</p>
-<pre><code class="lang-bash">$ ls  /usr/share/nginx/modules/
-mod-http-geoip.conf  mod-http-image-filter.conf  mod-http-perl.conf  
-mod-http-xslt-filter.conf  mod-mail.conf  mod-stream.conf
-</code></pre>
-<p>&#x4EE5;<code>mod-http-geoip.conf</code>&#x4E3A;&#x4F8B;&#xFF0C;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-conf">load_module &quot;/usr/lib64/nginx/modules/ngx_http_geoip_module.so&quot;;
-</code></pre>
-<h3 id="&#x52A0;&#x8F7D;server&#x914D;&#x7F6E;">&#x52A0;&#x8F7D;Server&#x914D;&#x7F6E;</h3>
-<p>&#x7B2C;&#x4E8C;&#x4E2A;include&#x662F;&#x52A0;&#x8F7D;server&#x7684;&#x914D;&#x7F6E;&#xFF1A;</p>
-<pre><code class="lang-conf">include /etc/nginx/conf.d/*.conf;
-</code></pre>
-<p>Nginx&#x662F;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x4EE3;&#x7406;&#x591A;&#x4E2A;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#xFF0C;&#x5C06;&#x8FD9;&#x4E9B;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x7684;&#x914D;&#x7F6E;&#x5199;&#x5230;&#x5404;&#x81EA;&#x7684;&#x5355;&#x72EC;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x6781;&#x5927;&#x7684;&#x7B80;&#x5316;&#x4E86;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x65B9;&#x4FBF;&#x7BA1;&#x7406;&#x3002;</p>
-<p>&#x6BD4;&#x5982;&#x8BF4;/etc/nginx/conf.d/flarum.conf&#x4E2D;&#x5168;&#x90FD;&#x662F;flarum.local&#x670D;&#x52A1;&#x76F8;&#x5173;&#x7684;&#x914D;&#x7F6E;&#xFF1A;</p>
-<pre><code class="lang-conf">server {
-    listen       80 ;
-    listen       [::]:80 ;
-    server_name  flarum.local;                         # &#x5728;&#x672C;&#x5730;host&#x914D;&#x7F6E;&#x57DF;&#x540D;
-    root         /vagrant/flarum/2_flarum/project;     # &#x8FD9;&#x91CC;&#x662F;composer&#x5B89;&#x88C5;&#x7684;flarum&#x9879;&#x76EE;&#x76EE;&#x5F55;
-
-    location / { try_files $uri $uri/ /index.php?$query_string; }
-    location /api { try_files $uri $uri/ /api.php?$query_string; }
-    location /admin { try_files $uri $uri/ /admin.php?$query_string; }
-
-    location /flarum {
-            deny all;
-            return 404;
-    }
-
-    location ~* \.php$ {
-            fastcgi_split_path_info ^(.+.php)(/.+)$;
-            fastcgi_pass 127.0.0.1:9000;
-            include fastcgi_params;
-            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-            fastcgi_param HTTP_PROXY &quot;&quot;; # Fix for https://httpoxy.org/ vulnerability
-            fastcgi_index index.php;
-    }
-    #...&#x7701;&#x7565;&#x90E8;&#x5206;&#x5185;&#x5BB9;...
-    gzip on;
-    gzip_http_version 1.1;
-    gzip_vary on;
-}
-</code></pre>
-<h3 id="api&#x7F51;&#x5173;kong&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;">API&#x7F51;&#x5173;kong&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;</h3>
-<p>&#x53EF;&#x4EE5;&#x7528;&#x66F4;&#x5927;&#x7684;&#x7C92;&#x5EA6;&#x62C6;&#x5206;&#x914D;&#x7F6E;&#xFF0C;&#x4F8B;&#x5982;kong&#x4F7F;&#x7528;&#x7684;nginx.conf&#xFF1A;</p>
-<pre><code class="lang-conf">worker_processes auto;
-daemon off;
-
-pid pids/nginx.pid;
-error_log logs/error.log debug;
-
-worker_rlimit_nofile 1024;
-
-events {
-    worker_connections 1024;
-    multi_accept on;
-}
-
-http {
-    # kong&#x7684;&#x914D;&#x7F6E;&#x5355;&#x72EC;&#x5199;&#x5165;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;
-    include &apos;nginx-kong.conf&apos;;
-}
-</code></pre>
+Configuration and Management Commands:
+  addons         Modify minikube<span class="hljs-string">&apos;s kubernetes addons
+  config         Modify minikube config
+ ...&#xFF08;&#x7701;&#x7565;&#xFF09;...
+</span></code></pre>
+<h2 id="&#x5B89;&#x88C5;&#x865A;&#x62DF;&#x5316;&#x8F6F;&#x4EF6;">&#x5B89;&#x88C5;&#x865A;&#x62DF;&#x5316;&#x8F6F;&#x4EF6;</h2>
+<p>&#x9664;&#x975E;&#x5728; Linux &#x4E0A;&#x4F7F;&#x7528; baremetal &#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5426;&#x5219;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x865A;&#x62DF;&#x5316;&#x8F6F;&#x4EF6;&#xFF0C;&#x4F7F;&#x7528; virtualbox&#x3001;vmware &#x7B49;&#x6700;&#x5E38;&#x7528;&#x7684;&#x865A;&#x62DF;&#x673A;&#x5316;&#x8F6F;&#x4EF6;&#x5373;&#x53EF;&#x3002;Minikube &#x9ED8;&#x8BA4;&#x865A;&#x62DF;&#x5316;&#x8F6F;&#x4EF6;&#x4E3A; virtualbox&#x3002;</p>
+<h2 id="&#x5B89;&#x88C5;-kubectl">&#x5B89;&#x88C5; kubectl</h2>
+<p>&#x8981;&#x64CD;&#x4F5C;&#x90E8;&#x7F72;&#x7684; kubernetes&#xFF0C;&#x672C;&#x5730;&#x8FD8;&#x9700;&#x8981;&#x6709; kubectl &#x547D;&#x4EE4;&#xFF0C;&#x53EF;&#x4EE5;&#x5230; <a href="https://github.com/kubernetes/kubernetes/releases" title="kubernetes/releases" target="_blank">kubernetes/releases</a> &#x4E2D;&#x4E0B;&#x8F7D;&#x3002;</p>
+<p><a href="https://github.com/kubernetes/kubernetes/releases" title="kubernetes/releases" target="_blank"><img src="../img/minikube/kuberelease.png" alt="kubernetes release"></a></p>
+<p>&#x70B9;&#x51FB; ChangeLog &#x6587;&#x4EF6;&#x8FDB;&#x5165;&#x4E0B;&#x8F7D;&#x9875;&#x9762;&#xFF1A;</p>
+<p><a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.16.md#downloads-for-v1160-beta1" title="CHANGELOG-1.16.md" target="_blank"><img src="../img/minikube/kubedown.png" alt="kubernetes binary download"></a></p>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <script type="text/javascript">var className='atoc';</script>
                                 
@@ -1725,12 +1584,12 @@ http {
 
             
                 
-                <a href="01-documents.html" class="navigation navigation-prev " aria-label="Previous page: Nginx 学习资料">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Minikube 使用手册">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="02-config-1.html" class="navigation navigation-next " aria-label="Next page: Nginx 高性能配置">
+                <a href="deploy.html" class="navigation navigation-next " aria-label="Next page: 启动 kubernetes ">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1741,7 +1600,7 @@ http {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Nginx 配置文件","level":"1.6.2","depth":2,"next":{"title":"Nginx 高性能配置","level":"1.6.3","depth":2,"path":"nginx/02-config-1.md","ref":"nginx/02-config-1.md","articles":[]},"previous":{"title":"Nginx 学习资料","level":"1.6.1","depth":2,"path":"nginx/01-documents.md","ref":"nginx/01-documents.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"nginx/02-config.md","mtime":"2019-08-26T10:14:46.309Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-29T08:31:37.858Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"安装 minikube ","level":"1.5.1","depth":2,"next":{"title":"启动 kubernetes ","level":"1.5.2","depth":2,"path":"minikube/deploy.md","ref":"minikube/deploy.md","articles":[]},"previous":{"title":"Minikube 使用手册","level":"1.5","depth":1,"path":"minikube/README.md","ref":"minikube/README.md","articles":[{"title":"安装 minikube ","level":"1.5.1","depth":2,"path":"minikube/install.md","ref":"minikube/install.md","articles":[]},{"title":"启动 kubernetes ","level":"1.5.2","depth":2,"path":"minikube/deploy.md","ref":"minikube/deploy.md","articles":[]},{"title":"修改组件参数","level":"1.5.3","depth":2,"path":"minikube/config.md","ref":"minikube/config.md","articles":[]},{"title":"操作 kubernetes","level":"1.5.4","depth":2,"path":"minikube/oper.md","ref":"minikube/oper.md","articles":[]},{"title":"访问 kubernetes 中的服务","level":"1.5.5","depth":2,"path":"minikube/request.md","ref":"minikube/request.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"minikube/install.md","mtime":"2019-08-29T07:15:46.167Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-29T08:31:37.858Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
