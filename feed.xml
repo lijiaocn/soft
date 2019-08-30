@@ -4,12 +4,12 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 30 Aug 2019 10:41:08 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 30 Aug 2019 22:32:31 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
-            <title><![CDATA[小鸟笔记——软件使用手册说明]]></title>
-            <description><![CDATA[这里记录工作中接触的一些重要的系统软件的使用方法，备忘录。]]></description>
+            <title><![CDATA[重要系统软件的使用手册]]></title>
+            <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，备忘录。]]></description>
             <link>https://www.lijiaocn.com/soft/</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -17,20 +17,20 @@
         <item>
             <title><![CDATA[Envoy]]></title>
             <description><![CDATA[初次了解 Envoy 时做过一些笔记，这里是再次学习时，对原先笔记的进一步整理。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/README.html</guid>
+            <link>https://www.lijiaocn.com/soft/envoy/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Envoy 安装运行]]></title>
-            <description><![CDATA[Envoy 以 docker 镜像的方式分发，社区提供的镜像位于 envoyproxy 中，常用的有：]]></description>
+            <description><![CDATA[Envoy 社区用 docker 镜像的方式分发 envoy，社区提供的镜像位于 envoyproxy 中，envoy 的分发镜像有：]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/install.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/install.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[用 echoserver 观察代理/转发效果]]></title>
-            <description><![CDATA[echoserver 是一个回显用户请求的 http 服务，用来观察 http 请求的代理/转发效果非常方便。]]></description>
+            <description><![CDATA[echoserver 是一个回显请求的 http 服务，用来观察 http 请求的代理/转发效果非常方便。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/echoserver.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/echoserver.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -44,7 +44,7 @@
         </item>
         <item>
             <title><![CDATA[Envoy 的静态配置示例]]></title>
-            <description><![CDATA[监听转发配置（listener、cluster）可以静态配置也可以动态获取，静态配置在 static_resources 中。]]></description>
+            <description><![CDATA[监听转发配置（listener、cluster）可以静态配置也可以动态获取，在 static_resources 中静态配置。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/config-static.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config-static.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -143,8 +143,8 @@
         <item>
             <title><![CDATA[Prometheus 的使用方法]]></title>
             <description><![CDATA[Prometheus 是一个比较流行的告警监控系统，以前写过几篇笔记：]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/README.html</guid>
+            <link>https://www.lijiaocn.com/soft/prometheus/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -207,8 +207,8 @@
         <item>
             <title><![CDATA[Linux 系统知识]]></title>
             <description><![CDATA[收集 Linux 系统相关的知识。]]></description>
-            <link>https://www.lijiaocn.com/soft/linuxsys/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/README.html</guid>
+            <link>https://www.lijiaocn.com/soft/linuxsys/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -226,103 +226,10 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Minikube 使用方法（最详细的中文手册）]]></title>
-            <description><![CDATA[用 minikube 部署开发测试环境 中记录了 minikube 的使用方法，这里重新整理一下。]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/README.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[安装 Minikube]]></title>
-            <description><![CDATA[Minikube 的安装非常简单，可以用 yum、brew 等工具安装，也可以直接从 github 上下载二进制文件：]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/install.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/install.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[用 minikube 启动 kubernetes]]></title>
-            <description><![CDATA[Minikube 可以部署多个版本的 kubernetes，如果不指定 kubernetes 版本默认使用 minikube 发行的最新版。]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/deploy.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/deploy.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Minikube 部署时，修改 kubernetes 的组件参数]]></title>
-            <description><![CDATA[minikube 支持修改每个组件的参数，用 --extra-config 中，格式如下：]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/config.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/config.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[操作用 minikube 启动的 kubernetes]]></title>
-            <description><![CDATA[Minikube 在启动 kubernetes 时会设置  ~/.kube/config 文件，在其中增加了访问凭证：]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/oper.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/oper.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[访问 minikube 启动的 kubernetes 中的服务]]></title>
-            <description><![CDATA[Kubernetes 在本地虚拟机中运行，如果要访问部署其中的服务，需要通过 node port。]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/request.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/request.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Nginx常用操作]]></title>
-            <description><![CDATA[提前了解这些，可以避免踩坑：]]></description>
-            <link>https://www.lijiaocn.com/soft/nginx/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/README.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Nginx 学习资料]]></title>
-            <description><![CDATA[OpenResty作者章宜春有一个agentzh 的 Nginx 教程（版本 2016.07.21），不过这个教程没写完，
-可以用来培养感性认识，中文阅读起来方便一些。OpenResty最佳实践中有一章是关于Nginx的，
-相对比较适合用来入门，并且指出了一些坑。]]></description>
-            <link>https://www.lijiaocn.com/soft/nginx/01-documents.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/01-documents.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Nginx配置文件格式]]></title>
-            <description><![CDATA[nginx的源代码中有个配置文件nginx.conf样例，但是CentOS安装的nginx自带的默认配置文件结构更好。]]></description>
-            <link>https://www.lijiaocn.com/soft/nginx/02-config.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/02-config.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Nginx高性能配置]]></title>
-            <description><![CDATA[在做压测时，了解到一些配置，在这里记录一下。]]></description>
-            <link>https://www.lijiaocn.com/soft/nginx/02-config-1.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/02-config-1.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[OpenResty介绍]]></title>
-            <description><![CDATA[内容准备中...移步Web开发平台OpenResty]]></description>
-            <link>https://www.lijiaocn.com/soft/openresty/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/openresty/README.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Mac/macOS 使用手册，开发人员常用命令]]></title>
-            <description><![CDATA[Mac 几乎成为程序员的标准开发环境了，但是 MacOS 系统的命令行指令对大多数人来说，还是很陌生的，部分指令是 BSD 风格的，与 linux 的操作命令的形似而不同，也常常带来困扰。这里收集在开发过程中会经常用到的 MacOS 命令行指令。]]></description>
-            <link>https://www.lijiaocn.com/soft/mac/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/mac/README.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Mac/macOS 使用手册 —— 网络指令]]></title>
-            <description><![CDATA[macOS 上的 netstat 命令用来查看本机的网络连接情况，但是要注意，macOS 的 netstat 命令用法与 linux 上的 netstat 不同。譬如在 linux 中 -p 参数的意思是显示关联的进程的程序名，在 macOS 中是指定协议：]]></description>
-            <link>https://www.lijiaocn.com/soft/mac/network.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/mac/network.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
             <title><![CDATA[Linux问题分析与性能优化]]></title>
             <description><![CDATA[个人学习笔记，记录Linux相关的知识，性能优化部分的内容主要来自极客时间出品的倪鹏飞专栏《Linux性能优化》。这里使用的操作系统是CentOS，索引了大量参考资料，为了能够查看内核文档，需要在系统上安装man-pages：]]></description>
-            <link>https://www.lijiaocn.com/soft/linux/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linux/README.html</guid>
+            <link>https://www.lijiaocn.com/soft/linux/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linux/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -617,6 +524,57 @@
             <description><![CDATA[有非常、非常多的细节是从书本上学不到，这些细节通常分散在各种古朴、难度的文档和手册中。]]></description>
             <link>https://www.lijiaocn.com/soft/linux/todo.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/linux/todo.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx常用操作]]></title>
+            <description><![CDATA[提前了解这些，可以避免踩坑：]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx 学习资料]]></title>
+            <description><![CDATA[OpenResty作者章宜春有一个agentzh 的 Nginx 教程（版本 2016.07.21），不过这个教程没写完，
+可以用来培养感性认识，中文阅读起来方便一些。OpenResty最佳实践中有一章是关于Nginx的，
+相对比较适合用来入门，并且指出了一些坑。]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/01-documents.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/01-documents.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx配置文件格式]]></title>
+            <description><![CDATA[nginx的源代码中有个配置文件nginx.conf样例，但是CentOS安装的nginx自带的默认配置文件结构更好。]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/02-config.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/02-config.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx高性能配置]]></title>
+            <description><![CDATA[在做压测时，了解到一些配置，在这里记录一下。]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/02-config-1.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/02-config-1.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[OpenResty介绍]]></title>
+            <description><![CDATA[内容准备中...移步Web开发平台OpenResty]]></description>
+            <link>https://www.lijiaocn.com/soft/openresty/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/openresty/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Mac/macOS 使用手册，开发人员常用命令]]></title>
+            <description><![CDATA[Mac 几乎成为程序员的标准开发环境了，但是 MacOS 系统的命令行指令对大多数人来说，还是很陌生的，部分指令是 BSD 风格的，与 linux 的操作命令的形似而不同，也常常带来困扰。这里收集在开发过程中会经常用到的 MacOS 命令行指令。]]></description>
+            <link>https://www.lijiaocn.com/soft/mac/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/mac/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Mac/macOS 使用手册 —— 网络指令]]></title>
+            <description><![CDATA[macOS 上的 netstat 命令用来查看本机的网络连接情况，但是要注意，macOS 的 netstat 命令用法与 linux 上的 netstat 不同。譬如在 linux 中 -p 参数的意思是显示关联的进程的程序名，在 macOS 中是指定协议：]]></description>
+            <link>https://www.lijiaocn.com/soft/mac/network.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/mac/network.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
