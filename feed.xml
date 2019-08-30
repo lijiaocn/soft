@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 30 Aug 2019 22:41:22 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 30 Aug 2019 22:54:19 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -51,7 +51,7 @@
         </item>
         <item>
             <title><![CDATA[Envoy 的动态配置示例]]></title>
-            <description><![CDATA[Listener、Cluster 等除了在配置文件中静态配置，还可以从控制平面动态获取，动态配置在 dynamic_resources 中设置。但是注意，提供动态配置的服务地址需要在文件中静态配置，动态配置里引用静态配置中的配置发现服务。配置发现服务通常称为 控制平面。]]></description>
+            <description><![CDATA[Listener、Cluster 等除了在配置文件中静态配置，还可以从控制平面动态获取。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/config-dynamic.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config-dynamic.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
