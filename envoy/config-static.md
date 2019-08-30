@@ -9,9 +9,9 @@
 ./run.sh envoy-1-static.yaml
 ```
 
-## 转发到指定IP
+## 转发到 IP
 
-在 clusters 中配置了一个名为 service_echo 的 cluster ，它指向 172.17.0.2:8080，在本例中，这是 [初次体验](./echoserver.md) 启动的 echoserver 容器的地址：
+在 clusters 中配置了一个名为 service_echo 的 cluster ，它指向 172.17.0.2:8080，这是 [初次体验](./echoserver.md) 中启动的 echoserver 容器的地址：
 
 ```yaml
 - name: service_echo
@@ -22,6 +22,25 @@
     - socket_address:
         address:  172.17.0.2
         port_value: 8080
+```
+
+也可以使用 load_assignment 的形式：
+
+```yaml
+- name: service_echo
+  connect_timeout: 0.25s
+  type: STATIC
+  lb_policy: ROUND_ROBIN
+  #http2_protocol_options: {}  #echoserver不支持http 2.0
+  load_assignment:
+    cluster_name: service_echo
+    endpoints:
+    - lb_endpoints:
+      - endpoint:
+          address:
+            socket_address:
+              address:  172.17.0.2
+              port_value: 8080
 ```
 
 在 listeners 中配置一个名为 listener_0  的 listener，它监听 80 端口，将匹配 "Host: echo.com" 和 "/" 的请求转发给上面的 cluster：
@@ -77,12 +96,11 @@ $ curl -v  127.0.0.1:80
 * Connection #0 to host 127.0.0.1 left intact
 ```
 
-带上 host，返回 echo 的响应：
+带上 host，返回 echoserver 的响应：
 
 ```sh
 $ curl 127.0.0.1:80 -H "Host: echo.com"
-
-Hostname: 611185215d7a
+Hostname: 7759cabd7402
 
 Pod Information:
 	-no pod information available-
@@ -91,7 +109,7 @@ Server values:
 	server_version=nginx: 1.13.3 - lua: 10008
 
 Request Information:
-	client_address=172.17.0.2
+	client_address=172.17.0.3
 	method=GET
 	real path=/
 	query=
@@ -106,7 +124,7 @@ Request Headers:
 	user-agent=curl/7.54.0
 	x-envoy-expected-rq-timeout-ms=15000
 	x-forwarded-proto=http
-	x-request-id=02a1f65e-7ae0-471a-acfc-913633ff54f3
+	x-request-id=da973764-051b-409a-9a2b-5293158e83cd
 
 Request Body:
 	-no body in request-
@@ -114,7 +132,7 @@ Request Body:
 
 ## 转发到域名
 
-配置一个 cluster，endpoint 中填入域名 www.baidu.com：
+配置一个名为 service_baidu 的 cluster，endpoint 中填入域名 www.baidu.com：
 
 ```yaml
 - name: service_baidu
@@ -135,7 +153,7 @@ Request Body:
     sni: www.baidu.com
 ```
 
-配置一个 listener 监听 81 端口，路由规则为将所有请求转发到 www.baidu.com，转发时改写 host：
+配置一个 listener 监听 81 端口，将所有请求转发到 www.baidu.com，转发时将 host 改写为 "www.baidu.com"：
 
 ```yaml
 - name: listener_1
@@ -173,6 +191,8 @@ $ curl 127.0.0.1:81
 <title>百度一下，你就知道</title>
 ...
 ```
+
+注意：envoy 解析 www.baidu.com 域名需要一定时间，在 envoy 刚启动、www.baidu.com 域名解析未完成时，会返回 503。
 
 ## 参考
 

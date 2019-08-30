@@ -1,11 +1,23 @@
 <!-- toc -->
 # Envoy 的动态配置示例
 
-Listener、Cluster 等除了在配置文件中静态配置，还可以从控制平面动态获取，动态配置在 `dynamic_resources` 中设置。但是注意，提供动态配置的服务地址需要在文件中静态配置，动态配置里引用静态配置中的配置发现服务。配置发现服务通常称为 **控制平面**。
+Listener、Cluster 等除了在配置文件中静态配置，还可以从控制平面动态获取。
 
-要注意区分下发动态配置的控制平面和 envoy 依赖的外部服务，envoy 一些功能依赖于外部的服务，譬如认证、全局限速等，这些功能在运行中需要请求外部的认证服务和限速服务，因此需要为其配置外部服务地址。这些外部服务和下发 envoy 配置的控制平面的用途是不同的，建议分开看待。
+动态配置的获取方式在 `dynamic_resources` 中设置，下发动态配置的服务地址，也就是 **控制平面** 的地址以 cluster 的形式静态配置，dynamic_resources 中引用这个 cluster。
 
-动态配置通常是指控制平面向 envoy 下发的配置，可以动态下发的配置见：[Dynamic configuration][8]。
+可以动态下发的配置见 [Dynamic configuration][8]，主要有：
+
+CDS：cluster 配置动态下发
+
+LDS：listener 配置动态下发
+
+EDS：cluster 中的 endpoint 的动态下发
+
+RDS：listener 中的 route 的动态下发
+
+SDS：证书的动态下发
+
+其中只有 CDS 和 LDS 是在 dynamic_resources 中指定的，后面有详细说明。
 
 ## cds_config、lds_config：动态发现 cluster 和 listener
 
@@ -196,11 +208,11 @@ listen_filter_http_conn_ := &http_conn_manager.HttpConnectionManager{
 
 ## 参考
 
-[1]: https://www.envoyproxy.io/docs/envoy/latest/configuration/secret.html  "Secret discovery service (SDS)"
-[2]: https://www.envoyproxy.io/docs/envoy/latest/configuration/http_conn_man/rds.html "Route discovery service (RDS)"
-[3]: https://www.envoyproxy.io/docs/envoy/latest/configuration/listeners/lds.html  "LDS"
-[4]: https://www.envoyproxy.io/docs/envoy/latest/configuration/cluster_manager/cds.html "CDS"
-[5]: https://www.envoyproxy.io/docs/envoy/latest/configuration/overview/v2_overview#aggregated-discovery-service  "ADS"
-[6]: https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/operations/dynamic_configuration#arch-overview-dynamic-config-eds "EDS"
-[7]: https://www.envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol#eventual-consistency-considerations "xDS REST and gRPC protocol"
-[8]: https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/operations/dynamic_configuration#arch-overview-dynamic-config-eds  "Dynamic configuration"
+[1]: https://www.envoyproxy.io/docs/envoy/v1.11.0/configuration/secret.html  "Secret discovery service (SDS)"
+[2]: https://www.envoyproxy.io/docs/envoy/v1.11.0/configuration/http_conn_man/rds.html "Route discovery service (RDS)"
+[3]: https://www.envoyproxy.io/docs/envoy/v1.11.0/configuration/listeners/lds.html  "LDS"
+[4]: https://www.envoyproxy.io/docs/envoy/v1.11.0/configuration/cluster_manager/cds.html "CDS"
+[5]: https://www.envoyproxy.io/docs/envoy/v1.11.0/configuration/overview/v2_overview#aggregated-discovery-service  "ADS"
+[6]: https://www.envoyproxy.io/docs/envoy/v1.11.0/intro/arch_overview/operations/dynamic_configuration#arch-overview-dynamic-config-eds "EDS"
+[7]: https://www.envoyproxy.io/docs/envoy/v1.11.0/api-docs/xds_protocol#eventual-consistency-considerations "xDS REST and gRPC protocol"
+[8]: https://www.envoyproxy.io/docs/envoy/v1.11.0/intro/arch_overview/operations/dynamic_configuration  "Dynamic configuration"

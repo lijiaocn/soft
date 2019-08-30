@@ -147,7 +147,7 @@ Request Information:
 Request Headers:
 	accept=*/*
 	content-length=0
-	host=www.baidu.com
+	host=www.baidu.com     # echoserver 收到的请求的 host
 	user-agent=curl/7.54.0
 	x-envoy-expected-rq-timeout-ms=15000
 	x-forwarded-proto=http
