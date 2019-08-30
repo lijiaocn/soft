@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 30 Aug 2019 03:11:49 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 30 Aug 2019 10:38:24 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -30,7 +30,7 @@
         </item>
         <item>
             <title><![CDATA[用 echoserver 观察代理/转发效果]]></title>
-            <description><![CDATA[echoserver 是一个回显请求的 http 服务，用来观察 http 请求的代理/转发效果非常方便。]]></description>
+            <description><![CDATA[echoserver 是一个回显用户请求的 http 服务，用来观察 http 请求的代理/转发效果非常方便。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/echoserver.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/echoserver.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
