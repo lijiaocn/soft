@@ -4,12 +4,12 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 29 Aug 2019 09:53:57 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 30 Aug 2019 03:11:49 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
-            <title><![CDATA[重要系统软件的使用手册]]></title>
-            <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，备忘录。]]></description>
+            <title><![CDATA[小鸟笔记之软件使用手册说明]]></title>
+            <description><![CDATA[这里记录工作中接触的一些重要的系统软件的使用方法，备忘录。]]></description>
             <link>https://www.lijiaocn.com/soft/</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
