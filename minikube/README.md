@@ -1,12 +1,14 @@
 # Minikube 使用方法（最详细的中文手册）
 
-[用 minikube 部署开发测试环境][1] 中记录了 minikube 的使用方法，这里重新整理一下。
+用 [minikube 部署开发测试环境][1] 中记录了 minikube 的使用方法，这里重新整理一下。
 
-做 Kubernetes 配套开发时，用 minkube 启动一个 kubernetes 集群作为开发测试环境是非常方便的。Minikube 可以方便地启动不同版本的 kubernetes，美中不足的是，用 minikube 部署的 kubernetes 都是单机模式，如果要做一些集群相关调试，单机的 kubernetes 就不能满足需求了。
+做 Kubernetes 配套开发时，用 minkube 启动一个 kubernetes 集群作为开发测试环境是非常方便的。
 
-Minikube 是 kubernetes 的一个子项目（[github地址][2]），使用手册比较完善， [minikube doc][3]。
+Minikube 可以方便地启动不同版本的 kubernetes，美中不足的是，用 minikube 部署的 kubernetes 都是单机模式，如果要做一些集群相关调试，单机的 kubernetes 就不能满足需求了，需要考虑其它的方法。
 
-Minkube 在 linux、windows 和 mac 中都可以使用，在 linux 可以使用 baremetal 的方式，将 kubernetes 直接部署在当前系统上，在 windows 和 mac 上都是创建一个虚拟机，在虚拟机中部署 kubernetes，虚拟机的创建都是自动的。
+Minikube 是 kubernetes 的一个子项目（[github地址][2]），使用手册比较完善（[minikube doc][3]）。
+
+Minikube 在 linux、windows 和 mac 中都可以使用，在 linux 上支持 baremetal 方式，即将 kubernetes 直接部署在当前系统上，在 windows 和 mac 上则是创建一个虚拟机，在虚拟机中部署 kubernetes，虚拟机的创建都是自动的。
 
 ## 参考
 

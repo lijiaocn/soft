@@ -3,6 +3,36 @@
 
 Minikube 可以部署多个版本的 kubernetes，如果不指定 kubernetes 版本默认使用 minikube 发行的最新版。
 
+启动的时候如果遇到下面的 "Wait failed" 的情况先别急着重试或重启动：
+
+```sh
+$ minkube start
+😄  minikube v1.3.1 on Darwin 10.14
+🔥  Creating virtualbox VM (CPUs=2, Memory=2000MB, Disk=20000MB) ...
+🐳  Preparing Kubernetes v1.15.2 on Docker 18.09.8 ...
+    ▪ scheduler.leader-elect-resource-lock=configmaps
+    ▪ controller-manager.leader-elect-resource-lock=configmaps
+🚜  Pulling images ...
+🚀  Launching Kubernetes ...
+⌛  Waiting for: apiserver proxy
+
+
+💣  Wait failed: waiting for k8s-app=kube-proxy: timed out waiting for the condition
+
+😿  Sorry that minikube crashed. If this was unexpected, we would love to hear from you:
+👉  https://github.com/kubernetes/minikube/issues/new/choose
+```
+
+即使遇到了上面的错误，kubernetes 也可能已经启动成功了：
+
+```sh
+$ kubectl get cs
+NAME                 STATUS    MESSAGE             ERROR
+controller-manager   Healthy   ok
+scheduler            Healthy   ok
+etcd-0               Healthy   {"health":"true"}
+```
+
 ## 启动指定版本的 kubernetes
 
 --kubernetes-version 指定要部署的 kubernetes 版本：
@@ -35,7 +65,14 @@ $ minikube stop
 🛑  "minikube" stopped.
 ```
 
+## 删除
+
+```sh
+$ minikube delete
+```
+
 ## 参考
+
 
 [1]: https://godoc.org/k8s.io/kubernetes/pkg/scheduler/apis/config#KubeSchedulerConfiguration "KubeSchedulerConfiguration"
 [2]: https://godoc.org/k8s.io/kubernetes/pkg/kubelet/apis/config#KubeletConfiguration "KubeletConfiguration"

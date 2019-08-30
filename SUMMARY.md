@@ -1,6 +1,6 @@
 # Summary
 
-* [软件手册说明](README.md)
+* [小鸟笔记之软件使用手册说明](README.md)
 * [Envoy 使用手册（学习笔记）](envoy/README.md)
   * [安装运行](envoy/install.md)
   * [初次体验](envoy/echoserver.md)
@@ -32,7 +32,7 @@
   * [透明代理](./linuxsys/tpproxy.md)
   * [local 地址](./linuxsys/localip.md)
 * [Minikube 使用手册](minikube/README.md)
-  * [安装 minikube ](minikube/install.md)
+  * [安装 minikube](minikube/install.md)
   * [启动 kubernetes ](minikube/deploy.md)
   * [修改组件参数](minikube/config.md)
   * [操作 kubernetes](minikube/oper.md)
