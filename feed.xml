@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 30 Aug 2019 22:37:16 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 30 Aug 2019 22:41:22 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -12,6 +12,13 @@
             <description><![CDATA[这里记录工作中接触的一些重要的系统软件的使用方法，备忘录。]]></description>
             <link>https://www.lijiaocn.com/soft/</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy]]></title>
+            <description><![CDATA[初次了解 Envoy 时做过一些笔记，这里是再次学习时，对原先笔记的进一步整理。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
