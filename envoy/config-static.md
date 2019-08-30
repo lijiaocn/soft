@@ -11,7 +11,7 @@
 
 ## 转发到指定IP
 
-在 clusters 中配置了一个名为 service_echo 的 cluster ，它指向 172.17.0.3:8080，在本例中，这是前面启动的 echo 容器的地址：
+在 clusters 中配置了一个名为 service_echo 的 cluster ，它指向 172.17.0.2:8080，在本例中，这是 [初次体验](./echoserver.md) 启动的 echoserver 容器的地址：
 
 ```yaml
 - name: service_echo
@@ -20,7 +20,7 @@
   lb_policy: ROUND_ROBIN
   hosts:
     - socket_address:
-        address:  172.17.0.3
+        address:  172.17.0.2
         port_value: 8080
 ```
 

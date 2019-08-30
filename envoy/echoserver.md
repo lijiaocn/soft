@@ -1,7 +1,9 @@
 <!-- toc -->
 # 用 echoserver 观察代理/转发效果
 
-echoserver 是一个回显请求的 http 服务，用来观察 http 请求的代理/转发效果非常方便。
+echoserver 是一个回显用户请求的 http 服务，用来观察 http 请求的代理/转发效果非常方便。
+
+echoserver 1.10 不支持 HTTP 2.0。
 
 ## 启动 echoserver 容器
 
@@ -10,13 +12,13 @@ echoserver 是一个回显请求的 http 服务，用来观察 http 请求的代
 下载镜像：
 
 ```sh
-docker pull googlecontainer/echoserver:1.10
+docker pull googlecontainer/echoserver:1.10 
 ```
 
 启动：
 
 ```sh
-$ docker run -idt  -p 8080:8080 -p 8443:8443 googlecontainer/echoserver:1.10
+$ docker run -idt --name echoserver -p 8080:8080 -p 8443:8443 googlecontainer/echoserver:1.10
 ```
 
 直接访问 echo 容器效果如下：
@@ -49,25 +51,26 @@ Request Body:
     -no body in request-
 ```
 
-## envoy 代理 echoserver
+## 获取 echoserver 容器的 IP
 
 先获取 echoserver 容器的 IP 地址，确定 envoy 能够访问这个地址：
 
 ```sh
-$ docker inspect 611185215d7a -f "{{.NetworkSettings.Networks.bridge.IPAddress}}"
-172.17.0.3
+# echoserver 是容器的名字，替换成你自己的容器名
+$ docker inspect echoserver -f "{{.NetworkSettings.Networks.bridge.IPAddress}}"
+172.17.0.2
 ```
 
 ## 配置 cluster
 
-在 static_resources: -> clusters: 中添加下面的配置，这是 echoserver 容器的地址：
+该示例使用的配置文件是 [envoy-0-example.yaml][1]，在 static_resources: -> clusters: 中配置的是 echoserver 容器的地址，注意将 address 替换成你自己的 echoserver 容器的 IP：
 
 ```yaml
 - name: service_echo
   connect_timeout: 0.25s
   type: STATIC
   lb_policy: ROUND_ROBIN
-  http2_protocol_options: {}
+  #http2_protocol_options: {}  # 注意 echoserver 不支持http 2.0，不能有这项配置
   load_assignment:
     cluster_name: service_echo
     endpoints:
@@ -75,13 +78,13 @@ $ docker inspect 611185215d7a -f "{{.NetworkSettings.Networks.bridge.IPAddress}}
       - endpoint:
           address:
             socket_address:
-              address:  172.17.0.3
+              address:  172.17.0.2
               port_value: 8080
 ```
 
 ## 配置 listener
 
-在 static_resources: -> listeners: 中添加下面配置，这个 listener 监听 80 端口，将 host 匹配 "*" 和 prefix 匹配 "/" 的请求转发给上面配置的 cluster，并且在转发的时候将 host 修改为 www.google.com：
+该示例使用的配置文件是 [envoy-0-example.yaml][1]，在 static_resources: -> listeners: 中配置的是 listener，这个 listener 监听 80 端口，将 host 匹配 "*" 和 prefix 匹配 "/" 的请求转发给上面配置的 cluster，并且在转发的时候将 host 修改为 www.google.com：
 
 ```yaml
 - name: listener_0
@@ -105,7 +108,7 @@ $ docker inspect 611185215d7a -f "{{.NetworkSettings.Networks.bridge.IPAddress}}
             - match:
                 prefix: "/"
               route:
-                host_rewrite: www.google.com
+                host_rewrite: www.baidu.com
                 cluster: service_echo
         http_filters:
         - name: envoy.router
@@ -113,6 +116,47 @@ $ docker inspect 611185215d7a -f "{{.NetworkSettings.Networks.bridge.IPAddress}}
 
 ## 启动，观察效果
 
-上面的配置已经添加到 envoy-0-example.yaml 中，直接用下面的命令启动：
+上面的配置已经添加到 [envoy-0-example.yaml][1] 中，直接用下面的命令启动：
+
+```sh
+$ ./run.sh envoy-0-example.yaml
+```
+
+访问 envoy 的 80 端口，效果如下，注意观察 echoserver 收到的请求的 host 是 www.baidu.com，这是因为上面的配置里有一项 “host_rewrite: www.baidu.com”：
+
+```
+$ curl 127.0.0.1:80
+
+Hostname: 7759cabd7402
+
+Pod Information:
+	-no pod information available-
+
+Server values:
+	server_version=nginx: 1.13.3 - lua: 10008
+
+Request Information:
+	client_address=172.17.0.3
+	method=GET
+	real path=/
+	query=
+	request_version=1.1
+	request_scheme=http
+	request_uri=http://www.baidu.com:8080/
+
+Request Headers:
+	accept=*/*
+	content-length=0
+	host=www.baidu.com
+	user-agent=curl/7.54.0
+	x-envoy-expected-rq-timeout-ms=15000
+	x-forwarded-proto=http
+	x-request-id=957e0bd8-2fb1-4ff1-8131-f1fff1cb0e9a
+
+Request Body:
+	-no body in request-
+```
 
 ## 参考
+
+[1]: https://github.com/introclass/go-code-example/blob/master/envoydev/xds/envoy-docker-run/envoy-0-example.yaml "envoy-0-example.yaml"
