@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 30 Aug 2019 22:54:19 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 30 Aug 2019 23:00:33 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -205,6 +205,13 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
+            <title><![CDATA[Linux 系统知识]]></title>
+            <description><![CDATA[收集 Linux 系统相关的知识。]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
             <title><![CDATA[Linux 的透明代理]]></title>
             <description><![CDATA[TODO: 待试验。]]></description>
             <link>https://www.lijiaocn.com/soft/linuxsys/tpproxy.html</link>
@@ -221,8 +228,8 @@
         <item>
             <title><![CDATA[Minikube 使用方法（最详细的中文手册）]]></title>
             <description><![CDATA[用 minikube 部署开发测试环境 中记录了 minikube 的使用方法，这里重新整理一下。]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/README.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/README.html</guid>
+            <link>https://www.lijiaocn.com/soft/minikube/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -261,6 +268,13 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
+            <title><![CDATA[Nginx常用操作]]></title>
+            <description><![CDATA[提前了解这些，可以避免踩坑：]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
             <title><![CDATA[Nginx 学习资料]]></title>
             <description><![CDATA[OpenResty作者章宜春有一个agentzh 的 Nginx 教程（版本 2016.07.21），不过这个教程没写完，
 可以用来培养感性认识，中文阅读起来方便一些。OpenResty最佳实践中有一章是关于Nginx的，
@@ -284,10 +298,31 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
+            <title><![CDATA[OpenResty介绍]]></title>
+            <description><![CDATA[内容准备中...移步Web开发平台OpenResty]]></description>
+            <link>https://www.lijiaocn.com/soft/openresty/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/openresty/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Mac/macOS 使用手册，开发人员常用命令]]></title>
+            <description><![CDATA[Mac 几乎成为程序员的标准开发环境了，但是 MacOS 系统的命令行指令对大多数人来说，还是很陌生的，部分指令是 BSD 风格的，与 linux 的操作命令的形似而不同，也常常带来困扰。这里收集在开发过程中会经常用到的 MacOS 命令行指令。]]></description>
+            <link>https://www.lijiaocn.com/soft/mac/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/mac/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
             <title><![CDATA[Mac/macOS 使用手册 —— 网络指令]]></title>
             <description><![CDATA[macOS 上的 netstat 命令用来查看本机的网络连接情况，但是要注意，macOS 的 netstat 命令用法与 linux 上的 netstat 不同。譬如在 linux 中 -p 参数的意思是显示关联的进程的程序名，在 macOS 中是指定协议：]]></description>
             <link>https://www.lijiaocn.com/soft/mac/network.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/mac/network.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Linux问题分析与性能优化]]></title>
+            <description><![CDATA[个人学习笔记，记录Linux相关的知识，性能优化部分的内容主要来自极客时间出品的倪鹏飞专栏《Linux性能优化》。这里使用的操作系统是CentOS，索引了大量参考资料，为了能够查看内核文档，需要在系统上安装man-pages：]]></description>
+            <link>https://www.lijiaocn.com/soft/linux/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linux/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
