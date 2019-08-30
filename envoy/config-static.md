@@ -1,7 +1,7 @@
 <!-- toc -->
 # Envoy 的静态配置示例
 
-监听转发配置（listener、cluster）可以静态配置也可以动态获取，在 `static_resources` 中静态配置。
+监听转发配置（listener、cluster）可以静态配置也可以动态获取，静态配置在 `static_resources` 中。
 
 这里使用的配置文件是：[envoy-1-static.yaml][1]，envoy 启动命令为：
 
@@ -11,7 +11,7 @@
 
 ## 转发到指定IP
 
-在 clusters 中配置了一个名为 service_echo 的 cluster ，它指向 172.17.0.3:8080，在本例中，这是前面启动的 echo 容器的地址：
+在 clusters 中配置了一个名为 service_echo 的 cluster ，它指向 172.17.0.2:8080，在本例中，这是 [初次体验](./echoserver.md) 启动的 echoserver 容器的地址：
 
 ```yaml
 - name: service_echo
@@ -20,11 +20,11 @@
   lb_policy: ROUND_ROBIN
   hosts:
     - socket_address:
-        address:  172.17.0.3
+        address:  172.17.0.2
         port_value: 8080
 ```
 
-在 listeners 中配置一个名为 listener_0  的 listener，它监听 80 端口，将匹配 "Host: echo.com" 和 "/" 的请求转发到上面的 cluster：
+在 listeners 中配置一个名为 listener_0  的 listener，它监听 80 端口，将匹配 "Host: echo.com" 和 "/" 的请求转发给上面的 cluster：
 
 ```yaml
 - name: listener_0
@@ -114,7 +114,7 @@ Request Body:
 
 ## 转发到域名
 
-配置一个 cluster，endpoint 中填入的是域名：
+配置一个 cluster，endpoint 中填入域名 www.baidu.com：
 
 ```yaml
 - name: service_baidu
@@ -165,7 +165,7 @@ Request Body:
         - name: envoy.router
 ```
 
-访问 127.0.0.1:81 时，无论 host 是多少，都转发到 www.baidu.com：
+访问 127.0.0.1:81，无论 host 是多少，都转发到 www.baidu.com：
 
 ```sh
 $ curl 127.0.0.1:81
