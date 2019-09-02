@@ -8,7 +8,7 @@
 ```sh
 ├── envoy-docker-run
 │   ├── envoy-0-default.yaml
-│   ├── envoy-0-example.yaml
+│   ├── envoy-1-ads-with-xds.yaml
 │   ├── envoy-1-ads.yaml
 │   ├── envoy-1-static.yaml
 │   ├── envoy-1-xds.yaml
@@ -21,35 +21,28 @@
 
 ## 启动 envoy
 
-进入 envoy-docker-run 目录，运行 run.sh ，启动一个 envoy 容器：
+envoy 启动时使用用配置文件 [envoy-1-ads-with-xds.yaml][2]，这个配置文件中
 
 ```sh
-cd envoy-docker-run
-./run.sh
+./run.sh envoy-1-ads-with-xds.yaml
 ```
 
-envoy 容器的网络模式是 host，使用的配置文件是脚本所在目录中的 [envoy-0-example.yaml][2]：
+[envoy-1-ads-with-xds.yaml][2] 中配置了两个 cluster，一个是 ads_cluster 一个是 xds_cluster，后面的演示代码既会下发使用 xds ，也会使用 ads ，所以在配置了这两个 cluster。
 
-```
-docker run -idt --network=host -v `pwd`/envoy-0-example.yaml:/etc/envoy/envoy.yaml -v `pwd`/log:/var/log/envoy $IMAGE
-```
-
-[envoy-0-example.yaml][2] 中配置了两个下发配置的 cluster，一个是 ads_cluster 一个是 xds_cluster。后面的演示代码既会下发使用 xds 的配置，也会下发使用 ads 的配置，所以在配置了这两个 cluster。
-
-另外几个配置文件演示没有用到，仅供参考：
 
 ```sh
-│   ├── envoy-0-default.yaml    # envoy 容器中的默认配置
-│   ├── envoy-0-example.yaml    # 演示用的配置，同时配置了 ads、xds。
-│   ├── envoy-1-ads.yaml        # 只使用 ads 发现配置的配置 
-│   ├── envoy-1-static.yaml     # 完全静态的配置
-│   ├── envoy-1-xds.yaml        # 只使用 ads 发现配置的配置
-│   ├── envoy-to-grpc-svc.yaml  # grpc 代理配置
+│   ├── envoy-0-default.yaml         # envoy 容器中的默认配置
+│   ├── envoy-0-example.yaml         # 初次体验使用的配置
+│   ├── envoy-1-ads-with-xds.yaml    # 演示配置下发时用的配置，同时配置了 ads、xds
+│   ├── envoy-1-ads.yaml             # 只使用 ads 发现配置的配置 
+│   ├── envoy-1-static.yaml          # 完全静态的配置
+│   ├── envoy-1-xds.yaml             # 只使用 ads 发现配置的配置
+│   ├── envoy-to-grpc-svc.yaml       # grpc 代理配置
 ```
 
 ## 演示用的配置文件说明
 
-[envoy-0-example.yaml][2] 的内容比较长，分成几段说明。
+[envoy-1-ads-with-xds.yaml][2] 的内容比较长，分成几段说明。
 
 第一段是 envoy 的常规配置，配置 envoy 的 id、管理接口等：
 
@@ -174,4 +167,4 @@ static_resources:
 ## 参考
 
 [1]: https://github.com/introclass/go-code-example/tree/master/envoydev/xds  "github.com/introclass/go-code-example/envoydev/xds"
-[2]: https://github.com/introclass/go-code-example/blob/master/envoydev/xds/envoy-docker-run/envoy-0-example.yaml "envoy-0-example.yaml"
+[2]: https://github.com/introclass/go-code-example/blob/master/envoydev/xds/envoy-docker-run/envoy-1-ads-with-xds.yaml "envoy-1-ads-with-xds.yaml"

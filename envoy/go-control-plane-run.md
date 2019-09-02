@@ -1,7 +1,11 @@
 <!-- toc -->
 # go-control-plane 下发配置示例—运行和效果
 
-这里详细演示、说明动态的配置的几种组合。
+这里详细演示、说明动态的配置的几种组合，使用的 envoy 配置文件是 envoy-1-ads.yaml：
+
+```sh
+./run.sh envoy-1-ads.yaml
+```
 
 ## envoy 初始状态
 
@@ -145,7 +149,7 @@ ads 的配置和 xds 不同，不需要指定 cluster，声明使用 ADS 即可�
 
 ## 使用静态路由的 listener
 
-前面的几个步骤下发了 cluster，没有下发 listener，无法访问 cluster。要访问 cluster 必须配置一个指向它的 listener：
+前面的几个步骤下发了 cluster，没有下发 listener，无法访问 cluster，要访问 cluster 必须配置一个指向它的 listener。
 
 ```go
 {
@@ -157,12 +161,12 @@ ads 的配置和 xds 不同，不需要指定 cluster，声明使用 ADS 即可�
     var addrs []ADDR
     addrs = append(addrs, ADDR{
         Address: "127.0.0.1",
-        Port:    8084,
+        Port:    8080,
     })
     cluster := Cluster_STATIC(clusterName, addrs)
     node_config.clusters = append(node_config.clusters, cluster)
 
-    lis := Listener_STATIC(listenerName, 84, "webshell.com", "/abc", clusterName)
+    lis := Listener_STATIC(listenerName, 84, "echo.example", "/abc", clusterName)
     node_config.listeners = append(node_config.listeners, lis)
 
     Update_SnapshotCache(snapshotCache, node_config, "4")
@@ -170,33 +174,115 @@ ads 的配置和 xds 不同，不需要指定 cluster，声明使用 ADS 即可�
 }
 ```
 
-上面的代码下发了一个监听 84 端口，转发到 127.0.0.1:8084 的 listener，转发规则为 Host 是 webshell.com，prefix 是 /abc：
+上面的代码下发了一个监听 84 端口、将请求转发到 172.17.0.2:8080 的 listener，转发规则为 Host 是 echo.example，prefix 是 /abc：
+这里的 172.17.0.2:8080，是 [初次体验](./echoserver.md) 中启动的 echoserver 容器的地址。
+
+下发以后，在管理界面可以看到下面的配置：
 
 ![使用 ads 发现 endpoint 的 cluster](/img/envoy/envoy-listener.png)
 
 这时候可以通过 84 端口访问 cluster：
 
 ```sh
-$ curl -v  -H "Host: webshell.com" 127.0.0.1:84/abc
-* About to connect() to 127.0.0.1 port 84 (#0)
-*   Trying 127.0.0.1...
-* Connected to 127.0.0.1 (127.0.0.1) port 84 (#0)
-> GET /abc HTTP/1.1
-> User-Agent: curl/7.29.0
-> Accept: */*
-> Host: webshell.com
->
-< HTTP/1.1 200 OK
-< server: envoy
-< date: Thu, 15 Aug 2019 07:44:51 GMT
-< content-type: application/octet-stream
-< content-length: 3
-< last-modified: Thu, 15 Aug 2019 02:40:31 GMT
-< x-envoy-upstream-service-time: 1
-<
-aa
-* Connection #0 to host 127.0.0.1 left intact
+$ curl   -H "Host: echo.example" 127.0.0.1:84/abc
+
+Hostname: 7759cabd7402
+
+Pod Information:
+	-no pod information available-
+
+Server values:
+	server_version=nginx: 1.13.3 - lua: 10008
+
+Request Information:
+	client_address=172.17.0.3
+	method=GET
+	real path=/abc
+	query=
+	request_version=1.1
+	request_scheme=http
+	request_uri=http://echo.example:8080/abc
+
+Request Headers:
+	accept=*/*
+	content-length=0
+	host=echo.example
+	user-agent=curl/7.54.0
+	x-envoy-expected-rq-timeout-ms=15000
+	x-forwarded-proto=http
+	x-request-id=8bda7006-87dd-4251-ad3a-431d610ef806
+
+Request Body:
+	-no body in request-
 ```
+
+## 从 XDS 中发现路由的 listener
+
+```go
+{
+	listenerName := "Listener_With_Dynamic_Route"
+	fmt.Printf("\nEnter to update version 5: %s", listenerName)
+	_, _ = fmt.Scanf("\n", &input)
+
+	clusterName := "Listener_With_Dynamic_Route_Target_Cluster"
+	var addrs []ADDR
+	addrs = append(addrs, ADDR{
+		Address: "172.17.0.2",
+		Port:    8080,
+	})
+	cluster := Cluster_STATIC(clusterName, addrs)
+	node_config.clusters = append(node_config.clusters, cluster)
+
+	routeName := "Listener_With_Dynamic_Route_Route"
+	r := Route(routeName, "echo.example", "/123", clusterName)
+	node_config.routes = append(node_config.routes, r)
+
+	var rdsCluster []string
+	rdsCluster = append(rdsCluster, "xds_cluster") //静态的配置的 cluster
+	lis := Listener_RDS(listenerName, 85, routeName, rdsCluster)
+	node_config.listeners = append(node_config.listeners, lis)
+
+	Update_SnapshotCache(snapshotCache, node_config, "5")
+	fmt.Printf("ok")
+}
+```
+
+上面代码中 rds 配置的是 xds_cluster，xds_cluster 是配置文件中事先配置的静态 cluster：
+
+![从 XDS 中发现路由的 listener](../img/envoy/envoy-rds.png)
+
+## 从 ADS 中发现路由的 listener
+
+```go
+{
+	listenerName := "Listener_With_ADS_Route"
+	fmt.Printf("\nEnter to update version 6: %s", listenerName)
+	_, _ = fmt.Scanf("\n", &input)
+
+	clusterName := "Listener_With_ADS_Route_Target_Cluster"
+	var addrs []ADDR
+	addrs = append(addrs, ADDR{
+		Address: "172.17.0.2",
+		Port:    8080,
+	})
+	cluster := Cluster_STATIC(clusterName, addrs)
+	node_config.clusters = append(node_config.clusters, cluster)
+
+	routeName := "Listener_With_ADS_Route_Route"
+	r := Route(routeName, "echo.example", "/a1b", clusterName)
+	node_config.routes = append(node_config.routes, r)
+
+	lis := Listener_ADS(listenerName, 86, routeName)
+	node_config.listeners = append(node_config.listeners, lis)
+
+	Update_SnapshotCache(snapshotCache, node_config, "6")
+	fmt.Printf("ok")
+}
+```
+
+上面代码中 rds 配置的是 ads，ads 指向配置文件中事先配置的 ads_cluster：
+
+![从 ADS 中发现路由的 listener](../img/envoy/envoy-ads.png)
 
 ## 参考
 

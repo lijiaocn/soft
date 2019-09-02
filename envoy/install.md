@@ -76,6 +76,7 @@ go-code-example 中有多个目录，分别是不同项目的试验素材，本�
       ▸ log/
         envoy-0-default.yaml
         envoy-0-example.yaml
+        envoy-1-ads-with-xds.yaml
         envoy-1-ads.yaml
         envoy-1-static.yaml
         envoy-1-xds.yaml

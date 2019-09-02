@@ -79,4 +79,20 @@ Envoy 的 [API 文档](https://www.envoyproxy.io/docs/envoy/latest/api/api) 中�
 }
 ```
 
+## 本手册中用到的几个配置文件
+
+[xds/envoy-docker-run][1]：
+
+```sh
+│   ├── envoy-0-default.yaml         # envoy 容器中的默认配置
+│   ├── envoy-0-example.yaml         # 初次体验使用的配置
+│   ├── envoy-1-ads-with-xds.yaml    # 演示配置下发时用的配置，同时配置了 ads、xds
+│   ├── envoy-1-ads.yaml             # 只使用 ads 发现配置的配置 
+│   ├── envoy-1-static.yaml          # 完全静态的配置
+│   ├── envoy-1-xds.yaml             # 只使用 ads 发现配置的配置
+│   ├── envoy-to-grpc-svc.yaml       # grpc 代理配置
+```
+
 ## 参考
+
+[1]: https://github.com/introclass/go-code-example/tree/master/envoydev/xds/envoy-docker-run "envoy-docker-run"
