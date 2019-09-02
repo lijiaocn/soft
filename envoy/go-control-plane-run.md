@@ -1,6 +1,7 @@
 <!-- toc -->
 # go-control-plane 下发配置示例——运行和效果
 
+这里详细演示、说明动态的配置的几种组合。
 
 ## envoy 初始状态
 
@@ -50,12 +51,6 @@ Enter to exit: ^C
 
 ## 使用静态 endpoint 的 cluster
 
-增加一个地址为 127.0.0.1:8081 的 cluster，下发后多出一个名为  Cluster_With_Static_Endpoint 的 cluster：
-
-![envoy中下发的静态cluster](/img/envoy/envoy-static-cluster.png)
-
-对应代码：
-
 ```go
 {
     clusterName := "Cluster_With_Static_Endpoint"
@@ -74,17 +69,11 @@ Enter to exit: ^C
 }
 ```
 
+下发后多出一个名为  Cluster_With_Static_Endpoint 的 cluster，地址为 127.0.0.1:8081。
+
+![envoy中下发的静态cluster](/img/envoy/envoy-static-cluster.png)
+
 ## 使用 eds 发现 endpoint 的 cluster
-
-增加一个地址为 127.0.0.1:8082 的 cluster，下发后多出一个名为 Cluster_With_Dynamic_Endpoint 的 cluster：
-
-![envoy中下发的静态cluster](/img/envoy/envoy-cluster-eds.png)
-
-cluster 没有直接配置 endpoint，而是指定从 xds_cluster 中获取，在 IP:9901/clusters 中可以看到 endpoint：
-
-![envoy中动态获取的endpoints](/img/envoy/envoy-dynamic-cls-ep.png)
-
-对应代码： 
 
 ```go
 {
@@ -114,14 +103,15 @@ cluster 没有直接配置 endpoint，而是指定从 xds_cluster 中获取，�
 }
 ```
 
+下发后多出一个名为 Cluster_With_Dynamic_Endpoint 的 cluster，地址为 127.0.0.1:8082。
+
+![envoy中下发的静态cluster](/img/envoy/envoy-cluster-eds.png)
+
+cluster 中没有直接配置 endpoint，指定从 xds_cluster 中获取，在 IP:9901/clusters 中可以看到 endpoint：
+
+![envoy中动态获取的endpoints](/img/envoy/envoy-dynamic-cls-ep.png)
+
 ## 使用 ads 发现 endpoint 的 cluster
-
-增加一个地址为 127.0.0.1:8083 的 cluster，下发后多出一个名为 Cluster_With_ADS_Endpoint 的 cluster，ads 的配置和 xds 不同，不需要指定 cluster，只需要声明 ADS 即可：
-
-![使用 ads 发现 endpoint 的 cluster](/img/envoy/envoy-cls-ads.png)
-
-
-对应代码：
 
 ```go
 {
@@ -147,13 +137,15 @@ cluster 没有直接配置 endpoint，而是指定从 xds_cluster 中获取，�
 }
 ```
 
+下发后多出一个名为 Cluster_With_ADS_Endpoint 的 cluster，地址为 127.0.0.1:8083。
+
+ads 的配置和 xds 不同，不需要指定 cluster，声明使用 ADS 即可：
+
+![使用 ads 发现 endpoint 的 cluster](/img/envoy/envoy-cls-ads.png)
+
 ## 使用静态路由的 listener
 
-前面只下发了 cluster，没有下发 listener，无法访问 cluster。要访问 cluster 必须配置一个指向它的 listener，下发一个监听 84 端口，转发到 127.0.0.1:8084 的 listener：
-
-![使用 ads 发现 endpoint 的 cluster](/img/envoy/envoy-listener.png)
-
-对应代码，转发规则为 Host 是 webshell.com，prefix 是 /abc：
+前面的几个步骤下发了 cluster，没有下发 listener，无法访问 cluster。要访问 cluster 必须配置一个指向它的 listener：
 
 ```go
 {
@@ -178,7 +170,11 @@ cluster 没有直接配置 endpoint，而是指定从 xds_cluster 中获取，�
 }
 ```
 
-下发后可以访问 cluster：
+上面的代码下发了一个监听 84 端口，转发到 127.0.0.1:8084 的 listener，转发规则为 Host 是 webshell.com，prefix 是 /abc：
+
+![使用 ads 发现 endpoint 的 cluster](/img/envoy/envoy-listener.png)
+
+这时候可以通过 84 端口访问 cluster：
 
 ```sh
 $ curl -v  -H "Host: webshell.com" 127.0.0.1:84/abc
