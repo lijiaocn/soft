@@ -261,14 +261,59 @@ var _hmt = _hmt || [];
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="1.2.6" data-path="dynamic-config.html">
+        <li class="chapter " data-level="1.2.5.1" data-path="xds.html">
             
-                <a href="dynamic-config.html">
+                <a href="xds.html">
             
                     
-                    配置下发
+                    用 XDS 下发配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="ads.html">
+            
+                <a href="ads.html">
+            
+                    
+                    用 ADS 下发配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="mds.html">
+            
+                <a href="mds.html">
+            
+                    
+                    lds/cds/rds/sds/eds
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="control.html">
+            
+                <a href="control.html">
+            
+                    
+                    控制平面实现
             
                 </a>
             
@@ -282,7 +327,7 @@ var _hmt = _hmt || [];
                 <a href="go-control-plane-api.html">
             
                     
-                    配置在 go-control-plane 中的定义
+                    go-control-plane 配置定义
             
                 </a>
             
@@ -1486,7 +1531,15 @@ var _hmt = _hmt || [];
 </div>
 
 
-                                <h1 id="envoy-&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;">Envoy &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</h1>
+                                <!-- toc -->
+<ul>
+<li><a href="#envoy-&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;">Envoy &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</a><ul>
+<li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="envoy-&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;">Envoy &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</h1>
 <p>Envoy &#x7684; <a href="https://www.envoyproxy.io/docs/envoy/latest/api/api" target="_blank">API &#x6587;&#x6863;</a> &#x4E2D;&#xFF0C;&#x5206;&#x522B;&#x7ED9;&#x51FA;&#x4E86;&#x6BCF;&#x4E2A;&#x914D;&#x7F6E;&#x9879;&#x7684;&#x683C;&#x5F0F;&#xFF0C;<a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/27/envoy-05-configfile.html" target="_blank">&#x300A;Envoy Proxy&#x4F7F;&#x7528;&#x4ECB;&#x7ECD;&#x6559;&#x7A0B;&#xFF08;&#x4E94;&#xFF09;&#xFF1A;envoy&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5B8C;&#x5168;&#x5C55;&#x5F00;&#x4ECB;&#x7ECD;&#x300B;</a> &#x5C06; envoy 1.8.0  &#x7684;&#x5404;&#x4E2A;&#x914D;&#x7F6E;&#x9879;&#x683C;&#x5F0F;&#x7EC4;&#x5408;&#x4E86;&#x8D77;&#x6765;&#xFF0C;&#x5448;&#x73B0;&#x4E86; envoy &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x5B8C;&#x6574;&#x8F6E;&#x5ED3;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;node&quot;</span>: {
@@ -1634,7 +1687,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"配置文件","level":"1.2.3","depth":2,"next":{"title":"静态配置","level":"1.2.4","depth":2,"path":"envoy/config-static.md","ref":"envoy/config-static.md","articles":[]},"previous":{"title":"初次体验","level":"1.2.2","depth":2,"path":"envoy/echoserver.md","ref":"envoy/echoserver.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/config.md","mtime":"2019-08-30T22:41:34.925Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-30T23:00:16.998Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"配置文件","level":"1.2.3","depth":2,"next":{"title":"静态配置","level":"1.2.4","depth":2,"path":"envoy/config-static.md","ref":"envoy/config-static.md","articles":[]},"previous":{"title":"初次体验","level":"1.2.2","depth":2,"path":"envoy/echoserver.md","ref":"envoy/echoserver.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/config.md","mtime":"2019-09-02T08:41:57.448Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-02T09:00:44.519Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

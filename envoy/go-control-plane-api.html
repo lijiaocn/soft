@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>配置在 go-control-plane 中的定义 · 小鸟笔记·李佶澳</title>
+        <title>go-control-plane 配置定义 · 小鸟笔记·李佶澳</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,7 +69,7 @@
     <link rel="next" href="go-control-plane-send.html" />
     
     
-    <link rel="prev" href="dynamic-config.html" />
+    <link rel="prev" href="control.html" />
     
 
     <link href="https://www.lijiaocn.com/soft/feed.xml" title="常见软件系统实用使用手册" rel="alternate" type="application/rss+xml" />
@@ -261,14 +261,59 @@ var _hmt = _hmt || [];
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="1.2.6" data-path="dynamic-config.html">
+        <li class="chapter " data-level="1.2.5.1" data-path="xds.html">
             
-                <a href="dynamic-config.html">
+                <a href="xds.html">
             
                     
-                    配置下发
+                    用 XDS 下发配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="ads.html">
+            
+                <a href="ads.html">
+            
+                    
+                    用 ADS 下发配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="mds.html">
+            
+                <a href="mds.html">
+            
+                    
+                    lds/cds/rds/sds/eds
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="control.html">
+            
+                <a href="control.html">
+            
+                    
+                    控制平面实现
             
                 </a>
             
@@ -282,7 +327,7 @@ var _hmt = _hmt || [];
                 <a href="go-control-plane-api.html">
             
                     
-                    配置在 go-control-plane 中的定义
+                    go-control-plane 配置定义
             
                 </a>
             
@@ -1456,7 +1501,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >配置在 go-control-plane 中的定义</a>
+        <a href=".." >go-control-plane 配置定义</a>
     </h1>
 </div>
 
@@ -1486,7 +1531,15 @@ var _hmt = _hmt || [];
 </div>
 
 
-                                <h1 id="&#x52A8;&#x6001;&#x914D;&#x7F6E;&#x5728;-go-control-plane-&#x4E2D;&#x7684;&#x5B9A;&#x4E49;">&#x52A8;&#x6001;&#x914D;&#x7F6E;&#x5728; go-control-plane &#x4E2D;&#x7684;&#x5B9A;&#x4E49;</h1>
+                                <!-- toc -->
+<ul>
+<li><a href="#&#x52A8;&#x6001;&#x914D;&#x7F6E;&#x5728;-go-control-plane-&#x4E2D;&#x7684;&#x5B9A;&#x4E49;">&#x52A8;&#x6001;&#x914D;&#x7F6E;&#x5728; go-control-plane &#x4E2D;&#x7684;&#x5B9A;&#x4E49;</a><ul>
+<li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="&#x52A8;&#x6001;&#x914D;&#x7F6E;&#x5728;-go-control-plane-&#x4E2D;&#x7684;&#x5B9A;&#x4E49;">&#x52A8;&#x6001;&#x914D;&#x7F6E;&#x5728; go-control-plane &#x4E2D;&#x7684;&#x5B9A;&#x4E49;</h1>
 <p><a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/29/envoy-07-features-2-dynamic-discovery.html#go-control-plane" target="_blank">go-control-plane</a> &#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x5B9A;&#x4E49;&#x4E0E; <a href="https://www.envoyproxy.io/docs/envoy/latest/api/api" target="_blank">API &#x6587;&#x6863;</a> &#x4E2D;&#x7ED9;&#x51FA;&#x7684;&#x76F8;&#x540C;&#xFF0C;&#x4EE5; listener &#x4E3A;&#x4F8B;&#xFF1A;</p>
 <p>api &#x6587;&#x6863;&#x4E2D;&#x7684; <a href="https://www.envoyproxy.io/docs/envoy/latest/api-v2/api/v2/lds.proto#listener" title="listener" target="_blank">listeners</a> &#xFF1A;</p>
 <pre><code class="lang-json">{
@@ -1506,7 +1559,7 @@ var _hmt = _hmt || [];
   <span class="hljs-string">&quot;traffic_direction&quot;</span>: <span class="hljs-string">&quot;...&quot;</span>
 }
 </code></pre>
-<p>go-control-plane &#x5728; <a href="https://github.com/envoyproxy/go-control-plane/blob/v0.8.4/envoy/api/v2/lds.pb.go" target="_blank">envoy/api/v2/lds.pb.go</a> &#x4E2D;&#x5B9E;&#x73B0;&#x7684; Listener&#xFF1A;</p>
+<p>&#x5BF9;&#x5E94; go-control-plane &#x5728; <a href="https://github.com/envoyproxy/go-control-plane/blob/v0.8.4/envoy/api/v2/lds.pb.go" target="_blank">envoy/api/v2/lds.pb.go</a> &#x4E2D;&#x5B9E;&#x73B0;&#x7684; Listener&#xFF1A;</p>
 <pre><code class="lang-go"><span class="hljs-keyword">type</span> Listener <span class="hljs-keyword">struct</span> {
     Name <span class="hljs-keyword">string</span> 
     Address *core.Address 
@@ -1583,7 +1636,7 @@ var _hmt = _hmt || [];
 
             
                 
-                <a href="dynamic-config.html" class="navigation navigation-prev " aria-label="Previous page: 配置下发">
+                <a href="control.html" class="navigation navigation-prev " aria-label="Previous page: 控制平面实现">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1599,7 +1652,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"配置在 go-control-plane 中的定义","level":"1.2.6.1","depth":3,"next":{"title":"go-control-plane 使用介绍","level":"1.2.6.2","depth":3,"path":"envoy/go-control-plane-send.md","ref":"envoy/go-control-plane-send.md","articles":[]},"previous":{"title":"配置下发","level":"1.2.6","depth":2,"path":"envoy/dynamic-config.md","ref":"envoy/dynamic-config.md","articles":[{"title":"配置在 go-control-plane 中的定义","level":"1.2.6.1","depth":3,"path":"envoy/go-control-plane-api.md","ref":"envoy/go-control-plane-api.md","articles":[]},{"title":"go-control-plane 使用介绍","level":"1.2.6.2","depth":3,"path":"envoy/go-control-plane-send.md","ref":"envoy/go-control-plane-send.md","articles":[]},{"title":"go-control-plane 示例准备","level":"1.2.6.3","depth":3,"path":"envoy/go-control-plane-env.md","ref":"envoy/go-control-plane-env.md","articles":[]},{"title":"go-control-plane 示例说明","level":"1.2.6.4","depth":3,"path":"envoy/go-control-plane-code.md","ref":"envoy/go-control-plane-code.md","articles":[]},{"title":"go-control-plane 示例运行","level":"1.2.6.5","depth":3,"path":"envoy/go-control-plane-run.md","ref":"envoy/go-control-plane-run.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/go-control-plane-api.md","mtime":"2019-08-30T22:41:34.926Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-30T23:00:16.998Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"go-control-plane 配置定义","level":"1.2.6.1","depth":3,"next":{"title":"go-control-plane 使用介绍","level":"1.2.6.2","depth":3,"path":"envoy/go-control-plane-send.md","ref":"envoy/go-control-plane-send.md","articles":[]},"previous":{"title":"控制平面实现","level":"1.2.6","depth":2,"path":"envoy/control.md","ref":"envoy/control.md","articles":[{"title":"go-control-plane 配置定义","level":"1.2.6.1","depth":3,"path":"envoy/go-control-plane-api.md","ref":"envoy/go-control-plane-api.md","articles":[]},{"title":"go-control-plane 使用介绍","level":"1.2.6.2","depth":3,"path":"envoy/go-control-plane-send.md","ref":"envoy/go-control-plane-send.md","articles":[]},{"title":"go-control-plane 示例准备","level":"1.2.6.3","depth":3,"path":"envoy/go-control-plane-env.md","ref":"envoy/go-control-plane-env.md","articles":[]},{"title":"go-control-plane 示例说明","level":"1.2.6.4","depth":3,"path":"envoy/go-control-plane-code.md","ref":"envoy/go-control-plane-code.md","articles":[]},{"title":"go-control-plane 示例运行","level":"1.2.6.5","depth":3,"path":"envoy/go-control-plane-run.md","ref":"envoy/go-control-plane-run.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/go-control-plane-api.md","mtime":"2019-09-02T08:48:14.596Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-02T09:00:44.519Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

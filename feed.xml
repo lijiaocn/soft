@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 30 Aug 2019 23:00:33 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 Sep 2019 09:00:57 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -50,17 +50,38 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Envoy 的动态配置示例]]></title>
-            <description><![CDATA[Listener、Cluster 等除了在配置文件中静态配置，还可以从控制平面动态获取。]]></description>
+            <title><![CDATA[Envoy 的动态配置]]></title>
+            <description><![CDATA[Listener、Cluster 等除了在配置文件中静态配置，还可以从控制平面动态获取。下发动态配置的服务叫做 控制平面 ，它的地址以 cluster 的形式在配置文件中静态配置，然后在 dynamic_resources 中引用这个 cluster。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/config-dynamic.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config-dynamic.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Envoy 的动态配置下发]]></title>
+            <title><![CDATA[envoy 用 XDS 动态发现配置的方法]]></title>
+            <description><![CDATA[这里使用的配置文件是 envoy-docker-run/envoy-1-xds.yaml。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/xds.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/xds.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[envoy 用 ADS 动态发现配置的方法]]></title>
+            <description><![CDATA[这里使用的配置文件是 envoy-docker-run/envoy-1-ads.yaml。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/ads.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/ads.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[envoy 的 lds/cds/rds/sds/eds]]></title>
+            <description><![CDATA[dynamic_resources 配置中只有 lds_config、cds_config 和 ads_config，分别对应 listenter、cluster 和聚合发现：]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/mds.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/mds.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的控制平面的实现]]></title>
             <description><![CDATA[可以动态下发的配置有：]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/dynamic-config.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/dynamic-config.html</guid>
+            <link>https://www.lijiaocn.com/soft/envoy/control.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/control.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -72,7 +93,7 @@
         </item>
         <item>
             <title><![CDATA[go-controller-plane 的基本用法]]></title>
-            <description><![CDATA[go-control-plane 是一个框架，提供配置下发接口，在它的基础上根据自己的需要开发其它功能。]]></description>
+            <description><![CDATA[go-control-plane 是一个框架，提供了配置下发接口，在它的基础上根据自己的需要开发其它功能。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-send.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-send.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -86,7 +107,7 @@
         </item>
         <item>
             <title><![CDATA[go-control-plane 下发配置示例——代码说明]]></title>
-            <description><![CDATA[示例代码是 xds.go，这是一段超级简单、简陋的代码，只用来演示如何下发配置，下面是 xds.go 代码的说明，不包含完整代码，完整代码见 xds.go。]]></description>
+            <description><![CDATA[示例代码是 xds.go，这是一段超级简单、简陋的代码，只用来演示如何下发配置，下面是 xds.go 代码的说明，完整代码见 xds.go。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
