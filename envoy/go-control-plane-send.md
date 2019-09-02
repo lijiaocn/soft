@@ -1,9 +1,9 @@
 <!-- toc -->
 # go-controller-plane 的基本用法 
 
-[go-control-plane][1] 是一个框架，提供配置下发接口，在它的基础上根据自己的需要开发其它功能。
+[go-control-plane][1] 是一个框架，提供了配置下发接口，在它的基础上根据自己的需要开发其它功能。
 
-这里简单说明下用法，下一节有详细的例子，这一节注意 **动态配置与 envoy 的配对** 的方法。
+这里简单说明下用法，下一节有详细的例子，注意 **动态配置与 envoy 的配对** 的方法。
 
 ## 准备开发环境
 
@@ -51,9 +51,9 @@ func main() {
 
 ## 动态配置与 envoy 的配对
 
-动态配置具体到 envoy ，每个 envoy 的动态配置都是单独维护的数据。
+动态配置是关联到 envoy 的 ，每个 envoy 的动态配置都要单独维护。
 
-在 envoy 的配置文件中有一段 node 配置，标注当前 envoy 所属的 cluster 和 id，envoy 只接受使用同样的 cluster 和 id 的动态配置：
+在 envoy 的配置文件中有一段 node 配置，标注了当前 envoy 所属的 cluster 和 id，envoy 只接受使用同样的 cluster 和 id 的动态配置：
 
 ```yaml
 node:

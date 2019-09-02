@@ -1,5 +1,5 @@
 <!-- toc -->
-# Envoy 的动态配置下发
+# Envoy 的控制平面的实现
 
 可以动态下发的配置有：
 
@@ -11,9 +11,9 @@
 
 对应的服务端分别称为 [cds][10]、[lds][13]、[rds][14]、[sds][11] 。
 
-## 配置下发协议
+## 下发协议
 
-[envoyproxy/data-plane-api][15] 定义了 envoy 的 REST API 和使用的通信协议 [xDS REST and gRPC protocol][16]，同时 Envoy 开源了一个控制层面的开发框架 [envoyproxy/go-control-plane][17]，使用该框架可以快速开发一个控制平面（也就是 xDS 服务），框架已经实现了通信过程，不需要自行实现通信协议。
+[envoyproxy/data-plane-api][15] 定义了 envoy 的 REST API 和配置下发时使用的通信协议 [xDS REST and gRPC protocol][16]，同时 Envoy 开源了一个控制层面的开发框架 [envoyproxy/go-control-plane][17]，使用该框架可以快速开发一个控制平面（也就是 xDS 服务），框架已经实现了通信过程，不需要自行实现通信协议。
 
 ## 参考
 
