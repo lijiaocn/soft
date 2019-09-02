@@ -4,11 +4,11 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 02 Sep 2019 09:13:30 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 Sep 2019 09:14:55 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
-            <title><![CDATA[小鸟笔记——软件使用手册说明]]></title>
+            <title><![CDATA[小鸟笔记—软件使用手册说明]]></title>
             <description><![CDATA[这里记录工作中接触的一些重要的系统软件的使用方法，备忘录。]]></description>
             <link>https://www.lijiaocn.com/soft/</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/</guid>
@@ -99,21 +99,21 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[go-control-plane 下发配置示例——环境准备]]></title>
+            <title><![CDATA[go-control-plane 下发配置示例—环境准备]]></title>
             <description><![CDATA[这里演示一个用 go-control-plane 下发配置的例子。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-env.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-env.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[go-control-plane 下发配置示例——代码说明]]></title>
+            <title><![CDATA[go-control-plane 下发配置示例—代码说明]]></title>
             <description><![CDATA[示例代码是 xds.go，这是一段超级简单、简陋的代码，只用来演示如何下发配置，下面是 xds.go 代码的说明，完整代码见 xds.go。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[go-control-plane 下发配置示例——运行和效果]]></title>
+            <title><![CDATA[go-control-plane 下发配置示例—运行和效果]]></title>
             <description><![CDATA[这里详细演示、说明动态的配置的几种组合。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-run.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-run.html</guid>
