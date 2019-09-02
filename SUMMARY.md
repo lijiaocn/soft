@@ -1,6 +1,6 @@
 # Summary
 
-* [小鸟笔记——软件使用手册说明](README.md)
+* [小鸟笔记—软件使用手册说明](README.md)
 * [Envoy 使用手册（学习笔记）](envoy/index.md)
   * [安装运行](envoy/install.md)
   * [初次体验](envoy/echoserver.md)

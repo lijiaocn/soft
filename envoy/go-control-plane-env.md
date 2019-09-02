@@ -1,5 +1,5 @@
 <!-- toc -->
-# go-control-plane 下发配置示例——环境准备
+# go-control-plane 下发配置示例—环境准备
 
 这里演示一个用 go-control-plane 下发配置的例子。
 
