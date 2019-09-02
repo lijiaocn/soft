@@ -32,7 +32,7 @@ endpoint 在配置页面中看不到，要到 IP:9901/clusters 中查看：
 
 ![envoy 的初始化endpoint界面](/img/envoy/envoy-ed-init.png)
 
-## 启动 xds 
+## 启动控制平面
 
 演示实现的控制平面的功能如下，每按一次回车，下发一组配置：
 
