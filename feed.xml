@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 02 Sep 2019 09:00:57 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 Sep 2019 09:13:30 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -114,7 +114,7 @@
         </item>
         <item>
             <title><![CDATA[go-control-plane 下发配置示例——运行和效果]]></title>
-            <description><![CDATA[envoy 启动之后，通过 admin 地址（浏览器打开 IP:9901 ） 查看 envoy 的当前配置以及内部情况：]]></description>
+            <description><![CDATA[这里详细演示、说明动态的配置的几种组合。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-run.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-run.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
