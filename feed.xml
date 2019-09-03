@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 02 Sep 2019 15:05:46 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 03 Sep 2019 07:27:37 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -120,8 +120,15 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
+            <title><![CDATA[Envoy 的 Cluster 配置详解]]></title>
+            <description><![CDATA[Clusters 相当于 nginx 的 upstream，是一组 IP 或者域名的集合， 是 Envoy 收到的请求最终流向的地方。 Cluster 的配置项比较多，见 Clusters Config：]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/cluster.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/cluster.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
             <title><![CDATA[Envoy 的 Listener 配置详解]]></title>
-            <description><![CDATA[Listener 是 envoy 最重要的配置，也是最复杂的配置，它是 envoy 的监听配置，指定了 envoy 监听地址，以及请求如何处理、转发到哪里。Listener 中可以包含多个不同 filter，有一些 filter 本身又是比较复杂的，譬如 HTTP Connection Manager。]]></description>
+            <description><![CDATA[Listener 是 envoy 最重要的配置，也是最复杂的配置，它是 envoy 的监听配置，指定了 envoy 监听地址，以及请求如何处理、转发到哪里。Listener 中可以包含多个不同 filter，有一些 filter 本身又是比较复杂的，可以继续包含 filter，譬如 HTTP Connection Manager。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/listener.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/listener.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -135,14 +142,14 @@
         </item>
         <item>
             <title><![CDATA[go-control-plane 中的 filter 定义与下发]]></title>
-            <description><![CDATA[filter 是填充在 listener 中作为 listener 的一部分下发的，Listener 在 go-control-plane/envoy/api/v2/lds.pb.go 中定义，filter 的接口在 envoy/api/v2/listener/listener.pb.go 中定义，filter 的具体实现在 go-control-plane/envoy/config/filter/中。]]></description>
+            <description><![CDATA[Filter 是填充在 listener 中作为 listener 配置下发的，listener 在 go-control-plane/envoy/api/v2/lds.pb.go 中定义，filter 的接口在 envoy/api/v2/listener/listener.pb.go 中定义，filter 的实现在 go-control-plane/envoy/config/filter/ 中。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/filter-def.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/filter-def.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Envoy 的 listener filter 列表]]></title>
-            <description><![CDATA[下面是可以在加入到 listener_filter 的 listener filter。 这些 filter 的主要作用是检测协议、解析协议，通过它们解析出的信息被用于匹配 filter_chains 中的 filter。]]></description>
+            <description><![CDATA[下面是可以在加入 listener 的 listener_filter 字段中的 listener filter。 这些 filter 的主要作用是检测协议、解析协议，通过它们解析出的信息被用于匹配 filter_chains 中的 filter。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/listener-filter.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/listener-filter.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
