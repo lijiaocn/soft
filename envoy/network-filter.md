@@ -21,11 +21,11 @@
 
 HTTP connection manager、Thrift proxy 和 Dubbo proxy 还有在自己内部使用的 filter，分别是： [HTTP filters][3]、[Thrift filters][4]、[Dubbo filters][5]。
 
-## name: envoy.tcp_proxy
+## envoy.tcp_proxy
 
 [TCP proxy][12] 管理 download client 与 upstream cluster 之间的 tcp 连接，保证连接数不超过 upstream cluster 的上限。通常和其它 filter 配合使用。
 
-## name: envoy.ratelimit
+## envoy.ratelimit
 
 [Rate limit][13] 提供全局限速功能（需要连接外部的限速服务），可以限制 tcp 连接速率和 http 请求速率。为了避免每个连接、或者每个请求都查询限速服务，可以设置限速服务的查询占比：
 
@@ -34,15 +34,15 @@ ratelimit.tcp_filter_enabled     # 对应比例的连接会查询限速服务，
 ratelimit.tcp_filter_enforcing   # 对应比例的连接会查询限速服务，并按照查询结果执行
 ```
 
-## name: envoy.filters.network.rbac
+## envoy.filters.network.rbac
 
 [Role Based Access Control (RBAC) Network Filter][14] 提供了访问控制的能力。
 
-## name: envoy.client_ssl_auth
+## envoy.client_ssl_auth
 
 [Client TLS authentication][7] 验证 client 端的证书，它会以配置的频率调用 ` GET /v1/certs/list/approved` 获取最新的有效证书。
 
-## name: envoy.ext_authz
+## envoy.ext_authz
 
 [External Authorization][9] 通过外部的认证服务判断当前请求是否获得授权，如果没有授权，关闭连接。
 
@@ -70,23 +70,23 @@ clusters:
                 port_value: 10003
 ```
 
-## name: envoy.echo
+## envoy.echo
 
 [Echo][8] 将收到的数据原样返回给客户端。
 
-## name: envoy.http_connection_manager
+## envoy.http_connection_manager
 
 [HTTP connection manager][18] 是专门处理 http 协议的 network filter，因为 http 最经常使用的协议，对代理功能需求也非常多样， HTTP connection manager 本身是一个比较复杂的 network filter，在 envoy 文档中被单独列出：[HTTP connection manager][18]。
 
 HTTP connection manager 有自己专用的 HTTP filters，在 [http filters](./http-filter.md)  中单独介绍。
 
-## name: envoy.filters.network.thrift_proxy
+## envoy.filters.network.thrift_proxy
 
 [Thrift proxy][16] 能够解析 thrift 协议。
 
 Thrift proxy 有自己专用的 [Thrift filters][4]。
 
-## name: envoy.filters.network.dubbo_proxy
+## envoy.filters.network.dubbo_proxy
 
 [Dubbo proxy][6] 解析 dubbo client 和 service 之间的 grpc 通信。
 
@@ -119,16 +119,16 @@ filter_chains:
       - name: envoy.filters.dubbo.router
 ```
 
-## name: envoy.filters.network.zookeeper_proxy
+## envoy.filters.network.zookeeper_proxy
 
 [ZooKeeper proxy][17]  能够解析 zookeeper 协议。
 
 
-## name: envoy.mongo_proxy
+## envoy.mongo_proxy
 
 [Mongo proxy][10] 能够解析 mongo 通信，记录 mongo 日志、统计、注入错误等。
 
-## name: envoy.filters.network.mysql_proxy
+## envoy.filters.network.mysql_proxy
 
 [MySQL proxy][11] 能够解析 mysql 的通信协议，需要和 [TCP proxy][] 一起使用：
 
@@ -146,7 +146,7 @@ filter_chains:
       cluster: ...
 ```
 
-## name: envoy.redis_proxy
+## envoy.redis_proxy
 
 [Redis proxy][15] 能够解析 redis 协议，使 envoy 成为 redis 代理，可以将不同的 redis command 代理到不同 redis cluster。
 

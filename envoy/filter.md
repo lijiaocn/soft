@@ -3,7 +3,7 @@
 
 从 socket 中收取的请求先经过 [listener_filters][5] 处理，然后再由 [filter_chains][4] 处理，前者包含的 filter 称为 listener filter，后者包含的 filter 称为 network filter。因为 listener_filters 先起作用，因此它可以修改请求的信息，从而影响 filter_chains 的匹配。
 
-[filter][11] 的文档在 [Extensions][12] 中，当前（2019-08-05 20:35:10）有以下几个大类：
+[Filter][11] 的文档在 [Extensions][12] 中，当前（2019-08-05 20:35:10）有以下几个大类：
 
 ```sh
 Listener filters
@@ -15,7 +15,7 @@ Common fault injection types
 Dubbo filters
 ```
 
-[Configuration reference][13] 中有一半的内容在介绍 filter，对每个 filter 的用途和用法作了简要介绍。
+[Configuration reference][13] 中一半的篇幅在介绍 filter，对每个 filter 的用途和用法作了简要介绍。
 
 ## 参考
 
