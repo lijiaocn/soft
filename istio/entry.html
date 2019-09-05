@@ -1473,7 +1473,7 @@ var _hmt = _hmt || [];
                 <a href="./">
             
                     
-                    Istio 使用手册
+                    Istio 使用手册（筹）
             
                 </a>
             
@@ -1705,10 +1705,10 @@ var _hmt = _hmt || [];
 </ul>
 <!-- tocstop -->
 <h1 id="service-entry">Service Entry</h1>
-<p><a href="https://istio.io/docs/concepts/traffic-management/#service-entries" title="Service Entry" target="_blank">Service Entry</a> &#x7528;&#x6765;&#x5C06;&#x5916;&#x90E8;&#x7684;&#x670D;&#x52A1;&#x5F15;&#x5165;&#x5230; istio &#x7684;&#x670D;&#x52A1;&#x7F51;&#x683C;&#x4E2D;&#xFF0C;&#x8BE6;&#x60C5;&#x89C1; <a href="https://istio.io/docs/reference/config/networking/v1alpha3/service-entry/" title="Service Entry Detail" target="_blank">Service Entry Detail</a>&#x3002;</p>
+<p><a href="https://istio.io/docs/concepts/traffic-management/#service-entries" title="Service Entry" target="_blank">Service Entry</a> &#x5C06;&#x5916;&#x90E8;&#x7684;&#x670D;&#x52A1;&#x5C01;&#x88C5;&#x6210; istio &#x670D;&#x52A1;&#x7F51;&#x683C;&#x4E2D;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x4E3A;&#x7F51;&#x683C;&#x5185;&#x670D;&#x52A1;&#x548C;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x7684;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x63D0;&#x4F9B;&#x4E86;&#x57FA;&#x7840;&#xFF0C;&#x8BE6;&#x60C5;&#x89C1; <a href="https://istio.io/docs/reference/config/networking/v1alpha3/service-entry/" title="Service Entry Detail" target="_blank">Service Entry Detail</a>&#x3002;</p>
 <p>&#x5C06;&#x5916;&#x90E8;&#x7684;&#x670D;&#x52A1;&#x5C01;&#x88C5;&#x4E3A; Service Entry &#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x548C; kubernetes &#x5185;&#x90E8;&#x7684;&#x670D;&#x52A1;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x3002;</p>
 <h2 id="&#x5C01;&#x88C5;&#x5916;&#x90E8;&#x7684;&#x57DF;&#x540D;">&#x5C01;&#x88C5;&#x5916;&#x90E8;&#x7684;&#x57DF;&#x540D;</h2>
-<p>&#x5916;&#x90E8;&#x670D;&#x52A1;&#x5730;&#x5740;&#x53EF;&#x4EE5;&#x662F;&#x57DF;&#x540D;&#xFF0C;hosts &#x5C31;&#x662F;&#x5916;&#x90E8;&#x7684;&#x57DF;&#x540D;&#xFF1A;</p>
+<p>&#x5916;&#x90E8;&#x670D;&#x52A1;&#x5730;&#x5740;&#x53EF;&#x4EE5;&#x662F;&#x57DF;&#x540D;&#x6216; IP&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x57DF;&#x540D;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;<code>hosts</code> &#x662F;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x7684;&#x57DF;&#x540D;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> ServiceEntry
 <span class="hljs-attr">metadata:</span>
@@ -1725,7 +1725,7 @@ var _hmt = _hmt || [];
 <span class="hljs-attr">    protocol:</span> TLS
 <span class="hljs-attr">  resolution:</span> DNS
 </code></pre>
-<p>&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x57DF;&#x540D;&#x4F5C;&#x4E3A; endpoint&#xFF1A;</p>
+<p>&#x5728;&#x7F51;&#x683C;&#x5185;&#x8BBF;&#x95EE;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x4EE5;&#x53CA;&#x7BA1;&#x7406;&#x6D41;&#x91CF;&#x8F6C;&#x53D1;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x662F; hosts &#x4E2D;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x8FD9;&#x4E9B;&#x57DF;&#x540D;&#x5C31;&#x662F;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x5728;&#x7F51;&#x683C;&#x5185;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF0C;endpoints &#x4E2D;&#x7684;&#x5730;&#x5740;&#x624D;&#x662F;&#x6700;&#x7EC8;&#x57DF;&#x540D;&#x6216; IP&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> ServiceEntry
 <span class="hljs-attr">metadata:</span>
@@ -1751,7 +1751,7 @@ var _hmt = _hmt || [];
 <span class="hljs-attr">      https:</span> <span class="hljs-number">7080</span>
 </code></pre>
 <h2 id="&#x5C01;&#x88C5;-unix-domain-socket">&#x5C01;&#x88C5; unix domain socket</h2>
-<p>unix domain socket &#x5730;&#x5740;&#x4E5F;&#x53EF;&#x4EE5;&#x5C01;&#x88C5;&#xFF1A;</p>
+<p>unix domain socket &#x5730;&#x5740;&#x4E5F;&#x53EF;&#x4EE5;&#x5C01;&#x88C5;&#x5230;&#x7F51;&#x683C;&#x5185;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> ServiceEntry
 <span class="hljs-attr">metadata:</span>
@@ -1790,7 +1790,7 @@ var _hmt = _hmt || [];
 <span class="hljs-attr">  - address:</span> <span class="hljs-number">3.3</span><span class="hljs-number">.3</span><span class="hljs-number">.3</span>
 </code></pre>
 <h2 id="&#x8BBE;&#x7F6E;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;">&#x8BBE;&#x7F6E;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;</h2>
-<p>&#x5916;&#x90E8;&#x670D;&#x52A1;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x7B56;&#x7565;&#x540C;&#x6837;&#x7528; <a href="dstrule.html">DestinationRule</a> &#x8BBE;&#x7F6E;&#xFF0C;host &#x4E3A;&#x5C01;&#x88C5;&#x540E;&#x7684;&#x670D;&#x52A1;&#x540D;&#x79F0;&#xFF1A;</p>
+<p>&#x5916;&#x90E8;&#x670D;&#x52A1;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;&#x540C;&#x6837;&#x7528; <a href="dstrule.html">DestinationRule</a> &#x8BBE;&#x7F6E;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x4E3A;&#x540D;&#x4E3A; mymongodb.somedomain &#x7684;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x8BBE;&#x7F6E;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> DestinationRule
 <span class="hljs-attr">metadata:</span>
@@ -1876,7 +1876,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Service Entry","level":"1.10.2.4","depth":3,"next":{"title":"Engress Control","level":"1.10.2.5","depth":3,"path":"istio/egress.md","ref":"istio/egress.md","articles":[]},"previous":{"title":"Gateways","level":"1.10.2.3","depth":3,"path":"istio/gateway.md","ref":"istio/gateway.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/entry.md","mtime":"2019-09-04T13:52:48.086Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-04T14:02:49.217Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Service Entry","level":"1.10.2.4","depth":3,"next":{"title":"Engress Control","level":"1.10.2.5","depth":3,"path":"istio/egress.md","ref":"istio/egress.md","articles":[]},"previous":{"title":"Gateways","level":"1.10.2.3","depth":3,"path":"istio/gateway.md","ref":"istio/gateway.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/entry.md","mtime":"2019-09-05T03:49:02.454Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T04:03:37.497Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

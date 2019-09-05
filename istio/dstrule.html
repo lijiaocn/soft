@@ -1473,7 +1473,7 @@ var _hmt = _hmt || [];
                 <a href="./">
             
                     
-                    Istio 使用手册
+                    Istio 使用手册（筹）
             
                 </a>
             
@@ -1695,8 +1695,8 @@ var _hmt = _hmt || [];
                                 <!-- toc -->
 <ul>
 <li><a href="#destination-rules">Destination rules</a><ul>
-<li><a href="#&#x6309;&#x7167;-label-&#x5206;&#x7EC4;">&#x6309;&#x7167; label &#x5206;&#x7EC4;</a></li>
-<li><a href="#&#x6309;&#x7167;&#x7AEF;&#x53E3;&#x5206;&#x7EC4;">&#x6309;&#x7167;&#x7AEF;&#x53E3;&#x5206;&#x7EC4;</a></li>
+<li><a href="#&#x5C06;-pod-&#x6309;&#x7167;-label-&#x5206;&#x7EC4;">&#x5C06; Pod &#x6309;&#x7167; label &#x5206;&#x7EC4;</a></li>
+<li><a href="#&#x5C06;&#x8BF7;&#x6C42;&#x6309;&#x7167;&#x7AEF;&#x53E3;&#x5206;&#x7EC4;">&#x5C06;&#x8BF7;&#x6C42;&#x6309;&#x7167;&#x7AEF;&#x53E3;&#x5206;&#x7EC4;</a></li>
 <li><a href="#&#x5728;-virtualservice-&#x4E2D;&#x4F7F;&#x7528;-destination-rule">&#x5728; VirtualService &#x4E2D;&#x4F7F;&#x7528; Destination Rule</a></li>
 <li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
 </ul>
@@ -1704,10 +1704,9 @@ var _hmt = _hmt || [];
 </ul>
 <!-- tocstop -->
 <h1 id="destination-rules">Destination rules</h1>
-<p><a href="https://istio.io/docs/reference/config/networking/v1alpha3/destination-rule/" title="Destination Rule" target="_blank">Destination Rule</a> &#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;&#xFF0C;&#x5B83;&#x4F5C;&#x7528;&#x4E8E; VirtualService &#x4E2D;&#x7684; destination&#xFF0C;&#x5728; route &#x4E4B;&#x540E;&#x8D77;&#x4F5C;&#x7528;&#x3002;</p>
-<p>Destination Rule &#x7684;&#x8BE6;&#x7EC6;&#x5185;&#x5BB9;&#x89C1; <a href="https://istio.io/docs/reference/config/networking/v1alpha3/destination-rule/" title="Destination Rule" target="_blank">Destination Rule</a>&#x3002;</p>
-<h2 id="&#x6309;&#x7167;-label-&#x5206;&#x7EC4;">&#x6309;&#x7167; label &#x5206;&#x7EC4;</h2>
-<p>host &#x662F; Destination Rule &#x4F5C;&#x7528;&#x7684; kubernetes &#x4E2D;&#x7684; service&#x3002;</p>
+<p><a href="https://istio.io/docs/reference/config/networking/v1alpha3/destination-rule/" title="Destination Rule" target="_blank">Destination Rule</a> &#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;&#xFF0C;&#x5B83;&#x4F5C;&#x7528;&#x4E8E; VirtualService &#x4E2D;&#x7684; destination&#xFF0C;&#x5728; route &#x4E4B;&#x540E;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x89C1; <a href="https://istio.io/docs/reference/config/networking/v1alpha3/destination-rule/" title="Destination Rule" target="_blank">Destination Rule</a>&#x3002;</p>
+<h2 id="&#x5C06;-pod-&#x6309;&#x7167;-label-&#x5206;&#x7EC4;">&#x5C06; Pod &#x6309;&#x7167; label &#x5206;&#x7EC4;</h2>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A; DestinationRule&#xFF0C;&#x5B83;&#x4F5C;&#x7528;&#x4E8E;&#x670D;&#x52A1; my-svc&#xFF0C;&#x5C06;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x5BF9;&#x5E94;&#x7684; pod &#x6309;&#x7167; label &#x518D;&#x6B21;&#x5206;&#x4E3A; &#x4E09;&#x7EC4;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> DestinationRule
 <span class="hljs-attr">metadata:</span>
@@ -1731,9 +1730,10 @@ var _hmt = _hmt || [];
 <span class="hljs-attr">    labels:</span>
 <span class="hljs-attr">      version:</span> v3
 </code></pre>
-<p>subsets &#x4E2D;&#x662F;&#x5728; DestinationRule &#x91CC;&#x540C;&#x65F6;&#x5B9A;&#x4E49;&#x7684;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7B56;&#x7565;&#xFF0C;subsets &#x4E2D;&#x5B58;&#x5728;&#x7684;&#x5B57;&#x6BB5;&#x4F1A;&#x8986;&#x76D6;&#x524D;&#x9762;&#x51FA;&#x73B0;&#x8FC7;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;subsets &#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5B57;&#x6BB5;&#x4F7F;&#x7528; subsets &#x524D;&#x9762;&#x51FA;&#x73B0;&#x7684;&#x5B57;&#x6BB5;&#x7684;&#x503C;&#x3002;</p>
-<p>subsets &#x4E2D; labels &#x7684;&#x4F5C;&#x7528;&#x662F;&#x7B5B;&#x9009;&#x5305;&#x542B;&#x540C;&#x6837;&#x7684; label &#x7684; pod&#xFF0C;&#x4E0A;&#x9762;&#x914D;&#x7F6E;&#x5C06; <code>my-svc</code> &#x670D;&#x52A1;&#x7684; pod &#x518D;&#x6B21;&#x6309;&#x7167; label &#x5206;&#x6210;&#x4E86; v1&#x3001;v2&#x3001;v3 &#x4E09;&#x7EC4;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x7EC4;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x3001;&#x8FDE;&#x63A5;&#x6C60;&#x7B56;&#x7565;&#x7B49;&#x3002;</p>
-<h2 id="&#x6309;&#x7167;&#x7AEF;&#x53E3;&#x5206;&#x7EC4;">&#x6309;&#x7167;&#x7AEF;&#x53E3;&#x5206;&#x7EC4;</h2>
+<p>host &#x662F; Destination Rule &#x4F5C;&#x7528;&#x7684; kubernetes &#x4E2D;&#x7684; service&#x3002;</p>
+<p>subsets &#x662F;&#x540C;&#x65F6;&#x5B9A;&#x4E49;&#x7684;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7B56;&#x7565;&#xFF0C;subsets &#x4E2D;&#x7684;&#x5B57;&#x6BB5;&#x4F1A;&#x8986;&#x76D6;&#x524D;&#x9762;&#x51FA;&#x73B0;&#x8FC7;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;subsets &#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5B57;&#x6BB5;&#x4F7F;&#x7528;&#x524D;&#x9762;&#x51FA;&#x73B0;&#x7684;&#x5B57;&#x6BB5;&#x7684;&#x503C;&#xFF0C;&#x5373; subsets &#x5916;&#x90E8;&#x5B9A;&#x4E49;&#x7684;&#x662F;&#x914D;&#x7F6E;&#x5B57;&#x6BB5;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x3002;</p>
+<p>subsets &#x4E2D; labels &#x7684;&#x4F5C;&#x7528;&#x662F;&#x7B5B;&#x9009; pod&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x5C06; <code>my-svc</code> &#x670D;&#x52A1;&#x7684; pod &#x518D;&#x6B21;&#x6309;&#x7167; label &#x5206;&#x6210;&#x4E86; v1&#x3001;v2&#x3001;v3 &#x4E09;&#x7EC4;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x7EC4;&#x5355;&#x72EC;&#x8BBE;&#x7F6E;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x3001;&#x8FDE;&#x63A5;&#x6C60;&#x7B56;&#x7565;&#x7B49;&#x3002;</p>
+<h2 id="&#x5C06;&#x8BF7;&#x6C42;&#x6309;&#x7167;&#x7AEF;&#x53E3;&#x5206;&#x7EC4;">&#x5C06;&#x8BF7;&#x6C42;&#x6309;&#x7167;&#x7AEF;&#x53E3;&#x5206;&#x7EC4;</h2>
 <p>&#x4E5F;&#x53EF;&#x4EE5;&#x6309;&#x7AEF;&#x53E3;&#x5206;&#x522B;&#x8BBE;&#x7F6E;&#x7B56;&#x7565;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> DestinationRule
@@ -1754,7 +1754,7 @@ var _hmt = _hmt || [];
 </code></pre>
 <p>Destination Rule &#x4E2D;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x8FDE;&#x63A5;&#x6C60;&#x3001;&#x63A2;&#x6D3B;&#x7B49;&#x7B56;&#x7565;&#xFF0C;&#x8BE6;&#x60C5;&#x89C1; <a href="https://istio.io/docs/reference/config/networking/v1alpha3/destination-rule/" title="Destination Rule" target="_blank">Destination Rule</a>&#x3002;</p>
 <h2 id="&#x5728;-virtualservice-&#x4E2D;&#x4F7F;&#x7528;-destination-rule">&#x5728; VirtualService &#x4E2D;&#x4F7F;&#x7528; Destination Rule</h2>
-<p>Destination Rule &#x4E2D;&#x914D;&#x7F6E;&#x7684; subsets &#x5728; VirtualService &#x4E2D;&#x5F15;&#x7528;&#xFF0C;&#x6307;&#x5B9A;&#x76EE;&#x6807; subset &#xFF1A;</p>
+<p>Destination Rule &#x4E2D;&#x914D;&#x7F6E;&#x7684; subsets &#x5728; VirtualService &#x4E2D;&#x5F15;&#x7528;&#xFF0C;&#x5728; VirtualService &#x4E2D;&#x6307;&#x5B9A; destination &#x65F6;&#x53EF;&#x4EE5;&#x6307;&#x5B9A; subset&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> VirtualService
 <span class="hljs-attr">metadata:</span>
@@ -1852,7 +1852,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Destination rules","level":"1.10.2.2","depth":3,"next":{"title":"Gateways","level":"1.10.2.3","depth":3,"path":"istio/gateway.md","ref":"istio/gateway.md","articles":[]},"previous":{"title":"Virtual services","level":"1.10.2.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/dstrule.md","mtime":"2019-09-04T13:52:48.085Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-04T14:02:49.217Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Destination rules","level":"1.10.2.2","depth":3,"next":{"title":"Gateways","level":"1.10.2.3","depth":3,"path":"istio/gateway.md","ref":"istio/gateway.md","articles":[]},"previous":{"title":"Virtual services","level":"1.10.2.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/dstrule.md","mtime":"2019-09-05T02:31:05.209Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T04:03:37.497Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
