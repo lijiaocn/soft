@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 05 Sep 2019 09:53:57 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 05 Sep 2019 10:18:38 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -722,6 +722,20 @@
             <description><![CDATA[Istio 文档中给出了一个 Bookinfo Application 示例，这里拆解它的实现。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/bookinfo.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/bookinfo.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Istio 的转发功能使用方法]]></title>
+            <description><![CDATA[Bookinfo Application 拆解 中用实际的例子演示了转发功能用法，这里不再赘述。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/route.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/route.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Istio 错误注入功能的使用方法]]></title>
+            <description><![CDATA[下面操作在 Bookinfo Application 的基础上进行。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/injection.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/injection.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
