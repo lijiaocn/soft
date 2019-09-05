@@ -3,7 +3,7 @@
 
 在 Kubernetes 集群中部署 istio 是最方便的，参考 [Installing on Kubernetes][1]。
 
-* 单纯了解学习，可以部署 [istio 预览版](./demo-install.md)
+* 单纯了解学习，部署 [istio 预览版](./demo-install.md)
 * 生产使用，部署 istio 生产版
 
 无论采用哪种方式部署，都需要下载 istio 部署文件，准备一个 kubernetes 集群。部署文件到 github 下载，Kubernetes 集群可以使用 [minikube](../minikube/index.md) 部署一个单机版的 kubernetes。
@@ -14,9 +14,9 @@
 
 ## 准备 kubernetes 集群
 
-单机版集群创建：[minkube 使用手册](../minikube/index.md)。
+单机版 Kubernetes 集群创建：[minkube 使用手册](../minikube/index.md)。
 
-多机版本参考（下面三份文档比较老，以后会更新）：
+多机版 Kubernetes 集群参考（下面三份文档比较老，以后会更新）：
 
 * [《Kubernetes1.12从零开始（三）：用kubeadm部署多节点集群》][5]
 * [《Kubernetes1.12从零开始（五）：自己动手部署kubernetes》][6]
@@ -57,7 +57,7 @@ git clone https://github.com/istio/istio.git
 git checkout 1.2.5 -b 1.2.5
 ```
 
-源码目录 [install/kubernetes][4] 中提供了一些部署文件。
+源码目录 [install/kubernetes][4] 中提供了一些部署文件：
 
 ```sh
 ➜  istio git:(1.2.5) ✗ tree install/kubernetes -L 3

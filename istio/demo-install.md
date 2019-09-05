@@ -3,7 +3,7 @@
 
 在 Kubernetes 集群中部署 istio 是最方便的，这里介绍 istio demo 版本的部署方法。
 
-用这种方式部署的 istio 不能用于生产，适合用来了解 istio  的用法和特性，参考文档 [Quick Start Evaluation Install][2]。
+用这种方式部署的 istio 不能用于生产，适合用来了解 istio 的用法和特性，参考文档 [Quick Start Evaluation Install][2]。
 
 需要事先下载 istio 的部署文件，见 [下载 istio](./install.md#下载-istio)。
 
@@ -46,7 +46,7 @@ customresourcedefinition.apiextensions.k8s.io/challenges.certmanager.k8s.io crea
 
 ## 部署 istio 
 
-需要注意这里将要使用的 istio-demo.yaml 或者 istio-demo-auth.yaml，不在 istio repo 中，在 istio 的relase 文件中。到 [istio/releases][5] 页面下载对应版本的 release 文件：
+这里使用的 istio-demo.yaml 或者 istio-demo-auth.yaml，不在 istio 项目代码中，在 istio 的relase 文件中，到 [istio/releases][5] 页面下载对应版本的 release 文件：
 
 ```sh
 $ wget https://github.com/istio/istio/releases/download/1.2.5/istio-1.2.5-linux.tar.gz
@@ -56,7 +56,7 @@ istio-1.2.5/install/kubernetes/istio-demo-auth.yaml
 istio-1.2.5/install/kubernetes/istio-demo.yaml
 ```
 
-istio-demo.yaml 和 istio-demo-auth.yaml 两个 istio 部署文件，后者强制加密 client 与 server 之间的通信。文件中是 istio 的 deployment、config、crd 等，比较麻烦的是这两个文件巨大无比，接近两万行！
+istio-demo.yaml 和 istio-demo-auth.yaml 两个 istio 部署文件，后者强制加密 client 与 server 之间的通信。这两个 yaml 文件的内容是 istio 的 deployment、config、crd 等，比较麻烦的是这两个文件巨大无比，接近两万行！
 
 执行下面命令创建，可以看到在 kubernetes 中创建了大量的资源：
 
@@ -242,6 +242,7 @@ $ minkube service list
 | istio-system  | zipkin                 | No node port                   |
 | kube-system   | kube-dns               | No node port                   |
 |---------------|------------------------|--------------------------------|
+```
 
 ## 卸载
 

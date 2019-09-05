@@ -1,13 +1,13 @@
 <!-- toc -->
 # Service Entry
 
-[Service Entry][1] 用来将外部的服务引入到 istio 的服务网格中，详情见 [Service Entry Detail][2]。
+[Service Entry][1] 将外部的服务封装成 istio 服务网格中的服务，为网格内服务和外部服务的统一管理提供了基础，详情见 [Service Entry Detail][2]。
 
 将外部的服务封装为 Service Entry 之后，可以和 kubernetes 内部的服务统一管理。
 
 ## 封装外部的域名
 
-外部服务地址可以是域名，hosts 就是外部的域名：
+外部服务地址可以是域名或 IP，下面是域名的例子，`hosts` 是外部服务的域名：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -27,7 +27,7 @@ spec:
   resolution: DNS
 ```
 
-可以采用多个不同的域名作为 endpoint：
+在网格内访问外部服务以及管理流量转发时，使用的是 hosts 中的域名，这些域名就是外部服务在网格内的名称，它们可以只是一个抽象的域名，如下所示，endpoints 中的地址才是最终域名或 IP：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -57,7 +57,7 @@ spec:
 
 ## 封装 unix domain socket
 
-unix domain socket 地址也可以封装：
+unix domain socket 地址也可以封装到网格内：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -104,7 +104,7 @@ spec:
 
 ## 设置外部服务的负载均衡策略
 
-外部服务的负载均衡的策略同样用 [DestinationRule](./dstrule.md) 设置，host 为封装后的服务名称：
+外部服务的负载均衡策略同样用 [DestinationRule](./dstrule.md) 设置，例如，为名为 mymongodb.somedomain 的外部服务设置负载均衡策略：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3

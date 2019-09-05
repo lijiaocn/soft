@@ -9,7 +9,7 @@ Gateway 详细内容见 [Envoy Gateway Detail][2]。
 
 ## 放行外部流量
 
-下面的配置将被转换成边界 envoy （这里是带有 app: my-gateway-controller 的 envoy pod）中的配置，允许 host 为 ext-host、协议为 https 的外部流量进入网格：
+下面的配置将被转换成边界 envoy （这里是带有 label  app: my-gateway-controller 的 envoy pod）中的配置，允许 host 为 ext-host、协议为 https 的外部流量进入网格：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -32,9 +32,9 @@ spec:
       privateKey: /tmp/tls.key
 ```
 
-selector 是筛选目标的 envoy pod，上面的配置效果为：带有 `app: my-gateway-controller` 标签的 envoy pod 监听 443端口，接收 host 为 ext-host 的请求。
+selector 筛选目标的 envoy pod，上面的配置效果为：带有 `app: my-gateway-controller` 标签的 envoy pod 监听 443端口，接收 host 为 ext-host 的请求。
 
-[Envoy Gateway Detail][2] 中给出了一个更复杂的示例：
+[Envoy Gateway Detail][2] 中给出了一个更复杂的示例，监听多个端口，每个端口独立配置：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
