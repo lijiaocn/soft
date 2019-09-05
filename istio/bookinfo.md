@@ -615,9 +615,46 @@ reviews 的 VirtualService 中明确指定了将请求转发到 `subset: v1` （
 
 ![bookinfo网页](../img/envoy/bookinfo3.png)
 
+## 按照用户转发
+
+下面的操作更新 reviews 的 VirtualService，将 jason 用户的请求转发到 v2 版本：
+
+```sh
+$ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
+```
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+    - reviews
+  http:
+  - match:
+    - headers:
+        end-user:
+          exact: jason
+    route:
+    - destination:
+        host: reviews
+        subset: v2
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
+```
+
+点击界面右上角的 login，以用户 jason 的身份登录（密码留空）后，刷新页面，会发现页面变成了 v2 版本：
+
+![bookinfo网页](../img/envoy/bookinfo4.png)
+
+退出 jason 账号后，页面又回到了 v1 版本。
+
 ## 更多操作
 
-[Traffic Management][3] 中有更多示范操作，譬如按照 user 转发、错误注入、流量整形、断路器、流量复制等，这些内容以后单独整理。
+[Traffic Management][3] 中有更多示范操作，譬如按照 user 转发、错误注入、流量整形、断路器、流量复制等，这些内容放在后面单独整理。
 
 ## 参考
 

@@ -102,4 +102,6 @@
     * [Engress Control](istio/egress.md)
   * [Istio 应用示例拆解](istio/sample.md)
     * [Bookinfo Application 拆解](istio/bookinfo.md)
+  * [转发路由](istio/route.md)
+  * [错误注入](istio/injection.md)
   * [Istio 管理操作](istio/operation.md)
