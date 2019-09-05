@@ -100,4 +100,6 @@
     * [Gateways](istio/gateway.md)
     * [Service Entry](istio/entry.md)
     * [Engress Control](istio/egress.md)
+  * [Istio 应用示例拆解](istio/sample.md)
+    * [Bookinfo Application 拆解](istio/bookinfo.md)
   * [Istio 管理操作](istio/operation.md)
