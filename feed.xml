@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 08 Sep 2019 03:07:17 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Sep 2019 12:20:34 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -743,6 +743,20 @@
             <description><![CDATA[istioctl  是 istio 的管理命令，用来调试 istio，或诊断存在的问题。istioctl 管理的是部署在 kubernetes 中的 istio，它通过读取本地 kubeconfig context，获取的 kubernetes 的地址以及操作权限。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/operation.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/operation.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Perf 使用手册]]></title>
+            <description><![CDATA[Perf，Performance Counters for Linux 是一个 Linux 探查工具，用来观察记录系统运行过程发生的事情。]]></description>
+            <link>https://www.lijiaocn.com/soft/perf/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Perf 技术原理，Performance Counters 子系统的配套工具]]></title>
+            <description><![CDATA[2009 年的时候，一个名为 Performance Counters 的子系统被提交到 kernel，该子系统提供“计数”事件的功能，邮件 Performance Counters for Linux 中有阐述。Perf 是该系统的配套工具。]]></description>
+            <link>https://www.lijiaocn.com/soft/perf/basic.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/basic.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
