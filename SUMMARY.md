@@ -105,3 +105,5 @@
   * [转发路由](istio/route.md)
   * [错误注入](istio/injection.md)
   * [Istio 管理操作](istio/operation.md)
+* [perf 使用手册](perf/index.md)
+  * [perf 技术原理](perf/basic.md)
