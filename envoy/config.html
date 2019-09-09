@@ -144,6 +144,12 @@ var _hmt = _hmt || [];
     <a href="/soft/" style="color:#afa790">软件</a>&nbsp;
     <a href="/oper/" style="color:#afa790">运营</a>
 </div>
+<div>
+<br>
+<ul class="summary"><li>
+<a style="color:red" target="_blank" href="https://study.163.com/provider/400000000376006/course.htm?share=2&shareId=400000000376006">云课堂·视频讲解（点我了解）</a>
+</li></ul>
+</div>
 
 <!--div style="text-align:center">
 < 250x250 >
@@ -1877,6 +1883,60 @@ var _hmt = _hmt || [];
 &#x2502;   &#x251C;&#x2500;&#x2500; envoy-1-xds.yaml             <span class="hljs-comment"># &#x53EA;&#x4F7F;&#x7528; ads &#x53D1;&#x73B0;&#x914D;&#x7F6E;&#x7684;&#x914D;&#x7F6E;</span>
 &#x2502;   &#x251C;&#x2500;&#x2500; envoy-to-grpc-svc.yaml       <span class="hljs-comment"># grpc &#x4EE3;&#x7406;&#x914D;&#x7F6E;</span>
 </code></pre>
+<p>envoy-0-default.yaml &#x662F; envoy &#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">admin:</span>
+<span class="hljs-attr">  access_log_path:</span> /tmp/admin_access.log
+<span class="hljs-attr">  address:</span>
+<span class="hljs-attr">    socket_address:</span>
+<span class="hljs-attr">      protocol:</span> TCP
+<span class="hljs-attr">      address:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
+<span class="hljs-attr">      port_value:</span> <span class="hljs-number">9901</span>
+<span class="hljs-attr">static_resources:</span>
+<span class="hljs-attr">  listeners:</span>
+<span class="hljs-attr">  - name:</span> listener_0
+<span class="hljs-attr">    address:</span>
+<span class="hljs-attr">      socket_address:</span>
+<span class="hljs-attr">        protocol:</span> TCP
+<span class="hljs-attr">        address:</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">        port_value:</span> <span class="hljs-number">10000</span>
+<span class="hljs-attr">    filter_chains:</span>
+<span class="hljs-attr">    - filters:</span>
+<span class="hljs-attr">      - name:</span> envoy.http_connection_manager
+<span class="hljs-attr">        typed_config:</span>
+          <span class="hljs-string">&quot;@type&quot;</span>: type.googleapis.com/envoy.config.filter.network.http_connection_manager.v2.HttpConnectionManager
+<span class="hljs-attr">          stat_prefix:</span> ingress_http
+<span class="hljs-attr">          route_config:</span>
+<span class="hljs-attr">            name:</span> local_route
+<span class="hljs-attr">            virtual_hosts:</span>
+<span class="hljs-attr">            - name:</span> local_service
+<span class="hljs-attr">              domains:</span> [<span class="hljs-string">&quot;*&quot;</span>]
+<span class="hljs-attr">              routes:</span>
+<span class="hljs-attr">              - match:</span>
+<span class="hljs-attr">                  prefix:</span> <span class="hljs-string">&quot;/&quot;</span>
+<span class="hljs-attr">                route:</span>
+<span class="hljs-attr">                  host_rewrite:</span> www.google.com
+<span class="hljs-attr">                  cluster:</span> service_google
+<span class="hljs-attr">          http_filters:</span>
+<span class="hljs-attr">          - name:</span> envoy.router
+<span class="hljs-attr">  clusters:</span>
+<span class="hljs-attr">  - name:</span> service_google
+<span class="hljs-attr">    connect_timeout:</span> <span class="hljs-number">0.25</span>s
+<span class="hljs-attr">    type:</span> LOGICAL_DNS
+    <span class="hljs-comment"># Comment out the following line to test on v6 networks</span>
+<span class="hljs-attr">    dns_lookup_family:</span> V4_ONLY
+<span class="hljs-attr">    lb_policy:</span> ROUND_ROBIN
+<span class="hljs-attr">    load_assignment:</span>
+<span class="hljs-attr">      cluster_name:</span> service_google
+<span class="hljs-attr">      endpoints:</span>
+<span class="hljs-attr">      - lb_endpoints:</span>
+<span class="hljs-attr">        - endpoint:</span>
+<span class="hljs-attr">            address:</span>
+<span class="hljs-attr">              socket_address:</span>
+<span class="hljs-attr">                address:</span> www.google.com
+<span class="hljs-attr">                port_value:</span> <span class="hljs-number">443</span>
+<span class="hljs-attr">    tls_context:</span>
+<span class="hljs-attr">      sni:</span> www.google.com
+</code></pre>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <script type="text/javascript">var className='atoc';</script>
                                 
@@ -1949,7 +2009,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"配置文件","level":"1.2.3","depth":2,"next":{"title":"静态配置","level":"1.2.4","depth":2,"path":"envoy/config-static.md","ref":"envoy/config-static.md","articles":[]},"previous":{"title":"初次体验","level":"1.2.2","depth":2,"path":"envoy/echoserver.md","ref":"envoy/echoserver.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/config.md","mtime":"2019-09-05T10:18:53.562Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-09T12:20:16.118Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"配置文件","level":"1.2.3","depth":2,"next":{"title":"静态配置","level":"1.2.4","depth":2,"path":"envoy/config-static.md","ref":"envoy/config-static.md","articles":[]},"previous":{"title":"初次体验","level":"1.2.2","depth":2,"path":"envoy/echoserver.md","ref":"envoy/echoserver.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/config.md","mtime":"2019-09-08T09:27:43.352Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-09T15:37:31.110Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
