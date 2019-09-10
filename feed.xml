@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 09 Sep 2019 15:37:55 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Sep 2019 06:08:22 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -753,10 +753,24 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Perf 技术原理，Performance Counters 子系统的配套工具]]></title>
+            <title><![CDATA[Perf 技术原理：Performance Counters 子系统的配套工具]]></title>
             <description><![CDATA[2009 年的时候，一个名为 Performance Counters 的子系统被提交到 kernel，该子系统提供“计数”事件的功能，邮件 Performance Counters for Linux 中有阐述。Perf 是该系统的配套工具。]]></description>
             <link>https://www.lijiaocn.com/soft/perf/basic.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/basic.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Perf 基本用法]]></title>
+            <description><![CDATA[Perf 有五个子命令，可以用 man 查看每个子命令的用法，例如 man perf-stat：]]></description>
+            <link>https://www.lijiaocn.com/soft/perf/usage1.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/usage1.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Perf 可以获取的 PMU 事件]]></title>
+            <description><![CDATA[perf list 打印所有可以指定的事件，事件的数量非常非常多，每个子系统都有一组事件，要理解这些事件，需要对内核非常熟悉。]]></description>
+            <link>https://www.lijiaocn.com/soft/perf/pmu.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/pmu.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
