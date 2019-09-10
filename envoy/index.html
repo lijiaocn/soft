@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Envoy 使用手册 · 小鸟笔记·李佶澳</title>
+        <title>Envoy 使用手册 · 小鸟笔记·李佶澳·影响一万人</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -136,7 +136,7 @@ var _hmt = _hmt || [];
                 
 <div style="text-align:center">
     <h1><a href="https://www.lijiaocn.com/note/" style="color:#afa790">小鸟笔记</a></h1>
-    <h3><a href="https://www.lijiaocn.com/" style="color:#afa790">www.lijiaocn.com</a></h3>
+    <h3><a href="https://www.lijiaocn.com/" style="color:#afa790">www.lijiaocn.com，影响一万人</a></h3>
 </div>
 
 <div style="text-align:center">
@@ -1479,7 +1479,7 @@ var _hmt = _hmt || [];
                 <a href="../istio/">
             
                     
-                    Istio 使用手册（筹）
+                    Istio 使用手册
             
                 </a>
             
@@ -1815,17 +1815,16 @@ var _hmt = _hmt || [];
 
 
                                 <h1 id="envoy">Envoy</h1>
-<blockquote>
-<p>&#x89C6;&#x9891;&#x8BB2;&#x89E3;&#xFF1A;<a href="https://study.163.com/course/courseMain.htm?share=2&amp;shareId=400000000376006&amp;courseId=1209487865&amp;_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d" target="_blank">Envoy&#x624B;&#x628A;&#x624B;&#x5165;&#x95E8;&#x89C6;&#x9891;&#x8BB2;&#x89E3;</a></p>
-</blockquote>
+<p><strong>&#x624B;&#x518C;&#x76EE;&#x5F55;&#x5728;&#x9875;&#x9762;&#x5DE6;&#x4FA7;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5728;&#x624B;&#x673A;&#x7AEF;&#x67E5;&#x770B;&#xFF0C;&#x70B9;&#x51FB;&#x5DE6;&#x4E0A;&#x89D2;&#x7684; <i class="fa fa-align-justify"></i> &#x7B26;&#x53F7;&#x3002;</strong></p>
 <p>&#x521D;&#x6B21;&#x4E86;&#x89E3; Envoy &#x65F6;&#x505A;&#x8FC7;&#x4E00;&#x4E9B;&#x7B14;&#x8BB0;&#xFF0C;&#x8FD9;&#x91CC;&#x662F;&#x518D;&#x6B21;&#x5B66;&#x4E60;&#x65F6;&#xFF0C;&#x5BF9;&#x539F;&#x5148;&#x7B14;&#x8BB0;&#x7684;&#x8FDB;&#x4E00;&#x6B65;&#x6574;&#x7406;&#x3002;</p>
+<p>&#x8FD9;&#x672C;&#x624B;&#x518C;&#x7684;&#x5185;&#x5BB9;&#x4F1A;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x5DE5;&#x4F5C;&#x7684;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x6269;&#x5C55;&#xFF0C;&#x6BD4;&#x8F83;&#x8D34;&#x8FD1;&#x5B9E;&#x9645;&#x3002;</p>
+<p><strong>&#x89C6;&#x9891;&#x8BB2;&#x89E3;</strong>&#xFF1A;<a href="https://study.163.com/course/courseMain.htm?share=2&amp;shareId=400000000376006&amp;courseId=1209487865&amp;_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d" target="_blank">Envoy&#x624B;&#x628A;&#x624B;&#x5165;&#x95E8;&#x89C6;&#x9891;&#x8BB2;&#x89E3;</a></p>
 <h2 id="&#x73AF;&#x5883;&#x548C;&#x7D20;&#x6750;&#x51C6;&#x5907;">&#x73AF;&#x5883;&#x548C;&#x7D20;&#x6750;&#x51C6;&#x5907;</h2>
 <pre><code class="lang-sh">docker pull envoyproxy/envoy:v1.11.0
 git <span class="hljs-built_in">clone</span> https://github.com/introclass/go-code-example.git
 </code></pre>
-<h2 id="&#x5B58;&#x6863;&#x7B14;&#x8BB0;">&#x5B58;&#x6863;&#x7B14;&#x8BB0;</h2>
-<p>&#x5982;&#x679C;&#x4F60;&#x662F;&#x5728;&#x624B;&#x673A;&#x4E0A;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x70B9;&#x51FB;&#x9875;&#x9762;&#x5DE6;&#x4E0A;&#x89D2;&#x7684;&#x7B26;&#x53F7;&#xFF0C;&#x67E5;&#x770B;&#x76EE;&#x5F55;&#x3002;</p>
-<p>&#x4E0B;&#x9762;&#x662F; <strong>&#x4EE5;&#x524D;&#x7684;</strong> &#x7B14;&#x8BB0;&#xFF0C;&#x5185;&#x5BB9;&#x76F8;&#x5BF9;&#x6742;&#x4E71;&#xFF0C;&#x4E0D;&#x5982;&#x5F53;&#x524D;&#x624B;&#x518C;&#x6761;&#x7406;&#x3001;&#x6E05;&#x6670;&#xFF0C;&#x8FD1;&#x4F9B;&#x53C2;&#x8003;&#xFF1A;</p>
+<h2 id="&#x5386;&#x53F2;&#x6587;&#x7AE0;&#x6536;&#x5F55;">&#x5386;&#x53F2;&#x6587;&#x7AE0;&#x6536;&#x5F55;</h2>
+<p>&#x4E0B;&#x9762;&#x662F; <strong>&#x4EE5;&#x524D;&#x7684;</strong> &#x7B14;&#x8BB0;&#xFF0C;&#x5185;&#x5BB9;&#x76F8;&#x5BF9;&#x6742;&#x4E71;&#xFF0C;&#x4E0D;&#x5982;&#x5F53;&#x524D;&#x624B;&#x518C;&#x6761;&#x7406;&#x3001;&#x6E05;&#x6670;&#xFF0C;&#x4EC5;&#x4F9B;&#x53C2;&#x8003;&#xFF1A;</p>
 <ul>
 <li><a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/12/envoy-01-usage.html" target="_blank">&#x300A;Envoy Proxy&#x4F7F;&#x7528;&#x4ECB;&#x7ECD;&#x6559;&#x7A0B;&#xFF08;&#x4E00;&#xFF09;&#xFF1A;&#x65B0;&#x578B;L3~L7&#x5C42;&#x8BBF;&#x95EE;&#x4EE3;&#x7406;&#x8F6F;&#x4EF6;Envoy&#x7684;&#x4F7F;&#x7528;&#x300B;</a></li>
 <li><a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/17/envoy-02-ide.html" target="_blank">&#x300A;Envoy Proxy&#x4F7F;&#x7528;&#x4ECB;&#x7ECD;&#x6559;&#x7A0B;&#xFF08;&#x4E8C;&#xFF09;&#xFF1A;envoy&#x6E90;&#x4EE3;&#x7801;&#x9605;&#x8BFB;&#x3001;&#x96C6;&#x6210;&#x5F00;&#x53D1;&#x73AF;&#x5883;(IDE)&#x300B;</a></li>
@@ -1909,7 +1908,7 @@ git <span class="hljs-built_in">clone</span> https://github.com/introclass/go-co
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Envoy 使用手册","level":"1.2","depth":1,"next":{"title":"安装运行","level":"1.2.1","depth":2,"path":"envoy/install.md","ref":"envoy/install.md","articles":[]},"previous":{"title":"小鸟笔记—软件使用手册说明","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/index.md","mtime":"2019-09-10T14:13:40.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-10T15:01:11.169Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Envoy 使用手册","level":"1.2","depth":1,"next":{"title":"安装运行","level":"1.2.1","depth":2,"path":"envoy/install.md","ref":"envoy/install.md","articles":[]},"previous":{"title":"小鸟笔记—软件使用手册说明","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/index.md","mtime":"2019-09-10T15:34:17.593Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-10T15:40:51.652Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
