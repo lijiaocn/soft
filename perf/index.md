@@ -1,8 +1,10 @@
+<!-- toc -->
 # Perf 使用手册
 
 [Perf][2]，[Performance Counters for Linux][4] 是一个 Linux 探查工具，用来观察记录系统运行过程发生的事情。
 
 性能调优大神 [Brendan D. Gregg][3] 在 [perf example][1] 中详细介绍了 perf 的用法，该手册的主要结构基于这篇文章，也收录了从其它各处搜集到的相关知识。
+
 
 ## 参考
 

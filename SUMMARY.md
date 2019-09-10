@@ -107,3 +107,5 @@
   * [Istio 管理操作](istio/operation.md)
 * [perf 使用手册](perf/index.md)
   * [perf 技术原理](perf/basic.md)
+  * [perf 基本用法](perf/usage1.md)
+  * [PMU 事件](perf/pmu.md)

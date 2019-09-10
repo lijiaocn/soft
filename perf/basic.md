@@ -1,4 +1,4 @@
-# Perf 技术原理，Performance Counters 子系统的配套工具
+# Perf 技术原理：Performance Counters 子系统的配套工具
 
 2009 年的时候，一个名为 Performance Counters 的子系统被提交到 kernel，该子系统提供“计数”事件的功能，邮件 [Performance Counters for Linux][1] 中有阐述。Perf 是该系统的配套工具。
 
