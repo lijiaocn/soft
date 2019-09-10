@@ -1,5 +1,7 @@
 # Envoy
 
+>视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
 初次了解 Envoy 时做过一些笔记，这里是再次学习时，对原先笔记的进一步整理。
 
 ## 环境和素材准备

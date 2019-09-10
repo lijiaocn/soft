@@ -1,6 +1,8 @@
 <!-- toc -->
 # go-control-plane 下发配置示例—环境准备
 
+>视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
 这里演示一个用 go-control-plane 下发配置的例子。
 
 演示用的代码和配置文件位于：[github.com/introclass/go-code-example/envoydev/xds][1]。xds.go 是用 go-controle-plane 实现的简陋控制平面，envoy-docker-run 目录中是启动 envoy 容器的文件：

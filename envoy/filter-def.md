@@ -1,6 +1,8 @@
 <!-- toc -->
 # go-control-plane 中的 filter 定义与下发 
 
+>视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
 Filter 是填充在 listener 中作为 listener 配置下发的，listener 在 [go-control-plane/envoy/api/v2/lds.pb.go][8] 中定义，filter 的接口在 [envoy/api/v2/listener/listener.pb.go][9] 中定义，filter 的实现在 [go-control-plane/envoy/config/filter/][10] 中。
 
 ### listener_filters 的定义

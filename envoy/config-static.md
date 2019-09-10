@@ -1,6 +1,8 @@
 <!-- toc -->
 # Envoy 的静态配置示例
 
+>视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
 监听转发配置（listener、cluster）可以静态配置也可以动态获取，静态配置在 `static_resources` 中。
 
 这里使用的配置文件是：[envoy-1-static.yaml][1]，envoy 启动命令为：
