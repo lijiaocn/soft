@@ -93,6 +93,64 @@ Envoy 的 [API 文档](https://www.envoyproxy.io/docs/envoy/latest/api/api) 中�
 │   ├── envoy-to-grpc-svc.yaml       # grpc 代理配置
 ```
 
+envoy-0-default.yaml 是 envoy 容器中的默认配置文件，内容如下：
+
+```yaml
+admin:
+  access_log_path: /tmp/admin_access.log
+  address:
+    socket_address:
+      protocol: TCP
+      address: 127.0.0.1
+      port_value: 9901
+static_resources:
+  listeners:
+  - name: listener_0
+    address:
+      socket_address:
+        protocol: TCP
+        address: 0.0.0.0
+        port_value: 10000
+    filter_chains:
+    - filters:
+      - name: envoy.http_connection_manager
+        typed_config:
+          "@type": type.googleapis.com/envoy.config.filter.network.http_connection_manager.v2.HttpConnectionManager
+          stat_prefix: ingress_http
+          route_config:
+            name: local_route
+            virtual_hosts:
+            - name: local_service
+              domains: ["*"]
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  host_rewrite: www.google.com
+                  cluster: service_google
+          http_filters:
+          - name: envoy.router
+  clusters:
+  - name: service_google
+    connect_timeout: 0.25s
+    type: LOGICAL_DNS
+    # Comment out the following line to test on v6 networks
+    dns_lookup_family: V4_ONLY
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: service_google
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: www.google.com
+                port_value: 443
+    tls_context:
+      sni: www.google.com
+```
+
+
 ## 参考
 
 [1]: https://github.com/introclass/go-code-example/tree/master/envoydev/xds/envoy-docker-run "envoy-docker-run"
