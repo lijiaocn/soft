@@ -91,7 +91,7 @@
 * [OpenResty 使用手册](openresty/index.md)
 * [Mac 使用手册](mac/index.md)
   * [Mac 使用手册](mac/network.md)
-* [Istio 使用手册（筹）](istio/index.md)
+* [Istio 使用手册](istio/index.md)
   * [Istio 部署](istio/install.md)
     * [Istio 预览版部署](istio/demo-install.md)
   * [Istio 基本概念](istio/concept.md)
