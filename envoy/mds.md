@@ -1,6 +1,8 @@
 <!-- toc -->
 # envoy 的 lds/cds/rds/sds/eds
 
+>视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
 dynamic_resources 配置中只有 [lds_config][3]、[cds_config][4] 和 [ads_config][5]，分别对应 listenter、cluster 和聚合发现：
 
 ```json

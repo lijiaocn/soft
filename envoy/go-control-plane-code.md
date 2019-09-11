@@ -1,6 +1,8 @@
 <!-- toc -->
 # go-control-plane 下发配置示例—代码说明
 
+>视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
 示例代码是 [xds.go][3]，这是一段超级简单、简陋的代码，只用来演示如何下发配置，下面是 xds.go 代码的说明，完整代码见 [xds.go][3]。
 
 ## NodeConfig

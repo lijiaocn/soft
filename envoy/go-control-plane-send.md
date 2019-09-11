@@ -1,6 +1,8 @@
 <!-- toc -->
 # go-controller-plane 的基本用法 
 
+>视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
 [go-control-plane][1] 是一个框架，提供了配置下发接口，在它的基础上根据自己的需要开发其它功能。
 
 这里简单说明下用法，下一节有详细的例子，注意 **动态配置与 envoy 的配对** 的方法。
