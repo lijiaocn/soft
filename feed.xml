@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 10 Sep 2019 15:41:16 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 11 Sep 2019 02:37:51 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -16,7 +16,7 @@
         </item>
         <item>
             <title><![CDATA[Envoy]]></title>
-            <description><![CDATA[手册目录在页面左侧，如果是在手机端查看，点击左上角的 <i class="fa fa-align-justify"></i> 符号。]]></description>
+            <description><![CDATA[初次了解 Envoy 时做过一些笔记，这里是再次学习时，对原先笔记的进一步整理。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/index.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -169,8 +169,15 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
+            <title><![CDATA[Envoy 使用过程中的常见问题]]></title>
+            <description><![CDATA[这里是 Envoy 使用过程中常遇到的问题。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/qa.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/qa.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
             <title><![CDATA[Prometheus 的使用方法]]></title>
-            <description><![CDATA[手册目录在页面左侧，如果是在手机端查看，点击左上角的 <i class="fa fa-align-justify"></i> 符号。]]></description>
+            <description><![CDATA[Prometheus 是一个比较流行的告警监控系统，以前写过几篇笔记，这里更系统的整理一下。]]></description>
             <link>https://www.lijiaocn.com/soft/prometheus/index.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
