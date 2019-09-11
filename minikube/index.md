@@ -2,6 +2,10 @@
 
 用 [minikube 部署开发测试环境][1] 中记录了 minikube 的使用方法，这里重新整理一下。
 
+手册目录在页面左侧，如果是在手机端查看，点击左上角的 <i class="fa fa-align-justify"></i> 符号。
+
+## 什么情况下，为什么用 Minikube？
+
 做 Kubernetes 配套开发时，用 minkube 启动一个 kubernetes 集群作为开发测试环境是非常方便的。
 
 Minikube 可以方便地启动不同版本的 kubernetes，美中不足的是，用 minikube 部署的 kubernetes 都是单机模式，如果要做一些集群相关调试，单机的 kubernetes 就不能满足需求了，需要考虑其它的方法。
