@@ -1,7 +1,9 @@
 <!-- toc -->
-# Envoy 的控制平面的实现
 
 >视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
+# Envoy 的控制平面的实现
+
 
 可以动态下发的配置有：
 

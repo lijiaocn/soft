@@ -1,7 +1,9 @@
 <!-- toc -->
-# 动态配置在 go-control-plane 中的定义
 
 >视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
+# 动态配置在 go-control-plane 中的定义
+
 
 
 [go-control-plane](https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/12/29/envoy-07-features-2-dynamic-discovery.html#go-control-plane) 中的配置定义与 [API 文档](https://www.envoyproxy.io/docs/envoy/latest/api/api) 中给出的相同，以 listener 为例：

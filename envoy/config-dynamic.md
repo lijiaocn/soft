@@ -1,7 +1,9 @@
 <!-- toc -->
-# Envoy 的动态配置
 
 >视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
+# Envoy 的动态配置
+
 
 Listener、Cluster 等除了在配置文件中静态配置，还可以从控制平面动态获取。下发动态配置的服务叫做 **控制平面** ，它的地址以 cluster 的形式在配置文件中静态配置，然后在 dynamic_resources 中引用这个 cluster。
 

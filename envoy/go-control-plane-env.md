@@ -1,7 +1,9 @@
 <!-- toc -->
-# go-control-plane 下发配置示例—环境准备
 
 >视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
+# go-control-plane 下发配置示例—环境准备
+
 
 这里演示一个用 go-control-plane 下发配置的例子。
 

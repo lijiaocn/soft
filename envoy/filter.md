@@ -1,7 +1,9 @@
 <!-- toc -->
-# Envoy 的 Listener 中的 Filter 详解
 
 >视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
+# Envoy 的 Listener 中的 Filter 详解
+
 
 从 socket 中收取的请求先经过 [listener_filters][5] 处理，然后再由 [filter_chains][4] 处理，前者包含的 filter 称为 listener filter，后者包含的 filter 称为 network filter。因为 listener_filters 先起作用，因此它可以修改请求的信息，从而影响 filter_chains 的匹配。
 
