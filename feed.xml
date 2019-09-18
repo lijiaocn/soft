@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 17 Sep 2019 06:46:55 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 18 Sep 2019 12:53:17 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -237,6 +237,20 @@
             <description><![CDATA[Prometheus 的查询函数数量比较多，这里不罗列了，见 Prometheus Functions。]]></description>
             <link>https://www.lijiaocn.com/soft/prometheus/query-function.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-function.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 的 exporters]]></title>
+            <description><![CDATA[Prometheus 的负责收集指标数据、执行告警规则、提供指标数据查询功能，指标数据要么是目标系统实现了 Prometheus 样式的指标数据，要么通过各种 exporter 获取。Third-party exporters 中收录了很多 exporter，本手册逐渐收录工作中用到的一些 exporter。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/exporters.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/exporters.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Blackbox exporter：探测目标服务（HTTP HTTPS DNS TCP ICMP）]]></title>
+            <description><![CDATA[blackbox_exporter 用来探测目标地址，支持的协议有：HTTP、HTTPS、DNS、TCP、ICMP。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/blackbox.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/blackbox.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -778,6 +792,48 @@
             <description><![CDATA[perf list 打印所有可以指定的事件，事件的数量非常非常多，每个子系统都有一组事件，要理解这些事件，需要对内核非常熟悉。]]></description>
             <link>https://www.lijiaocn.com/soft/perf/pmu.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/pmu.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Git 使用手册]]></title>
+            <description><![CDATA[这里是对 Git使用手册 的进一步整理，将内容分章节展示。]]></description>
+            <link>https://www.lijiaocn.com/soft/git/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/git/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Git 的 rebase 操作（commit 回放）]]></title>
+            <description><![CDATA[rebase 命令将另一个分支上的修改同步到当前分支，但是和 merge 不同，rebase 修改的当前分支的 commit 之前的内容。]]></description>
+            <link>https://www.lijiaocn.com/soft/git/rebase.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/git/rebase.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Docker 使用手册]]></title>
+            <description><![CDATA[这里是对 Docker 学习笔记 的重新整理，同时在不停地补充新的内容。]]></description>
+            <link>https://www.lijiaocn.com/soft/docker/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Docker 安装部署]]></title>
+            <description><![CDATA[docker、docker-ce 和 docker-ee 的关系见 moby、docker-ce与docker-ee。]]></description>
+            <link>https://www.lijiaocn.com/soft/docker/install.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/install.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Kubernetes 使用手册]]></title>
+            <description><![CDATA[这里的部分内容来自 Kubernetes工作笔记，本手册随着工作学习的进行不断更新。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Ansible 使用手册]]></title>
+            <description><![CDATA[这里是 ansible 学习笔记 的重新，内容随着工作学习的进行不断更新。]]></description>
+            <link>https://www.lijiaocn.com/soft/ansible/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/ansible/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
