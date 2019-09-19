@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 19 Sep 2019 03:12:06 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 19 Sep 2019 08:00:03 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -114,7 +114,7 @@
         </item>
         <item>
             <title><![CDATA[go-control-plane 下发配置示例—运行和效果]]></title>
-            <description><![CDATA[这里详细演示、说明动态的配置的几种组合，使用的 envoy 配置文件是 envoy-1-ads.yaml：]]></description>
+            <description><![CDATA[这里详细演示动态配置的几种组合，使用的 envoy 配置文件是 envoy-1-ads-with-xds.yaml。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-run.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-run.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -166,6 +166,13 @@
             <description><![CDATA[http_connection_manager 是一个比较复杂的 network filter，它内部又实现了 http filter，支持的 filter 数量较多，这里不一一列举，可以到 HTTP filters 查看，官方文档比较详细。]]></description>
             <link>https://www.lijiaocn.com/soft/envoy/http-filter.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/http-filter.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 4 层 tcp 转发]]></title>
+            <description><![CDATA[Envoy 的 4 层代理转发通过名为 envoy.tcp_proxy 的 network filter 完成，该 filter 的定义见 TCP Proxy configuration overview。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/l4.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/l4.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
