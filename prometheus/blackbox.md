@@ -1,4 +1,5 @@
-# Blackbox exporter：探测目标服务（HTTP HTTPS DNS TCP ICMP）
+<!-- toc -->
+# Blackbox exporter：探测远程地址（HTTP HTTPS DNS TCP ICMP）
 
 [blackbox_exporter][1] 用来探测目标地址，支持的协议有：HTTP、HTTPS、DNS、TCP、ICMP。
 
@@ -51,10 +52,9 @@ modules:
 
 ## 启动运行
 
-使用 docker 运行，docker 安装方法见 [docker 使用手册](../docker/index.md)： 
+使用 docker 运行，blackbox.yml 位于当前目录，docker 的安装方法见 [docker 使用手册](../docker/index.md)： 
 
 ```sh
-# blackbox.yml 位于当前记录
 docker run --rm -d -p 9115:9115 --name blackbox_exporter -v `pwd`:/config prom/blackbox-exporter:v0.15.1 --config.file=/config/blackbox.yml
 ```
 
