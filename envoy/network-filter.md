@@ -1,6 +1,6 @@
-<!-- toc -->
-
 >视频讲解：[Envoy手把手入门视频讲解](https://study.163.com/course/courseMain.htm?share=2&shareId=400000000376006&courseId=1209487865&_trace_c_p_k2_=18c88dad391f427b9e40e0795d8d939d)
+
+<!-- toc -->
 
 # Envoy 的 network filter 列表
 
@@ -27,7 +27,7 @@ HTTP connection manager、Thrift proxy 和 Dubbo proxy 还有在自己内部使�
 
 ## envoy.tcp_proxy
 
-[TCP proxy][12] 管理 download client 与 upstream cluster 之间的 tcp 连接，保证连接数不超过 upstream cluster 的上限。通常和其它 filter 配合使用。
+[TCP proxy][12] 是四层 tcp 代理，管理 downstream client 与 upstream cluster 之间的 tcp 连接，保证连接数不超过 upstream cluster 的上限。
 
 ## envoy.ratelimit
 

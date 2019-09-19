@@ -58,8 +58,11 @@ modules:
 docker run --rm -d -p 9115:9115 --name blackbox_exporter -v `pwd`:/config prom/blackbox-exporter:v0.15.1 --config.file=/config/blackbox.yml
 ```
 
+查看更多镜像 [prom/blackbox-exporter][4]。
+
 ## 参考
 
 [1]: https://github.com/prometheus/blackbox_exporter "blackbox_exporter"
 [2]: https://github.com/prometheus/blackbox_exporter/blob/master/example.yml "example.yml"
 [3]: https://github.com/prometheus/blackbox_exporter/blob/master/blackbox.yml "blackbox.yml"
+[4]: https://hub.docker.com/r/prom/blackbox-exporter/tags "prom/blackbox-exporter"

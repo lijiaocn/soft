@@ -5,10 +5,12 @@
 # go-control-plane 下发配置示例—运行和效果
 
 
-这里详细演示、说明动态的配置的几种组合，使用的 envoy 配置文件是 envoy-1-ads.yaml：
+这里详细演示动态配置的几种组合，使用的 envoy 配置文件是 envoy-1-ads-with-xds.yaml。
+
+启动 envoy：
 
 ```sh
-./run.sh envoy-1-ads.yaml
+./run.sh envoy-1-ads-with-xds.yaml
 ```
 
 ## envoy 初始状态
@@ -220,7 +222,7 @@ Request Body:
 	-no body in request-
 ```
 
-## 从 XDS 中发现路由的 listener
+## 使用 xds 发现路由的 listener
 
 ```go
 {
@@ -255,7 +257,7 @@ Request Body:
 
 ![从 XDS 中发现路由的 listener](../img/envoy/envoy-rds.png)
 
-## 从 ADS 中发现路由的 listener
+## 使用 ads 发现路由的 listener
 
 ```go
 {
