@@ -6,9 +6,20 @@
 
 这里是 Envoy 使用过程中常遇到的问题。
 
+## Listener 的端口不可以重复
+
+如果为两个 listener 配置了相同的监听端口，后一个 listener 会失败：
+
+```sh
+[2019-09-19 08:38:17.655][1][info][main] [source/server/server.cc:516] starting main dispatch loop
+[2019-09-19 08:38:17.664][1][critical][config] [source/server/listener_manager_impl.cc:684] listener 'listener_1' failed to listen on address '0.0.0.0:81' on worker
+```
+
+listener 的监听端口不能重复。
+
 ## Route 的域名不能重复
 
-Http 路由中的域名不能重复，如果两个 Route 中的域名相同，或者一个 Route 中配置了两个相同的域名，配置下发失败，envoy 打印下面的日志：
+Http 路由中的域名不能重复，如果两个 Route 中配置了相同的域名，或者一个 Route 中配置了两个相同的域名，那么配置会下发失败，envoy 打印下面的日志：
 
 ```sh
 [2019-09-10 08:41:35.917][1][warning][config] [source/common/config/grpc_mux_subscription_impl.cc:72] gRPC config for type.googleapis.com/envoy.api.v2.Listener rejected: Error adding/updating listener(s) TCP-80: Only unique values for domains are permitted. Duplicate entry of domain echo.example
