@@ -655,14 +655,33 @@ var _hmt = _hmt || [];
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="1.3.10" data-path="../prometheus/blackbox.html">
+        <li class="chapter " data-level="1.3.9.1" data-path="../prometheus/blackbox.html">
             
                 <a href="../prometheus/blackbox.html">
             
                     
                     blackbox exporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../prometheus/pushgateway.html">
+            
+                <a href="../prometheus/pushgateway.html">
+            
+                    
+                    pushgateway
             
                 </a>
             
@@ -1878,6 +1897,64 @@ var _hmt = _hmt || [];
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../ansible/privilege.html">
+            
+                <a href="../ansible/privilege.html">
+            
+                    
+                    用户权限提升
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../ansible/file.html">
+            
+                <a href="../ansible/file.html">
+            
+                    
+                    文件和url处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../ansible/install.html">
+            
+                <a href="../ansible/install.html">
+            
+                    
+                    软件安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../ansible/docker.html">
+            
+                <a href="../ansible/docker.html">
+            
+                    
+                    操作 docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
 
@@ -1953,12 +2030,14 @@ var _hmt = _hmt || [];
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+<br>
 </div>
 
 
                                 <!-- toc -->
 <ul>
 <li><a href="#envoy-&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x5E38;&#x89C1;&#x95EE;&#x9898;">Envoy &#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x5E38;&#x89C1;&#x95EE;&#x9898;</a><ul>
+<li><a href="#listener-&#x7684;&#x7AEF;&#x53E3;&#x4E0D;&#x53EF;&#x4EE5;&#x91CD;&#x590D;">Listener &#x7684;&#x7AEF;&#x53E3;&#x4E0D;&#x53EF;&#x4EE5;&#x91CD;&#x590D;</a></li>
 <li><a href="#route-&#x7684;&#x57DF;&#x540D;&#x4E0D;&#x80FD;&#x91CD;&#x590D;">Route &#x7684;&#x57DF;&#x540D;&#x4E0D;&#x80FD;&#x91CD;&#x590D;</a></li>
 <li><a href="#route-&#x7684;-prefix-&#x53EF;&#x4EE5;&#x91CD;&#x590D;">Route &#x7684; Prefix &#x53EF;&#x4EE5;&#x91CD;&#x590D;</a></li>
 <li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
@@ -1971,8 +2050,14 @@ var _hmt = _hmt || [];
 </blockquote>
 <h1 id="envoy-&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x5E38;&#x89C1;&#x95EE;&#x9898;">Envoy &#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x5E38;&#x89C1;&#x95EE;&#x9898;</h1>
 <p>&#x8FD9;&#x91CC;&#x662F; Envoy &#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#x5E38;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="listener-&#x7684;&#x7AEF;&#x53E3;&#x4E0D;&#x53EF;&#x4EE5;&#x91CD;&#x590D;">Listener &#x7684;&#x7AEF;&#x53E3;&#x4E0D;&#x53EF;&#x4EE5;&#x91CD;&#x590D;</h2>
+<p>&#x5982;&#x679C;&#x4E3A;&#x4E24;&#x4E2A; listener &#x914D;&#x7F6E;&#x4E86;&#x76F8;&#x540C;&#x7684;&#x76D1;&#x542C;&#x7AEF;&#x53E3;&#xFF0C;&#x540E;&#x4E00;&#x4E2A; listener &#x4F1A;&#x5931;&#x8D25;&#xFF1A;</p>
+<pre><code class="lang-sh">[2019-09-19 08:38:17.655][1][info][main] [<span class="hljs-built_in">source</span>/server/server.cc:516] starting main dispatch loop
+[2019-09-19 08:38:17.664][1][critical][config] [<span class="hljs-built_in">source</span>/server/listener_manager_impl.cc:684] listener <span class="hljs-string">&apos;listener_1&apos;</span> failed to listen on address <span class="hljs-string">&apos;0.0.0.0:81&apos;</span> on worker
+</code></pre>
+<p>listener &#x7684;&#x76D1;&#x542C;&#x7AEF;&#x53E3;&#x4E0D;&#x80FD;&#x91CD;&#x590D;&#x3002;</p>
 <h2 id="route-&#x7684;&#x57DF;&#x540D;&#x4E0D;&#x80FD;&#x91CD;&#x590D;">Route &#x7684;&#x57DF;&#x540D;&#x4E0D;&#x80FD;&#x91CD;&#x590D;</h2>
-<p>Http &#x8DEF;&#x7531;&#x4E2D;&#x7684;&#x57DF;&#x540D;&#x4E0D;&#x80FD;&#x91CD;&#x590D;&#xFF0C;&#x5982;&#x679C;&#x4E24;&#x4E2A; Route &#x4E2D;&#x7684;&#x57DF;&#x540D;&#x76F8;&#x540C;&#xFF0C;&#x6216;&#x8005;&#x4E00;&#x4E2A; Route &#x4E2D;&#x914D;&#x7F6E;&#x4E86;&#x4E24;&#x4E2A;&#x76F8;&#x540C;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x914D;&#x7F6E;&#x4E0B;&#x53D1;&#x5931;&#x8D25;&#xFF0C;envoy &#x6253;&#x5370;&#x4E0B;&#x9762;&#x7684;&#x65E5;&#x5FD7;&#xFF1A;</p>
+<p>Http &#x8DEF;&#x7531;&#x4E2D;&#x7684;&#x57DF;&#x540D;&#x4E0D;&#x80FD;&#x91CD;&#x590D;&#xFF0C;&#x5982;&#x679C;&#x4E24;&#x4E2A; Route &#x4E2D;&#x914D;&#x7F6E;&#x4E86;&#x76F8;&#x540C;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x6216;&#x8005;&#x4E00;&#x4E2A; Route &#x4E2D;&#x914D;&#x7F6E;&#x4E86;&#x4E24;&#x4E2A;&#x76F8;&#x540C;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x90A3;&#x4E48;&#x914D;&#x7F6E;&#x4F1A;&#x4E0B;&#x53D1;&#x5931;&#x8D25;&#xFF0C;envoy &#x6253;&#x5370;&#x4E0B;&#x9762;&#x7684;&#x65E5;&#x5FD7;&#xFF1A;</p>
 <pre><code class="lang-sh">[2019-09-10 08:41:35.917][1][warning][config] [<span class="hljs-built_in">source</span>/common/config/grpc_mux_subscription_impl.cc:72] gRPC config <span class="hljs-keyword">for</span> type.googleapis.com/envoy.api.v2.Listener rejected: Error adding/updating listener(s) TCP-80: Only unique values <span class="hljs-keyword">for</span> domains are permitted. Duplicate entry of domain echo.example
 [2019-09-10 08:41:35.919][1][warning][config] [<span class="hljs-built_in">source</span>/common/config/grpc_mux_subscription_impl.cc:72] gRPC config <span class="hljs-keyword">for</span> type.googleapis.com/envoy.api.v2.Listener rejected: Error adding/updating listener(s) TCP-80: Only unique values <span class="hljs-keyword">for</span> domains are permitted. Duplicate entry of domain echo.example
 [2019-09-10 08:41:35.921][1][warning][config] [<span class="hljs-built_in">source</span>/common/config/grpc_mux_subscription_impl.cc:72] gRPC config <span class="hljs-keyword">for</span> type.googleapis.com/envoy.api.v2.Listener rejected: Error adding/updating listener(s) TCP-80: Only unique values <span class="hljs-keyword">for</span> domains are permitted. Duplicate entry of domain echo.example
@@ -2075,7 +2160,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"常见问题","level":"1.2.11","depth":2,"next":{"title":"Prometheus 使用手册","level":"1.3","depth":1,"path":"prometheus/index.md","ref":"prometheus/index.md","articles":[{"title":"安装启动","level":"1.3.1","depth":2,"path":"prometheus/start.md","ref":"prometheus/start.md","articles":[]},{"title":"配置文件","level":"1.3.2","depth":2,"path":"prometheus/config.md","ref":"prometheus/config.md","articles":[]},{"title":"查询语句","level":"1.3.3","depth":2,"path":"prometheus/query.md","ref":"prometheus/query.md","articles":[]},{"title":"指标查询","level":"1.3.4","depth":2,"path":"prometheus/query-metrics.md","ref":"prometheus/query-metrics.md","articles":[]},{"title":"指标运算","level":"1.3.5","depth":2,"path":"prometheus/query-compute.md","ref":"prometheus/query-compute.md","articles":[]},{"title":"二元运算","level":"1.3.6","depth":2,"path":"prometheus/query-binary.md","ref":"prometheus/query-binary.md","articles":[]},{"title":"聚合运算","level":"1.3.7","depth":2,"path":"prometheus/query-aggre.md","ref":"prometheus/query-aggre.md","articles":[]},{"title":"查询函数","level":"1.3.8","depth":2,"path":"prometheus/query-function.md","ref":"prometheus/query-function.md","articles":[]},{"title":"各种 exporter","level":"1.3.9","depth":2,"path":"prometheus/exporters.md","ref":"prometheus/exporters.md","articles":[]},{"title":"blackbox exporter","level":"1.3.10","depth":2,"path":"prometheus/blackbox.md","ref":"prometheus/blackbox.md","articles":[]}]},"previous":{"title":"4 层 TCP/UDP 转发","level":"1.2.10","depth":2,"path":"envoy/l4.md","ref":"envoy/l4.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/qa.md","mtime":"2019-09-19T03:12:22.493Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-19T07:59:39.011Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"常见问题","level":"1.2.11","depth":2,"next":{"title":"Prometheus 使用手册","level":"1.3","depth":1,"path":"prometheus/index.md","ref":"prometheus/index.md","articles":[{"title":"安装启动","level":"1.3.1","depth":2,"path":"prometheus/start.md","ref":"prometheus/start.md","articles":[]},{"title":"配置文件","level":"1.3.2","depth":2,"path":"prometheus/config.md","ref":"prometheus/config.md","articles":[]},{"title":"查询语句","level":"1.3.3","depth":2,"path":"prometheus/query.md","ref":"prometheus/query.md","articles":[]},{"title":"指标查询","level":"1.3.4","depth":2,"path":"prometheus/query-metrics.md","ref":"prometheus/query-metrics.md","articles":[]},{"title":"指标运算","level":"1.3.5","depth":2,"path":"prometheus/query-compute.md","ref":"prometheus/query-compute.md","articles":[]},{"title":"二元运算","level":"1.3.6","depth":2,"path":"prometheus/query-binary.md","ref":"prometheus/query-binary.md","articles":[]},{"title":"聚合运算","level":"1.3.7","depth":2,"path":"prometheus/query-aggre.md","ref":"prometheus/query-aggre.md","articles":[]},{"title":"查询函数","level":"1.3.8","depth":2,"path":"prometheus/query-function.md","ref":"prometheus/query-function.md","articles":[]},{"title":"各种 exporter","level":"1.3.9","depth":2,"path":"prometheus/exporters.md","ref":"prometheus/exporters.md","articles":[{"title":"blackbox exporter","level":"1.3.9.1","depth":3,"path":"prometheus/blackbox.md","ref":"prometheus/blackbox.md","articles":[]}]},{"title":"pushgateway","level":"1.3.10","depth":2,"path":"prometheus/pushgateway.md","ref":"prometheus/pushgateway.md","articles":[]}]},"previous":{"title":"4 层 TCP/UDP 转发","level":"1.2.10","depth":2,"path":"envoy/l4.md","ref":"envoy/l4.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/qa.md","mtime":"2019-09-19T09:29:29.125Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T03:49:27.089Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

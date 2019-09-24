@@ -655,14 +655,33 @@ var _hmt = _hmt || [];
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="1.3.10" data-path="../prometheus/blackbox.html">
+        <li class="chapter " data-level="1.3.9.1" data-path="../prometheus/blackbox.html">
             
                 <a href="../prometheus/blackbox.html">
             
                     
                     blackbox exporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../prometheus/pushgateway.html">
+            
+                <a href="../prometheus/pushgateway.html">
+            
+                    
+                    pushgateway
             
                 </a>
             
@@ -1878,6 +1897,64 @@ var _hmt = _hmt || [];
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../ansible/privilege.html">
+            
+                <a href="../ansible/privilege.html">
+            
+                    
+                    用户权限提升
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../ansible/file.html">
+            
+                <a href="../ansible/file.html">
+            
+                    
+                    文件和url处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../ansible/install.html">
+            
+                <a href="../ansible/install.html">
+            
+                    
+                    软件安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../ansible/docker.html">
+            
+                <a href="../ansible/docker.html">
+            
+                    
+                    操作 docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
 
@@ -1953,6 +2030,7 @@ var _hmt = _hmt || [];
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+<br>
 </div>
 
 
@@ -1961,14 +2039,15 @@ var _hmt = _hmt || [];
 </blockquote>
 <!-- toc -->
 <ul>
-<li><a href="#envoy-4-&#x5C42;-tcp-&#x8F6C;&#x53D1;">Envoy 4 &#x5C42; tcp &#x8F6C;&#x53D1;</a><ul>
+<li><a href="#envoy-4-&#x5C42;-tcpudp-&#x534F;&#x8BAE;&#x8F6C;&#x53D1;">Envoy 4 &#x5C42; TCP/UDP &#x534F;&#x8BAE;&#x8F6C;&#x53D1;</a><ul>
 <li><a href="#envoy-tcp-&#x8F6C;&#x53D1;&#x793A;&#x4F8B;">envoy tcp &#x8F6C;&#x53D1;&#x793A;&#x4F8B;</a></li>
 <li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
 </ul>
 </li>
 </ul>
 <!-- tocstop -->
-<h1 id="envoy-4-&#x5C42;-tcp-&#x8F6C;&#x53D1;">Envoy 4 &#x5C42; tcp &#x8F6C;&#x53D1;</h1>
+<h1 id="envoy-4-&#x5C42;-tcpudp-&#x534F;&#x8BAE;&#x8F6C;&#x53D1;">Envoy 4 &#x5C42; TCP/UDP &#x534F;&#x8BAE;&#x8F6C;&#x53D1;</h1>
+<p>4 &#x5C42;&#x534F;&#x8BAE;&#x73B0;&#x5728;&#x53EA;&#x652F;&#x6301; tcp&#xFF0C;udp &#x534F;&#x8BAE;&#x7684;&#x652F;&#x6301;&#x8FD8;&#x5728;&#x8BBE;&#x8BA1;&#x5F00;&#x53D1;&#x4E2D; <a href="https://github.com/introclass/go-code-example/blob/master/envoydev/xds/envoy-docker-run/envoy-to-tcp.yaml" title="envoy-to-tcp.yaml" target="_blank">UDP proxying support</a>&#x3002;</p>
 <p>Envoy &#x7684; 4 &#x5C42;&#x4EE3;&#x7406;&#x8F6C;&#x53D1;&#x901A;&#x8FC7;&#x540D;&#x4E3A; <a href="network-filter.html">envoy.tcp_proxy</a> &#x7684; network filter &#x5B8C;&#x6210;&#xFF0C;&#x8BE5; filter &#x7684;&#x5B9A;&#x4E49;&#x89C1; <a href="https://www.envoyproxy.io/docs/envoy/v1.11.0/api-v2/config/filter/network/tcp_proxy/v2/tcp_proxy.proto#envoy-api-msg-config-filter-network-tcp-proxy-v2-tcpproxy" title="TCP Proxy configuration overview" target="_blank">TCP Proxy configuration overview</a>&#x3002;</p>
 <h2 id="envoy-tcp-&#x8F6C;&#x53D1;&#x793A;&#x4F8B;">envoy tcp &#x8F6C;&#x53D1;&#x793A;&#x4F8B;</h2>
 <p>&#x76D1;&#x542C; 81  &#x7AEF;&#x53E3;&#xFF0C;&#x5C06;&#x5230;&#x8FBE;&#x8BE5;&#x7AEF;&#x53E3;&#x7684; tcp &#x62A5;&#x6587;&#x8F6C;&#x53D1;&#x7ED9; echo_cluster&#xFF0C;&#x793A;&#x4F8B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E3A; <a href="https://github.com/introclass/go-code-example/blob/master/envoydev/xds/envoy-docker-run/envoy-to-tcp.yaml" title="envoy-to-tcp.yaml" target="_blank">envoy-to-tcp.yaml</a>&#xFF1A;</p>
@@ -2086,7 +2165,7 @@ Pod Information:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4 层 TCP/UDP 转发","level":"1.2.10","depth":2,"next":{"title":"常见问题","level":"1.2.11","depth":2,"path":"envoy/qa.md","ref":"envoy/qa.md","articles":[]},"previous":{"title":"http filter","level":"1.2.9.4","depth":3,"path":"envoy/http-filter.md","ref":"envoy/http-filter.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/l4.md","mtime":"2019-09-19T07:59:24.555Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-19T07:59:39.011Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4 层 TCP/UDP 转发","level":"1.2.10","depth":2,"next":{"title":"常见问题","level":"1.2.11","depth":2,"path":"envoy/qa.md","ref":"envoy/qa.md","articles":[]},"previous":{"title":"http filter","level":"1.2.9.4","depth":3,"path":"envoy/http-filter.md","ref":"envoy/http-filter.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"envoy/l4.md","mtime":"2019-09-19T08:15:09.187Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T03:49:27.089Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
