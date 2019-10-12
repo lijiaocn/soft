@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 24 Sep 2019 03:49:52 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 12 Oct 2019 06:53:33 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -12,6 +12,76 @@
             <description><![CDATA[这里记录工作中接触的一些重要的系统软件的使用方法，备忘录。]]></description>
             <link>https://www.lijiaocn.com/soft/</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Minikube 使用方法（最详细的中文手册）]]></title>
+            <description><![CDATA[用 minikube 部署开发测试环境 中记录了 minikube 的使用方法，这里重新整理一下。]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[安装 Minikube]]></title>
+            <description><![CDATA[Minikube 的安装非常简单，可以用 yum、brew 等工具安装，也可以直接从 github 上下载二进制文件：]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/install.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/install.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[用 minikube 启动 kubernetes]]></title>
+            <description><![CDATA[Minikube 可以部署多个版本的 kubernetes，如果不指定 kubernetes 版本默认使用 minikube 发行的最新版。]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/deploy.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/deploy.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[进入 minikube 虚拟机以及进行其它精细操作]]></title>
+            <description><![CDATA[minkube 自带了不少子命令，可以用来查看、修改各种细节。]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/vm.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/vm.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Minikube 部署时，修改 kubernetes 的组件参数]]></title>
+            <description><![CDATA[minikube 支持修改每个组件的参数，用 --extra-config 中，格式如下：]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/config.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/config.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[操作用 minikube 启动的 kubernetes]]></title>
+            <description><![CDATA[Minikube 在启动 kubernetes 时会设置  ~/.kube/config 文件，在其中增加了访问凭证：]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/oper.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/oper.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[访问 minikube 启动的 kubernetes 中的服务]]></title>
+            <description><![CDATA[Kubernetes 在本地虚拟机中运行，如果要访问部署其中的服务，需要通过 node port。]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/request.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/request.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Kubernetes 使用手册]]></title>
+            <description><![CDATA[这里的部分内容来自 Kubernetes工作笔记，本手册随着工作学习的进行不断更新。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 的使用方法]]></title>
+            <description><![CDATA[ingress-nginx 是 NGINX Ingress Controller for Kubernetes，它能做的事情越来越多，发展比较快。NGINX Ingress Controller Examples 列出了 ingress-nginx 能做的事情。这里逐个尝试一下。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 的认证功能使用示例]]></title>
+            <description><![CDATA[Basic Authentication 是最简单的 http 认证方式，采用用户名和密码的方式，用户名和密码以 secret 的方式存放在 kubernetes 中。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -265,48 +335,6 @@
             <description><![CDATA[Prometheus 采集数据的方式是定时轮询，轮询的频率在配置文件中设置：]]></description>
             <link>https://www.lijiaocn.com/soft/prometheus/pushgateway.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/pushgateway.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Minikube 使用方法（最详细的中文手册）]]></title>
-            <description><![CDATA[用 minikube 部署开发测试环境 中记录了 minikube 的使用方法，这里重新整理一下。]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/index.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[安装 Minikube]]></title>
-            <description><![CDATA[Minikube 的安装非常简单，可以用 yum、brew 等工具安装，也可以直接从 github 上下载二进制文件：]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/install.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/install.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[用 minikube 启动 kubernetes]]></title>
-            <description><![CDATA[Minikube 可以部署多个版本的 kubernetes，如果不指定 kubernetes 版本默认使用 minikube 发行的最新版。]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/deploy.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/deploy.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Minikube 部署时，修改 kubernetes 的组件参数]]></title>
-            <description><![CDATA[minikube 支持修改每个组件的参数，用 --extra-config 中，格式如下：]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/config.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/config.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[操作用 minikube 启动的 kubernetes]]></title>
-            <description><![CDATA[Minikube 在启动 kubernetes 时会设置  ~/.kube/config 文件，在其中增加了访问凭证：]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/oper.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/oper.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[访问 minikube 启动的 kubernetes 中的服务]]></title>
-            <description><![CDATA[Kubernetes 在本地虚拟机中运行，如果要访问部署其中的服务，需要通过 node port。]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/request.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/request.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -718,8 +746,8 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Destination rules]]></title>
-            <description><![CDATA[Destination Rule 可以理解为负载均衡策略，它作用于 VirtualService 中的 destination，在 route 之后起作用，详细介绍见 Destination Rule。]]></description>
+            <title><![CDATA[DestinationRule]]></title>
+            <description><![CDATA[Destination Rule 是转发策略，它作用于 VirtualService 中的 destination 中的 host，也就是 kubernetes 中的服务。Destination Rule 在 route 规则之后起作用，详细介绍见 Destination Rule。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/dstrule.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/dstrule.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -834,13 +862,6 @@
             <description><![CDATA[docker、docker-ce 和 docker-ee 的关系见 moby、docker-ce与docker-ee。]]></description>
             <link>https://www.lijiaocn.com/soft/docker/install.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/install.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Kubernetes 使用手册]]></title>
-            <description><![CDATA[这里的部分内容来自 Kubernetes工作笔记，本手册随着工作学习的进行不断更新。]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
