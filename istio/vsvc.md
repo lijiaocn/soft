@@ -26,7 +26,7 @@ spec:
         host: svc-2.my-namespace.svc.cluster.local
 ```
 
-`hosts` 是域名匹配规则，可以使用通配符。
+`hosts` 是 VirtualService 的域名匹配规则，匹配规则的 http 请求经由该 VirtualService 处理，可以使用通配符。
 
 `host` 是目标服务，即转发到的服务在 kubernetes 中的域名，可以转发给任意 namespace 中的 service。
 

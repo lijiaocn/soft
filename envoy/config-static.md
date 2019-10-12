@@ -157,6 +157,8 @@ Request Body:
     sni: www.baidu.com
 ```
 
+上面使用的类型为 LOGICAL_DNS，会使用域名解析返回的第一个 IP，如果是 STRICT_DNS，则使用域名解析返回的所有 IP，更多类型见 [Cluster 的类型](./cluster.md#cluster-的类型)。
+
 配置一个 listener 监听 81 端口，将所有请求转发到 www.baidu.com，转发时将 host 改写为 "www.baidu.com"：
 
 ```yaml
