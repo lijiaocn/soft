@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 12 Oct 2019 07:16:45 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 14 Oct 2019 03:47:39 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -848,6 +848,13 @@
             <description><![CDATA[rebase 命令将另一个分支上的修改同步到当前分支，但是和 merge 不同，rebase 修改的当前分支的 commit 之前的内容。]]></description>
             <link>https://www.lijiaocn.com/soft/git/rebase.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/git/rebase.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[git 跨 repo 操作]]></title>
+            <description><![CDATA[如果使用了一个开源的项目，并且基于这个项目开发了自己的分支，同时又希望把改动反馈到社区，就会遇到在跨 repo 操作的问题。]]></description>
+            <link>https://www.lijiaocn.com/soft/git/repo-cross.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/git/repo-cross.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
