@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 14 Oct 2019 03:47:39 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 15 Oct 2019 06:59:29 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -82,6 +82,20 @@
             <description><![CDATA[Basic Authentication 是最简单的 http 认证方式，采用用户名和密码的方式，用户名和密码以 secret 的方式存放在 kubernetes 中。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 对接外部的认证服务]]></title>
+            <description><![CDATA[ingress-nginx 自带认证功能，也支持对接外部的认证服务。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth-ext.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth-ext.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Kubernetes 导入外部服务]]></title>
+            <description><![CDATA[一个位于集群外部的服务地址为 192.168.99.1:4180，将这个服务导入到 kubernetes 中。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/svc/external.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/svc/external.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
