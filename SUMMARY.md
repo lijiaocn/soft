@@ -10,6 +10,7 @@
   * [访问 kubernetes 中的服务](minikube/request.md)
 * [Kubernetes 使用手册](k8s/index.md)
   * [ingress-nginx 使用准备](k8s/ingress-nginx/index.md)
+  * [ingress-nginx tls 加密](k8s/ingress-nginx/tls.md)
   * [ingerss-nginx 自带认证](k8s/ingress-nginx/auth.md)
   * [ingress-nginx 外部认证](k8s/ingress-nginx/auth-ext.md)
   * [k8s 导入外部服务](k8s/svc/external.md)
