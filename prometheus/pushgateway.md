@@ -22,7 +22,7 @@ Docker 的安装方式见 [Docker 安装部署](../docker/install.md)。
 用 docker 启动 pushgateway 是最方面的方式：
 
 ```sh
-docker pull prom/pushgateway
+docker pull prom/pushgateway:v0.9.1
 docker run -d -p 9091:9091 prom/pushgateway:v0.9.1
 ```
 

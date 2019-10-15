@@ -67,6 +67,47 @@ $ kubectl -n demo-echo create -f tls-echo-example-ingress.yaml
 
 ![访问用tls加密的 ingress-nginx 服务](../../img/ingress-nginx/tls-1.png)
 
+## 支持多个域名
+
+可以在一个 ingress 中为多个域名设置 tls 加密，例如：
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: foo-tls
+  namespace: default
+spec:
+  tls:
+  - hosts:
+    - foo.bar.com
+    # This secret must exist beforehand
+    # The cert must also contain the subj-name foo.bar.com
+    # https://github.com/kubernetes/ingress-nginx/blob/master/docs/examples/PREREQUISITES.md#tls-certificates
+    secretName: foobar
+  - hosts:
+    - bar.baz.com
+    # This secret must exist beforehand
+    # The cert must also contain the subj-name bar.baz.com
+    # https://github.com/kubernetes/ingress-nginx/blob/master/docs/examples/PREREQUISITES.md#tls-certificates
+    secretName: barbaz
+  rules:
+  - host: foo.bar.com
+    http:
+      paths:
+      - backend:
+          serviceName: http-svc
+          servicePort: 80
+        path: /
+  - host: bar.baz.com
+    http:
+      paths:
+      - backend:
+          serviceName: nginx
+          servicePort: 80
+        path: /
+```
+
 ## 参考
 
 1. [李佶澳的博客][1]

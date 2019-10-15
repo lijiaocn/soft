@@ -13,6 +13,7 @@
   * [ingress-nginx tls 加密](k8s/ingress-nginx/tls.md)
   * [ingerss-nginx 自带认证](k8s/ingress-nginx/auth.md)
   * [ingress-nginx 外部认证](k8s/ingress-nginx/auth-ext.md)
+  * [ingress-nginx uri 改写](k8s/ingress-nginx/rewrite.md)
   * [k8s 导入外部服务](k8s/svc/external.md)
 * [Envoy 使用手册](envoy/index.md)
   * [安装运行](envoy/install.md)
