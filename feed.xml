@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 16 Oct 2019 09:50:51 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 16 Oct 2019 09:56:01 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -71,6 +71,13 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
+            <title><![CDATA[Kubernetes 导入外部服务]]></title>
+            <description><![CDATA[一个位于集群外部的服务地址为 192.168.99.1:4180，将这个服务导入到 kubernetes 中。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/svc/external.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/svc/external.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
             <title><![CDATA[ingress-nginx 的使用方法]]></title>
             <description><![CDATA[ingress-nginx 是 NGINX Ingress Controller for Kubernetes，它能做的事情越来越多，发展比较快。NGINX Ingress Controller Examples 列出了 ingress-nginx 能做的事情。这里逐个尝试一下。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/index.html</link>
@@ -110,13 +117,6 @@
             <description><![CDATA[ingress-nginx 支持请求复制功能，将同一域名下指定 path 上的请求复制到另一个 path。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/mirror.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/mirror.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Kubernetes 导入外部服务]]></title>
-            <description><![CDATA[一个位于集群外部的服务地址为 192.168.99.1:4180，将这个服务导入到 kubernetes 中。]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/svc/external.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/svc/external.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
