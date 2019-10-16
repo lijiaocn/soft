@@ -319,7 +319,7 @@ var _hmt = _hmt || [];
                 <a href="../k8s/ingress-nginx/tls.html">
             
                     
-                    ingress-nginx tls 加密
+                    ingress-nginx 传输加密
             
                 </a>
             
@@ -358,7 +358,7 @@ var _hmt = _hmt || [];
                 <a href="../k8s/ingress-nginx/rewrite.html">
             
                     
-                    ingress-nginx uri 改写
+                    ingress-nginx 请求改写
             
                 </a>
             
@@ -366,7 +366,20 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../k8s/svc/external.html">
+        <li class="chapter " data-level="1.3.6" data-path="../k8s/ingress-nginx/mirror.html">
+            
+                <a href="../k8s/ingress-nginx/mirror.html">
+            
+                    
+                    ingress-nginx 请求复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../k8s/svc/external.html">
             
                 <a href="../k8s/svc/external.html">
             
@@ -2144,7 +2157,18 @@ var _hmt = _hmt || [];
 </div>
 
 
-                                <h1 id="prometheus-&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;">Prometheus &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h1>
+                                <!-- toc -->
+<ul>
+<li><a href="#prometheus-&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;">Prometheus &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</a><ul>
+<li><a href="#&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;">&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</a></li>
+<li><a href="#&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x68C0;&#x67E5;">&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x68C0;&#x67E5;</a></li>
+<li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="prometheus-&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;">Prometheus &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h1>
+<h2 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;">&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</h2>
 <p>&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x662F; yaml &#x683C;&#x5F0F;&#x7684;&#xFF0C;&#x5206;&#x4E3A; global&#x3001;alerting&#x3001;rule_files &#x548C; scrape_configs &#x56DB;&#x90E8;&#x5206;&#x3002;</p>
 <p>global &#x662F;&#x5168;&#x5C40;&#x53C2;&#x6570;&#x914D;&#x7F6E;&#xFF0C;alerting &#x662F;&#x544A;&#x8B66;&#x670D;&#x52A1;&#x5730;&#x5740;&#xFF0C;rule_files &#x662F;&#x544A;&#x8B66;&#x548C;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#xFF0C;scrape_configs &#x662F;&#x6570;&#x636E;&#x91C7;&#x96C6;&#x5730;&#x5740;&#x3002;&#x5176;&#x4E2D; rule_files &#x548C; scrape_configs &#x662F;&#x91CD;&#x70B9;&#xFF0C;&#x540E;&#x8005;&#x652F;&#x6301;&#x591A;&#x79CD;&#x52A8;&#x6001;&#x53D1;&#x73B0;&#x65B9;&#x5F0F;&#xFF0C;&#x66F4;&#x590D;&#x6742;&#x4E00;&#x4E9B;&#x3002;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">global:</span>
@@ -2176,6 +2200,7 @@ var _hmt = _hmt || [];
 <span class="hljs-attr">    static_configs:</span>
 <span class="hljs-attr">    - targets:</span> [<span class="hljs-string">&apos;localhost:9090&apos;</span>]
 </code></pre>
+<h2 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x68C0;&#x67E5;">&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x68C0;&#x67E5;</h2>
 <p>&#x53EF;&#x4EE5;&#x7528; promtool &#x68C0;&#x67E5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x6B63;&#x786E;&#xFF1A;</p>
 <pre><code class="lang-sh">$ ./promtool check config prometheus.yml 
 Checking prometheus.yml
@@ -2253,7 +2278,7 @@ Checking prometheus.yml
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"配置文件","level":"1.5.2","depth":2,"next":{"title":"查询语句","level":"1.5.3","depth":2,"path":"prometheus/query.md","ref":"prometheus/query.md","articles":[]},"previous":{"title":"安装启动","level":"1.5.1","depth":2,"path":"prometheus/start.md","ref":"prometheus/start.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"prometheus/config.md","mtime":"2019-10-15T09:28:17.379Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-15T11:37:37.562Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"配置文件","level":"1.5.2","depth":2,"next":{"title":"查询语句","level":"1.5.3","depth":2,"path":"prometheus/query.md","ref":"prometheus/query.md","articles":[]},"previous":{"title":"安装启动","level":"1.5.1","depth":2,"path":"prometheus/start.md","ref":"prometheus/start.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"prometheus/config.md","mtime":"2019-10-16T03:07:28.237Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-16T09:50:18.086Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

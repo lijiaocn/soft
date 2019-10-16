@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 15 Oct 2019 11:38:06 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 16 Oct 2019 09:50:51 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -103,6 +103,13 @@
             <description><![CDATA[ingress-nginx 支持 uri 改写，并且支持正则捕获。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/rewrite.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/rewrite.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Ingress-nginx 的请求复制功能]]></title>
+            <description><![CDATA[ingress-nginx 支持请求复制功能，将同一域名下指定 path 上的请求复制到另一个 path。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/mirror.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/mirror.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
