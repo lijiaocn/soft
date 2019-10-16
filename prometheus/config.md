@@ -1,6 +1,10 @@
+<!-- toc -->
 # Prometheus 的配置文件
 
+## 配置文件格式
+
 配置文件是 yaml 格式的，分为 global、alerting、rule_files 和 scrape_configs 四部分。
+
 
 global 是全局参数配置，alerting 是告警服务地址，rule_files 是告警和记录规则，scrape_configs 是数据采集地址。其中 rule_files 和 scrape_configs 是重点，后者支持多种动态发现方式，更复杂一些。
 
@@ -35,6 +39,8 @@ scrape_configs:
     - targets: ['localhost:9090']
 ```
 
+## 配置文件检查
+
 可以用 promtool 检查配置文件是否正确：
 
 ```sh
@@ -42,5 +48,7 @@ $ ./promtool check config prometheus.yml
 Checking prometheus.yml
   SUCCESS: 0 rule files found
 ```
+
+
 
 ## 参考
