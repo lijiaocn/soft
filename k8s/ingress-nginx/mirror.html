@@ -66,7 +66,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ratelimit.md" />
+    <link rel="next" href="ratelimit.html" />
     
     
     <link rel="prev" href="rewrite.html" />
@@ -392,9 +392,9 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="ratelimit.md">
+        <li class="chapter " data-level="1.3.8" data-path="ratelimit.html">
             
-                <span>
+                <a href="ratelimit.html">
             
                     
                     ingress-nginx 源IP限速
@@ -2189,14 +2189,13 @@ var _hmt = _hmt || [];
 namespace/demo-echo unchanged
 service/webshell created
 deployment.apps/webshell created
-
-$ kubectl -n demo-echo get svc
-NAME          TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                     AGE
-<span class="hljs-built_in">echo</span>          NodePort    10.111.29.87    &lt;none&gt;        80:30411/TCP,22:31867/TCP   47d
-webshell      NodePort    10.110.171.22   &lt;none&gt;        80:30415/TCP,22:31785/TCP   8s
 </code></pre>
-<h2 id="&#x914D;&#x7F6E;&#x8BF7;&#x6C42;&#x590D;&#x5236;&#x7684;-ingress">&#x914D;&#x7F6E;&#x8BF7;&#x6C42;&#x590D;&#x5236;&#x7684; ingress</h2>
-<p>&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E24;&#x4E2A; ingress&#xFF0C;&#x4E24;&#x4E2A; ingress &#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684; host&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x7528;&#x6765;&#x63A5;&#x6536;&#x590D;&#x5236;&#x8BF7;&#x6C42;&#x7684; ingress&#xFF1A;</p>
+<pre><code>$ kubectl -n demo-echo get svc
+NAME          TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                     AGE
+echo          NodePort    10.111.29.87    &lt;none&gt;        80:30411/TCP,22:31867/TCP   47d
+webshell      NodePort    10.110.171.22   &lt;none&gt;        80:30415/TCP,22:31785/TCP   8s
+</code></pre><h2 id="&#x914D;&#x7F6E;&#x8BF7;&#x6C42;&#x590D;&#x5236;&#x7684;-ingress">&#x914D;&#x7F6E;&#x8BF7;&#x6C42;&#x590D;&#x5236;&#x7684; ingress</h2>
+<p>&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E24;&#x4E2A; ingress&#xFF0C;&#x4E24;&#x4E2A; ingress &#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684; host&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x63A5;&#x6536;&#x590D;&#x5236;&#x7684;&#x8BF7;&#x6C42;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> extensions/v1beta1
 <span class="hljs-attr">kind:</span> Ingress
 <span class="hljs-attr">metadata:</span>
@@ -2211,7 +2210,7 @@ webshell      NodePort    10.110.171.22   &lt;none&gt;        80:30415/TCP,22:31
 <span class="hljs-attr">          serviceName:</span> webshell
 <span class="hljs-attr">          servicePort:</span> <span class="hljs-number">80</span>
 </code></pre>
-<p>&#x7B2C;&#x4E8C;&#x4E2A; ingress &#x6307;&#x5B9A;&#x8981;&#x590D;&#x5236;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x5728; mirror-uri &#x4E2D;&#x6307;&#x5B9A;&#x8981;&#x590D;&#x5236;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x5230;&#x8FBE;&#x8BE5; ingress &#x4E2D;&#x6240;&#x6709; path &#x7684;&#x8BF7;&#x6C42;&#x5C06;&#x88AB;&#x590D;&#x5236;&#x5230; mirror-uri&#xFF1A;</p>
+<p>&#x7B2C;&#x4E8C;&#x4E2A; ingress &#x5728; mirror-uri &#x4E2D;&#x8BBE;&#x7F6E;&#x63A5;&#x6536;&#x5730;&#x5740;&#xFF0C;&#x5230;&#x8FBE;&#x8BE5; ingress &#x4E2D;&#x6240;&#x6709; path &#x7684;&#x8BF7;&#x6C42;&#x5C06;&#x88AB;&#x590D;&#x5236;&#x5230; mirror-uri&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> extensions/v1beta1
 <span class="hljs-attr">kind:</span> Ingress
 <span class="hljs-attr">metadata:</span>
@@ -2228,7 +2227,7 @@ webshell      NodePort    10.110.171.22   &lt;none&gt;        80:30415/TCP,22:31
 <span class="hljs-attr">          serviceName:</span> echo
 <span class="hljs-attr">          servicePort:</span> <span class="hljs-number">80</span>
 </code></pre>
-<p>&#x9ED8;&#x8BA4;&#x5C06;&#x8BF7;&#x6C42;&#x7684; body &#x4E00;&#x540C;&#x590D;&#x5236;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x590D;&#x5236; body&#xFF0C;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x6CE8;&#x89E3;&#x5173;&#x95ED;&#xFF1A;</p>
+<p>&#x9ED8;&#x8BA4;&#x5C06;&#x8BF7;&#x6C42;&#x7684; body &#x4E00;&#x540C;&#x590D;&#x5236;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x590D;&#x5236; body&#xFF0C;&#x5728;&#x7B2C;&#x4E8C;&#x4E2A; ingress &#x4E2D;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x6CE8;&#x89E3;&#x5173;&#x95ED;&#xFF1A;</p>
 <pre><code class="lang-sh">nginx.ingress.kubernetes.io/mirror-request-body: <span class="hljs-string">&quot;off&quot;</span>
 </code></pre>
 <h2 id="&#x8BF7;&#x6C42;&#x590D;&#x5236;&#x6548;&#x679C;">&#x8BF7;&#x6C42;&#x590D;&#x5236;&#x6548;&#x679C;</h2>
@@ -2353,7 +2352,7 @@ Pod Information:
                 </a>
                 
                 
-                <a href="ratelimit.md" class="navigation navigation-next " aria-label="Next page: ingress-nginx 源IP限速">
+                <a href="ratelimit.html" class="navigation navigation-next " aria-label="Next page: ingress-nginx 源IP限速">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2364,7 +2363,7 @@ Pod Information:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ingress-nginx 请求复制","level":"1.3.7","depth":2,"next":{"title":"ingress-nginx 源IP限速","level":"1.3.8","depth":2,"path":"k8s/ingress-nginx/ratelimit.md","ref":"k8s/ingress-nginx/ratelimit.md","articles":[]},"previous":{"title":"ingress-nginx 请求改写","level":"1.3.6","depth":2,"path":"k8s/ingress-nginx/rewrite.md","ref":"k8s/ingress-nginx/rewrite.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"k8s/ingress-nginx/mirror.md","mtime":"2019-10-16T09:51:07.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-16T09:55:34.043Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ingress-nginx 请求复制","level":"1.3.7","depth":2,"next":{"title":"ingress-nginx 源IP限速","level":"1.3.8","depth":2,"path":"k8s/ingress-nginx/ratelimit.md","ref":"k8s/ingress-nginx/ratelimit.md","articles":[]},"previous":{"title":"ingress-nginx 请求改写","level":"1.3.6","depth":2,"path":"k8s/ingress-nginx/rewrite.md","ref":"k8s/ingress-nginx/rewrite.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"k8s/ingress-nginx/mirror.md","mtime":"2019-10-16T10:00:20.545Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-17T06:46:34.693Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

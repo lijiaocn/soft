@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 16 Oct 2019 09:56:01 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 17 Oct 2019 06:47:04 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -72,21 +72,21 @@
         </item>
         <item>
             <title><![CDATA[Kubernetes 导入外部服务]]></title>
-            <description><![CDATA[一个位于集群外部的服务地址为 192.168.99.1:4180，将这个服务导入到 kubernetes 中。]]></description>
+            <description><![CDATA[有一个位于集群外部的服务，地址为 192.168.99.1:4180，将这个服务导入到 kubernetes 中。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/svc/external.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/svc/external.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[ingress-nginx 的使用方法]]></title>
-            <description><![CDATA[ingress-nginx 是 NGINX Ingress Controller for Kubernetes，它能做的事情越来越多，发展比较快。NGINX Ingress Controller Examples 列出了 ingress-nginx 能做的事情。这里逐个尝试一下。]]></description>
+            <description><![CDATA[ingress-nginx 是 NGINX Ingress Controller for Kubernetes，它能做的事情越来越多，发展比较快。NGINX Ingress Controller Examples 列出了 ingress-nginx 能做的事情。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/index.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[ingress-nginx 设置 https 证书]]></title>
-            <description><![CDATA[ingress-nginx 设置 https 证书的方式特别简单，将目标服务的 tls 证书以 secret 的方式存放到 kubernetes  后，在对应的 ingress 中设置 tls，引用证书即可。]]></description>
+            <description><![CDATA[ingress-nginx 设置 https 证书的方式特别简单，将目标服务的 tls 证书以 secret 的方式存放到 kubernetes  后，在对应的 ingress 的 tls 设置中引用证书即可。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/tls.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/tls.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -117,6 +117,13 @@
             <description><![CDATA[ingress-nginx 支持请求复制功能，将同一域名下指定 path 上的请求复制到另一个 path。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/mirror.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/mirror.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 针对源 IP 限速]]></title>
+            <description><![CDATA[ingress-nginx 可以限制源 IP 的最大连接数、每秒请求数、每分钟请求数、每秒发送的数据量、限速白名单。超过上限的客户端会收到 ingress-nginx 返回的 503。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/ratelimit.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/ratelimit.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
