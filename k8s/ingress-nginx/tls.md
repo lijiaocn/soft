@@ -1,7 +1,7 @@
 <!-- toc -->
 # ingress-nginx 设置 https 证书
 
-ingress-nginx 设置 https 证书的方式特别简单，将目标服务的 tls 证书以 secret 的方式存放到 kubernetes  后，在对应的 ingress 中设置 tls，引用证书即可。
+ingress-nginx 设置 https 证书的方式特别简单，将目标服务的 tls 证书以 secret 的方式存放到 kubernetes  后，在对应的 ingress 的 tls 设置中引用证书即可。
 
 ## 准备证书
 
@@ -113,3 +113,4 @@ spec:
 1. [李佶澳的博客][1]
 
 [1]: https://www.lijiaocn.com "李佶澳的博客"
+[2]: https://kubernetes.github.io/ingress-nginx/user-guide/tls/ ""

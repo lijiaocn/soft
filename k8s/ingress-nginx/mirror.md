@@ -12,7 +12,9 @@ $ kubectl -n demo-echo apply -f webshell.yaml
 namespace/demo-echo unchanged
 service/webshell created
 deployment.apps/webshell created
+```
 
+```
 $ kubectl -n demo-echo get svc
 NAME          TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                     AGE
 echo          NodePort    10.111.29.87    <none>        80:30411/TCP,22:31867/TCP   47d
@@ -21,7 +23,7 @@ webshell      NodePort    10.110.171.22   <none>        80:30415/TCP,22:31785/TC
 
 ## 配置请求复制的 ingress
 
-需要创建两个 ingress，两个 ingress 使用相同的 host，一个是用来接收复制请求的 ingress：
+需要创建两个 ingress，两个 ingress 使用相同的 host，第一个用来接收复制的请求：
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -39,7 +41,7 @@ spec:
           servicePort: 80
 ```
 
-第二个 ingress 指定要复制的请求，在 mirror-uri 中指定要复制的路径，到达该 ingress 中所有 path 的请求将被复制到 mirror-uri：
+第二个 ingress 在 mirror-uri 中设置接收地址，到达该 ingress 中所有 path 的请求将被复制到 mirror-uri：
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -59,7 +61,7 @@ spec:
           servicePort: 80
 ```
 
-默认将请求的 body 一同复制，如果不想复制 body，用下面的注解关闭：
+默认将请求的 body 一同复制，如果不想复制 body，在第二个 ingress 中用下面的注解关闭：
 
 ```sh
 nginx.ingress.kubernetes.io/mirror-request-body: "off"
