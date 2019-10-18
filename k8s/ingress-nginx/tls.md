@@ -3,6 +3,10 @@
 
 ingress-nginx 设置 https 证书的方式特别简单，将目标服务的 tls 证书以 secret 的方式存放到 kubernetes  后，在对应的 ingress 的 tls 设置中引用证书即可。
 
+```sh
+$ cd 01-tls
+```
+
 ## 准备证书
 
 目标服务的正式证书要通过 CA 机构签署，试验该功能时可以先用自签署的证书：
@@ -16,9 +20,15 @@ openssl req -new -newkey rsa:4096 -keyout server.key -out server.csr -nodes -sub
 openssl x509 -req -sha256 -days 3650 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
 ```
 
-CN 是目标服务要使用的域名。
+上面的 CN= 是目标服务要使用的域名。
 
-只需要将 server 证书上传到 kubernetes：
+生成证书：
+
+```sh
+./01-create-cert.sh
+```
+
+将 server 证书上传到 kubernetes，（如果只是启用 tls 加密， ca 证书不需要上传）：
 
 ```sh
 $ kubectl -n demo-echo create secret generic tls-echo-exmaple-secret --from-file=tls.crt=server.crt --from-file=tls.key=server.key
@@ -56,7 +66,7 @@ $ kubectl -n demo-echo create -f tls-echo-example-ingress.yaml
 
 ## 效果
 
-这里的 ingress-nginx 的 IP 地址是 192.168.99.100，https 端口是 30358，在本地配置 hosts：
+这里的 ingress-nginx 的 IP 地址是 192.168.99.100，https 端口是 30358，在本地配置 hosts 后访问：
 
 ```sh
 # /etc/hosts

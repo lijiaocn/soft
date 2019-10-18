@@ -1,8 +1,28 @@
+<!-- toc -->
 # Kubernetes 导入外部服务 
 
-有一个位于集群外部的服务，地址为 192.168.99.1:4180，将这个服务导入到 kubernetes 中。
+本文使用的 yaml 文件：
 
-1 为外部服务创建一个对应的 Service：
+```sh 
+git clone https://github.com/introclass/kubernetes-yamls
+cd kubernetes-yamls/ingress-nginx/05-1-external-svc
+```
+
+## 启动一个外部服务
+
+启动一个位于集群外部的服务：
+
+```sh
+./start-github-oauth2-proxy.sh
+```
+
+这里的服务地址为 192.168.99.1:4180，将这个服务导入到 kubernetes 中。
+
+## 导入到 kubernetes 中
+
+为外部服务创建 Service 和一个与 Service 同名的 endpoint，endpoint 中填入外部服务的 IP。
+
+名为 external-github-oauth-proxy 的 Service：
 
 ```yaml
 kind: Service
@@ -16,7 +36,7 @@ spec:
    targetPort: 4180
 ```
 
-2 创建一个与 Service 同名的 endpoint，填入外部服务的 IP：
+同名的 endpoint：
 
 ```yaml
 kind: Endpoints
@@ -30,20 +50,40 @@ subsets:
      - port: 4180
 ```
 
-然后可以像使用其它服务一样使用外部服务，譬如在 ingress 中配置外部服务：
+创建：
+
+```sh
+$ kubectl -n demo-echo create -f external-github-oauth2-proxy.yaml
+```
+
+## 导入效果
+
+导入后可以像使用其它服务一样使用外部服务，譬如在 ingress 中配置外部服务：
 
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-echo-with-auth-oauth2-ext-proxy
+  name: github-oauth2-proxy
 spec:
   rules:
-  - host: auth-oauth2-ext.echo.example
+  - host: github-oauth2.example
     http:
       paths:
-      - path: /oauth2
-        backend:
-          serviceName: external-github-oauth-proxy
+      - backend:
+          serviceName: github-oauth2-proxy
           servicePort: 4180
+        path: /
 ```
+
+创建：
+
+```sh
+$ kubectl -n demo-echo create github-oauth-proxy.yaml
+```
+
+## 参考 
+
+1. [李佶澳的博客][1]
+
+[1]: https://www.lijiaocn.com "李佶澳的博客"

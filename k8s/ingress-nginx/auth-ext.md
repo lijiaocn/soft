@@ -5,6 +5,10 @@ ingress-nginx [自带认证功能](./auth.md)，也支持对接外部的认证�
 
 ## 对接外部的 Basic Auth
 
+```sh
+cd 04-auth-basic-ext/
+```
+
 ###  准备外部 basic auth 服务
 
 准备一个外部的 Basic Auth，[https://httpbin.org/ ][2] 是一个很好的选择。
@@ -21,9 +25,33 @@ $ curl -u user1:passwd1 https://httpbin.org/basic-auth/user1/passwd1
 
 ### 创建使用外部认证的 ingress
 
+auth-url 是外部认证地址：
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-echo-with-auth-basic-ext
+  annotations:
+    nginx.ingress.kubernetes.io/auth-url: "https://httpbin.org/basic-auth/user1/passwd1"
+spec:
+  rules:
+  - host: auth-basic-ext.echo.example
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: echo
+          servicePort: 80
+```
+
+执行：
+
 ```sh
 $ kubectl -n demo-echo create -f auth-basic-ext-ingress.yaml
+```
 
+```sh
 $ kubectl -n demo-echo get ingress -o wide
 NAME                               HOSTS                         ADDRESS   PORTS     AGE
 ingress-echo                       echo.example                            80        45d
@@ -32,7 +60,7 @@ ingress-echo-with-auth-basic-ext   auth-basic-ext.echo.example             80   
 ingress-echo-with-auth-cert        auth-cert.echo.example                  80, 443   2d1h
 ```
 
-### 效果验证
+### 使用效果
 
 不提供用户名和密码：
 
@@ -75,6 +103,10 @@ Pod Information:
 
 OAuth2 服务的地址同样在 annotation 中设置，为了避免额外的折腾，这里全部使用 https，否则需要调整 lijiaocn/oauth2_proxy:v4.0.0 的启动参数。
 
+```sh
+cd 05-2-auth-oauth-ext
+```
+
 ### 准备外部 OAuth2 服务
 
 Github 支持 OAuth2 认证，通过地址 [https://github.com/settings/applications/new ][3] 注册使用 github OAuth2 的应用：
@@ -107,12 +139,23 @@ b9fc2924b9eb        lijiaocn/oauth2_proxy:v4.0.0   "/bin/oauth2_proxy -…"   5 
 github_oauth2_proxy 位于 kubernetes 外部， 按照 [Kubernetes 导入外部服务](../svc/external.md) 的做法导入：
 
 ```sh
-$ kubectl -n demo-echo create -f external-github-oauth2-proxy.yaml
+$ kubectl -n demo-echo apply -f external-github-oauth2-proxy.yaml
 ```
 
-### 配置使用外部 OAuth 的 Ingress
+### 配置目标应用的 Ingress
 
 为目标应用创建 tls 证书，保存在名为 oauth2-tls-secret 的 secret 中：
+
+```sh
+echo "生成自签署的 ca 证书"
+openssl req -x509 -sha256 -newkey rsa:4096 -keyout ca.key -out ca.crt -days 3560 -nodes -subj '/CN=My Cert Authority'
+
+echo "生成用上述 ca 签署的 server 证书"
+openssl req -new -newkey rsa:4096 -keyout server.key -out server.csr -nodes -subj '/CN=auth-oauth2-ext.echo.example'
+openssl x509 -req -sha256 -days 3650 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
+```
+
+执行：
 
 ```sh
 $ ./01-create-cert.sh
@@ -180,7 +223,7 @@ spec:
 $ kubectl -n demo-echo create -f auth-oauth2-ext-ingress.yaml
 ```
 
-### 认证效果
+### 使用效果
 
 访问 https://auth-oauth2-ext.echo.example:30358 时，会弹出 github 登录界面：
 

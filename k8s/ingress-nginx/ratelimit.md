@@ -3,6 +3,10 @@
 
 ingress-nginx 可以限制源 IP 的最大连接数、每秒请求数、每分钟请求数、每秒发送的数据量、限速白名单。超过上限的客户端会收到 ingress-nginx 返回的 503。
 
+```sh
+cd 08-ratelimit
+```
+
 ## 配置 ingress
 
 优先级： limit-connections >  limit-rpm > limit-rps。
@@ -29,6 +33,8 @@ spec:
           serviceName: echo
           servicePort: 80
 ```
+
+执行：
 
 ```sh
 $ kubectl -n demo-echo apply -f ratelimit-echo-example-ingress.yaml

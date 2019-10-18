@@ -3,7 +3,11 @@
 
 ingress-nginx 支持 uri 改写，并且支持正则捕获。
 
-## 配置 ingress
+```sh
+cd 06-rewrite
+```
+
+## 配置目标应用的 ingress
 
 创建一个 ingress，path 匹配规则为 `/rewrite/(.*)`，rewrite-target 中可以使用 path 中的正则匹配：
 
@@ -25,7 +29,7 @@ spec:
           servicePort: 80
 ```
 
-需要注意的是 rewrite-target 对所在 ingress 中的所有 path 有效。
+需要注意 rewrite-target 对 ingress 中的所有 path 有效。
 
 创建：
 

@@ -3,7 +3,11 @@
 
 ingress-nginx 支持请求复制功能，将同一域名下指定 path 上的请求复制到另一个 path。
 
-## 部署一个用于接收复制请求的服务
+```sh
+cd 07-mirror
+```
+
+## 部署接收复制请求的服务
 
 创建一个名为 webshell 的服务，用来接收复制的请求：
 
@@ -14,16 +18,18 @@ service/webshell created
 deployment.apps/webshell created
 ```
 
-```
+```sh
 $ kubectl -n demo-echo get svc
 NAME          TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                     AGE
 echo          NodePort    10.111.29.87    <none>        80:30411/TCP,22:31867/TCP   47d
 webshell      NodePort    10.110.171.22   <none>        80:30415/TCP,22:31785/TCP   8s
 ```
 
-## 配置请求复制的 ingress
+## 配置被复制的服务的 ingress
 
-需要创建两个 ingress，两个 ingress 使用相同的 host，第一个用来接收复制的请求：
+需要创建两个 ingress，两个 ingress 使用相同的 host。
+
+第一个 ingress 用来接收复制的请求，指向 webshell 服务：
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -41,7 +47,7 @@ spec:
           servicePort: 80
 ```
 
-第二个 ingress 在 mirror-uri 中设置接收地址，到达该 ingress 中所有 path 的请求将被复制到 mirror-uri：
+第二个 ingress 配置要被复制的请求，指向目标服务。mirror-uri 接收复制的请求的地址，对 ingress 中所有 path 有效：
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -80,13 +86,13 @@ Pod Information:
 ...
 ```
 
-上面的请求将被复制一份发送到 webshell 容器，webshell 容器的回应将被忽略，查看 webshell 的容器日志，可以看到收到的请求信息：
+上面的请求将被复制一份到 webshell 容器，webshell 容器的回应被 ingress 忽略，在 webshell 的日志中可以看到复制来的请求：
 
 ```sh
 $ kubectl -n demo-echo logs -f webshell-66478bdbb7-xslzg
 ```
 
-webshell 容器收到的请求信息，注意原始的 uri 使用 header 传递的 —— X-Original-Uri：
+webshell 容器收到的请求信息，注意原始的 uri 使用 header 传递的 —— **X-Original-Uri**：
 
 ```json
 {
