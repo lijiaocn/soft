@@ -2,7 +2,7 @@
 
 * [小鸟笔记—软件使用手册说明](README.md)
 * [Kubernetes 使用手册](k8s/index.md)
-  * [Minikube 部署 k8s](minikube/index.md)
+  * [minikube 部署 k8s](minikube/index.md)
     * [安装 minikube](minikube/install.md)
     * [启动 kubernetes ](minikube/deploy.md)
     * [进入 minikube 虚拟机](minikube/vm.md)
