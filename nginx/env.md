@@ -1,4 +1,4 @@
-## Nginx 学习用到的试验环境
+## Nginx 学习使用的试验环境
 
 在 mac 上安装 nginx :
 
@@ -54,6 +54,69 @@ $ curl 127.0.0.1:8080
 
 ```sh
 $ brew services stop nginx
+```
+
+## 验证代理功能
+
+在本地启动一个 [echoserver](../envoy/echoserver.md) 服务：
+
+```sh
+docker run -idt --name echoserver -p 9090:8080 -p 9443:8443 googlecontainer/echoserver:1.10
+```
+
+执行：
+
+```sh
+./start_echoserver.sh
+```
+
+创建配置文件，echo.example.conf：
+
+```conf
+upstream echo_upstream{
+    server  127.0.0.1:9090;
+    keepalive 1;
+}
+
+server {
+    listen       9091;
+    listen       [::]:9091;
+    server_name  echo.example;
+    keepalive_requests  2000;
+    keepalive_timeout 60s;
+
+    location / {
+        proxy_pass  http://echo_upstream;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+    }
+}
+```
+
+连接到 /usr/local/etc/nginx/servers/ 目录中：
+
+```sh
+./link.sh echo.example.conf
+```
+
+验证配置：
+
+```sh
+/usr/local/bin/nginx -c /usr/local/etc/nginx/nginx.conf
+```
+
+重启 nginx 后，访问：
+
+```sh
+$ curl -H "Host: echo.example" 127.0.0.1:9091
+
+Hostname: 12a852d64212
+
+Pod Information:
+	-no pod information available-
+
+Server values:
+	server_version=nginx: 1.13.3 - lua: 10008
 ```
 
 ## 参考
