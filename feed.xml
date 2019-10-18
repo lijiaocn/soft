@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 18 Oct 2019 06:54:20 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 18 Oct 2019 10:26:31 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -387,6 +387,27 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
+            <title><![CDATA[Linux 系统知识]]></title>
+            <description><![CDATA[收集 Linux 系统相关的知识。]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Linux 的透明代理]]></title>
+            <description><![CDATA[TODO: 待试验。]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/tpproxy.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/tpproxy.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Linux 的 Local 地址的认定]]></title>
+            <description><![CDATA[127.0.0.1 默认是 local 地址，其实认定为 local 地址的 IP 是可以设置的，下面的例子将所有 IP 都认定为 local。]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/localip.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/localip.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
             <title><![CDATA[形成认识框架]]></title>
             <description><![CDATA[认识框架（也就是知识大纲）非常重要，宏观上有了理解之后：1）才能有的放矢的深入细节，并能将繁杂多样的细节串联起来；2）在遇到问题的时候，才有能够正确的思考，有头绪、有方法、有步骤的调查问题、解决问题。]]></description>
             <link>https://www.lijiaocn.com/soft/linux/01-concept.html</link>
@@ -681,54 +702,39 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Linux 系统知识]]></title>
-            <description><![CDATA[收集 Linux 系统相关的知识。]]></description>
-            <link>https://www.lijiaocn.com/soft/linuxsys/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/index.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Linux 的透明代理]]></title>
-            <description><![CDATA[TODO: 待试验。]]></description>
-            <link>https://www.lijiaocn.com/soft/linuxsys/tpproxy.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/tpproxy.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Linux 的 Local 地址的认定]]></title>
-            <description><![CDATA[127.0.0.1 默认是 local 地址，其实认定为 local 地址的 IP 是可以设置的，下面的例子将所有 IP 都认定为 local。]]></description>
-            <link>https://www.lijiaocn.com/soft/linuxsys/localip.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/localip.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Nginx常用操作]]></title>
-            <description><![CDATA[提前了解这些，可以避免踩坑：]]></description>
+            <title><![CDATA[Nginx 学习资料]]></title>
+            <description><![CDATA[OpenResty 作者章宜春有一个 agentzh 的 Nginx 教程（版本 2016.07.21），不过这个教程没写完，
+可以用来培养感性认识，中文阅读起来方便一些。OpenResty 最佳实践中有一章是关于 nginx 的，相对比较适合用来入门，并且指出了一些坑。]]></description>
             <link>https://www.lijiaocn.com/soft/nginx/index.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Nginx 学习资料]]></title>
-            <description><![CDATA[OpenResty作者章宜春有一个agentzh 的 Nginx 教程（版本 2016.07.21），不过这个教程没写完，
-可以用来培养感性认识，中文阅读起来方便一些。OpenResty最佳实践中有一章是关于Nginx的，
-相对比较适合用来入门，并且指出了一些坑。]]></description>
-            <link>https://www.lijiaocn.com/soft/nginx/01-documents.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/01-documents.html</guid>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[在 mac 上安装 nginx :]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/env.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/env.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Nginx配置文件格式]]></title>
-            <description><![CDATA[nginx的源代码中有个配置文件nginx.conf样例，但是CentOS安装的nginx自带的默认配置文件结构更好。]]></description>
-            <link>https://www.lijiaocn.com/soft/nginx/02-config.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/02-config.html</guid>
+            <title><![CDATA[Nginx 配置文件格式]]></title>
+            <description><![CDATA[Nginx 的源代码中有个配置文件 nginx.conf 样例，CentOS 安装的 nginx 自带的默认配置文件结构更好。]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/config.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/config.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Nginx高性能配置]]></title>
-            <description><![CDATA[在做压测时，了解到一些配置，在这里记录一下。]]></description>
-            <link>https://www.lijiaocn.com/soft/nginx/02-config-1.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/02-config-1.html</guid>
+            <title><![CDATA[Nginx 性能优化时需要考虑的配置]]></title>
+            <description><![CDATA[做压测时了解到一些配置，在这里记录一下。调整的参数如下：]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/performance.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/performance.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx 使用注意事项]]></title>
+            <description><![CDATA[提前了解这些，可以避免踩坑：]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/important.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/important.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
