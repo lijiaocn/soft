@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 17 Oct 2019 06:47:04 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 18 Oct 2019 03:59:41 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -12,6 +12,13 @@
             <description><![CDATA[这里记录工作中接触的一些重要的系统软件的使用方法，备忘录。]]></description>
             <link>https://www.lijiaocn.com/soft/</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Kubernetes 使用手册]]></title>
+            <description><![CDATA[这里的部分内容来自 Kubernetes工作笔记，本手册随着工作学习的进行不断更新。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -64,22 +71,15 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Kubernetes 使用手册]]></title>
-            <description><![CDATA[这里的部分内容来自 Kubernetes工作笔记，本手册随着工作学习的进行不断更新。]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/index.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
             <title><![CDATA[Kubernetes 导入外部服务]]></title>
-            <description><![CDATA[有一个位于集群外部的服务，地址为 192.168.99.1:4180，将这个服务导入到 kubernetes 中。]]></description>
+            <description><![CDATA[本文使用的 yaml 文件：]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/svc/external.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/svc/external.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[ingress-nginx 的使用方法]]></title>
-            <description><![CDATA[ingress-nginx 是 NGINX Ingress Controller for Kubernetes，它能做的事情越来越多，发展比较快。NGINX Ingress Controller Examples 列出了 ingress-nginx 能做的事情。]]></description>
+            <description><![CDATA[ingress-nginx 是 NGINX Ingress Controller for Kubernetes，它能做的事情越来越多，NGINX Ingress Controller Examples 列出了 ingress-nginx 能做的事情。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/index.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
