@@ -114,9 +114,7 @@ Server values:
 
 ## Client Certificate Authentication（客户端证书认证）
 
-[Client Certificate Authentication][2]，进行客户端证书认证需要提供 **客户端证书** 、 **服务端证书** 和能够验证客户端证书的 **ca 证书**。
-
-启用客户端证书必须使用 tls 加密，所以服务端证书是必须的。
+[Client Certificate Authentication][2]，进行客户端证书认证需要提供 **客户端证书** 、 **服务端证书** 和能够验证客户端证书的 **ca 证书**。启用客户端证书必须使用 tls 加密，所以服务端证书是必须的。
 
 操作过程中，遇到了两个低级错误引发的问题，供参考：
 
@@ -132,11 +130,12 @@ cd 03-auth-cert
 用下面的命令生成证书：
 
 ```sh
-echo "生成 ca 证书"
+
+echo "生成自签署的 ca 证书"
 openssl req -x509 -sha256 -newkey rsa:4096 -keyout ca.key -out ca.crt -days 3560 -nodes -subj '/CN=My Cert Authority'
 
 echo "生成用上述 ca 签署的 server 证书"
-openssl req -new -newkey rsa:4096 -keyout server.key -out server.csr -nodes -subj '/CN=mydomain.com'
+openssl req -new -newkey rsa:4096 -keyout server.key -out server.csr -nodes -subj '/CN=auth-cert.echo.example'
 openssl x509 -req -sha256 -days 3650 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
 
 echo "生成用上述 ca 签署的 client 证书"
@@ -286,11 +285,15 @@ Server values:
 ## 参考
 
 1. [李佶澳的博客][1]
-2. [CONNECT_CR_SRVR_HELLO:wrong version number][4]
-3. [unable to get local issuer certificate][5]
+2. [Basic Authentication][6]
+3. [Client Certificate Authentication][7]
+4. [CONNECT_CR_SRVR_HELLO:wrong version number][4]
+5. [unable to get local issuer certificate][5]
 
 [1]: https://www.lijiaocn.com "李佶澳的博客"
 [2]: https://kubernetes.github.io/ingress-nginx/examples/auth/basic/ "Basic Authentication"
 [3]: https://kubernetes.github.io/ingress-nginx/examples/auth/client-certs/ "Client Certificate Authentication"
 [4]: https://www.lijiaocn.com/%E9%97%AE%E9%A2%98/2019/10/12/ssl-wrong-version-number.html "CONNECT_CR_SRVR_HELLO:wrong version number"
 [5]: https://www.lijiaocn.com/%E9%97%AE%E9%A2%98/2019/10/12/cacert-not-work-on-mac.html "unable to get local issuer certificate"
+[6]: https://kubernetes.github.io/ingress-nginx/examples/auth/basic/ "Basic Authentication"
+[7]: https://kubernetes.github.io/ingress-nginx/examples/auth/client-certs/ "Client Certificate Authentication"

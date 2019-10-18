@@ -166,10 +166,10 @@ $ kubectl -n demo-echo create secret generic oauth2-tls-secret --from-file=tls.c
 
 * 需要创建两个 ingress，一个指向目标应用，一个指向 github_oauth2_proxy；
 * 两个 ingress 使用同样的 host，注意， **必须是两个 ingress** ；
-* 指向 github_oauth2_proxy 的ingress 的 path 、在 github 中注册的 callback 地址、指向目标应用的 ingress 中的 auth-signin ，三者要一致。
+* **指向 github_oauth2_proxy 的ingress 的 path 、在 github 中注册的 callback 地址、指向目标应用的 ingress 中的 auth-signin ，三者要一致**。
 
 
-指向目标应用的 ingress 中，auth-url 是进行 oauth 认证的地址，auth-signin 是未认证或认证失败时的重定向地址，该地址是 github_oauth2_proxy 的地址：
+下面是指向目标应用的 ingress，auth-url 是 oauth 认证地址，auth-signin 是未认证或认证失败时的重定向地址，重定向地址是指向 github_oauth2_proxy 的 ingress 的 path：
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -195,7 +195,7 @@ spec:
     secretName: secret/oauth2-tls-secret
 ```
 
-指向 github_oauth2_proxy 的 ingress 和上面的 ingress 使用同一个域名，否则会因为 url 不匹配而认证失败：
+下面是指向 github_oauth2_proxy 的 ingress ，需要和上面的 ingress 使用同一个域名，否则会因为 url 不匹配而认证失败，上面的 ingress 中的 auth-signin 指定的 path 在这里配置（ /oauth2 ）：
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -225,34 +225,38 @@ $ kubectl -n demo-echo create -f auth-oauth2-ext-ingress.yaml
 
 ### 使用效果
 
-访问 https://auth-oauth2-ext.echo.example:30358 时，会弹出 github 登录界面：
+访问 https://auth-oauth2-ext.echo.example:30358 时，弹出 github 登录界面（未登录的时候）：
 
 ![ingress-nginx OAuth2 的 github 认证界面](../../img/ingress-nginx/github-oauth4.png)
 
-登录 github 后，客户端会被设置一个名 `_oauth2_proxy` 的 cookie，后续访问不需要再登录 github：
+登录 github 后，客户端会被设置一个名 `_oauth2_proxy` 的 cookie，后续访问不需要登录 github：
 
 ![ingress-nginx OAuth2 认证成功](../../img/ingress-nginx/github-oauth5.png)
 
 ### 原理说明
 
-访问目标应用时候，ingress-nginx 会向 nginx.ingress.kubernetes.io/auth-url 发起认证，该认证由 ingress-nginx 容器发起，所以 ingress-nginx 必须能够访问 auth-url。
+访问目标应用时候，ingress-nginx 容器会向 auth-url 发起认证，该认证由 ingress-nginx 容器发起，所以 ingress-nginx 容器必须能够访问 auth-url。
 
-如果认证没有通过，ingress-nginx 将客户端重定向到 nginx.ingress.kubernetes.io/auth-signin，这个 url 是客户端要访问的，ingress-nginx 能否访问没有影响。 auth-signin 是目标应用的 oauth2 登录页面，这里是用 github_oauth2_proxy 容器的。 
+如果认证没有通过，ingress-nginx 容器将客户端重定向到 auth-signin。auth-signin 是目标应用的 oauth2 登录页面，这里是用 github_oauth2_proxy 容器实现的。 auth-signin 地址是客户端要访问的，ingress-nginx 容器能否访问没有影响。 
 
-客户端被重定向到 github_oauth2_proxy 实现的登录页面后，点击登录，进入 github 的登录页面。
+客户端被重定向到 oauth2 登录页面后，点击登录，进入 github 的登录页面。
 
-用户登录 github 后，github 将客户端重定向到在 github 中配置的回调地址，回调地址是 github_oauth2_proxy 的地址，该地址是由客户端访问的，github 能否访问没有影响：
+用户登录 github 后，github 再将客户端重定向到在 github 中配置的回调地址（即 github_oauth2_proxy 的 path），该回调地址由客户端访问，github 能否访问没有影响：
 
 ![create github app](../../img/ingress-nginx/github-oauth6.png)
 
-客户端访问回调地址后，github_oauth2_proxy 完成 cookie 设置，将客户端重定向到最初的访问地址。
+客户端访问回调地址后，github_oauth2_proxy 在客户端设置 cookie，并将客户端重定向到最初的访问地址。
 
-带有 cookie 的客户端再次访问目标应用时，通过了 auth-url 的认证，可以访问目标服务。
+带有 cookie 的客户端再次访问目标应用时，通过了 auth-url 的认证，访问到目标服务。
 
 ## 参考
 
 1. [李佶澳的博客][1]
+2. [External Basic Authentication][5]
+3. [External OAUTH Authentication][4]
 
 [1]: https://www.lijiaocn.com "李佶澳的博客"
 [2]: https://httpbin.org/#/Auth/get_basic_auth__user___passwd_ "https://httpbin.org/"
 [3]: https://github.com/settings/applications/new "https://github.com/settings/applications/new"
+[4]: https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/ "oauth-external-auth"
+[5]: https://kubernetes.github.io/ingress-nginx/examples/auth/external-auth/ "External Basic Authentication"

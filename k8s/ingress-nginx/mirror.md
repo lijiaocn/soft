@@ -144,5 +144,7 @@ webshell 容器收到的请求信息，注意原始的 uri 使用 header 传递�
 ## 参考
 
 1. [李佶澳的博客][1]
+2. [mirror][2]
 
 [1]: https://www.lijiaocn.com "李佶澳的博客"
+[2]: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#mirror "mirror"

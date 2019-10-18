@@ -121,6 +121,9 @@ spec:
 ## 参考
 
 1. [李佶澳的博客][1]
+2. [ingress-nginx tls][2]
+3. [TLS termination][3]
 
 [1]: https://www.lijiaocn.com "李佶澳的博客"
-[2]: https://kubernetes.github.io/ingress-nginx/user-guide/tls/ ""
+[2]: https://kubernetes.github.io/ingress-nginx/user-guide/tls/ "tls"
+[3]: https://kubernetes.github.io/ingress-nginx/examples/tls-termination/ "TLS termination"
