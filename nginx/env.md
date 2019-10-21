@@ -1,4 +1,4 @@
-## Nginx 学习使用的试验环境
+# Nginx 学习使用的试验环境
 
 在 mac 上安装 nginx :
 
@@ -79,8 +79,8 @@ upstream echo_upstream{
 }
 
 server {
-    listen       9091;
-    listen       [::]:9091;
+    listen       9000;
+    listen       [::]:9000;
     server_name  echo.example;
     keepalive_requests  2000;
     keepalive_timeout 60s;
@@ -108,7 +108,7 @@ server {
 重启 nginx 后，访问：
 
 ```sh
-$ curl -H "Host: echo.example" 127.0.0.1:9091
+$ curl -H "Host: echo.example" 127.0.0.1:9000
 
 Hostname: 12a852d64212
 

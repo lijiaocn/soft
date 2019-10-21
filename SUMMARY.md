@@ -104,6 +104,7 @@
   * [nginx 配置文件](nginx/config.md)
   * [nginx 性能参数](nginx/performance.md)
   * [nginx 注意事项](nginx/important.md)
+  * [nginx 请求复制](nginx/mirror.md)
 * [OpenResty 使用手册](openresty/index.md)
 * [Istio 使用手册](istio/index.md)
   * [Istio 部署](istio/install.md)
