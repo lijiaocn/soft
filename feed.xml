@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 18 Oct 2019 11:30:12 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 21 Oct 2019 07:04:14 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -710,7 +710,7 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[No title]]></title>
+            <title><![CDATA[Nginx 学习使用的试验环境]]></title>
             <description><![CDATA[在 mac 上安装 nginx :]]></description>
             <link>https://www.lijiaocn.com/soft/nginx/env.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/env.html</guid>
@@ -735,6 +735,13 @@
             <description><![CDATA[提前了解这些，可以避免踩坑：]]></description>
             <link>https://www.lijiaocn.com/soft/nginx/important.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/important.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx 请求复制功能]]></title>
+            <description><![CDATA[Nginx 1.13.4 引入了 ngx_http_mirror_module，实现了 http 请求复制的功能。]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/mirror.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/mirror.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
