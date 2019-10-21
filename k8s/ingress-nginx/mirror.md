@@ -9,27 +9,27 @@ cd 07-mirror
 
 ## 部署接收复制请求的服务
 
-创建一个名为 webshell 的服务，用来接收复制的请求：
+创建一个名为 http-record 的服务，用来接收复制的请求：
 
 ```sh
-$ kubectl -n demo-echo apply -f webshell.yaml
+$ kubectl -n demo-echo apply -f http-record.yaml
 namespace/demo-echo unchanged
-service/webshell created
-deployment.apps/webshell created
+service/http-record created
+deployment.apps/http-record created
 ```
 
 ```sh
 $ kubectl -n demo-echo get svc
 NAME          TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                     AGE
 echo          NodePort    10.111.29.87    <none>        80:30411/TCP,22:31867/TCP   47d
-webshell      NodePort    10.110.171.22   <none>        80:30415/TCP,22:31785/TCP   8s
+http-record   NodePort    10.106.66.216   <none>        80:31734/TCP,22:32324/TCP   29s
 ```
 
 ## 配置被复制的服务的 ingress
 
 需要创建两个 ingress，两个 ingress 使用相同的 host。
 
-第一个 ingress 用来接收复制的请求，指向 webshell 服务：
+第一个 ingress 用来接收复制的请求，指向 http-record 服务：
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -43,7 +43,7 @@ spec:
       paths:
       - path: /echo
         backend:
-          serviceName: webshell
+          serviceName: http-record
           servicePort: 80
 ```
 
@@ -86,13 +86,13 @@ Pod Information:
 ...
 ```
 
-上面的请求将被复制一份到 webshell 容器，webshell 容器的回应被 ingress 忽略，在 webshell 的日志中可以看到复制来的请求：
+上面的请求将被复制一份到 http-record 容器，http-record 容器的回应被 ingress 忽略，在 http-record 的日志中可以看到复制来的请求：
 
 ```sh
-$ kubectl -n demo-echo logs -f webshell-66478bdbb7-xslzg
+$ kubectl -n demo-echo logs -f http-record-66478bdbb7-xslzg
 ```
 
-webshell 容器收到的请求信息，注意原始的 uri 使用 header 传递的 —— **X-Original-Uri**：
+http-record 容器收到的请求信息，注意原始的 uri 使用 header 传递的 —— **X-Original-Uri**：
 
 ```json
 {
