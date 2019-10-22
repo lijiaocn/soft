@@ -56,10 +56,6 @@ nginx.ingress.kubernetes.io/proxy-request-buffering       # 缓存请求，默�
 nginx.ingress.kubernetes.io/client-body-buffer-size  "1000" # 默认 8k
 ```
 
-```sh
-nginx.ingress.kubernetes.io/proxy-body-size
-```
-
 客户端请求最大长度：
 
 ```sh
