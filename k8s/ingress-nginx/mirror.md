@@ -7,6 +7,8 @@ ingress-nginx 支持请求复制功能，将同一域名下指定 path 上的请
 cd 07-mirror
 ```
 
+ingress-nginx 的请求复制行为和 nginx mirror 在行为上有一点不同，见 [kubernetes ingress-nginx http 请求复制功能与 nginx mirror 的行为差异][3]。
+
 ## 部署接收复制请求的服务
 
 创建一个名为 http-record 的服务，用来接收复制的请求：
@@ -141,10 +143,14 @@ http-record 容器收到的请求信息，注意原始的 uri 使用 header 传�
     "Body": "1111"
 ```
 
+
+
 ## 参考
 
 1. [李佶澳的博客][1]
 2. [mirror][2]
+3. [kubernetes ingress-nginx http 请求复制功能与 nginx mirror 的行为差异][3]
 
 [1]: https://www.lijiaocn.com "李佶澳的博客"
 [2]: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#mirror "mirror"
+[3]: https://www.lijiaocn.com/%E9%97%AE%E9%A2%98/2019/10/21/ingress-nginx-request-mirror.html
