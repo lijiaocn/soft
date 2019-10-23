@@ -1,28 +1,44 @@
-# OpenResty介绍
+<!-- toc -->
+# OpenResty 学习笔记
 
-内容准备中...移步[Web开发平台OpenResty](https://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2018/10/25/openresty-study-01-intro.html)
+这里是对 OpenResty 相关笔记的重新整理，原笔记不再维护。
 
-最近（2018-12-01 22:22:13）在研究一个名为[Kong][1]的api网关，它是在[OpenResty][2]上实现的。
-为了搞清楚Kong的运作原理，着实花费了一番功夫：
+[OpenResty][1] 是什么？见 [Nginx、OpenResty 和 Kong入门][2]。
 
-```
-先是学习OpenResty，发现OpenResty是基于Nginx的实现的，于是去学习Nginx。
-搞清楚OpenResty是如何将Nginx改造成一个Web应用运行平台后，再回头看Kong的实现。
-Kong的开发语言是Lua，又去学习Lua。
-```
+以前的笔记：
 
-折腾了一圈之后，总算大概搞清楚[Nginx][4]、[OpenResty][2]、[Lua][6]和[Kong][1]之间的关系，以及它们各自的工作原理。学习过程中随手做的笔记在[系列教程汇总][5]中。
+* [《Web开发平台OpenResty（一）：学习资料、基本组成与使用方法》][3]
+* [《Web开发平台OpenResty（二）：组成、工作过程与原理》][4]
+* [《Web开发平台OpenResty（三）：火焰图性能分析》][5]
+* [《Web开发平台OpenResty（四）：项目开发中常用的操作》][6]
+* [《Web开发平台OpenResty（五）：OpenResty项目自身的编译》][7]
 
-[OpenResty最佳实践](https://moonbingbing.gitbooks.io/openresty-best-practices/content/)是一份很好的学习资料，有一个名为“Kong/Envoy实践互助”的QQ群，是一个比较好的讨论场所，群号是：952503851。
+## 学习资料
 
+[OpenResty 最佳实践](https://moonbingbing.gitbooks.io/openresty-best-practices/content/)是一份很好的学习资料。
+
+OpenResty 在 nginx 的基础上改造加强，提供的开发语言是 lua，用 lua-nginx-module 解释 lua 脚本，从下面的文档中几乎可以找到所有用法：
+
+* lua 语言用法：[Lua编程速查手册（常用操作)][8]
+* nginx 指令汇总：[nginx directives][11]
+* nginx 变量汇总：[nginx variables][12]
+* openresty 提供的 lua 能力：[openresty/lua-nginx-module][10]
+* openresty 集成的模块和 lua 库：[openresty components][13]
 
 ## 参考
 
-[1]: https://docs.konghq.com/ "kong"
-[2]: http://openresty.org/en/ "OpenResty"
-[3]: https://www.lijiaocn.com/tags/class.html "lijiaocn.com class"
-[4]: http://nginx.org/ "nginx"
-[5]: https://www.lijiaocn.com "lijiaocn.com"
-[6]: https://www.lijiaocn.com/programming/chapter-lua/ "lua"
+* [李佶澳的博客][9]
 
-
+[1]: http://openresty.org/en/ "OpenResty"
+[2]: https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/09/29/nginx-openresty-kong.html "Nginx、OpenResty和Kong入门"
+[3]: https://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2018/10/25/openresty-study-01-intro.html
+[4]: https://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2018/10/25/openresty-study-02-process.html
+[5]: https://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2018/11/02/openresty-study-03-frame-md.html
+[6]: https://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2018/11/09/openresty-study-04-development.html
+[7]: https://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2018/12/17/openresty-study-05-compile.html
+[8]: https://www.lijiaocn.com/prog/lua/ "Lua编程速查手册（常用操作)"
+[9]: https://www.lijiaocn.com "李佶澳的博客"
+[10]: https://github.com/openresty/lua-nginx-module "lua-nginx-module"
+[11]: http://nginx.org/en/docs/dirindex.html "nginx directives"
+[12]: http://nginx.org/en/docs/varindex.html "nginx variables"
+[13]: http://openresty.org/en/components.html "OpenResty Components"
