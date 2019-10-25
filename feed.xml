@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 23 Oct 2019 08:09:06 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 25 Oct 2019 12:02:37 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -387,15 +387,8 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Linux问题分析与性能优化]]></title>
-            <description><![CDATA[个人学习笔记，记录Linux相关的知识，性能优化部分的内容主要来自极客时间出品的倪鹏飞专栏《Linux性能优化》。这里使用的操作系统是CentOS，索引了大量参考资料，为了能够查看内核文档，需要在系统上安装man-pages：]]></description>
-            <link>https://www.lijiaocn.com/soft/linux/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linux/index.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
             <title><![CDATA[Linux 系统知识]]></title>
-            <description><![CDATA[收集 Linux 系统相关的知识。]]></description>
+            <description><![CDATA[Linux 系统的学习笔记。]]></description>
             <link>https://www.lijiaocn.com/soft/linuxsys/index.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -412,6 +405,13 @@
             <description><![CDATA[127.0.0.1 默认是 local 地址，其实认定为 local 地址的 IP 是可以设置的，下面的例子将所有 IP 都认定为 local。]]></description>
             <link>https://www.lijiaocn.com/soft/linuxsys/localip.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/localip.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Linux问题分析与性能优化]]></title>
+            <description><![CDATA[个人学习笔记，记录Linux相关的知识，性能优化部分的内容主要来自极客时间出品的倪鹏飞专栏《Linux性能优化》。这里使用的操作系统是CentOS，索引了大量参考资料，为了能够查看内核文档，需要在系统上安装man-pages：]]></description>
+            <link>https://www.lijiaocn.com/soft/linux/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linux/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -742,6 +742,13 @@
             <description><![CDATA[提前了解这些，可以避免踩坑：]]></description>
             <link>https://www.lijiaocn.com/soft/nginx/important.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/important.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx 的状态数据]]></title>
+            <description><![CDATA[Nginx 的 stub_status 指令用来显示 nginx 的工作状态，配置方式如下：]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/status.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/status.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
