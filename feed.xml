@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 25 Oct 2019 12:02:37 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 28 Oct 2019 09:04:50 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -131,6 +131,12 @@
             <description><![CDATA[Annotations 中列出了 ingress-nginx 支持的 annotation，]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/anno.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/anno.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 的相关笔记汇总]]></title>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/note.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/note.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
