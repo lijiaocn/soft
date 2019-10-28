@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 28 Oct 2019 09:04:50 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 28 Oct 2019 10:10:10 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -124,6 +124,13 @@
             <description><![CDATA[ingress-nginx 可以限制源 IP 的最大连接数、每秒请求数、每分钟请求数、每秒发送的数据量、限速白名单。超过上限的客户端会收到 ingress-nginx 返回的 503。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/ratelimit.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/ratelimit.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 的金丝雀（canary）发布功能]]></title>
+            <description><![CDATA[之前有过一篇笔记（kubernetes ingress-nginx 的金丝雀（canary）/灰度发布功能的使用方法），这里重新整理下。什么是金丝雀、什么是蓝绿、什么是灰度，见 蓝绿部署、金丝雀发布（灰度发布）、A/B测试的准确定义。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/canary.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/canary.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
