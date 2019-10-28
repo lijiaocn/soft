@@ -7,7 +7,9 @@ ingress-nginx 支持请求复制功能，将同一域名下指定 path 上的请
 cd 07-mirror
 ```
 
-ingress-nginx 的请求复制行为和 nginx mirror 在行为上有一点不同，见 [kubernetes ingress-nginx http 请求复制功能与 nginx mirror 的行为差异][3]。
+ingress-nginx 的请求复制行为和 nginx mirror 在行为上有一点不同，见：
+
+* [kubernetes ingress-nginx http 请求复制功能与 nginx mirror 的行为差异][3]。
 
 ## 部署接收复制请求的服务
 

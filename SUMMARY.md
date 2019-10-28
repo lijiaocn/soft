@@ -17,6 +17,7 @@
   * [ingress-nginx 请求改写](k8s/ingress-nginx/rewrite.md)
   * [ingress-nginx 请求复制](k8s/ingress-nginx/mirror.md)
   * [ingress-nginx 源IP限速](k8s/ingress-nginx/ratelimit.md)
+  * [ingress-nginx 金丝雀发布](k8s/ingress-nginx/canary.md)
   * [ingress-nginx 常用注解](k8s/ingress-nginx/anno.md)
   * [ingress-nginx 相关笔记](k8s/ingress-nginx/note.md)
 * [Envoy 使用手册](envoy/index.md)
