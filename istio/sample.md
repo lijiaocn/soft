@@ -22,7 +22,9 @@ istio-1.2.5-linux/samples
 └── websockets
 ```
 
-[examples][2] 中有简单的介绍。
+[examples][2] 中有简单的介绍，已经拆解的示例：
+
+* [Bookinfo Application](./bookinfo.md)
 
 ## 参考
 

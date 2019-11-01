@@ -8,22 +8,72 @@ Istio 文档中给出了一个 [Bookinfo Application][1] 示例，这里拆解�
 Bookinfo APP 由四个子系统组成，分别是：
 
 * productpage，产品页，展示图书信息，依赖 details 和 reviews
-* details，提供图书详情
-* reviews，提供用户评论
-* ratings，图书的排行榜
+* details，图书详情查询
+* reviews，用户评论查询，依赖 ratings
+* ratings，图书排行榜查询
 
-这些子系统分别用 python、ruby、java、node 开发，其中 reviews 系统一共有三个版本：v1、v2、v3。
+这些子系统分别用 python、ruby、java、node 开发，其中 reviews 系统有三个版本：v1、v2、v3。
 
 ![Bookinfo Application](../img/envoy/bookinfo.svg)
 
-四个服务部署在 Kubernetes 中，均是由 Service、ServiceAccount、Deployment 组成，其中 reviews 有三个 Deployment ：
+示例中把上述四个系统部署在 Kubernetes 中，每个系统由 Service、ServiceAccount、Deployment 组成。reviews 有三个版本，对应三个 Deployment。
+
+### Productpage service
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: productpage
+  labels:
+    app: productpage
+    service: productpage
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: productpage
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-productpage
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productpage-v1
+  labels:
+    app: productpage
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productpage
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: productpage
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-productpage
+      containers:
+      - name: productpage
+        image: docker.io/istio/examples-bookinfo-productpage-v1:1.15.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+```
 
 ### Detail service
 
 ```yaml
-##################################################################################################
+##################################################################################
 # Details service
-##################################################################################################
+###################################################################################
 apiVersion: v1
 kind: Service
 metadata:
@@ -75,9 +125,9 @@ spec:
 ### Ratings service
 
 ```yaml
-##################################################################################################
+###################################################################################
 # Ratings service
-##################################################################################################
+##################################################################################
 apiVersion: v1
 kind: Service
 metadata:
@@ -127,10 +177,12 @@ spec:
 
 ### Reviews service
 
+Reviews 有三个版本，对应三个 Deployment，隶属于同一个 Service：
+
 ```yaml
-##################################################################################################
+###################################################################################
 # Reviews service
-##################################################################################################
+###################################################################################
 apiVersion: v1
 kind: Service
 metadata:
@@ -151,7 +203,7 @@ metadata:
   name: bookinfo-reviews
 ```
 
-Reviews 有三个版本的 Deployment，它们都隶属于同一个 Service，带有不同的 version 标签：
+三个版本的 deployment：
 
 V1：
 
@@ -246,61 +298,11 @@ spec:
         - containerPort: 9080
 ```
 
-### Productpage services
+## 部署到 Istio 网格
 
-```yaml
-piVersion: v1
-kind: Service
-metadata:
-  name: productpage
-  labels:
-    app: productpage
-    service: productpage
-spec:
-  ports:
-  - port: 9080
-    name: http
-  selector:
-    app: productpage
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: bookinfo-productpage
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: productpage-v1
-  labels:
-    app: productpage
-    version: v1
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: productpage
-      version: v1
-  template:
-    metadata:
-      labels:
-        app: productpage
-        version: v1
-    spec:
-      serviceAccountName: bookinfo-productpage
-      containers:
-      - name: productpage
-        image: docker.io/istio/examples-bookinfo-productpage-v1:1.15.0
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 9080
-```
+要把 Bookinfo Application 部署在 istio 网格中，仅仅在安装了 istio 的 kubernetes 创建应用是不行的，需要在带有 `istio-injection=enabled` 标签的 namespace 中创建才可以。
 
-## 部署到 Istio 网格中
-
-要把 Bookinfo Application 部署在 istio 网格中，仅仅在安装了 istio 的 kubernetes 创建应用是不行的。只有带有标签 `istio-injection=enabled` 的 namespace 中的服务，才会被 istio 纳入网格中。
-
-所以，[文档][1] 中的第一步操作是打标签：
+所以 [文档][1] 中的第一步操作在目标 namespace 上打标签：
 
 ```sh
 kubectl label namespace default istio-injection=enabled
@@ -312,7 +314,7 @@ kubectl label namespace default istio-injection=enabled
 kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 ```
 
-如果不想为 namesapce 打标签，用下面的命令调整 yaml 文件：
+如果不想给 namesapce 打标签，可以用下面的命令调整 yaml 文件：
 
 ```sh
 kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
@@ -320,7 +322,7 @@ kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookin
 
 ## 创建 Gateway，边界 envoy 开始监听
 
-创建 Gateway，指示边界 envoy 监听 80 端口，边界 envoy 的 80 端口将是 Bookinfo 的访问入口。
+创建 Gateway，指示边界 envoy 监听 80 端口，网格外部通过边界 envoy 的 80 端口访问 Bookinfo 应用。
 
 ```sh
 $ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
@@ -345,7 +347,7 @@ spec:
 
 ## 创建 VirtualService，转发请求
 
-创建一个 VirtualService，将边界 envoy 收到的流量转发到 productpage ：
+创建 VirtualService，将边界 envoy 收到的流量转发到 productpage ：
 
 ```sh
 $ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
@@ -380,17 +382,23 @@ spec:
           number: 9080
 ```
 
-这样就可以通过边界 envoy 访问 bookinfo 服务了。
+这样就可以通过边界 envoy 访问 bookinfo 服务了，这里 hosts 中配置为 `*`，如果 bookinfo 有域名可以配置为具体的域名。
 
-## 边界 envoy 的访问地址
+## 通过边界 envoy 访问应用
 
-边界 envoy 是 istio 的组件之一，是下面的两个服务：
+边界 envoy 是 istio 的组件之一，由两个服务组成：
 
 ```sh
 $ kubectl -n istio-system get deployment | grep gateway
 istio-egressgateway      1/1     1            1           45h
 istio-ingressgateway     1/1     1            1           45h
+```
 
+一个负责从外部流入网格的流量，一个负责从网格流向外部的流量。约定 istio-ingressgateway 处理外部进入网格的流量，istio-egressgateway 处理网格流向外部的流量，离开网格的流量的处理参考 [Engress Control](./egress.md)。
+
+通过 kubernetes 提供的方式访问 istio-ingressgateway：
+
+```sh
 $ kubectl -n istio-system get service | grep gateway
 istio-egressgateway      ClusterIP      10.111.134.223   <none>     80/TCP,443/TCP,15443/TCP
 istio-ingressgateway     LoadBalancer   10.101.187.91    <pending>  15020:31270/TCP,80:31380/TCP,
@@ -400,11 +408,9 @@ istio-ingressgateway     LoadBalancer   10.101.187.91    <pending>  15020:31270/
                                                                     15443:31829/TCP
 ```
 
-约定 istio-ingressgateway 处理进入网格的流量，istio-egressgateway 处理离开网格的流量（离开网格的流量的处理参考 [Engress Control](./egress.md)）。
+可以看到 istio-ingressgateway 使用 LoadBalancer 模式，它的 80 端口对应的映射端口是 31380。
 
-从上面可以看到 istio-ingressgateway 使用的 LoadBalancer 模式，80 端口的访问地址是 31380。
-
-如果是用 minikube 部署的 kubernetes，可以用下面的方式获取访问地址：
+如果是用 minikube 部署的 kubernetes，可以用下面的方式获取 istio-ingressgateway 的访问地址：
 
 ```sh
 $ minikube service list
@@ -423,7 +429,7 @@ $ minikube service list
 |---------------|------------------------|--------------------------------|
 ```
 
-用下面的 url 访问 bookinfo，注意 Path 为 `productpage`，与 VirtualService 中的配置一致：
+用下面的 url 访问 bookinfo，注意 path 为 `productpage`，与 virtualservice 中的配置一致：
 
 ```sh
 http://192.168.99.100:31380/productpage
@@ -431,15 +437,27 @@ http://192.168.99.100:31380/productpage
 
 ![bookinfo网页](../img/envoy/bookinfo.png)
 
-## 配置 DestinationRule
+这时候可以通过边界 envoy 访问应用，但是没有设置网格内的转发策略，四个子系统之间的互相访问行为和通过 kubernetes 中的 svc 访问效果相同。
 
-DestinationRule 不是必须的，它是对代理转发行为的更精细调控，是负载均衡策略，可以为每个服务创建一个对应的 DestinationRule。
+不停地刷新页面会看到页面在变化：
+
+![bookinfo网页](../img/envoy/bookinfo.png)
+
+![bookinfo网页](../img/envoy/bookinfo2.png)
+
+这是因为 reviews 服务有 v1、v2、v3 三个版本，访问 productpage 时，productpage 随机从 reviews 的三个版本的 pod 中获取用户评论数据，所以会看到不同的页面。
+
+这是一种很粗放的方式，可以为每个服务创建一个 virtualservice 和对应 destination，精细管控每个服务的转发策略。
+
+## 设置网格内的转发策略：DestinationRule
+
+先为每个服务创建一个 DestinationRule，设置转发策略：
 
 ```sh
 $ kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
 ```
 
-下面创建的 DestinationRule 将 Pod 按照 Label 进行了分组：
+DestinationRule 将 Pod 按照 Label 进行了分组，拆分成多个 subnet：
 
 productpage：
 
@@ -454,27 +472,6 @@ spec:
   - name: v1
     labels:
       version: v1
-```
-
-reviews:
-
-```yaml
-apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
-metadata:
-  name: reviews
-spec:
-  host: reviews
-  subsets:
-  - name: v1
-    labels:
-      version: v1
-  - name: v2
-    labels:
-      version: v2
-  - name: v3
-    labels:
-      version: v3
 ```
 
 ratings：
@@ -519,25 +516,28 @@ spec:
       version: v2
 ```
 
-## 网格内的转发规则
+reviews:
 
-到此，只配置了一个 VirtualService，定义了从边界 envoy 进来的流量的转发规则，那么网格内的服务（productpage、details、reviews、ratings）之间的请求如何转发？
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: reviews
+spec:
+  host: reviews
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+  - name: v2
+    labels:
+      version: v2
+  - name: v3
+    labels:
+      version: v3
+```
 
-前面为这四个服务分别创建了 DestinationRule，把它们的 pod 按照 label 分组了，但此刻这些分组没有任何效果。如果不停的刷新 bookinf 的页面，会发现页面在变化：
-
-![bookinfo网页](../img/envoy/bookinfo.png)
-
-![bookinfo网页](../img/envoy/bookinfo2.png)
-
-
-网页的内容发生变化，是因为 reviews 服务有 v1、v2、v3 三个版本，访问 productpage 时，productpage 随机从 reviews 的三个版本的 Pod 中获取用户评论数据，所有会看到不同的页面。
-
-这说明了两件事：
-
-* 第一，网格内的所有服务默认都是通的，可以互相访问的，没有 VirtualService 也是通的；
-* 第二，网格内的服务如果没有配置转发规则，那么就随机转发。
-
-可以为网格内的每个服务创建一个 VirtualService，控制网格内服务间的转发规则，参考 [Apply a virtual service][2]：
+转发策略需要被 VirtualService 引用后才生效，参考 [Apply a virtual service][2]，因此还需要为每个服务创建一个 VirtualService，在 VirtualService 中引用各自的 DestinationRule 中的 subset：
 
 ```sh
 $ kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
@@ -560,20 +560,20 @@ spec:
         subset: v1
 ```
 
-reviews 的 VirtualService：
+details 的 VirtualService：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: reviews
+  name: details
 spec:
   hosts:
-  - reviews
+  - details
   http:
   - route:
     - destination:
-        host: reviews
+        host: details
         subset: v1
 ```
 
@@ -594,24 +594,24 @@ spec:
         subset: v1
 ```
 
-details 的 VirtualService：
+reviews 的 VirtualService：
 
-```
+```yaml
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: details
+  name: reviews
 spec:
   hosts:
-  - details
+  - reviews
   http:
   - route:
     - destination:
-        host: details
+        host: reviews
         subset: v1
 ```
 
-reviews 的 VirtualService 中明确指定了将请求转发到 `subset: v1` （reviews 的 DestinationRule 中配置的） ，这时候访问 bookinfo，页面不再变化。
+reviews 的 VirtualService 中明确指定了将请求转发到 `subset: v1`，这时候访问 bookinfo，页面不再变化。
 
 ![bookinfo网页](../img/envoy/bookinfo3.png)
 

@@ -1,13 +1,13 @@
 <!-- toc -->
-# Service Entry
+# istio 的基本概念：Service Entry
 
-[Service Entry][1] 将外部的服务封装成 istio 服务网格中的服务，为网格内服务和外部服务的统一管理提供了基础，详情见 [Service Entry Detail][2]。
+[Service Entry][1] 用来将外部的服务封装成 istio 网格中的服务，为统一管理网格内和网格外的服务提供基础，详情见 [Service Entry Detail][2]。
 
-将外部的服务封装为 Service Entry 之后，可以和 kubernetes 内部的服务统一管理。
+外部的服务被封装为 Service Entry 之后，可以像 kubernetes 内部的服务一样引用。
 
 ## 封装外部的域名
 
-外部服务地址可以是域名或 IP，下面是域名的例子，`hosts` 是外部服务的域名：
+外部服务是域名或 IP，下面是域名的例子：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -27,7 +27,9 @@ spec:
   resolution: DNS
 ```
 
-在网格内访问外部服务以及管理流量转发时，使用的是 hosts 中的域名，这些域名就是外部服务在网格内的名称，它们可以只是一个抽象的域名，如下所示，endpoints 中的地址才是最终域名或 IP：
+hosts 是外部服务在网格内的名称，它可以是正好是外部服务的域名，也可以不是。上面的例子中 resolution 指定解析方式为 DNS，外部服务的域名和它们在网格内的名称一致。
+
+可以为外部服务任意设置一个网格内的名称，然后在 endpoints 中配置外部服务的外部地址：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -77,9 +79,9 @@ spec:
   - address: unix:///var/run/example/socket
 ```
 
-## 封装外部的 IP
+## 为外部服务配置 vip
 
-将外服服务的 IP 地址封装到名为 mymongodb.somedomain 的服务，并设置 VIP：
+将外服服务的多个 ip 地址封装成名为 mymongodb.somedomain 的网格内服务，并设置网格内 vip：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -102,9 +104,9 @@ spec:
   - address: 3.3.3.3
 ```
 
-## 设置外部服务的负载均衡策略
+## 设置外部服务的转发策略
 
-外部服务的负载均衡策略同样用 [DestinationRule](./dstrule.md) 设置，例如，为名为 mymongodb.somedomain 的外部服务设置负载均衡策略：
+外部服务转发策略的设置方法和内部服务相同，用 [DestinationRule](./dstrule.md) 设置，下例子中的 mymongodb.somedomain 是外部服务在网格内的名称：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3

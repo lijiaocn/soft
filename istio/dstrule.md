@@ -1,11 +1,13 @@
 <!-- toc -->
-# DestinationRule
+# istio 的基本概念： DestinationRule
 
-[Destination Rule][3] 是转发策略，它作用于 VirtualService 中的 destination 中的 host，也就是 kubernetes 中的服务。Destination Rule 在 route 规则之后起作用，详细介绍见 [Destination Rule][3]。
+[Destination Rule][3] 是转发策略，在route 规则之后起作用，相当于 nginx 中的负载均衡策略。它作用于 VirtualService 的 destination 中的 host。
 
 ## 将 Pod 按照 label 分组，分别设置转发策略
 
-下面是一个 DestinationRule，它作用于服务 my-svc，并且将这个服务包含的 pod 按照 label 分为三组：
+下面的 DestinationRule 作用于服务 my-svc，影响转发给这个服务的请求的分配策略。
+
+可以看到，它设置了全局的转发策略，同时将 my-svc 服务的包含的 pod 按照 label 分成了三组，单独设置了每组的转发策略：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -32,15 +34,15 @@ spec:
       version: v3
 ```
 
-host 是 Destination Rule 作用的 kubernetes 中的 service。
-
-subsets 中是多个转发策略，里面的配置会覆盖前面 spec 中出现过的同名配置，subsets 中不存在的配置使用前面出现的配置的值，即 subsets 外部定义的是默认配置。
+* host 指定作用的服务
+* subsets 中的多个转发策略覆盖前面 spec 中出现过的同名配置
+* subsets 中没有的配置，使用 spec 中的配置
 
 subsets 中 labels 的作用是筛选 pod，上面将 `my-svc` 服务中的 pod 按照 label 分成了 v1、v2、v3 三组，为每组单独设置转发策略。
 
 ## 将请求按照端口分组，分别设置转发策略
 
-还可以按端口分别设置转发策略：
+除了按照 pod 分组，还可以按目的端口分组，为每个端口设置转发策略：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -65,7 +67,7 @@ Destination Rule 的详情见 [Destination Rule][3]。
 
 ## 在 VirtualService 中使用 DestinationRule 
 
-DestinationRule 中配置的 subsets 在 VirtualService 中引用，在 VirtualService 中指定 destination 时可以指定 subset，如下：
+在 VirtualService 中指定 destination 时，可以引用 destination 中的 subset，如下：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3

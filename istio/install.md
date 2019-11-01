@@ -50,7 +50,7 @@ istio-1.2.5
 └── tools
 ```
 
-也可以直接 clone 整个 istio 项目，然后切换到要使用的版本，这种方式需要自己编译 istio，编写部署文件：
+或者直接 clone 整个 istio 项目，然后切换到要使用的版本，这种方式需要自己编译 istio，编写部署文件：
 
 ```sh
 git clone https://github.com/istio/istio.git

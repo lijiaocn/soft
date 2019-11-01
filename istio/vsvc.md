@@ -1,7 +1,7 @@
 <!-- toc -->
-# Virtual services
+# istio 的基本概念：Virtual service
 
-[Virtual services][2] 是 istio 的核心概念，它是一组 route，定义了请求转发的规则，详细内容见 [Virtual services][5]。 VirtualService 的配置格式如下：
+[Virtual services][2] 是 istio 的核心概念，它包含一组 route ，定义了请求转发规则，参考 [Virtual services][5]。 VirtualService 的配置格式如下：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -26,11 +26,11 @@ spec:
         host: svc-2.my-namespace.svc.cluster.local
 ```
 
-`hosts` 是 VirtualService 的域名匹配规则，匹配规则的 http 请求经由该 VirtualService 处理，可以使用通配符。
+`hosts` 是域名匹配规则，限定了 virtualservice 的作用访问，即 virtualservice 中的规则只适用于与 hosts 匹配的请求。hosts 中的匹配规则可以使用通配符。
 
-`host` 是目标服务，即转发到的服务在 kubernetes 中的域名，可以转发给任意 namespace 中的 service。
+`host` 是转发目标，匹配规则的请求被转发给 host 指定的域名。host 是 kubernetes 中的域名或外部服务的域名，可以转发给任意 namespace 中的 service。
 
-VirtualService 是 istio 核心概念，联结了 [DestinationRule](./dstrule.md)、[Gateways](./gateway.md) 和 [ServiceEntry](./entry.md)，在后面章节说明。
+VirtualService 还可以绑定 gateway（即只处理特定 gateway 的流量），它联结了 [DestinationRule](./dstrule.md)、[Gateways](./gateway.md) 和 [ServiceEntry](./entry.md)。在后面章节中会频繁用到 VirtualService。
 
 ## 参考
 

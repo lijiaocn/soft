@@ -1,7 +1,10 @@
 <!-- toc -->
-# Gateways
+# istio 的基本概念： Gateways
 
-[Gateways][1] 用来管理南北向流量，也就是从外部流入网格，和从网格流出到外部的流量，gateway 中的配置作用于网格边界的 envoy ，处理流入流量的是 ingress gateway，处理流出流量的是 egress gateway。
+[Gateways][1] 管理南北向流量，也就是从外部流入网格，和从网格流出到外部的流量。它作用于网格边界的 envoy ，边界 envoy 通常被分成两组：
+
+* 一组处理外部流入网格的流量，称为 ingress gateway
+* 一组处理网格流向外部的流量，称为 egress gateway
 
 ![istio的请求流向](../img/envoy/ingress-egress.svg)
 
@@ -9,7 +12,7 @@ Gateway 详细内容见 [Envoy Gateway Detail][2]。
 
 ## 放行外部流量
 
-下面的配置将被转换成边界 envoy （这里是带有 label  app: my-gateway-controller 的 envoy pod）中的配置，允许 host 为 ext-host、协议为 https 的外部流量进入网格：
+下面的配置会被转换成边界 envoy（带有 app: my-gateway-controller 标签的 envoy pod）中的配置：允许 host 为 ext-host、协议为 https 的外部请求进入网格。
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -32,9 +35,11 @@ spec:
       privateKey: /tmp/tls.key
 ```
 
-selector 筛选目标的 envoy pod，上面的配置效果为：带有 `app: my-gateway-controller` 标签的 envoy pod 监听 443端口，接收 host 为 ext-host 的请求。
+selector 筛选要作用的 envoy pod，上面的配置的意思是：带有 `app: my-gateway-controller` 标签的 envoy pod 监听 443端口，放行 host 为 ext-host 的请求。
 
-[Envoy Gateway Detail][2] 中给出了一个更复杂的示例，监听多个端口，每个端口独立配置：
+## 更复杂的配置 
+
+[Envoy Gateway Detail][2] 中给出了一个更复杂的示例，同时监听多个端口，每个端口放行不同的请求：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -89,9 +94,11 @@ spec:
     - "*"
 ```
 
-## 绑定 VirtualService
+## 在 VirtualService 中使用 Gateway
 
-Gateway 指示边界 envoy 监听指定的端口、允许特定的请求，但是没有告诉边界 envoy 要如何转发这些从外部进来的请求。转发规则在 [Virtual services](./vsvc.md) 中定义，要把从 gateway 进来的流量绑定到包含 route 的 VirtualService。
+Gateway 指示边界 envoy 监听端口、放行请求，但是没有告诉边界 envoy 如何转发这些从外部进来的请求，转发规则是在 [Virtual services](./vsvc.md) 中定义的。
+
+Gateway 只有被 VirtualService 引用了，才能知道流入的请求去往何方。VirtualService 的 gateways 字段用来限定它要作用的 Gateway。
 
 下面的配置将从 some-config-namespace/my-gateway 进来的、端口为 27017 的流量转发到 mongo.prod.svc.cluster.local：
 
@@ -106,7 +113,7 @@ spec:
   - mongosvr.prod.svc.cluster.local # name of internal Mongo service
   gateways:
   - some-config-namespace/my-gateway # can omit the namespace if gateway is in same
-                                       namespace as virtual service.
+                                     #  namespace as virtual service.
   tcp:
   - match:
     - port: 27017
@@ -117,7 +124,7 @@ spec:
           number: 5555
 ```
 
-多个 Gateways 可以绑定到同一个 VirtualService，下面这个 VirtualService 绑定了 gateway 来的流量和网格内部的流量 ：
+VirtualService 可以同时作用于多个 gateway，例如同时作用于 some-config-namespace/my-gateway 和网格内部（mesh）：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -157,9 +164,9 @@ spec:
       weight: 20
 ```
 
-## 限制可以绑定的 VirtualService
+## 限定 Gateway 的引用范围
 
-如果不希望 Gateway 被任意的 VirtualService 绑定，可以在 Gateway 的 hosts 中限制绑定范围：
+如果在 Gateway 中设置了 hosts，那么只有包含同样的 host 的 virtualservice 能够引用：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -180,9 +187,8 @@ spec:
     - "ns2/foo.bar.com"
 ```
 
-`ns1/*`：可以与 ns1 中的所有 VirtualService 绑定。
-
-`ns2/foo.bar.com` 只能与 ns2 中包含 foo.bar.com 的 VirtualService 绑定。
+* `ns1/*`：ns1 中的所有 VirtualService 都可以引用该 my-gateway。
+* `ns2/foo.bar.com` ：只有 ns2 中包含 foo.bar.com 的 VirtualService 可以绑定 my-gateway。
 
 ## 参考
 
