@@ -646,7 +646,7 @@ spec:
         subset: v1
 ```
 
-点击界面右上角的 login，以用户 jason 的身份登录（密码留空）后，刷新页面，会发现页面变成了 v2 版本：
+点击界面右上角的 login，以用户 jason 的身份登录（密码为空），刷新页面会发现页面变成了 v2 版本：
 
 ![bookinfo网页](../img/envoy/bookinfo4.png)
 
