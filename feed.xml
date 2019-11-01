@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 28 Oct 2019 10:10:10 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 01 Nov 2019 09:51:44 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -808,7 +808,7 @@
         </item>
         <item>
             <title><![CDATA[Istio 预览版部署]]></title>
-            <description><![CDATA[在 Kubernetes 集群中部署 istio 是最方便的，这里介绍 istio demo 版本的部署方法。]]></description>
+            <description><![CDATA[在 Kubernetes 集群中部署 istio 是最方便的，这里介绍 istio demo 的部署方法。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/demo-install.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/demo-install.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -821,36 +821,36 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Virtual services]]></title>
-            <description><![CDATA[Virtual services 是 istio 的核心概念，它是一组 route，定义了请求转发的规则，详细内容见 Virtual services。 VirtualService 的配置格式如下：]]></description>
+            <title><![CDATA[istio 的基本概念：Virtual service]]></title>
+            <description><![CDATA[Virtual services 是 istio 的核心概念，它包含一组 route ，定义了请求转发规则，参考 Virtual services。 VirtualService 的配置格式如下：]]></description>
             <link>https://www.lijiaocn.com/soft/istio/vsvc.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/vsvc.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[DestinationRule]]></title>
-            <description><![CDATA[Destination Rule 是转发策略，它作用于 VirtualService 中的 destination 中的 host，也就是 kubernetes 中的服务。Destination Rule 在 route 规则之后起作用，详细介绍见 Destination Rule。]]></description>
+            <title><![CDATA[istio 的基本概念： DestinationRule]]></title>
+            <description><![CDATA[Destination Rule 是转发策略，在route 规则之后起作用，相当于 nginx 中的负载均衡策略。它作用于 VirtualService 的 destination 中的 host。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/dstrule.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/dstrule.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Gateways]]></title>
-            <description><![CDATA[Gateways 用来管理南北向流量，也就是从外部流入网格，和从网格流出到外部的流量，gateway 中的配置作用于网格边界的 envoy ，处理流入流量的是 ingress gateway，处理流出流量的是 egress gateway。]]></description>
+            <title><![CDATA[istio 的基本概念： Gateways]]></title>
+            <description><![CDATA[Gateways 管理南北向流量，也就是从外部流入网格，和从网格流出到外部的流量。它作用于网格边界的 envoy ，边界 envoy 通常被分成两组：]]></description>
             <link>https://www.lijiaocn.com/soft/istio/gateway.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/gateway.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Service Entry]]></title>
-            <description><![CDATA[Service Entry 将外部的服务封装成 istio 服务网格中的服务，为网格内服务和外部服务的统一管理提供了基础，详情见 Service Entry Detail。]]></description>
+            <title><![CDATA[istio 的基本概念：Service Entry]]></title>
+            <description><![CDATA[Service Entry 用来将外部的服务封装成 istio 网格中的服务，为统一管理网格内和网格外的服务提供基础，详情见 Service Entry Detail。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/entry.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/entry.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[Istio 的流出流量管控]]></title>
-            <description><![CDATA[Engress Control 不是 istio 的基本概念，只是一种用法。istio 不仅能够管控从外部流入的流量（通过 Service Entry，也可以管控流出的流量。]]></description>
+            <description><![CDATA[Engress Control 不是 istio 的基本概念，是一种用法。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/egress.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/egress.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
