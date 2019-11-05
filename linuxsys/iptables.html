@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>iptables · 小鸟笔记·李佶澳·影响一万人</title>
+        <title>iptables 使用方法 · 小鸟笔记·李佶澳·影响一万人</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -66,7 +66,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="localip.html" />
+    <link rel="next" href="iptables-match.html" />
     
     
     <link rel="prev" href="tpproxy.html" />
@@ -985,11 +985,30 @@ var _hmt = _hmt || [];
                 <a href="iptables.html">
             
                     
-                    iptables
+                    iptables 使用方法
             
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="iptables-match.html">
+            
+                <a href="iptables-match.html">
+            
+                    
+                    报文匹配规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -2269,7 +2288,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >iptables</a>
+        <a href=".." >iptables 使用方法</a>
     </h1>
 </div>
 
@@ -2304,19 +2323,117 @@ var _hmt = _hmt || [];
 <ul>
 <li><a href="#iptables-&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">iptables &#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</a><ul>
 <li><a href="#&#x5B89;&#x88C5;-iptables-&#x5DE5;&#x5177;">&#x5B89;&#x88C5; iptables &#x5DE5;&#x5177;</a></li>
-<li><a href="#&#x4FEE;&#x6539;&#x62A5;&#x6587;">&#x4FEE;&#x6539;&#x62A5;&#x6587;</a></li>
+<li><a href="#iptables-&#x539F;&#x7406;">iptables &#x539F;&#x7406;</a></li>
+<li><a href="#iptalbes-&#x7684;&#x89C4;&#x5219;&#x7BA1;&#x7406;&#x4E0E;&#x4F5C;&#x7528;&#x987A;&#x5E8F;">iptalbes &#x7684;&#x89C4;&#x5219;&#x7BA1;&#x7406;&#x4E0E;&#x4F5C;&#x7528;&#x987A;&#x5E8F;</a></li>
+<li><a href="#&#x89C4;&#x5219;&#x683C;&#x5F0F;">&#x89C4;&#x5219;&#x683C;&#x5F0F;</a></li>
 <li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
 </ul>
 </li>
 </ul>
 <!-- tocstop -->
 <h1 id="iptables-&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">iptables &#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h1>
-<p><a href="https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2014/04/16/linux-net-iptables.html" title="iptables&#xFF1A;Linux&#x7684;iptables&#x4F7F;&#x7528;" target="_blank">iptables&#xFF1A;Linux&#x7684;iptables&#x4F7F;&#x7528;</a></p>
+<p>&#x8FD9;&#x91CC;&#x662F;&#x5BF9; <a href="https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2014/04/16/linux-net-iptables.html" title="iptables&#xFF1A;Linux&#x7684;iptables&#x4F7F;&#x7528;" target="_blank">iptables&#xFF1A;Linux&#x7684;iptables&#x4F7F;&#x7528;</a> &#x7684;&#x91CD;&#x65B0;&#x6574;&#x7406;&#x3001;&#x6269;&#x5145;&#x3002;</p>
 <h2 id="&#x5B89;&#x88C5;-iptables-&#x5DE5;&#x5177;">&#x5B89;&#x88C5; iptables &#x5DE5;&#x5177;</h2>
 <p>&#x5728; Debian/Ubuntu &#x4E0A;&#x5B89;&#x88C5;&#xFF1A;</p>
 <pre><code>apt-get update
 apt-get install iptables -y
-</code></pre><h2 id="&#x4FEE;&#x6539;&#x62A5;&#x6587;">&#x4FEE;&#x6539;&#x62A5;&#x6587;</h2>
+</code></pre><h2 id="iptables-&#x539F;&#x7406;">iptables &#x539F;&#x7406;</h2>
+<p>iptables &#x6839;&#x690D;&#x4E8E; kernel &#x4E2D;&#x7684; netfilter &#x6A21;&#x5757;&#xFF0C;&#x901A;&#x8FC7; netfilter &#x5728;&#x5F71;&#x54CD;&#x6B63;&#x5728;&#x88AB;&#x5185;&#x6838;&#x5904;&#x7406;&#x7684;&#x7F51;&#x7EDC;&#x62A5;&#x6587;&#xFF0C;&#x4E00;&#x5171;&#x6709; PREROUTING&#x3001;FORWARD&#x3001;POSTROUTING&#x3001;INPUT &#x548C; OUTPUT 5 &#x4E2A;&#x5E72;&#x6D89;&#x70B9;&#xFF0C;&#x6BCF;&#x4E2A;&#x5E72;&#x6D89;&#x70B9;&#x53EF;&#x4EE5;&#x6302;&#x4E00;&#x4E32;&#x7684;&#x5904;&#x7406;&#x89C4;&#x5219;&#xFF08;Chain&#xFF09;&#xFF1A;</p>
+<pre><code>           INPUT                 OUPUT
+             .                     |
+            /_\           +--------+
+             |           _|_
+             +--------+  \ /
+                      |   &apos; 
+                      Router --------|&gt; FORWARD
+                      .   |                |
+                     /_\  +--------+       |
+                      |           _|_     _|_
+            +---------+           \ /     \ /
+            |                      &apos;       &apos; 
+ PKT ---&gt; PREROUTING              POSTROUTING  ---&gt; PKT
+</code></pre><h2 id="iptalbes-&#x7684;&#x89C4;&#x5219;&#x7BA1;&#x7406;&#x4E0E;&#x4F5C;&#x7528;&#x987A;&#x5E8F;">iptalbes &#x7684;&#x89C4;&#x5219;&#x7BA1;&#x7406;&#x4E0E;&#x4F5C;&#x7528;&#x987A;&#x5E8F;</h2>
+<p>iptalbes &#x7684;&#x89C4;&#x5219;&#x901A;&#x8FC7; 5 &#x5F20;&#x8868;&#x7BA1;&#x7406;&#xFF0C;&#x6709;&#x7684;&#x8868;&#x5305;&#x62EC;&#x6240;&#x6709;&#x7684;&#x5E72;&#x6D89;&#x70B9;&#xFF0C;&#x6709;&#x7684;&#x8868;&#x53EA;&#x5305;&#x62EC;&#x90E8;&#x5206;&#x5E72;&#x6D89;&#x70B9;&#xFF1A;</p>
+<pre><code class="lang-sh">filter: 
+    Chain INPUT
+    Chain FORWARD
+    Chain OUTPUT
+
+nat:
+    Chain PREROUTING
+    Chain INPUT
+    Chain OUTPUT
+    Chain POSTROUTING
+
+mangle:
+    Chain PREROUTING
+    Chain INPUT
+    Chain FORWARD
+    Chain OUTPUT
+    Chain POSTROUTING
+
+raw:
+    Chain PREROUTING
+    Chain OUTPUT
+
+security:
+    Chain INPUT
+    Chain FORWARD
+    Chain OUTPUT
+</code></pre>
+<p>&#x4E0A;&#x9762; 5 &#x5F20;&#x8868;&#x4E2D;&#x7684; Chain &#x7684;&#x4F5C;&#x7528;&#x987A;&#x5E8F;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x8D2F;&#x7A7F;&#x4E86;&#x62A5;&#x6587;&#x7684;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#xFF0C;<a href="http://www.iptables.info/en/structure-of-iptables.html" title="structure-of-iptables" target="_blank">structure-of-iptables</a> &#x4E2D;&#x6709;&#x975E;&#x5E38;&#x8BE6;&#x7EC6;&#x7684;&#x8BF4;&#x660E;&#xFF1A;</p>
+<p><img src="https://www.lijiaocn.com/img/iptables/nf-packet-flow.png" alt="nf-packet-flow"></p>
+<ul>
+<li><p>&#x8FDB;&#x5165;&#x4E3B;&#x673A;&#x7684;&#x62A5;&#x6587;:</p>
+<p>  raw.PREROUTING -&gt; mangle.PREROUTING -&gt; nat.PREROUTING -&gt; mangle.INPUT -&gt; filter.INPUT </p>
+</li>
+<li><p>&#x7ECF;&#x4E3B;&#x673A;&#x8F6C;&#x53D1;&#x7684;&#x62A5;&#x6587;:</p>
+<p>  raw.PREROUTING -&gt; mangle.PREROUTING -&gt; nat.PREROUTING -&gt; mangle.FORWARD -&gt; filter.FORWARD
+  -&gt; mangle.POSTROUTING -&gt; nat.POSTROUTING</p>
+</li>
+<li><p>&#x4E3B;&#x673A;&#x53D1;&#x51FA;&#x7684;&#x62A5;&#x6587;:</p>
+<p>  raw.OUTPUT -&gt; mangle.OUTPUT -&gt; nat.OUTPUT -&gt; filter.OUTPUT -&gt; mangle.POSTROUTING 
+  -&gt;nat.POSTROUTING</p>
+</li>
+</ul>
+<h2 id="&#x89C4;&#x5219;&#x683C;&#x5F0F;">&#x89C4;&#x5219;&#x683C;&#x5F0F;</h2>
+<p>&#x89C4;&#x5219;&#x8BED;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>rule-specification = [matches...] [target]
+match = -m matchname [per-match-options]
+target = -j targetname [per-target-options]
+</code></pre><p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x89C4;&#x5219;&#x53C2;&#x6570;:</p>
+<pre><code class="lang-sh">-4, --ipv4
+-6, --ipv6
+[!] -p, --protocol protocol
+     &#x53EF;&#x4EE5;&#x4F7F;&#x7528;:
+       1. tcp, udp, udplite, icmp, icmpv6,esp, ah, sctp, mh or the special keyword <span class="hljs-string">&quot;all&quot;</span>
+       2. &#x534F;&#x8BAE;&#x53F7;&#xFF0C;0&#x7B49;&#x540C;&#x4E8E;<span class="hljs-string">&quot;all&quot;</span>
+       3. /etc/protocols&#x4E2D;&#x5217;&#x51FA;&#x7684;&#x534F;&#x8BAE;&#x540D;
+[!] <span class="hljs-_">-s</span>, --source address[/mask][,...]
+     Address can be either:
+         a network name, a hostname, a network IP address (with /mask), or a plain IP address.
+         Multiple addresses can be specified, but this will expand to multiple rules (when
+         adding with -A), or will cause multiple rules to be deleted (with -D).
+[!] <span class="hljs-_">-d</span>, --destination address[/mask][,...]
+-m, --match match
+     &#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5728;&#x4E0B;&#x4E00;&#x8282;&#x4E2D;&#x5355;&#x72EC;&#x8BA8;&#x8BBA;
+-j, --jump target
+-g, --goto chain
+      Unlike the --jump option <span class="hljs-built_in">return</span> will not <span class="hljs-built_in">continue</span> processing <span class="hljs-keyword">in</span> this chain but instead 
+      <span class="hljs-keyword">in</span> the chain that called us via --jump
+[!] -i, --in-interface name
+[!] -o, --out-interface name
+[!] <span class="hljs-_">-f</span>, --fragment
+      This means that the rule only refers to second and further IPv4 fragments of fragmented packets.
+      Since there is no way to tell the <span class="hljs-built_in">source</span> or destination ports of  such  a  packet  (or ICMP <span class="hljs-built_in">type</span>), 
+      such a packet will not match any rules <span class="hljs-built_in">which</span> specify them.  
+      When the <span class="hljs-string">&quot;!&quot;</span> argument precedes the <span class="hljs-string">&quot;-f&quot;</span> flag, the rule will only match head fragments, or unfragmented packets.
+      This option is IPv4 specific, it is not available <span class="hljs-keyword">in</span> ip6tables.
+-c, --set-counters packets bytes
+      This enables the administrator to initialize the packet and byte counters of a rule 
+      (during INSERT, APPEND, REPLACE operations).
+</code></pre>
+<p>&#x600E;&#x6837;&#x7528; iptables &#x5B9E;&#x73B0;&#x5404;&#x79CD;&#x6548;&#x679C;&#xFF0C;&#x89C1;&#x540E;&#x9762;&#x7AE0;&#x8282;&#x3002;</p>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <ol>
 <li><a href="https://www.lijiaocn.com" title="&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;" target="_blank">&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;</a></li>
@@ -2381,7 +2498,7 @@ apt-get install iptables -y
                 </a>
                 
                 
-                <a href="localip.html" class="navigation navigation-next " aria-label="Next page: local 地址">
+                <a href="iptables-match.html" class="navigation navigation-next " aria-label="Next page: 报文匹配规则">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2392,7 +2509,7 @@ apt-get install iptables -y
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"iptables","level":"1.5.2","depth":2,"next":{"title":"local 地址","level":"1.5.3","depth":2,"path":"linuxsys/localip.md","ref":"./linuxsys/localip.md","articles":[{"title":"性能优化与问题诊断","level":"1.5.3.1","depth":3,"path":"linux/index.md","ref":"linux/index.md","articles":[]}]},"previous":{"title":"透明代理","level":"1.5.1","depth":2,"path":"linuxsys/tpproxy.md","ref":"./linuxsys/tpproxy.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"linuxsys/iptables.md","mtime":"2019-11-01T03:02:47.401Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-05T03:10:19.390Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"iptables 使用方法","level":"1.5.2","depth":2,"next":{"title":"报文匹配规则","level":"1.5.2.1","depth":3,"path":"linuxsys/iptables-match.md","ref":"./linuxsys/iptables-match.md","articles":[]},"previous":{"title":"透明代理","level":"1.5.1","depth":2,"path":"linuxsys/tpproxy.md","ref":"./linuxsys/tpproxy.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"linuxsys/iptables.md","mtime":"2019-11-05T09:19:04.658Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-05T10:58:13.680Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
