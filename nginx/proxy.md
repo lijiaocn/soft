@@ -113,34 +113,35 @@ Request Body:
 	-no body in request-
 ```
 
-## 实现无感知的的透传
+## 实现无感知的透明代理
 
-上面的测试因为环境限制，只是验证了透传的效果，要实现完全无感知的 http 透传可以这样做：
+上面的测试因为环境限制，只是验证了透传的功能，这里研究一下怎样实现完全无感知本地 http 透明代理。
 
-* 在请求端部署的 nginx 监听 80 端口
-* 代理地址为 http://$host:$request_uri
-* 域名服务器根据需要设置，这里是 114.114.114.114
+目标服务端口为 8080，在请求端设置 nginx，使本地发出的对 8080 端口的访问都经过本地 nginx 代理。
+
+本地 nginx 的配置如下：
 
 ```sh
 server {
-    listen       80;
-    listen       [::]:80;
-    keepalive_requests  2000;
-    keepalive_timeout 60s;
-
+    listen       8080;
     location / {
         resolver 114.114.114.114; 
-        proxy_pass  http://$host:$request_uri;
+        proxy_pass  http://$host:8080$request_uri;
         proxy_set_header tranproxy "ture";
     }
 }
+```
 
+接下来的关键问题是：怎样将本地发出的到 8080 端口的请求经过 nginx 送出，并且是在客户端无感知的情况下。
+
+借鉴 [istio 的做法][3]，用 iptables 实现，istio 中的 envoy 同时代理流入的请求和流出的请求，我们这里只实现本地的代理，因此只需要设置 outbound 规则。
 
 ## 参考
 
 1. [李佶澳的博客][1]
-2. [Restart dnsmasq without sudo][2]
+2. [restart dnsmasq without sudo][2]
+3. [服务网格/ServiceMesh 项目 istio 的流量重定向、代理请求过程分析][3]
 
 [1]: https://www.lijiaocn.com "李佶澳的博客"
 [2]: https://www.stevenrombauts.be/2019/06/restart-dnsmasq-without-sudo/ "Restart dnsmasq without sudo"
-z
+[3]: https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2019/11/01/istio-packet-forward.html "服务网格/ServiceMesh 项目 istio 的流量重定向、代理请求过程分析"
