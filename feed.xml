@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 01 Nov 2019 09:58:47 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 05 Nov 2019 03:10:53 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -414,6 +414,13 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
+            <title><![CDATA[iptables 的使用方法]]></title>
+            <description><![CDATA[iptables：Linux的iptables使用]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/iptables.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/iptables.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
             <title><![CDATA[Linux 的 Local 地址的认定]]></title>
             <description><![CDATA[127.0.0.1 默认是 local 地址，其实认定为 local 地址的 IP 是可以设置的，下面的例子将所有 IP 都认定为 local。]]></description>
             <link>https://www.lijiaocn.com/soft/linuxsys/localip.html</link>
@@ -769,6 +776,13 @@
             <description><![CDATA[Nginx 1.13.4 引入了 ngx_http_mirror_module，实现了 http 请求复制的功能。]]></description>
             <link>https://www.lijiaocn.com/soft/nginx/mirror.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/mirror.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[使用 nginx 实现透明代理功能]]></title>
+            <description><![CDATA[尝试用 nginx 作为透明代理，修改报文头。]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/proxy.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/proxy.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
