@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
                 <a href="../">
             
                     
-                    小鸟笔记—软件使用手册说明
+                    小鸟笔记—软件篇
             
                 </a>
             
@@ -195,7 +195,7 @@ var _hmt = _hmt || [];
                 <a href="../linuxsys/">
             
                     
-                    Linux 系统知识手册
+                    Linux 系统手册
             
                 </a>
             
@@ -237,6 +237,19 @@ var _hmt = _hmt || [];
             
                     
                     报文匹配规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../linuxsys/iptables-target.html">
+            
+                <a href="../linuxsys/iptables-target.html">
+            
+                    
+                    报文处理动作
             
                 </a>
             
@@ -2321,16 +2334,16 @@ var _hmt = _hmt || [];
 
                                 <!-- toc -->
 <ul>
-<li><a href="#&#x4F7F;&#x7528;-nginx-&#x5B9E;&#x73B0;&#x900F;&#x660E;&#x4EE3;&#x7406;&#x529F;&#x80FD;">&#x4F7F;&#x7528; nginx &#x5B9E;&#x73B0;&#x900F;&#x660E;&#x4EE3;&#x7406;&#x529F;&#x80FD;</a><ul>
+<li><a href="#&#x4F7F;&#x7528;-nginx-&#x5B9E;&#x73B0;&#x672C;&#x5730;&#x900F;&#x660E;&#x4EE3;&#x7406;">&#x4F7F;&#x7528; nginx &#x5B9E;&#x73B0;&#x672C;&#x5730;&#x900F;&#x660E;&#x4EE3;&#x7406;</a><ul>
 <li><a href="#&#x51C6;&#x5907;&#x76EE;&#x6807;&#x670D;&#x52A1;">&#x51C6;&#x5907;&#x76EE;&#x6807;&#x670D;&#x52A1;</a></li>
 <li><a href="#&#x914D;&#x7F6E;-nginx">&#x914D;&#x7F6E; nginx</a></li>
-<li><a href="#&#x5B9E;&#x73B0;&#x65E0;&#x611F;&#x77E5;&#x7684;&#x900F;&#x660E;&#x4EE3;&#x7406;">&#x5B9E;&#x73B0;&#x65E0;&#x611F;&#x77E5;&#x7684;&#x900F;&#x660E;&#x4EE3;&#x7406;</a></li>
+<li><a href="#&#x5B9E;&#x73B0;&#x65E0;&#x611F;&#x77E5;&#x7684;&#x672C;&#x5730;&#x900F;&#x660E;&#x4EE3;&#x7406;">&#x5B9E;&#x73B0;&#x65E0;&#x611F;&#x77E5;&#x7684;&#x672C;&#x5730;&#x900F;&#x660E;&#x4EE3;&#x7406;</a></li>
 <li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
 </ul>
 </li>
 </ul>
 <!-- tocstop -->
-<h1 id="&#x4F7F;&#x7528;-nginx-&#x5B9E;&#x73B0;&#x900F;&#x660E;&#x4EE3;&#x7406;&#x529F;&#x80FD;">&#x4F7F;&#x7528; nginx &#x5B9E;&#x73B0;&#x900F;&#x660E;&#x4EE3;&#x7406;&#x529F;&#x80FD;</h1>
+<h1 id="&#x4F7F;&#x7528;-nginx-&#x5B9E;&#x73B0;&#x672C;&#x5730;&#x900F;&#x660E;&#x4EE3;&#x7406;">&#x4F7F;&#x7528; nginx &#x5B9E;&#x73B0;&#x672C;&#x5730;&#x900F;&#x660E;&#x4EE3;&#x7406;</h1>
 <p>&#x5C1D;&#x8BD5;&#x7528; nginx &#x4F5C;&#x4E3A;&#x900F;&#x660E;&#x4EE3;&#x7406;&#xFF0C;&#x4FEE;&#x6539;&#x62A5;&#x6587;&#x5934;&#x3002;</p>
 <h2 id="&#x51C6;&#x5907;&#x76EE;&#x6807;&#x670D;&#x52A1;">&#x51C6;&#x5907;&#x76EE;&#x6807;&#x670D;&#x52A1;</h2>
 <p>&#x76EE;&#x6807;&#x670D;&#x52A1;&#x4F7F;&#x7528; <a href="env.html">&#x8BD5;&#x9A8C;&#x73AF;&#x5883;</a> &#x4E2D;&#x542F;&#x52A8;&#x7684; echoserver&#xFF0C;&#x76D1;&#x542C;&#x5730;&#x5740;&#x4E3A; 127.0.0.1:9090&#x3002;</p>
@@ -2378,7 +2391,7 @@ echo.example.        0    IN    A    127.0.0.1
 ;; MSG SIZE  rcvd: 57
 </code></pre>
 <h2 id="&#x914D;&#x7F6E;-nginx">&#x914D;&#x7F6E; nginx</h2>
-<p>&#x914D;&#x7F6E;nginx</p>
+<p>&#x914D;&#x7F6E;nginx&#xFF1A;</p>
 <pre><code class="lang-conf">server {
     listen       9000;
     listen       [::]:9000;
@@ -2390,11 +2403,11 @@ echo.example.        0    IN    A    127.0.0.1
         # &#x8FD9;&#x91CC;&#x56E0;&#x4E3A; nginx &#x548C; &#x76EE;&#x6807;&#x670D;&#x52A1;&#x5728;&#x540C;&#x4E00;&#x53F0;&#x673A;&#x5668;&#x4E0A;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;&#x4E0D;&#x540C;&#x7AEF;&#x53E3;&#xFF0C;&#x6240;&#x4EE5;&#x5199;&#x6210; $host:9090
         # &#x5982;&#x679C;&#x4F4D;&#x4E8E;&#x4E0D;&#x540C;&#x673A;&#x5668;&#x4E0A;&#xFF0C;&#x5199;&#x6210;&#xFF1A;proxy_pass  http://$host:9000$request_uri;
         proxy_pass  http://$host:9090$request_uri;
-        proxy_set_header tranproxy &quot;ture&quot;;
+        proxy_set_header tranproxy &quot;true&quot;;
     }
 }
 </code></pre>
-<p>&#x901A;&#x8FC7; 127.0.0.1:9000 &#x7AEF;&#x53E3;&#x8BBF;&#x95EE;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD4;&#x56DE;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x591A;&#x4E86; tranproxy=ture&#xFF1A;</p>
+<p>&#x901A;&#x8FC7; 127.0.0.1:9000 &#x7AEF;&#x53E3;&#x8BBF;&#x95EE;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD4;&#x56DE;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x591A;&#x4E86; tranproxy=true&#xFF1A;</p>
 <pre><code class="lang-sh">$ curl -H <span class="hljs-string">&quot;Host: echo.example&quot;</span> 127.0.0.1:9000
 
 Hostname: 57e34b409aa1
@@ -2418,27 +2431,73 @@ Request Headers:
     accept=*/*
     connection=close
     host=echo.example:9090
-    tranproxy=ture
+    tranproxy=<span class="hljs-literal">true</span>
     user-agent=curl/7.54.0
 
 Request Body:
     -no body <span class="hljs-keyword">in</span> request-
 </code></pre>
-<h2 id="&#x5B9E;&#x73B0;&#x65E0;&#x611F;&#x77E5;&#x7684;&#x900F;&#x660E;&#x4EE3;&#x7406;">&#x5B9E;&#x73B0;&#x65E0;&#x611F;&#x77E5;&#x7684;&#x900F;&#x660E;&#x4EE3;&#x7406;</h2>
+<h2 id="&#x5B9E;&#x73B0;&#x65E0;&#x611F;&#x77E5;&#x7684;&#x672C;&#x5730;&#x900F;&#x660E;&#x4EE3;&#x7406;">&#x5B9E;&#x73B0;&#x65E0;&#x611F;&#x77E5;&#x7684;&#x672C;&#x5730;&#x900F;&#x660E;&#x4EE3;&#x7406;</h2>
 <p>&#x4E0A;&#x9762;&#x7684;&#x6D4B;&#x8BD5;&#x56E0;&#x4E3A;&#x73AF;&#x5883;&#x9650;&#x5236;&#xFF0C;&#x53EA;&#x662F;&#x9A8C;&#x8BC1;&#x4E86;&#x900F;&#x4F20;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x8FD9;&#x91CC;&#x7814;&#x7A76;&#x4E00;&#x4E0B;&#x600E;&#x6837;&#x5B9E;&#x73B0;&#x5B8C;&#x5168;&#x65E0;&#x611F;&#x77E5;&#x672C;&#x5730; http &#x900F;&#x660E;&#x4EE3;&#x7406;&#x3002;</p>
 <p>&#x76EE;&#x6807;&#x670D;&#x52A1;&#x7AEF;&#x53E3;&#x4E3A; 8080&#xFF0C;&#x5728;&#x8BF7;&#x6C42;&#x7AEF;&#x8BBE;&#x7F6E; nginx&#xFF0C;&#x4F7F;&#x672C;&#x5730;&#x53D1;&#x51FA;&#x7684;&#x5BF9; 8080 &#x7AEF;&#x53E3;&#x7684;&#x8BBF;&#x95EE;&#x90FD;&#x7ECF;&#x8FC7;&#x672C;&#x5730; nginx &#x4EE3;&#x7406;&#x3002;</p>
 <p>&#x672C;&#x5730; nginx &#x7684;&#x914D;&#x7F6E;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-sh">server {
-    listen       8080;
+    listen     8080;
     location / {
         resolver 114.114.114.114; 
         proxy_pass  http://<span class="hljs-variable">$host</span>:8080<span class="hljs-variable">$request_uri</span>;
-        proxy_<span class="hljs-built_in">set</span>_header tranproxy <span class="hljs-string">&quot;ture&quot;</span>;
+        proxy_<span class="hljs-built_in">set</span>_header tranproxy <span class="hljs-string">&quot;true&quot;</span>;    <span class="hljs-comment"># &#x4E3A;&#x4E86;&#x9A8C;&#x8BC1;&#x4EE3;&#x7406;&#x6548;&#x679C;&#xFF0C;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x5934;</span>
     }
 }
 </code></pre>
 <p>&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x5173;&#x952E;&#x95EE;&#x9898;&#x662F;&#xFF1A;&#x600E;&#x6837;&#x5C06;&#x672C;&#x5730;&#x53D1;&#x51FA;&#x7684;&#x5230; 8080 &#x7AEF;&#x53E3;&#x7684;&#x8BF7;&#x6C42;&#x7ECF;&#x8FC7; nginx &#x9001;&#x51FA;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x65E0;&#x611F;&#x77E5;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x3002;</p>
 <p>&#x501F;&#x9274; <a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2019/11/01/istio-packet-forward.html" title="&#x670D;&#x52A1;&#x7F51;&#x683C;/ServiceMesh &#x9879;&#x76EE; istio &#x7684;&#x6D41;&#x91CF;&#x91CD;&#x5B9A;&#x5411;&#x3001;&#x4EE3;&#x7406;&#x8BF7;&#x6C42;&#x8FC7;&#x7A0B;&#x5206;&#x6790;" target="_blank">istio &#x7684;&#x505A;&#x6CD5;</a>&#xFF0C;&#x7528; iptables &#x5B9E;&#x73B0;&#xFF0C;istio &#x4E2D;&#x7684; envoy &#x540C;&#x65F6;&#x4EE3;&#x7406;&#x6D41;&#x5165;&#x7684;&#x8BF7;&#x6C42;&#x548C;&#x6D41;&#x51FA;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x53EA;&#x5B9E;&#x73B0;&#x672C;&#x5730;&#x7684;&#x4EE3;&#x7406;&#xFF0C;&#x56E0;&#x6B64;&#x53EA;&#x9700;&#x8981;&#x8BBE;&#x7F6E; outbound &#x89C4;&#x5219;&#x3002;</p>
+<p>&#x5728; nat &#x8868;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x6761;&#x89C4;&#x5219;&#x94FE;&#xFF0C;&#x5B58;&#x653E;&#x672C;&#x5730;&#x4EE3;&#x7406;&#x7684;&#x89C4;&#x5219;&#xFF1A;</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># &#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x89C4;&#x5219;&#x94FE; </span>
+iptables -t nat -N LOCAL_PROXY
+
+<span class="hljs-comment"># &#x4E0D;&#x4EE3;&#x7406; nginx &#x751F;&#x6210;&#x7684;&#x62A5;&#x6587;&#xFF0C;&#x9632;&#x6B62;&#x51FA;&#x73B0; nginx &#x4EE3;&#x7406; nginx &#x7684;&#x6B7B;&#x5FAA;&#x73AF;</span>
+iptables -t nat -A LOCAL_PROXY -m owner --uid-owner nginx -j RETURN
+
+<span class="hljs-comment"># &#x5C06;&#x672C;&#x5730;&#x751F;&#x6210;&#x7684;&#x76EE;&#x6807;&#x7AEF;&#x53E3;&#x4E3A; 8080 &#x7684; tcp &#x62A5;&#x6587;&#xFF0C;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x672C;&#x5730;&#x7684; :8080 &#x76D1;&#x542C;&#x5730;&#x5740;</span>
+iptables -t nat -A LOCAL_PROXY -p tcp -m tcp --dport 8080 -j REDIRECT --to-ports 8080
+</code></pre>
+<p>&#x542F;&#x7528; LOCAL_PROXY&#xFF1A;</p>
+<pre><code class="lang-sh">iptables -t nat -A OUTPUT -p tcp -j LOCAL_PROXY
+</code></pre>
+<p>&#x7136;&#x540E;&#x5728;&#x672C;&#x5730;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x76EE;&#x6807;&#x670D;&#x52A1;&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x591A;&#x4E86; tranproxy=true&#xFF1A;</p>
+<pre><code class="lang-sh">$ curl 172.17.0.21:8080
+
+Hostname: <span class="hljs-built_in">echo</span>-597d89dcd9-m84tq
+
+Pod Information:
+    -no pod information available-
+
+Server values:
+    server_version=nginx: 1.13.3 - lua: 10008
+
+Request Information:
+    client_address=172.17.0.28
+    method=GET
+    real path=/
+    query=
+    request_version=1
+    request_uri=http://172.17.0.21:8080/
+Request Headers:
+    accept=*/*
+    connection=close
+    host=172.17.0.21:8080
+    tranproxy=<span class="hljs-literal">true</span>
+    user-agent=curl/7.61.1
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x5DF2;&#x7ECF;&#x6253;&#x5305;&#x6210;&#x4E86;&#x955C;&#x50CF;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-sh">docker run --rm -itd    \
+    --cap-add NET_ADMIN \
+    --name nginx-tranproxy lijiaocn/nginx-tranproxy:0.1
+</code></pre>
+<p>&#x5728; kubernetes &#x4E2D;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-sh">kubectl -n <span class="hljs-string">&quot;Your NameSpace&quot;</span> create <span class="hljs-_">-f</span> https://raw.githubusercontent.com/introclass/kubernetes-yamls/master/all-in-one/nginx-tranproxy.yaml
+</code></pre>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <ol>
 <li><a href="https://www.lijiaocn.com" title="&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;" target="_blank">&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;</a></li>
@@ -2516,7 +2575,7 @@ Request Body:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"nginx 透明代理","level":"1.5.7","depth":2,"next":{"title":"OpenResty 使用手册","level":"1.6","depth":1,"path":"openresty/index.md","ref":"openresty/index.md","articles":[{"title":"openresty 环境准备","level":"1.6.1","depth":2,"path":"openresty/env.md","ref":"openresty/env.md","articles":[]},{"title":"openresty 常规操作","level":"1.6.2","depth":2,"path":"openresty/common.md","ref":"openresty/common.md","articles":[]}]},"previous":{"title":"nginx 请求复制","level":"1.5.6","depth":2,"path":"nginx/mirror.md","ref":"nginx/mirror.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"nginx/proxy.md","mtime":"2019-11-05T10:59:06.182Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-06T02:46:21.096Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"nginx 透明代理","level":"1.5.7","depth":2,"next":{"title":"OpenResty 使用手册","level":"1.6","depth":1,"path":"openresty/index.md","ref":"openresty/index.md","articles":[{"title":"openresty 环境准备","level":"1.6.1","depth":2,"path":"openresty/env.md","ref":"openresty/env.md","articles":[]},{"title":"openresty 常规操作","level":"1.6.2","depth":2,"path":"openresty/common.md","ref":"openresty/common.md","articles":[]}]},"previous":{"title":"nginx 请求复制","level":"1.5.6","depth":2,"path":"nginx/mirror.md","ref":"nginx/mirror.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"nginx/proxy.md","mtime":"2019-11-06T10:59:15.297Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-06T11:01:19.839Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

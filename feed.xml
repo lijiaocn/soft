@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 06 Nov 2019 02:46:55 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 06 Nov 2019 11:01:53 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -40,6 +40,13 @@
             <description><![CDATA[iptables 规则的意思就是，对满足什么什么条件的报文，做怎样怎样的处理。第一步就是撰写报文的匹配规则，然后设置处理动作。这里收集 iptables 提供的报文匹配方法。]]></description>
             <link>https://www.lijiaocn.com/soft/linuxsys/iptables-match.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/iptables-match.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[iptable 的报文处理动作]]></title>
+            <description><![CDATA[设置 匹配规则 后，为报文设置处理动作。]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/iptables-target.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/iptables-target.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -701,7 +708,7 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[使用 nginx 实现透明代理功能]]></title>
+            <title><![CDATA[使用 nginx 实现本地透明代理]]></title>
             <description><![CDATA[尝试用 nginx 作为透明代理，修改报文头。]]></description>
             <link>https://www.lijiaocn.com/soft/nginx/proxy.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/proxy.html</guid>

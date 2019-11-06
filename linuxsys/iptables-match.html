@@ -66,7 +66,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="localip.html" />
+    <link rel="next" href="iptables-target.html" />
     
     
     <link rel="prev" href="iptables.html" />
@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
                 <a href="../">
             
                     
-                    小鸟笔记—软件使用手册说明
+                    小鸟笔记—软件篇
             
                 </a>
             
@@ -195,7 +195,7 @@ var _hmt = _hmt || [];
                 <a href="./">
             
                     
-                    Linux 系统知识手册
+                    Linux 系统手册
             
                 </a>
             
@@ -237,6 +237,19 @@ var _hmt = _hmt || [];
             
                     
                     报文匹配规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="iptables-target.html">
+            
+                <a href="iptables-target.html">
+            
+                    
+                    报文处理动作
             
                 </a>
             
@@ -2448,6 +2461,9 @@ unclean (IPv4-specific)
 <pre><code class="lang-sh">-A ISTIO_OUTPUT -m owner --uid-owner 1337 -j RETURN
 -A ISTIO_OUTPUT -m owner --gid-owner 1337 -j RETURN
 </code></pre>
+<p>&#x4F7F;&#x7528;&#x7528;&#x6237;&#x540D;&#x4E5F;&#x53EF;&#x4EE5;&#xFF1A;</p>
+<pre><code class="lang-sh">iptables -t nat -A LOCAL_PROXY -m owner --uid-owner nginx -j RETURN
+</code></pre>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <ol>
 <li><a href="https://www.lijiaocn.com" title="&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;" target="_blank">&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;</a></li>
@@ -2512,7 +2528,7 @@ unclean (IPv4-specific)
                 </a>
                 
                 
-                <a href="localip.html" class="navigation navigation-next " aria-label="Next page: local 地址">
+                <a href="iptables-target.html" class="navigation navigation-next " aria-label="Next page: 报文处理动作">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2523,7 +2539,7 @@ unclean (IPv4-specific)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"报文匹配规则","level":"1.2.2.1","depth":3,"next":{"title":"local 地址","level":"1.2.3","depth":2,"path":"linuxsys/localip.md","ref":"./linuxsys/localip.md","articles":[]},"previous":{"title":"iptables 使用方法","level":"1.2.2","depth":2,"path":"linuxsys/iptables.md","ref":"./linuxsys/iptables.md","articles":[{"title":"报文匹配规则","level":"1.2.2.1","depth":3,"path":"linuxsys/iptables-match.md","ref":"./linuxsys/iptables-match.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"linuxsys/iptables-match.md","mtime":"2019-11-05T10:59:06.176Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-06T02:46:21.096Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"报文匹配规则","level":"1.2.2.1","depth":3,"next":{"title":"报文处理动作","level":"1.2.2.2","depth":3,"path":"linuxsys/iptables-target.md","ref":"./linuxsys/iptables-target.md","articles":[]},"previous":{"title":"iptables 使用方法","level":"1.2.2","depth":2,"path":"linuxsys/iptables.md","ref":"./linuxsys/iptables.md","articles":[{"title":"报文匹配规则","level":"1.2.2.1","depth":3,"path":"linuxsys/iptables-match.md","ref":"./linuxsys/iptables-match.md","articles":[]},{"title":"报文处理动作","level":"1.2.2.2","depth":3,"path":"linuxsys/iptables-target.md","ref":"./linuxsys/iptables-target.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"linuxsys/iptables-match.md","mtime":"2019-11-06T06:44:00.492Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-06T11:01:19.839Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
