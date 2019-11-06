@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 05 Nov 2019 10:58:49 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 06 Nov 2019 02:46:55 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -12,391 +12,6 @@
             <description><![CDATA[这里记录工作中接触的一些重要的系统软件的使用方法，备忘录。]]></description>
             <link>https://www.lijiaocn.com/soft/</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Kubernetes 使用手册]]></title>
-            <description><![CDATA[这里的部分内容来自 Kubernetes工作笔记，本手册随着工作学习的进行不断更新。]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/index.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Minikube 使用方法（最详细的中文手册）]]></title>
-            <description><![CDATA[用 minikube 部署开发测试环境 中记录了 minikube 的使用方法，这里重新整理一下。]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/index.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[安装 Minikube]]></title>
-            <description><![CDATA[Minikube 的安装非常简单，可以用 yum、brew 等工具安装，也可以直接从 github 上下载二进制文件：]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/install.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/install.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[用 minikube 启动 kubernetes]]></title>
-            <description><![CDATA[Minikube 可以部署多个版本的 kubernetes，如果不指定 kubernetes 版本默认使用 minikube 发行的最新版。]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/deploy.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/deploy.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[进入 minikube 虚拟机以及进行其它精细操作]]></title>
-            <description><![CDATA[minkube 自带了不少子命令，可以用来查看、修改各种细节。]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/vm.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/vm.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Minikube 部署时，修改 kubernetes 的组件参数]]></title>
-            <description><![CDATA[minikube 支持修改每个组件的参数，用 --extra-config 中，格式如下：]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/config.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/config.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[操作用 minikube 启动的 kubernetes]]></title>
-            <description><![CDATA[Minikube 在启动 kubernetes 时会设置  ~/.kube/config 文件，在其中增加了访问凭证：]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/oper.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/oper.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[访问 minikube 启动的 kubernetes 中的服务]]></title>
-            <description><![CDATA[Kubernetes 在本地虚拟机中运行，如果要访问部署其中的服务，需要通过 node port。]]></description>
-            <link>https://www.lijiaocn.com/soft/minikube/request.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/request.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Kubernetes 导入外部服务]]></title>
-            <description><![CDATA[本文使用的 yaml 文件：]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/svc/external.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/svc/external.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[ingress-nginx 的使用方法]]></title>
-            <description><![CDATA[ingress-nginx 是 NGINX Ingress Controller for Kubernetes，它能做的事情越来越多，NGINX Ingress Controller Examples 列出了 ingress-nginx 能做的事情。]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/index.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[ingress-nginx 设置 https 证书]]></title>
-            <description><![CDATA[ingress-nginx 设置 https 证书的方式特别简单，将目标服务的 tls 证书以 secret 的方式存放到 kubernetes  后，在对应的 ingress 的 tls 设置中引用证书即可。]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/tls.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/tls.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[ingress-nginx 的认证功能使用示例]]></title>
-            <description><![CDATA[Basic Authentication 是最简单的 http 认证方式，采用用户名和密码的方式，用户名和密码以 secret 的方式存放在 kubernetes 中。]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[ingress-nginx 对接外部的认证服务]]></title>
-            <description><![CDATA[ingress-nginx 自带认证功能，也支持对接外部的认证服务。]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth-ext.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth-ext.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Ingress-nginx 的 uri 改写功能（rewrite）]]></title>
-            <description><![CDATA[ingress-nginx 支持 uri 改写，并且支持正则捕获。]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/rewrite.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/rewrite.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Ingress-nginx 的请求复制功能]]></title>
-            <description><![CDATA[ingress-nginx 支持请求复制功能，将同一域名下指定 path 上的请求复制到另一个 path。]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/mirror.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/mirror.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[ingress-nginx 针对源 IP 限速]]></title>
-            <description><![CDATA[ingress-nginx 可以限制源 IP 的最大连接数、每秒请求数、每分钟请求数、每秒发送的数据量、限速白名单。超过上限的客户端会收到 ingress-nginx 返回的 503。]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/ratelimit.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/ratelimit.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[ingress-nginx 的金丝雀（canary）发布功能]]></title>
-            <description><![CDATA[之前有过一篇笔记（kubernetes ingress-nginx 的金丝雀（canary）/灰度发布功能的使用方法），这里重新整理下。什么是金丝雀、什么是蓝绿、什么是灰度，见 蓝绿部署、金丝雀发布（灰度发布）、A/B测试的准确定义。]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/canary.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/canary.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[ingress-nginx 的常用注解]]></title>
-            <description><![CDATA[Annotations 中列出了 ingress-nginx 支持的 annotation，]]></description>
-            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/anno.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/anno.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[ingress-nginx 的相关笔记汇总]]></title>
-            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/note.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/note.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy]]></title>
-            <description><![CDATA[初次了解 Envoy 时做过一些笔记，这里是再次学习时，对原先笔记的进一步整理。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/index.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy 安装运行]]></title>
-            <description><![CDATA[Envoy 以 docker 镜像的方式分发，社区提供的镜像位于 envoyproxy 中，常用的有：]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/install.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/install.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[用 echoserver 观察代理/转发效果]]></title>
-            <description><![CDATA[echoserver 是一个回显用户请求的 http 服务，用来观察 http 请求的代理/转发效果非常方便。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/echoserver.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/echoserver.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy 的配置文件格式]]></title>
-            <description><![CDATA[Envoy 的 API 文档 中，分别给出了每个配置项的格式，《Envoy Proxy使用介绍教程（五）：envoy的配置文件完全展开介绍》 将 envoy 1.8.0  的各个配置项格式组合了起来，呈现了 envoy 配置文件的完整轮廓，如下：]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/config.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy 的静态配置示例]]></title>
-            <description><![CDATA[监听转发配置（listener、cluster）可以静态配置也可以动态获取，静态配置在 static_resources 中。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/config-static.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config-static.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy 的动态配置]]></title>
-            <description><![CDATA[Listener、Cluster 等除了在配置文件中静态配置，还可以从控制平面动态获取。下发动态配置的服务叫做 控制平面 ，它的地址以 cluster 的形式在配置文件中静态配置，然后在 dynamic_resources 中引用这个 cluster。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/config-dynamic.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config-dynamic.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[envoy 用 XDS 动态发现配置的方法]]></title>
-            <description><![CDATA[这里使用的配置文件是 envoy-docker-run/envoy-1-xds.yaml。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/xds.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/xds.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[envoy 用 ADS 动态发现配置的方法]]></title>
-            <description><![CDATA[这里使用的配置文件是 envoy-docker-run/envoy-1-ads.yaml。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/ads.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/ads.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[envoy 的 lds/cds/rds/sds/eds]]></title>
-            <description><![CDATA[dynamic_resources 配置中只有 lds_config、cds_config 和 ads_config，分别对应 listenter、cluster 和聚合发现：]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/mds.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/mds.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy 的控制平面的实现]]></title>
-            <description><![CDATA[可以动态下发的配置有：]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/control.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/control.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[动态配置在 go-control-plane 中的定义]]></title>
-            <description><![CDATA[go-control-plane 中的配置定义与 API 文档 中给出的相同，以 listener 为例：]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-api.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-api.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[go-control-plane 的基本用法]]></title>
-            <description><![CDATA[go-control-plane 是一个框架，提供了配置下发接口，在它的基础上根据自己的需要开发其它功能。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-send.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-send.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[go-control-plane 下发配置示例—环境准备]]></title>
-            <description><![CDATA[这里演示一个用 go-control-plane 下发配置的例子。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-env.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-env.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[go-control-plane 下发配置示例—代码说明]]></title>
-            <description><![CDATA[示例代码是 xds.go，这是一段超级简单、简陋的代码，只用来演示如何下发配置，下面是 xds.go 代码的说明，完整代码见 xds.go。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[go-control-plane 下发配置示例—运行和效果]]></title>
-            <description><![CDATA[这里详细演示动态配置的几种组合，使用的 envoy 配置文件是 envoy-1-ads-with-xds.yaml。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-run.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-run.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy 的 Cluster 配置详解]]></title>
-            <description><![CDATA[Clusters 相当于 nginx 的 upstream，是一组 IP 或者域名的集合， 是 Envoy 收到的请求最终流向的地方。 Cluster 的配置项比较多，见 Clusters Config：]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/cluster.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/cluster.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy 的 Listener 配置详解]]></title>
-            <description><![CDATA[Listener 是 envoy 最重要的配置，也是最复杂的配置，它是 envoy 的监听配置，指定了 envoy 监听地址，以及请求如何处理、转发到哪里。Listener 中可以包含多个不同 filter，有一些 filter 本身又是比较复杂的，可以继续包含 filter，譬如 HTTP Connection Manager。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/listener.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/listener.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy 的 Listener 中的 Filter 详解]]></title>
-            <description><![CDATA[从 socket 中收取的请求先经过 listener_filters 处理，然后再由 filter_chains 处理，前者包含的 filter 称为 listener filter，后者包含的 filter 称为 network filter。因为 listener_filters 先起作用，因此它可以修改请求的信息，从而影响 filter_chains 的匹配。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/filter.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/filter.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[go-control-plane 中的 filter 定义与下发]]></title>
-            <description><![CDATA[Filter 是填充在 listener 中作为 listener 配置下发的，listener 在 go-control-plane/envoy/api/v2/lds.pb.go 中定义，filter 的接口在 envoy/api/v2/listener/listener.pb.go 中定义，filter 的实现在 go-control-plane/envoy/config/filter/ 中。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/filter-def.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/filter-def.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy 的 listener filter 列表]]></title>
-            <description><![CDATA[下面是可以在加入 listener 的 listener_filter 字段中的 listener filter。 这些 filter 的主要作用是检测协议、解析协议，通过它们解析出的信息被用于匹配 filter_chains 中的 filter。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/listener-filter.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/listener-filter.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy 的 network filter 列表]]></title>
-            <description><![CDATA[可以加入到 filter_chains 中的 network filter 数量众多，Network filters 中列出了以下几个：]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/network-filter.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/network-filter.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[http_connection_manager 中的 http filter]]></title>
-            <description><![CDATA[http_connection_manager 是一个比较复杂的 network filter，它内部又实现了 http filter，支持的 filter 数量较多，这里不一一列举，可以到 HTTP filters 查看，官方文档比较详细。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/http-filter.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/http-filter.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy 4 层 TCP/UDP 协议转发]]></title>
-            <description><![CDATA[4 层协议现在只支持 tcp，udp 协议的支持还在设计开发中 UDP proxying support。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/l4.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/l4.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Envoy 使用过程中的常见问题]]></title>
-            <description><![CDATA[这里是 Envoy 使用过程中常遇到的问题。]]></description>
-            <link>https://www.lijiaocn.com/soft/envoy/qa.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/qa.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 的使用方法]]></title>
-            <description><![CDATA[Prometheus 是一个比较流行的告警监控系统，以前写过几篇笔记，这里更系统的整理一下。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/index.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 安装启动]]></title>
-            <description><![CDATA[从 prometheus download 下载已经编译好的 prometheus 程序，该页面上还有 prometheus 提供的 exporter。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/start.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/start.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 的配置文件]]></title>
-            <description><![CDATA[配置文件是 yaml 格式的，分为 global、alerting、rule_files 和 scrape_configs 四部分。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/config.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/config.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 的查询语句]]></title>
-            <description><![CDATA[Prometheus 的数据查询语句叫做 Prometheus Query Language，提供了不少查询函数，表达能力比较丰富。
-语句的执行结果有四种类型：]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 指标查询]]></title>
-            <description><![CDATA[Prometheus 的指标查询语句基本格式为：]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-metrics.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-metrics.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 指标查询结果运算]]></title>
-            <description><![CDATA[Prometheus 的查询语句支持运算，可以使用二元运算符（算术运算符、比较运算符、集合运算符）和聚合运算符直接操作查询出来的数据集，也可以使用 Prometheus 提供的查询函数进行更复杂的运算。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-compute.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-compute.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 查询结果的二元运算]]></title>
-            <description><![CDATA[两组查询出来的数据集之间的运算。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-binary.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-binary.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 查询结果的聚合运算]]></title>
-            <description><![CDATA[聚合运算符形态上与函数类似，用于分析查询得到的数据集。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-aggre.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-aggre.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 的查询函数]]></title>
-            <description><![CDATA[Prometheus 的查询函数数量比较多，这里不罗列了，见 Prometheus Functions。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-function.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-function.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 的 exporters]]></title>
-            <description><![CDATA[Prometheus 的负责收集指标数据、执行告警规则、提供指标数据查询功能，指标数据要么是目标系统实现了 Prometheus 样式的指标数据，要么通过各种 exporter 获取。Third-party exporters 中收录了很多 exporter，本手册逐渐收录工作中用到的一些 exporter。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/exporters.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/exporters.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Blackbox exporter：探测远程地址（HTTP HTTPS DNS TCP ICMP）]]></title>
-            <description><![CDATA[blackbox_exporter 用来探测目标地址，支持的协议有：HTTP、HTTPS、DNS、TCP、ICMP。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/blackbox.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/blackbox.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 的 pushgateway 作用和用法]]></title>
-            <description><![CDATA[Prometheus 采集数据的方式是定时轮询，轮询的频率在配置文件中设置：]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/pushgateway.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/pushgateway.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -736,6 +351,306 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
+            <title><![CDATA[Kubernetes 使用手册]]></title>
+            <description><![CDATA[这里的部分内容来自 Kubernetes工作笔记，本手册随着工作学习的进行不断更新。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Minikube 使用方法（最详细的中文手册）]]></title>
+            <description><![CDATA[用 minikube 部署开发测试环境 中记录了 minikube 的使用方法，这里重新整理一下。]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[安装 Minikube]]></title>
+            <description><![CDATA[Minikube 的安装非常简单，可以用 yum、brew 等工具安装，也可以直接从 github 上下载二进制文件：]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/install.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/install.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[用 minikube 启动 kubernetes]]></title>
+            <description><![CDATA[Minikube 可以部署多个版本的 kubernetes，如果不指定 kubernetes 版本默认使用 minikube 发行的最新版。]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/deploy.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/deploy.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[进入 minikube 虚拟机以及进行其它精细操作]]></title>
+            <description><![CDATA[minkube 自带了不少子命令，可以用来查看、修改各种细节。]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/vm.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/vm.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Minikube 部署时，修改 kubernetes 的组件参数]]></title>
+            <description><![CDATA[minikube 支持修改每个组件的参数，用 --extra-config 中，格式如下：]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/config.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/config.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[操作用 minikube 启动的 kubernetes]]></title>
+            <description><![CDATA[Minikube 在启动 kubernetes 时会设置  ~/.kube/config 文件，在其中增加了访问凭证：]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/oper.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/oper.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[访问 minikube 启动的 kubernetes 中的服务]]></title>
+            <description><![CDATA[Kubernetes 在本地虚拟机中运行，如果要访问部署其中的服务，需要通过 node port。]]></description>
+            <link>https://www.lijiaocn.com/soft/minikube/request.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/request.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Kubernetes 导入外部服务]]></title>
+            <description><![CDATA[本文使用的 yaml 文件：]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/svc/external.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/svc/external.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 的使用方法]]></title>
+            <description><![CDATA[ingress-nginx 是 NGINX Ingress Controller for Kubernetes，它能做的事情越来越多，NGINX Ingress Controller Examples 列出了 ingress-nginx 能做的事情。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 设置 https 证书]]></title>
+            <description><![CDATA[ingress-nginx 设置 https 证书的方式特别简单，将目标服务的 tls 证书以 secret 的方式存放到 kubernetes  后，在对应的 ingress 的 tls 设置中引用证书即可。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/tls.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/tls.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 的认证功能使用示例]]></title>
+            <description><![CDATA[Basic Authentication 是最简单的 http 认证方式，采用用户名和密码的方式，用户名和密码以 secret 的方式存放在 kubernetes 中。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 对接外部的认证服务]]></title>
+            <description><![CDATA[ingress-nginx 自带认证功能，也支持对接外部的认证服务。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth-ext.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/auth-ext.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Ingress-nginx 的 uri 改写功能（rewrite）]]></title>
+            <description><![CDATA[ingress-nginx 支持 uri 改写，并且支持正则捕获。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/rewrite.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/rewrite.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Ingress-nginx 的请求复制功能]]></title>
+            <description><![CDATA[ingress-nginx 支持请求复制功能，将同一域名下指定 path 上的请求复制到另一个 path。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/mirror.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/mirror.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 针对源 IP 限速]]></title>
+            <description><![CDATA[ingress-nginx 可以限制源 IP 的最大连接数、每秒请求数、每分钟请求数、每秒发送的数据量、限速白名单。超过上限的客户端会收到 ingress-nginx 返回的 503。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/ratelimit.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/ratelimit.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 的金丝雀（canary）发布功能]]></title>
+            <description><![CDATA[之前有过一篇笔记（kubernetes ingress-nginx 的金丝雀（canary）/灰度发布功能的使用方法），这里重新整理下。什么是金丝雀、什么是蓝绿、什么是灰度，见 蓝绿部署、金丝雀发布（灰度发布）、A/B测试的准确定义。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/canary.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/canary.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 的常用注解]]></title>
+            <description><![CDATA[Annotations 中列出了 ingress-nginx 支持的 annotation，]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/anno.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/anno.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[ingress-nginx 的相关笔记汇总]]></title>
+            <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/note.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/note.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy]]></title>
+            <description><![CDATA[初次了解 Envoy 时做过一些笔记，这里是再次学习时，对原先笔记的进一步整理。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 安装运行]]></title>
+            <description><![CDATA[Envoy 以 docker 镜像的方式分发，社区提供的镜像位于 envoyproxy 中，常用的有：]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/install.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/install.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[用 echoserver 观察代理/转发效果]]></title>
+            <description><![CDATA[echoserver 是一个回显用户请求的 http 服务，用来观察 http 请求的代理/转发效果非常方便。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/echoserver.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/echoserver.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的配置文件格式]]></title>
+            <description><![CDATA[Envoy 的 API 文档 中，分别给出了每个配置项的格式，《Envoy Proxy使用介绍教程（五）：envoy的配置文件完全展开介绍》 将 envoy 1.8.0  的各个配置项格式组合了起来，呈现了 envoy 配置文件的完整轮廓，如下：]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/config.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的静态配置示例]]></title>
+            <description><![CDATA[监听转发配置（listener、cluster）可以静态配置也可以动态获取，静态配置在 static_resources 中。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/config-static.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config-static.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的动态配置]]></title>
+            <description><![CDATA[Listener、Cluster 等除了在配置文件中静态配置，还可以从控制平面动态获取。下发动态配置的服务叫做 控制平面 ，它的地址以 cluster 的形式在配置文件中静态配置，然后在 dynamic_resources 中引用这个 cluster。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/config-dynamic.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/config-dynamic.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[envoy 用 XDS 动态发现配置的方法]]></title>
+            <description><![CDATA[这里使用的配置文件是 envoy-docker-run/envoy-1-xds.yaml。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/xds.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/xds.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[envoy 用 ADS 动态发现配置的方法]]></title>
+            <description><![CDATA[这里使用的配置文件是 envoy-docker-run/envoy-1-ads.yaml。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/ads.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/ads.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[envoy 的 lds/cds/rds/sds/eds]]></title>
+            <description><![CDATA[dynamic_resources 配置中只有 lds_config、cds_config 和 ads_config，分别对应 listenter、cluster 和聚合发现：]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/mds.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/mds.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的控制平面的实现]]></title>
+            <description><![CDATA[可以动态下发的配置有：]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/control.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/control.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[动态配置在 go-control-plane 中的定义]]></title>
+            <description><![CDATA[go-control-plane 中的配置定义与 API 文档 中给出的相同，以 listener 为例：]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-api.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-api.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[go-control-plane 的基本用法]]></title>
+            <description><![CDATA[go-control-plane 是一个框架，提供了配置下发接口，在它的基础上根据自己的需要开发其它功能。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-send.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-send.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[go-control-plane 下发配置示例—环境准备]]></title>
+            <description><![CDATA[这里演示一个用 go-control-plane 下发配置的例子。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-env.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-env.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[go-control-plane 下发配置示例—代码说明]]></title>
+            <description><![CDATA[示例代码是 xds.go，这是一段超级简单、简陋的代码，只用来演示如何下发配置，下面是 xds.go 代码的说明，完整代码见 xds.go。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-code.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[go-control-plane 下发配置示例—运行和效果]]></title>
+            <description><![CDATA[这里详细演示动态配置的几种组合，使用的 envoy 配置文件是 envoy-1-ads-with-xds.yaml。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/go-control-plane-run.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/go-control-plane-run.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的 Cluster 配置详解]]></title>
+            <description><![CDATA[Clusters 相当于 nginx 的 upstream，是一组 IP 或者域名的集合， 是 Envoy 收到的请求最终流向的地方。 Cluster 的配置项比较多，见 Clusters Config：]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/cluster.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/cluster.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的 Listener 配置详解]]></title>
+            <description><![CDATA[Listener 是 envoy 最重要的配置，也是最复杂的配置，它是 envoy 的监听配置，指定了 envoy 监听地址，以及请求如何处理、转发到哪里。Listener 中可以包含多个不同 filter，有一些 filter 本身又是比较复杂的，可以继续包含 filter，譬如 HTTP Connection Manager。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/listener.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/listener.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的 Listener 中的 Filter 详解]]></title>
+            <description><![CDATA[从 socket 中收取的请求先经过 listener_filters 处理，然后再由 filter_chains 处理，前者包含的 filter 称为 listener filter，后者包含的 filter 称为 network filter。因为 listener_filters 先起作用，因此它可以修改请求的信息，从而影响 filter_chains 的匹配。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/filter.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/filter.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[go-control-plane 中的 filter 定义与下发]]></title>
+            <description><![CDATA[Filter 是填充在 listener 中作为 listener 配置下发的，listener 在 go-control-plane/envoy/api/v2/lds.pb.go 中定义，filter 的接口在 envoy/api/v2/listener/listener.pb.go 中定义，filter 的实现在 go-control-plane/envoy/config/filter/ 中。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/filter-def.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/filter-def.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的 listener filter 列表]]></title>
+            <description><![CDATA[下面是可以在加入 listener 的 listener_filter 字段中的 listener filter。 这些 filter 的主要作用是检测协议、解析协议，通过它们解析出的信息被用于匹配 filter_chains 中的 filter。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/listener-filter.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/listener-filter.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 的 network filter 列表]]></title>
+            <description><![CDATA[可以加入到 filter_chains 中的 network filter 数量众多，Network filters 中列出了以下几个：]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/network-filter.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/network-filter.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[http_connection_manager 中的 http filter]]></title>
+            <description><![CDATA[http_connection_manager 是一个比较复杂的 network filter，它内部又实现了 http filter，支持的 filter 数量较多，这里不一一列举，可以到 HTTP filters 查看，官方文档比较详细。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/http-filter.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/http-filter.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 4 层 TCP/UDP 协议转发]]></title>
+            <description><![CDATA[4 层协议现在只支持 tcp，udp 协议的支持还在设计开发中 UDP proxying support。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/l4.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/l4.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Envoy 使用过程中的常见问题]]></title>
+            <description><![CDATA[这里是 Envoy 使用过程中常遇到的问题。]]></description>
+            <link>https://www.lijiaocn.com/soft/envoy/qa.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/envoy/qa.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
             <title><![CDATA[Nginx 学习资料]]></title>
             <description><![CDATA[OpenResty 作者章宜春有一个 agentzh 的 Nginx 教程（版本 2016.07.21），不过这个教程没写完，
 可以用来培养感性认识，中文阅读起来方便一些。OpenResty 最佳实践中有一章是关于 nginx 的，相对比较适合用来入门，并且指出了一些坑。]]></description>
@@ -912,66 +827,88 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Perf 使用手册]]></title>
-            <description><![CDATA[Perf，Performance Counters for Linux 是一个 Linux 探查工具，用来观察记录系统运行过程发生的事情。]]></description>
-            <link>https://www.lijiaocn.com/soft/perf/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/index.html</guid>
+            <title><![CDATA[Prometheus 的使用方法]]></title>
+            <description><![CDATA[Prometheus 是一个比较流行的告警监控系统，以前写过几篇笔记，这里更系统的整理一下。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Perf 技术原理：Performance Counters 子系统的配套工具]]></title>
-            <description><![CDATA[2009 年的时候，一个名为 Performance Counters 的子系统被提交到 kernel，该子系统提供“计数”事件的功能，邮件 Performance Counters for Linux 中有阐述。Perf 是该系统的配套工具。]]></description>
-            <link>https://www.lijiaocn.com/soft/perf/basic.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/basic.html</guid>
+            <title><![CDATA[Prometheus 安装启动]]></title>
+            <description><![CDATA[从 prometheus download 下载已经编译好的 prometheus 程序，该页面上还有 prometheus 提供的 exporter。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/start.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/start.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Perf 基本用法]]></title>
-            <description><![CDATA[Perf 有五个子命令，可以用 man 查看每个子命令的用法，例如 man perf-stat：]]></description>
-            <link>https://www.lijiaocn.com/soft/perf/usage1.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/usage1.html</guid>
+            <title><![CDATA[Prometheus 的配置文件]]></title>
+            <description><![CDATA[配置文件是 yaml 格式的，分为 global、alerting、rule_files 和 scrape_configs 四部分。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/config.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/config.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Perf 可以获取的 PMU 事件]]></title>
-            <description><![CDATA[perf list 打印所有可以指定的事件，事件的数量非常非常多，每个子系统都有一组事件，要理解这些事件，需要对内核非常熟悉。]]></description>
-            <link>https://www.lijiaocn.com/soft/perf/pmu.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/pmu.html</guid>
+            <title><![CDATA[Prometheus 的查询语句]]></title>
+            <description><![CDATA[Prometheus 的数据查询语句叫做 Prometheus Query Language，提供了不少查询函数，表达能力比较丰富。
+语句的执行结果有四种类型：]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/query.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Git 使用手册]]></title>
-            <description><![CDATA[这里是对 Git使用手册 的进一步整理，将内容分章节展示。]]></description>
-            <link>https://www.lijiaocn.com/soft/git/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/git/index.html</guid>
+            <title><![CDATA[Prometheus 指标查询]]></title>
+            <description><![CDATA[Prometheus 的指标查询语句基本格式为：]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/query-metrics.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-metrics.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Git 的 rebase 操作（commit 回放）]]></title>
-            <description><![CDATA[rebase 命令将另一个分支上的修改同步到当前分支，但是和 merge 不同，rebase 修改的当前分支的 commit 之前的内容。]]></description>
-            <link>https://www.lijiaocn.com/soft/git/rebase.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/git/rebase.html</guid>
+            <title><![CDATA[Prometheus 指标查询结果运算]]></title>
+            <description><![CDATA[Prometheus 的查询语句支持运算，可以使用二元运算符（算术运算符、比较运算符、集合运算符）和聚合运算符直接操作查询出来的数据集，也可以使用 Prometheus 提供的查询函数进行更复杂的运算。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/query-compute.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-compute.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[git 跨 repo 操作]]></title>
-            <description><![CDATA[如果使用了一个开源的项目，并且基于这个项目开发了自己的分支，同时又希望把改动反馈到社区，就会遇到在跨 repo 操作的问题。]]></description>
-            <link>https://www.lijiaocn.com/soft/git/repo-cross.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/git/repo-cross.html</guid>
+            <title><![CDATA[Prometheus 查询结果的二元运算]]></title>
+            <description><![CDATA[两组查询出来的数据集之间的运算。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/query-binary.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-binary.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Docker 使用手册]]></title>
-            <description><![CDATA[这里是对 Docker 学习笔记 的重新整理，同时在不停地补充新的内容。]]></description>
-            <link>https://www.lijiaocn.com/soft/docker/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/index.html</guid>
+            <title><![CDATA[Prometheus 查询结果的聚合运算]]></title>
+            <description><![CDATA[聚合运算符形态上与函数类似，用于分析查询得到的数据集。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/query-aggre.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-aggre.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Docker 安装部署]]></title>
-            <description><![CDATA[docker、docker-ce 和 docker-ee 的关系见 moby、docker-ce与docker-ee。]]></description>
-            <link>https://www.lijiaocn.com/soft/docker/install.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/install.html</guid>
+            <title><![CDATA[Prometheus 的查询函数]]></title>
+            <description><![CDATA[Prometheus 的查询函数数量比较多，这里不罗列了，见 Prometheus Functions。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/query-function.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-function.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 的 exporters]]></title>
+            <description><![CDATA[Prometheus 的负责收集指标数据、执行告警规则、提供指标数据查询功能，指标数据要么是目标系统实现了 Prometheus 样式的指标数据，要么通过各种 exporter 获取。Third-party exporters 中收录了很多 exporter，本手册逐渐收录工作中用到的一些 exporter。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/exporters.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/exporters.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Blackbox exporter：探测远程地址（HTTP HTTPS DNS TCP ICMP）]]></title>
+            <description><![CDATA[blackbox_exporter 用来探测目标地址，支持的协议有：HTTP、HTTPS、DNS、TCP、ICMP。]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/blackbox.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/blackbox.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Prometheus 的 pushgateway 作用和用法]]></title>
+            <description><![CDATA[Prometheus 采集数据的方式是定时轮询，轮询的频率在配置文件中设置：]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/pushgateway.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/pushgateway.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -1007,6 +944,69 @@
             <description><![CDATA[docker 的安装方法见 docker 的安装。]]></description>
             <link>https://www.lijiaocn.com/soft/ansible/docker.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/ansible/docker.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Perf 使用手册]]></title>
+            <description><![CDATA[Perf，Performance Counters for Linux 是一个 Linux 探查工具，用来观察记录系统运行过程发生的事情。]]></description>
+            <link>https://www.lijiaocn.com/soft/perf/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Perf 技术原理：Performance Counters 子系统的配套工具]]></title>
+            <description><![CDATA[2009 年的时候，一个名为 Performance Counters 的子系统被提交到 kernel，该子系统提供“计数”事件的功能，邮件 Performance Counters for Linux 中有阐述。Perf 是该系统的配套工具。]]></description>
+            <link>https://www.lijiaocn.com/soft/perf/basic.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/basic.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Perf 基本用法]]></title>
+            <description><![CDATA[Perf 有五个子命令，可以用 man 查看每个子命令的用法，例如 man perf-stat：]]></description>
+            <link>https://www.lijiaocn.com/soft/perf/usage1.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/usage1.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Perf 可以获取的 PMU 事件]]></title>
+            <description><![CDATA[perf list 打印所有可以指定的事件，事件的数量非常非常多，每个子系统都有一组事件，要理解这些事件，需要对内核非常熟悉。]]></description>
+            <link>https://www.lijiaocn.com/soft/perf/pmu.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/perf/pmu.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Docker 使用手册]]></title>
+            <description><![CDATA[这里是对 Docker 学习笔记 的重新整理，同时在不停地补充新的内容。]]></description>
+            <link>https://www.lijiaocn.com/soft/docker/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Docker 安装部署]]></title>
+            <description><![CDATA[docker、docker-ce 和 docker-ee 的关系见 moby、docker-ce与docker-ee。]]></description>
+            <link>https://www.lijiaocn.com/soft/docker/install.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/install.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Git 使用手册]]></title>
+            <description><![CDATA[这里是对 Git使用手册 的进一步整理，将内容分章节展示。]]></description>
+            <link>https://www.lijiaocn.com/soft/git/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/git/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Git 的 rebase 操作（commit 回放）]]></title>
+            <description><![CDATA[rebase 命令将另一个分支上的修改同步到当前分支，但是和 merge 不同，rebase 修改的当前分支的 commit 之前的内容。]]></description>
+            <link>https://www.lijiaocn.com/soft/git/rebase.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/git/rebase.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[git 跨 repo 操作]]></title>
+            <description><![CDATA[如果使用了一个开源的项目，并且基于这个项目开发了自己的分支，同时又希望把改动反馈到社区，就会遇到在跨 repo 操作的问题。]]></description>
+            <link>https://www.lijiaocn.com/soft/git/repo-cross.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/git/repo-cross.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
