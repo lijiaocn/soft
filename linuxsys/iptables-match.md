@@ -137,6 +137,12 @@ istio 中用[下面的方法][2]，对应用户 1337 启动的 envoy 进程创�
 -A ISTIO_OUTPUT -m owner --gid-owner 1337 -j RETURN
 ```
 
+使用用户名也可以：
+
+```sh
+iptables -t nat -A LOCAL_PROXY -m owner --uid-owner nginx -j RETURN
+```
+
 ## 参考
 
 1. [李佶澳的博客][1]

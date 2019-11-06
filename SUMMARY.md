@@ -1,10 +1,11 @@
 # Summary
 
-* [小鸟笔记—软件使用手册说明](README.md)
-* [Linux 系统知识手册](linuxsys/index.md)
+* [小鸟笔记—软件篇](./README.md)
+* [Linux 系统手册](./linuxsys/index.md)
   * [透明代理](./linuxsys/tpproxy.md)
   * [iptables 使用方法](./linuxsys/iptables.md)
     * [报文匹配规则](./linuxsys/iptables-match.md)
+    * [报文处理动作](./linuxsys/iptables-target.md)
   * [local 地址](./linuxsys/localip.md)
   * [性能优化与问题诊断](linux/index.md)
     * [认知框架](linux/01-concept.md)
