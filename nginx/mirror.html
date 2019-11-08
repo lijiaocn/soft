@@ -1534,7 +1534,20 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="performance.html">
+        <li class="chapter " data-level="1.5.3" data-path="comm.html">
+            
+                <a href="comm.html">
+            
+                    
+                    nginx 常用配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="performance.html">
             
                 <a href="performance.html">
             
@@ -1547,7 +1560,7 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="important.html">
+        <li class="chapter " data-level="1.5.5" data-path="important.html">
             
                 <a href="important.html">
             
@@ -1560,7 +1573,7 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="status.html">
+        <li class="chapter " data-level="1.5.6" data-path="status.html">
             
                 <a href="status.html">
             
@@ -1573,7 +1586,7 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter active" data-level="1.5.6" data-path="mirror.html">
+        <li class="chapter active" data-level="1.5.7" data-path="mirror.html">
             
                 <a href="mirror.html">
             
@@ -1586,7 +1599,7 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.5.7" data-path="proxy.html">
+        <li class="chapter " data-level="1.5.8" data-path="proxy.html">
             
                 <a href="proxy.html">
             
@@ -1636,7 +1649,7 @@ var _hmt = _hmt || [];
                 <a href="../openresty/lua.html">
             
                     
-                    openresty 与lua
+                    openresty lua 交互
             
                 </a>
             
@@ -2440,6 +2453,21 @@ Request Body:
     <span class="hljs-string">&quot;Body&quot;</span>: <span class="hljs-string">&quot;&quot;</span>
 }
 </code></pre>
+<h2 id="&#x914D;&#x7F6E;&#x4FEE;&#x6B63;">&#x914D;&#x7F6E;&#x4FEE;&#x6B63;</h2>
+<p>&#x4ED4;&#x7EC6;&#x89C2;&#x5BDF;&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E; Host &#x662F; http-record_upstream&#xFF0C;&#x4E0D;&#x662F;&#x539F;&#x59CB;&#x7684; host&#x3002;&#x5C06;&#x914D;&#x7F6E;&#x4FEE;&#x6B63;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-conf">    location / {
+        access_log /tmp/logs/access.log mirror;
+        mirror /mirror;
+
+        # &#x6DFB;&#x52A0;&#x8FD9;&#x884C;&#x914D;&#x7F6E;
+        set $proxy_host $host;    
+
+        proxy_http_version 1.1;
+        proxy_set_header Connection &quot;&quot;;
+
+        proxy_pass  http://echo_upstream;
+    }
+</code></pre>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <ol>
 <li><a href="https://www.lijiaocn.com" title="&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;" target="_blank">&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;</a></li>
@@ -2516,7 +2544,7 @@ Request Body:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"nginx 请求复制","level":"1.5.6","depth":2,"next":{"title":"nginx 透明代理","level":"1.5.7","depth":2,"path":"nginx/proxy.md","ref":"nginx/proxy.md","articles":[]},"previous":{"title":"nginx 状态数据","level":"1.5.5","depth":2,"path":"nginx/status.md","ref":"nginx/status.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"nginx/mirror.md","mtime":"2019-11-06T11:02:10.055Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-08T07:15:02.215Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"nginx 请求复制","level":"1.5.7","depth":2,"next":{"title":"nginx 透明代理","level":"1.5.8","depth":2,"path":"nginx/proxy.md","ref":"nginx/proxy.md","articles":[]},"previous":{"title":"nginx 状态数据","level":"1.5.6","depth":2,"path":"nginx/status.md","ref":"nginx/status.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"nginx/mirror.md","mtime":"2019-11-08T10:09:03.205Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-08T14:01:00.374Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

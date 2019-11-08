@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 08 Nov 2019 07:15:40 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 08 Nov 2019 14:01:37 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -677,6 +677,13 @@
             <description><![CDATA[Nginx 的源代码中有个配置文件 nginx.conf 样例，CentOS 安装的 nginx 自带的默认配置文件结构更好。]]></description>
             <link>https://www.lijiaocn.com/soft/nginx/config.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/config.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx 的常用配置]]></title>
+            <description><![CDATA[一些常用的 nginx  配置。]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/comm.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/comm.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
