@@ -69,7 +69,7 @@
     <link rel="next" href="../istio/" />
     
     
-    <link rel="prev" href="env.html" />
+    <link rel="prev" href="lua.html" />
     
 
     <link href="https://www.lijiaocn.com/soft/feed.xml" title="常见软件系统实用使用手册" rel="alternate" type="application/rss+xml" />
@@ -135,7 +135,7 @@ var _hmt = _hmt || [];
             
                 
 <div style="text-align:center">
-    <h1><a href="https://www.lijiaocn.com/note/" style="color:#afa790">小鸟笔记</a></h1>
+    <h2><a href="https://www.lijiaocn.com/note/" style="color:#afa790">小鸟笔记</a></h2>
     <h3><a href="https://www.lijiaocn.com/" style="color:#afa790">www.lijiaocn.com，影响一万人</a></h3>
 </div>
 
@@ -1631,7 +1631,20 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter active" data-level="1.6.2" data-path="common.html">
+        <li class="chapter " data-level="1.6.2" data-path="lua.html">
+            
+                <a href="lua.html">
+            
+                    
+                    openresty 与lua
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.3" data-path="common.html">
             
                 <a href="common.html">
             
@@ -2299,10 +2312,10 @@ var _hmt = _hmt || [];
     
 
     <!-- Title -->
-    <h1>
+    <h2>
         <i class="fa fa-circle-o-notch fa-spin"></i>
         <a href=".." >openresty 常规操作</a>
-    </h1>
+    </h2>
 </div>
 
 
@@ -2335,8 +2348,6 @@ var _hmt = _hmt || [];
                                 <!-- toc -->
 <ul>
 <li><a href="#openresty-&#x7684;&#x4E00;&#x4E9B;&#x5E38;&#x89C4;&#x64CD;&#x4F5C;">OpenResty &#x7684;&#x4E00;&#x4E9B;&#x5E38;&#x89C4;&#x64CD;&#x4F5C;</a><ul>
-<li><a href="#lua-&#x811A;&#x672C;&#x7684;&#x4E24;&#x79CD;&#x6267;&#x884C;&#x65B9;&#x6CD5;">Lua &#x811A;&#x672C;&#x7684;&#x4E24;&#x79CD;&#x6267;&#x884C;&#x65B9;&#x6CD5;</a></li>
-<li><a href="#luamodule-&#x7684;&#x51E0;&#x4E2A;&#x6267;&#x884C;&#x9636;&#x6BB5;">lua_module &#x7684;&#x51E0;&#x4E2A;&#x6267;&#x884C;&#x9636;&#x6BB5;</a></li>
 <li><a href="#&#x5185;&#x5B58;&#x5B57;&#x5178;">&#x5185;&#x5B58;&#x5B57;&#x5178;</a></li>
 <li><a href="#&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;&#x4E0E;&#x8BFB;&#x53D6;">&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;&#x4E0E;&#x8BFB;&#x53D6;</a></li>
 <li><a href="#&#x65E5;&#x5FD7;&#x6253;&#x5370;">&#x65E5;&#x5FD7;&#x6253;&#x5370;</a></li>
@@ -2348,74 +2359,9 @@ var _hmt = _hmt || [];
 </ul>
 <!-- tocstop -->
 <h1 id="openresty-&#x7684;&#x4E00;&#x4E9B;&#x5E38;&#x89C4;&#x64CD;&#x4F5C;">OpenResty &#x7684;&#x4E00;&#x4E9B;&#x5E38;&#x89C4;&#x64CD;&#x4F5C;</h1>
-<p>OpenResty &#x63D0;&#x4F9B;&#x7684;&#x5F00;&#x53D1;&#x8BED;&#x8A00;&#x662F; Lua&#xFF0C;&#x7528; lua-nginx-module &#x89E3;&#x91CA; lua &#x811A;&#x672C;&#xFF0C;lua &#x8BED;&#x8A00;&#x81EA;&#x8EAB;&#x7684;&#x7528;&#x6CD5;&#x89C1; <a href="https://www.lijiaocn.com/prog/lua/" title="Lua&#x7F16;&#x7A0B;&#x901F;&#x67E5;&#x624B;&#x518C;&#xFF08;&#x5E38;&#x7528;&#x64CD;&#x4F5C;)" target="_blank">Lua&#x7F16;&#x7A0B;&#x901F;&#x67E5;&#x624B;&#x518C;&#xFF08;&#x5E38;&#x7528;&#x64CD;&#x4F5C;)</a>&#xFF0C;openresty &#x63D0;&#x4F9B;&#x7684; lua &#x80FD;&#x529B;&#xFF08;&#x8B6C;&#x5982;&#x5B9A;&#x4E49;&#x7684;&#x53D8;&#x91CF;&#x3001;&#x63D0;&#x4F9B;&#x7684;&#x51FD;&#x6570;&#x7B49;&#xFF09;&#x89C1; <a href="https://github.com/openresty/lua-nginx-module" title="lua-nginx-module" target="_blank">openresty/lua-nginx-module</a> &#x3002;</p>
-<h2 id="lua-&#x811A;&#x672C;&#x7684;&#x4E24;&#x79CD;&#x6267;&#x884C;&#x65B9;&#x6CD5;">Lua &#x811A;&#x672C;&#x7684;&#x4E24;&#x79CD;&#x6267;&#x884C;&#x65B9;&#x6CD5;</h2>
-<p>OpenResty &#x63D0;&#x4F9B;&#x7684;&#x5F00;&#x53D1;&#x8BED;&#x8A00;&#x662F; lua&#xFF0C;lua &#x811A;&#x672C;&#x53EF;&#x4EE5;&#x7528;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#xFF1A;</p>
-<p>&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x76F4;&#x63A5;&#x5199;&#x5728;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;openresty &#x52A0;&#x8F7D;&#x8FD0;&#x884C;&#xFF1A;</p>
-<pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> 01-hello-world
-$ openresty -p `<span class="hljs-built_in">pwd</span>` -c nginx.conf
-</code></pre>
-<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x542F;&#x52A8;&#x4E86; openresty &#x670D;&#x52A1;&#xFF0C;&#x8BBF;&#x95EE; openresty &#x670D;&#x52A1;&#x89E6;&#x53D1;&#x914D;&#x7F6E;&#x4E2D;&#x7684;&#x811A;&#x672C;&#x8FD0;&#x884C;&#xFF1A;</p>
-<pre><code class="lang-sh">$ curl 127.0.0.1:6699/
-HelloWorld
-</code></pre>
-<p>&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x7528; resty &#x547D;&#x4EE4;&#x76F4;&#x63A5;&#x6267;&#x884C; lua &#x811A;&#x672C;&#xFF1A;</p>
-<pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> 02-hello-world
-$ resty hello.lua
-hello world
-</code></pre>
-<h2 id="luamodule-&#x7684;&#x51E0;&#x4E2A;&#x6267;&#x884C;&#x9636;&#x6BB5;">lua_module &#x7684;&#x51E0;&#x4E2A;&#x6267;&#x884C;&#x9636;&#x6BB5;</h2>
-<p>&#x89C2;&#x5BDF; lua_module &#x7684;&#x51E0;&#x4E2A;&#x6267;&#x884C;&#x9636;&#x6BB5;&#xFF0C;&#x5728;&#x6BCF;&#x4E2A;&#x9636;&#x6BB5;&#x6253;&#x5370;&#x65E5;&#x5FD7;&#xFF1A;</p>
-<pre><code class="lang-conf"># 03-nginx-lua-module/nginx.conf
-worker_processes  1;             #nginx worker &#x6570;&#x91CF;
-error_log logs/error.log info;   #&#x6307;&#x5B9A;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
-events {
-  worker_connections 256;
-}
-
-http {
-  server {
-    #&#x76D1;&#x542C;&#x7AEF;&#x53E3;&#xFF0C;&#x82E5;&#x4F60;&#x7684;6699&#x7AEF;&#x53E3;&#x5DF2;&#x7ECF;&#x88AB;&#x5360;&#x7528;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x4FEE;&#x6539;
-    listen 6699;
-    location / {
-        set_by_lua_block $a {
-            ngx.log(ngx.INFO, &quot;set_by_lua*&quot;)
-        }
-        rewrite_by_lua_block {
-            ngx.log(ngx.INFO, &quot;rewrite_by_lua*&quot;)
-        }
-        access_by_lua_block {
-            ngx.log(ngx.INFO, &quot;access_by_lua*&quot;)
-        }
-        content_by_lua_block {
-            ngx.log(ngx.INFO, &quot;content_by_lua*&quot;)
-        }
-        header_filter_by_lua_block {
-            ngx.log(ngx.INFO, &quot;header_filter_by_lua*&quot;)
-        }
-        body_filter_by_lua_block {
-            ngx.log(ngx.INFO, &quot;body_filter_by_lua*&quot;)
-        }
-        log_by_lua_block {
-            ngx.log(ngx.INFO, &quot;log_by_lua*&quot;)
-        }
-    }
-  }
-}
-</code></pre>
-<p>&#x4F1A;&#x751F;&#x6210;&#x4E0B;&#x9762;&#x7684;&#x65E5;&#x5FD7;&#xFF1A;</p>
-<pre><code class="lang-sh">2019/10/23 15:40:34 [info] 65194<span class="hljs-comment">#3586531: *1 [lua] set_by_lua:2: set_by_lua*, client: 127.0.0.1, server: , request: &quot;GET / HTTP/1.1&quot;, host: &quot;127.0.0.1:6699&quot;</span>
-2019/10/23 15:40:34 [info] 65194<span class="hljs-comment">#3586531: *1 [lua] rewrite_by_lua(nginx.conf:17):2: rewrite_by_lua*, client: 127.0.0.1, server: , request: &quot;GET / HTTP/1.1&quot;, host: &quot;127.0.0.1:6699&quot;</span>
-2019/10/23 15:40:34 [info] 65194<span class="hljs-comment">#3586531: *1 [lua] access_by_lua(nginx.conf:20):2: access_by_lua*, client: 127.0.0.1, server: , request: &quot;GET / HTTP/1.1&quot;, host: &quot;127.0.0.1:6699&quot;</span>
-2019/10/23 15:40:34 [info] 65194<span class="hljs-comment">#3586531: *1 [lua] content_by_lua(nginx.conf:23):2: content_by_lua*, client: 127.0.0.1, server: , request: &quot;GET / HTTP/1.1&quot;, host: &quot;127.0.0.1:6699&quot;</span>
-2019/10/23 15:40:34 [info] 65194<span class="hljs-comment">#3586531: *1 [lua] header_filter_by_lua:2: header_filter_by_lua*, client: 127.0.0.1, server: , request: &quot;GET / HTTP/1.1&quot;, host: &quot;127.0.0.1:6699&quot;</span>
-2019/10/23 15:40:34 [info] 65194<span class="hljs-comment">#3586531: *1 [lua] body_filter_by_lua:2: body_filter_by_lua*, client: 127.0.0.1, server: , request: &quot;GET / HTTP/1.1&quot;, host: &quot;127.0.0.1:6699&quot;</span>
-2019/10/23 15:40:34 [info] 65194<span class="hljs-comment">#3586531: *1 [lua] log_by_lua(nginx.conf:32):2: log_by_lua* while logging request, client: 127.0.0.1, server: , request: &quot;GET / HTTP/1.1&quot;, host: &quot;127.0.0.1:6699&quot;</span>
-2019/10/23 15:40:34 [info] 65194<span class="hljs-comment">#3586531: *1 kevent() reported that client 127.0.0.1 closed keepalive connection</span>
-</code></pre>
 <h2 id="&#x5185;&#x5B58;&#x5B57;&#x5178;">&#x5185;&#x5B58;&#x5B57;&#x5178;</h2>
-<pre><code class="lang-conf">#04-nginx-lua-module-shared-mem
-worker_processes  1;        #nginx worker &#x6570;&#x91CF;
+<p>04-nginx-lua-module-shared-mem/nginx.conf&#xFF1A;</p>
+<pre><code class="lang-conf">worker_processes  1;        #nginx worker &#x6570;&#x91CF;
 error_log logs/error.log;   #&#x6307;&#x5B9A;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
 events {
   worker_connections 1024;
@@ -2442,8 +2388,8 @@ events {
  }
 </code></pre>
 <h2 id="&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;&#x4E0E;&#x8BFB;&#x53D6;">&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;&#x4E0E;&#x8BFB;&#x53D6;</h2>
-<pre><code class="lang-conf">#05-nginx-lua-module-readvar
-worker_processes  1;        #nginx worker &#x6570;&#x91CF;
+<p>05-nginx-lua-module-readvar/nginx.conf&#xFF1A;</p>
+<pre><code class="lang-conf">worker_processes  1;        #nginx worker &#x6570;&#x91CF;
 error_log logs/error.log;   #&#x6307;&#x5B9A;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
 events {
   worker_connections 1024;
@@ -2466,8 +2412,8 @@ http {
  }
 </code></pre>
 <h2 id="&#x65E5;&#x5FD7;&#x6253;&#x5370;">&#x65E5;&#x5FD7;&#x6253;&#x5370;</h2>
-<pre><code class="lang-conf">#06-nginx-lua-module-log
-worker_processes  1;              #nginx worker &#x6570;&#x91CF;
+<p>06-nginx-lua-module-log/nginx.conf&#xFF1A;</p>
+<pre><code class="lang-conf">worker_processes  1;              #nginx worker &#x6570;&#x91CF;
 error_log logs/error.log debug;   #&#x6307;&#x5B9A;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
 events {
   worker_connections 1024;
@@ -2493,8 +2439,8 @@ http {
  }
 </code></pre>
 <h2 id="&#x91CD;&#x5B9A;&#x5411;">&#x91CD;&#x5B9A;&#x5411;</h2>
-<pre><code class="lang-conf">#study-OpenResty/example/07-nginx-lua-module-redirect
-worker_processes  1;              #nginx worker &#x6570;&#x91CF;
+<p>07-nginx-lua-module-redirect/nginx.conf&#xFF1A;</p>
+<pre><code class="lang-conf">worker_processes  1;              #nginx worker &#x6570;&#x91CF;
 error_log logs/error.log debug;   #&#x6307;&#x5B9A;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
 events {
     worker_connections 1024;
@@ -2516,8 +2462,8 @@ http {
 }
 </code></pre>
 <h2 id="4-&#x5C42;&#x8D1F;&#x8F7D;&#x5747;&#x8861;">4 &#x5C42;&#x8D1F;&#x8F7D;&#x5747;&#x8861;</h2>
-<pre><code class="lang-conf">#study-OpenResty/example/08-nginx-lua-module-balancer
-worker_processes  1;              #nginx worker &#x6570;&#x91CF;
+<p>08-nginx-lua-module-balancer/nginx.conf&#xFF1A;</p>
+<pre><code class="lang-conf">worker_processes  1;              #nginx worker &#x6570;&#x91CF;
 error_log logs/error.log debug;   #&#x6307;&#x5B9A;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
 events {
     worker_connections 256;
@@ -2601,7 +2547,7 @@ stream{
 
             
                 
-                <a href="env.html" class="navigation navigation-prev " aria-label="Previous page: openresty 环境准备">
+                <a href="lua.html" class="navigation navigation-prev " aria-label="Previous page: openresty 与lua">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -2617,7 +2563,7 @@ stream{
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"openresty 常规操作","level":"1.6.2","depth":2,"next":{"title":"Istio 使用手册","level":"1.7","depth":1,"path":"istio/index.md","ref":"istio/index.md","articles":[{"title":"Istio 部署环境","level":"1.7.1","depth":2,"path":"istio/install.md","ref":"istio/install.md","articles":[]},{"title":"Istio 预览版部署","level":"1.7.2","depth":2,"path":"istio/demo-install.md","ref":"istio/demo-install.md","articles":[]},{"title":"Istio 基本概念","level":"1.7.3","depth":2,"path":"istio/concept.md","ref":"istio/concept.md","articles":[{"title":"Virtual Service","level":"1.7.3.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},{"title":"Destination rule","level":"1.7.3.2","depth":3,"path":"istio/dstrule.md","ref":"istio/dstrule.md","articles":[]},{"title":"Gateway","level":"1.7.3.3","depth":3,"path":"istio/gateway.md","ref":"istio/gateway.md","articles":[]},{"title":"Service Entry","level":"1.7.3.4","depth":3,"path":"istio/entry.md","ref":"istio/entry.md","articles":[]},{"title":"Engress Control","level":"1.7.3.5","depth":3,"path":"istio/egress.md","ref":"istio/egress.md","articles":[]}]},{"title":"Istio 示例拆解","level":"1.7.4","depth":2,"path":"istio/sample.md","ref":"istio/sample.md","articles":[{"title":"Bookinfo Application","level":"1.7.4.1","depth":3,"path":"istio/bookinfo.md","ref":"istio/bookinfo.md","articles":[]}]},{"title":"转发路由","level":"1.7.5","depth":2,"path":"istio/route.md","ref":"istio/route.md","articles":[]},{"title":"错误注入","level":"1.7.6","depth":2,"path":"istio/injection.md","ref":"istio/injection.md","articles":[]},{"title":"Istio 管理操作","level":"1.7.7","depth":2,"path":"istio/operation.md","ref":"istio/operation.md","articles":[]}]},"previous":{"title":"openresty 环境准备","level":"1.6.1","depth":2,"path":"openresty/env.md","ref":"openresty/env.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"openresty/common.md","mtime":"2019-11-06T02:47:12.695Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-06T11:01:19.839Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"openresty 常规操作","level":"1.6.3","depth":2,"next":{"title":"Istio 使用手册","level":"1.7","depth":1,"path":"istio/index.md","ref":"istio/index.md","articles":[{"title":"Istio 部署环境","level":"1.7.1","depth":2,"path":"istio/install.md","ref":"istio/install.md","articles":[]},{"title":"Istio 预览版部署","level":"1.7.2","depth":2,"path":"istio/demo-install.md","ref":"istio/demo-install.md","articles":[]},{"title":"Istio 基本概念","level":"1.7.3","depth":2,"path":"istio/concept.md","ref":"istio/concept.md","articles":[{"title":"Virtual Service","level":"1.7.3.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},{"title":"Destination rule","level":"1.7.3.2","depth":3,"path":"istio/dstrule.md","ref":"istio/dstrule.md","articles":[]},{"title":"Gateway","level":"1.7.3.3","depth":3,"path":"istio/gateway.md","ref":"istio/gateway.md","articles":[]},{"title":"Service Entry","level":"1.7.3.4","depth":3,"path":"istio/entry.md","ref":"istio/entry.md","articles":[]},{"title":"Engress Control","level":"1.7.3.5","depth":3,"path":"istio/egress.md","ref":"istio/egress.md","articles":[]}]},{"title":"Istio 示例拆解","level":"1.7.4","depth":2,"path":"istio/sample.md","ref":"istio/sample.md","articles":[{"title":"Bookinfo Application","level":"1.7.4.1","depth":3,"path":"istio/bookinfo.md","ref":"istio/bookinfo.md","articles":[]}]},{"title":"转发路由","level":"1.7.5","depth":2,"path":"istio/route.md","ref":"istio/route.md","articles":[]},{"title":"错误注入","level":"1.7.6","depth":2,"path":"istio/injection.md","ref":"istio/injection.md","articles":[]},{"title":"Istio 管理操作","level":"1.7.7","depth":2,"path":"istio/operation.md","ref":"istio/operation.md","articles":[]}]},"previous":{"title":"openresty 与lua","level":"1.6.2","depth":2,"path":"openresty/lua.md","ref":"openresty/lua.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"openresty/common.md","mtime":"2019-11-08T04:00:39.174Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-08T07:15:02.215Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

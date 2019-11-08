@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 06 Nov 2019 11:01:53 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 08 Nov 2019 07:15:40 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -729,8 +729,15 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
+            <title><![CDATA[OpenResty 中 lua 脚本的使用]]></title>
+            <description><![CDATA[OpenResty 用 lua-nginx-module 解释 lua 脚本，lua 语言自身的用法见 Lua编程速查手册（常用操作)，openresty 提供的 lua 能力（譬如定义的变量、提供的函数等）见 openresty/lua-nginx-module 。]]></description>
+            <link>https://www.lijiaocn.com/soft/openresty/lua.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/openresty/lua.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
             <title><![CDATA[OpenResty 的一些常规操作]]></title>
-            <description><![CDATA[OpenResty 提供的开发语言是 Lua，用 lua-nginx-module 解释 lua 脚本，lua 语言自身的用法见 Lua编程速查手册（常用操作)，openresty 提供的 lua 能力（譬如定义的变量、提供的函数等）见 openresty/lua-nginx-module 。]]></description>
+            <description><![CDATA[04-nginx-lua-module-shared-mem/nginx.conf：]]></description>
             <link>https://www.lijiaocn.com/soft/openresty/common.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/openresty/common.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
