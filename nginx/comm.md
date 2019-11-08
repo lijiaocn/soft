@@ -5,7 +5,7 @@
 
 ## 日志
 
-设置错误日志文件和日志级别，一般在配置文件最开始出配置：
+设置错误日志文件和日志级别，一般在配置文件最开始处配置：
 
 ```conf
 error_log  /tmp/logs/error.log  info;
@@ -26,6 +26,22 @@ access_log path [format [buffer=size] [gzip[=level]] [flush=time] [if=condition]
 access_log off;
 ```
 
+## location 的匹配规则
+
+[location](http://nginx.org/en/docs/http/ngx_http_core_module.html#location) 是最常用的，支持四个修饰符： `=`、`~`、` ~*`、`^~`。
+
+* `=`:  严格一致
+* `~`:  区分大小写的正则匹配
+* `~*`: 不区分大小写的正则匹配
+* `^~`: 前缀匹配成功后，忽略正则匹配
+
+正则表达式语法参考 `man 7 regex`，下面的表达式匹配以 /detail 开头且不含有 `.` 路径：
+
+```conf
+location ~ '^/detail/[^.]*$ {
+    ...省略...
+}
+```
 
 ## 参考
 
