@@ -5,17 +5,9 @@
 
 [OpenResty][1] 是什么？见 [Nginx、OpenResty 和 Kong入门][2]。
 
-以前的笔记：
-
-* [《Web开发平台OpenResty（一）：学习资料、基本组成与使用方法》][3]
-* [《Web开发平台OpenResty（二）：组成、工作过程与原理》][4]
-* [《Web开发平台OpenResty（三）：火焰图性能分析》][5]
-* [《Web开发平台OpenResty（四）：项目开发中常用的操作》][6]
-* [《Web开发平台OpenResty（五）：OpenResty项目自身的编译》][7]
-
 ## 学习资料
 
-[OpenResty 最佳实践](https://moonbingbing.gitbooks.io/openresty-best-practices/content/)是一份很好的学习资料。
+[OpenResty 最佳实践](https://moonbingbing.gitbooks.io/openresty-best-practices/content/) 是一份很好的学习资料。
 
 OpenResty 在 nginx 的基础上改造加强，提供的开发语言是 lua，用 lua-nginx-module 解释 lua 脚本，从下面的文档中几乎可以找到所有用法：
 
@@ -24,6 +16,14 @@ OpenResty 在 nginx 的基础上改造加强，提供的开发语言是 lua，�
 * nginx 变量汇总：[nginx variables][12]
 * openresty 提供的 lua 能力：[openresty/lua-nginx-module][10]
 * openresty 集成的模块和 lua 库：[openresty components][13]
+
+以前的笔记：
+
+* [《Web开发平台OpenResty（一）：学习资料、基本组成与使用方法》][3]
+* [《Web开发平台OpenResty（二）：组成、工作过程与原理》][4]
+* [《Web开发平台OpenResty（三）：火焰图性能分析》][5]
+* [《Web开发平台OpenResty（四）：项目开发中常用的操作》][6]
+* [《Web开发平台OpenResty（五）：OpenResty项目自身的编译》][7]
 
 ## 参考
 

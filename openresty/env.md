@@ -16,7 +16,7 @@ brew install openresty/brew/openresty
 
 ## 环境验证
 
-准备 openresty 的配置文件，01-hello-world/nginx.conf 内容如下：
+准备 openresty 的配置文件，01-hello-world/nginx.conf：
 
 ```conf
 worker_processes  1;        #nginx worker 数量
@@ -44,12 +44,6 @@ http {
 
 ```sh
 openresty -p `pwd` -c nginx.conf
-```
-
-执行：
-
-```sh
-./run.sh 01-hello-world
 ```
 
 访问：
@@ -81,6 +75,7 @@ ngx.say("hello world")
 $ resty hello.lua
 hello world
 ```
+
 
 ## 参考
 

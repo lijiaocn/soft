@@ -103,6 +103,7 @@
   * [nginx 透明代理](nginx/proxy.md)
 * [OpenResty 使用手册](openresty/index.md)
   * [openresty 环境准备](openresty/env.md)
+  * [openresty 与lua](openresty/lua.md)
   * [openresty 常规操作](openresty/common.md)
 * [Istio 使用手册](istio/index.md)
   * [Istio 部署环境](istio/install.md)

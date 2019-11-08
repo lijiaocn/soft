@@ -1,94 +1,11 @@
 <!-- toc -->
 # OpenResty 的一些常规操作
 
-OpenResty 提供的开发语言是 Lua，用 lua-nginx-module 解释 lua 脚本，lua 语言自身的用法见 [Lua编程速查手册（常用操作)][2]，openresty 提供的 lua 能力（譬如定义的变量、提供的函数等）见 [openresty/lua-nginx-module][3] 。
-
-## Lua 脚本的两种执行方法
-
-OpenResty 提供的开发语言是 lua，lua 脚本可以用两种方式运行：
-
-第一种方式，直接写在配置文件中，openresty 加载运行：
-
-```sh
-$ cd 01-hello-world
-$ openresty -p `pwd` -c nginx.conf
-```
-
-这种方式启动了 openresty 服务，访问 openresty 服务触发配置中的脚本运行：
-
-```sh
-$ curl 127.0.0.1:6699/
-HelloWorld
-```
-
-第二种方式，用 resty 命令直接执行 lua 脚本：
-
-```sh
-$ cd 02-hello-world
-$ resty hello.lua
-hello world
-```
-
-## lua_module 的几个执行阶段
-
-观察 lua_module 的几个执行阶段，在每个阶段打印日志：
-
-```conf
-# 03-nginx-lua-module/nginx.conf
-worker_processes  1;             #nginx worker 数量
-error_log logs/error.log info;   #指定错误日志文件路径
-events {
-  worker_connections 256;
-}
-
-http {
-  server {
-    #监听端口，若你的6699端口已经被占用，则需要修改
-    listen 6699;
-    location / {
-        set_by_lua_block $a {
-            ngx.log(ngx.INFO, "set_by_lua*")
-        }
-        rewrite_by_lua_block {
-            ngx.log(ngx.INFO, "rewrite_by_lua*")
-        }
-        access_by_lua_block {
-            ngx.log(ngx.INFO, "access_by_lua*")
-        }
-        content_by_lua_block {
-            ngx.log(ngx.INFO, "content_by_lua*")
-        }
-        header_filter_by_lua_block {
-            ngx.log(ngx.INFO, "header_filter_by_lua*")
-        }
-        body_filter_by_lua_block {
-            ngx.log(ngx.INFO, "body_filter_by_lua*")
-        }
-        log_by_lua_block {
-            ngx.log(ngx.INFO, "log_by_lua*")
-        }
-    }
-  }
-}
-```
-
-会生成下面的日志：
-
-```sh
-2019/10/23 15:40:34 [info] 65194#3586531: *1 [lua] set_by_lua:2: set_by_lua*, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "127.0.0.1:6699"
-2019/10/23 15:40:34 [info] 65194#3586531: *1 [lua] rewrite_by_lua(nginx.conf:17):2: rewrite_by_lua*, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "127.0.0.1:6699"
-2019/10/23 15:40:34 [info] 65194#3586531: *1 [lua] access_by_lua(nginx.conf:20):2: access_by_lua*, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "127.0.0.1:6699"
-2019/10/23 15:40:34 [info] 65194#3586531: *1 [lua] content_by_lua(nginx.conf:23):2: content_by_lua*, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "127.0.0.1:6699"
-2019/10/23 15:40:34 [info] 65194#3586531: *1 [lua] header_filter_by_lua:2: header_filter_by_lua*, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "127.0.0.1:6699"
-2019/10/23 15:40:34 [info] 65194#3586531: *1 [lua] body_filter_by_lua:2: body_filter_by_lua*, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "127.0.0.1:6699"
-2019/10/23 15:40:34 [info] 65194#3586531: *1 [lua] log_by_lua(nginx.conf:32):2: log_by_lua* while logging request, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "127.0.0.1:6699"
-2019/10/23 15:40:34 [info] 65194#3586531: *1 kevent() reported that client 127.0.0.1 closed keepalive connection
-```
-
 ## 内存字典
 
+04-nginx-lua-module-shared-mem/nginx.conf：
+
 ```conf
-#04-nginx-lua-module-shared-mem
 worker_processes  1;        #nginx worker 数量
 error_log logs/error.log;   #指定错误日志文件路径
 events {
@@ -118,9 +35,9 @@ events {
 
 ## 变量设置与读取
 
+05-nginx-lua-module-readvar/nginx.conf：
 
 ```conf
-#05-nginx-lua-module-readvar
 worker_processes  1;        #nginx worker 数量
 error_log logs/error.log;   #指定错误日志文件路径
 events {
@@ -146,8 +63,9 @@ http {
 
 ## 日志打印
 
+06-nginx-lua-module-log/nginx.conf：
+
 ```conf
-#06-nginx-lua-module-log
 worker_processes  1;              #nginx worker 数量
 error_log logs/error.log debug;   #指定错误日志文件路径
 events {
@@ -176,8 +94,9 @@ http {
 
 ## 重定向
 
+07-nginx-lua-module-redirect/nginx.conf：
+
 ```conf
-#study-OpenResty/example/07-nginx-lua-module-redirect
 worker_processes  1;              #nginx worker 数量
 error_log logs/error.log debug;   #指定错误日志文件路径
 events {
@@ -202,8 +121,9 @@ http {
 
 ## 4 层负载均衡
 
+08-nginx-lua-module-balancer/nginx.conf：
+
 ```conf
-#study-OpenResty/example/08-nginx-lua-module-balancer
 worker_processes  1;              #nginx worker 数量
 error_log logs/error.log debug;   #指定错误日志文件路径
 events {
