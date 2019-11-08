@@ -88,11 +88,17 @@ http {
 2019/10/23 15:40:34 [info] 65194#3586531: *1 kevent() reported that client 127.0.0.1 closed keepalive connection
 ```
 
-## 与 nginx 变量的交互
+## 与 nginx 内置变量的交互
 
 nginx 有很多 [内置变量][6]，在 lua 脚本中通过 [ngx.var.VARIABLE][7] 获取这些变量。
 
 有一些 nginx 的变量值可以用 lua 修改，大部分是不可以修改的。
+
+修改不能修改的变量时会报错，例如：
+
+```sh
+lua entry thread aborted: runtime error: ... variable "request_uri" not changeable
+```
 
 ## 参考
 

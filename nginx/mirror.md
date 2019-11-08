@@ -114,6 +114,26 @@ Request Body:
 }
 ```
 
+## 配置修正
+
+仔细观察上面的配置 Host 是 http-record_upstream，不是原始的 host。将配置修正为：
+
+```conf
+    location / {
+        access_log /tmp/logs/access.log mirror;
+        mirror /mirror;
+
+        # 添加这行配置
+        set $proxy_host $host;    
+
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+
+        proxy_pass  http://echo_upstream;
+    }
+```
+
+
 ## 参考
 
 1. [李佶澳的博客][1]

@@ -7,10 +7,6 @@ ingress-nginx 支持请求复制功能，将同一域名下指定 path 上的请
 cd 07-mirror
 ```
 
-ingress-nginx 的请求复制行为和 nginx mirror 在行为上有一点不同，见：
-
-* [kubernetes ingress-nginx http 请求复制功能与 nginx mirror 的行为差异][3]。
-
 ## 部署接收复制请求的服务
 
 创建一个名为 http-record 的服务，用来接收复制的请求：
@@ -145,7 +141,50 @@ http-record 容器收到的请求信息，注意原始的 uri 使用 header 传�
     "Body": "1111"
 ```
 
+## 复制原始的 uri
 
+上面的复制效果，复制后的请求的 uri 为 /echo，不是原始的 uri。在下面的文章中探讨了这个问题：
+
+* [kubernetes ingress-nginx http 请求复制功能与 nginx mirror 的行为差异][3]。
+
+现在发现了一个更好的解决方法，直接在接收复制流量的 ingress 中加一个 rewrite 就可以了，如下：
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    # 使用原始的 uri
+    nginx.ingress.kubernetes.io/rewrite-target: $request_uri
+  name: ingress-echo-with-mirror-backend
+spec:
+  rules:
+  - host: mirror.echo.example
+    http:
+      paths:
+      - path: /echo
+        backend:
+          serviceName: http-record
+          servicePort: 80
+```
+
+这时候访问：
+
+```sh
+$ curl -H "Host: mirror.echo.example" "192.168.99.100:30933/dddd?a=1&b=2"
+```
+
+复制端看到的请求的 uri 是 dddd?a=1&b=2 ：
+
+```json
+{
+    "RemoteAddr": "172.17.0.27:39254",
+    "Method": "GET",
+    "Host": "mirror.echo.example",
+    "RequestURI": "/dddd%3Fa=1\u0026b=2?a=1\u0026b=2",
+    ...省略...
+}
+```
 
 ## 参考
 
