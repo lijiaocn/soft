@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 13 Nov 2019 10:52:29 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 14 Nov 2019 11:48:54 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -418,6 +418,13 @@
             <description><![CDATA[本文使用的 yaml 文件：]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/svc/external.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/svc/external.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Kubernetes 的 Pod 操作技巧]]></title>
+            <description><![CDATA[参考 Expose Pod Information to Containers Through Environment Variables。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/usage/pod.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/usage/pod.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
