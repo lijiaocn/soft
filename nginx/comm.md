@@ -11,19 +11,54 @@
 error_log  /tmp/logs/error.log  info;
 ```
 
-设置日志格式，log_format 在 http 和 stream 中可用，紧跟 log_format 的字符串是日志格式的名称，支持定义多个格式：
+日志格式 log_format 分为 [http log_format][2] 和 [stream log_format][3]，两者的格式中可以使用的变量不同。
+
+紧跟在 log_format 后面的字符串是日志格式的名称，nginx 支持定义多个格式，以 http log_format 为例：
 
 ```conf
+# 格式名称为 main
 log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
                   '$status $body_bytes_sent "$http_referer" '
                   '"$http_user_agent" "$http_x_forwarded_for"';
 ```
 
-日志格式指定的是访问日志的格式，访问日志用下面的方式记录：
+http 的日志格式中可以添加任意的 http 头，例如上面的 `$http_user_agent`。
+
+日志格式只用于访问日志，用 access_log 引用引用，access_log 同样分为 [http access_log][4] 和 [stream access_log][5]。http 的 access_log 可以在 location 中单独设置。
+
+
+使用效果，在 http 中定义 tranproxy：
 
 ```conf
-access_log path [format [buffer=size] [gzip[=level]] [flush=time] [if=condition]];
-access_log off;
+http{
+    ...省略...
+    log_format tranproxy '$remote_addr - $remote_user [$time_local] "$request" '
+            '$status $body_bytes_sent "$http_referer" '
+            '"$http_user_agent" "$http_x_forwarded_for"';
+
+    ...省略...
+}
+```
+
+在 location 中引用：
+
+```conf
+location / {
+    access_log /var/log/nginx/access.80.log tranproxy;
+    ... 省略 ...
+}
+```
+
+访问日志，不带 `-H X-Forwarded-For` 时：
+
+```sh
+172.17.0.5 - - [14/Nov/2019:03:12:15 +0000] "GET / HTTP/1.1" 200 467 "-" "curl/7.61.1" "-"
+```
+
+访问日志，带有 `-H X-Forwarded-For` 时：
+
+```sh
+172.17.0.5 - - [14/Nov/2019:03:12:15 +0000] "GET / HTTP/1.1" 200 467 "-" "curl/7.61.1" "127.0.0.1"
 ```
 
 ## location 的匹配规则
@@ -48,3 +83,7 @@ location ~ '^/detail/[^.]*$ {
 1. [李佶澳的博客][1]
 
 [1]: https://www.lijiaocn.com "李佶澳的博客"
+[2]: http://nginx.org/en/docs/http/ngx_http_log_module.html#log_format "http log_format"
+[3]: http://nginx.org/en/docs/stream/ngx_stream_log_module.html#log_format "stream log_format"
+[4]: http://nginx.org/en/docs/http/ngx_http_log_module.html#access_log "http access_log"
+[5]: http://nginx.org/en/docs/stream/ngx_stream_log_module.html#access_log "stream access_log"

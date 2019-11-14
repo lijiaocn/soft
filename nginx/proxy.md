@@ -186,9 +186,12 @@ Request Headers:
 上面的操作过程已经打包成了镜像，可以直接使用：
 
 ```sh
-docker run --rm -itd    \
-    --cap-add NET_ADMIN \
-    --name nginx-tranproxy lijiaocn/nginx-tranproxy:0.1
+docker run -itd --cap-add NET_ADMIN --name nginx-tranproxy lijiaocn/nginx-tranproxy:0.1 \
+    -p 80 \
+    -p 8080 \
+    -h tranproxy:true \
+    -n 114.114.114.114 \
+    -n 8.8.8.8
 ```
 
 在 kubernetes 中使用：

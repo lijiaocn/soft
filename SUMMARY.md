@@ -1,4 +1,4 @@
-# Summary
+#external Summary
 
 * [小鸟笔记—软件篇](./README.md)
 * [Linux 系统手册](./linuxsys/index.md)
@@ -59,6 +59,7 @@
     * [操作 kubernetes](minikube/oper.md)
     * [访问 kubernetes 中的服务](minikube/request.md)
   * [k8s 导入外部服务](k8s/svc/external.md)
+  * [k8s Pod 操作技巧](k8s/usage/pod.md)
   * [ingress-nginx 使用准备](k8s/ingress-nginx/index.md)
   * [ingress-nginx 传输加密](k8s/ingress-nginx/tls.md)
   * [ingress-nginx 自带认证](k8s/ingress-nginx/auth.md)
