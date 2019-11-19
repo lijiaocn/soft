@@ -188,7 +188,7 @@ $ curl -H "Host: mirror.echo.example" "192.168.99.100:30933/dddd?a=1&b=2"
 
 ## 补充：另一种实现方法，可以按比例复制
 
-阿里云的提供了一种实现方法，详情见 [通过K8S Ingress Controller来实现应用的流量复制][4]。
+阿里云提供的一种实现方法，详情见 [通过K8S Ingress Controller来实现应用的流量复制][4]。
 
 在 ingress-nginx 使用的 configmap nginx-configuration 中添加配置，通过 [http-snippet][7] 添加全局配置，设置复制的流量的去处。流量的去处可以是 IP 地址或者域名，下面将使用 http-record 服务的 cluster ip：
 
