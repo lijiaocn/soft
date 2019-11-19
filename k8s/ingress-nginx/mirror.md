@@ -204,7 +204,8 @@ http-record   NodePort   10.106.66.216    <none>        80:31734/TCP,22:32324/TC
 ```yaml
  http-snippet: |
    split_clients "$date_gmt" $mirror_echo_to_http_record {
-      100%    10.106.66.216; # 可以是域名、IP，100% 是复制比例
+      50%    10.106.66.216; # 可以是域名、IP，100% 是复制比例
+      *       "";
    }
 ```
 
@@ -224,8 +225,11 @@ metadata:
         location = /mirror334556 {
             internal;
             access_log off; # 关闭mirror请求日志
-            set $proxy_host $host;
-            proxy_pass http://$mirror_echo_to_http_record$request_uri;
+            if ($mirror_echo_to_http_record) {
+                set $proxy_host $host; # 是否更改 host
+                #set $proxy_host $mirror_echo_to_http_record; # 是否更改 host
+                proxy_pass http://$mirror_echo_to_http_record$request_uri;
+            }
         }
 spec:
   rules:
@@ -276,8 +280,38 @@ http-record 收到的复制请求：
 
 这种方法相比第一种方式，功能更强大，是一种更巧妙更简洁的做法，工作原理：
 
-1. [结合 split_clients 实现请求的部分复制](../../nginx/mirror.md)。
+1. [结合 split_clients 实现请求的部分复制](../../nginx/mirror.md)
 2. [Nginx 的 A/B 测试功能](../../nginx/abtest.md)
+
+如果不要求按比例复制，实现方式更简单：
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-echo-with-mirror3
+  annotations:
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        mirror /mirror334556; # 配置多次该项则可放大N倍流量
+    nginx.ingress.kubernetes.io/server-snippet: |
+        location = /mirror334556 {
+            internal;
+            #access_log off; # 关闭mirror请求日志
+            set $target 10.106.66.216;
+            set $proxy_host $target; # 是否更改 host
+            #set $proxy_host $host;  # 是否更改 host
+            proxy_pass http://$target$request_uri;
+        }
+spec:
+  rules:
+  - host: mirror3.echo.example
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: echo
+          servicePort: 80
+```
 
 ## 参考
 
