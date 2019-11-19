@@ -190,9 +190,7 @@ $ curl -H "Host: mirror.echo.example" "192.168.99.100:30933/dddd?a=1&b=2"
 
 阿里云的提供了一种实现方法，详情见 [通过K8S Ingress Controller来实现应用的流量复制][4]。
 
-在 ingress-nginx 使用的 configmap nginx-configuration 中添加配置，通过 [http-snippet][7] 添加全局配置，设置复制的流量的去处。
-
-流量的去处可以是 IP 地址或者域名，下面将使用 http-record 服务的 cluster ip：
+在 ingress-nginx 使用的 configmap nginx-configuration 中添加配置，通过 [http-snippet][7] 添加全局配置，设置复制的流量的去处。流量的去处可以是 IP 地址或者域名，下面将使用 http-record 服务的 cluster ip：
 
 ```sh
 $ kubectl -n demo-echo get svc
@@ -201,7 +199,7 @@ echo          NodePort   10.100.105.128   <none>        80:32110/TCP,22:32561/TC
 http-record   NodePort   10.106.66.216    <none>        80:31734/TCP,22:32324/TCP   29d
 ```
 
-在 configmap nginx-configuration 中添加的配置，这个配置是全局的：
+在 configmap nginx-configuration 中添加的配置，这个配置是全局的，会被注入到 nginx.conf：
 
 ```yaml
  http-snippet: |
@@ -210,9 +208,9 @@ http-record   NodePort   10.106.66.216    <none>        80:31734/TCP,22:32324/TC
    }
 ```
 
-split_clients 指令的用途见 [nginx 的 A/B 测试功能](../../nginx/abtest.md)，这个指令的强大之处是可以按 hash 值的区间设置变量值，hash 算法的输入字符串自行指定，这里是 $date_gmt，使用源IP、request_uri 等 nginx 支持的变量都是可以的。
+split_clients 指令的用途见 [nginx 的 A/B 测试功能](../../nginx/abtest.md)，这个指令的强大之处是可以按 hash 值的分布区间设置变量值。hash 算法的输入字符串自行指定，这里是 $date_gmt，使用源IP、request_uri 等 nginx 支持的变量都是可以的。
 
-在需要被复制的 ingress 中用 [configuration-snippet][5] 和 [server-snippet][6] 添加注入配置，这些注入的配置会 `原封不动` 的合并到最终的 nginx.conf 中，`不要有错误`：
+在需要被复制的 ingress 中用 [configuration-snippet][5] 和 [server-snippet][6] 添加注入配置，这些注入的配置会 **原封不动** 的合并到最终的 nginx.conf 中， **不要有错误**：
 
 ```yaml
 apiVersion: extensions/v1beta1
