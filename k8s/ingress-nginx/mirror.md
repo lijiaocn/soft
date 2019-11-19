@@ -210,7 +210,7 @@ http-record   NodePort   10.106.66.216    <none>        80:31734/TCP,22:32324/TC
 
 split_clients 指令的用途见 [nginx 的 A/B 测试功能](../../nginx/abtest.md)，这个指令的强大之处是可以按 hash 值的分布区间设置变量值。hash 算法的输入字符串自行指定，这里是 $date_gmt，使用源IP、request_uri 等 nginx 支持的变量都是可以的。
 
-在需要被复制的 ingress 中用 [configuration-snippet][5] 和 [server-snippet][6] 添加注入配置，这些注入的配置会 **原封不动** 的合并到最终的 nginx.conf 中， **不要有错误**：
+在需要被复制的 ingress 中用 [configuration-snippet][5] 和 [server-snippet][6] 注入配置，这些配置会 **原封不动** 的合并到最终的 nginx.conf 中， **不要有错误**：
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -274,7 +274,10 @@ http-record 收到的复制请求：
 }
 ```
 
-这种方法相比第一种方式，功能更强大，是一种更巧妙更简洁的做法，工作原理见： [结合 split_clients 实现请求的部分复制](../../nginx/mirror.md #结合 split_clients 实现请求的部分复制)。
+这种方法相比第一种方式，功能更强大，是一种更巧妙更简洁的做法，工作原理：
+
+1. [结合 split_clients 实现请求的部分复制](../../nginx/mirror.md)。
+2. [Nginx 的 A/B 测试功能](../../nginx/abtest.md)
 
 ## 参考
 
