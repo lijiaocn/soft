@@ -1,6 +1,9 @@
 #external Summary
 
 * [小鸟笔记—软件篇](./README.md)
+* [常用工具](./tools/index.md)
+  * [域名和IP相关](./tools/domainip.md)
+  * [HTTP协议相关](./tools/http.md)
 * [Linux 系统手册](./linuxsys/index.md)
   * [透明代理](./linuxsys/tpproxy.md)
   * [iptables 使用方法](./linuxsys/iptables.md)
@@ -102,6 +105,7 @@
   * [nginx 注意事项](nginx/important.md)
   * [nginx 状态数据](nginx/status.md)
   * [nginx 请求复制](nginx/mirror.md)
+  * [nginx A/B 测试](nginx/abtest.md)
   * [nginx 透明代理](nginx/proxy.md)
 * [OpenResty 使用手册](openresty/index.md)
   * [openresty 环境准备](openresty/env.md)

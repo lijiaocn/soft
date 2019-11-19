@@ -133,6 +133,66 @@ Request Body:
     }
 ```
 
+## 结合 split_clients 实现请求的部分复制
+
+用于 A/B 测试的 [split_clients](./abtest.md) 指令和 mirror 指令配合，可以实现请求的按比例复制，split_clients 的用法见 [Nginx的A/B测试功能](./abtest.md)。
+
+将 50% 的流量复制到复制到 record_upstream： 
+
+```conf
+split_clients "$date_gmt" $mirror_servers {
+    50%        record_upstream;
+    *          "";
+}
+
+server {
+    listen       9000;
+    server_name  echo.example;
+    keepalive_requests  1000;
+    keepalive_timeout 60s;
+
+    location / {
+        access_log /tmp/nginx_access.log mirror;
+        mirror /mirror;
+
+        proxy_pass  http://echo_upstream;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+    }
+
+    location = /mirror {
+        internal;
+        access_log /tmp/nginx_mirror_access.log mirror;
+        if ($mirror_servers) {
+            proxy_pass http://$mirror_servers$request_uri;
+        }
+    }
+}
+```
+
+mirror_servers 也可以是域名，域名需要指定 dns nameserver：
+
+```sh
+...省略...
+split_clients "$date_gmt" $mirror_servers {
+#   50%        record_upstream;
+    100%       local.lijiaocn.com:9091;
+    *          "";
+}
+...省略...
+    location = /mirror {
+        internal;
+        access_log off;
+        #access_log /tmp/nginx_mirror_access.log mirror;
+        resolver 114.114.114.114;
+
+        if ($mirror_servers) {
+            set $proxy_host $host;
+            proxy_pass http://$mirror_servers$request_uri;
+        }
+    }
+...省略...
+```
 
 ## 参考
 

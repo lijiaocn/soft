@@ -1,5 +1,5 @@
 <!-- toc -->
-# Ingress-nginx 的请求复制功能
+# ingress-nginx 的请求复制功能
 
 ingress-nginx 支持请求复制功能，将同一域名下指定 path 上的请求复制到另一个 path。
 
@@ -186,12 +186,109 @@ $ curl -H "Host: mirror.echo.example" "192.168.99.100:30933/dddd?a=1&b=2"
 }
 ```
 
+## 补充：另一种实现方法，可以按比例复制
+
+阿里云的提供了一种实现方法，详情见 [通过K8S Ingress Controller来实现应用的流量复制][4]。
+
+在 ingress-nginx 使用的 configmap nginx-configuration 中添加配置，通过 [http-snippet][7] 添加全局配置，设置复制的流量的去处。
+
+流量的去处可以是 IP 地址或者域名，下面将使用 http-record 服务的 cluster ip：
+
+```sh
+$ kubectl -n demo-echo get svc
+NAME          TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)                     AGE
+echo          NodePort   10.100.105.128   <none>        80:32110/TCP,22:32561/TCP   33d
+http-record   NodePort   10.106.66.216    <none>        80:31734/TCP,22:32324/TCP   29d
+```
+
+在 configmap nginx-configuration 中添加的配置，这个配置是全局的：
+
+```yaml
+ http-snippet: |
+   split_clients "$date_gmt" $mirror_echo_to_http_record {
+      100%    10.106.66.216; # 可以是域名、IP，100% 是复制比例
+   }
+```
+
+split_clients 指令的用途见 [nginx 的 A/B 测试功能](../../nginx/abtest.md)，这个指令的强大之处是可以按 hash 值的区间设置变量值，hash 算法的输入字符串自行指定，这里是 $date_gmt，使用源IP、request_uri 等 nginx 支持的变量都是可以的。
+
+在需要被复制的 ingress 中用 [configuration-snippet][5] 和 [server-snippet][6] 添加注入配置，这些注入的配置会 `原封不动` 的合并到最终的 nginx.conf 中，`不要有错误`：
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-echo-with-mirror2
+  annotations:
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        mirror /mirror334556; # 配置多次该项则可放大N倍流量
+    nginx.ingress.kubernetes.io/server-snippet: |
+        location = /mirror334556 {
+            internal;
+            access_log off; # 关闭mirror请求日志
+            set $proxy_host $host;
+            proxy_pass http://$mirror_echo_to_http_record$request_uri;
+        }
+spec:
+  rules:
+  - host: mirror2.echo.example
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: echo
+          servicePort: 80
+```
+
+注意 $mirror_echo_to_http_record 要和 configmap nginx-configuration 中配置的配对，mirror 指定的 /mirror334556 和同名的 location 对应。
+
+访问 mirror2.echo.example，会看到请求被复制到 http-record：
+
+```sh
+$ curl -H "Host: mirror2.echo.example" 192.168.99.100:30933/1234
+
+Hostname: echo-597d89dcd9-m84tq
+
+Pod Information:
+	-no pod information available-
+```
+
+http-record 收到的复制请求：
+
+```sh
+/go/src/Server/echo.go:46: {
+    "RemoteAddr": "10.0.2.15:39222",
+    "Method": "GET",
+    "Host": "mirror2.echo.example",
+    "RequestURI": "/1234",
+    "Header": {
+        "Accept": [
+            "*/*"
+        ],
+        "Connection": [
+            "close"
+        ],
+        "User-Agent": [
+            "curl/7.54.0"
+        ]
+    },
+    "Body": ""
+}
+```
+
+这种方法相比第一种方式，功能更强大，是一种更巧妙更简洁的做法，工作原理见： [结合 split_clients 实现请求的部分复制](../../nginx/mirror.md #结合 split_clients 实现请求的部分复制)。
+
 ## 参考
 
 1. [李佶澳的博客][1]
 2. [mirror][2]
 3. [kubernetes ingress-nginx http 请求复制功能与 nginx mirror 的行为差异][3]
+4. [通过K8S Ingress Controller来实现应用的流量复制][4]
 
 [1]: https://www.lijiaocn.com "李佶澳的博客"
 [2]: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#mirror "mirror"
 [3]: https://www.lijiaocn.com/%E9%97%AE%E9%A2%98/2019/10/21/ingress-nginx-request-mirror.html
+[4]: https://yq.aliyun.com/articles/665338 "通过K8S Ingress Controller来实现应用的流量复制"
+[5]: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#configuration-snippet "configuration-snippet"
+[6]: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#server-snippet   "server-snippet"
+[7]: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#http-snippet "http-snippet"

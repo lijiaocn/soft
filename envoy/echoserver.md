@@ -10,48 +10,10 @@ echoserver 1.10 不支持 HTTP 2.0。
 
 ## 启动 echoserver 容器
 
-准备一个 echoserver 观察 envoy 转发来的请求。
-
-下载镜像：
+准备一个 echoserver 观察 envoy 转发来的请求，echoserver 用途见 [HTTP 协议相关的工具](../tools/http.md)。
 
 ```sh
-docker pull googlecontainer/echoserver:1.10 
-```
-
-启动：
-
-```sh
-$ docker run -idt --name echoserver -p 8080:8080 -p 8443:8443 googlecontainer/echoserver:1.10
-```
-
-直接访问 echo 容器效果如下：
-
-```sh
-$ curl 127.0.0.1:8080
-Hostname: 611185215d7a
-
-Pod Information:
-    -no pod information available-
-
-Server values:
-    server_version=nginx: 1.13.3 - lua: 10008
-
-Request Information:
-    client_address=172.17.0.1
-    method=GET
-    real path=/
-    query=
-    request_version=1.1
-    request_scheme=http
-    request_uri=http://127.0.0.1:8080/
-
-Request Headers:
-    accept=*/*
-    host=127.0.0.1:8080
-    user-agent=curl/7.54.0
-
-Request Body:
-    -no body in request-
+$ docker run -idt --name echoserver -p 9090:8080 -p 9443:8443 googlecontainer/echoserver:1.10
 ```
 
 ## 获取 echoserver 容器的 IP

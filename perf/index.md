@@ -5,7 +5,6 @@
 
 性能调优大神 [Brendan D. Gregg][3] 在 [perf example][1] 中详细介绍了 perf 的用法，该手册的主要结构基于这篇文章，也收录了从其它各处搜集到的相关知识。
 
-
 ## 参考
 
 [1]: http://www.brendangregg.com/perf.html "perf Examples"

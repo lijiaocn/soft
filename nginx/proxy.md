@@ -5,59 +5,9 @@
 
 ## 准备目标服务
 
-目标服务使用 [试验环境](./env.md) 中启动的 echoserver，监听地址为 127.0.0.1:9090。
+目标服务是 [试验环境](./env.md) 中启动的 echoserver，监听地址为 127.0.0.1:9090。
 
-为目标服务准备一个域名 echo.example，用本地的 dnsmasq 解析。
-
-下面是在 mac 上的操作。
-
-* 部署 dnsmasq：
-
-```sh
-$ sudo chown -R $(whoami):admin /usr/local
-$ brew install dnsmasq
-```
-
-* 在 /usr/local/etc/dnsmasq.conf 中添加解析，解析到本地地址 127.0.0.1：
-
-```conf
-port 8053     # 注意，不要用 53 端口，否则需要用 root 运行
-address=/echo.example/127.0.0.1
-```
-
-dnsmasq 监听端口最好不用 53 ，mac 的权限要求 53 端口必须用 root 身份监听，见 [Restart dnsmasq without sudo][2]。
-
-* 启动 dnsmasq：
-
-```sh
-$ brew services start dnsmasq
-```
-
-验证解析：
-
-```sh
-$ dig @127.0.0.1 -p 8053 echo.example
-
-; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 8053 echo.example
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 49022
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 4096
-;; QUESTION SECTION:
-;echo.example.            IN    A
-
-;; ANSWER SECTION:
-echo.example.        0    IN    A    127.0.0.1
-
-;; Query time: 41 msec
-;; SERVER: 127.0.0.1#8053(127.0.0.1)
-;; WHEN: Wed Oct 30 17:15:03 CST 2019
-;; MSG SIZE  rcvd: 57
-```
+为目标服务准备一个域名 echo.example，用本地的 dnsmasq 解析，设置方法见 [dnsmasq](../tools/domainip.md#dnsmasq)。
 
 ## 配置 nginx
 
