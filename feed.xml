@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 18 Nov 2019 03:41:12 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 19 Nov 2019 08:55:42 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -12,6 +12,27 @@
             <description><![CDATA[这里记录工作中接触的一些重要的系统软件的使用方法，备忘录。]]></description>
             <link>https://www.lijiaocn.com/soft/</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[工作以及本文档中常用的一些工具]]></title>
+            <description><![CDATA[这一章节收集比较简单、但是在本文档以及工作中经常遇到的一些小工具。]]></description>
+            <link>https://www.lijiaocn.com/soft/tools/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/tools/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[域名、IP等相关的工具]]></title>
+            <description><![CDATA[本站提供一个解析到 127.0.0.1 的公网域名：local.lijiaocn.com。]]></description>
+            <link>https://www.lijiaocn.com/soft/tools/domainip.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/tools/domainip.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[HTTP 协议相关的工具]]></title>
+            <description><![CDATA[下载镜像：]]></description>
+            <link>https://www.lijiaocn.com/soft/tools/http.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/tools/http.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -463,7 +484,7 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Ingress-nginx 的请求复制功能]]></title>
+            <title><![CDATA[ingress-nginx 的请求复制功能]]></title>
             <description><![CDATA[ingress-nginx 支持请求复制功能，将同一域名下指定 path 上的请求复制到另一个 path。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/ingress-nginx/mirror.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/ingress-nginx/mirror.html</guid>
@@ -719,6 +740,13 @@
             <description><![CDATA[Nginx 1.13.4 引入了 ngx_http_mirror_module，实现了 http 请求复制的功能。]]></description>
             <link>https://www.lijiaocn.com/soft/nginx/mirror.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/mirror.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Nginx 的 A/B 测试功能]]></title>
+            <description><![CDATA[Nginx 的有一个 ngx_http_split_clients_module 模块，可以用来实现 A/B 测试。]]></description>
+            <link>https://www.lijiaocn.com/soft/nginx/abtest.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/nginx/abtest.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
