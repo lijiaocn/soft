@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 19 Nov 2019 10:36:05 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 20 Nov 2019 08:23:22 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -33,6 +33,13 @@
             <description><![CDATA[下载镜像：]]></description>
             <link>https://www.lijiaocn.com/soft/tools/http.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/tools/http.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[性能测试工具]]></title>
+            <description><![CDATA[iperf 是一个简单常用的网络传输性能测试工具，分为服务端和客户端，iperf-doc。]]></description>
+            <link>https://www.lijiaocn.com/soft/tools/benchmark.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/tools/benchmark.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
