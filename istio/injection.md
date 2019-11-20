@@ -2,6 +2,8 @@
 
 下面操作在 [Bookinfo Application](./bookinfo.md) 的基础上进行。
 
+准备中...
+
 ## 参考
 
 [1]: https://istio.io/docs/tasks/traffic-management/fault-injection/ "Fault Injection"

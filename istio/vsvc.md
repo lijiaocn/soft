@@ -1,7 +1,7 @@
 <!-- toc -->
-# istio 的基本概念：Virtual service
+# istio 的基本概念：VirtualService
 
-[Virtual services][2] 是 istio 的核心概念，它包含一组 route ，定义了请求转发规则，参考 [Virtual services][5]。 VirtualService 的配置格式如下：
+[VirtualService][2] 是 istio 的核心概念，它包含一组 route ，定义了请求转发规则，参考 [VirtualService][5]。 VirtualService 的配置格式如下：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
