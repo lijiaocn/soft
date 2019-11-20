@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 20 Nov 2019 08:23:22 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 20 Nov 2019 12:59:31 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -820,8 +820,8 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[istio 的基本概念：Virtual service]]></title>
-            <description><![CDATA[Virtual services 是 istio 的核心概念，它包含一组 route ，定义了请求转发规则，参考 Virtual services。 VirtualService 的配置格式如下：]]></description>
+            <title><![CDATA[istio 的基本概念：VirtualService]]></title>
+            <description><![CDATA[VirtualService 是 istio 的核心概念，它包含一组 route ，定义了请求转发规则，参考 VirtualService。 VirtualService 的配置格式如下：]]></description>
             <link>https://www.lijiaocn.com/soft/istio/vsvc.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/vsvc.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -869,8 +869,8 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Istio 的转发功能使用方法]]></title>
-            <description><![CDATA[Bookinfo Application 拆解 中用实际的例子演示了转发功能用法，这里不再赘述。]]></description>
+            <title><![CDATA[istio 的转发功能使用方法]]></title>
+            <description><![CDATA[示例拆解中的 Bookinfo Application 包含了转发功能，这里简单复述下。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/route.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/route.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
