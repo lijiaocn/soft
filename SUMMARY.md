@@ -4,6 +4,7 @@
 * [常用工具](./tools/index.md)
   * [域名和IP相关](./tools/domainip.md)
   * [HTTP协议相关](./tools/http.md)
+  * [性能测试相关](./tools/benchmark.md)
 * [Linux 系统手册](./linuxsys/index.md)
   * [透明代理](./linuxsys/tpproxy.md)
   * [iptables 使用方法](./linuxsys/iptables.md)
