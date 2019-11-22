@@ -18,7 +18,72 @@ Bookinfo APP 由四个子系统组成，分别是：
 
 示例中把上述四个系统部署在 Kubernetes 中，每个系统由 Service、ServiceAccount、Deployment 组成。reviews 有三个版本，对应三个 Deployment。
 
+## 部署到 istio 网格
+
+要把 Bookinfo Application 部署在 istio 网格中，仅仅在安装了 istio 的 kubernetes 创建应用是不行的，需要在带有 `istio-injection=enabled` 标签的 namespace 中创建才可以。
+
+所以 [文档][1] 中的第一步操作在目标 namespace 上打标签：
+
+```sh
+kubectl label namespace default istio-injection=enabled
+```
+
+然后在打了标签的 namespace 中创建应用：
+
+```sh
+kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+```
+
+如果不想给 namesapce 打标签，可以用下面的命令调整 yaml 文件：
+
+```sh
+kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
+```
+
 ### Productpage service
+
+部署完成后，验证 productpage，在集群内用它的 cluster ip 或者 pod ip 访问：
+
+```sh
+$ kubectl get svc productpage -o wide
+NAME          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+productpage   ClusterIP   10.110.29.37     <none>        9080/TCP   76d   app=productpage
+```
+
+```sh
+$ curl 10.110.29.37:9080
+...省略...
+  </body>
+</html>
+```
+
+或者在 Productpage 等容器内安装 curl，用 curl 验证：
+
+```sh
+$ kubectl exec -it productpage-v1-667bc85676-sgbqp /bin/sh
+$ apt-get update
+$ apt-get install -y curl
+$ curl http://productpage:9080
+...省略...
+  </body>
+</html>
+```
+
+Productpage 是 bookinfo app 的入口，使用 python 开发，从代码中找到另外几个服务的接口：
+
+```sh
+$ kubectl exec -it productpage-v1-8554d58bff-wlkg7 cat  productpage.py >/tmp/productpage.py
+```
+
+查看代码得知其它几个服务的 http 接口，后面将使用这些接口验证服务：
+
+```sh
+details:  http://details:9080/details/0
+ratings:  http://ratings:9080/ratings/0
+reviews:  http://reviews:9080/reviews/0
+```
+
+Productpage service 部署 yaml：
 
 ```yaml
 apiVersion: v1
@@ -69,6 +134,22 @@ spec:
 ```
 
 ### Detail service
+
+完成部署后，验证 details 服务：
+
+```sh
+$ kubectl get svc details -o wide
+NAME      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+details   ClusterIP   10.107.162.106   <none>        9080/TCP   76d   app=details
+```
+
+```sh
+$ curl http://10.107.162.106:9080/details/0
+{"id":0,"author":"William Shakespeare","year":1595,"type":"paperback","pages":200,"publisher...省略...
+```
+
+
+details 服务的部署文件：
 
 ```yaml
 ##################################################################################
@@ -122,7 +203,23 @@ spec:
 ---
 ```
 
+
 ### Ratings service
+
+完成部署后，验证 ratings 服务：
+
+```sh
+$ kubectl get svc ratings -o wide
+NAME      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+ratings   ClusterIP   10.107.67.216   <none>        9080/TCP   76d   app=ratings
+```
+
+```sh
+$ curl http://10.107.67.216:9080/ratings/0
+{"id":0,"ratings":{"Reviewer1":5,"Reviewer2":4}}$
+```
+
+ratings 服务的部署文件：
 
 ```yaml
 ###################################################################################
@@ -176,6 +273,19 @@ spec:
 ```
 
 ### Reviews service
+
+完成部署后，验证 reviews 服务：
+
+```sh
+$ kubectl get svc reviews -o wide
+NAME      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+reviews   ClusterIP   10.100.249.106   <none>        9080/TCP   76d   app=reviews
+```
+
+```sh
+$ curl http://10.100.249.106:9080/reviews/0
+{"id": "0","reviews": [{  "reviewer": "Reviewer1",  "text": "An extremely entertaining play by Shakespeare....省略...
+```
 
 Reviews 有三个版本，对应三个 Deployment，隶属于同一个 Service：
 
@@ -296,28 +406,6 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
-```
-
-## 部署到 Istio 网格
-
-要把 Bookinfo Application 部署在 istio 网格中，仅仅在安装了 istio 的 kubernetes 创建应用是不行的，需要在带有 `istio-injection=enabled` 标签的 namespace 中创建才可以。
-
-所以 [文档][1] 中的第一步操作在目标 namespace 上打标签：
-
-```sh
-kubectl label namespace default istio-injection=enabled
-```
-
-然后在打了标签的 namespace 中创建应用：
-
-```sh
-kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
-```
-
-如果不想给 namesapce 打标签，可以用下面的命令调整 yaml 文件：
-
-```sh
-kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
 ```
 
 ## 创建 Gateway，边界 envoy 开始监听

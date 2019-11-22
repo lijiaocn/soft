@@ -1,9 +1,9 @@
 <!-- toc -->
-# istio 的基本概念：Service Entry
+# istio 的基本概念：ServiceEntry
 
-[Service Entry][1] 用来将外部的服务封装成 istio 网格中的服务，为统一管理网格内和网格外的服务提供基础，详情见 [Service Entry Detail][2]。
+[ServiceEntry][1] 用来将外部的服务封装成 istio 网格中的服务，为统一管理网格内和网格外的服务提供基础，详情见 [Service Entry Detail][2]。
 
-外部的服务被封装为 Service Entry 之后，可以像 kubernetes 内部的服务一样引用。
+外部的服务被封装为 ServiceEntry 之后，可以像 kubernetes 内部的服务一样引用。
 
 ## 封装外部的域名
 

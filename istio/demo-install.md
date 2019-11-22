@@ -1,13 +1,134 @@
 <!-- toc -->
-# Istio 预览版部署
+# istio 预览版部署
 
-在 Kubernetes 集群中部署 istio 是最方便的，这里介绍 istio demo 的部署方法。
+在 Kubernetes 集群中部署 istio 是最方便的，istio 在快速迭代更新阶段，部署方法也在变，老版本使用的安装方法，对新版本可能不适用，建议经常查看 istio 的 [Installation Guides][9]。 
 
-用这种方式部署的 istio 不能用于生产，只用来了解 istio 的用法和特性，参考 [Quick Start Evaluation Install][2]。
+这篇文档最早使用 yaml 文件部署的 istio 1.2.5，后来用 [helm 的方式][10] 重新部署了 istio 1.4.0，没有采用 [istioctl 的方式][11]，是因为 1.4.0 的 [istioctl upgrade][7] 还是试验特性，不想踩后续版本升级的坑。
+
+## 版本升级
+
+istio 提供了 [几种升级方法][6]：
+
+* 通过 [kubernetes rolling update][8] 升级
+* 试验特性 [istioctl upgrade][7] （1.3.3 开始支持）
+
+[kubernetes rolling update][8] 现在只支持 helm 的方式，详细操作过程见 [Upgrade using Helm][8]。
+
+## istio 1.4.0 部署——Helm 方式
+
+参考文档 [Customizable Install with Helm][10]，添加 helm repp：
+
+```sh
+helm repo add istio.io https://storage.googleapis.com/istio-release/releases/1.4.0/charts/
+```
+
+从 [istio/releases](https://github.com/istio/istio/releases) 页面下载 1.4.0 的部署文件
+
+```sh
+wget https://github.com/istio/istio/releases/download/1.4.0/istio-1.4.0-linux.tar.gz
+tar -xvf istio-1.4.0-linux
+cd istio-1.4.0
+```
+
+安装前准备，这里用 nodeport 的方式暴露 istio 服务（添加了命令行参数 --set gateways.istio-ingressgateway.type=NodePort）默认情况是 LoadBalancer 方式：
+
+```sh
+$ kubectl create namespace istio-system
+$ helm template install/kubernetes/helm/istio-init \
+  --name istio-init \
+  --namespace istio-system \
+  --set gateways.istio-ingressgateway.type=NodePort \
+  | kubectl apply -f -
+$ kubectl -n istio-system wait --for=condition=complete job --all
+```
+
+上面的命令显示下面的结果后，再继续往下操作：
+
+```sh
+$ kubectl -n istio-system wait --for=condition=complete job --all
+job.batch/istio-init-crd-10-1.4.0 condition met
+job.batch/istio-init-crd-11-1.4.0 condition met
+job.batch/istio-init-crd-14-1.4.0 condition met
+```
+
+最后安装 istio，[Customizable Install with Helm][10] 给出了多个配置版本，因为环境资源有限，这里选用 demo 版本：
+
+```sh
+$ helm template install/kubernetes/helm/istio --name istio --namespace istio-system \
+    --values install/kubernetes/helm/istio/values-istio-demo.yaml | kubectl apply -f -
+```
+
+Pod 启动完成后，部署结束：
+
+```sh
+$ kubectl -n istio-system get pod
+NAME                                      READY   STATUS      RESTARTS   AGE
+grafana-584949b9c6-w8w8t                  1/1     Running     0          21m
+istio-citadel-8575bd45c6-69lts            1/1     Running     0          20m
+istio-egressgateway-79d56c9f58-sd8xb      1/1     Running     0          17m
+istio-galley-7f8b95bff6-9q8pk             1/1     Running     0          21m
+istio-grafana-post-install-1.4.0-m7lnb    0/1     Completed   0          21m
+istio-ingressgateway-75d6d5fd99-m2jnf     1/1     Running     0          21m
+istio-init-crd-10-1.4.0-7fh25             0/1     Completed   0          26m
+istio-init-crd-11-1.4.0-jbcpd             0/1     Completed   0          26m
+istio-init-crd-14-1.4.0-v7rkw             0/1     Completed   0          26m
+istio-pilot-785bc88559-jjzvl              2/2     Running     3          20m
+istio-policy-6ddfd68f86-shj5l             2/2     Running     6          20m
+istio-security-post-install-1.4.0-96bs5   0/1     Completed   0          21m
+istio-sidecar-injector-6c9d6cd87c-x586r   1/1     Running     0          20m
+istio-telemetry-598988779b-4zst5          2/2     Running     7          20m
+istio-tracing-795c9c64c4-8wdns            1/1     Running     0          20m
+kiali-7d4cf866cc-qmkc6                    1/1     Running     0          21m
+prometheus-8685f659f-xmvlp                1/1     Running     0          20m
+```
+
+如果 kubernetes 用的 minikube，用下面的命令查看 istio 的服务：
+
+```sh
+$ ./minkube service -n istio-system list
+|--------------|------------------------|--------------------------------|
+|  NAMESPACE   |          NAME          |              URL               |
+|--------------|------------------------|--------------------------------|
+| istio-system | grafana                | No node port                   |
+| istio-system | istio-citadel          | No node port                   |
+| istio-system | istio-egressgateway    | No node port                   |
+| istio-system | istio-galley           | No node port                   |
+| istio-system | istio-ingressgateway   | http://192.168.99.100:30506    |
+|              |                        | http://192.168.99.100:31380    |
+|              |                        | http://192.168.99.100:31390    |
+|              |                        | http://192.168.99.100:31400    |
+|              |                        | http://192.168.99.100:31976    |
+|              |                        | http://192.168.99.100:31433    |
+|              |                        | http://192.168.99.100:32546    |
+|              |                        | http://192.168.99.100:32230    |
+|              |                        | http://192.168.99.100:30693    |
+| istio-system | istio-pilot            | No node port                   |
+| istio-system | istio-policy           | No node port                   |
+| istio-system | istio-sidecar-injector | No node port                   |
+| istio-system | istio-telemetry        | No node port                   |
+| istio-system | jaeger-agent           | No node port                   |
+| istio-system | jaeger-collector       | No node port                   |
+| istio-system | jaeger-query           | No node port                   |
+| istio-system | kiali                  | No node port                   |
+| istio-system | prometheus             | No node port                   |
+| istio-system | tracing                | No node port                   |
+| istio-system | zipkin                 | No node port                   |
+|--------------|------------------------|--------------------------------|
+```
+
+如果之前部署有使用 istio 的容器，用下面的命令重启：
+
+```sh
+$ kubectl rollout restart deployment --namespace default
+```
+
+## istio 1.2.5 部署
+
+这里介绍 istio demo 的部署方法，用这种方式部署的 istio 不能用于生产，只用来了解 istio 的用法和特性，参考 [Quick Start Evaluation Install][2]。
 
 这里会使用前面下载 istio 的部署文件（见 [下载 istio](./install.md#下载-istio)）。
 
-## 创建 istio 的 crd 
+### 创建 istio 的 crd 
 
 Istio 使用了大量的 CRD，用下面的命令在 kubernetes 集群中创建这些 CRD：
 
@@ -43,7 +164,7 @@ customresourcedefinition.apiextensions.k8s.io/orders.certmanager.k8s.io created
 customresourcedefinition.apiextensions.k8s.io/challenges.certmanager.k8s.io created
 ```
 
-## 部署 istio 
+### 部署 istio 
 
 这里用到的 istio-demo.yaml/istio-demo-auth.yaml，istio 项目代码是没有的，它们在 istio 的 release 文件中，到 [istio/releases][5] 页面下载对应版本的 release 文件：
 
@@ -73,7 +194,7 @@ configmap/istio-grafana-configuration-dashboards-istio-workload-dashboard create
 ....省略...
 ```
 
-## 部署完成
+### 部署完成
 
 当 istio-system 中的所有 pod 都是 Running 状态时，部署完成：
 
@@ -132,14 +253,15 @@ $ minkube service list
 |---------------|------------------------|--------------------------------|
 ```
 
-## 卸载
+### 卸载
 
 反向操作即可：
 
 ```sh
-$ kubectl delete -f istio-1.2.5/install/kubernetes/istio-demo.yaml
+$ kubectl delete -f install/kubernetes/istio-demo.yaml
 $ for i in install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl delete -f $i; done
 ```
+
 
 ## 参考
 
@@ -148,3 +270,9 @@ $ for i in install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl delete 
 [3]: https://github.com/istio/istio/releases "istio/releases"
 [4]: https://github.com/istio/istio/tree/1.2.5/install/kubernetes "1.2.5/install/kubernetes "
 [5]: https://github.com/istio/istio/releases "istio/releases"
+[6]: https://istio.io/docs/setup/upgrade/ "istio Upgrade"
+[7]: https://istio.io/docs/setup/upgrade/istioctl-upgrade/  "istioctl-upgrade"
+[8]: https://istio.io/docs/setup/upgrade/cni-helm-upgrade/  "kubernetes rolling update"
+[9]: https://istio.io/docs/setup/install/ "istio Installation Guides"
+[10]: https://istio.io/docs/setup/install/helm/ "Customizable Install with Helm"
+[11]: https://istio.io/docs/setup/install/istioctl/ "Customizable Install with Istioctl"

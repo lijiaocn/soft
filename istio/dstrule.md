@@ -1,7 +1,7 @@
 <!-- toc -->
 # istio 的基本概念： DestinationRule
 
-[Destination Rule][3] 是转发策略，在route 规则之后起作用，相当于 nginx 中的负载均衡策略。它作用于 VirtualService 的 destination 中的 host。
+[DestinationRule][3] 是转发策略，在route 规则之后起作用，相当于 nginx 中的负载均衡策略。它作用于 VirtualService 的 destination 中的 host。
 
 ## 将 Pod 按照 label 分组，分别设置转发策略
 

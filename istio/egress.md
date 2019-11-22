@@ -1,5 +1,5 @@
 <!-- toc -->
-# Istio 的流出流量管控
+# istio 的流出流量管控
 
 Engress Control 不是 istio 的基本概念，是一种用法。
 
