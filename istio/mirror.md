@@ -132,12 +132,28 @@ $ kubectl edit vs http-record
       weight: 100
 ```
 
-查看 http-record-v2 的日志，会发现 http-record 时，http-record-v2 的 Pod 收到了同样的请求：
+查看 http-record-v2 的日志，会发现 http-record 时，http-record-v2 的 Pod 收到了同样的请求。
 
+在容器内访问：
 
-## 镜像到另一个服务
-
+```sh
+$ curl http-record:8000
 ```
+
+同时查看 v1 和 v2 的日志：
+
+```sh
+$ kubectl logs -f http-record-v1-5f9c95b7cf-t9tzx http-record
+$ kubectl logs -f http-record-v2-d697c886-lqpsw http-record
+```
+
+## 似乎不支持镜像到另一个服务
+
+尝试将到达 productpage 的请求复制到 http-record（跨服务复制），结果不成功，似乎不支持。
+
+尝试的 yaml 如下：
+
+```yaml
 $ kubectl edit vs productpage
 ...省略...
   hosts:
@@ -145,7 +161,7 @@ $ kubectl edit vs productpage
   http:
   - mirror:
       host: http-record
-      subset: v2
+      subset: v1
     mirror_percent: 100
     route:
     - destination:
@@ -154,10 +170,10 @@ $ kubectl edit vs productpage
 ...省略...
 ```
 
-然后查看 http-record 日志，会发现访问 productpage 时，http-record 收到了一份相同的请求：
+访问 productpage 时，http-record 没有收到复制的请求，似乎是不支持跨服务复制（2019-11-22 18:16:01）。
 
 ```sh
-$ kubectl logs -f http-record-685f56d9f4-6k64z http-record
+$ curl productpage:9080
 ```
 
 ## 参考

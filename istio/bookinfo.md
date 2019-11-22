@@ -438,7 +438,7 @@ spec:
 创建 VirtualService，将边界 envoy 收到的流量转发到 productpage ：
 
 ```sh
-$ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+$ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml  # 同时包含 Gateway 和 VirutalService
 ```
 
 ```yaml
