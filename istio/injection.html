@@ -66,10 +66,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="operation.html" />
+    <link rel="next" href="timeout.html" />
     
     
-    <link rel="prev" href="route.html" />
+    <link rel="prev" href="shift.html" />
     
 
     <link href="https://www.lijiaocn.com/soft/feed.xml" title="常见软件系统实用使用手册" rel="alternate" type="application/rss+xml" />
@@ -1819,7 +1819,7 @@ var _hmt = _hmt || [];
                 <a href="vsvc.html">
             
                     
-                    Virtual Service
+                    VirtualService
             
                 </a>
             
@@ -1832,7 +1832,7 @@ var _hmt = _hmt || [];
                 <a href="dstrule.html">
             
                     
-                    Destination rule
+                    DestinationRule
             
                 </a>
             
@@ -1858,7 +1858,7 @@ var _hmt = _hmt || [];
                 <a href="entry.html">
             
                     
-                    Service Entry
+                    ServiceEntry
             
                 </a>
             
@@ -1929,7 +1929,20 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter active" data-level="1.8.6" data-path="injection.html">
+        <li class="chapter " data-level="1.8.6" data-path="shift.html">
+            
+                <a href="shift.html">
+            
+                    
+                    流量切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.7" data-path="injection.html">
             
                 <a href="injection.html">
             
@@ -1942,7 +1955,46 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.8.7" data-path="operation.html">
+        <li class="chapter " data-level="1.8.8" data-path="timeout.html">
+            
+                <a href="timeout.html">
+            
+                    
+                    超时设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="tpolicy.html">
+            
+                <a href="tpolicy.html">
+            
+                    
+                    流量策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="mirror.html">
+            
+                <a href="mirror.html">
+            
+                    
+                    流量复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="operation.html">
             
                 <a href="operation.html">
             
@@ -2443,10 +2495,76 @@ var _hmt = _hmt || [];
 </div-->
 
 
-                                <h1 id="istio-&#x9519;&#x8BEF;&#x6CE8;&#x5165;&#x529F;&#x80FD;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">Istio &#x9519;&#x8BEF;&#x6CE8;&#x5165;&#x529F;&#x80FD;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h1>
+                                <!-- toc -->
+<ul>
+<li><a href="#istio-&#x9519;&#x8BEF;&#x6CE8;&#x5165;&#x529F;&#x80FD;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">istio &#x9519;&#x8BEF;&#x6CE8;&#x5165;&#x529F;&#x80FD;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</a><ul>
+<li><a href="#&#x8FD4;&#x56DE;&#x4E00;&#x5B9A;&#x7684;&#x6BD4;&#x4F8B;&#x7684;&#x9519;&#x8BEF;&#x7801;">&#x8FD4;&#x56DE;&#x4E00;&#x5B9A;&#x7684;&#x6BD4;&#x4F8B;&#x7684;&#x9519;&#x8BEF;&#x7801;</a></li>
+<li><a href="#&#x6CE8;&#x5165;&#x54CD;&#x5E94;&#x5EF6;&#x8FDF;">&#x6CE8;&#x5165;&#x54CD;&#x5E94;&#x5EF6;&#x8FDF;</a></li>
+<li><a href="#&#x66F4;&#x591A;&#x6CE8;&#x5165;&#x7C7B;&#x578B;">&#x66F4;&#x591A;&#x6CE8;&#x5165;&#x7C7B;&#x578B;</a></li>
+<li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="istio-&#x9519;&#x8BEF;&#x6CE8;&#x5165;&#x529F;&#x80FD;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">istio &#x9519;&#x8BEF;&#x6CE8;&#x5165;&#x529F;&#x80FD;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h1>
 <p>&#x4E0B;&#x9762;&#x64CD;&#x4F5C;&#x5728; <a href="bookinfo.html">Bookinfo Application</a> &#x7684;&#x57FA;&#x7840;&#x4E0A;&#x8FDB;&#x884C;&#x3002;</p>
-<p>&#x51C6;&#x5907;&#x4E2D;...</p>
+<p><a href="https://www.lijiaocn.com" title="&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;" target="_blank">Fault Injection</a> &#x8BA9;&#x76EE;&#x6807;&#x670D;&#x52A1;&#x4EE5;&#x4E00;&#x5B9A;&#x7684;&#x6BD4;&#x4F8B;&#x8FD4;&#x56DE;&#x9519;&#x8BEF;&#x7801;&#x540E;&#x8005;&#x5EF6;&#x8FDF;&#x56DE;&#x5E94;&#xFF0C;&#x7528;&#x6765;&#x6D4B;&#x8BD5;&#x4E1A;&#x52A1;&#x7CFB;&#x7EDF;&#x7684;&#x5BB9;&#x9519;&#x80FD;&#x529B;&#x3002;</p>
+<p>&#x9519;&#x8BEF;&#x6CE8;&#x5165;&#x5728; <a href="vsvc.html">VirtualService</a> &#x4E2D;&#x914D;&#x7F6E;&#xFF0C;VirtualService &#x652F;&#x6301;&#x7684;&#x6CE8;&#x5165;&#x7C7B;&#x578B;&#xFF0C;&#x53EF;&#x4EE5;&#x5728; <a href="https://istio.io/docs/reference/config/networking/virtual-service/#HTTPFaultInjection" title="HTTPFaultInjection" target="_blank">HTTPFaultInjection</a> &#x4E2D;&#x627E;&#x5230;&#x3002; </p>
+<h2 id="&#x8FD4;&#x56DE;&#x4E00;&#x5B9A;&#x7684;&#x6BD4;&#x4F8B;&#x7684;&#x9519;&#x8BEF;&#x7801;">&#x8FD4;&#x56DE;&#x4E00;&#x5B9A;&#x7684;&#x6BD4;&#x4F8B;&#x7684;&#x9519;&#x8BEF;&#x7801;</h2>
+<p><a href="https://istio.io/docs/tasks/traffic-management/fault-injection/#injecting-an-http-abort-fault" title="injecting-an-http-abort-fault" target="_blank">injecting-an-http-abort-fault</a> &#x6F14;&#x793A;&#x5982;&#x4F55;&#x8FD4;&#x56DE;&#x4E00;&#x5B9A;&#x6BD4;&#x4F8B;&#x7684;&#x9519;&#x8BEF;&#x7801;&#x3002;</p>
+<p>&#x7F16;&#x8F91;&#x524D;&#x9762;&#x521B;&#x5EFA;&#x7684;&#x540D;&#x4E3A; reviews &#x7684; VirtualService&#xFF0C;&#x5728; http &#x4E2D;&#x6DFB;&#x52A0; fault &#x914D;&#x7F6E;&#xFF1A;</p>
+<pre><code class="lang-yaml">$ kubectl edit vs ratings
+...&#x7701;&#x7565;...
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  hosts:</span>
+<span class="hljs-bullet">  -</span> ratings
+<span class="hljs-attr">  http:</span>
+<span class="hljs-attr">  - route:</span>
+<span class="hljs-attr">    - destination:</span>
+<span class="hljs-attr">        host:</span> ratings
+<span class="hljs-attr">        subset:</span> v1
+  <span class="hljs-comment"># &#x6DFB;&#x52A0;&#x7684; fault &#x6CE8;&#x5165;&#xFF0C;&#x4EE5; 100% &#x7684;&#x6BD4;&#x4F8B;&#x8FD4;&#x56DE; 500 &#x9519;&#x8BEF;&#x7801;</span>
+<span class="hljs-attr">  - fault:</span>
+<span class="hljs-attr">      abort:</span>
+<span class="hljs-attr">        httpStatus:</span> <span class="hljs-number">500</span>
+<span class="hljs-attr">        percentage:</span>
+<span class="hljs-attr">          value:</span> <span class="hljs-number">100</span>
+<span class="hljs-attr">    match:</span>
+<span class="hljs-attr">    - headers:</span>
+<span class="hljs-attr">        end-user:</span>
+<span class="hljs-attr">          exact:</span> jason
+<span class="hljs-attr">    route:</span>
+<span class="hljs-attr">    - destination:</span>
+<span class="hljs-attr">        host:</span> ratings
+<span class="hljs-attr">        subset:</span> v1
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x914D;&#x7F6E;&#x7684; fault &#x6CE8;&#x5165;&#x53EA;&#x5BF9; jason &#x7528;&#x6237;&#x6709;&#x6548;&#xFF08;fault &#x7684; match &#x4E2D;&#x914D;&#x7F6E;&#x7684;&#x5339;&#x914D;&#x6761;&#x4EF6;&#xFF0C;&#x5E26;&#x6709; end-user: jason &#x8BF7;&#x6C42;&#x5934;&#xFF09;&#x3002;</p>
+<p>&#x5728; productpage &#x5BB9;&#x5668;&#x4E2D;&#xFF0C;&#x7528; curl &#x8BBF;&#x95EE; ratings &#x670D;&#x52A1;&#xFF0C;&#x5E26;&#x6709;&#x5339;&#x914D;&#x7684; header &#x65F6;&#xFF0C;&#x8FD4;&#x56DE; 500&#xFF1A;</p>
+<pre><code class="lang-sh">$ apt-get install curl
+$ curl -H <span class="hljs-string">&quot;end-user: jason&quot;</span> http://ratings:9080/ratings/0
+...&#x7701;&#x7565;...
+&lt; HTTP/1.1 500 Internal Server Error
+&lt; content-length: 18
+&lt; content-type: text/plain
+&lt; date: Thu, 21 Nov 2019 07:18:51 GMT
+&lt; server: envoy
+&lt;
+* Curl_http_<span class="hljs-keyword">done</span>: called premature == 0
+* Connection <span class="hljs-comment">#0 to host ratings left intact</span>
+</code></pre>
+<p>Productpage &#x9875;&#x9762;&#x4F1A;&#x663E;&#x793A; Ratings service is currently unavailable&#xFF1A;</p>
+<p><img src="../img/istio/fault.png" alt="&#x9519;&#x8BEF;&#x6CE8;&#x5165;&#x540E;&#x7684;&#x9875;&#x9762;"></p>
+<p>&#x901A;&#x8FC7;&#x9519;&#x8BEF;&#x6CE8;&#x5165;&#xFF0C;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x7684;&#x9A8C;&#x8BC1;&#x5F53;&#x4E00;&#x4E2A;&#x5FAE;&#x670D;&#x52A1;&#x53D1;&#x751F;&#x6545;&#x969C;&#x65F6;&#xFF0C;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x7684;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#x3002;</p>
+<h2 id="&#x6CE8;&#x5165;&#x54CD;&#x5E94;&#x5EF6;&#x8FDF;">&#x6CE8;&#x5165;&#x54CD;&#x5E94;&#x5EF6;&#x8FDF;</h2>
+<p>&#x9664;&#x4E86;&#x6CE8;&#x5165;&#x9519;&#x8BEF;&#x7801;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5EF6;&#x8FDF;&#x54CD;&#x5E94;&#xFF0C;&#x5236;&#x9020;&#x8D85;&#x65F6;&#x7684;&#x573A;&#x666F;&#xFF1A;<a href="https://istio.io/docs/tasks/traffic-management/fault-injection/#injecting-an-http-delay-fault" title="injecting-an-http-delay-fault" target="_blank">injecting-an-http-delay-fault</a>&#x3002;</p>
+<h2 id="&#x66F4;&#x591A;&#x6CE8;&#x5165;&#x7C7B;&#x578B;">&#x66F4;&#x591A;&#x6CE8;&#x5165;&#x7C7B;&#x578B;</h2>
+<ul>
+<li><a href="https://istio.io/docs/reference/config/networking/virtual-service/#HTTPFaultInjection" title="HTTPFaultInjection" target="_blank">HTTPFaultInjection</a> </li>
+</ul>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
+<ol>
+<li><a href="https://www.lijiaocn.com" title="&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;" target="_blank">&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;</a></li>
+</ol>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
@@ -2502,12 +2620,12 @@ var _hmt = _hmt || [];
 
             
                 
-                <a href="route.html" class="navigation navigation-prev " aria-label="Previous page: 转发路由">
+                <a href="shift.html" class="navigation navigation-prev " aria-label="Previous page: 流量切换">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="operation.html" class="navigation navigation-next " aria-label="Next page: istio 管理操作">
+                <a href="timeout.html" class="navigation navigation-next " aria-label="Next page: 超时设置">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2518,7 +2636,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"错误注入","level":"1.8.6","depth":2,"next":{"title":"istio 管理操作","level":"1.8.7","depth":2,"path":"istio/operation.md","ref":"istio/operation.md","articles":[]},"previous":{"title":"转发路由","level":"1.8.5","depth":2,"path":"istio/route.md","ref":"istio/route.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/injection.md","mtime":"2019-11-20T12:58:25.773Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-20T12:58:49.714Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"错误注入","level":"1.8.7","depth":2,"next":{"title":"超时设置","level":"1.8.8","depth":2,"path":"istio/timeout.md","ref":"istio/timeout.md","articles":[]},"previous":{"title":"流量切换","level":"1.8.6","depth":2,"path":"istio/shift.md","ref":"istio/shift.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/injection.md","mtime":"2019-11-22T09:44:29.662Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-22T10:16:27.120Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

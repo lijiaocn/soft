@@ -1819,7 +1819,7 @@ var _hmt = _hmt || [];
                 <a href="vsvc.html">
             
                     
-                    Virtual Service
+                    VirtualService
             
                 </a>
             
@@ -1832,7 +1832,7 @@ var _hmt = _hmt || [];
                 <a href="dstrule.html">
             
                     
-                    Destination rule
+                    DestinationRule
             
                 </a>
             
@@ -1858,7 +1858,7 @@ var _hmt = _hmt || [];
                 <a href="entry.html">
             
                     
-                    Service Entry
+                    ServiceEntry
             
                 </a>
             
@@ -1929,7 +1929,20 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.8.6" data-path="injection.html">
+        <li class="chapter " data-level="1.8.6" data-path="shift.html">
+            
+                <a href="shift.html">
+            
+                    
+                    流量切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="injection.html">
             
                 <a href="injection.html">
             
@@ -1942,7 +1955,46 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.8.7" data-path="operation.html">
+        <li class="chapter " data-level="1.8.8" data-path="timeout.html">
+            
+                <a href="timeout.html">
+            
+                    
+                    超时设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="tpolicy.html">
+            
+                <a href="tpolicy.html">
+            
+                    
+                    流量策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="mirror.html">
+            
+                <a href="mirror.html">
+            
+                    
+                    流量复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="operation.html">
             
                 <a href="operation.html">
             
@@ -2445,7 +2497,7 @@ var _hmt = _hmt || [];
 
                                 <!-- toc -->
 <ul>
-<li><a href="#istio-&#x7684;&#x6D41;&#x51FA;&#x6D41;&#x91CF;&#x7BA1;&#x63A7;">Istio &#x7684;&#x6D41;&#x51FA;&#x6D41;&#x91CF;&#x7BA1;&#x63A7;</a><ul>
+<li><a href="#istio-&#x7684;&#x6D41;&#x51FA;&#x6D41;&#x91CF;&#x7BA1;&#x63A7;">istio &#x7684;&#x6D41;&#x51FA;&#x6D41;&#x91CF;&#x7BA1;&#x63A7;</a><ul>
 <li><a href="#&#x5C06;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x5C01;&#x88C5;&#x6210;-serviceentry">&#x5C06;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x5C01;&#x88C5;&#x6210; ServiceEntry</a></li>
 <li><a href="#&#x521B;&#x5EFA;&#x63A5;&#x6536;&#x5916;&#x51FA;&#x6D41;&#x91CF;&#x7684;-gateway">&#x521B;&#x5EFA;&#x63A5;&#x6536;&#x5916;&#x51FA;&#x6D41;&#x91CF;&#x7684; Gateway</a></li>
 <li><a href="#&#x521B;&#x5EFA;&#x5305;&#x542B;&#x8F6C;&#x53D1;&#x89C4;&#x5219;&#x7684;-virtualservice">&#x521B;&#x5EFA;&#x5305;&#x542B;&#x8F6C;&#x53D1;&#x89C4;&#x5219;&#x7684; VirtualService</a></li>
@@ -2453,7 +2505,7 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <!-- tocstop -->
-<h1 id="istio-&#x7684;&#x6D41;&#x51FA;&#x6D41;&#x91CF;&#x7BA1;&#x63A7;">Istio &#x7684;&#x6D41;&#x51FA;&#x6D41;&#x91CF;&#x7BA1;&#x63A7;</h1>
+<h1 id="istio-&#x7684;&#x6D41;&#x51FA;&#x6D41;&#x91CF;&#x7BA1;&#x63A7;">istio &#x7684;&#x6D41;&#x51FA;&#x6D41;&#x91CF;&#x7BA1;&#x63A7;</h1>
 <p>Engress Control &#x4E0D;&#x662F; istio &#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x7528;&#x6CD5;&#x3002;</p>
 <p>istio &#x4E0D;&#x4EC5;&#x80FD;&#x591F;&#x7BA1;&#x63A7;&#x4ECE;&#x5916;&#x90E8;&#x6D41;&#x5165;&#x7684;&#x6D41;&#x91CF;&#xFF08;&#x901A;&#x8FC7; <a href="entry.html">Service Entry</a>&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7BA1;&#x63A7;&#x6D41;&#x51FA;&#x7684;&#x6D41;&#x91CF;&#x3002;&#x6D41;&#x51FA;&#x6D41;&#x91CF;&#x7684;&#x7BA1;&#x63A7;&#x7A0D;&#x5FAE;&#x590D;&#x6742;&#x4E00;&#x4E9B;&#xFF0C;&#x540C;&#x65F6;&#x7528;&#x5230; <a href="vsvc.html">VirtualService</a>&#x3001;<a href="entry.html">ServiceEntry</a> &#x548C; <a href="gateway.html">Gateway</a>&#x3002;</p>
 <p>&#x57FA;&#x672C;&#x601D;&#x8DEF;&#xFF1A;</p>
@@ -2595,7 +2647,7 @@ var _hmt = _hmt || [];
 
             
                 
-                <a href="entry.html" class="navigation navigation-prev " aria-label="Previous page: Service Entry">
+                <a href="entry.html" class="navigation navigation-prev " aria-label="Previous page: ServiceEntry">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -2611,7 +2663,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Engress Control","level":"1.8.3.5","depth":3,"next":{"title":"istio 示例拆解","level":"1.8.4","depth":2,"path":"istio/sample.md","ref":"istio/sample.md","articles":[{"title":"Bookinfo Application","level":"1.8.4.1","depth":3,"path":"istio/bookinfo.md","ref":"istio/bookinfo.md","articles":[]}]},"previous":{"title":"Service Entry","level":"1.8.3.4","depth":3,"path":"istio/entry.md","ref":"istio/entry.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/egress.md","mtime":"2019-11-20T08:23:40.346Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-20T12:58:49.714Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Engress Control","level":"1.8.3.5","depth":3,"next":{"title":"istio 示例拆解","level":"1.8.4","depth":2,"path":"istio/sample.md","ref":"istio/sample.md","articles":[{"title":"Bookinfo Application","level":"1.8.4.1","depth":3,"path":"istio/bookinfo.md","ref":"istio/bookinfo.md","articles":[]}]},"previous":{"title":"ServiceEntry","level":"1.8.3.4","depth":3,"path":"istio/entry.md","ref":"istio/entry.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/egress.md","mtime":"2019-11-22T09:44:29.660Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-22T10:16:27.120Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

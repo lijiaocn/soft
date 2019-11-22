@@ -1819,7 +1819,7 @@ var _hmt = _hmt || [];
                 <a href="vsvc.html">
             
                     
-                    Virtual Service
+                    VirtualService
             
                 </a>
             
@@ -1832,7 +1832,7 @@ var _hmt = _hmt || [];
                 <a href="dstrule.html">
             
                     
-                    Destination rule
+                    DestinationRule
             
                 </a>
             
@@ -1858,7 +1858,7 @@ var _hmt = _hmt || [];
                 <a href="entry.html">
             
                     
-                    Service Entry
+                    ServiceEntry
             
                 </a>
             
@@ -1929,7 +1929,20 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.8.6" data-path="injection.html">
+        <li class="chapter " data-level="1.8.6" data-path="shift.html">
+            
+                <a href="shift.html">
+            
+                    
+                    流量切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="injection.html">
             
                 <a href="injection.html">
             
@@ -1942,7 +1955,46 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.8.7" data-path="operation.html">
+        <li class="chapter " data-level="1.8.8" data-path="timeout.html">
+            
+                <a href="timeout.html">
+            
+                    
+                    超时设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="tpolicy.html">
+            
+                <a href="tpolicy.html">
+            
+                    
+                    流量策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="mirror.html">
+            
+                <a href="mirror.html">
+            
+                    
+                    流量复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="operation.html">
             
                 <a href="operation.html">
             
@@ -2445,21 +2497,118 @@ var _hmt = _hmt || [];
 
                                 <!-- toc -->
 <ul>
-<li><a href="#istio-&#x9884;&#x89C8;&#x7248;&#x90E8;&#x7F72;">Istio &#x9884;&#x89C8;&#x7248;&#x90E8;&#x7F72;</a><ul>
+<li><a href="#istio-&#x9884;&#x89C8;&#x7248;&#x90E8;&#x7F72;">istio &#x9884;&#x89C8;&#x7248;&#x90E8;&#x7F72;</a><ul>
+<li><a href="#&#x7248;&#x672C;&#x5347;&#x7EA7;">&#x7248;&#x672C;&#x5347;&#x7EA7;</a></li>
+<li><a href="#istio-140-&#x90E8;&#x7F72;&#x2014;&#x2014;helm-&#x65B9;&#x5F0F;">istio 1.4.0 &#x90E8;&#x7F72;&#x2014;&#x2014;Helm &#x65B9;&#x5F0F;</a></li>
+<li><a href="#istio-125-&#x90E8;&#x7F72;">istio 1.2.5 &#x90E8;&#x7F72;</a><ul>
 <li><a href="#&#x521B;&#x5EFA;-istio-&#x7684;-crd">&#x521B;&#x5EFA; istio &#x7684; crd</a></li>
 <li><a href="#&#x90E8;&#x7F72;-istio">&#x90E8;&#x7F72; istio</a></li>
 <li><a href="#&#x90E8;&#x7F72;&#x5B8C;&#x6210;">&#x90E8;&#x7F72;&#x5B8C;&#x6210;</a></li>
 <li><a href="#&#x5378;&#x8F7D;">&#x5378;&#x8F7D;</a></li>
+</ul>
+</li>
 <li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
 </ul>
 </li>
 </ul>
 <!-- tocstop -->
-<h1 id="istio-&#x9884;&#x89C8;&#x7248;&#x90E8;&#x7F72;">Istio &#x9884;&#x89C8;&#x7248;&#x90E8;&#x7F72;</h1>
-<p>&#x5728; Kubernetes &#x96C6;&#x7FA4;&#x4E2D;&#x90E8;&#x7F72; istio &#x662F;&#x6700;&#x65B9;&#x4FBF;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x4ECB;&#x7ECD; istio demo &#x7684;&#x90E8;&#x7F72;&#x65B9;&#x6CD5;&#x3002;</p>
-<p>&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x90E8;&#x7F72;&#x7684; istio &#x4E0D;&#x80FD;&#x7528;&#x4E8E;&#x751F;&#x4EA7;&#xFF0C;&#x53EA;&#x7528;&#x6765;&#x4E86;&#x89E3; istio &#x7684;&#x7528;&#x6CD5;&#x548C;&#x7279;&#x6027;&#xFF0C;&#x53C2;&#x8003; <a href="https://istio.io/docs/setup/kubernetes/install/kubernetes/" title="Quick Start Evaluation Install" target="_blank">Quick Start Evaluation Install</a>&#x3002;</p>
+<h1 id="istio-&#x9884;&#x89C8;&#x7248;&#x90E8;&#x7F72;">istio &#x9884;&#x89C8;&#x7248;&#x90E8;&#x7F72;</h1>
+<p>&#x5728; Kubernetes &#x96C6;&#x7FA4;&#x4E2D;&#x90E8;&#x7F72; istio &#x662F;&#x6700;&#x65B9;&#x4FBF;&#x7684;&#xFF0C;istio &#x5728;&#x5FEB;&#x901F;&#x8FED;&#x4EE3;&#x66F4;&#x65B0;&#x9636;&#x6BB5;&#xFF0C;&#x90E8;&#x7F72;&#x65B9;&#x6CD5;&#x4E5F;&#x5728;&#x53D8;&#xFF0C;&#x8001;&#x7248;&#x672C;&#x4F7F;&#x7528;&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x65B0;&#x7248;&#x672C;&#x53EF;&#x80FD;&#x4E0D;&#x9002;&#x7528;&#xFF0C;&#x5EFA;&#x8BAE;&#x7ECF;&#x5E38;&#x67E5;&#x770B; istio &#x7684; <a href="https://istio.io/docs/setup/install/" title="istio Installation Guides" target="_blank">Installation Guides</a>&#x3002; </p>
+<p>&#x8FD9;&#x7BC7;&#x6587;&#x6863;&#x6700;&#x65E9;&#x4F7F;&#x7528; yaml &#x6587;&#x4EF6;&#x90E8;&#x7F72;&#x7684; istio 1.2.5&#xFF0C;&#x540E;&#x6765;&#x7528; <a href="https://istio.io/docs/setup/install/helm/" title="Customizable Install with Helm" target="_blank">helm &#x7684;&#x65B9;&#x5F0F;</a> &#x91CD;&#x65B0;&#x90E8;&#x7F72;&#x4E86; istio 1.4.0&#xFF0C;&#x6CA1;&#x6709;&#x91C7;&#x7528; <a href="https://istio.io/docs/setup/install/istioctl/" title="Customizable Install with Istioctl" target="_blank">istioctl &#x7684;&#x65B9;&#x5F0F;</a>&#xFF0C;&#x662F;&#x56E0;&#x4E3A; 1.4.0 &#x7684; <a href="https://istio.io/docs/setup/upgrade/istioctl-upgrade/" title="istioctl-upgrade" target="_blank">istioctl upgrade</a> &#x8FD8;&#x662F;&#x8BD5;&#x9A8C;&#x7279;&#x6027;&#xFF0C;&#x4E0D;&#x60F3;&#x8E29;&#x540E;&#x7EED;&#x7248;&#x672C;&#x5347;&#x7EA7;&#x7684;&#x5751;&#x3002;</p>
+<h2 id="&#x7248;&#x672C;&#x5347;&#x7EA7;">&#x7248;&#x672C;&#x5347;&#x7EA7;</h2>
+<p>istio &#x63D0;&#x4F9B;&#x4E86; <a href="https://istio.io/docs/setup/upgrade/" title="istio Upgrade" target="_blank">&#x51E0;&#x79CD;&#x5347;&#x7EA7;&#x65B9;&#x6CD5;</a>&#xFF1A;</p>
+<ul>
+<li>&#x901A;&#x8FC7; <a href="https://istio.io/docs/setup/upgrade/cni-helm-upgrade/" title="kubernetes rolling update" target="_blank">kubernetes rolling update</a> &#x5347;&#x7EA7;</li>
+<li>&#x8BD5;&#x9A8C;&#x7279;&#x6027; <a href="https://istio.io/docs/setup/upgrade/istioctl-upgrade/" title="istioctl-upgrade" target="_blank">istioctl upgrade</a> &#xFF08;1.3.3 &#x5F00;&#x59CB;&#x652F;&#x6301;&#xFF09;</li>
+</ul>
+<p><a href="https://istio.io/docs/setup/upgrade/cni-helm-upgrade/" title="kubernetes rolling update" target="_blank">kubernetes rolling update</a> &#x73B0;&#x5728;&#x53EA;&#x652F;&#x6301; helm &#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x8BE6;&#x7EC6;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x89C1; <a href="https://istio.io/docs/setup/upgrade/cni-helm-upgrade/" title="kubernetes rolling update" target="_blank">Upgrade using Helm</a>&#x3002;</p>
+<h2 id="istio-140-&#x90E8;&#x7F72;&#x2014;&#x2014;helm-&#x65B9;&#x5F0F;">istio 1.4.0 &#x90E8;&#x7F72;&#x2014;&#x2014;Helm &#x65B9;&#x5F0F;</h2>
+<p>&#x53C2;&#x8003;&#x6587;&#x6863; <a href="https://istio.io/docs/setup/install/helm/" title="Customizable Install with Helm" target="_blank">Customizable Install with Helm</a>&#xFF0C;&#x6DFB;&#x52A0; helm repp&#xFF1A;</p>
+<pre><code class="lang-sh">helm repo add istio.io https://storage.googleapis.com/istio-release/releases/1.4.0/charts/
+</code></pre>
+<p>&#x4ECE; <a href="https://github.com/istio/istio/releases" target="_blank">istio/releases</a> &#x9875;&#x9762;&#x4E0B;&#x8F7D; 1.4.0 &#x7684;&#x90E8;&#x7F72;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-sh">wget https://github.com/istio/istio/releases/download/1.4.0/istio-1.4.0-linux.tar.gz
+tar -xvf istio-1.4.0-linux
+<span class="hljs-built_in">cd</span> istio-1.4.0
+</code></pre>
+<p>&#x5B89;&#x88C5;&#x524D;&#x51C6;&#x5907;&#xFF0C;&#x8FD9;&#x91CC;&#x7528; nodeport &#x7684;&#x65B9;&#x5F0F;&#x66B4;&#x9732; istio &#x670D;&#x52A1;&#xFF08;&#x6DFB;&#x52A0;&#x4E86;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570; --set gateways.istio-ingressgateway.type=NodePort&#xFF09;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x662F; LoadBalancer &#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-sh">$ kubectl create namespace istio-system
+$ helm template install/kubernetes/helm/istio-init \
+  --name istio-init \
+  --namespace istio-system \
+  --set gateways.istio-ingressgateway.type=NodePort \
+  | kubectl apply <span class="hljs-_">-f</span> -
+$ kubectl -n istio-system <span class="hljs-built_in">wait</span> --for=condition=complete job --all
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x663E;&#x793A;&#x4E0B;&#x9762;&#x7684;&#x7ED3;&#x679C;&#x540E;&#xFF0C;&#x518D;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-sh">$ kubectl -n istio-system <span class="hljs-built_in">wait</span> --for=condition=complete job --all
+job.batch/istio-init-crd-10-1.4.0 condition met
+job.batch/istio-init-crd-11-1.4.0 condition met
+job.batch/istio-init-crd-14-1.4.0 condition met
+</code></pre>
+<p>&#x6700;&#x540E;&#x5B89;&#x88C5; istio&#xFF0C;<a href="https://istio.io/docs/setup/install/helm/" title="Customizable Install with Helm" target="_blank">Customizable Install with Helm</a> &#x7ED9;&#x51FA;&#x4E86;&#x591A;&#x4E2A;&#x914D;&#x7F6E;&#x7248;&#x672C;&#xFF0C;&#x56E0;&#x4E3A;&#x73AF;&#x5883;&#x8D44;&#x6E90;&#x6709;&#x9650;&#xFF0C;&#x8FD9;&#x91CC;&#x9009;&#x7528; demo &#x7248;&#x672C;&#xFF1A;</p>
+<pre><code class="lang-sh">$ helm template install/kubernetes/helm/istio --name istio --namespace istio-system \
+    --values install/kubernetes/helm/istio/values-istio-demo.yaml | kubectl apply <span class="hljs-_">-f</span> -
+</code></pre>
+<p>Pod &#x542F;&#x52A8;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x90E8;&#x7F72;&#x7ED3;&#x675F;&#xFF1A;</p>
+<pre><code class="lang-sh">$ kubectl -n istio-system get pod
+NAME                                      READY   STATUS      RESTARTS   AGE
+grafana-584949b9c6-w8w8t                  1/1     Running     0          21m
+istio-citadel-8575bd45c6-69lts            1/1     Running     0          20m
+istio-egressgateway-79d56c9f58-sd8xb      1/1     Running     0          17m
+istio-galley-7f8b95bff6-9q8pk             1/1     Running     0          21m
+istio-grafana-post-install-1.4.0-m7lnb    0/1     Completed   0          21m
+istio-ingressgateway-75d6d5fd99-m2jnf     1/1     Running     0          21m
+istio-init-crd-10-1.4.0-7fh25             0/1     Completed   0          26m
+istio-init-crd-11-1.4.0-jbcpd             0/1     Completed   0          26m
+istio-init-crd-14-1.4.0-v7rkw             0/1     Completed   0          26m
+istio-pilot-785bc88559-jjzvl              2/2     Running     3          20m
+istio-policy-6ddfd68f86-shj5l             2/2     Running     6          20m
+istio-security-post-install-1.4.0-96bs5   0/1     Completed   0          21m
+istio-sidecar-injector-6c9d6<span class="hljs-built_in">cd</span>87c-x586r   1/1     Running     0          20m
+istio-telemetry-598988779b-4zst5          2/2     Running     7          20m
+istio-tracing-795c9c64c4-8wdns            1/1     Running     0          20m
+kiali-7d4cf866cc-qmkc6                    1/1     Running     0          21m
+prometheus-8685f659f-xmvlp                1/1     Running     0          20m
+</code></pre>
+<p>&#x5982;&#x679C; kubernetes &#x7528;&#x7684; minikube&#xFF0C;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x67E5;&#x770B; istio &#x7684;&#x670D;&#x52A1;&#xFF1A;</p>
+<pre><code class="lang-sh">$ ./minkube service -n istio-system list
+|--------------|------------------------|--------------------------------|
+|  NAMESPACE   |          NAME          |              URL               |
+|--------------|------------------------|--------------------------------|
+| istio-system | grafana                | No node port                   |
+| istio-system | istio-citadel          | No node port                   |
+| istio-system | istio-egressgateway    | No node port                   |
+| istio-system | istio-galley           | No node port                   |
+| istio-system | istio-ingressgateway   | http://192.168.99.100:30506    |
+|              |                        | http://192.168.99.100:31380    |
+|              |                        | http://192.168.99.100:31390    |
+|              |                        | http://192.168.99.100:31400    |
+|              |                        | http://192.168.99.100:31976    |
+|              |                        | http://192.168.99.100:31433    |
+|              |                        | http://192.168.99.100:32546    |
+|              |                        | http://192.168.99.100:32230    |
+|              |                        | http://192.168.99.100:30693    |
+| istio-system | istio-pilot            | No node port                   |
+| istio-system | istio-policy           | No node port                   |
+| istio-system | istio-sidecar-injector | No node port                   |
+| istio-system | istio-telemetry        | No node port                   |
+| istio-system | jaeger-agent           | No node port                   |
+| istio-system | jaeger-collector       | No node port                   |
+| istio-system | jaeger-query           | No node port                   |
+| istio-system | kiali                  | No node port                   |
+| istio-system | prometheus             | No node port                   |
+| istio-system | tracing                | No node port                   |
+| istio-system | zipkin                 | No node port                   |
+|--------------|------------------------|--------------------------------|
+</code></pre>
+<p>&#x5982;&#x679C;&#x4E4B;&#x524D;&#x90E8;&#x7F72;&#x6709;&#x4F7F;&#x7528; istio &#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x91CD;&#x542F;&#xFF1A;</p>
+<pre><code class="lang-sh">$ kubectl rollout restart deployment --namespace default
+</code></pre>
+<h2 id="istio-125-&#x90E8;&#x7F72;">istio 1.2.5 &#x90E8;&#x7F72;</h2>
+<p>&#x8FD9;&#x91CC;&#x4ECB;&#x7ECD; istio demo &#x7684;&#x90E8;&#x7F72;&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x90E8;&#x7F72;&#x7684; istio &#x4E0D;&#x80FD;&#x7528;&#x4E8E;&#x751F;&#x4EA7;&#xFF0C;&#x53EA;&#x7528;&#x6765;&#x4E86;&#x89E3; istio &#x7684;&#x7528;&#x6CD5;&#x548C;&#x7279;&#x6027;&#xFF0C;&#x53C2;&#x8003; <a href="https://istio.io/docs/setup/kubernetes/install/kubernetes/" title="Quick Start Evaluation Install" target="_blank">Quick Start Evaluation Install</a>&#x3002;</p>
 <p>&#x8FD9;&#x91CC;&#x4F1A;&#x4F7F;&#x7528;&#x524D;&#x9762;&#x4E0B;&#x8F7D; istio &#x7684;&#x90E8;&#x7F72;&#x6587;&#x4EF6;&#xFF08;&#x89C1; <a href="install.html#&#x4E0B;&#x8F7D;-istio">&#x4E0B;&#x8F7D; istio</a>&#xFF09;&#x3002;</p>
-<h2 id="&#x521B;&#x5EFA;-istio-&#x7684;-crd">&#x521B;&#x5EFA; istio &#x7684; crd</h2>
+<h3 id="&#x521B;&#x5EFA;-istio-&#x7684;-crd">&#x521B;&#x5EFA; istio &#x7684; crd</h3>
 <p>Istio &#x4F7F;&#x7528;&#x4E86;&#x5927;&#x91CF;&#x7684; CRD&#xFF0C;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x5728; kubernetes &#x96C6;&#x7FA4;&#x4E2D;&#x521B;&#x5EFA;&#x8FD9;&#x4E9B; CRD&#xFF1A;</p>
 <pre><code class="lang-sh">$ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> install/kubernetes/helm/istio-init/files/crd*yaml; <span class="hljs-keyword">do</span> kubectl apply <span class="hljs-_">-f</span> <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span>
 customresourcedefinition.apiextensions.k8s.io/virtualservices.networking.istio.io created
@@ -2491,7 +2640,7 @@ customresourcedefinition.apiextensions.k8s.io/certificates.certmanager.k8s.io cr
 customresourcedefinition.apiextensions.k8s.io/orders.certmanager.k8s.io created
 customresourcedefinition.apiextensions.k8s.io/challenges.certmanager.k8s.io created
 </code></pre>
-<h2 id="&#x90E8;&#x7F72;-istio">&#x90E8;&#x7F72; istio</h2>
+<h3 id="&#x90E8;&#x7F72;-istio">&#x90E8;&#x7F72; istio</h3>
 <p>&#x8FD9;&#x91CC;&#x7528;&#x5230;&#x7684; istio-demo.yaml/istio-demo-auth.yaml&#xFF0C;istio &#x9879;&#x76EE;&#x4EE3;&#x7801;&#x662F;&#x6CA1;&#x6709;&#x7684;&#xFF0C;&#x5B83;&#x4EEC;&#x5728; istio &#x7684; release &#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5230; <a href="https://github.com/istio/istio/releases" title="istio/releases" target="_blank">istio/releases</a> &#x9875;&#x9762;&#x4E0B;&#x8F7D;&#x5BF9;&#x5E94;&#x7248;&#x672C;&#x7684; release &#x6587;&#x4EF6;&#xFF1A;</p>
 <pre><code class="lang-sh">$ wget https://github.com/istio/istio/releases/download/1.2.5/istio-1.2.5-linux.tar.gz
 $ tar -xvf istio-1.2.5-linux.tar.gz
@@ -2513,7 +2662,7 @@ configmap/istio-grafana-configuration-dashboards-istio-service-dashboard created
 configmap/istio-grafana-configuration-dashboards-istio-workload-dashboard created
 ....&#x7701;&#x7565;...
 </code></pre>
-<h2 id="&#x90E8;&#x7F72;&#x5B8C;&#x6210;">&#x90E8;&#x7F72;&#x5B8C;&#x6210;</h2>
+<h3 id="&#x90E8;&#x7F72;&#x5B8C;&#x6210;">&#x90E8;&#x7F72;&#x5B8C;&#x6210;</h3>
 <p>&#x5F53; istio-system &#x4E2D;&#x7684;&#x6240;&#x6709; pod &#x90FD;&#x662F; Running &#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x90E8;&#x7F72;&#x5B8C;&#x6210;&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl get pods -n istio-system
 NAME                                      READY   STATUS      RESTARTS   AGE
@@ -2565,9 +2714,9 @@ prometheus-7d7b9f7844-hngc6               1/1     Running     4          32m
 | kube-system   | kube-dns               | No node port                   |
 |---------------|------------------------|--------------------------------|
 </code></pre>
-<h2 id="&#x5378;&#x8F7D;">&#x5378;&#x8F7D;</h2>
+<h3 id="&#x5378;&#x8F7D;">&#x5378;&#x8F7D;</h3>
 <p>&#x53CD;&#x5411;&#x64CD;&#x4F5C;&#x5373;&#x53EF;&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl delete <span class="hljs-_">-f</span> istio-1.2.5/install/kubernetes/istio-demo.yaml
+<pre><code class="lang-sh">$ kubectl delete <span class="hljs-_">-f</span> install/kubernetes/istio-demo.yaml
 $ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> install/kubernetes/helm/istio-init/files/crd*yaml; <span class="hljs-keyword">do</span> kubectl delete <span class="hljs-_">-f</span> <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span>
 </code></pre>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
@@ -2642,7 +2791,7 @@ $ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> i
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"istio 预览版部署","level":"1.8.2","depth":2,"next":{"title":"istio 基本概念","level":"1.8.3","depth":2,"path":"istio/concept.md","ref":"istio/concept.md","articles":[{"title":"Virtual Service","level":"1.8.3.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},{"title":"Destination rule","level":"1.8.3.2","depth":3,"path":"istio/dstrule.md","ref":"istio/dstrule.md","articles":[]},{"title":"Gateway","level":"1.8.3.3","depth":3,"path":"istio/gateway.md","ref":"istio/gateway.md","articles":[]},{"title":"Service Entry","level":"1.8.3.4","depth":3,"path":"istio/entry.md","ref":"istio/entry.md","articles":[]},{"title":"Engress Control","level":"1.8.3.5","depth":3,"path":"istio/egress.md","ref":"istio/egress.md","articles":[]}]},"previous":{"title":"istio 部署环境","level":"1.8.1","depth":2,"path":"istio/install.md","ref":"istio/install.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/demo-install.md","mtime":"2019-11-20T08:23:40.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-20T12:58:49.714Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"istio 预览版部署","level":"1.8.2","depth":2,"next":{"title":"istio 基本概念","level":"1.8.3","depth":2,"path":"istio/concept.md","ref":"istio/concept.md","articles":[{"title":"VirtualService","level":"1.8.3.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},{"title":"DestinationRule","level":"1.8.3.2","depth":3,"path":"istio/dstrule.md","ref":"istio/dstrule.md","articles":[]},{"title":"Gateway","level":"1.8.3.3","depth":3,"path":"istio/gateway.md","ref":"istio/gateway.md","articles":[]},{"title":"ServiceEntry","level":"1.8.3.4","depth":3,"path":"istio/entry.md","ref":"istio/entry.md","articles":[]},{"title":"Engress Control","level":"1.8.3.5","depth":3,"path":"istio/egress.md","ref":"istio/egress.md","articles":[]}]},"previous":{"title":"istio 部署环境","level":"1.8.1","depth":2,"path":"istio/install.md","ref":"istio/install.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/demo-install.md","mtime":"2019-11-22T09:44:29.659Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-22T10:16:27.120Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

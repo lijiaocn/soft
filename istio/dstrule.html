@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Destination rule · 小鸟笔记·李佶澳·影响一万人</title>
+        <title>DestinationRule · 小鸟笔记·李佶澳·影响一万人</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -1819,7 +1819,7 @@ var _hmt = _hmt || [];
                 <a href="vsvc.html">
             
                     
-                    Virtual Service
+                    VirtualService
             
                 </a>
             
@@ -1832,7 +1832,7 @@ var _hmt = _hmt || [];
                 <a href="dstrule.html">
             
                     
-                    Destination rule
+                    DestinationRule
             
                 </a>
             
@@ -1858,7 +1858,7 @@ var _hmt = _hmt || [];
                 <a href="entry.html">
             
                     
-                    Service Entry
+                    ServiceEntry
             
                 </a>
             
@@ -1929,7 +1929,20 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.8.6" data-path="injection.html">
+        <li class="chapter " data-level="1.8.6" data-path="shift.html">
+            
+                <a href="shift.html">
+            
+                    
+                    流量切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="injection.html">
             
                 <a href="injection.html">
             
@@ -1942,7 +1955,46 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.8.7" data-path="operation.html">
+        <li class="chapter " data-level="1.8.8" data-path="timeout.html">
+            
+                <a href="timeout.html">
+            
+                    
+                    超时设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="tpolicy.html">
+            
+                <a href="tpolicy.html">
+            
+                    
+                    流量策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="mirror.html">
+            
+                <a href="mirror.html">
+            
+                    
+                    流量复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="operation.html">
             
                 <a href="operation.html">
             
@@ -2412,7 +2464,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Destination rule</a>
+        <a href=".." >DestinationRule</a>
     </h1>
 </div>
 
@@ -2455,7 +2507,7 @@ var _hmt = _hmt || [];
 </ul>
 <!-- tocstop -->
 <h1 id="istio-&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#xFF1A;-destinationrule">istio &#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#xFF1A; DestinationRule</h1>
-<p><a href="https://istio.io/docs/reference/config/networking/v1alpha3/destination-rule/" title="Destination Rule" target="_blank">Destination Rule</a> &#x662F;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF0C;&#x5728;route &#x89C4;&#x5219;&#x4E4B;&#x540E;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E; nginx &#x4E2D;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;&#x3002;&#x5B83;&#x4F5C;&#x7528;&#x4E8E; VirtualService &#x7684; destination &#x4E2D;&#x7684; host&#x3002;</p>
+<p><a href="https://istio.io/docs/reference/config/networking/v1alpha3/destination-rule/" title="Destination Rule" target="_blank">DestinationRule</a> &#x662F;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF0C;&#x5728;route &#x89C4;&#x5219;&#x4E4B;&#x540E;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E; nginx &#x4E2D;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;&#x3002;&#x5B83;&#x4F5C;&#x7528;&#x4E8E; VirtualService &#x7684; destination &#x4E2D;&#x7684; host&#x3002;</p>
 <h2 id="&#x5C06;-pod-&#x6309;&#x7167;-label-&#x5206;&#x7EC4;&#xFF0C;&#x5206;&#x522B;&#x8BBE;&#x7F6E;&#x8F6C;&#x53D1;&#x7B56;&#x7565;">&#x5C06; Pod &#x6309;&#x7167; label &#x5206;&#x7EC4;&#xFF0C;&#x5206;&#x522B;&#x8BBE;&#x7F6E;&#x8F6C;&#x53D1;&#x7B56;&#x7565;</h2>
 <p>&#x4E0B;&#x9762;&#x7684; DestinationRule &#x4F5C;&#x7528;&#x4E8E;&#x670D;&#x52A1; my-svc&#xFF0C;&#x5F71;&#x54CD;&#x8F6C;&#x53D1;&#x7ED9;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x7684;&#x8BF7;&#x6C42;&#x7684;&#x5206;&#x914D;&#x7B56;&#x7565;&#x3002;</p>
 <p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5B83;&#x8BBE;&#x7F6E;&#x4E86;&#x5168;&#x5C40;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF0C;&#x540C;&#x65F6;&#x5C06; my-svc &#x670D;&#x52A1;&#x7684;&#x5305;&#x542B;&#x7684; pod &#x6309;&#x7167; label &#x5206;&#x6210;&#x4E86;&#x4E09;&#x7EC4;&#xFF0C;&#x5355;&#x72EC;&#x8BBE;&#x7F6E;&#x4E86;&#x6BCF;&#x7EC4;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF1A;</p>
@@ -2591,7 +2643,7 @@ var _hmt = _hmt || [];
 
             
                 
-                <a href="vsvc.html" class="navigation navigation-prev " aria-label="Previous page: Virtual Service">
+                <a href="vsvc.html" class="navigation navigation-prev " aria-label="Previous page: VirtualService">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -2607,7 +2659,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Destination rule","level":"1.8.3.2","depth":3,"next":{"title":"Gateway","level":"1.8.3.3","depth":3,"path":"istio/gateway.md","ref":"istio/gateway.md","articles":[]},"previous":{"title":"Virtual Service","level":"1.8.3.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/dstrule.md","mtime":"2019-11-20T08:23:40.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-20T12:58:49.714Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"DestinationRule","level":"1.8.3.2","depth":3,"next":{"title":"Gateway","level":"1.8.3.3","depth":3,"path":"istio/gateway.md","ref":"istio/gateway.md","articles":[]},"previous":{"title":"VirtualService","level":"1.8.3.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/dstrule.md","mtime":"2019-11-22T09:44:29.660Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-22T10:16:27.120Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
