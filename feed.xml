@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 25 Nov 2019 03:18:43 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 25 Nov 2019 11:14:13 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -40,6 +40,139 @@
             <description><![CDATA[iperf 是一个简单常用的网络传输性能测试工具，分为服务端和客户端，iperf-doc。]]></description>
             <link>https://www.lijiaocn.com/soft/tools/benchmark.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/tools/benchmark.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 使用手册]]></title>
+            <description><![CDATA[了解 istio 的使用方法，学习借鉴 istio 的实现思路。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的部署]]></title>
+            <description><![CDATA[在 Kubernetes 集群中部署 istio 是最方便的，参考 Installing on Kubernetes。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/install.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/install.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 预览版部署]]></title>
+            <description><![CDATA[在 Kubernetes 集群中部署 istio 是最方便的，istio 在快速迭代更新阶段，部署方法也在变，老版本使用的安装方法，对新版本可能不适用，建议经常查看 istio 的 Installation Guides。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/demo-install.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/demo-install.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 操作命令]]></title>
+            <description><![CDATA[istio 的主要操作命令是 istioctl，命令文件位于下载的安装包中：]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/command.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/command.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Istio 的基本概念]]></title>
+            <description><![CDATA[Istio 的规则配置主要围绕下面的概念进行：]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/concept.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/concept.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的基本概念：VirtualService]]></title>
+            <description><![CDATA[VirtualService 是 istio 的核心概念，它包含一组 route ，定义了请求转发规则，参考 VirtualService。 VirtualService 的配置格式如下：]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/vsvc.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/vsvc.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的基本概念： DestinationRule]]></title>
+            <description><![CDATA[DestinationRule 是转发策略，在route 规则之后起作用，相当于 nginx 中的负载均衡策略。它作用于 VirtualService 的 destination 中的 host。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/dstrule.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/dstrule.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的基本概念： Gateways]]></title>
+            <description><![CDATA[Gateways 管理南北向流量，也就是从外部流入网格，和从网格流出到外部的流量。它作用于网格边界的 envoy ，边界 envoy 通常被分成两组：]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/gateway.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/gateway.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的基本概念：ServiceEntry]]></title>
+            <description><![CDATA[ServiceEntry 用来将外部的服务封装成 istio 网格中的服务，为统一管理网格内和网格外的服务提供基础，详情见 Service Entry Detail。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/entry.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/entry.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的流出流量管控]]></title>
+            <description><![CDATA[Engress Control 不是 istio 的基本概念，是一种用法。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/egress.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/egress.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Istio 的应用示例拆解]]></title>
+            <description><![CDATA[Istio 的代码目录和 release 文件中提供多个 应用示例：]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/sample.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/sample.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Istio 的 Bookinfo Application 示例拆解]]></title>
+            <description><![CDATA[Istio 文档中给出了一个 Bookinfo Application 示例，这里拆解它的实现。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/bookinfo.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/bookinfo.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的转发功能使用方法]]></title>
+            <description><![CDATA[示例拆解中的 Bookinfo Application 包含了转发功能，这里简单复述下。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/route.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/route.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的流量切换功能（类似于灰度发布）]]></title>
+            <description><![CDATA[istio 好像没有金丝雀以及国内常说的灰度发布概念，它的 Traffic Shifting 可以实现同样的效果，实现思路是在 VirtualService 中配置多个 destination，通过设置每个 destination 的权重，影响流量的分配。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/shift.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/shift.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 错误注入功能的使用方法]]></title>
+            <description><![CDATA[下面操作在 Bookinfo Application 的基础上进行。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/injection.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/injection.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的请求超时时间设置]]></title>
+            <description><![CDATA[这里的 Request Timeouts 是为到目标服务的请求设置超时时间，如果目标服务的响应时间超过了设置，就回应失败，不在等待。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/timeout.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/timeout.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的流量策略]]></title>
+            <description><![CDATA[istio 的流量策略在 DestinationRule 的 TrafficPolicy 中设置。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/tpolicy.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/tpolicy.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的流量复制功能]]></title>
+            <description><![CDATA[istio 的流量复制在 VirtualService 中设置，istio 1.4.x 开始支持。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/mirror.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/mirror.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Istio 的操作]]></title>
+            <description><![CDATA[istioctl  是 istio 的管理命令，用来调试 istio，或诊断存在的问题。istioctl 管理的是部署在 kubernetes 中的 istio，它通过读取本地 kubeconfig context，获取的 kubernetes 的地址以及操作权限。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/operation.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/operation.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -789,132 +922,6 @@
             <description><![CDATA[04-nginx-lua-module-shared-mem/nginx.conf：]]></description>
             <link>https://www.lijiaocn.com/soft/openresty/common.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/openresty/common.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 使用手册]]></title>
-            <description><![CDATA[了解 istio 的使用方法，学习借鉴 istio 的实现思路。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/index.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 的部署]]></title>
-            <description><![CDATA[在 Kubernetes 集群中部署 istio 是最方便的，参考 Installing on Kubernetes。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/install.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/install.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 预览版部署]]></title>
-            <description><![CDATA[在 Kubernetes 集群中部署 istio 是最方便的，istio 在快速迭代更新阶段，部署方法也在变，老版本使用的安装方法，对新版本可能不适用，建议经常查看 istio 的 Installation Guides。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/demo-install.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/demo-install.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Istio 的基本概念]]></title>
-            <description><![CDATA[Istio 的规则配置主要围绕下面的概念进行：]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/concept.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/concept.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 的基本概念：VirtualService]]></title>
-            <description><![CDATA[VirtualService 是 istio 的核心概念，它包含一组 route ，定义了请求转发规则，参考 VirtualService。 VirtualService 的配置格式如下：]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/vsvc.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/vsvc.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 的基本概念： DestinationRule]]></title>
-            <description><![CDATA[DestinationRule 是转发策略，在route 规则之后起作用，相当于 nginx 中的负载均衡策略。它作用于 VirtualService 的 destination 中的 host。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/dstrule.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/dstrule.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 的基本概念： Gateways]]></title>
-            <description><![CDATA[Gateways 管理南北向流量，也就是从外部流入网格，和从网格流出到外部的流量。它作用于网格边界的 envoy ，边界 envoy 通常被分成两组：]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/gateway.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/gateway.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 的基本概念：ServiceEntry]]></title>
-            <description><![CDATA[ServiceEntry 用来将外部的服务封装成 istio 网格中的服务，为统一管理网格内和网格外的服务提供基础，详情见 Service Entry Detail。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/entry.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/entry.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 的流出流量管控]]></title>
-            <description><![CDATA[Engress Control 不是 istio 的基本概念，是一种用法。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/egress.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/egress.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Istio 的应用示例拆解]]></title>
-            <description><![CDATA[Istio 的代码目录和 release 文件中提供多个 应用示例：]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/sample.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/sample.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Istio 的 Bookinfo Application 示例拆解]]></title>
-            <description><![CDATA[Istio 文档中给出了一个 Bookinfo Application 示例，这里拆解它的实现。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/bookinfo.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/bookinfo.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 的转发功能使用方法]]></title>
-            <description><![CDATA[示例拆解中的 Bookinfo Application 包含了转发功能，这里简单复述下。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/route.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/route.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 的流量切换功能（类似于灰度发布）]]></title>
-            <description><![CDATA[istio 好像没有金丝雀以及国内常说的灰度发布概念，它的 Traffic Shifting 可以实现同样的效果，实现思路是在 VirtualService 中配置多个 destination，通过设置每个 destination 的权重，影响流量的分配。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/shift.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/shift.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 错误注入功能的使用方法]]></title>
-            <description><![CDATA[下面操作在 Bookinfo Application 的基础上进行。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/injection.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/injection.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 的请求超时时间设置]]></title>
-            <description><![CDATA[这里的 Request Timeouts 是为到目标服务的请求设置超时时间，如果目标服务的响应时间超过了设置，就回应失败，不在等待。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/timeout.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/timeout.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 的流量策略]]></title>
-            <description><![CDATA[istio 的流量策略在 DestinationRule 的 TrafficPolicy 中设置。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/tpolicy.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/tpolicy.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[istio 的流量复制功能]]></title>
-            <description><![CDATA[istio 的流量复制在 VirtualService 中设置，istio 1.4.x 开始支持。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/mirror.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/mirror.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Istio 的操作]]></title>
-            <description><![CDATA[istioctl  是 istio 的管理命令，用来调试 istio，或诊断存在的问题。istioctl 管理的是部署在 kubernetes 中的 istio，它通过读取本地 kubeconfig context，获取的 kubernetes 的地址以及操作权限。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/operation.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/operation.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
