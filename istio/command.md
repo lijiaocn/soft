@@ -54,7 +54,7 @@ $ ./istioctl dashboard  controlz istio-pilot-785bc88559-jjzvl -n istio-system
 
 ![istio configz 的页面](../img/istio/configz.png)
 
-### envoy，指定 envoy 的管理页面
+### envoy，打开指定 envoy 的管理页面
 
 istio 为网格内的每个容器注入了一个 envoy 容器，同时提供打开每个 envoy 的 admin 页面方法：
 
