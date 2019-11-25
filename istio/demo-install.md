@@ -1,18 +1,18 @@
 <!-- toc -->
 # istio 预览版部署
 
-在 Kubernetes 集群中部署 istio 是最方便的，istio 在快速迭代更新阶段，部署方法也在变，老版本使用的安装方法，对新版本可能不适用，建议经常查看 istio 的 [Installation Guides][9]。 
+在 kubernetes 集群中部署 istio 最方便，istio 在快速迭代更新阶段，部署方法也在变，老版本使用的安装方法，对新版本可能不适用，建议经常查看 istio 的 [Installation Guides][9]。 
 
-这篇文档最早使用 yaml 文件部署的 istio 1.2.5，后来用 [helm 的方式][10] 重新部署了 istio 1.4.0，没有采用 [istioctl 的方式][11]，是因为 1.4.0 的 [istioctl upgrade][7] 还是试验特性，不想踩后续版本升级的坑。
+这篇文档最早使用 yaml 文件部署的 istio 1.2.5，后来用 [helm 的方式][10] 重新部署了 istio 1.4.0，没有采用 [istioctl的方式][11]，是因为 1.4.0 的 [istioctl upgrade][7] 还在试验特性，不想踩后续版本升级的坑。
 
 ## 版本升级
 
-istio 提供了 [几种升级方法][6]：
+istio 提供了 [几种][6] 升级方法：
 
-* 通过 [kubernetes rolling update][8] 升级
-* 试验特性 [istioctl upgrade][7] （1.3.3 开始支持）
+* [通过 kubernetes rolling update 升级][8] 
+* [通过 istioctl upgrade][7] （试验阶段，1.3.3 开始支持）
 
-[kubernetes rolling update][8] 现在只支持 helm 的方式，详细操作过程见 [Upgrade using Helm][8]。
+[kubernetes rolling update][8] 现在只支持 helm 的方式，详细操作过程见 [upgrade using Helm][8]。
 
 ## istio 1.4.0 部署——Helm 方式
 

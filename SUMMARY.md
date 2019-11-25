@@ -9,6 +9,7 @@
   * [istio 部署环境准备](istio/install.md)
   * [istio 预览版部署](istio/demo-install.md)
   * [istio 操作命令](istio/command.md)
+  * [istio 配置参数](istio/config.md)
   * [istio 基本概念](istio/concept.md)
     * [VirtualService](istio/vsvc.md)
     * [DestinationRule](istio/dstrule.md)
