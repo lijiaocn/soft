@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 25 Nov 2019 11:28:25 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 25 Nov 2019 11:50:24 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -58,7 +58,7 @@
         </item>
         <item>
             <title><![CDATA[istio 预览版部署]]></title>
-            <description><![CDATA[在 Kubernetes 集群中部署 istio 是最方便的，istio 在快速迭代更新阶段，部署方法也在变，老版本使用的安装方法，对新版本可能不适用，建议经常查看 istio 的 Installation Guides。]]></description>
+            <description><![CDATA[在 kubernetes 集群中部署 istio 最方便，istio 在快速迭代更新阶段，部署方法也在变，老版本使用的安装方法，对新版本可能不适用，建议经常查看 istio 的 Installation Guides。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/demo-install.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/demo-install.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -68,6 +68,13 @@
             <description><![CDATA[istio 的主要操作命令是 istioctl，命令文件位于下载的安装包中：]]></description>
             <link>https://www.lijiaocn.com/soft/istio/command.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/command.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的配置参数]]></title>
+            <description><![CDATA[istio 的配置参数非常非常多！]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/config.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/config.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
