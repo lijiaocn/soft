@@ -1,13 +1,13 @@
 <!-- toc -->
 # HyperLedger Fabric：单机极简部署
 
-这是 Fabric 文档 [Building Your First Network][2] 中提供的做法。Fabric 的安装文件中提供了 一个名为 “byfn.sh” 的脚本 ，这个脚本用 Docker 在本地搭建了一套 Fabric。
+这是 Fabric 文档 [Building Your First Network][2] 中提供的做法。Fabric 的示例文件中提供了 一个名为 “byfn.sh” 的脚本 ，这个脚本用 Docker 在本地搭建了一套 Fabric。
 
 用 byfn 搭建的 Fabric 非常不实用，只适合用来学习，但是我发现很多人起步时都采用的这种方式。并且当我们只需要一个简单的 Fabric 环境进行简单验证时，用 byfn 创建比较方便。
 
-如果要实际应用必须采用多节点的方式部署，多节点部署可以先参考历史文章：
+实际应用必须采用多节点的方式部署，多节点部署可以参考历史文章：
 
-*[【视频】超级账本HyperLedger：Fabric的全手动、多服务器部署教程](https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/04/26/hyperledger-fabric-deploy.html)
+* [【视频】超级账本HyperLedger：Fabric的全手动、多服务器部署教程](https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/04/26/hyperledger-fabric-deploy.html)
 
 ## 准备依赖的软件
 
