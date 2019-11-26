@@ -2625,15 +2625,15 @@ var _hmt = _hmt || [];
 <h1 id="hyperledger-fabric-&#x533A;&#x5757;&#x94FE;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x90E8;&#x7F72;&#x65B9;&#x6CD5;">HyperLedger Fabric &#x533A;&#x5757;&#x94FE;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x90E8;&#x7F72;&#x65B9;&#x6CD5;</h1>
 <p><a href="https://github.com/hyperledger/blockchain-explorer" title="blockchain-explorer" target="_blank">blockchain-explorer</a> &#x662F;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x9879;&#x76EE;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x67E5;&#x770B; fabric &#x5185;&#x7684;&#x6210;&#x5458;&#x548C;&#x533A;&#x5757;&#x3002;</p>
 <h2 id="&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x7684;&#x8F6F;&#x4EF6;">&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x7684;&#x8F6F;&#x4EF6;</h2>
-<p>explorer &#x4F9D;&#x8D56; nodejs 8.11&#xFF08;&#x9AD8;&#x7248;&#x672C;&#x7684;&#x4E0D;&#x652F;&#x6301;&#xFF09;&#x3001;PostgreSQL 9.5&#x548C;&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#x3001;jq &#x547D;&#x4EE4;&#x3002;</p>
-<p>&#x4E0B;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x662F;&#x5728; mac &#x4E0A;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x9664;&#x4E86;&#x4F9D;&#x8D56;&#x8F6F;&#x4EF6;&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x5F0F;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x64CD;&#x4F5C;&#x548C;&#x5728; linux &#x4E0A;&#x64CD;&#x4F5C;&#x76F8;&#x540C;&#xFF1A;</p>
+<p>explorer &#x4F9D;&#x8D56; nodejs 8.11&#xFF08;&#x9AD8;&#x7248;&#x672C;&#x7684;&#x4E0D;&#x652F;&#x6301;&#xFF09;&#x3001;PostgreSQL 9.5 &#x548C;&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#x3001;jq &#x547D;&#x4EE4;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x662F;&#x5728; Mac &#x4E0A;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x9664;&#x4E86;&#x4F9D;&#x8D56;&#x8F6F;&#x4EF6;&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x5F0F;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x64CD;&#x4F5C;&#x548C;&#x5728; linux &#x4E0A;&#x64CD;&#x4F5C;&#x76F8;&#x540C;&#xFF1A;</p>
 <p><a href="https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/04/26/hyperledger-explorer.html" title="&#x8D85;&#x7EA7;&#x8D26;&#x672C;HyperLedger&#xFF1A;Explorer&#x5B89;&#x88C5;&#x4F7F;&#x7528;" target="_blank">&#x8D85;&#x7EA7;&#x8D26;&#x672C;HyperLedger&#xFF1A;Explorer&#x5B89;&#x88C5;&#x4F7F;&#x7528;</a></p>
 <h3 id="postgresql-&#x5B89;&#x88C5;&#x8BBE;&#x7F6E;">PostgreSQL &#x5B89;&#x88C5;&#x8BBE;&#x7F6E;</h3>
 <p>&#x5982;&#x679C;&#x5BF9; PostgreSQL &#x5B8C;&#x5168;&#x4E0D;&#x4E86;&#x89E3;&#xFF0C;&#x53EF;&#x4EE5;&#x5148;&#x5B66;&#x4E60;&#xFF1A;</p>
 <ul>
 <li><a href="https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2017/08/31/postgre-usage.html" title="PostgresSQL&#x6570;&#x636E;&#x5E93;&#x7684;&#x57FA;&#x672C;&#x4F7F;&#x7528;&#x2014;&#x2014;&#x65B0;&#x624B;&#x5165;&#x95E8;" target="_blank">PostgresSQL&#x6570;&#x636E;&#x5E93;&#x7684;&#x57FA;&#x672C;&#x4F7F;&#x7528;&#x2014;&#x2014;&#x65B0;&#x624B;&#x5165;&#x95E8;</a></li>
 </ul>
-<p>&#x8FD9;&#x91CC;&#x4E3A;&#x4E86;&#x5C4F;&#x853D;&#x4E0D;&#x540C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x5DEE;&#x5F02;&#xFF0C;&#x7528; docker &#x542F;&#x52A8; PostgreSQL &#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x62C9;&#x53D6; Docker &#x955C;&#x50CF;&#xFF0C;<a href="demo.html">&#x5355;&#x673A;&#x6781;&#x7B80;&#x90E8;&#x7F72;</a> &#x4E2D;&#x63D0;&#x5230;&#x8FC7; docker &#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x548C;&#x62C9;&#x53D6;&#x955C;&#x50CF;&#x6162;&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
+<p>&#x8FD9;&#x91CC;&#x4E3A;&#x4E86;&#x5C4F;&#x853D;&#x4E0D;&#x540C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x5DEE;&#x5F02;&#xFF0C;&#x7528; docker &#x542F;&#x52A8; PostgreSQL &#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4F1A;&#x62C9;&#x53D6; Docker &#x955C;&#x50CF;&#xFF0C;<a href="demo.html">&#x5355;&#x673A;&#x6781;&#x7B80;&#x90E8;&#x7F72;</a> &#x4E2D;&#x63D0;&#x5230;&#x8FC7; docker &#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x548C;&#x62C9;&#x53D6;&#x955C;&#x50CF;&#x6162;&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
 <pre><code class="lang-sh">$ docker run -idt \
     <span class="hljs-_">-e</span> POSTGRES_USER=<span class="hljs-string">&quot;postgres&quot;</span> \
     <span class="hljs-_">-e</span> POSTGRES_PASSWORD=<span class="hljs-string">&quot;password&quot;</span> \
@@ -2656,21 +2656,20 @@ Type <span class="hljs-string">&quot;help&quot;</span> <span class="hljs-keyword
 postgres=<span class="hljs-comment">#</span>
 </code></pre>
 <h2 id="&#x5B89;&#x88C5;-nodejs">&#x5B89;&#x88C5; nodejs</h2>
-<p>exploere &#x8981;&#x6C42; nodejs &#x7684;&#x7248;&#x672C;&#x4E0D;&#x80FD;&#x592A;&#x9AD8;&#xFF0C;&#x5FC5;&#x987B;&#x662F; 8.x &#x7248;&#x672C;&#x3002;</p>
+<p>explorer &#x8981;&#x6C42; nodejs &#x7684;&#x7248;&#x672C;&#x4E0D;&#x80FD;&#x592A;&#x9AD8;&#xFF0C;&#x5FC5;&#x987B;&#x662F; 8.x &#x7248;&#x672C;&#x3002;</p>
 <p>&#x5728; CentOS &#x4E0A;&#x76F4;&#x63A5;&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#xFF1A;</p>
-<pre><code class="lang-sh">yum erase nodejs
-wget https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz
-tar -xvf node-v8.11.3-linux-x64.tar.xz
-<span class="hljs-built_in">cd</span> node-v8.11.3-linux-x64
-cp -rf * /usr/
+<pre><code class="lang-sh">$ yum erase nodejs
+$ wget https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz
+$ tar -xvf node-v8.11.3-linux-x64.tar.xz
+$ <span class="hljs-built_in">cd</span> node-v8.11.3-linux-x64
+$ cp -rf * /usr/
 </code></pre>
-<p>&#x5728; Mac &#x4E0A;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x5B89;&#x88C5; node 8.11.3&#xFF1A;</p>
-<pre><code class="lang-sh">wget https://nodejs.org/dist/v8.11.3/node-v8.11.3.pkg
-open node-v8.11.3.pkg
+<p>&#x5728; Mac &#x4E0A;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x5B89;&#x88C5; node 8.x&#xFF1A;</p>
+<pre><code class="lang-sh">$ brew install node@8
 </code></pre>
-<p>&#x786E;&#x4FDD; node &#x7684;&#x7248;&#x672C;&#x662F; 8.11.3&#xFF1A;</p>
+<p>&#x786E;&#x4FDD; node &#x7684;&#x7248;&#x672C;&#x662F; 8.x&#xFF0C;&#x7248;&#x672C;&#x592A;&#x9AD8;&#x548C;&#x592A;&#x4F4E;&#x90FD;&#x4F1A;&#x51FA;&#x73B0;&#x5947;&#x8469;&#x95EE;&#x9898;&#xFF01;</p>
 <pre><code class="lang-sh">$ node --version
-v8.11.3
+v8.16.3            <span class="hljs-comment"># &#x5728; Mac &#x7528; 8.16.3 &#x901A;&#x8FC7;</span>
 </code></pre>
 <blockquote>
 <p>&#x7279;&#x522B;&#x6CE8;&#x610F;&#xFF1A;node &#x7248;&#x672C;&#x8FC7;&#x9AD8;&#x6216;&#x8FC7;&#x4F4E;&#xFF0C;&#x90FD;&#x4F1A;&#x51FA;&#x73B0;&#x5404;&#x79CD;&#x5947;&#x8469;&#x95EE;&#x9898;&#xFF01;</p>
@@ -2723,7 +2722,7 @@ psql: could not connect to server: No such file or directory
     connections on Unix domain socket <span class="hljs-string">&quot;/tmp/.s.PGSQL.5432&quot;</span>?
 </code></pre>
 <p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x7684; postgre &#x662F;&#x7528; docker &#x542F;&#x52A8;&#x7684;&#xFF0C;&#x8BBF;&#x95EE;&#x65F6;&#x9700;&#x8981;&#x6307;&#x5B9A; IP &#x5730;&#x5740;&#x548C;&#x7528;&#x6237;&#xFF0C;&#x9700;&#x8981;&#x4FEE;&#x6539; createdb.sh&#x3002;</p>
-<p>&#x5728; Mac &#x4E0A;&#xFF1A;</p>
+<p>&#x5728; Mac &#x4E0A;&#xFF0C;&#x628A;&#x8FD9;&#x4E24;&#x884C;&#xFF1A;</p>
 <pre><code class="lang-sh">darwin*) psql postgres -v dbname=<span class="hljs-variable">$DATABASE</span> -v user=<span class="hljs-variable">$USER</span> -v passwd=<span class="hljs-variable">$PASSWD</span> <span class="hljs-_">-f</span> ./explorerpg.sql ;
 psql postgres -v dbname=<span class="hljs-variable">$DATABASE</span> -v user=<span class="hljs-variable">$USER</span> -v passwd=<span class="hljs-variable">$PASSWD</span> <span class="hljs-_">-f</span> ./updatepg.sql ;;
 </code></pre>
@@ -2736,7 +2735,7 @@ psql postgres -h 127.0.0.1 -U postgres -v dbname=<span class="hljs-variable">$DA
 psql postgres -h 127.0.0.1 -U postgres -v dbname=<span class="hljs-variable">$DATABASE</span> -v user=<span class="hljs-variable">$USER</span> -v passwd=<span class="hljs-variable">$PASSWD</span> <span class="hljs-_">-f</span> ./updatepg.sql ;;
 </code></pre>
 <p>&#x4FEE;&#x6539;&#x540E;&#x91CD;&#x65B0;&#x6267;&#x884C; ./createdb.sh&#xFF0C; &#x8FD9;&#x65F6;&#x5019;&#x4F1A;&#x63D0;&#x793A;&#x8F93;&#x5165;&#x7684;&#x5BC6;&#x7801;&#xFF0C;&#x5BC6;&#x7801;&#x5C31;&#x662F;&#x524D;&#x9762;&#x7528; docker &#x542F;&#x52A8;&#x6570;&#x636E;&#x5E93;&#x65F6;&#x8BBE;&#x7F6E;&#x7684; password&#x3002;
-&#x8F93;&#x51FA;&#x7684;&#x6700;&#x540E;&#x4E00;&#x884C;&#x4E3A;&#x4E0B;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x65F6;&#xFF0C;&#x6570;&#x636E;&#x8BBE;&#x7F6E;&#x6210;&#x529F;&#xFF1A;</p>
+&#x8F93;&#x51FA;&#x7684;&#x6700;&#x540E;&#x4E00;&#x884C;&#x4E3A;&#x4E0B;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x65F6;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x521D;&#x59CB;&#x5316;&#x6210;&#x529F;&#xFF1A;</p>
 <pre><code class="lang-sh">You are now connected to database <span class="hljs-string">&quot;fabricexplorer&quot;</span> as user <span class="hljs-string">&quot;postgres&quot;</span>.
 </code></pre>
 <h2 id="&#x8BBE;&#x7F6E;-fabric-&#x5BF9;&#x63A5;&#x6587;&#x4EF6;">&#x8BBE;&#x7F6E; fabric &#x5BF9;&#x63A5;&#x6587;&#x4EF6;</h2>
@@ -2744,7 +2743,7 @@ psql postgres -h 127.0.0.1 -U postgres -v dbname=<span class="hljs-variable">$DA
 <pre><code class="lang-sh">$ ls app/platform/fabric/config.json
 app/platform/fabric/config.json
 </code></pre>
-<p>&#x67E5;&#x770B; config.json &#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x9488;&#x5BF9;&#x6B63;&#x597D;&#x662F; <a href="demo.html">&#x4E0A;&#x4E00;&#x8282;</a> &#x4E2D;&#x521B;&#x5EFA;&#x7684; first-network&#xFF1A;</p>
+<p>&#x67E5;&#x770B; config.json &#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x9488;&#x5BF9;&#x7684;&#x6B63;&#x597D;&#x662F; <a href="demo.html">&#x4E0A;&#x4E00;&#x8282;</a> &#x4E2D;&#x521B;&#x5EFA;&#x7684; first-network&#xFF1A;</p>
 <pre><code class="lang-sh">$ cat app/platform/fabric/config.json |grep peer
           <span class="hljs-string">&quot;peers&quot;</span>: {
             <span class="hljs-string">&quot;peer0.org1.example.com&quot;</span>: {}
@@ -2760,10 +2759,10 @@ app/platform/fabric/config.json
         <span class="hljs-string">&quot;peer0.org2.example.com&quot;</span>: {
         <span class="hljs-string">&quot;peer1.org2.example.com&quot;</span>: {
 </code></pre>
-<p>&#x4F46;&#x662F; config.json &#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; &#x201C;/fabric-path/fabric-samples....&quot;&#xFF0C;&#x548C;&#x8FD9;&#x91CC;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E0D;&#x540C;&#xFF0C;&#x9700;&#x8981;&#x5168;&#x90E8;&#x4FEE;&#x6539;&#x4E3A;&#xFF1A;</p>
+<p>&#x4F46;&#x662F; config.json &#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; &#x201C;/fabric-path/fabric....&quot;&#xFF0C;&#x548C;&#x8FD9;&#x91CC;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E0D;&#x540C;&#xFF0C;&#x9700;&#x8981;&#x5168;&#x90E8;&#x4FEE;&#x6539;&#x4E3A;&#xFF1A;</p>
 <pre><code class="lang-sh"><span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;/Users/lijiao/hyperledger-fabric-1.4.4/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore&quot;</span>
 </code></pre>
-<p>&#x6CE8;&#x610F;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x8DEF;&#x5F84;&#x4E0D;&#x80FD;&#x662F; <code>~</code>&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x662F; /Users/lijiao&#xFF0C;&#x8BB0;&#x5F97;&#x6362;&#x6210;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x4E00;&#x6B21;&#x4FEE;&#x6539;&#x5B8C;&#x6210;&#xFF0C;&#xFF1A;</p>
+<p>&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x8DEF;&#x5F84;&#x4E0D;&#x80FD;&#x662F; <code>~</code>&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x662F; /Users/lijiao&#xFF0C;&#x8BB0;&#x5F97;&#x6362;&#x6210;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x4E00;&#x6B21;&#x4FEE;&#x6539;&#x5168;&#x90E8;&#xFF1A;</p>
 <pre><code class="lang-sh"><span class="hljs-comment"># Mac &#x4E0A;&#x6267;&#x884C;&#xFF1A;</span>
 $ sed -i <span class="hljs-string">&quot;&quot;</span> <span class="hljs-_">-e</span> <span class="hljs-string">&quot;s#/fabric-path#/Users/lijiao/hyperledger-fabric-1.4.4#&quot;</span> app/platform/fabric/config.json
 <span class="hljs-comment"># Linux &#x4E0A;&#x6267;&#x884C;&#xFF1A;</span>
@@ -2771,7 +2770,7 @@ $ sed -i <span class="hljs-_">-e</span> <span class="hljs-string">&quot;s#/fabri
 </code></pre>
 <h2 id="&#x7F16;&#x8BD1;&#x542F;&#x52A8;-blockchain-explorer">&#x7F16;&#x8BD1;&#x542F;&#x52A8; blockchain-explorer</h2>
 <p>&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x5305;&#xFF0C;&#x6784;&#x5EFA; blockchain-explorer&#xFF1A;</p>
-<pre><code class="lang-sh">$ npm config <span class="hljs-built_in">set</span> registry https://registry.npm.taobao.org  <span class="hljs-comment"># &#x6DFB;&#x52A0;&#x6DD8;&#x5B9D;&#x955C;&#x50CF;&#x6E90;&#x5934;&#xFF0C;&#x52A0;&#x5FEB;&#x901F;&#x5EA6;</span>
+<pre><code class="lang-sh">$ npm config <span class="hljs-built_in">set</span> registry https://registry.npm.taobao.org  <span class="hljs-comment"># &#x6DFB;&#x52A0;&#x6DD8;&#x5B9D;&#x955C;&#x50CF;&#x6E90;&#xFF0C;&#x52A0;&#x5FEB;&#x901F;&#x5EA6;</span>
 $ <span class="hljs-built_in">cd</span> blockchain-explorer
 $ npm install
 $ <span class="hljs-built_in">cd</span> client   <span class="hljs-comment"># &#x8FDB;&#x5165; client &#x76EE;&#x5F55;</span>
@@ -2787,7 +2786,7 @@ $ node ./main.js
 write_set size &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; :  0.5014553070068359 MB
 Insert sql is INSERT INTO transactions  ( &quot;blockid&quot;,&quot;txhash&quot;,&quot;createdt&quot;,&quot;chaincodename&quot;,&quot;chaincode_id&quot;,&quot;status&quot;,&quot;creator_msp_id&quot;,&quot;endorser_msp_id&quot;,&quot;type&quot;,&quot;read_set&quot;,&quot;write_set&quot;,&quot;channel_genesis_hash&quot;,&quot;validation_code&quot;,&quot;envelope_signature&quot;,&quot;payload_extension&quot;,&quot;creator_nonce&quot;,&quot;chaincode_proposal_input&quot;,&quot;endorser_signature&quot;,&quot;creator_id_bytes&quot;,&quot;payload_proposal_hash&quot;,&quot;endorser_id_bytes&quot; ) VALUES( $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21  ) RETURNING *;
 ... &#x7701;&#x7565; ...
-</code></pre><p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x6253;&#x5F00; 127.0.0.1:8080&#xFF0C;&#x76D1;&#x542C;&#x5730;&#x5740;&#x5728; appconfig.json &#x4E2D;&#x914D;&#x7F6E;&#xFF1A;</p>
+</code></pre><p>&#x76D1;&#x542C;&#x5730;&#x5740;&#x5728; appconfig.json &#x4E2D;&#x914D;&#x7F6E;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F; 127.0.0.1:8080&#xFF0C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x6253;&#x5F00;&#xFF1A;</p>
 <p><img src="../img/fabric/explorer.png" alt="Fabric &#x533A;&#x5757;&#x94FE;&#x6D4F;&#x89C8;&#x5668;&#x9875;&#x9762;"></p>
 <h2 id="&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x9519;&#x8BEF;">&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x9519;&#x8BEF;</h2>
 <h3 id="&#x6570;&#x636E;&#x5E93;&#x5BC6;&#x7801;&#x4E0D;&#x5BF9;">&#x6570;&#x636E;&#x5E93;&#x5BC6;&#x7801;&#x4E0D;&#x5BF9;</h3>
@@ -2804,7 +2803,7 @@ error when connecting to db: { error: password authentication failed <span class
     at Socket.Readable.push (_stream_readable.js:208:10)
     at TCP.onread (net.js:601:20)
 </code></pre>
-<p>&#x6CE8;&#x610F; exploer &#x4F18;&#x5148;&#x4ECE;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8D26;&#x53F7;&#x5BC6;&#x7801;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x8D26;&#x53F7;&#x5BC6;&#x7801;&#x662F;&#x6B63;&#x786E;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x7684;&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x4E5F;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x7528;&#x4E0B;&#x9762;&#x547D;&#x4EE4;&#x6E05;&#x7A7A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF1A;</p>
+<p>exploer &#x4F18;&#x5148;&#x4ECE;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8D26;&#x53F7;&#x5BC6;&#x7801;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x8D26;&#x53F7;&#x5BC6;&#x7801;&#x662F;&#x6B63;&#x786E;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x7684;&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x4E5F;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x7528;&#x4E0B;&#x9762;&#x547D;&#x4EE4;&#x6E05;&#x7A7A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF1A;</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">unset</span> DATABASE_HOST
 <span class="hljs-built_in">unset</span> DATABASE_PORT
 <span class="hljs-built_in">unset</span> DATABASE_DATABASE
@@ -2812,13 +2811,13 @@ error when connecting to db: { error: password authentication failed <span class
 <span class="hljs-built_in">unset</span> DATABASE_PASSWD
 </code></pre>
 <h3 id="faric-&#x7684;&#x5BF9;&#x63A5;&#x6587;&#x4EF6;&#x914D;&#x7F6E;&#x9519;&#x8BEF;">Faric &#x7684;&#x5BF9;&#x63A5;&#x6587;&#x4EF6;&#x914D;&#x7F6E;&#x9519;&#x8BEF;</h3>
-<p>node ./main.js  &#x6253;&#x5370;&#x4E0B;&#x9762;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x7136;&#x540E;&#x81EA;&#x52A8;&#x9000;&#x51FA;&#xFF1A;</p>
+<p>&#x5982;&#x679C; app/platform/fabric/config.json &#x4E2D;&#x7684; path &#x8DEF;&#x5F84;&#x914D;&#x7F6E;&#x9519;&#x4E86;&#xFF0C;node ./main.js  &#x6253;&#x5370;&#x4E0B;&#x9762;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x7136;&#x540E;&#x81EA;&#x52A8;&#x9000;&#x51FA;&#xFF1A;</p>
 <pre><code class="lang-sh">**************************************************************************************
 Error : Failed to connect client peer, please check the configuration and peer status
 Info :  Explorer will <span class="hljs-built_in">continue</span> working with only DB data
 **************************************************************************************
 </code></pre>
-<p>&#x5982;&#x679C; app/platform/fabric/config.json &#x4E2D;&#x7684; path &#x8DEF;&#x5F84;&#x914D;&#x7F6E;&#x9519;&#x4E86;&#xFF0C;&#x4F1A;&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x95EE;&#x9898;&#xFF0C;&#x6CE8;&#x610F;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x5B8C;&#x6574;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x4E0D;&#x80FD;&#x7528; <code>~/xxxxx</code>&#xFF1A;</p>
+<p>path &#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x5B8C;&#x6574;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x4E0D;&#x80FD;&#x7528; <code>~/xxxxx</code>&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-sh">$ cat  app/platform/fabric/config.json |grep path
             <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;./tmp/credentialStore_Org1/credential&quot;</span>,
               <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;./tmp/credentialStore_Org1/crypto&quot;</span>
@@ -2904,7 +2903,7 @@ Info :  Explorer will <span class="hljs-built_in">continue</span> working with o
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fabric 浏览器安装","level":"1.3.2","depth":2,"next":{"title":"ISTIO 服务网格","level":"1.4","depth":1,"path":"istio/index.md","ref":"istio/index.md","articles":[{"title":"istio 部署环境准备","level":"1.4.1","depth":2,"path":"istio/install.md","ref":"istio/install.md","articles":[]},{"title":"istio 预览版部署","level":"1.4.2","depth":2,"path":"istio/demo-install.md","ref":"istio/demo-install.md","articles":[]},{"title":"istio 操作命令","level":"1.4.3","depth":2,"path":"istio/command.md","ref":"istio/command.md","articles":[]},{"title":"istio 配置参数","level":"1.4.4","depth":2,"path":"istio/config.md","ref":"istio/config.md","articles":[]},{"title":"istio 功能概念","level":"1.4.5","depth":2,"path":"istio/concept.md","ref":"istio/concept.md","articles":[{"title":"VirtualService","level":"1.4.5.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},{"title":"DestinationRule","level":"1.4.5.2","depth":3,"path":"istio/dstrule.md","ref":"istio/dstrule.md","articles":[]},{"title":"Gateway","level":"1.4.5.3","depth":3,"path":"istio/gateway.md","ref":"istio/gateway.md","articles":[]},{"title":"ServiceEntry","level":"1.4.5.4","depth":3,"path":"istio/entry.md","ref":"istio/entry.md","articles":[]},{"title":"Engress Control","level":"1.4.5.5","depth":3,"path":"istio/egress.md","ref":"istio/egress.md","articles":[]}]},{"title":"istio 示例拆解","level":"1.4.6","depth":2,"path":"istio/sample.md","ref":"istio/sample.md","articles":[{"title":"Bookinfo Application","level":"1.4.6.1","depth":3,"path":"istio/bookinfo.md","ref":"istio/bookinfo.md","articles":[]}]},{"title":"转发路由","level":"1.4.7","depth":2,"path":"istio/route.md","ref":"istio/route.md","articles":[]},{"title":"流量切换","level":"1.4.8","depth":2,"path":"istio/shift.md","ref":"istio/shift.md","articles":[]},{"title":"错误注入","level":"1.4.9","depth":2,"path":"istio/injection.md","ref":"istio/injection.md","articles":[]},{"title":"超时设置","level":"1.4.10","depth":2,"path":"istio/timeout.md","ref":"istio/timeout.md","articles":[]},{"title":"负载均衡","level":"1.4.11","depth":2,"path":"istio/tpolicy.md","ref":"istio/tpolicy.md","articles":[]},{"title":"流量复制","level":"1.4.12","depth":2,"path":"istio/mirror.md","ref":"istio/mirror.md","articles":[]},{"title":"指标采集","level":"1.4.13","depth":2,"path":"istio/metrics.md","ref":"istio/metrics.md","articles":[]}]},"previous":{"title":"Fabric 单机极简部署","level":"1.3.1","depth":2,"path":"hyperledger/demo.md","ref":"hyperledger/demo.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"hyperledger/explorer.md","mtime":"2019-11-26T18:12:38.080Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T18:12:47.340Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Fabric 浏览器安装","level":"1.3.2","depth":2,"next":{"title":"ISTIO 服务网格","level":"1.4","depth":1,"path":"istio/index.md","ref":"istio/index.md","articles":[{"title":"istio 部署环境准备","level":"1.4.1","depth":2,"path":"istio/install.md","ref":"istio/install.md","articles":[]},{"title":"istio 预览版部署","level":"1.4.2","depth":2,"path":"istio/demo-install.md","ref":"istio/demo-install.md","articles":[]},{"title":"istio 操作命令","level":"1.4.3","depth":2,"path":"istio/command.md","ref":"istio/command.md","articles":[]},{"title":"istio 配置参数","level":"1.4.4","depth":2,"path":"istio/config.md","ref":"istio/config.md","articles":[]},{"title":"istio 功能概念","level":"1.4.5","depth":2,"path":"istio/concept.md","ref":"istio/concept.md","articles":[{"title":"VirtualService","level":"1.4.5.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},{"title":"DestinationRule","level":"1.4.5.2","depth":3,"path":"istio/dstrule.md","ref":"istio/dstrule.md","articles":[]},{"title":"Gateway","level":"1.4.5.3","depth":3,"path":"istio/gateway.md","ref":"istio/gateway.md","articles":[]},{"title":"ServiceEntry","level":"1.4.5.4","depth":3,"path":"istio/entry.md","ref":"istio/entry.md","articles":[]},{"title":"Engress Control","level":"1.4.5.5","depth":3,"path":"istio/egress.md","ref":"istio/egress.md","articles":[]}]},{"title":"istio 示例拆解","level":"1.4.6","depth":2,"path":"istio/sample.md","ref":"istio/sample.md","articles":[{"title":"Bookinfo Application","level":"1.4.6.1","depth":3,"path":"istio/bookinfo.md","ref":"istio/bookinfo.md","articles":[]}]},{"title":"转发路由","level":"1.4.7","depth":2,"path":"istio/route.md","ref":"istio/route.md","articles":[]},{"title":"流量切换","level":"1.4.8","depth":2,"path":"istio/shift.md","ref":"istio/shift.md","articles":[]},{"title":"错误注入","level":"1.4.9","depth":2,"path":"istio/injection.md","ref":"istio/injection.md","articles":[]},{"title":"超时设置","level":"1.4.10","depth":2,"path":"istio/timeout.md","ref":"istio/timeout.md","articles":[]},{"title":"负载均衡","level":"1.4.11","depth":2,"path":"istio/tpolicy.md","ref":"istio/tpolicy.md","articles":[]},{"title":"流量复制","level":"1.4.12","depth":2,"path":"istio/mirror.md","ref":"istio/mirror.md","articles":[]},{"title":"指标采集","level":"1.4.13","depth":2,"path":"istio/metrics.md","ref":"istio/metrics.md","articles":[]}]},"previous":{"title":"Fabric 单机极简部署","level":"1.3.1","depth":2,"path":"hyperledger/demo.md","ref":"hyperledger/demo.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"hyperledger/explorer.md","mtime":"2019-11-26T18:26:31.729Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T18:26:40.119Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
