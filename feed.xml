@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 26 Nov 2019 02:36:15 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Nov 2019 02:40:11 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -51,7 +51,7 @@
         </item>
         <item>
             <title><![CDATA[HyperLedger Fabric：单机极简部署]]></title>
-            <description><![CDATA[这是 Fabric 文档 Building Your First Network 中提供的做法。Fabric 的安装文件中提供了 一个名为 “byfn.sh” 的脚本 ，这个脚本用 Docker 在本地搭建了一套 Fabric。]]></description>
+            <description><![CDATA[这是 Fabric 文档 Building Your First Network 中提供的做法。Fabric 的示例文件中提供了 一个名为 “byfn.sh” 的脚本 ，这个脚本用 Docker 在本地搭建了一套 Fabric。]]></description>
             <link>https://www.lijiaocn.com/soft/hyperledger/demo.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/hyperledger/demo.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
