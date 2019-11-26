@@ -7,6 +7,7 @@
   * [性能测试相关](./tools/benchmark.md)
 * [HyperLedger 超级账本](hyperledger/index.md)
   * [Fabric 单机极简部署](hyperledger/demo.md)
+  * [Fabric 浏览器安装](hyperledger/explorer.md)
 * [ISTIO 服务网格](istio/index.md)
   * [istio 部署环境准备](istio/install.md)
   * [istio 预览版部署](istio/demo-install.md)
