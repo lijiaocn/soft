@@ -2,8 +2,6 @@
 
 了解 istio 的使用方法，学习借鉴 istio 的实现思路。
 
-![istio-arch](https://www.lijiaocn.com/img/article/istio-arch.svg)
-
 ## 相关笔记
 
 * [服务网格/ServiceMesh 项目 istio 的流量重定向、代理请求过程分析][1]
