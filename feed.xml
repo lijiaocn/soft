@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 25 Nov 2019 11:50:24 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Nov 2019 02:36:15 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -40,6 +40,20 @@
             <description><![CDATA[iperf 是一个简单常用的网络传输性能测试工具，分为服务端和客户端，iperf-doc。]]></description>
             <link>https://www.lijiaocn.com/soft/tools/benchmark.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/tools/benchmark.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[HyperLedger 超级账本项目学习]]></title>
+            <description><![CDATA[第一次接触超级账本差不多是两年前了，当时记录了大量的 hyperledger 学习笔记，还做了两套视频教程：]]></description>
+            <link>https://www.lijiaocn.com/soft/hyperledger/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/hyperledger/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[HyperLedger Fabric：单机极简部署]]></title>
+            <description><![CDATA[这是 Fabric 文档 Building Your First Network 中提供的做法。Fabric 的安装文件中提供了 一个名为 “byfn.sh” 的脚本 ，这个脚本用 Docker 在本地搭建了一套 Fabric。]]></description>
+            <link>https://www.lijiaocn.com/soft/hyperledger/demo.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/hyperledger/demo.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
