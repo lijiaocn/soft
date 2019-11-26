@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 26 Nov 2019 08:05:01 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Nov 2019 15:01:08 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -92,8 +92,8 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Istio 的基本概念]]></title>
-            <description><![CDATA[Istio 的规则配置主要围绕下面的概念进行：]]></description>
+            <title><![CDATA[istio 的四大功能和基本概念]]></title>
+            <description><![CDATA[istio 的功能分为四类：]]></description>
             <link>https://www.lijiaocn.com/soft/istio/concept.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/concept.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -190,10 +190,10 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Istio 的操作]]></title>
-            <description><![CDATA[istioctl  是 istio 的管理命令，用来调试 istio，或诊断存在的问题。istioctl 管理的是部署在 kubernetes 中的 istio，它通过读取本地 kubeconfig context，获取的 kubernetes 的地址以及操作权限。]]></description>
-            <link>https://www.lijiaocn.com/soft/istio/operation.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/operation.html</guid>
+            <title><![CDATA[istio 服务运行指标的采集和查看]]></title>
+            <description><![CDATA[服务的运行指标要先配置然后才能生成。首先在 istio 中定义一个指标、然后定义指标的收集方式，最后定义指标的收集规则，之后就可以在 istio 中看到采集的指标，参考 Collecting Metrics。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/metrics.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/metrics.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -762,6 +762,13 @@
             <description><![CDATA[docker、docker-ce 和 docker-ee 的关系见 moby、docker-ce与docker-ee。]]></description>
             <link>https://www.lijiaocn.com/soft/docker/install.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/install.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[使用 docker 的建议配置]]></title>
+            <description><![CDATA[docker 的镜像服务器在境外，从国内拉取镜像会特别慢。给 docker 配置一个国内的镜像源可以大大缩短镜像的获取时间。]]></description>
+            <link>https://www.lijiaocn.com/soft/docker/config.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/config.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>

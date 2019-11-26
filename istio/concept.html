@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>istio 基本概念 · 小鸟笔记·李佶澳·影响一万人</title>
+        <title>istio 功能概念 · 小鸟笔记·李佶澳·影响一万人</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -352,7 +352,7 @@ var _hmt = _hmt || [];
                 <a href="concept.html">
             
                     
-                    istio 基本概念
+                    istio 功能概念
             
                 </a>
             
@@ -541,12 +541,12 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter " data-level="1.4.13" data-path="operation.html">
+        <li class="chapter " data-level="1.4.13" data-path="metrics.html">
             
-                <a href="operation.html">
+                <a href="metrics.html">
             
                     
-                    istio 管理操作
+                    指标采集
             
                 </a>
             
@@ -1685,6 +1685,19 @@ var _hmt = _hmt || [];
             
         </li>
     
+        <li class="chapter " data-level="1.12.2" data-path="../docker/config.html">
+            
+                <a href="../docker/config.html">
+            
+                    
+                    建议配置
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -2522,7 +2535,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >istio 基本概念</a>
+        <a href=".." >istio 功能概念</a>
     </h1>
 </div>
 
@@ -2575,11 +2588,26 @@ var _hmt = _hmt || [];
 
                                 <!-- toc -->
 <ul>
-<li><a href="#istio-&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;">Istio &#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</a></li>
+<li><a href="#istio-&#x7684;&#x56DB;&#x5927;&#x529F;&#x80FD;&#x548C;&#x57FA;&#x672C;&#x6982;&#x5FF5;">istio &#x7684;&#x56DB;&#x5927;&#x529F;&#x80FD;&#x548C;&#x57FA;&#x672C;&#x6982;&#x5FF5;</a><ul>
+<li><a href="#istio-&#x7684;&#x56DB;&#x5927;&#x529F;&#x80FD;">istio &#x7684;&#x56DB;&#x5927;&#x529F;&#x80FD;</a></li>
+<li><a href="#istio-&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;">istio &#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</a></li>
+<li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
-<h1 id="istio-&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;">Istio &#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</h1>
-<p>Istio &#x7684;&#x89C4;&#x5219;&#x914D;&#x7F6E;&#x4E3B;&#x8981;&#x56F4;&#x7ED5;&#x4E0B;&#x9762;&#x7684;&#x6982;&#x5FF5;&#x8FDB;&#x884C;&#xFF1A;</p>
+<h1 id="istio-&#x7684;&#x56DB;&#x5927;&#x529F;&#x80FD;&#x548C;&#x57FA;&#x672C;&#x6982;&#x5FF5;">istio &#x7684;&#x56DB;&#x5927;&#x529F;&#x80FD;&#x548C;&#x57FA;&#x672C;&#x6982;&#x5FF5;</h1>
+<h2 id="istio-&#x7684;&#x56DB;&#x5927;&#x529F;&#x80FD;">istio &#x7684;&#x56DB;&#x5927;&#x529F;&#x80FD;</h2>
+<p>istio &#x7684;&#x529F;&#x80FD;&#x5206;&#x4E3A;&#x56DB;&#x7C7B;&#xFF1A;</p>
+<ul>
+<li>&#x6D41;&#x91CF;&#x7BA1;&#x7406;&#xFF0C;<a href="https://istio.io/docs/concepts/traffic-management/" target="_blank">Traffic Management</a></li>
+<li>&#x8BA4;&#x8BC1;&#x52A0;&#x5BC6;&#xFF0C;<a href="https://istio.io/docs/concepts/security/" target="_blank">Security</a></li>
+<li>&#x8BBF;&#x95EE;&#x5FAE;&#x8C03;&#xFF0C;<a href="https://istio.io/docs/concepts/policies/" target="_blank">Policies</a></li>
+<li>&#x5168;&#x5C40;&#x76D1;&#x63A7;&#xFF0C;<a href="https://istio.io/docs/concepts/observability/" target="_blank">Observability</a></li>
+</ul>
+<p><img src="https://www.lijiaocn.com/img/article/istio-arch.svg" alt="istio-arch"></p>
+<h2 id="istio-&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;">istio &#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</h2>
+<p>istio &#x7684;&#x89C4;&#x5219;&#x914D;&#x7F6E;&#x4E3B;&#x8981;&#x56F4;&#x7ED5;&#x4E0B;&#x9762;&#x7684;&#x6982;&#x5FF5;&#x8FDB;&#x884C;&#xFF1A;</p>
 <ul>
 <li><a href="vsvc.html">VirtualService</a>&#xFF0C; &#x8F6C;&#x53D1;&#x89C4;&#x5219;</li>
 <li><a href="dstrule.html">DestinationRule</a>&#xFF0C;&#x5747;&#x8861;&#x7B56;&#x7565;</li>
@@ -2589,10 +2617,14 @@ var _hmt = _hmt || [];
 </ul>
 <p>&#x5982;&#x679C;&#x975E;&#x8981;&#x7C7B;&#x6BD4;&#x7684;&#x8BDD;&#xFF1A;</p>
 <ul>
-<li>Virtual Services &#x76F8;&#x5F53;&#x4E8E; nginx &#x4E2D;&#x7684; Server</li>
-<li>Destination Rules &#x76F8;&#x5F53;&#x4E8E; nginx &#x4E2D;&#x7684; upstream </li>
-<li>Gateways &#x548C; Service Entry &#x662F; istio &#x7279;&#x6709;&#x7684;&#x6982;&#x5FF5;</li>
+<li>VirtualService &#x76F8;&#x5F53;&#x4E8E; nginx &#x4E2D;&#x7684; Server</li>
+<li>DestinationRule &#x76F8;&#x5F53;&#x4E8E; nginx &#x4E2D;&#x7684; upstream </li>
+<li>Gateway &#x548C; ServiceEntry &#x76F8;&#x5F53;&#x4E8E; kubernetes &#x4E2D;&#x7684; ingress &#x548C; endpoints</li>
 </ul>
+<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
+<ol>
+<li><a href="https://www.lijiaocn.com" title="&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;" target="_blank">&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;</a></li>
+</ol>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
@@ -2664,7 +2696,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"istio 基本概念","level":"1.4.5","depth":2,"next":{"title":"VirtualService","level":"1.4.5.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},"previous":{"title":"istio 配置参数","level":"1.4.4","depth":2,"path":"istio/config.md","ref":"istio/config.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/concept.md","mtime":"2019-11-26T04:02:27.975Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T08:04:18.135Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"istio 功能概念","level":"1.4.5","depth":2,"next":{"title":"VirtualService","level":"1.4.5.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},"previous":{"title":"istio 配置参数","level":"1.4.4","depth":2,"path":"istio/config.md","ref":"istio/config.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/concept.md","mtime":"2019-11-26T09:26:45.220Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T15:00:24.730Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
