@@ -1,7 +1,9 @@
 <!-- toc -->
-# istio 的流量策略
+# istio 的流量策略（负载均衡策略）
 
-istio 的流量策略在 [DestinationRule](./dstrule.md) 的 [TrafficPolicy][3] 中设置。
+istio 的流量策略在 [DestinationRule](./dstrule.md) 的 [TrafficPolicy][3] 中设置，负载均衡是流量策略中的一种。
+
+下面操作在 [Bookinfo Application](./bookinfo.md) 的基础上进行。
 
 ## 断路保护
 

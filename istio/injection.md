@@ -1,11 +1,11 @@
 <!-- toc -->
 # istio 错误注入功能的使用方法
 
-下面操作在 [Bookinfo Application](./bookinfo.md) 的基础上进行。
-
 [Fault Injection][1] 让目标服务以一定的比例返回错误码后者延迟回应，用来测试业务系统的容错能力。
 
 错误注入在 [VirtualService](./vsvc.md) 中配置，VirtualService 支持的注入类型，可以在 [HTTPFaultInjection][5] 中找到。 
+
+下面操作在 [Bookinfo Application](./bookinfo.md) 的基础上进行。
 
 ## 返回一定的比例的错误码
 

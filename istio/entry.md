@@ -1,9 +1,9 @@
 <!-- toc -->
 # istio 的基本概念：ServiceEntry
 
-[ServiceEntry][1] 用来将外部的服务封装成 istio 网格中的服务，为统一管理网格内和网格外的服务提供基础，详情见 [Service Entry Detail][2]。
+[ServiceEntry][1] 用来将外部的服务封装成 istio 网格中的服务，为网格内和网格外的服务的统一管理提供基础，详情见 [Service Entry Detail][2]。
 
-外部的服务被封装为 ServiceEntry 之后，可以像 kubernetes 内部的服务一样引用。
+外部服务被封装为 ServiceEntry，可以像 kubernetes 内部的服务一样使用。
 
 ## 封装外部的域名
 
@@ -27,9 +27,9 @@ spec:
   resolution: DNS
 ```
 
-hosts 是外部服务在网格内的名称，它可以是正好是外部服务的域名，也可以不是。上面的例子中 resolution 指定解析方式为 DNS，外部服务的域名和它们在网格内的名称一致。
+hosts 是外部服务在网格内的名称，它可以与外部服务的域名相同，可以不同，取决网格内要使用的域名。上面的例子，没有配置外部服务的原始域名，默认原始域名与 hosts 中的域名相同。
 
-可以为外部服务任意设置一个网格内的名称，然后在 endpoints 中配置外部服务的外部地址：
+如果外部服务在网格内的域名和网格外的域名不同，在 endpoints 中配置原始域名：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -57,6 +57,8 @@ spec:
       https: 7080
 ```
 
+resolution 指定解析方式为 DNS。
+
 ## 封装 unix domain socket
 
 unix domain socket 地址也可以封装到网格内：
@@ -81,7 +83,7 @@ spec:
 
 ## 为外部服务配置 vip
 
-将外服服务的多个 ip 地址封装成名为 mymongodb.somedomain 的网格内服务，并设置网格内 vip：
+将外部服务的多个 ip 封装成名为 mymongodb.somedomain 的网格内服务，并设置网格内 vip：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3

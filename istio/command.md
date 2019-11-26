@@ -1,11 +1,14 @@
 <!-- toc -->
 # istio 操作命令
 
-istio 的主要操作命令是 [istioctl][2]，命令文件位于下载的安装包中：
+[istioctl][2]  是 istio 的管理命令，用来部署、管理、调试、诊断。istioctl 管理的是部署在 kubernetes 中的 istio，它通过读取本地的 kubeconfig context，获取的 kubernetes 的地址以及操作权限。
+
+istioctl 命令位于 istio-1.4.0/bin 中，有多个子命令：
 
 ```sh
-$ ls istio-1.4.0/bin
-istioctl
+--context <string>                 The name of the kubeconfig context to use (default ``)
+--istioNamespace <string>    -i    Istio system namespace (default `istio-system`)
+...
 ```
 
 ## istio 提供的 Web 页面

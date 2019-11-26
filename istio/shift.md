@@ -3,6 +3,9 @@
 
 istio 好像没有金丝雀以及国内常说的灰度发布概念，它的 [Traffic Shifting][2] 可以实现同样的效果，实现思路是在 [VirtualService](./vsvc.md) 中配置多个 destination，通过设置每个 destination 的权重，影响流量的分配。
 
+
+下面操作在 [Bookinfo Application](./bookinfo.md) 的基础上进行。
+
 ## HTTP 请求的切换
 
 编辑名为 reviews 的 VirtualService，为默认的 route 设置两个 destination，权重都是 50%：

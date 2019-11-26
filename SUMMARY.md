@@ -24,7 +24,7 @@
   * [流量切换](istio/shift.md)
   * [错误注入](istio/injection.md)
   * [超时设置](istio/timeout.md)
-  * [流量策略](istio/tpolicy.md)
+  * [负载均衡](istio/tpolicy.md)
   * [流量复制](istio/mirror.md)
   * [istio 管理操作](istio/operation.md)
 * [Kubernetes 使用手册](k8s/index.md)

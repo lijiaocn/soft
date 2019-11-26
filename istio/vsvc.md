@@ -26,11 +26,11 @@ spec:
         host: svc-2.my-namespace.svc.cluster.local
 ```
 
-`hosts` 是域名匹配规则，限定了 virtualservice 的作用访问，即 virtualservice 中的规则只适用于与 hosts 匹配的请求。hosts 中的匹配规则可以使用通配符。
+`hosts` 是域名匹配规则，限定了 virtualservice 的作用范围，即 virtualservice 中的规则只影响与 hosts 匹配的请求。hosts 匹配规则可以使用通配符。
 
-`host` 是转发目标，匹配规则的请求被转发给 host 指定的域名。host 是 kubernetes 中的域名或外部服务的域名，可以转发给任意 namespace 中的 service。
+`host`（注意和 hosts 字段区分开）是转发目标，符号要求的请求被转发给到 host 中配置的域名。域名既可以是 kubernetes 中的域名（可以跨 namespace），也可以是外部服务的域名。
 
-VirtualService 还可以绑定 gateway（即只处理特定 gateway 的流量），它联结了 [DestinationRule](./dstrule.md)、[Gateways](./gateway.md) 和 [ServiceEntry](./entry.md)。在后面章节中会频繁用到 VirtualService。
+VirtualService 还可以绑定 gateway（即只处理特定 gateway 的流量），它联结了 [DestinationRule](./dstrule.md)、[Gateways](./gateway.md) 和 [ServiceEntry](./entry.md)，后面章节中会频繁用到 VirtualService。
 
 ## 参考
 

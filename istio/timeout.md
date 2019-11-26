@@ -1,9 +1,9 @@
 <!-- toc -->
 # istio 的请求超时时间设置
 
-这里的 [Request Timeouts][2] 是为到目标服务的请求设置超时时间，如果目标服务的响应时间超过了设置，就回应失败，不在等待。
+这里的 [Request Timeouts][2] 是等待目标服务响应的超时时间，如果目标服务的响应时间超过了设置，代理本次请求的 envoy 不在等待，直接向请求端返回失败。超时时间在 [VirtualService](./vsvc.md) 中设置。
 
-超时时间在 [VirtualService](./vsvc.md) 中设置。
+下面操作在 [Bookinfo Application](./bookinfo.md) 的基础上进行。
 
 ## 设置请求超时时间
 
@@ -24,9 +24,9 @@ $ kubectl edit vs reviews
 ... 省略 ...
 ```
 
-注意这里加的超时时间只有用户 jason 登录后有效。
+上面设置的超时时间只对带有 "end-user: jason" 的请求有效。
 
-为了验证超时效果，用 [错误注入](./injection.md) 功能为 reviews 服务依赖的 ratings 服务注入超过 2s 的超时，编辑名为 ratings 的 VirtualService：
+为了验证超时效果，用 [错误注入](./injection.md) 功能为 reviews 服务依赖的 ratings 服务注入超过 2s 的超时：
 
 ```yaml
 $ kubectl edit vs ratings
@@ -51,7 +51,7 @@ $ kubectl edit vs ratings
 ...省略...
 ```
 
-注入超时时间后，调用 ratings 接口响应时间超过 2 秒：
+只对带有 "end-user: jason" 的请求注入超时。注入超时后，ratings 接口的响应时间超过 2 秒：
 
 ```sh
 $ time curl  -H "end-user: jason"  http://ratings:9080/ratings/0
@@ -76,4 +76,3 @@ upstream request timeout
 
 [1]: https://www.lijiaocn.com "李佶澳的博客"
 [2]: https://istio.io/docs/tasks/traffic-management/request-timeouts/ "Request Timeouts"
-z

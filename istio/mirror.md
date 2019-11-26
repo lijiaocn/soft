@@ -89,7 +89,7 @@ $ curl http-record:8000
 ...省略...
 ```
 
-## 创建接收复制流量的版本
+## 创建接收复制流量的服务
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -132,8 +132,6 @@ $ kubectl edit vs http-record
       weight: 100
 ```
 
-查看 http-record-v2 的日志，会发现 http-record 时，http-record-v2 的 Pod 收到了同样的请求。
-
 在容器内访问：
 
 ```sh
@@ -147,9 +145,11 @@ $ kubectl logs -f http-record-v1-5f9c95b7cf-t9tzx http-record
 $ kubectl logs -f http-record-v2-d697c886-lqpsw http-record
 ```
 
+会发现 http-record-v1 和 http-record-v2 的 pod 同时收到了相同的请求。
+
 ## 似乎不支持镜像到另一个服务
 
-尝试将到达 productpage 的请求复制到 http-record（跨服务复制），结果不成功，似乎不支持。
+尝试将到达 [Bookinfo Application](./bookinfo.md)  的 productpage 的请求复制到 http-record，结果不成功，似乎不支持跨域名复制。
 
 尝试的 yaml 如下：
 
@@ -170,11 +170,13 @@ $ kubectl edit vs productpage
 ...省略...
 ```
 
-访问 productpage 时，http-record 没有收到复制的请求，似乎是不支持跨服务复制（2019-11-22 18:16:01）。
+访问 productpage：
 
 ```sh
 $ curl productpage:9080
 ```
+
+http-record:v1 没有收到复制的请求，不支持跨服务复制吗？（2019-11-22 18:16:01）。
 
 ## 参考
 

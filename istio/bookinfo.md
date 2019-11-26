@@ -40,7 +40,7 @@ kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
 ```
 
-### Productpage service
+### 验证 Productpage
 
 部署完成后，验证 productpage，在集群内用它的 cluster ip 或者 pod ip 访问：
 
@@ -133,7 +133,7 @@ spec:
         - containerPort: 9080
 ```
 
-### Detail service
+### 验证 Detail
 
 完成部署后，验证 details 服务：
 
@@ -147,7 +147,6 @@ details   ClusterIP   10.107.162.106   <none>        9080/TCP   76d   app=detail
 $ curl http://10.107.162.106:9080/details/0
 {"id":0,"author":"William Shakespeare","year":1595,"type":"paperback","pages":200,"publisher...省略...
 ```
-
 
 details 服务的部署文件：
 
@@ -203,8 +202,7 @@ spec:
 ---
 ```
 
-
-### Ratings service
+### 验证 Ratings
 
 完成部署后，验证 ratings 服务：
 
@@ -272,7 +270,7 @@ spec:
         - containerPort: 9080
 ```
 
-### Reviews service
+### 验证 Reviews
 
 完成部署后，验证 reviews 服务：
 
@@ -408,13 +406,15 @@ spec:
         - containerPort: 9080
 ```
 
-## 创建 Gateway，边界 envoy 开始监听
+## 创建 Gateway，ingress envoy 开始监听
 
-创建 Gateway，指示边界 envoy 监听 80 端口，网格外部通过边界 envoy 的 80 端口访问 Bookinfo 应用。
+创建 Gateway，指示边界 envoy 监听 80 端口，允许通过 ingress envoy 的 80 端口访问 Bookinfo：
 
 ```sh
 $ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 ```
+
+Gateway 定义：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -433,13 +433,17 @@ spec:
     - "*"
 ```
 
+如果这时候还没有创建 VirtualService，ingress envoy 还不知道要转发到哪里。
+
 ## 创建 VirtualService，转发请求
 
-创建 VirtualService，将边界 envoy 收到的流量转发到 productpage ：
+创建 VirtualService，指示 ingress envoy 将外部到来的请求转发到 productpage ：
 
 ```sh
-$ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml  # 同时包含 Gateway 和 VirutalService
+$ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml  
 ```
+
+VirtualService 定义：
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -470,7 +474,7 @@ spec:
           number: 9080
 ```
 
-这样就可以通过边界 envoy 访问 bookinfo 服务了，这里 hosts 中配置为 `*`，如果 bookinfo 有域名可以配置为具体的域名。
+这时可以通过边界 envoy 访问 bookinfo。这里的 hosts 配置是 `*`，可以根据需要改成具体的域名。
 
 ## 通过边界 envoy 访问应用
 
@@ -482,7 +486,9 @@ istio-egressgateway      1/1     1            1           45h
 istio-ingressgateway     1/1     1            1           45h
 ```
 
-一个负责从外部流入网格的流量，一个负责从网格流向外部的流量。约定 istio-ingressgateway 处理外部进入网格的流量，istio-egressgateway 处理网格流向外部的流量，离开网格的流量的处理参考 [Engress Control](./egress.md)。
+一个负责从外部流入网格的流量（ingress），一个负责从网格流向外部的流量（egress）。
+
+约定 istio-ingressgateway 处理外部进入网格的流量，istio-egressgateway 处理网格流向外部的流量，离开网格的流量的处理参考 [Engress Control](./egress.md)。
 
 通过 kubernetes 提供的方式访问 istio-ingressgateway：
 
@@ -517,7 +523,7 @@ $ minikube service list
 |---------------|------------------------|--------------------------------|
 ```
 
-用下面的 url 访问 bookinfo，注意 path 为 `productpage`，与 virtualservice 中的配置一致：
+这里使用了 minikube，用下面的 url 访问 bookinfo，path 为 `productpage`，与 VirtualService 中的配置一致：
 
 ```sh
 http://192.168.99.100:31380/productpage
@@ -525,9 +531,9 @@ http://192.168.99.100:31380/productpage
 
 ![bookinfo网页](../img/envoy/bookinfo.png)
 
-这时候可以通过边界 envoy 访问应用，但是没有设置网格内的转发策略，四个子系统之间的互相访问行为和通过 kubernetes 中的 svc 访问效果相同。
+虽然可以通过边界 envoy 访问应用，但是因为没有设置转发策略，四个子系统之间的互相访问和通过 kubernetes 中的 svc 访问效果相同。
 
-不停地刷新页面会看到页面在变化：
+刷新页面会看到页面在变化：
 
 ![bookinfo网页](../img/envoy/bookinfo.png)
 
@@ -535,17 +541,17 @@ http://192.168.99.100:31380/productpage
 
 这是因为 reviews 服务有 v1、v2、v3 三个版本，访问 productpage 时，productpage 随机从 reviews 的三个版本的 pod 中获取用户评论数据，所以会看到不同的页面。
 
-这是一种很粗放的方式，可以为每个服务创建一个 virtualservice 和对应 destination，精细管控每个服务的转发策略。
+可以为每个服务创建一个 VirtualService 和 Destination，精细管控每个服务的转发策略。
 
 ## 设置网格内的转发策略：DestinationRule
 
-先为每个服务创建一个 DestinationRule，设置转发策略：
+为每个服务创建一个 DestinationRule，设置转发策略：
 
 ```sh
 $ kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
 ```
 
-DestinationRule 将 Pod 按照 Label 进行了分组，拆分成多个 subnet：
+这里在 DestinationRule 中将 Pod 按照 Label 进行了分组，拆分成多个 subnet：
 
 productpage：
 
@@ -625,7 +631,7 @@ spec:
       version: v3
 ```
 
-转发策略需要被 VirtualService 引用后才生效，参考 [Apply a virtual service][2]，因此还需要为每个服务创建一个 VirtualService，在 VirtualService 中引用各自的 DestinationRule 中的 subset：
+转发策略被 VirtualService 引用后才生效，参考 [Apply a virtual service][2]，还需要为每个服务创建一个 VirtualService，在 VirtualService 中引用 DestinationRule 中的 subset：
 
 ```sh
 $ kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
@@ -699,13 +705,13 @@ spec:
         subset: v1
 ```
 
-reviews 的 VirtualService 中明确指定了将请求转发到 `subset: v1`，这时候访问 bookinfo，页面不再变化。
+reviews 的 VirtualService 绑定了 reviews 的 `subset: v1`，这时候访问 bookinfo，页面不再变化。
 
 ![bookinfo网页](../img/envoy/bookinfo3.png)
 
 ## 按照用户转发
 
-下面的操作更新 reviews 的 VirtualService，将 jason 用户的请求转发到 v2 版本：
+更新 reviews 的 VirtualService，将 jason 用户的请求转发到 v2 版本：
 
 ```sh
 $ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
@@ -734,7 +740,7 @@ spec:
         subset: v1
 ```
 
-点击界面右上角的 login，以用户 jason 的身份登录（密码为空），刷新页面会发现页面变成了 v2 版本：
+点击界面右上角的 login，以用户 jason 的身份登录（密码为空），然后刷新页面，会发现页面变成了 v2 版本：
 
 ![bookinfo网页](../img/envoy/bookinfo4.png)
 
