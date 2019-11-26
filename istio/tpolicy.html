@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>流量策略 · 小鸟笔记·李佶澳·影响一万人</title>
+        <title>负载均衡 · 小鸟笔记·李佶澳·影响一万人</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -520,7 +520,7 @@ var _hmt = _hmt || [];
                 <a href="tpolicy.html">
             
                     
-                    流量策略
+                    负载均衡
             
                 </a>
             
@@ -2522,7 +2522,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >流量策略</a>
+        <a href=".." >负载均衡</a>
     </h1>
 </div>
 
@@ -2575,7 +2575,7 @@ var _hmt = _hmt || [];
 
                                 <!-- toc -->
 <ul>
-<li><a href="#istio-&#x7684;&#x6D41;&#x91CF;&#x7B56;&#x7565;">istio &#x7684;&#x6D41;&#x91CF;&#x7B56;&#x7565;</a><ul>
+<li><a href="#istio-&#x7684;&#x6D41;&#x91CF;&#x7B56;&#x7565;&#xFF08;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;&#xFF09;">istio &#x7684;&#x6D41;&#x91CF;&#x7B56;&#x7565;&#xFF08;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;&#xFF09;</a><ul>
 <li><a href="#&#x65AD;&#x8DEF;&#x4FDD;&#x62A4;">&#x65AD;&#x8DEF;&#x4FDD;&#x62A4;</a><ul>
 <li><a href="#&#x9650;&#x5236;-tcp-&#x8FDE;&#x63A5;&#x6570;&#x548C;&#x5355;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#x6570;">&#x9650;&#x5236; TCP &#x8FDE;&#x63A5;&#x6570;&#x548C;&#x5355;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#x6570;</a></li>
 </ul>
@@ -2586,8 +2586,9 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <!-- tocstop -->
-<h1 id="istio-&#x7684;&#x6D41;&#x91CF;&#x7B56;&#x7565;">istio &#x7684;&#x6D41;&#x91CF;&#x7B56;&#x7565;</h1>
-<p>istio &#x7684;&#x6D41;&#x91CF;&#x7B56;&#x7565;&#x5728; <a href="dstrule.html">DestinationRule</a> &#x7684; <a href="https://istio.io/docs/reference/config/networking/destination-rule/#TrafficPolicy" title="TrafficPolicy" target="_blank">TrafficPolicy</a> &#x4E2D;&#x8BBE;&#x7F6E;&#x3002;</p>
+<h1 id="istio-&#x7684;&#x6D41;&#x91CF;&#x7B56;&#x7565;&#xFF08;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;&#xFF09;">istio &#x7684;&#x6D41;&#x91CF;&#x7B56;&#x7565;&#xFF08;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;&#xFF09;</h1>
+<p>istio &#x7684;&#x6D41;&#x91CF;&#x7B56;&#x7565;&#x5728; <a href="dstrule.html">DestinationRule</a> &#x7684; <a href="https://istio.io/docs/reference/config/networking/destination-rule/#TrafficPolicy" title="TrafficPolicy" target="_blank">TrafficPolicy</a> &#x4E2D;&#x8BBE;&#x7F6E;&#xFF0C;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x662F;&#x6D41;&#x91CF;&#x7B56;&#x7565;&#x4E2D;&#x7684;&#x4E00;&#x79CD;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x64CD;&#x4F5C;&#x5728; <a href="bookinfo.html">Bookinfo Application</a> &#x7684;&#x57FA;&#x7840;&#x4E0A;&#x8FDB;&#x884C;&#x3002;</p>
 <h2 id="&#x65AD;&#x8DEF;&#x4FDD;&#x62A4;">&#x65AD;&#x8DEF;&#x4FDD;&#x62A4;</h2>
 <p>istio &#x7684; <a href="https://istio.io/docs/tasks/traffic-management/circuit-breaking/" title="Circuit Breaking" target="_blank">Circuit Breaking</a> &#x76EE;&#x524D;&#xFF08;2019-11-21 19:26:57&#xFF09;&#x76F8;&#x5F53;&#x5F31;&#xFF0C;&#x5C31;&#x662F;&#x63A7;&#x5236;&#x4E00;&#x4E0B;&#x8BF7;&#x6C42;&#x6570;&#x548C;&#x5E76;&#x53D1;&#x6570;&#xFF0C;&#x611F;&#x89C9;&#x6CA1;&#x6709; <a href="https://www.lijiaocn.com/soft/k8s/ingress-nginx/ratelimit.html" target="_blank">ingress-nginx &#x7684;&#x9650;&#x901F;&#x529F;&#x80FD;</a> &#x5B9E;&#x7528;&#x3002;</p>
 <h3 id="&#x9650;&#x5236;-tcp-&#x8FDE;&#x63A5;&#x6570;&#x548C;&#x5355;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#x6570;">&#x9650;&#x5236; TCP &#x8FDE;&#x63A5;&#x6570;&#x548C;&#x5355;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#x6570;</h3>
@@ -2697,7 +2698,7 @@ All <span class="hljs-keyword">done</span> 20 calls (plus 0 warmup) 39.719 ms av
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"流量策略","level":"1.4.11","depth":2,"next":{"title":"流量复制","level":"1.4.12","depth":2,"path":"istio/mirror.md","ref":"istio/mirror.md","articles":[]},"previous":{"title":"超时设置","level":"1.4.10","depth":2,"path":"istio/timeout.md","ref":"istio/timeout.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/tpolicy.md","mtime":"2019-11-26T02:40:27.135Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T04:01:24.392Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"负载均衡","level":"1.4.11","depth":2,"next":{"title":"流量复制","level":"1.4.12","depth":2,"path":"istio/mirror.md","ref":"istio/mirror.md","articles":[]},"previous":{"title":"超时设置","level":"1.4.10","depth":2,"path":"istio/timeout.md","ref":"istio/timeout.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/tpolicy.md","mtime":"2019-11-26T07:57:14.817Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T08:04:18.135Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

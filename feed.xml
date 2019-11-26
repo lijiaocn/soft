@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 26 Nov 2019 04:02:10 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Nov 2019 08:05:01 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -79,7 +79,7 @@
         </item>
         <item>
             <title><![CDATA[istio 操作命令]]></title>
-            <description><![CDATA[istio 的主要操作命令是 istioctl，命令文件位于下载的安装包中：]]></description>
+            <description><![CDATA[istioctl  是 istio 的管理命令，用来部署、管理、调试、诊断。istioctl 管理的是部署在 kubernetes 中的 istio，它通过读取本地的 kubeconfig context，获取的 kubernetes 的地址以及操作权限。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/command.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/command.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -107,28 +107,28 @@
         </item>
         <item>
             <title><![CDATA[istio 的基本概念： DestinationRule]]></title>
-            <description><![CDATA[DestinationRule 是转发策略，在route 规则之后起作用，相当于 nginx 中的负载均衡策略。它作用于 VirtualService 的 destination 中的 host。]]></description>
+            <description><![CDATA[DestinationRule 是转发策略，在 route 规则之后起作用，相当于 nginx 中的负载均衡策略。它作用于 VirtualService 的 destination 中的同名的 host。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/dstrule.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/dstrule.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[istio 的基本概念： Gateways]]></title>
-            <description><![CDATA[Gateways 管理南北向流量，也就是从外部流入网格，和从网格流出到外部的流量。它作用于网格边界的 envoy ，边界 envoy 通常被分成两组：]]></description>
+            <description><![CDATA[Gateways 管理南北向流量，也就是从外部流入网格，和从网格流出到外部的流量。它影响网格边界的 envoy ，边界 envoy 通常被分成两组：]]></description>
             <link>https://www.lijiaocn.com/soft/istio/gateway.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/gateway.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[istio 的基本概念：ServiceEntry]]></title>
-            <description><![CDATA[ServiceEntry 用来将外部的服务封装成 istio 网格中的服务，为统一管理网格内和网格外的服务提供基础，详情见 Service Entry Detail。]]></description>
+            <description><![CDATA[ServiceEntry 用来将外部的服务封装成 istio 网格中的服务，为网格内和网格外的服务的统一管理提供基础，详情见 Service Entry Detail。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/entry.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/entry.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[istio 的流出流量管控]]></title>
-            <description><![CDATA[Engress Control 不是 istio 的基本概念，是一种用法。]]></description>
+            <description><![CDATA[Engress Control 不是 istio 的基本概念，而是一种用法。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/egress.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/egress.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -163,21 +163,21 @@
         </item>
         <item>
             <title><![CDATA[istio 错误注入功能的使用方法]]></title>
-            <description><![CDATA[下面操作在 Bookinfo Application 的基础上进行。]]></description>
+            <description><![CDATA[Fault Injection 让目标服务以一定的比例返回错误码后者延迟回应，用来测试业务系统的容错能力。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/injection.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/injection.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[istio 的请求超时时间设置]]></title>
-            <description><![CDATA[这里的 Request Timeouts 是为到目标服务的请求设置超时时间，如果目标服务的响应时间超过了设置，就回应失败，不在等待。]]></description>
+            <description><![CDATA[这里的 Request Timeouts 是等待目标服务响应的超时时间，如果目标服务的响应时间超过了设置，代理本次请求的 envoy 不在等待，直接向请求端返回失败。超时时间在 VirtualService 中设置。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/timeout.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/timeout.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[istio 的流量策略]]></title>
-            <description><![CDATA[istio 的流量策略在 DestinationRule 的 TrafficPolicy 中设置。]]></description>
+            <title><![CDATA[istio 的流量策略（负载均衡策略）]]></title>
+            <description><![CDATA[istio 的流量策略在 DestinationRule 的 TrafficPolicy 中设置，负载均衡是流量策略中的一种。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/tpolicy.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/tpolicy.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>

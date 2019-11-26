@@ -520,7 +520,7 @@ var _hmt = _hmt || [];
                 <a href="tpolicy.html">
             
                     
-                    流量策略
+                    负载均衡
             
                 </a>
             
@@ -2578,13 +2578,13 @@ var _hmt = _hmt || [];
 <li><a href="#istio-&#x7684;-bookinfo-application-&#x793A;&#x4F8B;&#x62C6;&#x89E3;">Istio &#x7684; Bookinfo Application &#x793A;&#x4F8B;&#x62C6;&#x89E3;</a><ul>
 <li><a href="#bookinfo-app-&#x7EC4;&#x6210;">Bookinfo APP &#x7EC4;&#x6210;</a></li>
 <li><a href="#&#x90E8;&#x7F72;&#x5230;-istio-&#x7F51;&#x683C;">&#x90E8;&#x7F72;&#x5230; istio &#x7F51;&#x683C;</a><ul>
-<li><a href="#productpage-service">Productpage service</a></li>
-<li><a href="#detail-service">Detail service</a></li>
-<li><a href="#ratings-service">Ratings service</a></li>
-<li><a href="#reviews-service">Reviews service</a></li>
+<li><a href="#&#x9A8C;&#x8BC1;-productpage">&#x9A8C;&#x8BC1; Productpage</a></li>
+<li><a href="#&#x9A8C;&#x8BC1;-detail">&#x9A8C;&#x8BC1; Detail</a></li>
+<li><a href="#&#x9A8C;&#x8BC1;-ratings">&#x9A8C;&#x8BC1; Ratings</a></li>
+<li><a href="#&#x9A8C;&#x8BC1;-reviews">&#x9A8C;&#x8BC1; Reviews</a></li>
 </ul>
 </li>
-<li><a href="#&#x521B;&#x5EFA;-gateway&#xFF0C;&#x8FB9;&#x754C;-envoy-&#x5F00;&#x59CB;&#x76D1;&#x542C;">&#x521B;&#x5EFA; Gateway&#xFF0C;&#x8FB9;&#x754C; envoy &#x5F00;&#x59CB;&#x76D1;&#x542C;</a></li>
+<li><a href="#&#x521B;&#x5EFA;-gateway&#xFF0C;ingress-envoy-&#x5F00;&#x59CB;&#x76D1;&#x542C;">&#x521B;&#x5EFA; Gateway&#xFF0C;ingress envoy &#x5F00;&#x59CB;&#x76D1;&#x542C;</a></li>
 <li><a href="#&#x521B;&#x5EFA;-virtualservice&#xFF0C;&#x8F6C;&#x53D1;&#x8BF7;&#x6C42;">&#x521B;&#x5EFA; VirtualService&#xFF0C;&#x8F6C;&#x53D1;&#x8BF7;&#x6C42;</a></li>
 <li><a href="#&#x901A;&#x8FC7;&#x8FB9;&#x754C;-envoy-&#x8BBF;&#x95EE;&#x5E94;&#x7528;">&#x901A;&#x8FC7;&#x8FB9;&#x754C; envoy &#x8BBF;&#x95EE;&#x5E94;&#x7528;</a></li>
 <li><a href="#&#x8BBE;&#x7F6E;&#x7F51;&#x683C;&#x5185;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF1A;destinationrule">&#x8BBE;&#x7F6E;&#x7F51;&#x683C;&#x5185;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF1A;DestinationRule</a></li>
@@ -2619,7 +2619,7 @@ var _hmt = _hmt || [];
 <p>&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x7ED9; namesapce &#x6253;&#x6807;&#x7B7E;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x8C03;&#x6574; yaml &#x6587;&#x4EF6;&#xFF1A;</p>
 <pre><code class="lang-sh">kubectl apply <span class="hljs-_">-f</span> &lt;(istioctl kube-inject <span class="hljs-_">-f</span> samples/bookinfo/platform/kube/bookinfo.yaml)
 </code></pre>
-<h3 id="productpage-service">Productpage service</h3>
+<h3 id="&#x9A8C;&#x8BC1;-productpage">&#x9A8C;&#x8BC1; Productpage</h3>
 <p>&#x90E8;&#x7F72;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x9A8C;&#x8BC1; productpage&#xFF0C;&#x5728;&#x96C6;&#x7FA4;&#x5185;&#x7528;&#x5B83;&#x7684; cluster ip &#x6216;&#x8005; pod ip &#x8BBF;&#x95EE;&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl get svc productpage -o wide
 NAME          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELECTOR
@@ -2694,7 +2694,7 @@ reviews:  http://reviews:9080/reviews/0
 <span class="hljs-attr">        ports:</span>
 <span class="hljs-attr">        - containerPort:</span> <span class="hljs-number">9080</span>
 </code></pre>
-<h3 id="detail-service">Detail service</h3>
+<h3 id="&#x9A8C;&#x8BC1;-detail">&#x9A8C;&#x8BC1; Detail</h3>
 <p>&#x5B8C;&#x6210;&#x90E8;&#x7F72;&#x540E;&#xFF0C;&#x9A8C;&#x8BC1; details &#x670D;&#x52A1;&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl get svc details -o wide
 NAME      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELECTOR
@@ -2754,7 +2754,7 @@ details   ClusterIP   10.107.162.106   &lt;none&gt;        9080/TCP   76d   app=
 <span class="hljs-attr">        - containerPort:</span> <span class="hljs-number">9080</span>
 <span class="hljs-meta">---</span>
 </code></pre>
-<h3 id="ratings-service">Ratings service</h3>
+<h3 id="&#x9A8C;&#x8BC1;-ratings">&#x9A8C;&#x8BC1; Ratings</h3>
 <p>&#x5B8C;&#x6210;&#x90E8;&#x7F72;&#x540E;&#xFF0C;&#x9A8C;&#x8BC1; ratings &#x670D;&#x52A1;&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl get svc ratings -o wide
 NAME      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE   SELECTOR
@@ -2813,7 +2813,7 @@ ratings   ClusterIP   10.107.67.216   &lt;none&gt;        9080/TCP   76d   app=r
 <span class="hljs-attr">        ports:</span>
 <span class="hljs-attr">        - containerPort:</span> <span class="hljs-number">9080</span>
 </code></pre>
-<h3 id="reviews-service">Reviews service</h3>
+<h3 id="&#x9A8C;&#x8BC1;-reviews">&#x9A8C;&#x8BC1; Reviews</h3>
 <p>&#x5B8C;&#x6210;&#x90E8;&#x7F72;&#x540E;&#xFF0C;&#x9A8C;&#x8BC1; reviews &#x670D;&#x52A1;&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl get svc reviews -o wide
 NAME      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELECTOR
@@ -2930,10 +2930,11 @@ reviews   ClusterIP   10.100.249.106   &lt;none&gt;        9080/TCP   76d   app=
 <span class="hljs-attr">        ports:</span>
 <span class="hljs-attr">        - containerPort:</span> <span class="hljs-number">9080</span>
 </code></pre>
-<h2 id="&#x521B;&#x5EFA;-gateway&#xFF0C;&#x8FB9;&#x754C;-envoy-&#x5F00;&#x59CB;&#x76D1;&#x542C;">&#x521B;&#x5EFA; Gateway&#xFF0C;&#x8FB9;&#x754C; envoy &#x5F00;&#x59CB;&#x76D1;&#x542C;</h2>
-<p>&#x521B;&#x5EFA; Gateway&#xFF0C;&#x6307;&#x793A;&#x8FB9;&#x754C; envoy &#x76D1;&#x542C; 80 &#x7AEF;&#x53E3;&#xFF0C;&#x7F51;&#x683C;&#x5916;&#x90E8;&#x901A;&#x8FC7;&#x8FB9;&#x754C; envoy &#x7684; 80 &#x7AEF;&#x53E3;&#x8BBF;&#x95EE; Bookinfo &#x5E94;&#x7528;&#x3002;</p>
+<h2 id="&#x521B;&#x5EFA;-gateway&#xFF0C;ingress-envoy-&#x5F00;&#x59CB;&#x76D1;&#x542C;">&#x521B;&#x5EFA; Gateway&#xFF0C;ingress envoy &#x5F00;&#x59CB;&#x76D1;&#x542C;</h2>
+<p>&#x521B;&#x5EFA; Gateway&#xFF0C;&#x6307;&#x793A;&#x8FB9;&#x754C; envoy &#x76D1;&#x542C; 80 &#x7AEF;&#x53E3;&#xFF0C;&#x5141;&#x8BB8;&#x901A;&#x8FC7; ingress envoy &#x7684; 80 &#x7AEF;&#x53E3;&#x8BBF;&#x95EE; Bookinfo&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/networking/bookinfo-gateway.yaml
 </code></pre>
+<p>Gateway &#x5B9A;&#x4E49;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> Gateway
 <span class="hljs-attr">metadata:</span>
@@ -2949,10 +2950,12 @@ reviews   ClusterIP   10.100.249.106   &lt;none&gt;        9080/TCP   76d   app=
 <span class="hljs-attr">    hosts:</span>
 <span class="hljs-bullet">    -</span> <span class="hljs-string">&quot;*&quot;</span>
 </code></pre>
+<p>&#x5982;&#x679C;&#x8FD9;&#x65F6;&#x5019;&#x8FD8;&#x6CA1;&#x6709;&#x521B;&#x5EFA; VirtualService&#xFF0C;ingress envoy &#x8FD8;&#x4E0D;&#x77E5;&#x9053;&#x8981;&#x8F6C;&#x53D1;&#x5230;&#x54EA;&#x91CC;&#x3002;</p>
 <h2 id="&#x521B;&#x5EFA;-virtualservice&#xFF0C;&#x8F6C;&#x53D1;&#x8BF7;&#x6C42;">&#x521B;&#x5EFA; VirtualService&#xFF0C;&#x8F6C;&#x53D1;&#x8BF7;&#x6C42;</h2>
-<p>&#x521B;&#x5EFA; VirtualService&#xFF0C;&#x5C06;&#x8FB9;&#x754C; envoy &#x6536;&#x5230;&#x7684;&#x6D41;&#x91CF;&#x8F6C;&#x53D1;&#x5230; productpage &#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/networking/bookinfo-gateway.yaml  <span class="hljs-comment"># &#x540C;&#x65F6;&#x5305;&#x542B; Gateway &#x548C; VirutalService</span>
+<p>&#x521B;&#x5EFA; VirtualService&#xFF0C;&#x6307;&#x793A; ingress envoy &#x5C06;&#x5916;&#x90E8;&#x5230;&#x6765;&#x7684;&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x5230; productpage &#xFF1A;</p>
+<pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/networking/bookinfo-gateway.yaml
 </code></pre>
+<p>VirtualService &#x5B9A;&#x4E49;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> VirtualService
 <span class="hljs-attr">metadata:</span>
@@ -2980,14 +2983,15 @@ reviews   ClusterIP   10.100.249.106   &lt;none&gt;        9080/TCP   76d   app=
 <span class="hljs-attr">        port:</span>
 <span class="hljs-attr">          number:</span> <span class="hljs-number">9080</span>
 </code></pre>
-<p>&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FB9;&#x754C; envoy &#x8BBF;&#x95EE; bookinfo &#x670D;&#x52A1;&#x4E86;&#xFF0C;&#x8FD9;&#x91CC; hosts &#x4E2D;&#x914D;&#x7F6E;&#x4E3A; <code>*</code>&#xFF0C;&#x5982;&#x679C; bookinfo &#x6709;&#x57DF;&#x540D;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x4E3A;&#x5177;&#x4F53;&#x7684;&#x57DF;&#x540D;&#x3002;</p>
+<p>&#x8FD9;&#x65F6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FB9;&#x754C; envoy &#x8BBF;&#x95EE; bookinfo&#x3002;&#x8FD9;&#x91CC;&#x7684; hosts &#x914D;&#x7F6E;&#x662F; <code>*</code>&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x6539;&#x6210;&#x5177;&#x4F53;&#x7684;&#x57DF;&#x540D;&#x3002;</p>
 <h2 id="&#x901A;&#x8FC7;&#x8FB9;&#x754C;-envoy-&#x8BBF;&#x95EE;&#x5E94;&#x7528;">&#x901A;&#x8FC7;&#x8FB9;&#x754C; envoy &#x8BBF;&#x95EE;&#x5E94;&#x7528;</h2>
 <p>&#x8FB9;&#x754C; envoy &#x662F; istio &#x7684;&#x7EC4;&#x4EF6;&#x4E4B;&#x4E00;&#xFF0C;&#x7531;&#x4E24;&#x4E2A;&#x670D;&#x52A1;&#x7EC4;&#x6210;&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl -n istio-system get deployment | grep gateway
 istio-egressgateway      1/1     1            1           45h
 istio-ingressgateway     1/1     1            1           45h
 </code></pre>
-<p>&#x4E00;&#x4E2A;&#x8D1F;&#x8D23;&#x4ECE;&#x5916;&#x90E8;&#x6D41;&#x5165;&#x7F51;&#x683C;&#x7684;&#x6D41;&#x91CF;&#xFF0C;&#x4E00;&#x4E2A;&#x8D1F;&#x8D23;&#x4ECE;&#x7F51;&#x683C;&#x6D41;&#x5411;&#x5916;&#x90E8;&#x7684;&#x6D41;&#x91CF;&#x3002;&#x7EA6;&#x5B9A; istio-ingressgateway &#x5904;&#x7406;&#x5916;&#x90E8;&#x8FDB;&#x5165;&#x7F51;&#x683C;&#x7684;&#x6D41;&#x91CF;&#xFF0C;istio-egressgateway &#x5904;&#x7406;&#x7F51;&#x683C;&#x6D41;&#x5411;&#x5916;&#x90E8;&#x7684;&#x6D41;&#x91CF;&#xFF0C;&#x79BB;&#x5F00;&#x7F51;&#x683C;&#x7684;&#x6D41;&#x91CF;&#x7684;&#x5904;&#x7406;&#x53C2;&#x8003; <a href="egress.html">Engress Control</a>&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x8D1F;&#x8D23;&#x4ECE;&#x5916;&#x90E8;&#x6D41;&#x5165;&#x7F51;&#x683C;&#x7684;&#x6D41;&#x91CF;&#xFF08;ingress&#xFF09;&#xFF0C;&#x4E00;&#x4E2A;&#x8D1F;&#x8D23;&#x4ECE;&#x7F51;&#x683C;&#x6D41;&#x5411;&#x5916;&#x90E8;&#x7684;&#x6D41;&#x91CF;&#xFF08;egress&#xFF09;&#x3002;</p>
+<p>&#x7EA6;&#x5B9A; istio-ingressgateway &#x5904;&#x7406;&#x5916;&#x90E8;&#x8FDB;&#x5165;&#x7F51;&#x683C;&#x7684;&#x6D41;&#x91CF;&#xFF0C;istio-egressgateway &#x5904;&#x7406;&#x7F51;&#x683C;&#x6D41;&#x5411;&#x5916;&#x90E8;&#x7684;&#x6D41;&#x91CF;&#xFF0C;&#x79BB;&#x5F00;&#x7F51;&#x683C;&#x7684;&#x6D41;&#x91CF;&#x7684;&#x5904;&#x7406;&#x53C2;&#x8003; <a href="egress.html">Engress Control</a>&#x3002;</p>
 <p>&#x901A;&#x8FC7; kubernetes &#x63D0;&#x4F9B;&#x7684;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE; istio-ingressgateway&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl -n istio-system get service | grep gateway
 istio-egressgateway      ClusterIP      10.111.134.223   &lt;none&gt;     80/TCP,443/TCP,15443/TCP
@@ -3014,21 +3018,21 @@ istio-ingressgateway     LoadBalancer   10.101.187.91    &lt;pending&gt;  15020:
 |               |                        | http://192.168.99.100:31829    |
 |---------------|------------------------|--------------------------------|
 </code></pre>
-<p>&#x7528;&#x4E0B;&#x9762;&#x7684; url &#x8BBF;&#x95EE; bookinfo&#xFF0C;&#x6CE8;&#x610F; path &#x4E3A; <code>productpage</code>&#xFF0C;&#x4E0E; virtualservice &#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x4E00;&#x81F4;&#xFF1A;</p>
+<p>&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x4E86; minikube&#xFF0C;&#x7528;&#x4E0B;&#x9762;&#x7684; url &#x8BBF;&#x95EE; bookinfo&#xFF0C;path &#x4E3A; <code>productpage</code>&#xFF0C;&#x4E0E; VirtualService &#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x4E00;&#x81F4;&#xFF1A;</p>
 <pre><code class="lang-sh">http://192.168.99.100:31380/productpage
 </code></pre>
 <p><img src="../img/envoy/bookinfo.png" alt="bookinfo&#x7F51;&#x9875;"></p>
-<p>&#x8FD9;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FB9;&#x754C; envoy &#x8BBF;&#x95EE;&#x5E94;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x7F51;&#x683C;&#x5185;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF0C;&#x56DB;&#x4E2A;&#x5B50;&#x7CFB;&#x7EDF;&#x4E4B;&#x95F4;&#x7684;&#x4E92;&#x76F8;&#x8BBF;&#x95EE;&#x884C;&#x4E3A;&#x548C;&#x901A;&#x8FC7; kubernetes &#x4E2D;&#x7684; svc &#x8BBF;&#x95EE;&#x6548;&#x679C;&#x76F8;&#x540C;&#x3002;</p>
-<p>&#x4E0D;&#x505C;&#x5730;&#x5237;&#x65B0;&#x9875;&#x9762;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x5728;&#x53D8;&#x5316;&#xFF1A;</p>
+<p>&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FB9;&#x754C; envoy &#x8BBF;&#x95EE;&#x5E94;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF0C;&#x56DB;&#x4E2A;&#x5B50;&#x7CFB;&#x7EDF;&#x4E4B;&#x95F4;&#x7684;&#x4E92;&#x76F8;&#x8BBF;&#x95EE;&#x548C;&#x901A;&#x8FC7; kubernetes &#x4E2D;&#x7684; svc &#x8BBF;&#x95EE;&#x6548;&#x679C;&#x76F8;&#x540C;&#x3002;</p>
+<p>&#x5237;&#x65B0;&#x9875;&#x9762;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x5728;&#x53D8;&#x5316;&#xFF1A;</p>
 <p><img src="../img/envoy/bookinfo.png" alt="bookinfo&#x7F51;&#x9875;"></p>
 <p><img src="../img/envoy/bookinfo2.png" alt="bookinfo&#x7F51;&#x9875;"></p>
 <p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A; reviews &#x670D;&#x52A1;&#x6709; v1&#x3001;v2&#x3001;v3 &#x4E09;&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x8BBF;&#x95EE; productpage &#x65F6;&#xFF0C;productpage &#x968F;&#x673A;&#x4ECE; reviews &#x7684;&#x4E09;&#x4E2A;&#x7248;&#x672C;&#x7684; pod &#x4E2D;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x8BC4;&#x8BBA;&#x6570;&#x636E;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x770B;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x9875;&#x9762;&#x3002;</p>
-<p>&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x5F88;&#x7C97;&#x653E;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; virtualservice &#x548C;&#x5BF9;&#x5E94; destination&#xFF0C;&#x7CBE;&#x7EC6;&#x7BA1;&#x63A7;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; VirtualService &#x548C; Destination&#xFF0C;&#x7CBE;&#x7EC6;&#x7BA1;&#x63A7;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#x3002;</p>
 <h2 id="&#x8BBE;&#x7F6E;&#x7F51;&#x683C;&#x5185;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF1A;destinationrule">&#x8BBE;&#x7F6E;&#x7F51;&#x683C;&#x5185;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF1A;DestinationRule</h2>
-<p>&#x5148;&#x4E3A;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; DestinationRule&#xFF0C;&#x8BBE;&#x7F6E;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF1A;</p>
+<p>&#x4E3A;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; DestinationRule&#xFF0C;&#x8BBE;&#x7F6E;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/networking/destination-rule-all.yaml
 </code></pre>
-<p>DestinationRule &#x5C06; Pod &#x6309;&#x7167; Label &#x8FDB;&#x884C;&#x4E86;&#x5206;&#x7EC4;&#xFF0C;&#x62C6;&#x5206;&#x6210;&#x591A;&#x4E2A; subnet&#xFF1A;</p>
+<p>&#x8FD9;&#x91CC;&#x5728; DestinationRule &#x4E2D;&#x5C06; Pod &#x6309;&#x7167; Label &#x8FDB;&#x884C;&#x4E86;&#x5206;&#x7EC4;&#xFF0C;&#x62C6;&#x5206;&#x6210;&#x591A;&#x4E2A; subnet&#xFF1A;</p>
 <p>productpage&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> DestinationRule
@@ -3095,7 +3099,7 @@ istio-ingressgateway     LoadBalancer   10.101.187.91    &lt;pending&gt;  15020:
 <span class="hljs-attr">    labels:</span>
 <span class="hljs-attr">      version:</span> v3
 </code></pre>
-<p>&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#x9700;&#x8981;&#x88AB; VirtualService &#x5F15;&#x7528;&#x540E;&#x624D;&#x751F;&#x6548;&#xFF0C;&#x53C2;&#x8003; <a href="https://istio.io/docs/tasks/traffic-management/request-routing/" title="Apply a virtual service" target="_blank">Apply a virtual service</a>&#xFF0C;&#x56E0;&#x6B64;&#x8FD8;&#x9700;&#x8981;&#x4E3A;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; VirtualService&#xFF0C;&#x5728; VirtualService &#x4E2D;&#x5F15;&#x7528;&#x5404;&#x81EA;&#x7684; DestinationRule &#x4E2D;&#x7684; subset&#xFF1A;</p>
+<p>&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#x88AB; VirtualService &#x5F15;&#x7528;&#x540E;&#x624D;&#x751F;&#x6548;&#xFF0C;&#x53C2;&#x8003; <a href="https://istio.io/docs/tasks/traffic-management/request-routing/" title="Apply a virtual service" target="_blank">Apply a virtual service</a>&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x4E3A;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; VirtualService&#xFF0C;&#x5728; VirtualService &#x4E2D;&#x5F15;&#x7528; DestinationRule &#x4E2D;&#x7684; subset&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/networking/virtual-service-all-v1.yaml
 </code></pre>
 <p>productpage &#x7684; VirtualService&#xFF1A;</p>
@@ -3154,10 +3158,10 @@ istio-ingressgateway     LoadBalancer   10.101.187.91    &lt;pending&gt;  15020:
 <span class="hljs-attr">        host:</span> reviews
 <span class="hljs-attr">        subset:</span> v1
 </code></pre>
-<p>reviews &#x7684; VirtualService &#x4E2D;&#x660E;&#x786E;&#x6307;&#x5B9A;&#x4E86;&#x5C06;&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x5230; <code>subset: v1</code>&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x8BBF;&#x95EE; bookinfo&#xFF0C;&#x9875;&#x9762;&#x4E0D;&#x518D;&#x53D8;&#x5316;&#x3002;</p>
+<p>reviews &#x7684; VirtualService &#x7ED1;&#x5B9A;&#x4E86; reviews &#x7684; <code>subset: v1</code>&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x8BBF;&#x95EE; bookinfo&#xFF0C;&#x9875;&#x9762;&#x4E0D;&#x518D;&#x53D8;&#x5316;&#x3002;</p>
 <p><img src="../img/envoy/bookinfo3.png" alt="bookinfo&#x7F51;&#x9875;"></p>
 <h2 id="&#x6309;&#x7167;&#x7528;&#x6237;&#x8F6C;&#x53D1;">&#x6309;&#x7167;&#x7528;&#x6237;&#x8F6C;&#x53D1;</h2>
-<p>&#x4E0B;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x66F4;&#x65B0; reviews &#x7684; VirtualService&#xFF0C;&#x5C06; jason &#x7528;&#x6237;&#x7684;&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x5230; v2 &#x7248;&#x672C;&#xFF1A;</p>
+<p>&#x66F4;&#x65B0; reviews &#x7684; VirtualService&#xFF0C;&#x5C06; jason &#x7528;&#x6237;&#x7684;&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x5230; v2 &#x7248;&#x672C;&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
 </code></pre>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
@@ -3181,7 +3185,7 @@ istio-ingressgateway     LoadBalancer   10.101.187.91    &lt;pending&gt;  15020:
 <span class="hljs-attr">        host:</span> reviews
 <span class="hljs-attr">        subset:</span> v1
 </code></pre>
-<p>&#x70B9;&#x51FB;&#x754C;&#x9762;&#x53F3;&#x4E0A;&#x89D2;&#x7684; login&#xFF0C;&#x4EE5;&#x7528;&#x6237; jason &#x7684;&#x8EAB;&#x4EFD;&#x767B;&#x5F55;&#xFF08;&#x5BC6;&#x7801;&#x4E3A;&#x7A7A;&#xFF09;&#xFF0C;&#x5237;&#x65B0;&#x9875;&#x9762;&#x4F1A;&#x53D1;&#x73B0;&#x9875;&#x9762;&#x53D8;&#x6210;&#x4E86; v2 &#x7248;&#x672C;&#xFF1A;</p>
+<p>&#x70B9;&#x51FB;&#x754C;&#x9762;&#x53F3;&#x4E0A;&#x89D2;&#x7684; login&#xFF0C;&#x4EE5;&#x7528;&#x6237; jason &#x7684;&#x8EAB;&#x4EFD;&#x767B;&#x5F55;&#xFF08;&#x5BC6;&#x7801;&#x4E3A;&#x7A7A;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x5237;&#x65B0;&#x9875;&#x9762;&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;&#x9875;&#x9762;&#x53D8;&#x6210;&#x4E86; v2 &#x7248;&#x672C;&#xFF1A;</p>
 <p><img src="../img/envoy/bookinfo4.png" alt="bookinfo&#x7F51;&#x9875;"></p>
 <p>&#x9000;&#x51FA; jason &#x8D26;&#x53F7;&#x540E;&#xFF0C;&#x9875;&#x9762;&#x53C8;&#x56DE;&#x5230;&#x4E86; v1 &#x7248;&#x672C;&#x3002;</p>
 <h2 id="&#x66F4;&#x591A;&#x64CD;&#x4F5C;">&#x66F4;&#x591A;&#x64CD;&#x4F5C;</h2>
@@ -3258,7 +3262,7 @@ istio-ingressgateway     LoadBalancer   10.101.187.91    &lt;pending&gt;  15020:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Bookinfo Application","level":"1.4.6.1","depth":3,"next":{"title":"转发路由","level":"1.4.7","depth":2,"path":"istio/route.md","ref":"istio/route.md","articles":[]},"previous":{"title":"istio 示例拆解","level":"1.4.6","depth":2,"path":"istio/sample.md","ref":"istio/sample.md","articles":[{"title":"Bookinfo Application","level":"1.4.6.1","depth":3,"path":"istio/bookinfo.md","ref":"istio/bookinfo.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/bookinfo.md","mtime":"2019-11-26T02:40:27.131Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T04:01:24.392Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Bookinfo Application","level":"1.4.6.1","depth":3,"next":{"title":"转发路由","level":"1.4.7","depth":2,"path":"istio/route.md","ref":"istio/route.md","articles":[]},"previous":{"title":"istio 示例拆解","level":"1.4.6","depth":2,"path":"istio/sample.md","ref":"istio/sample.md","articles":[{"title":"Bookinfo Application","level":"1.4.6.1","depth":3,"path":"istio/bookinfo.md","ref":"istio/bookinfo.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/bookinfo.md","mtime":"2019-11-26T07:43:44.309Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T08:04:18.135Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

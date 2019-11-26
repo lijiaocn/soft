@@ -520,7 +520,7 @@ var _hmt = _hmt || [];
                 <a href="tpolicy.html">
             
                     
-                    流量策略
+                    负载均衡
             
                 </a>
             
@@ -2576,7 +2576,7 @@ var _hmt = _hmt || [];
                                 <!-- toc -->
 <ul>
 <li><a href="#istio-&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#xFF1A;-gateways">istio &#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#xFF1A; Gateways</a><ul>
-<li><a href="#&#x653E;&#x884C;&#x5916;&#x90E8;&#x6D41;&#x91CF;">&#x653E;&#x884C;&#x5916;&#x90E8;&#x6D41;&#x91CF;</a></li>
+<li><a href="#&#x5141;&#x8BB8;&#x5916;&#x90E8;&#x8BBF;&#x95EE;&#x96C6;&#x7FA4;&#x5185;&#x670D;&#x52A1;">&#x5141;&#x8BB8;&#x5916;&#x90E8;&#x8BBF;&#x95EE;&#x96C6;&#x7FA4;&#x5185;&#x670D;&#x52A1;</a></li>
 <li><a href="#&#x66F4;&#x590D;&#x6742;&#x7684;&#x914D;&#x7F6E;">&#x66F4;&#x590D;&#x6742;&#x7684;&#x914D;&#x7F6E;</a></li>
 <li><a href="#&#x5728;-virtualservice-&#x4E2D;&#x4F7F;&#x7528;-gateway">&#x5728; VirtualService &#x4E2D;&#x4F7F;&#x7528; Gateway</a></li>
 <li><a href="#&#x9650;&#x5B9A;-gateway-&#x7684;&#x5F15;&#x7528;&#x8303;&#x56F4;">&#x9650;&#x5B9A; Gateway &#x7684;&#x5F15;&#x7528;&#x8303;&#x56F4;</a></li>
@@ -2586,15 +2586,15 @@ var _hmt = _hmt || [];
 </ul>
 <!-- tocstop -->
 <h1 id="istio-&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#xFF1A;-gateways">istio &#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#xFF1A; Gateways</h1>
-<p><a href="https://istio.io/docs/concepts/traffic-management/#gateways" title="Gateways" target="_blank">Gateways</a> &#x7BA1;&#x7406;&#x5357;&#x5317;&#x5411;&#x6D41;&#x91CF;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4ECE;&#x5916;&#x90E8;&#x6D41;&#x5165;&#x7F51;&#x683C;&#xFF0C;&#x548C;&#x4ECE;&#x7F51;&#x683C;&#x6D41;&#x51FA;&#x5230;&#x5916;&#x90E8;&#x7684;&#x6D41;&#x91CF;&#x3002;&#x5B83;&#x4F5C;&#x7528;&#x4E8E;&#x7F51;&#x683C;&#x8FB9;&#x754C;&#x7684; envoy &#xFF0C;&#x8FB9;&#x754C; envoy &#x901A;&#x5E38;&#x88AB;&#x5206;&#x6210;&#x4E24;&#x7EC4;&#xFF1A;</p>
+<p><a href="https://istio.io/docs/concepts/traffic-management/#gateways" title="Gateways" target="_blank">Gateways</a> &#x7BA1;&#x7406;&#x5357;&#x5317;&#x5411;&#x6D41;&#x91CF;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4ECE;&#x5916;&#x90E8;&#x6D41;&#x5165;&#x7F51;&#x683C;&#xFF0C;&#x548C;&#x4ECE;&#x7F51;&#x683C;&#x6D41;&#x51FA;&#x5230;&#x5916;&#x90E8;&#x7684;&#x6D41;&#x91CF;&#x3002;&#x5B83;&#x5F71;&#x54CD;&#x7F51;&#x683C;&#x8FB9;&#x754C;&#x7684; envoy &#xFF0C;&#x8FB9;&#x754C; envoy &#x901A;&#x5E38;&#x88AB;&#x5206;&#x6210;&#x4E24;&#x7EC4;&#xFF1A;</p>
 <ul>
 <li>&#x4E00;&#x7EC4;&#x5904;&#x7406;&#x5916;&#x90E8;&#x6D41;&#x5165;&#x7F51;&#x683C;&#x7684;&#x6D41;&#x91CF;&#xFF0C;&#x79F0;&#x4E3A; ingress gateway</li>
 <li>&#x4E00;&#x7EC4;&#x5904;&#x7406;&#x7F51;&#x683C;&#x6D41;&#x5411;&#x5916;&#x90E8;&#x7684;&#x6D41;&#x91CF;&#xFF0C;&#x79F0;&#x4E3A; egress gateway</li>
 </ul>
 <p><img src="../img/envoy/ingress-egress.svg" alt="istio&#x7684;&#x8BF7;&#x6C42;&#x6D41;&#x5411;"></p>
 <p>Gateway &#x8BE6;&#x7EC6;&#x5185;&#x5BB9;&#x89C1; <a href="https://istio.io/docs/reference/config/networking/v1alpha3/gateway/" title="Envoy Gateway Detail" target="_blank">Envoy Gateway Detail</a>&#x3002;</p>
-<h2 id="&#x653E;&#x884C;&#x5916;&#x90E8;&#x6D41;&#x91CF;">&#x653E;&#x884C;&#x5916;&#x90E8;&#x6D41;&#x91CF;</h2>
-<p>&#x4E0B;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x8FB9;&#x754C; envoy&#xFF08;&#x5E26;&#x6709; app: my-gateway-controller &#x6807;&#x7B7E;&#x7684; envoy pod&#xFF09;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#xFF1A;&#x5141;&#x8BB8; host &#x4E3A; ext-host&#x3001;&#x534F;&#x8BAE;&#x4E3A; https &#x7684;&#x5916;&#x90E8;&#x8BF7;&#x6C42;&#x8FDB;&#x5165;&#x7F51;&#x683C;&#x3002;</p>
+<h2 id="&#x5141;&#x8BB8;&#x5916;&#x90E8;&#x8BBF;&#x95EE;&#x96C6;&#x7FA4;&#x5185;&#x670D;&#x52A1;">&#x5141;&#x8BB8;&#x5916;&#x90E8;&#x8BBF;&#x95EE;&#x96C6;&#x7FA4;&#x5185;&#x670D;&#x52A1;</h2>
+<p>&#x4E0B;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x8FB9;&#x754C; envoy&#xFF08;&#x5E26;&#x6709; app: my-gateway-controller &#x6807;&#x7B7E;&#x7684; envoy pod&#xFF09;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#xFF1A;&#x5141;&#x8BB8;&#x8BBF;&#x95EE;&#x96C6;&#x7FA4;&#x5185;&#x7684; ext-host&#x3002;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> Gateway
 <span class="hljs-attr">metadata:</span>
@@ -2614,7 +2614,7 @@ var _hmt = _hmt || [];
 <span class="hljs-attr">      serverCertificate:</span> /tmp/tls.crt
 <span class="hljs-attr">      privateKey:</span> /tmp/tls.key
 </code></pre>
-<p>selector &#x7B5B;&#x9009;&#x8981;&#x4F5C;&#x7528;&#x7684; envoy pod&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x7684;&#x610F;&#x601D;&#x662F;&#xFF1A;&#x5E26;&#x6709; <code>app: my-gateway-controller</code> &#x6807;&#x7B7E;&#x7684; envoy pod &#x76D1;&#x542C; 443&#x7AEF;&#x53E3;&#xFF0C;&#x653E;&#x884C; host &#x4E3A; ext-host &#x7684;&#x8BF7;&#x6C42;&#x3002;</p>
+<p>selector &#x7B5B;&#x9009;&#x8981;&#x4F5C;&#x7528;&#x7684; envoy pod&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x7684;&#x610F;&#x601D;&#x662F;&#xFF1A;&#x6307;&#x793A;&#x5E26;&#x6709; <code>app: my-gateway-controller</code> &#x6807;&#x7B7E;&#x7684; envoy pod &#xFF08;&#x901A;&#x5E38;&#x662F; ingress gateway &#x7684; pod&#xFF09;&#x76D1;&#x542C; 443&#x7AEF;&#x53E3;&#xFF0C;&#x653E;&#x884C; host &#x4E3A; ext-host &#x7684;&#x8BF7;&#x6C42;&#x3002;</p>
 <h2 id="&#x66F4;&#x590D;&#x6742;&#x7684;&#x914D;&#x7F6E;">&#x66F4;&#x590D;&#x6742;&#x7684;&#x914D;&#x7F6E;</h2>
 <p><a href="https://istio.io/docs/reference/config/networking/v1alpha3/gateway/" title="Envoy Gateway Detail" target="_blank">Envoy Gateway Detail</a> &#x4E2D;&#x7ED9;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x66F4;&#x590D;&#x6742;&#x7684;&#x793A;&#x4F8B;&#xFF0C;&#x540C;&#x65F6;&#x76D1;&#x542C;&#x591A;&#x4E2A;&#x7AEF;&#x53E3;&#xFF0C;&#x6BCF;&#x4E2A;&#x7AEF;&#x53E3;&#x653E;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x8BF7;&#x6C42;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
@@ -2669,9 +2669,9 @@ var _hmt = _hmt || [];
 <span class="hljs-bullet">    -</span> <span class="hljs-string">&quot;*&quot;</span>
 </code></pre>
 <h2 id="&#x5728;-virtualservice-&#x4E2D;&#x4F7F;&#x7528;-gateway">&#x5728; VirtualService &#x4E2D;&#x4F7F;&#x7528; Gateway</h2>
-<p>Gateway &#x6307;&#x793A;&#x8FB9;&#x754C; envoy &#x76D1;&#x542C;&#x7AEF;&#x53E3;&#x3001;&#x653E;&#x884C;&#x8BF7;&#x6C42;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x544A;&#x8BC9;&#x8FB9;&#x754C; envoy &#x5982;&#x4F55;&#x8F6C;&#x53D1;&#x8FD9;&#x4E9B;&#x4ECE;&#x5916;&#x90E8;&#x8FDB;&#x6765;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x8F6C;&#x53D1;&#x89C4;&#x5219;&#x662F;&#x5728; <a href="vsvc.html">Virtual services</a> &#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x3002;</p>
-<p>Gateway &#x53EA;&#x6709;&#x88AB; VirtualService &#x5F15;&#x7528;&#x4E86;&#xFF0C;&#x624D;&#x80FD;&#x77E5;&#x9053;&#x6D41;&#x5165;&#x7684;&#x8BF7;&#x6C42;&#x53BB;&#x5F80;&#x4F55;&#x65B9;&#x3002;VirtualService &#x7684; gateways &#x5B57;&#x6BB5;&#x7528;&#x6765;&#x9650;&#x5B9A;&#x5B83;&#x8981;&#x4F5C;&#x7528;&#x7684; Gateway&#x3002;</p>
-<p>&#x4E0B;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x5C06;&#x4ECE; some-config-namespace/my-gateway &#x8FDB;&#x6765;&#x7684;&#x3001;&#x7AEF;&#x53E3;&#x4E3A; 27017 &#x7684;&#x6D41;&#x91CF;&#x8F6C;&#x53D1;&#x5230; mongo.prod.svc.cluster.local&#xFF1A;</p>
+<p>Gateway &#x6307;&#x793A;&#x8FB9;&#x754C; envoy &#x76D1;&#x542C;&#x7AEF;&#x53E3;&#x3001;&#x653E;&#x884C;&#x8BF7;&#x6C42;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x544A;&#x8BC9;&#x8FB9;&#x754C; envoy &#x5982;&#x4F55;&#x8F6C;&#x53D1;&#x8FD9;&#x4E9B;&#x4ECE;&#x5916;&#x90E8;&#x8FDB;&#x6765;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x8F6C;&#x53D1;&#x89C4;&#x5219;&#x5728; <a href="vsvc.html">VirtualService</a> &#x4E2D;&#x5B9A;&#x4E49;&#x3002;</p>
+<p>Gateway &#x53EA;&#x6709;&#x88AB; VirtualService &#x5F15;&#x7528;&#x4E86;&#xFF0C;&#x624D;&#x77E5;&#x9053;&#x5C06;&#x6D41;&#x5165;&#x7684;&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x5230;&#x54EA;&#x91CC;&#xFF0C;VirtualService &#x901A;&#x8FC7; gateways &#x5B57;&#x6BB5;&#x7ED1;&#x5B9A; Gateway.</p>
+<p>&#x5C06;&#x4ECE; some-config-namespace/my-gateway &#x8FDB;&#x6765;&#x7684;&#x3001;&#x76EE;&#x5730;&#x7AEF;&#x53E3;&#x4E3A; 27017 &#x7684;&#x6D41;&#x91CF;&#x8F6C;&#x53D1;&#x5230; mongo.prod.svc.cluster.local&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> VirtualService
 <span class="hljs-attr">metadata:</span>
@@ -2692,7 +2692,7 @@ var _hmt = _hmt || [];
 <span class="hljs-attr">        port:</span>
 <span class="hljs-attr">          number:</span> <span class="hljs-number">5555</span>
 </code></pre>
-<p>VirtualService &#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x4F5C;&#x7528;&#x4E8E;&#x591A;&#x4E2A; gateway&#xFF0C;&#x4F8B;&#x5982;&#x540C;&#x65F6;&#x4F5C;&#x7528;&#x4E8E; some-config-namespace/my-gateway &#x548C;&#x7F51;&#x683C;&#x5185;&#x90E8;&#xFF08;mesh&#xFF09;&#xFF1A;</p>
+<p>VirtualService &#x53EF;&#x4EE5;&#x7ED1;&#x5B9A;&#x591A;&#x4E2A; gateway&#xFF0C;&#x4F8B;&#x5982;&#x7ED1;&#x5B9A; some-config-namespace/my-gateway &#x548C;&#x7F51;&#x683C;&#x5185;&#x90E8;&#xFF08;mesh&#xFF09;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> VirtualService
 <span class="hljs-attr">metadata:</span>
@@ -2729,8 +2729,9 @@ var _hmt = _hmt || [];
 <span class="hljs-attr">        host:</span> reviews.qa.svc.cluster.local
 <span class="hljs-attr">      weight:</span> <span class="hljs-number">20</span>
 </code></pre>
+<p>&#x8FD9;&#x91CC;&#x7684; mesh &#x662F;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x5B58;&#x5728;&#xFF0C;&#x5B83;&#x662F;&#x4EE3;&#x8868;&#x6574;&#x4E2A;&#x7F51;&#x683C;&#x3002;</p>
 <h2 id="&#x9650;&#x5B9A;-gateway-&#x7684;&#x5F15;&#x7528;&#x8303;&#x56F4;">&#x9650;&#x5B9A; Gateway &#x7684;&#x5F15;&#x7528;&#x8303;&#x56F4;</h2>
-<p>&#x5982;&#x679C;&#x5728; Gateway &#x4E2D;&#x8BBE;&#x7F6E;&#x4E86; hosts&#xFF0C;&#x90A3;&#x4E48;&#x53EA;&#x6709;&#x5305;&#x542B;&#x540C;&#x6837;&#x7684; host &#x7684; virtualservice &#x80FD;&#x591F;&#x5F15;&#x7528;&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x5728; Gateway &#x4E2D;&#x8BBE;&#x7F6E;&#x4E86; hosts&#xFF0C;&#x90A3;&#x4E48;&#x53EA;&#x80FD;&#x88AB;&#x5305;&#x542B;&#x540C;&#x6837;&#x7684; host &#x7684; VirtualService &#x7ED1;&#x5B9A;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
 <span class="hljs-attr">kind:</span> Gateway
 <span class="hljs-attr">metadata:</span>
@@ -2749,8 +2750,8 @@ var _hmt = _hmt || [];
 <span class="hljs-bullet">    -</span> <span class="hljs-string">&quot;ns2/foo.bar.com&quot;</span>
 </code></pre>
 <ul>
-<li><code>ns1/*</code>&#xFF1A;ns1 &#x4E2D;&#x7684;&#x6240;&#x6709; VirtualService &#x90FD;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x8BE5; my-gateway&#x3002;</li>
-<li><code>ns2/foo.bar.com</code> &#xFF1A;&#x53EA;&#x6709; ns2 &#x4E2D;&#x5305;&#x542B; foo.bar.com &#x7684; VirtualService &#x53EF;&#x4EE5;&#x7ED1;&#x5B9A; my-gateway&#x3002;</li>
+<li><code>ns1/*</code>&#xFF1A;&#x540D;&#x4E3A; ns1 &#x7684; namespace &#x4E2D;&#x7684;&#x6240;&#x6709; VirtualService &#x90FD;&#x53EF;&#x4EE5;&#x7ED1;&#x5B9A; my-gateway&#x3002;</li>
+<li><code>ns2/foo.bar.com</code> &#xFF1A;&#x540D;&#x4E3A; ns2 &#x7684;namespace &#x4E2D;&#x5305;&#x542B; foo.bar.com &#x7684; VirtualService &#x53EF;&#x4EE5;&#x7ED1;&#x5B9A; my-gateway&#x3002;</li>
 </ul>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <script type="text/javascript">var className='atoc';</script>
@@ -2824,7 +2825,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Gateway","level":"1.4.5.3","depth":3,"next":{"title":"ServiceEntry","level":"1.4.5.4","depth":3,"path":"istio/entry.md","ref":"istio/entry.md","articles":[]},"previous":{"title":"DestinationRule","level":"1.4.5.2","depth":3,"path":"istio/dstrule.md","ref":"istio/dstrule.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/gateway.md","mtime":"2019-11-26T02:40:27.133Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T04:01:24.392Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Gateway","level":"1.4.5.3","depth":3,"next":{"title":"ServiceEntry","level":"1.4.5.4","depth":3,"path":"istio/entry.md","ref":"istio/entry.md","articles":[]},"previous":{"title":"DestinationRule","level":"1.4.5.2","depth":3,"path":"istio/dstrule.md","ref":"istio/dstrule.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/gateway.md","mtime":"2019-11-26T07:15:40.928Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T08:04:18.135Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
