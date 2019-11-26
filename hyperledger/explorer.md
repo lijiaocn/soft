@@ -5,9 +5,9 @@
 
 ## 安装依赖的软件
 
-explorer 依赖 nodejs 8.11（高版本的不支持）、PostgreSQL 9.5和以上版本、jq 命令。
+explorer 依赖 nodejs 8.11（高版本的不支持）、PostgreSQL 9.5 和以上版本、jq 命令。
 
-下面的操作是在 mac 上进行的，除了依赖软件的安装方式，大部分操作和在 linux 上操作相同：
+下面的操作是在 Mac 上进行的，除了依赖软件的安装方式，大部分操作和在 linux 上操作相同：
 
 [超级账本HyperLedger：Explorer安装使用][3]
 
@@ -17,7 +17,7 @@ explorer 依赖 nodejs 8.11（高版本的不支持）、PostgreSQL 9.5和以上
 
 * [PostgresSQL数据库的基本使用——新手入门][4]
 
-这里为了屏蔽不同操作系统上的差异，用 docker 启动 PostgreSQL 数据库，这个过程拉取 Docker 镜像，[单机极简部署](./demo.md) 中提到过 docker 的使用方法和拉取镜像慢的问题：
+这里为了屏蔽不同操作系统上的差异，用 docker 启动 PostgreSQL 数据库，这个过程会拉取 Docker 镜像，[单机极简部署](./demo.md) 中提到过 docker 的使用方法和拉取镜像慢的问题：
 
 ```sh
 $ docker run -idt \
@@ -50,31 +50,29 @@ postgres=#
 
 ## 安装 nodejs 
 
-exploere 要求 nodejs 的版本不能太高，必须是 8.x 版本。
+explorer 要求 nodejs 的版本不能太高，必须是 8.x 版本。
 
 在 CentOS 上直接下载安装：
 
 ```sh
-yum erase nodejs
-wget https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz
-tar -xvf node-v8.11.3-linux-x64.tar.xz
-cd node-v8.11.3-linux-x64
-cp -rf * /usr/
+$ yum erase nodejs
+$ wget https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz
+$ tar -xvf node-v8.11.3-linux-x64.tar.xz
+$ cd node-v8.11.3-linux-x64
+$ cp -rf * /usr/
 ```
 
-在 Mac 上用下面的方法安装 node 8.11.3：
-
+在 Mac 上用下面的方法安装 node 8.x：
 
 ```sh
-wget https://nodejs.org/dist/v8.11.3/node-v8.11.3.pkg
-open node-v8.11.3.pkg
+$ brew install node@8
 ```
 
-确保 node 的版本是 8.11.3：
+确保 node 的版本是 8.x，版本太高和太低都会出现奇葩问题！
 
 ```sh
 $ node --version
-v8.11.3
+v8.16.3            # 在 Mac 用 8.16.3 通过
 ```
 
 >特别注意：node 版本过高或过低，都会出现各种奇葩问题！
@@ -146,7 +144,7 @@ psql: could not connect to server: No such file or directory
 
 这是因为我的 postgre 是用 docker 启动的，访问时需要指定 IP 地址和用户，需要修改 createdb.sh。
 
-在 Mac 上：
+在 Mac 上，把这两行：
 
 ```sh
 darwin*) psql postgres -v dbname=$DATABASE -v user=$USER -v passwd=$PASSWD -f ./explorerpg.sql ;
@@ -168,7 +166,7 @@ psql postgres -h 127.0.0.1 -U postgres -v dbname=$DATABASE -v user=$USER -v pass
 ```
 
 修改后重新执行 ./createdb.sh， 这时候会提示输入的密码，密码就是前面用 docker 启动数据库时设置的 password。
-输出的最后一行为下面的内容时，数据设置成功：
+输出的最后一行为下面的内容时，数据库初始化成功：
 
 ```sh
 You are now connected to database "fabricexplorer" as user "postgres".
@@ -183,7 +181,7 @@ $ ls app/platform/fabric/config.json
 app/platform/fabric/config.json
 ```
 
-查看 config.json 文件的内容，你会发现这个文件中的配置针对正好是 [上一节](./demo.md) 中创建的 first-network：
+查看 config.json 文件的内容，你会发现这个文件中的配置针对的正好是 [上一节](./demo.md) 中创建的 first-network：
 
 ```sh
 $ cat app/platform/fabric/config.json |grep peer
@@ -202,13 +200,13 @@ $ cat app/platform/fabric/config.json |grep peer
         "peer1.org2.example.com": {
 ```
 
-但是 config.json 中的文件路径为 “/fabric-path/fabric-samples...."，和这里的文件路径不同，需要全部修改为：
+但是 config.json 中的文件路径为 “/fabric-path/fabric...."，和这里的文件路径不同，需要全部修改为：
 
 ```sh
 "path": "/Users/lijiao/hyperledger-fabric-1.4.4/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore"
 ```
 
-注意必须使用绝对路径，路径不能是 `~`，我这里是 /Users/lijiao，记得换成你自己的路径，用下面的命令一次修改完成，：
+必须使用绝对路径，路径不能是 `~`，我这里是 /Users/lijiao，记得换成你自己的路径，下面的命令一次修改全部：
 
 ```sh
 # Mac 上执行：
@@ -222,7 +220,7 @@ $ sed -i -e "s#/fabric-path#/Users/lijiao/hyperledger-fabric-1.4.4#" app/platfor
 安装依赖包，构建 blockchain-explorer：
 
 ```sh
-$ npm config set registry https://registry.npm.taobao.org  # 添加淘宝镜像源头，加快速度
+$ npm config set registry https://registry.npm.taobao.org  # 添加淘宝镜像源，加快速度
 $ cd blockchain-explorer
 $ npm install
 $ cd client   # 进入 client 目录
@@ -245,7 +243,7 @@ Insert sql is INSERT INTO transactions  ( "blockid","txhash","createdt","chainco
 ... 省略 ...
 ```
 
-在浏览器中打开 127.0.0.1:8080，监听地址在 appconfig.json 中配置：
+监听地址在 appconfig.json 中配置，默认是 127.0.0.1:8080，在浏览器中打开：
 
 ![Fabric 区块链浏览器页面](../img/fabric/explorer.png)
 
@@ -270,7 +268,7 @@ error when connecting to db: { error: password authentication failed for user "h
     at TCP.onread (net.js:601:20)
 ```
 
-注意 exploer 优先从环境变量中获取数据库的账号密码，如果文件中的账号密码是正确的，但是环境变量中的不正确，也会报错，用下面命令清空环境变量：
+exploer 优先从环境变量中获取数据库的账号密码，如果文件中的账号密码是正确的，但是环境变量中的不正确，也会报错，用下面命令清空环境变量：
 
 ```sh
 unset DATABASE_HOST
@@ -282,7 +280,7 @@ unset DATABASE_PASSWD
 
 ### Faric 的对接文件配置错误
 
-node ./main.js  打印下面的字符，然后自动退出：
+如果 app/platform/fabric/config.json 中的 path 路径配置错了，node ./main.js  打印下面的字符，然后自动退出：
 
 ```sh
 **************************************************************************************
@@ -291,7 +289,7 @@ Info :  Explorer will continue working with only DB data
 **************************************************************************************
 ```
 
-如果 app/platform/fabric/config.json 中的 path 路径配置错了，会出现这种问题，注意必须使用完整的绝对路径，不能用 `~/xxxxx`：
+path 必须使用完整的绝对路径，不能用 `~/xxxxx`，如下：
 
 ```sh
 $ cat  app/platform/fabric/config.json |grep path
@@ -314,3 +312,4 @@ $ cat  app/platform/fabric/config.json |grep path
 [3]: https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/04/26/hyperledger-explorer.html "超级账本HyperLedger：Explorer安装使用"
 [4]: https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2017/08/31/postgre-usage.html "PostgresSQL数据库的基本使用——新手入门"
 [5]: https://github.com/hyperledger/blockchain-explorer/releases "blockchain-explorer release"
+
