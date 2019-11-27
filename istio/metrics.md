@@ -11,6 +11,9 @@ metrics.yaml 包含了所有需要的配置：
 
 ```sh
 $ kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
+instance.config.istio.io/doublerequestcount created
+handler.config.istio.io/doublehandler created
+rule.config.istio.io/doubleprom created
 ```
 
 ### 指标定义
@@ -65,9 +68,41 @@ spec:
       - message
 ```
 
-doublehandler 表示在 prometheus 中存放 doublerequestcount 指标时，把指标的四个属性作为设置为 prometheus 中的 label，同时 doublerequestcount 的指标值被累加（ COUNTER 类型）。这样一来 doublerequestcount 的含义就是已经发生的请求次数
+doublehandler 的意思是在 prometheus 中存放 doublerequestcount 指标时，把指标的四个属性设置为 prometheus 中的 label，把 doublerequestcount 指标的值累加（COUNTER 类型）。
 
-### 采集规则定义
+结合前面的指标定义， 每个 doublerequestcount 的指标值是 2，每产生一个请求就累加 2，所以这个指标的含义就是“请求发生次数 * 2”。
+
+### 设定采集动作
+
+最后是设定采集动作，将 instance 绑定到 handler：
+
+```yaml
+# Rule to send metric instances to a Prometheus handler
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: doubleprom
+  namespace: istio-system
+spec:
+  actions:
+  - handler: doublehandler
+    instances: [ doublerequestcount ]
+```
+
+上面的动作意思是：把 doublerequestcount 指标存放到 doublehandler。
+
+## 采集效果
+
+用 [istio操作命令](./command.md) 提供的方法打开 prometheus：
+
+```sh
+$ ./istioctl d prometheus
+http://localhost:49226
+```
+
+刷新几次 bookinfo 网页后，就能在 Prometheus 查询前面创建的指标，名称为 istio_double_request_count，istio_ 是默认前缀：
+
+![在 Prometehus 中查看 istio 监控指标](../img/istio/metirc-result.png)
 
 ## 参考
 
