@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 26 Nov 2019 18:27:42 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 27 Nov 2019 01:03:59 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -61,6 +61,13 @@
             <description><![CDATA[blockchain-explorer 是一个独立项目，可以用来查看 fabric 内的成员和区块。]]></description>
             <link>https://www.lijiaocn.com/soft/hyperledger/explorer.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/hyperledger/explorer.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[HyperLedger Fabric 的后续安排]]></title>
+            <description><![CDATA[接下来要详细说明 Fabric 每一个组件的用法，Fabric 系统的用法，如何创建、执行合约之类的，以及 HyperLedger 旗下其它项目的使用，譬如 Cello......]]></description>
+            <link>https://www.lijiaocn.com/soft/hyperledger/plan.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/hyperledger/plan.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
