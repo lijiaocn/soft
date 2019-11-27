@@ -9,7 +9,7 @@ explorer 依赖 nodejs 8.11（高版本的不支持）、PostgreSQL 9.5 和以�
 
 下面的操作是在 Mac 上进行的，除了依赖软件的安装方式，大部分操作和在 linux 上操作相同：
 
-[超级账本HyperLedger：Explorer安装使用][3]
+以前的笔记，可参考其中的部分内容：[超级账本HyperLedger：Explorer安装使用][3]。
 
 ### PostgreSQL 安装设置
 
