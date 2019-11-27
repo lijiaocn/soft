@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 27 Nov 2019 01:24:50 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 27 Nov 2019 12:28:46 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -209,6 +209,34 @@
             <description><![CDATA[服务的运行指标要先配置然后才能生成。首先在 istio 中定义一个指标、然后定义指标的收集方式，最后定义指标的收集规则，之后就可以在 istio 中看到采集的指标，参考 Collecting Metrics。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/metrics.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/metrics.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的日志收集方法]]></title>
+            <description><![CDATA[istio 为每个 pod 注入 envoy 容器后，envoy 能够记录每个 pod 的请求。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/log.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/log.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的链路跟踪（调用链）]]></title>
+            <description><![CDATA[istio 自动为 pod 发出的 http 请求添加追踪 headers，要实现完整的 链路跟踪，收到请求的应用程序在访问依赖的服务时，需要把请求头中的 headers 带到下一个请求中。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/tracing.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/tracing.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的访问策略]]></title>
+            <description><![CDATA[istio 提供了限速、按 header 路由等访问控制策略。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/policy.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/policy.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的请求改写功能]]></title>
+            <description><![CDATA[istio 可以按照用户的定义改写请求，譬如增加请求头、改写 uri、请求重定向等。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/modify.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/modify.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>

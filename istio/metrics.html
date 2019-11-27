@@ -66,7 +66,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../k8s/" />
+    <link rel="next" href="log.html" />
     
     
     <link rel="prev" href="mirror.html" />
@@ -573,6 +573,58 @@ var _hmt = _hmt || [];
             
                     
                     指标采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="log.html">
+            
+                <a href="log.html">
+            
+                    
+                    日志收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="tracing.html">
+            
+                <a href="tracing.html">
+            
+                    
+                    链路跟踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="policy.html">
+            
+                <a href="policy.html">
+            
+                    
+                    访问限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="modify.html">
+            
+                <a href="modify.html">
+            
+                    
+                    请求改写
             
                 </a>
             
@@ -2618,9 +2670,10 @@ var _hmt = _hmt || [];
 <li><a href="#&#x521B;&#x5EFA;&#x6307;&#x6807;&#x5E76;&#x6536;&#x96C6;">&#x521B;&#x5EFA;&#x6307;&#x6807;&#x5E76;&#x6536;&#x96C6;</a><ul>
 <li><a href="#&#x6307;&#x6807;&#x5B9A;&#x4E49;">&#x6307;&#x6807;&#x5B9A;&#x4E49;</a></li>
 <li><a href="#&#x6536;&#x96C6;&#x5668;&#x5B9A;&#x4E49;">&#x6536;&#x96C6;&#x5668;&#x5B9A;&#x4E49;</a></li>
-<li><a href="#&#x91C7;&#x96C6;&#x89C4;&#x5219;&#x5B9A;&#x4E49;">&#x91C7;&#x96C6;&#x89C4;&#x5219;&#x5B9A;&#x4E49;</a></li>
+<li><a href="#&#x8BBE;&#x5B9A;&#x91C7;&#x96C6;&#x52A8;&#x4F5C;">&#x8BBE;&#x5B9A;&#x91C7;&#x96C6;&#x52A8;&#x4F5C;</a></li>
 </ul>
 </li>
+<li><a href="#&#x91C7;&#x96C6;&#x6548;&#x679C;">&#x91C7;&#x96C6;&#x6548;&#x679C;</a></li>
 <li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
 </ul>
 </li>
@@ -2632,6 +2685,9 @@ var _hmt = _hmt || [];
 <h2 id="&#x521B;&#x5EFA;&#x6307;&#x6807;&#x5E76;&#x6536;&#x96C6;">&#x521B;&#x5EFA;&#x6307;&#x6807;&#x5E76;&#x6536;&#x96C6;</h2>
 <p>metrics.yaml &#x5305;&#x542B;&#x4E86;&#x6240;&#x6709;&#x9700;&#x8981;&#x7684;&#x914D;&#x7F6E;&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/telemetry/metrics.yaml
+instance.config.istio.io/doublerequestcount created
+handler.config.istio.io/doublehandler created
+rule.config.istio.io/doubleprom created
 </code></pre>
 <h3 id="&#x6307;&#x6807;&#x5B9A;&#x4E49;">&#x6307;&#x6807;&#x5B9A;&#x4E49;</h3>
 <p>&#x5B9A;&#x4E49;&#x540D;&#x4E3A; doublerequestcount &#x7684;&#x6307;&#x6807;&#xFF0C;instance &#x89C4;&#x5B9A;&#x4E86;&#x6307;&#x6807;&#x7684;&#x751F;&#x6210;&#x65B9;&#x6CD5;&#xFF0C;dimensions &#x5B9A;&#x4E49;&#x4E86;&#x6307;&#x6807;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x5C5E;&#x6027;&#x503C;&#xFF08;&#x5C5E;&#x6027;&#x503C;&#x4E2D;&#x53EF;&#x4EE5;&#x5F15;&#x7528; envoy &#x548C; mixer &#x751F;&#x6210;&#x7684;&#x5C5E;&#x6027;&#xFF09; &#xFF1A;</p>
@@ -2675,8 +2731,29 @@ var _hmt = _hmt || [];
 <span class="hljs-bullet">      -</span> destination
 <span class="hljs-bullet">      -</span> message
 </code></pre>
-<p>doublehandler &#x8868;&#x793A;&#x5728; prometheus &#x4E2D;&#x5B58;&#x653E; doublerequestcount &#x6307;&#x6807;&#x65F6;&#xFF0C;&#x628A;&#x6307;&#x6807;&#x7684;&#x56DB;&#x4E2A;&#x5C5E;&#x6027;&#x4F5C;&#x4E3A;&#x8BBE;&#x7F6E;&#x4E3A; prometheus &#x4E2D;&#x7684; label&#xFF0C;&#x540C;&#x65F6; doublerequestcount &#x7684;&#x6307;&#x6807;&#x503C;&#x88AB;&#x7D2F;&#x52A0;&#xFF08; COUNTER &#x7C7B;&#x578B;&#xFF09;&#x3002;&#x8FD9;&#x6837;&#x4E00;&#x6765; doublerequestcount &#x7684;&#x542B;&#x4E49;&#x5C31;&#x662F;&#x5DF2;&#x7ECF;&#x53D1;&#x751F;&#x7684;&#x8BF7;&#x6C42;&#x6B21;&#x6570;</p>
-<h3 id="&#x91C7;&#x96C6;&#x89C4;&#x5219;&#x5B9A;&#x4E49;">&#x91C7;&#x96C6;&#x89C4;&#x5219;&#x5B9A;&#x4E49;</h3>
+<p>doublehandler &#x7684;&#x610F;&#x601D;&#x662F;&#x5728; prometheus &#x4E2D;&#x5B58;&#x653E; doublerequestcount &#x6307;&#x6807;&#x65F6;&#xFF0C;&#x628A;&#x6307;&#x6807;&#x7684;&#x56DB;&#x4E2A;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A; prometheus &#x4E2D;&#x7684; label&#xFF0C;&#x628A; doublerequestcount &#x6307;&#x6807;&#x7684;&#x503C;&#x7D2F;&#x52A0;&#xFF08;COUNTER &#x7C7B;&#x578B;&#xFF09;&#x3002;</p>
+<p>&#x7ED3;&#x5408;&#x524D;&#x9762;&#x7684;&#x6307;&#x6807;&#x5B9A;&#x4E49;&#xFF0C; &#x6BCF;&#x4E2A; doublerequestcount &#x7684;&#x6307;&#x6807;&#x503C;&#x662F; 2&#xFF0C;&#x6BCF;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x5C31;&#x7D2F;&#x52A0; 2&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x6307;&#x6807;&#x7684;&#x542B;&#x4E49;&#x5C31;&#x662F;&#x201C;&#x8BF7;&#x6C42;&#x53D1;&#x751F;&#x6B21;&#x6570; * 2&#x201D;&#x3002;</p>
+<h3 id="&#x8BBE;&#x5B9A;&#x91C7;&#x96C6;&#x52A8;&#x4F5C;">&#x8BBE;&#x5B9A;&#x91C7;&#x96C6;&#x52A8;&#x4F5C;</h3>
+<p>&#x6700;&#x540E;&#x662F;&#x8BBE;&#x5B9A;&#x91C7;&#x96C6;&#x52A8;&#x4F5C;&#xFF0C;&#x5C06; instance &#x7ED1;&#x5B9A;&#x5230; handler&#xFF1A;</p>
+<pre><code class="lang-yaml"><span class="hljs-comment"># Rule to send metric instances to a Prometheus handler</span>
+<span class="hljs-attr">apiVersion:</span> config.istio.io/v1alpha2
+<span class="hljs-attr">kind:</span> rule
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> doubleprom
+<span class="hljs-attr">  namespace:</span> istio-system
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  actions:</span>
+<span class="hljs-attr">  - handler:</span> doublehandler
+<span class="hljs-attr">    instances:</span> [ doublerequestcount ]
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x52A8;&#x4F5C;&#x610F;&#x601D;&#x662F;&#xFF1A;&#x628A; doublerequestcount &#x6307;&#x6807;&#x5B58;&#x653E;&#x5230; doublehandler&#x3002;</p>
+<h2 id="&#x91C7;&#x96C6;&#x6548;&#x679C;">&#x91C7;&#x96C6;&#x6548;&#x679C;</h2>
+<p>&#x7528; <a href="command.html">istio&#x64CD;&#x4F5C;&#x547D;&#x4EE4;</a> &#x63D0;&#x4F9B;&#x7684;&#x65B9;&#x6CD5;&#x6253;&#x5F00; prometheus&#xFF1A;</p>
+<pre><code class="lang-sh">$ ./istioctl d prometheus
+http://localhost:49226
+</code></pre>
+<p>&#x5237;&#x65B0;&#x51E0;&#x6B21; bookinfo &#x7F51;&#x9875;&#x540E;&#xFF0C;&#x5C31;&#x80FD;&#x5728; Prometheus &#x67E5;&#x8BE2;&#x524D;&#x9762;&#x521B;&#x5EFA;&#x7684;&#x6307;&#x6807;&#xFF0C;&#x540D;&#x79F0;&#x4E3A; istio<em>double_request_count&#xFF0C;istio</em> &#x662F;&#x9ED8;&#x8BA4;&#x524D;&#x7F00;&#xFF1A;</p>
+<p><img src="../img/istio/metirc-result.png" alt="&#x5728; Prometehus &#x4E2D;&#x67E5;&#x770B; istio &#x76D1;&#x63A7;&#x6307;&#x6807;"></p>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <ol>
 <li><a href="https://www.lijiaocn.com" title="&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;" target="_blank">&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;</a></li>
@@ -2741,7 +2818,7 @@ var _hmt = _hmt || [];
                 </a>
                 
                 
-                <a href="../k8s/" class="navigation navigation-next " aria-label="Next page: Kubernetes 使用手册">
+                <a href="log.html" class="navigation navigation-next " aria-label="Next page: 日志收集">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2752,7 +2829,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"指标采集","level":"1.4.13","depth":2,"next":{"title":"Kubernetes 使用手册","level":"1.5","depth":1,"path":"k8s/index.md","ref":"k8s/index.md","articles":[{"title":"minikube 部署 k8s","level":"1.5.1","depth":2,"path":"minikube/index.md","ref":"minikube/index.md","articles":[{"title":"安装 minikube","level":"1.5.1.1","depth":3,"path":"minikube/install.md","ref":"minikube/install.md","articles":[]},{"title":"启动 kubernetes ","level":"1.5.1.2","depth":3,"path":"minikube/deploy.md","ref":"minikube/deploy.md","articles":[]},{"title":"进入 minikube 虚拟机","level":"1.5.1.3","depth":3,"path":"minikube/vm.md","ref":"minikube/vm.md","articles":[]},{"title":"修改组件参数","level":"1.5.1.4","depth":3,"path":"minikube/config.md","ref":"minikube/config.md","articles":[]},{"title":"操作 kubernetes","level":"1.5.1.5","depth":3,"path":"minikube/oper.md","ref":"minikube/oper.md","articles":[]},{"title":"访问 kubernetes 中的服务","level":"1.5.1.6","depth":3,"path":"minikube/request.md","ref":"minikube/request.md","articles":[]}]},{"title":"k8s 导入外部服务","level":"1.5.2","depth":2,"path":"k8s/svc/external.md","ref":"k8s/svc/external.md","articles":[]},{"title":"k8s Pod 操作技巧","level":"1.5.3","depth":2,"path":"k8s/usage/pod.md","ref":"k8s/usage/pod.md","articles":[]},{"title":"ingress-nginx 使用准备","level":"1.5.4","depth":2,"path":"k8s/ingress-nginx/index.md","ref":"k8s/ingress-nginx/index.md","articles":[]},{"title":"ingress-nginx 传输加密","level":"1.5.5","depth":2,"path":"k8s/ingress-nginx/tls.md","ref":"k8s/ingress-nginx/tls.md","articles":[]},{"title":"ingress-nginx 自带认证","level":"1.5.6","depth":2,"path":"k8s/ingress-nginx/auth.md","ref":"k8s/ingress-nginx/auth.md","articles":[]},{"title":"ingress-nginx 外部认证","level":"1.5.7","depth":2,"path":"k8s/ingress-nginx/auth-ext.md","ref":"k8s/ingress-nginx/auth-ext.md","articles":[]},{"title":"ingress-nginx 请求改写","level":"1.5.8","depth":2,"path":"k8s/ingress-nginx/rewrite.md","ref":"k8s/ingress-nginx/rewrite.md","articles":[]},{"title":"ingress-nginx 请求复制","level":"1.5.9","depth":2,"path":"k8s/ingress-nginx/mirror.md","ref":"k8s/ingress-nginx/mirror.md","articles":[]},{"title":"ingress-nginx 源IP限速","level":"1.5.10","depth":2,"path":"k8s/ingress-nginx/ratelimit.md","ref":"k8s/ingress-nginx/ratelimit.md","articles":[]},{"title":"ingress-nginx 金丝雀发布","level":"1.5.11","depth":2,"path":"k8s/ingress-nginx/canary.md","ref":"k8s/ingress-nginx/canary.md","articles":[]},{"title":"ingress-nginx 常用注解","level":"1.5.12","depth":2,"path":"k8s/ingress-nginx/anno.md","ref":"k8s/ingress-nginx/anno.md","articles":[]},{"title":"ingress-nginx 相关笔记","level":"1.5.13","depth":2,"path":"k8s/ingress-nginx/note.md","ref":"k8s/ingress-nginx/note.md","articles":[]}]},"previous":{"title":"流量复制","level":"1.4.12","depth":2,"path":"istio/mirror.md","ref":"istio/mirror.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/metrics.md","mtime":"2019-11-27T01:04:13.734Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-27T01:23:58.889Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"指标采集","level":"1.4.13","depth":2,"next":{"title":"日志收集","level":"1.4.14","depth":2,"path":"istio/log.md","ref":"istio/log.md","articles":[]},"previous":{"title":"流量复制","level":"1.4.12","depth":2,"path":"istio/mirror.md","ref":"istio/mirror.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/metrics.md","mtime":"2019-11-27T07:00:09.549Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-27T12:27:37.467Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
