@@ -41,7 +41,7 @@ istio 内置了很多 [adapters][2]：
 ![istio支持的adapters](../img/istio/adapters.png)
 
 
-[指标采集](./metrics.md) 使用的对接 prometheus 的 handler，封装了 [prometheus adpater][3]：
+[指标采集](./metrics.md) 使用的对接 prometheus 的 handler，封装了 [adpater prometheus][3]：
 
 ```yaml
 # Configuration for a Prometheus handler
