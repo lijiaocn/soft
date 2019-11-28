@@ -471,7 +471,20 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.6.1" data-path="bookinfo.html">
+        <li class="chapter " data-level="1.4.6.1" data-path="httprecord.html">
+            
+                <a href="httprecord.html">
+            
+                    
+                    Http-Record Application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.2" data-path="bookinfo.html">
             
                 <a href="bookinfo.html">
             
@@ -2667,6 +2680,12 @@ var _hmt = _hmt || [];
                                 <!-- toc -->
 <ul>
 <li><a href="#istio-&#x7684;&#x8BBF;&#x95EE;&#x7B56;&#x7565;">istio &#x7684;&#x8BBF;&#x95EE;&#x7B56;&#x7565;</a><ul>
+<li><a href="#istio-&#x9ED1;&#x767D;&#x540D;&#x5355;">istio &#x9ED1;&#x767D;&#x540D;&#x5355;</a><ul>
+<li><a href="#&#x6309;&#x6807;&#x7B7E;&#x8BBE;&#x7F6E;&#x9ED1;&#x767D;&#x540D;&#x5355;">&#x6309;&#x6807;&#x7B7E;&#x8BBE;&#x7F6E;&#x9ED1;&#x767D;&#x540D;&#x5355;</a></li>
+<li><a href="#&#x6309;&#x6807;&#x7B7E;&#x7981;&#x6B62;&#x8BBF;&#x95EE;">&#x6309;&#x6807;&#x7B7E;&#x7981;&#x6B62;&#x8BBF;&#x95EE;</a></li>
+<li><a href="#&#x6309;-ip-&#x8BBE;&#x7F6E;&#x9ED1;&#x767D;&#x540D;&#x5355;">&#x6309; IP &#x8BBE;&#x7F6E;&#x9ED1;&#x767D;&#x540D;&#x5355;</a></li>
+</ul>
+</li>
 <li><a href="#istio-&#x9650;&#x901F;&#x7B56;&#x7565;">istio &#x9650;&#x901F;&#x7B56;&#x7565;</a></li>
 <li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
 </ul>
@@ -2675,6 +2694,140 @@ var _hmt = _hmt || [];
 <!-- tocstop -->
 <h1 id="istio-&#x7684;&#x8BBF;&#x95EE;&#x7B56;&#x7565;">istio &#x7684;&#x8BBF;&#x95EE;&#x7B56;&#x7565;</h1>
 <p>istio &#x63D0;&#x4F9B;&#x4E86;&#x9650;&#x901F;&#x3001;&#x6309; header &#x8DEF;&#x7531;&#x7B49;&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x7B56;&#x7565;&#x3002;</p>
+<h2 id="istio-&#x9ED1;&#x767D;&#x540D;&#x5355;">istio &#x9ED1;&#x767D;&#x540D;&#x5355;</h2>
+<p>istio &#x57FA;&#x4E8E; mixer &#x83B7;&#x53D6;&#x7684;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x9ED1;&#x767D;&#x540D;&#x5355;&#xFF0C;&#x9ED1;&#x767D;&#x540D;&#x5355;&#x4E5F;&#x662F;&#x901A;&#x8FC7; instance&#x3001;handler &#x548C; rule &#x8BBE;&#x7F6E;&#x3002;</p>
+<h3 id="&#x6309;&#x6807;&#x7B7E;&#x8BBE;&#x7F6E;&#x9ED1;&#x767D;&#x540D;&#x5355;">&#x6309;&#x6807;&#x7B7E;&#x8BBE;&#x7F6E;&#x9ED1;&#x767D;&#x540D;&#x5355;</h3>
+<p>&#x4E0B;&#x9762;&#x4E09;&#x6761;&#x89C4;&#x5219;&#x7981;&#x6B62; productpage &#x8BBF;&#x95EE; http-record v2&#xFF1A;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">&quot;config.istio.io/v1alpha2&quot;</span>
+<span class="hljs-attr">kind:</span> handler
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> denyproductpagehandler
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  compiledAdapter:</span> denier
+<span class="hljs-attr">  params:</span>
+<span class="hljs-attr">    status:</span>
+<span class="hljs-attr">      code:</span> <span class="hljs-number">7</span>
+<span class="hljs-attr">      message:</span> Not allowed
+<span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">&quot;config.istio.io/v1alpha2&quot;</span>
+<span class="hljs-attr">kind:</span> instance
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> denyproductpagerequest
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  compiledTemplate:</span> checknothing
+<span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">&quot;config.istio.io/v1alpha2&quot;</span>
+<span class="hljs-attr">kind:</span> rule
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> denyproductpage
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  match:</span> destination.labels[<span class="hljs-string">&quot;app&quot;</span>] == <span class="hljs-string">&quot;http-record&quot;</span> &amp;&amp; destination.labels[<span class="hljs-string">&quot;version&quot;</span>] == <span class="hljs-string">&quot;v2&quot;</span> &amp;&amp; source.labels[<span class="hljs-string">&quot;app&quot;</span>]==<span class="hljs-string">&quot;productpage&quot;</span>
+<span class="hljs-attr">  actions:</span>
+<span class="hljs-attr">  - handler:</span> denyproductpagehandler
+<span class="hljs-attr">    instances:</span> [ denyproductpagerequest ]
+</code></pre>
+<h3 id="&#x6309;&#x6807;&#x7B7E;&#x7981;&#x6B62;&#x8BBF;&#x95EE;">&#x6309;&#x6807;&#x7B7E;&#x7981;&#x6B62;&#x8BBF;&#x95EE;</h3>
+<p>http-record v1 &#x548C; http-record v2 &#x7684; ip &#x5730;&#x5740;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-sh">$ kubectl get pod --show-labels |grep http-record
+http-record-v1-5f9c95b7cf-t9tzx   2/2     Running   0  5d23h   172.17.0.16   app=http-record,pod-template-hash=5f9c95b7cf,security.istio.io/tlsMode=istio,version=v1
+http-record-v2<span class="hljs-_">-d</span>697c886-lqpsw     2/2     Running   0  5d23h   172.17.0.4    app=http-record,pod-template-hash=d697c886,security.istio.io/tlsMode=istio,version=v2
+</code></pre>
+<p>&#x5728; productpage &#x4E2D;&#x8BBF;&#x95EE; http-record v1&#xFF1A;</p>
+<pre><code class="lang-sh">$ curl 172.17.0.16:8080
+{
+    <span class="hljs-string">&quot;RemoteAddr&quot;</span>: <span class="hljs-string">&quot;127.0.0.1:52814&quot;</span>,
+    <span class="hljs-string">&quot;Method&quot;</span>: <span class="hljs-string">&quot;GET&quot;</span>,
+    <span class="hljs-string">&quot;Host&quot;</span>: <span class="hljs-string">&quot;172.17.0.16:8080&quot;</span>,
+    <span class="hljs-string">&quot;RequestURI&quot;</span>: <span class="hljs-string">&quot;/&quot;</span>,
+    <span class="hljs-string">&quot;Header&quot;</span>: {
+    ...&#x7701;&#x7565;...
+</code></pre>
+<p>&#x5728; productpage &#x4E2D;&#x8BBF;&#x95EE; http-record v2&#xFF1A;</p>
+<pre><code class="lang-sh">$ curl -v 172.17.0.4:8080
+* Rebuilt URL to: 172.17.0.4:8080/
+*   Trying 172.17.0.4...
+* TCP_NODELAY <span class="hljs-built_in">set</span>
+* Connected to 172.17.0.4 (172.17.0.4) port 8080 (<span class="hljs-comment">#0)</span>
+&gt; GET / HTTP/1.1
+&gt; Host: 172.17.0.4:8080
+&gt; User-Agent: curl/7.52.1
+&gt; Accept: */*
+&gt;
+&lt; HTTP/1.1 403 Forbidden
+&lt; content-length: 60
+&lt; content-type: text/plain
+&lt; date: Thu, 28 Nov 2019 06:27:39 GMT
+&lt; server: envoy
+&lt; x-envoy-upstream-service-time: 4
+&lt;
+* Curl_http_<span class="hljs-keyword">done</span>: called premature == 0
+* Connection <span class="hljs-comment">#0 to host 172.17.0.4 left intact</span>
+PERMISSION_DENIED:denyproductpagehandler.default:Not allowed
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x6211;&#x4EEC;&#x540C;&#x65F6;&#x5F97;&#x77E5;&#xFF0C;istio &#x7684;&#x9ED1;&#x767D;&#x540D;&#x5355;&#x662F;&#x57FA;&#x4E8E; pod &#x7684;&#xFF0C;&#x7981;&#x6B62;&#x7684;&#x662F; pod &#x5230; pod &#x7684;&#x8BBF;&#x95EE;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#x7F51;&#x7EDC;&#x5C42;&#x4F9D;&#x65E7;&#x662F;&#x53EF;&#x8FBE;&#x7684;&#xFF0C;&#x7F51;&#x7EDC;&#x5C42;&#x4E0D;&#x5728; istio &#x7684;&#x7BA1;&#x63A7;&#x8303;&#x56F4;&#x5185;&#xFF1A;</p>
+<pre><code class="lang-sh">$ ping 172.17.0.4
+PING 172.17.0.4 (172.17.0.4) 56(84) bytes of data.
+64 bytes from 172.17.0.4: icmp_seq=1 ttl=64 time=0.367 ms
+64 bytes from 172.17.0.4: icmp_seq=2 ttl=64 time=0.046 ms
+</code></pre>
+<h3 id="&#x6309;-ip-&#x8BBE;&#x7F6E;&#x9ED1;&#x767D;&#x540D;&#x5355;">&#x6309; IP &#x8BBE;&#x7F6E;&#x9ED1;&#x767D;&#x540D;&#x5355;</h3>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A; ip &#x767D;&#x540D;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x53EA;&#x5141;&#x8BB8;&#x7279;&#x5B9A;&#x7F51;&#x6BB5;&#x7684; client &#x901A;&#x8FC7; ingressgateway &#x8BBF;&#x95EE;:</p>
+<pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/policy/mixer-rule-deny-ip.yaml
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x4E09;&#x9879;&#x914D;&#x7F6E;&#xFF0C;&#x53EA;&#x5141;&#x8BB8; 10.57.0.0/16 &#x7F51;&#x6BB5;&#x5185;&#x7684; ingressgateway &#x7684;&#x8BBF;&#x95EE;&#xFF1A;</p>
+<pre><code class="lang-sh">apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: whitelistip
+spec:
+  compiledAdapter: listchecker
+  params:
+    <span class="hljs-comment"># providerUrl: ordinarily black and white lists are maintained</span>
+    <span class="hljs-comment"># externally and fetched asynchronously using the providerUrl.</span>
+    overrides: [<span class="hljs-string">&quot;10.57.0.0/16&quot;</span>]  <span class="hljs-comment"># overrides provide a static list</span>
+    blacklist: <span class="hljs-literal">false</span>
+    entryType: IP_ADDRESSES
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: sourceip
+spec:
+  compiledTemplate: listentry
+  params:
+    value: source.ip | ip(<span class="hljs-string">&quot;0.0.0.0&quot;</span>)
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checkip
+spec:
+  match: source.labels[<span class="hljs-string">&quot;istio&quot;</span>] == <span class="hljs-string">&quot;ingressgateway&quot;</span>
+  actions:
+  - handler: whitelistip
+    instances: [ sourceip ]
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x89C4;&#x5219;&#x9700;&#x8981;&#x8BF4;&#x660E;&#x4E00;&#x4E0B;&#xFF0C;rule &#x9650;&#x5B9A;&#x53EA;&#x4F5C;&#x7528;&#x4E8E; ingressgateway&#xFF0C;&#x4F1A;&#x68C0;&#x67E5; ingressgateway &#x7684;&#x6E90; IP &#x662F;&#x5426;&#x5728;&#x767D;&#x540D;&#x5355;&#x5185;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5728;&#x5C31;&#x62D2;&#x7EDD;&#x8BBF;&#x95EE;&#x3002;</p>
+<p>&#x6211;&#x8FD9;&#x91CC;&#x7684; ingressgateway &#x7684; IP &#x662F; 172.17.0.19&#xFF0C;&#x4E0D;&#x5728;&#x767D;&#x540D;&#x5355;&#x5185;&#xFF1A;</p>
+<pre><code class="lang-sh">$ kubectl -n istio-system get pod -o wide  |grep ingressgateway
+istio-ingressgateway-75d6d5fd99-m2jnf     1/1     Running     1          6d2h   172.17.0.19
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x8BE5; ingressgateway &#x8BBF;&#x95EE;&#x670D;&#x52A1;&#x4F1A;&#x88AB;&#x7981;&#x6B62;&#xFF1A;</p>
+<p><img src="../img/istio/ipdeny.png" alt="&#x8BBF;&#x95EE;&#x88AB;&#x7981;&#x6B62;"></p>
+<p>&#x7F16;&#x8F91; handler whitelistip&#xFF0C;&#x5C06; 172.17 &#x7F51;&#x6BB5;&#x52A0;&#x5165;&#x767D;&#x540D;&#x5355;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x4E86;&#xFF1A;</p>
+<pre><code class="lang-sh">$ kubectl edit handler whitelistip
+...&#x7701;&#x7565;...
+spec:
+  compiledAdapter: listchecker
+  params:
+    blacklist: <span class="hljs-literal">false</span>
+    entryType: IP_ADDRESSES
+    overrides:
+    - 10.57.0.0/16
+    - 172.17.0.0/16
+...
+</code></pre>
 <h2 id="istio-&#x9650;&#x901F;&#x7B56;&#x7565;">istio &#x9650;&#x901F;&#x7B56;&#x7565;</h2>
 <p>istio &#x7684; <a href="https://istio.io/docs/tasks/policy-enforcement/rate-limiting/" title="Enabling Rate Limits" target="_blank">&#x9650;&#x901F;&#x529F;&#x80FD;</a> &#x7528;&#x8D77;&#x6765;&#x76F8;&#x5F53;&#x7E41;&#x7410;&#xFF0C;&#x7528;&#x5230; handler&#x3001;instance&#x3001;QuotaSpec&#x3001;QuotaSpecBinding &#x548C; rule &#x603B;&#x5171; 5 &#x4E2A; CRD&#x3002;&#xFF08;&#x8FD9;&#x4E48;&#x7E41;&#x7410;&#xFF0C;&#x60F3;&#x5410;&#x69FD;... 2019-11-27 18:36:29&#xFF09;</p>
 <pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span>  samples/bookinfo/policy/mixer-rule-productpage-ratelimit.yaml
@@ -2852,7 +3005,7 @@ reviews &#x7684;&#x8BBF;&#x95EE;&#x9891;&#x7387;&#x9650;&#x5236;&#x4E3A; 5 &#x79
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"访问限制","level":"1.4.16","depth":2,"next":{"title":"请求改写","level":"1.4.17","depth":2,"path":"istio/modify.md","ref":"istio/modify.md","articles":[]},"previous":{"title":"链路跟踪","level":"1.4.15","depth":2,"path":"istio/tracing.md","ref":"istio/tracing.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/policy.md","mtime":"2019-11-27T11:40:04.874Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-27T12:27:37.467Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"访问限制","level":"1.4.16","depth":2,"next":{"title":"请求改写","level":"1.4.17","depth":2,"path":"istio/modify.md","ref":"istio/modify.md","articles":[]},"previous":{"title":"链路跟踪","level":"1.4.15","depth":2,"path":"istio/tracing.md","ref":"istio/tracing.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/policy.md","mtime":"2019-11-28T06:57:16.877Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-28T06:57:28.125Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 27 Nov 2019 12:28:46 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 28 Nov 2019 06:58:40 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -156,7 +156,14 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Istio 的 Bookinfo Application 示例拆解]]></title>
+            <title><![CDATA[在 istio 中部署回显 http 请求的 http-record 服务]]></title>
+            <description><![CDATA[这是本手册设计的一个服务示例，http-record 的功能特别简单，将收到的请求原封不断回显，同时在标准输出中打印。它和 echoserver 服务的功能类似，但是多了在标准输出中打印的功能，在观察流量复制效果时特别有用。]]></description>
+            <link>https://www.lijiaocn.com/soft/istio/httprecord.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/httprecord.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[istio 的 Bookinfo Application 示例拆解]]></title>
             <description><![CDATA[Istio 文档中给出了一个 Bookinfo Application 示例，这里拆解它的实现。]]></description>
             <link>https://www.lijiaocn.com/soft/istio/bookinfo.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/bookinfo.html</guid>
