@@ -166,6 +166,10 @@ adapter 支持的 templates，[点击查看最新][9]：
 
 ![adapter 支持的 templates](../img/istio/adpater-vs-template.png)
 
+## 自定义 adpater 和 template
+
+istio [请求改写](./modify.md) 中使用了自定义的 adpater 和 template。
+
 ## 参考
 
 1. [李佶澳的博客][1]

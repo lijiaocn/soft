@@ -32,7 +32,7 @@
   * [链路跟踪](istio/tracing.md)
   * [指标采集](istio/metrics.md)
   * [日志收集](istio/log.md)
-  * [访问限制](istio/policy.md)
+  * [访问控制](istio/policy.md)
   * [请求改写](istio/modify.md)
 * [Kubernetes 使用手册](k8s/index.md)
   * [minikube 部署 k8s](minikube/index.md)
