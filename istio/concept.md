@@ -1,7 +1,7 @@
 <!-- toc -->
-# istio 的四大功能和基本概念
+# istio 的功能类别和基本概念
 
-## istio 的四大功能
+## istio 的功能类别
 
 istio 的功能分为四类：
 
@@ -154,7 +154,7 @@ spec:
   compiledTemplate: checknothing
 ```
 
-### adapter 和 template
+### adapter 和 template 的配对
 
 通过 tempalte 生成的状态数据不能用于所有的 adapter，tempalte 和 adapter 之间有配对关系。
 
