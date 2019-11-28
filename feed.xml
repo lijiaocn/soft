@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 28 Nov 2019 08:30:37 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 28 Nov 2019 08:48:57 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -107,7 +107,7 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[istio 的四大功能和基本概念]]></title>
+            <title><![CDATA[istio 的功能类别和基本概念]]></title>
             <description><![CDATA[istio 的功能分为四类：]]></description>
             <link>https://www.lijiaocn.com/soft/istio/concept.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/istio/concept.html</guid>
