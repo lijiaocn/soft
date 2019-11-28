@@ -1,5 +1,5 @@
 <!-- toc -->
-# Istio 的 Bookinfo Application 示例拆解
+# istio 的 Bookinfo Application 示例拆解
 
 Istio 文档中给出了一个 [Bookinfo Application][1] 示例，这里拆解它的实现。
 

@@ -21,6 +21,7 @@
     * [ServiceEntry](istio/entry.md)
     * [Engress Control](istio/egress.md)
   * [istio 示例拆解](istio/sample.md)
+    * [Http-Record Application](istio/httprecord.md)
     * [Bookinfo Application](istio/bookinfo.md)
   * [转发路由](istio/route.md)
   * [流量切换](istio/shift.md)
