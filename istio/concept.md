@@ -30,7 +30,7 @@ istio 的规则配置主要围绕下面的概念进行：
 
 ## istio 的其它概念
 
-istio 定义了大量的 CRD，除了上面的 VirtualService、DestinationRule、Gateway、ServiceEntry。除此之外，还有[指标采集](./metrics.md) 、[日志收集](./log.md)、[访问限制](./policy.md)、[请求改写](./modify.md) 中用到的 handler、instance、rule。
+istio 定义了大量的 CRD，除了上面的 VirtualService、DestinationRule、Gateway、ServiceEntry，还有[指标采集](./metrics.md) 、[日志收集](./log.md)、[访问限制](./policy.md)、[请求改写](./modify.md) 中用到的 handler、instance、rule。
 
 ### handler 和 adapter 
 
