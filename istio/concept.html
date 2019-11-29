@@ -2682,11 +2682,12 @@ var _hmt = _hmt || [];
 <li><a href="#istio-&#x7684;&#x529F;&#x80FD;&#x7C7B;&#x522B;&#x548C;&#x57FA;&#x672C;&#x6982;&#x5FF5;">istio &#x7684;&#x529F;&#x80FD;&#x7C7B;&#x522B;&#x548C;&#x57FA;&#x672C;&#x6982;&#x5FF5;</a><ul>
 <li><a href="#istio-&#x7684;&#x529F;&#x80FD;&#x7C7B;&#x522B;">istio &#x7684;&#x529F;&#x80FD;&#x7C7B;&#x522B;</a></li>
 <li><a href="#istio-&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;">istio &#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</a></li>
-<li><a href="#istio-&#x7684;&#x5176;&#x5B83;&#x6982;&#x5FF5;">istio &#x7684;&#x5176;&#x5B83;&#x6982;&#x5FF5;</a><ul>
+<li><a href="#istio-&#x7684;&#x914D;&#x7F6E;&#x6A21;&#x578B;">istio &#x7684;&#x914D;&#x7F6E;&#x6A21;&#x578B;</a><ul>
 <li><a href="#handler-&#x548C;-adapter">handler &#x548C; adapter</a></li>
 <li><a href="#instance-&#x548C;-template">instance &#x548C; template</a></li>
-<li><a href="#rule&#xFF1A;&#x8FDE;&#x63A5;-instancetemplate-&#x548C;-handleradapter">rule&#xFF1A;&#x8FDE;&#x63A5; instance/template &#x548C; handler/adapter</a></li>
+<li><a href="#rule&#xFF1A;&#x8FDE;&#x63A5;-handler-&#x548C;-instance">rule&#xFF1A;&#x8FDE;&#x63A5; handler &#x548C; instance</a></li>
 <li><a href="#adapter-&#x548C;-template-&#x7684;&#x914D;&#x5BF9;">adapter &#x548C; template &#x7684;&#x914D;&#x5BF9;</a></li>
+<li><a href="#instance-&#x548C;-rule-&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x5C5E;&#x6027;&#x8868;&#x8FBE;&#x5F0F;">instance &#x548C; rule &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x5C5E;&#x6027;&#x8868;&#x8FBE;&#x5F0F;</a></li>
 </ul>
 </li>
 <li><a href="#&#x81EA;&#x5B9A;&#x4E49;-adpater-&#x548C;-template">&#x81EA;&#x5B9A;&#x4E49; adpater &#x548C; template</a></li>
@@ -2720,11 +2721,12 @@ var _hmt = _hmt || [];
 <li>DestinationRule &#x76F8;&#x5F53;&#x4E8E; nginx &#x4E2D;&#x7684; upstream </li>
 <li>Gateway &#x548C; ServiceEntry &#x76F8;&#x5F53;&#x4E8E; kubernetes &#x4E2D;&#x7684; ingress &#x548C; endpoints</li>
 </ul>
-<h2 id="istio-&#x7684;&#x5176;&#x5B83;&#x6982;&#x5FF5;">istio &#x7684;&#x5176;&#x5B83;&#x6982;&#x5FF5;</h2>
+<h2 id="istio-&#x7684;&#x914D;&#x7F6E;&#x6A21;&#x578B;">istio &#x7684;&#x914D;&#x7F6E;&#x6A21;&#x578B;</h2>
 <p>istio &#x5B9A;&#x4E49;&#x4E86;&#x5927;&#x91CF;&#x7684; CRD&#xFF0C;&#x9664;&#x4E86;&#x4E0A;&#x9762;&#x7684; VirtualService&#x3001;DestinationRule&#x3001;Gateway&#x3001;ServiceEntry&#xFF0C;&#x8FD8;&#x6709;<a href="metrics.html">&#x6307;&#x6807;&#x91C7;&#x96C6;</a> &#x3001;<a href="log.html">&#x65E5;&#x5FD7;&#x6536;&#x96C6;</a>&#x3001;<a href="policy.html">&#x8BBF;&#x95EE;&#x9650;&#x5236;</a>&#x3001;<a href="modify.html">&#x8BF7;&#x6C42;&#x6539;&#x5199;</a> &#x4E2D;&#x7528;&#x5230;&#x7684; handler&#x3001;instance&#x3001;rule&#x3002;</p>
+<p><a href="https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/" title="Mixer Configuration Model" target="_blank">Mixer Configuration Model</a> &#x4ECB;&#x7ECD;&#x4E86; istio &#x7684;&#x63A7;&#x5236;&#x7B56;&#x7565;&#x548C;&#x76D1;&#x6D4B;&#x5EA6;&#x91CF;&#x7684;&#x914D;&#x7F6E;&#x6A21;&#x578B;&#xFF0C;&#x5C31;&#x662F; handler&#x3001;instance&#x3001;rule&#x3002;</p>
 <h3 id="handler-&#x548C;-adapter">handler &#x548C; adapter</h3>
-<p>istio &#x6587;&#x6863;&#x6CA1;&#x6709;&#x76F4;&#x63A5;&#x4ECB;&#x7ECD; handler&#xFF0C;&#x4ECE;&#x793A;&#x4F8B;&#x6765;&#x770B;&#xFF0C;handler &#x4E3B;&#x8981;&#x7684;&#x7528;&#x9014;&#x662F;&#x914D;&#x7F6E; adapter&#xFF0C;adapters &#x662F;&#x4E00;&#x5806;&#x9002;&#x914D;&#x5668;&#xFF0C;&#x7528;&#x6765;&#x5BF9;&#x63A5; prometheus&#x3001;fluentd &#x7B49;&#x5176;&#x5B83;&#x7CFB;&#x7EDF;&#xFF0C;&#x6216;&#x8005;&#x5B9E;&#x73B0;&#x540D;&#x5355;&#x3001;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x7B49;&#x7279;&#x6B8A;&#x529F;&#x80FD;&#x3002;</p>
-<p>istio &#x5185;&#x7F6E;&#x4E86;&#x5F88;&#x591A; <a href="https://istio.io/docs/reference/config/policy-and-telemetry/adapters/" title="istio adapters" target="_blank">adapters</a>&#xFF1A;</p>
+<p><a href="https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/#handlers" title="handlers" target="_blank">handler</a> &#x4E3B;&#x8981;&#x7684;&#x7528;&#x9014;&#x662F;&#x914D;&#x7F6E; <a href="https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/#adapters" title="adpaters" target="_blank">adapter</a>&#xFF0C;adapters &#x662F;&#x4E00;&#x5806;&#x9002;&#x914D;&#x5668;&#xFF0C;&#x7528;&#x6765;&#x5BF9;&#x63A5; prometheus&#x3001;fluentd &#x7B49;&#x5176;&#x5B83;&#x7CFB;&#x7EDF;&#xFF0C;&#x6216;&#x8005;&#x5B9E;&#x73B0;&#x540D;&#x5355;&#x3001;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x7B49;&#x7279;&#x6B8A;&#x529F;&#x80FD;&#x3002;</p>
+<p>istio &#x5185;&#x7F6E;&#x4E86;&#x5F88;&#x591A; <a href="https://istio.io/docs/reference/config/policy-and-telemetry/adapters/" title="istio adapters" target="_blank">adapters</a>&#xFF0C;adapter &#x6709;&#x5404;&#x81EA;&#x7684;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#xFF1A;</p>
 <p><img src="../img/istio/adapters.png" alt="istio&#x652F;&#x6301;&#x7684;adapters"></p>
 <p><a href="metrics.html">&#x6307;&#x6807;&#x91C7;&#x96C6;</a> &#x4F7F;&#x7528;&#x7684;&#x5BF9;&#x63A5; prometheus &#x7684; handler&#xFF0C;&#x5C01;&#x88C5;&#x4E86; <a href="https://istio.io/docs/reference/config/policy-and-telemetry/adapters/prometheus/" title="adapter prometheus" target="_blank">adpater prometheus</a>&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-comment"># Configuration for a Prometheus handler</span>
@@ -2761,7 +2763,7 @@ var _hmt = _hmt || [];
 <span class="hljs-attr">    entryType:</span> IP_ADDRESSES
 </code></pre>
 <h3 id="instance-&#x548C;-template">instance &#x548C; template</h3>
-<p>istio &#x7684;&#x6587;&#x6863;&#x4E2D;&#x4E5F;&#x6CA1;&#x6709;&#x5BF9; instance &#x7684;&#x76F4;&#x63A5;&#x4ECB;&#x7ECD;&#xFF0C;&#x4ECE;&#x793A;&#x4F8B;&#x6765;&#x770B;&#xFF0C;instance &#x7684;&#x4E3B;&#x8981;&#x7528;&#x9014;&#x662F;&#x914D;&#x7F6E; template&#xFF0C;&#x6309;&#x7167;&#x6307;&#x5B9A;&#x7684; template &#x4E3A;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x751F;&#x6210;&#x72B6;&#x6001;&#x6570;&#x636E;&#x3002;</p>
+<p><a href="https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/#instances" title="Instances" target="_blank">instance</a> &#x7684;&#x7528;&#x9014;&#x662F;&#x5C06; mixer &#x83B7;&#x53D6;&#x7684;&#x5404;&#x79CD;&#x5C5E;&#x6027;&#x8F6C;&#x6362;&#x6210; apdater &#x7684;&#x8F93;&#x5165;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x9700;&#x8981; <a href="https://istio.io/docs/reference/config/policy-and-telemetry/templates/" title="templates" target="_blank">templates</a> &#x4ECB;&#x5165;&#xFF1A;</p>
 <p>istio &#x5185;&#x7F6E;&#x4E86;&#x5F88;&#x591A; <a href="https://istio.io/docs/reference/config/policy-and-telemetry/templates/" title="templates" target="_blank">templates</a>:</p>
 <p><img src="../img/istio/templates.png" alt="istio &#x652F;&#x6301;&#x7684; templates"></p>
 <p><a href="metrics.html">&#x6307;&#x6807;&#x91C7;&#x96C6;</a> &#x4E2D;&#x7528;&#x5230;&#x4E86; <a href="https://istio.io/docs/reference/config/policy-and-telemetry/templates/metric/" title="template metric" target="_blank">template metric</a>&#xFF1A;</p>
@@ -2782,8 +2784,8 @@ var _hmt = _hmt || [];
 <span class="hljs-attr">      message:</span> <span class="hljs-string">&apos;&quot;twice the fun!&quot;&apos;</span>
 <span class="hljs-attr">    monitored_resource_type:</span> <span class="hljs-string">&apos;&quot;UNSPECIFIED&quot;&apos;</span>
 </code></pre>
-<h3 id="rule&#xFF1A;&#x8FDE;&#x63A5;-instancetemplate-&#x548C;-handleradapter">rule&#xFF1A;&#x8FDE;&#x63A5; instance/template &#x548C; handler/adapter</h3>
-<p>&#x4ECE;&#x6587;&#x6863;&#x793A;&#x4F8B;&#x53EF;&#x4EE5;&#x65AD;&#x5B9A;&#xFF0C;instance &#x901A;&#x8FC7; tempalte &#x4E3A;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x751F;&#x6210;&#x7684;&#x6570;&#x636E;&#x662F; handler &#x914D;&#x7F6E;&#x7684; adapter &#x7684;&#x8F93;&#x5165;&#x3002;instance/template &#x548C; handler/adapter &#x7684;&#x914D;&#x5BF9;&#x5173;&#x7CFB;&#x7528; rule &#x6307;&#x5B9A;&#xFF0C;&#x540C;&#x65F6; rule &#x51B3;&#x5B9A;&#x4E86; instance &#x7684;&#x4F5C;&#x7528;&#x8303;&#x56F4;&#xFF0C;&#x5373;&#x53EA;&#x4E3A;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x7684;&#x8BF7;&#x6C42;&#x751F;&#x6210;&#x72B6;&#x6001;&#x6570;&#x636E;&#x3002;</p>
+<h3 id="rule&#xFF1A;&#x8FDE;&#x63A5;-handler-&#x548C;-instance">rule&#xFF1A;&#x8FDE;&#x63A5; handler &#x548C; instance</h3>
+<p>rule &#x8BBE;&#x7F6E; handler &#x7684;&#x4F5C;&#x7528;&#x8303;&#x56F4;&#xFF0C;&#x5E76;&#x6307;&#x5B9A;&#x4E3A; handler &#x63D0;&#x4F9B;&#x8F93;&#x5165;&#x7684; instance&#xFF0C;&#x5C06; handler &#x548C; instance &#x914D;&#x5BF9;&#x3002;</p>
 <p>&#x4EE5; <a href="policy.html">&#x6309;&#x6807;&#x7B7E;&#x8BBE;&#x7F6E;&#x9ED1;&#x767D;&#x540D;&#x5355;</a> &#x4E2D;&#x7684; rule &#x4E3A;&#x4F8B;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">&quot;config.istio.io/v1alpha2&quot;</span>
 <span class="hljs-attr">kind:</span> rule
@@ -2795,7 +2797,7 @@ var _hmt = _hmt || [];
 <span class="hljs-attr">  - handler:</span> denyproductpagehandler
 <span class="hljs-attr">    instances:</span> [ denyproductpagerequest ]
 </code></pre>
-<p>&#x5B83;&#x9650;&#x5B9A;&#x53EA;&#x5BF9;&#x4ECE; productpage &#x5230; http-record:v1 &#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x7528; denyproductpagerequest &#x751F;&#x6210;&#x72B6;&#x6001;&#x6570;&#x636E;, &#x4EA4;&#x7531; denyproductpagehandler &#x5904;&#x7406;&#x3002;</p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x9650;&#x5B9A;&#x53EA;&#x4E3A;&#x4ECE; productpage &#x5230; http-record:v1 &#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x901A;&#x8FC7; denyproductpagerequest &#x6A21;&#x677F;&#x751F;&#x6210;&#x72B6;&#x6001;&#x6570;&#x636E;, &#x4F5C;&#x4E3A; denyproductpagehandler &#x7684;&#x8F93;&#x5165;&#x3002;</p>
 <p>instance &#x548C; handler &#x7684;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-yaml"><span class="hljs-meta">---</span>
 <span class="hljs-attr">apiVersion:</span> <span class="hljs-string">&quot;config.istio.io/v1alpha2&quot;</span>
@@ -2822,12 +2824,23 @@ var _hmt = _hmt || [];
 <p><img src="../img/istio/tempalte-vs-adapter.png" alt="template &#x9002;&#x7528;&#x7684; adpaters"></p>
 <p>adapter &#x652F;&#x6301;&#x7684; templates&#xFF0C;<a href="https://istio.io/docs/reference/config/policy-and-telemetry/adapters/#templates" title="adater &#x652F;&#x6301;&#x7684; templates" target="_blank">&#x70B9;&#x51FB;&#x67E5;&#x770B;&#x6700;&#x65B0;</a>&#xFF1A;</p>
 <p><img src="../img/istio/adpater-vs-template.png" alt="adapter &#x652F;&#x6301;&#x7684; templates"></p>
+<h3 id="instance-&#x548C;-rule-&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x5C5E;&#x6027;&#x8868;&#x8FBE;&#x5F0F;">instance &#x548C; rule &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x5C5E;&#x6027;&#x8868;&#x8FBE;&#x5F0F;</h3>
+<p><a href="https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/#attributes" title="Attributes" target="_blank">Attributes</a> &#x662F; istio &#x7684;&#x6838;&#x5FC3;&#x6982;&#x5FF5;&#x4E4B;&#x4E00;&#x3002;instance &#x548C; rule &#x90FD;&#x7528;&#x5230;&#x4E86;&#x5C5E;&#x6027;&#x548C;&#x5C5E;&#x6027;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;instance &#x901A;&#x8FC7;&#x5C5E;&#x6027;&#x8868;&#x8FBE;&#x5F0F;&#x751F;&#x6210; handler &#x7684;&#x8F93;&#x5165;&#xFF0C;rule &#x901A;&#x8FC7;&#x5C5E;&#x6027;&#x8868;&#x8FBE;&#x5F0F;&#x9650;&#x5B9A; handler &#x7684;&#x4F5C;&#x7528;&#x8303;&#x56F4;&#x3002;</p>
+<p>istio &#x652F;&#x6301;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li><a href="https://istio.io/docs/reference/config/policy-and-telemetry/attribute-vocabulary/" title="Attribute Vocabulary" target="_blank">Attributes Vocabulary</a></li>
+</ul>
+<p>istio &#x5C5E;&#x6027;&#x8868;&#x8FBE;&#x5F0F;&#x8BED;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li><a href="https://istio.io/docs/reference/config/policy-and-telemetry/expression-language/" title="Expression Language" target="_blank">Expression Language</a>&#x3002;</li>
+</ul>
 <h2 id="&#x81EA;&#x5B9A;&#x4E49;-adpater-&#x548C;-template">&#x81EA;&#x5B9A;&#x4E49; adpater &#x548C; template</h2>
 <p>istio <a href="modify.html">&#x8BF7;&#x6C42;&#x6539;&#x5199;</a> &#x4E2D;&#x4F7F;&#x7528;&#x4E86;&#x81EA;&#x5B9A;&#x4E49;&#x7684; adpater &#x548C; template&#x3002;</p>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <ol>
 <li><a href="https://www.lijiaocn.com" title="&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;" target="_blank">&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;</a></li>
 </ol>
+<p>[14]: <a href="https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/#rules" target="_blank">https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/#rules</a> &quot;Rules&apos;</p>
 <script type="text/javascript">var className='atoc';</script>
                                 
 <div>
@@ -2899,7 +2912,7 @@ var _hmt = _hmt || [];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"istio 功能概念","level":"1.4.5","depth":2,"next":{"title":"VirtualService","level":"1.4.5.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},"previous":{"title":"istio 配置参数","level":"1.4.4","depth":2,"path":"istio/config.md","ref":"istio/config.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/concept.md","mtime":"2019-11-28T13:06:59.304Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-28T13:07:07.442Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"istio 功能概念","level":"1.4.5","depth":2,"next":{"title":"VirtualService","level":"1.4.5.1","depth":3,"path":"istio/vsvc.md","ref":"istio/vsvc.md","articles":[]},"previous":{"title":"istio 配置参数","level":"1.4.4","depth":2,"path":"istio/config.md","ref":"istio/config.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/concept.md","mtime":"2019-11-29T07:22:41.309Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-29T08:29:10.292Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
