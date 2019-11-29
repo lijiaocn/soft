@@ -28,18 +28,19 @@ istio 的规则配置主要围绕下面的概念进行：
 * DestinationRule 相当于 nginx 中的 upstream 
 * Gateway 和 ServiceEntry 相当于 kubernetes 中的 ingress 和 endpoints
 
-## istio 的其它概念
+## istio 的配置模型
 
 istio 定义了大量的 CRD，除了上面的 VirtualService、DestinationRule、Gateway、ServiceEntry，还有[指标采集](./metrics.md) 、[日志收集](./log.md)、[访问限制](./policy.md)、[请求改写](./modify.md) 中用到的 handler、instance、rule。
 
+[Mixer Configuration Model][10] 介绍了 istio 的控制策略和监测度量的配置模型，就是 handler、instance、rule。
+
 ### handler 和 adapter 
 
-istio 文档没有直接介绍 handler，从示例来看，handler 主要的用途是配置 adapter，adapters 是一堆适配器，用来对接 prometheus、fluentd 等其它系统，或者实现名单、标准输出等特殊功能。
+[handler][11] 主要的用途是配置 [adapter][12]，adapters 是一堆适配器，用来对接 prometheus、fluentd 等其它系统，或者实现名单、标准输出等特殊功能。
 
-istio 内置了很多 [adapters][2]：
+istio 内置了很多 [adapters][2]，adapter 有各自的配置参数：
 
 ![istio支持的adapters](../img/istio/adapters.png)
-
 
 [指标采集](./metrics.md) 使用的对接 prometheus 的 handler，封装了 [adpater prometheus][3]：
 
@@ -84,7 +85,7 @@ spec:
 
 ### instance 和 template
 
-istio 的文档中也没有对 instance 的直接介绍，从示例来看，instance 的主要用途是配置 template，按照指定的 template 为每个请求生成状态数据。
+[instance][13] 的用途是将 mixer 获取的各种属性转换成 apdater 的输入，这个过程需要 [templates][6] 介入：
 
 istio 内置了很多 [templates][6]:
 
@@ -111,9 +112,9 @@ spec:
     monitored_resource_type: '"UNSPECIFIED"'
 ```
 
-### rule：连接 instance/template 和 handler/adapter 
+### rule：连接 handler 和 instance 
 
-从文档示例可以断定，instance 通过 tempalte 为每个请求生成的数据是 handler 配置的 adapter 的输入。instance/template 和 handler/adapter 的配对关系用 rule 指定，同时 rule 决定了 instance 的作用范围，即只为满足条件的请求生成状态数据。
+rule 设置 handler 的作用范围，并指定为 handler 提供输入的 instance，将 handler 和 instance 配对。
 
 以 [按标签设置黑白名单](./policy.md) 中的 rule 为例：
 
@@ -129,7 +130,7 @@ spec:
     instances: [ denyproductpagerequest ]
 ```
 
-它限定只对从 productpage 到 http-record:v1 的请求，用 denyproductpagerequest 生成状态数据, 交由 denyproductpagehandler 处理。
+上面的配置限定只为从 productpage 到 http-record:v1 的请求，通过 denyproductpagerequest 模板生成状态数据, 作为 denyproductpagehandler 的输入。
 
 instance 和 handler 的定义如下：
 
@@ -166,6 +167,18 @@ adapter 支持的 templates，[点击查看最新][9]：
 
 ![adapter 支持的 templates](../img/istio/adpater-vs-template.png)
 
+### instance 和 rule 可以使用的属性和属性表达式
+
+[Attributes][15] 是 istio 的核心概念之一。instance 和 rule 都用到了属性和属性表达式，instance 通过属性表达式生成 handler 的输入，rule 通过属性表达式限定 handler 的作用范围。
+
+istio 支持的所有属性：
+
+* [Attributes Vocabulary][16]
+
+istio 属性表达式语法：
+
+* [Expression Language][17]。
+
 ## 自定义 adpater 和 template
 
 istio [请求改写](./modify.md) 中使用了自定义的 adpater 和 template。
@@ -183,3 +196,12 @@ istio [请求改写](./modify.md) 中使用了自定义的 adpater 和 template�
 [7]: https://istio.io/docs/reference/config/policy-and-telemetry/templates/metric/  "template metric"
 [8]: https://istio.io/docs/reference/config/policy-and-telemetry/templates/#adapters  "template 适用的 adpaters"
 [9]: https://istio.io/docs/reference/config/policy-and-telemetry/adapters/#templates  "adater 支持的 templates"
+[10]: https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/ "Mixer Configuration Model"
+[11]: https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/#handlers "handlers"
+[12]: https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/#adapters "adpaters"
+[13]: https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/#instances "Instances"
+[14]: https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/#rules "Rules'
+[15]: https://istio.io/docs/reference/config/policy-and-telemetry/mixer-overview/#attributes "Attributes"
+[16]: https://istio.io/docs/reference/config/policy-and-telemetry/attribute-vocabulary/ "Attribute Vocabulary"
+[17]: https://istio.io/docs/reference/config/policy-and-telemetry/expression-language/ "Expression Language"
+
