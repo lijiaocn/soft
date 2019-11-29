@@ -278,7 +278,7 @@ unset DATABASE_USERNAME
 unset DATABASE_PASSWD
 ```
 
-### Faric 的对接文件配置错误
+### Fabric 的对接文件配置错误
 
 如果 app/platform/fabric/config.json 中的 path 路径配置错了，node ./main.js  打印下面的字符，然后自动退出：
 

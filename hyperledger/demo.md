@@ -16,18 +16,18 @@
 小鸟笔记的 [Docker使用手册](../docker/index.md) 还没开始整理，可以先通过其他材料学习，掌握 Docker 的基本用法即可，譬如：
 
 ```sh
-docker pull XXXXXX  # 获取 docker 镜像
-docker run  XXXX    # 启动容器
-docker exec -it XXX # 进入容器
-docker rm -f XXX    # 删除容器
+$ docker pull XXXXXX  # 获取 docker 镜像
+$ docker run  XXXX    # 启动容器
+$ docker exec -it XXX # 进入容器
+$ docker rm -f XXX    # 删除容器
 ```
 
 安装 git，git 是现在最常用的代码管理工具，我们要用 git 从 github 中拉取 fabric-sample 文件。小鸟笔记有一份简陋的 [Git使用手册](../git/index.md)，这里只用 git 获取代码，不需要掌握代码提交、合并等用法，虽然在以后的工作中一定会遇到。
 
 ```sh
-yum install -y git      # CentOS 系统上
-apt-get install -y git  # Ubuntu 系统上
-brew install -y git     # Mac 系统上
+$ yum install -y git      # CentOS 系统上
+$ apt-get install -y git  # Ubuntu 系统上
+$ brew install -y git     # Mac 系统上
 ```
 
 ## 下载 Fabric 文件
@@ -35,8 +35,8 @@ brew install -y git     # Mac 系统上
 先创建一个工作目录，文件都存放在这个目录中：
 
 ```sh
-mkdir ~/hyperledger-fabric-1.4.4
-cd ~/hyperledger-fabric-1.4.4
+$ mkdir ~/hyperledger-fabric-1.4.4
+$ cd ~/hyperledger-fabric-1.4.4
 ```
 
 下载 fabric 文件。fabric 每个版本的 release 文件都发布在 [fabric releases][3] 上：
@@ -54,9 +54,9 @@ $ wget https://github.com/hyperledger/fabric/releases/download/v1.4.4/hyperledge
 下载 byfn 系列脚本： 
 
 ```sh
-git clone https://github.com/hyperledger/fabric-samples.git
-cd fabric-samples
-git checkout -b v1.4.4 # 根据需要切换到对应版本
+$ git clone https://github.com/hyperledger/fabric-samples.git
+$ cd fabric-samples
+$ git checkout -b v1.4.4 # 根据需要切换到对应版本
 ```
 
 下载解压后得到 bin 和 config 两个目录，bin 目录中是 fabric 的命令文件，config 中 fabric 的配置示例：
@@ -77,16 +77,16 @@ export PATH=$PATH:~/hyperledger-fabric-1.4.4/bin
 first-network 就是一个最简单 fabric，它的部署文件位于 fabric-samples/first-network：
 
 ```sh
-cd fabric-samples/first-network
+$ cd fabric-samples/first-network
 ```
 
 进入该目录后，用 byfn.sh 创建 first-network 需要的证书文件：
 
 ```sh
-./byfn.sh generate
+$ ./byfn.sh generate
 ```
 
-如果提示下下面的错误，"cryptogen tool not found. exiting"，那是因为没有把 bin 目录添加到环境变量 PATH 中：
+如果提示错误，"cryptogen tool not found. exiting"，那是因为没有把 bin 目录添加到环境变量 PATH 中：
 
 ```sh
 $ ./byfn.sh generate
@@ -96,9 +96,7 @@ proceeding ...
 cryptogen tool not found. exiting
 ```
 
-执行成功的结果如下，注意 ## 包括的文字，“Generate certificates ...”，这就是为相应组织或者模块生成了证书。
-
-first-network 是由 Org1 和 Org2 两个成员组成的区块链网络，网络中只有一个 Orderer，Org1 有两个 Peer，Org2 有两个 Peer。
+执行成功的结果如下，注意 ## 中的文字，“Generate certificates ...”，这就是为相应组织或者模块生成了证书。first-network 是由 Org1 和 Org2 两个成员组成的区块链网络，网络中只有一个 Orderer，Org1 有两个 Peer，Org2 有两个 Peer：
 
 ```sh
 ➜  first-network git:(v1.4.4) ./byfn.sh generate
@@ -176,7 +174,7 @@ CONSENSUS_TYPE=solo
 
 ## 启动 first-network
 
-启动过程拉取 fabric 的 docker 镜像，在国内镜像的拉取可能特别慢，建议先给 docker [配置镜像源](../docker/config.md) ：
+启动过程中要拉取 fabric 的 docker 镜像，在国内可能特别慢，建议先给 docker [配置镜像源](../docker/config.md) ：
 
 first-network 启动命令：
 
@@ -230,7 +228,7 @@ d5ae822f095a        hyperledger/fabric-orderer:latest                "orderer"  
 组成 first-network 的容器：
 
 ```sh
-orderer.example.com        生成保证区块顺序的 orderer 
+orderer.example.com        形成维护共识的 orderer 
 peer0.org1.example.com     org1 的第一个 peer
 peer1.org1.example.com     org1 的第二个 peer
 peer0.org2.example.com     org2 的第一个 peer
@@ -247,7 +245,7 @@ dev-peer0.org2.example.com-mycc-1.0
 ```
 
 
-cli 使用用来查看、管理 first-network 的容器，用下面的方式进入：
+cli 容器用来查看、管理 first-network，用下面的方法进入：
 
 ```sh
 $ docker exec -it cli /bin/bash
@@ -268,13 +266,9 @@ drwxr-xr-x 10 root root 320 Nov 25 14:52 scripts
 
 ## first-network 是怎么回事？
 
-这个问题三言两语还真是说不清楚。别看创建 first-network 特别简单，但是 byfn.sh 背后的工作有很多！用 docker-compose + 一堆脚本。
-
-强烈建议通过下面教程学习 fabric 的组成。这个教程使用的是 fabric 1.1 （两年前的版本），但基本的原理不变，把每个组件的用途和配置方法讲清楚：
+这个问题三言两语还真是说不清楚。别看创建 first-network 特别简单，但是 byfn.sh 背后的工作有很多！用 docker-compose 和 一堆脚本。强烈建议通过下面教程学习 fabric 的组成。这个教程使用的是 fabric 1.1 （两年前的版本），但基本原理不变，把每个组件的用途和配置方法都讲清楚了：
 
 * [【视频】超级账本HyperLedger：Fabric的全手动、多服务器部署教程](https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2018/04/26/hyperledger-fabric-deploy.html)
-
-(最近忙，没时间制作最新的教程，2019-11-26 22:58:10)
 
 ## 参考
 
