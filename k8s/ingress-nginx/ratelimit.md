@@ -62,10 +62,21 @@ $ curl -v  -H "Host: ratelimit.echo.example" "192.168.99.100:30933/"
 < Connection: keep-alive
 ```
 
+## 其它相关配置
+
+Configmap 中还有其他相关配置，例如超速时的返回代码：[limit-req-status-code][4]。
+
+## 细节研究 
+
+* [ingress-nginx 的限速功能在 nginx.conf 中的对应配置][3]
+
 ## 参考
 
 1. [李佶澳的博客][1]
 2. [rate-limiting][2]
+3. [ingress-nginx 的限速功能在 nginx.conf 中的对应配置][3]
 
 [1]: https://www.lijiaocn.com "李佶澳的博客"
 [2]: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#rate-limiting "rate-limiting"
+[3]: https://www.lijiaocn.com/%E9%A1%B9%E7%9B%AE/2019/12/03/ingress-nginx-rate-limit.html "ingress-nginx 的限速功能在 nginx.conf 中的对应配置"
+[4]: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#limit-req-status-code "limit-req-status-code"

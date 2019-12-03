@@ -1,6 +1,8 @@
 <!-- toc -->
 # 性能测试工具
 
+[怎样压测Web应用的性能？压测工具与测量、分析方法](https://www.lijiaocn.com/%E6%96%B9%E6%B3%95/2018/11/02/webserver-benchmark-method.html) 中的部分工具没有转移到这里。
+
 ## iperf 测试网络传输性能
 
 [iperf][2] 是一个简单常用的网络传输性能测试工具，分为服务端和客户端，[iperf-doc][3]。
