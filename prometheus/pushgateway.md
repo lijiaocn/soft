@@ -87,7 +87,10 @@ scrape_configs:
 
 ## 参考
 
+1. [李佶澳的博客][5]
+
 [1]: https://github.com/prometheus/pushgateway "prometheus/pushgateway"
 [2]: https://hub.docker.com/r/prom/pushgateway/tags  "prom/pushgateway/tags"
 [3]: https://github.com/prometheus/pushgateway/blob/master/README.md#api "pushgateway api"
 [4]: https://prometheus.io/docs/instrumenting/pushing/ "pushing metrics"
+[5]: https://www.lijiaocn.com "李佶澳的博客"

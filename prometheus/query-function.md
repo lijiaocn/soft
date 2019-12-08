@@ -1,7 +1,7 @@
 <!-- toc -->
 # Prometheus 的查询函数
 
-Prometheus 的查询函数数量比较多，这里不罗列了，见 [Prometheus Functions][1]。
+Prometheus 的查询函数数量比较多，这里不罗列了，见 [Prometheus Functions][2]。
 
 以后逐渐把不是特别好理解的函数的用法整理到这里。
 
@@ -245,4 +245,7 @@ label_replace(up{job="api-server",service="a:c"}, "foo", "$1", "service", "(.*):
 
 ## 参考
 
-[1]: https://prometheus.io/docs/prometheus/latest/querying/functions/ "Prometheus Functions"
+1. [李佶澳的博客][1]
+
+[1]: https://www.lijiaocn.com "李佶澳的博客"
+[2]: https://prometheus.io/docs/prometheus/latest/querying/functions/ "Prometheus Functions"

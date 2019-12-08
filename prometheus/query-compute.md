@@ -70,4 +70,118 @@ method_code:http_errors:rate5m / ignoring(code) group_left method:http_requests:
 {method="post", code="404"} 0.175           //  21 / 120
 ```
 
+## 二元运算
+
+两组查询出来的数据集之间的运算。
+
+### 算术运算符
+
+算术运算符支持：
+
+	+、-、*、/（除法）、%（取模）、^（指数）。
+
+### 比较运算符
+
+比较运算符支持：
+
+	==、!=、>、<、>=、<=
+
+### 集合运算符
+
+集合运算符支持：
+
+	and（交集）、or（并集）、unless（差集）
+
+集合运算符需要特别说明一下，vector1 and  vector2 的意思从 vector1 中取出满足 vetctor2 筛选条件的指标，例如下面的表达式：
+
+```sh
+http_server_requests_count{status="200"} and http_server_requests_count{method="POST",instance="10.12.3.5:8866"}
+```
+
+等同于：
+
+```sh
+http_server_requests_count{status="200",method="POST",instance="10.12.3.5:8866"}
+```
+
+vector1 or vector2 是取出 vector1 的所有成员 和 vector2 中不满足 vector1 的筛选条件的成员。
+
+```sh
+## 结果中包含所有满足 method="POST" 的数据，如果重复选择 or 之前的数据。
+http_server_requests_count{status="200",instance="10.12.3.5:8866"} or http_server_requests_count{method="POST"}
+```
+
+vector1 unless vector2 取出不满足 vector2 筛选条件的所有 vector1 的成员：
+
+```sh
+http_server_requests_count{status="200",instance="10.12.3.5:8866"} unless http_server_requests_count{method="POST"}
+```
+
+等同于：
+
+```sh
+http_server_requests_count{status="200",instance="10.12.3.5:8866",method!="POST"}
+```
+
+## 聚合运算
+
+聚合运算符形态上与函数类似，用于分析查询得到的数据集。
+
+```sh
+<aggr-op>([parameter,] <vector expression>) [without|by (<label list>)]
+```
+
+部分聚合运算符需要输入参数（parameter），例如 count_values、bottomk、topk 、quantile。支持分组聚合，分组聚合时，可以用 without 忽略指定的 label，或者 by 指定分组使用的 label：
+
+
+```sh
+sum:    求和
+min:    最小值
+max:    最大值
+avg:    平均值
+stddev: 平方差（stdvar的平方根）
+stdvar: 方差
+count:  计数
+count_values: 统计每个值出现的次数
+bottomk: 取结果中最小的 k 位数
+topk:    取结果中最大的 k 位数
+quantile: 取分位数 (0 ≤ φ ≤ 1）
+```
+
+### 统计每个值出现的次数
+
+统计每个值出现的次数，参数为结果中的字符串名称：
+
+```sh
+count_values("str",http_server_requests_count{status="200",instance="10.12.3.5:8866"})
+```
+
+![prometheus数据聚合结果：统计每个值出现的次数](../img/prom/count_value.png)
+
+### 取前 k 位/后 k 位
+
+取结果中最小（bottomk）和最大（topk）的 k 位数，参数为 k：
+
+```sh
+bottomk(2,http_server_requests_count{status="200",instance="10.12.3.5:8866"})
+topk(2,http_server_requests_count{status="200",instance="10.12.3.5:8866"})
+```
+
+![prometheus数据聚合结果：取结果中最小的K位数](../img/prom/bottomk.png)
+
+### 取分位数
+
+取第 0.3 分位数，输入参数为分位位置：
+
+```sh
+quantile(0.3,http_server_requests_count{status="200",instance="10.12.3.5:8866"})
+```
+
+![prometheus数据聚合结果：取0.3分位的数值](../img/prom/quantile.png)
+
+
 ## 参考
+
+1. [李佶澳的博客][1]
+
+[1]: https://www.lijiaocn.com "李佶澳的博客"
