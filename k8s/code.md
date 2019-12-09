@@ -1,11 +1,12 @@
 <!-- toc -->
-# Kubernetes 的代码结构
+# Kubernetes 源代码阅读指引
 
 ## 独立发布的代码
 
 kubernetes/staging/ 位于 kubernetes 项目中，但是其中的代码发布到独立的 repo：
 
 * [k8s.io 是怎么回事？](https://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2019/12/06/k8s-io-usage.html)
+* [kubernetes 调度组件 kube-scheduler 1.16.3 源代码阅读指引](https://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2019/12/08/kube-scheduler-code-1-16-3.html)
 
 ## api 定义代码
 
