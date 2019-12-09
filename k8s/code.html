@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>k8s 的 代码结构 · 小鸟笔记·李佶澳·影响一万人</title>
+        <title>k8s 源码阅读指引 · 小鸟笔记·李佶澳·影响一万人</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -766,7 +766,7 @@ var _hmt = _hmt || [];
                 <a href="res.html">
             
                     
-                    k8s 的 Resource
+                    k8s 资源类型列表
             
                 </a>
             
@@ -779,7 +779,7 @@ var _hmt = _hmt || [];
                 <a href="code.html">
             
                     
-                    k8s 的 代码结构
+                    k8s 源码阅读指引
             
                 </a>
             
@@ -2613,7 +2613,7 @@ var _hmt = _hmt || [];
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >k8s 的 代码结构</a>
+        <a href=".." >k8s 源码阅读指引</a>
     </h1>
 </div>
 
@@ -2666,7 +2666,7 @@ var _hmt = _hmt || [];
 
                                 <!-- toc -->
 <ul>
-<li><a href="#kubernetes-&#x7684;&#x4EE3;&#x7801;&#x7ED3;&#x6784;">Kubernetes &#x7684;&#x4EE3;&#x7801;&#x7ED3;&#x6784;</a><ul>
+<li><a href="#kubernetes-&#x6E90;&#x4EE3;&#x7801;&#x9605;&#x8BFB;&#x6307;&#x5F15;">Kubernetes &#x6E90;&#x4EE3;&#x7801;&#x9605;&#x8BFB;&#x6307;&#x5F15;</a><ul>
 <li><a href="#&#x72EC;&#x7ACB;&#x53D1;&#x5E03;&#x7684;&#x4EE3;&#x7801;">&#x72EC;&#x7ACB;&#x53D1;&#x5E03;&#x7684;&#x4EE3;&#x7801;</a></li>
 <li><a href="#api-&#x5B9A;&#x4E49;&#x4EE3;&#x7801;">api &#x5B9A;&#x4E49;&#x4EE3;&#x7801;</a></li>
 <li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
@@ -2674,11 +2674,12 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <!-- tocstop -->
-<h1 id="kubernetes-&#x7684;&#x4EE3;&#x7801;&#x7ED3;&#x6784;">Kubernetes &#x7684;&#x4EE3;&#x7801;&#x7ED3;&#x6784;</h1>
+<h1 id="kubernetes-&#x6E90;&#x4EE3;&#x7801;&#x9605;&#x8BFB;&#x6307;&#x5F15;">Kubernetes &#x6E90;&#x4EE3;&#x7801;&#x9605;&#x8BFB;&#x6307;&#x5F15;</h1>
 <h2 id="&#x72EC;&#x7ACB;&#x53D1;&#x5E03;&#x7684;&#x4EE3;&#x7801;">&#x72EC;&#x7ACB;&#x53D1;&#x5E03;&#x7684;&#x4EE3;&#x7801;</h2>
 <p>kubernetes/staging/ &#x4F4D;&#x4E8E; kubernetes &#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x53D1;&#x5E03;&#x5230;&#x72EC;&#x7ACB;&#x7684; repo&#xFF1A;</p>
 <ul>
 <li><a href="https://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2019/12/06/k8s-io-usage.html" target="_blank">k8s.io &#x662F;&#x600E;&#x4E48;&#x56DE;&#x4E8B;&#xFF1F;</a></li>
+<li><a href="https://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2019/12/08/kube-scheduler-code-1-16-3.html" target="_blank">kubernetes &#x8C03;&#x5EA6;&#x7EC4;&#x4EF6; kube-scheduler 1.16.3 &#x6E90;&#x4EE3;&#x7801;&#x9605;&#x8BFB;&#x6307;&#x5F15;</a></li>
 </ul>
 <h2 id="api-&#x5B9A;&#x4E49;&#x4EE3;&#x7801;">api &#x5B9A;&#x4E49;&#x4EE3;&#x7801;</h2>
 <p>api &#x5B9A;&#x4E49;&#x4EE3;&#x7801;&#x4F4D;&#x4E8E; <a href="https://github.com/kubernetes/kubernetes/tree/v1.16.3/staging/src/k8s.io/api" title="k8s.io/api" target="_blank">kubernetes/staging/src/k8s.io/api</a>&#x3002;</p>
@@ -2746,7 +2747,7 @@ kuberntes/pkg/apis:  deepcopy&#x3001;&#x7248;&#x672C;&#x8F6C;&#x6362;&#x7B49;&#x
 
             
                 
-                <a href="res.html" class="navigation navigation-prev " aria-label="Previous page: k8s 的 Resource">
+                <a href="res.html" class="navigation navigation-prev " aria-label="Previous page: k8s 资源类型列表">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -2762,7 +2763,7 @@ kuberntes/pkg/apis:  deepcopy&#x3001;&#x7248;&#x672C;&#x8F6C;&#x6362;&#x7B49;&#x
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"k8s 的 代码结构","level":"1.5.3","depth":2,"next":{"title":"k8s 导入外部服务","level":"1.5.4","depth":2,"path":"k8s/svc/external.md","ref":"k8s/svc/external.md","articles":[]},"previous":{"title":"k8s 的 Resource","level":"1.5.2","depth":2,"path":"k8s/res.md","ref":"k8s/res.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"k8s/code.md","mtime":"2019-12-06T14:43:21.244Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-09T02:53:20.828Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"k8s 源码阅读指引","level":"1.5.3","depth":2,"next":{"title":"k8s 导入外部服务","level":"1.5.4","depth":2,"path":"k8s/svc/external.md","ref":"k8s/svc/external.md","articles":[]},"previous":{"title":"k8s 资源类型列表","level":"1.5.2","depth":2,"path":"k8s/res.md","ref":"k8s/res.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"k8s/code.md","mtime":"2019-12-09T02:59:45.231Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-09T03:26:26.939Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

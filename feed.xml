@@ -4,12 +4,12 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 09 Dec 2019 02:54:20 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Dec 2019 03:27:24 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
             <title><![CDATA[小鸟笔记—软件使用手册说明]]></title>
-            <description><![CDATA[这里记录工作中接触的一些重要的系统软件的使用方法，备忘录。]]></description>
+            <description><![CDATA[记录工作中接触的一些重要的软件的使用方法，力求清晰明了，为后来者铺路省时间。]]></description>
             <link>https://www.lijiaocn.com/soft/</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -311,7 +311,7 @@ concepts 和 tasks 谈及了一些最常见的 resource。]]></description>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Kubernetes 的代码结构]]></title>
+            <title><![CDATA[Kubernetes 源代码阅读指引]]></title>
             <description><![CDATA[kubernetes/staging/ 位于 kubernetes 项目中，但是其中的代码发布到独立的 repo：]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/code.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/code.html</guid>
