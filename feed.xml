@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 03 Dec 2019 11:45:26 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Dec 2019 02:54:20 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -248,7 +248,7 @@
         </item>
         <item>
             <title><![CDATA[Kubernetes 使用手册]]></title>
-            <description><![CDATA[这里的部分内容来自 Kubernetes工作笔记，本手册随着工作学习的进行不断更新。]]></description>
+            <description><![CDATA[部分内容来自 kubernetes 工作笔记，本手册随着工作学习的进行不断更新。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/index.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -300,6 +300,21 @@
             <description><![CDATA[Kubernetes 在本地虚拟机中运行，如果要访问部署其中的服务，需要通过 node port。]]></description>
             <link>https://www.lijiaocn.com/soft/minikube/request.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/request.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Kubernetes 的 Resource/API]]></title>
+            <description><![CDATA[Kubernetes 把用户提交的数据称为 Resource/API，经过这几年的飞速发展，resource 的种类非常丰富。
+concepts 和 tasks 谈及了一些最常见的 resource。]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/res.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/res.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Kubernetes 的代码结构]]></title>
+            <description><![CDATA[kubernetes/staging/ 位于 kubernetes 项目中，但是其中的代码发布到独立的 repo：]]></description>
+            <link>https://www.lijiaocn.com/soft/k8s/code.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/code.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -667,14 +682,14 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Prometheus 的配置文件]]></title>
-            <description><![CDATA[配置文件是 yaml 格式的，分为 global、alerting、rule_files 和 scrape_configs 四部分。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/config.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/config.html</guid>
+            <title><![CDATA[Prometheus 的数据类型]]></title>
+            <description><![CDATA[Prometheus 存放的是每个指标的时间序列值，指标名由 Metric name 和 labels 组成 :]]></description>
+            <link>https://www.lijiaocn.com/soft/prometheus/types.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/types.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Prometheus 的查询语句]]></title>
+            <title><![CDATA[Prometheus 的查询语法]]></title>
             <description><![CDATA[Prometheus 的数据查询语句叫做 Prometheus Query Language，提供了不少查询函数，表达能力比较丰富。
 语句的执行结果有四种类型：]]></description>
             <link>https://www.lijiaocn.com/soft/prometheus/query.html</link>
@@ -682,31 +697,10 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Prometheus 指标查询]]></title>
-            <description><![CDATA[Prometheus 的指标查询语句基本格式为：]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-metrics.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-metrics.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
             <title><![CDATA[Prometheus 指标查询结果运算]]></title>
             <description><![CDATA[Prometheus 的查询语句支持运算，可以使用二元运算符（算术运算符、比较运算符、集合运算符）和聚合运算符直接操作查询出来的数据集，也可以使用 Prometheus 提供的查询函数进行更复杂的运算。]]></description>
             <link>https://www.lijiaocn.com/soft/prometheus/query-compute.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-compute.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 查询结果的二元运算]]></title>
-            <description><![CDATA[两组查询出来的数据集之间的运算。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-binary.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-binary.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Prometheus 查询结果的聚合运算]]></title>
-            <description><![CDATA[聚合运算符形态上与函数类似，用于分析查询得到的数据集。]]></description>
-            <link>https://www.lijiaocn.com/soft/prometheus/query-aggre.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/query-aggre.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
