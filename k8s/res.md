@@ -1,14 +1,15 @@
 <!-- toc -->
-# Kubernetes 的 Resource/API
+# Kubernetes 的用户交互 API
 
-Kubernetes 把用户提交的数据称为 Resource/API，经过这几年的飞速发展，resource 的种类非常丰富。
-[concepts][2] 和 [tasks][3] 谈及了一些最常见的 resource。
+用户可以向 kubernetes 提交各种类型的任务和数据，我们把 kubernetes 接受的任务或数据类型称为 API。经过这几年的飞速发展，API 的种类非常丰富。
 
-完整列表和示例：[api-index][4]。
+最常见的 API：[concepts][2]、[tasks][3]。
 
-在 kubernetes 项目中，resource 的定义代码位于 [staging/src/k8s.io/api][6]，staging/src/k8s.io/api 已经作为独立项目发布，通过 [k8s.io/api][7] 引用。
+API 完整列表：[api-index][4]。
 
-## Resource 的版本与作用域
+在 kubernetes 项目中，API 的定义代码位于 [staging/src/k8s.io/api][6]，staging/src/k8s.io/api 已经作为独立项目发布，通过 [k8s.io/api][7] 引用。
+
+## API 的版本与作用域
 
 Resource 是有版本的：
 
