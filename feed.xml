@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 09 Dec 2019 06:46:59 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 15 Dec 2019 06:36:17 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -303,9 +303,8 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Kubernetes 的 Resource/API]]></title>
-            <description><![CDATA[Kubernetes 把用户提交的数据称为 Resource/API，经过这几年的飞速发展，resource 的种类非常丰富。
-concepts 和 tasks 谈及了一些最常见的 resource。]]></description>
+            <title><![CDATA[Kubernetes 的用户交互 API]]></title>
+            <description><![CDATA[用户可以向 kubernetes 提交各种类型的任务和数据，我们把 kubernetes 接受的任务或数据类型称为 API。经过这几年的飞速发展，API 的种类非常丰富。]]></description>
             <link>https://www.lijiaocn.com/soft/k8s/res.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/k8s/res.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
