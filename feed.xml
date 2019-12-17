@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 15 Dec 2019 06:42:18 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 17 Dec 2019 09:34:04 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -269,7 +269,7 @@
         </item>
         <item>
             <title><![CDATA[用 minikube 启动 kubernetes]]></title>
-            <description><![CDATA[Minikube 可以部署多个版本的 kubernetes，如果不指定 kubernetes 版本默认使用 minikube 发行的最新版。]]></description>
+            <description><![CDATA[Minikube 可以部署多个版本的 kubernetes，如果不指定版本默认使用最新版。]]></description>
             <link>https://www.lijiaocn.com/soft/minikube/deploy.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/minikube/deploy.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>

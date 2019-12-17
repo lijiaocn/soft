@@ -135,14 +135,15 @@ var _hmt = _hmt || [];
             
                 
 <div style="text-align:center">
-    <h1><a href="https://www.lijiaocn.com/note/" style="color:#afa790">小鸟笔记</a></h1>
+    <h2><a href="https://www.lijiaocn.com/note/" style="color:#afa790">小鸟笔记</a></h2>
     <h3><a href="https://www.lijiaocn.com/" style="color:#afa790">www.lijiaocn.com，影响一万人</a></h3>
 </div>
 
 <div style="text-align:center">
     <a href="/prog/" style="color:#afa790">编程</a>&nbsp;
     <a href="/soft/" style="color:#afa790">软件</a>&nbsp;
-    <a href="/oper/" style="color:#afa790">运营</a>
+    <a href="/oper/" style="color:#afa790">运营</a>&nbsp;
+    <a href="/book/" style="color:#afa790">读书</a>
 </div>
 <div>
 <br>
@@ -2635,7 +2636,7 @@ var _hmt = _hmt || [];
                                 
                                 
 <!-- Page_Top -->
-<div>
+<!--div>
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-8176866190626448"
@@ -2645,12 +2646,34 @@ var _hmt = _hmt || [];
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+<br>
+</div-->
+
+<div style="text-align:center">
+<!-- 小鸟笔记-375*90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:375px;height:90px"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="4394865767"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<!-- 小鸟笔记-375*90-2 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:375px;height:90px"
+     data-ad-client="ca-pub-8176866190626448"
+     data-ad-slot="7071988236"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 </div>
 
 
                                 <!-- toc -->
 <ul>
 <li><a href="#&#x7528;-minikube-&#x542F;&#x52A8;-kubernetes">&#x7528; minikube &#x542F;&#x52A8; kubernetes</a><ul>
+<li><a href="#&#x542F;&#x52A8;&#x9ED8;&#x8BA4;&#x7248;&#x672C;&#x7684;-kubernetes">&#x542F;&#x52A8;&#x9ED8;&#x8BA4;&#x7248;&#x672C;&#x7684; kubernetes</a></li>
 <li><a href="#&#x542F;&#x52A8;&#x6307;&#x5B9A;&#x7248;&#x672C;&#x7684;-kubernetes">&#x542F;&#x52A8;&#x6307;&#x5B9A;&#x7248;&#x672C;&#x7684; kubernetes</a></li>
 <li><a href="#&#x5173;&#x95ED;-kubernetes">&#x5173;&#x95ED; kubernetes</a></li>
 <li><a href="#&#x5220;&#x9664;">&#x5220;&#x9664;</a></li>
@@ -2660,8 +2683,8 @@ var _hmt = _hmt || [];
 </ul>
 <!-- tocstop -->
 <h1 id="&#x7528;-minikube-&#x542F;&#x52A8;-kubernetes">&#x7528; minikube &#x542F;&#x52A8; kubernetes</h1>
-<p>Minikube &#x53EF;&#x4EE5;&#x90E8;&#x7F72;&#x591A;&#x4E2A;&#x7248;&#x672C;&#x7684; kubernetes&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A; kubernetes &#x7248;&#x672C;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528; minikube &#x53D1;&#x884C;&#x7684;&#x6700;&#x65B0;&#x7248;&#x3002;</p>
-<p>&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x5982;&#x679C;&#x9047;&#x5230;&#x4E0B;&#x9762;&#x7684; &quot;Wait failed&quot; &#x7684;&#x60C5;&#x51B5;&#x5148;&#x522B;&#x6025;&#x7740;&#x91CD;&#x8BD5;&#x6216;&#x91CD;&#x542F;&#x52A8;&#xFF1A;</p>
+<p>Minikube &#x53EF;&#x4EE5;&#x90E8;&#x7F72;&#x591A;&#x4E2A;&#x7248;&#x672C;&#x7684; kubernetes&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;&#x7248;&#x672C;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x6700;&#x65B0;&#x7248;&#x3002;</p>
+<h2 id="&#x542F;&#x52A8;&#x9ED8;&#x8BA4;&#x7248;&#x672C;&#x7684;-kubernetes">&#x542F;&#x52A8;&#x9ED8;&#x8BA4;&#x7248;&#x672C;&#x7684; kubernetes</h2>
 <pre><code class="lang-sh">$ minkube start
 &#x1F604;  minikube v1.3.1 on Darwin 10.14
 &#x1F525;  Creating virtualbox VM (CPUs=2, Memory=2000MB, Disk=20000MB) ...
@@ -2672,13 +2695,12 @@ var _hmt = _hmt || [];
 &#x1F680;  Launching Kubernetes ...
 &#x231B;  Waiting <span class="hljs-keyword">for</span>: apiserver proxy
 
-
 &#x1F4A3;  Wait failed: waiting <span class="hljs-keyword">for</span> k8s-app=kube-proxy: timed out waiting <span class="hljs-keyword">for</span> the condition
 
 &#x1F63F;  Sorry that minikube crashed. If this was unexpected, we would love to hear from you:
 &#x1F449;  https://github.com/kubernetes/minikube/issues/new/choose
 </code></pre>
-<p>&#x5373;&#x4F7F;&#x9047;&#x5230;&#x4E86;&#x4E0A;&#x9762;&#x7684;&#x9519;&#x8BEF;&#xFF0C;kubernetes &#x4E5F;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x542F;&#x52A8;&#x6210;&#x529F;&#x4E86;&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x9047;&#x5230; &quot;Wait failed&quot; &#x7684;&#x60C5;&#x51B5;&#x5148;&#x522B;&#x6025;&#x7740;&#x91CD;&#x8BD5;&#xFF0C;&#x5373;&#x4F7F;&#x9047;&#x5230;&#x4E86;&#x4E0A;&#x9762;&#x7684;&#x9519;&#x8BEF;&#xFF0C;kubernetes &#x4E5F;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x542F;&#x52A8;&#x6210;&#x529F;&#x4E86;&#xFF1A;</p>
 <pre><code class="lang-sh">$ kubectl get cs
 NAME                 STATUS    MESSAGE             ERROR
 controller-manager   Healthy   ok
@@ -2692,7 +2714,8 @@ etcd-0               Healthy   {<span class="hljs-string">&quot;health&quot;</sp
 &#x1F4A1;  Tip: Use <span class="hljs-string">&apos;minikube start -p &lt;name&gt;&apos;</span> to create a new cluster, or <span class="hljs-string">&apos;minikube delete&apos;</span> to delete this one.
 &#x1F504;  Starting existing virtualbox VM <span class="hljs-keyword">for</span> <span class="hljs-string">&quot;minikube&quot;</span> ...
 </code></pre>
-<p>&#x865A;&#x62DF;&#x5316;&#x8F6F;&#x4EF6;&#x6A21;&#x5F0F; virtualbox&#xFF0C;&#x5982;&#x679C;&#x8981;&#x7528;&#x5176;&#x4ED6;&#x7684;&#x865A;&#x62DF;&#x673A;&#x5316;&#xFF0C;&#x7528; --vm-driver &#x6307;&#x5B9A;&#x3002;&#x90E8;&#x7F72;&#x65F6;&#x53EF;&#x7528;&#x7684;&#x53C2;&#x6570;&#x5728; minkube help start &#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x3002;</p>
+<p>&#x865A;&#x62DF;&#x5316;&#x8F6F;&#x4EF6;&#x9ED8;&#x8BA4;&#x4E3A; virtualbox&#xFF0C;&#x5982;&#x679C;&#x8981;&#x7528;&#x5176;&#x4ED6;&#x7684;&#x865A;&#x62DF;&#x673A;&#x5316;&#xFF0C;&#x7528; --vm-driver &#x6307;&#x5B9A;&#x3002;</p>
+<p>&#x652F;&#x6301;&#x7684;&#x53C2;&#x6570;&#x5728; minkube help start &#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF1A;</p>
 <pre><code class="lang-sh">$ ./minkube <span class="hljs-built_in">help</span> start
 Starts a <span class="hljs-built_in">local</span> kubernetes cluster
 
@@ -2726,9 +2749,9 @@ This can be used <span class="hljs-keyword">if</span> you want to make the apise
 </script>
 </div>
 
-<!--div-->
 <!-- Page_Bottom -->
-<!--ins class="adsbygoogle"
+<!--div>
+<ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-8176866190626448"
      data-ad-slot="7945072540"
@@ -2782,7 +2805,7 @@ This can be used <span class="hljs-keyword">if</span> you want to make the apise
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"启动 kubernetes","level":"1.5.1.2","depth":3,"next":{"title":"进入 minikube","level":"1.5.1.3","depth":3,"path":"minikube/vm.md","ref":"minikube/vm.md","articles":[]},"previous":{"title":"安装 minikube","level":"1.5.1.1","depth":3,"path":"minikube/install.md","ref":"minikube/install.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"minikube/deploy.md","mtime":"2019-12-15T06:36:34.709Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-15T06:41:10.128Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"启动 kubernetes","level":"1.5.1.2","depth":3,"next":{"title":"进入 minikube","level":"1.5.1.3","depth":3,"path":"minikube/vm.md","ref":"minikube/vm.md","articles":[]},"previous":{"title":"安装 minikube","level":"1.5.1.1","depth":3,"path":"minikube/install.md","ref":"minikube/install.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"minikube/deploy.md","mtime":"2019-12-17T06:03:30.635Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-17T09:33:09.645Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
