@@ -1,9 +1,9 @@
 <!-- toc -->
 # 用 minikube 启动 kubernetes 
 
-Minikube 可以部署多个版本的 kubernetes，如果不指定 kubernetes 版本默认使用 minikube 发行的最新版。
+Minikube 可以部署多个版本的 kubernetes，如果不指定版本默认使用最新版。
 
-启动的时候如果遇到下面的 "Wait failed" 的情况先别急着重试或重启动：
+## 启动默认版本的 kubernetes
 
 ```sh
 $ minkube start
@@ -16,14 +16,13 @@ $ minkube start
 🚀  Launching Kubernetes ...
 ⌛  Waiting for: apiserver proxy
 
-
 💣  Wait failed: waiting for k8s-app=kube-proxy: timed out waiting for the condition
 
 😿  Sorry that minikube crashed. If this was unexpected, we would love to hear from you:
 👉  https://github.com/kubernetes/minikube/issues/new/choose
 ```
 
-即使遇到了上面的错误，kubernetes 也可能已经启动成功了：
+如果遇到 "Wait failed" 的情况先别急着重试，即使遇到了上面的错误，kubernetes 也可能已经启动成功了：
 
 ```sh
 $ kubectl get cs
@@ -44,7 +43,9 @@ $ minikube start --kubernetes-version v1.12.0
 🔄  Starting existing virtualbox VM for "minikube" ...
 ```
 
-虚拟化软件模式 virtualbox，如果要用其他的虚拟机化，用 --vm-driver 指定。部署时可用的参数在 minkube help start 中可以看到。
+虚拟化软件默认为 virtualbox，如果要用其他的虚拟机化，用 --vm-driver 指定。
+
+支持的参数在 minkube help start 中可以看到：
 
 ```sh
 $ ./minkube help start

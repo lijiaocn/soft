@@ -3,7 +3,7 @@
 
 Minikube 的安装非常简单，可以用 yum、brew 等工具安装，也可以直接从 [github][1] 上下载二进制文件：
 
-[![minikube下载地址](../img/minikube/minikube.png][1]
+[![minikube下载地址](../img/minikube/minikube.png)][1]
 
 ## 查看子命令
 
