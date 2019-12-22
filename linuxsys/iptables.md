@@ -32,9 +32,9 @@ iptables 根植于 kernel 中的 netfilter 模块，通过 netfilter 在影响�
  PKT ---> PREROUTING              POSTROUTING  ---> PKT
 ```
 
-## iptalbes 的规则管理与作用顺序
+## iptables 的规则管理与作用顺序
 
-iptalbes 的规则通过 5 张表管理，有的表包括所有的干涉点，有的表只包括部分干涉点：
+iptables 的规则通过 5 张表管理，有的表包括所有的干涉点，有的表只包括部分干涉点：
 
 ```sh
 filter: 
