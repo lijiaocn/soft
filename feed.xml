@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 17 Dec 2019 09:34:04 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 22 Dec 2019 06:29:32 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -40,6 +40,54 @@
             <description><![CDATA[怎样压测Web应用的性能？压测工具与测量、分析方法 中的部分工具没有转移到这里。]]></description>
             <link>https://www.lijiaocn.com/soft/tools/benchmark.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/tools/benchmark.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Linux 系统知识]]></title>
+            <description><![CDATA[Linux 系统的学习笔记。]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Linux 的透明代理]]></title>
+            <description><![CDATA[TODO: 待试验。]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/tpproxy.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/tpproxy.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[iptables 的使用方法]]></title>
+            <description><![CDATA[这里是对 iptables：Linux的iptables使用 的重新整理、扩充。]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/iptables.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/iptables.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[iptables 的报文匹配方法]]></title>
+            <description><![CDATA[iptables 规则的意思就是，对满足什么什么条件的报文，做怎样怎样的处理。第一步就是撰写报文的匹配规则，然后设置处理动作。这里收集 iptables 提供的报文匹配方法。]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/iptables-match.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/iptables-match.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[iptable 的报文处理动作]]></title>
+            <description><![CDATA[设置 匹配规则 后，为报文设置处理动作。]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/iptables-target.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/iptables-target.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Linux 的网络设置]]></title>
+            <description><![CDATA[127.0.0.1 默认是 local 地址，其实认定为 local 地址的 IP 是可以设置的：]]></description>
+            <link>https://www.lijiaocn.com/soft/linuxsys/localip.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/localip.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Linux 的资源管理]]></title>
+            <link>https://www.lijiaocn.com/soft/linuxsys/resource.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/resource.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
@@ -1134,48 +1182,6 @@
             <description><![CDATA[有非常、非常多的细节是从书本上学不到，这些细节通常分散在各种古朴、难度的文档和手册中。]]></description>
             <link>https://www.lijiaocn.com/soft/linux/todo.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/linux/todo.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Linux 系统知识]]></title>
-            <description><![CDATA[Linux 系统的学习笔记。]]></description>
-            <link>https://www.lijiaocn.com/soft/linuxsys/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/index.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Linux 的透明代理]]></title>
-            <description><![CDATA[TODO: 待试验。]]></description>
-            <link>https://www.lijiaocn.com/soft/linuxsys/tpproxy.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/tpproxy.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[iptables 的使用方法]]></title>
-            <description><![CDATA[这里是对 iptables：Linux的iptables使用 的重新整理、扩充。]]></description>
-            <link>https://www.lijiaocn.com/soft/linuxsys/iptables.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/iptables.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[iptables 的报文匹配方法]]></title>
-            <description><![CDATA[iptables 规则的意思就是，对满足什么什么条件的报文，做怎样怎样的处理。第一步就是撰写报文的匹配规则，然后设置处理动作。这里收集 iptables 提供的报文匹配方法。]]></description>
-            <link>https://www.lijiaocn.com/soft/linuxsys/iptables-match.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/iptables-match.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[iptable 的报文处理动作]]></title>
-            <description><![CDATA[设置 匹配规则 后，为报文设置处理动作。]]></description>
-            <link>https://www.lijiaocn.com/soft/linuxsys/iptables-target.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/iptables-target.html</guid>
-            <dc:creator><![CDATA[李佶澳]]></dc:creator>
-        </item>
-        <item>
-            <title><![CDATA[Linux 的 Local 地址的认定]]></title>
-            <description><![CDATA[127.0.0.1 默认是 local 地址，其实认定为 local 地址的 IP 是可以设置的，下面的例子将所有 IP 都认定为 local。]]></description>
-            <link>https://www.lijiaocn.com/soft/linuxsys/localip.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/linuxsys/localip.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
