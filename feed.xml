@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 31 Dec 2019 03:11:38 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 02 Feb 2020 06:09:51 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -1192,10 +1192,17 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[Mac/macOS 使用手册 —— 网络指令]]></title>
+            <title><![CDATA[Mac/macOS 使用手册]]></title>
             <description><![CDATA[macOS 上的 netstat 命令用来查看本机的网络连接情况，但是要注意，macOS 的 netstat 命令用法与 linux 上的 netstat 不同。譬如在 linux 中 -p 参数的意思是显示关联的进程的程序名，在 macOS 中是指定协议：]]></description>
             <link>https://www.lijiaocn.com/soft/mac/network.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/mac/network.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[常用软件在 Mac 上的安装和使用]]></title>
+            <description><![CDATA[mysql 图形界面管理工具：sequel-pro、mysqlworkbench：]]></description>
+            <link>https://www.lijiaocn.com/soft/mac/soft.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/mac/soft.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
