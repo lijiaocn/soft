@@ -161,10 +161,10 @@ postgres=# \du
 create user postgresdemo with password 'password123';
 ```
 
-在本地用新用户登陆，即使密码填错了都可以！：
+在本地用新用户登陆（注意指定 -h 127.0.0.1 -p 5432）：
 
 ```sh
-$ psql --username=postgresdemo postgres -W
+$ psql -h 127.0.0.1 -p 5432 -U postgresdemo
 Password:
 psql (11.6)
 Type "help" for help.
@@ -172,10 +172,10 @@ Type "help" for help.
 postgres=>
 ```
 
-当时如果远程登陆，密码正确也无法登陆，postgres 的认证配置导致的：
+如果远程登陆时密码正确也无法登陆，可能是 postgres 的认证配置导致的：
 
 ```sh
-$ ls /usr/local/var/postgresql@11/pg_hba.conf
+$ cat /usr/local/var/postgresql@11/pg_hba.conf |grep all
 local   all             all                                     trust
 host    all             all             127.0.0.1/32            trust
 host    all             all             ::1/128                 trust
@@ -186,14 +186,14 @@ host    replication     all             ::1/128                 trust
 
 默认只对本地全部信任（`trust`），没有配置其它来源访问。
 
-用下面的配置允许所有来源的用户访问所有数据库，通过密码认证：
+用下面的配置允许 postgresdemo 用户从任何地址访问所有数据库，通过密码认证：
 
 ```sh
-host      all  all  0.0.0.0/0 password
-host      all  postgresdemo  0.0.0.0/0 password
+# TYPE  DATABASE   USER          ADDRESS      METHOD
+  host  all        postgresdemo  0.0.0.0/0    password
 ```
 
-详情见：[ Postgres 新建用户怎样才能用密码登陆？](https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2018/09/28/postgres-user-manage.html)
+详细说明见：[ Postgres 新建用户怎样才能用密码登陆？](https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2018/09/28/postgres-user-manage.html)
 
 ### 创建数据库
 
@@ -208,7 +208,7 @@ grant all on database  postgresdemo to postgresdemo;
 
 ```sh
 # TYPE  DATABASE        USER            ADDRESS      METHOD
-  host  postgresdemo    postgresdemo    0.0.0.0/0    scram-sha-256
+  host  postgresdemo    postgresdemo    0.0.0.0/0    password
 ```
 
 数据库操作:
