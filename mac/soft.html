@@ -2825,16 +2825,16 @@ postgres=<span class="hljs-comment">#</span>
 <p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7528;&#x6237;&#xFF1A;</p>
 <pre><code class="lang-sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> postgresdemo <span class="hljs-keyword">with</span> <span class="hljs-keyword">password</span> <span class="hljs-string">&apos;password123&apos;</span>;
 </code></pre>
-<p>&#x5728;&#x672C;&#x5730;&#x7528;&#x65B0;&#x7528;&#x6237;&#x767B;&#x9646;&#xFF0C;&#x5373;&#x4F7F;&#x5BC6;&#x7801;&#x586B;&#x9519;&#x4E86;&#x90FD;&#x53EF;&#x4EE5;&#xFF01;&#xFF1A;</p>
-<pre><code class="lang-sh">$ psql --username=postgresdemo postgres -W
+<p>&#x5728;&#x672C;&#x5730;&#x7528;&#x65B0;&#x7528;&#x6237;&#x767B;&#x9646;&#xFF08;&#x6CE8;&#x610F;&#x6307;&#x5B9A; -h 127.0.0.1 -p 5432&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-sh">$ psql -h 127.0.0.1 -p 5432 -U postgresdemo
 Password:
 psql (11.6)
 Type <span class="hljs-string">&quot;help&quot;</span> <span class="hljs-keyword">for</span> help.
 
 postgres=&gt;
 </code></pre>
-<p>&#x5F53;&#x65F6;&#x5982;&#x679C;&#x8FDC;&#x7A0B;&#x767B;&#x9646;&#xFF0C;&#x5BC6;&#x7801;&#x6B63;&#x786E;&#x4E5F;&#x65E0;&#x6CD5;&#x767B;&#x9646;&#xFF0C;postgres &#x7684;&#x8BA4;&#x8BC1;&#x914D;&#x7F6E;&#x5BFC;&#x81F4;&#x7684;&#xFF1A;</p>
-<pre><code class="lang-sh">$ ls /usr/<span class="hljs-built_in">local</span>/var/postgresql@11/pg_hba.conf
+<p>&#x5982;&#x679C;&#x8FDC;&#x7A0B;&#x767B;&#x9646;&#x65F6;&#x5BC6;&#x7801;&#x6B63;&#x786E;&#x4E5F;&#x65E0;&#x6CD5;&#x767B;&#x9646;&#xFF0C;&#x53EF;&#x80FD;&#x662F; postgres &#x7684;&#x8BA4;&#x8BC1;&#x914D;&#x7F6E;&#x5BFC;&#x81F4;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-sh">$ cat /usr/<span class="hljs-built_in">local</span>/var/postgresql@11/pg_hba.conf |grep all
 <span class="hljs-built_in">local</span>   all             all                                     trust
 host    all             all             127.0.0.1/32            trust
 host    all             all             ::1/128                 trust
@@ -2843,11 +2843,11 @@ host    replication     all             127.0.0.1/32            trust
 host    replication     all             ::1/128                 trust
 </code></pre>
 <p>&#x9ED8;&#x8BA4;&#x53EA;&#x5BF9;&#x672C;&#x5730;&#x5168;&#x90E8;&#x4FE1;&#x4EFB;&#xFF08;<code>trust</code>&#xFF09;&#xFF0C;&#x6CA1;&#x6709;&#x914D;&#x7F6E;&#x5176;&#x5B83;&#x6765;&#x6E90;&#x8BBF;&#x95EE;&#x3002;</p>
-<p>&#x7528;&#x4E0B;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x5141;&#x8BB8;&#x6240;&#x6709;&#x6765;&#x6E90;&#x7684;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x901A;&#x8FC7;&#x5BC6;&#x7801;&#x8BA4;&#x8BC1;&#xFF1A;</p>
-<pre><code class="lang-sh">host      all  all  0.0.0.0/0 password
-host      all  postgresdemo  0.0.0.0/0 password
+<p>&#x7528;&#x4E0B;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x5141;&#x8BB8; postgresdemo &#x7528;&#x6237;&#x4ECE;&#x4EFB;&#x4F55;&#x5730;&#x5740;&#x8BBF;&#x95EE;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x901A;&#x8FC7;&#x5BC6;&#x7801;&#x8BA4;&#x8BC1;&#xFF1A;</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># TYPE  DATABASE   USER          ADDRESS      METHOD</span>
+  host  all        postgresdemo  0.0.0.0/0    password
 </code></pre>
-<p>&#x8BE6;&#x60C5;&#x89C1;&#xFF1A;<a href="https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2018/09/28/postgres-user-manage.html" target="_blank"> Postgres &#x65B0;&#x5EFA;&#x7528;&#x6237;&#x600E;&#x6837;&#x624D;&#x80FD;&#x7528;&#x5BC6;&#x7801;&#x767B;&#x9646;&#xFF1F;</a></p>
+<p>&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x89C1;&#xFF1A;<a href="https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2018/09/28/postgres-user-manage.html" target="_blank"> Postgres &#x65B0;&#x5EFA;&#x7528;&#x6237;&#x600E;&#x6837;&#x624D;&#x80FD;&#x7528;&#x5BC6;&#x7801;&#x767B;&#x9646;&#xFF1F;</a></p>
 <h3 id="&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;">&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;</h3>
 <p>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x6388;&#x6743;&#x7ED9; postgresdemo&#xFF1A;</p>
 <pre><code class="lang-mysql">create database postgresdemo;
@@ -2855,7 +2855,7 @@ grant all on database  postgresdemo to postgresdemo;
 </code></pre>
 <p>&#x5982;&#x679C;&#x8981;&#x9650;&#x5236;&#x8BE5;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8BBF;&#x95EE;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x5728; pg_hba.conf &#x6DFB;&#x52A0;&#x7C7B;&#x4F3C;&#x914D;&#x7F6E;&#xFF1A;</p>
 <pre><code class="lang-sh"><span class="hljs-comment"># TYPE  DATABASE        USER            ADDRESS      METHOD</span>
-  host  postgresdemo    postgresdemo    0.0.0.0/0    scram-sha-256
+  host  postgresdemo    postgresdemo    0.0.0.0/0    password
 </code></pre>
 <p>&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;:</p>
 <pre><code class="lang-sh">\list: lists all the databases <span class="hljs-keyword">in</span> Postgres
@@ -2942,7 +2942,7 @@ grant all on database  postgresdemo to postgresdemo;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"常用软件","level":"1.16.2","depth":2,"previous":{"title":"系统操作","level":"1.16.1","depth":2,"path":"mac/network.md","ref":"mac/network.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"mac/soft.md","mtime":"2020-02-02T06:08:07.025Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-02T06:08:36.269Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"常用软件","level":"1.16.2","depth":2,"previous":{"title":"系统操作","level":"1.16.1","depth":2,"path":"mac/network.md","ref":"mac/network.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"mac/soft.md","mtime":"2020-02-02T06:20:24.803Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-02T06:20:42.642Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
