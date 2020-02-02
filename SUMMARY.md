@@ -169,4 +169,5 @@
   * [案例: CPU 使用率很高](linux/cpu-usage-high.md)
   * [待学习](linux/todo.md)
 * [Mac 使用手册](mac/index.md)
-  * [网络指令](mac/network.md)
+  * [系统操作](mac/network.md)
+  * [常用软件](mac/soft.md)

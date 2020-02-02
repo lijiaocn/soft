@@ -1,5 +1,5 @@
 <!-- toc -->
-# Mac/macOS 使用手册 —— 网络指令
+# Mac/macOS 使用手册
 
 ## netstat
 
