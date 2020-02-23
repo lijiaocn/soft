@@ -172,7 +172,7 @@ Type "help" for help.
 postgres=>
 ```
 
-如果远程登陆时密码正确也无法登陆，可能是 postgres 的认证配置导致的：
+本地登陆时，可能无需密码就成功了，远程登陆时可能密码正确也无法登陆，这是 postgres 的认证配置导致的：
 
 ```sh
 $ cat /usr/local/var/postgresql@11/pg_hba.conf |grep all
@@ -184,7 +184,7 @@ host    replication     all             127.0.0.1/32            trust
 host    replication     all             ::1/128                 trust
 ```
 
-默认只对本地全部信任（`trust`），没有配置其它来源访问。
+默认对本地全部信任（`trust`），没有配置其它来源访问。
 
 用下面的配置允许 postgresdemo 用户从任何地址访问所有数据库，通过密码认证：
 
@@ -193,7 +193,7 @@ host    replication     all             ::1/128                 trust
   host  all        postgresdemo  0.0.0.0/0    password
 ```
 
-详细说明见：[ Postgres 新建用户怎样才能用密码登陆？](https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2018/09/28/postgres-user-manage.html)
+添加配置后需要重启 postgresql，详细说明见：[ Postgres 新建用户怎样才能用密码登陆？](https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2018/09/28/postgres-user-manage.html)
 
 ### 创建数据库
 
