@@ -2833,7 +2833,7 @@ Type <span class="hljs-string">&quot;help&quot;</span> <span class="hljs-keyword
 
 postgres=&gt;
 </code></pre>
-<p>&#x5982;&#x679C;&#x8FDC;&#x7A0B;&#x767B;&#x9646;&#x65F6;&#x5BC6;&#x7801;&#x6B63;&#x786E;&#x4E5F;&#x65E0;&#x6CD5;&#x767B;&#x9646;&#xFF0C;&#x53EF;&#x80FD;&#x662F; postgres &#x7684;&#x8BA4;&#x8BC1;&#x914D;&#x7F6E;&#x5BFC;&#x81F4;&#x7684;&#xFF1A;</p>
+<p>&#x672C;&#x5730;&#x767B;&#x9646;&#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x65E0;&#x9700;&#x5BC6;&#x7801;&#x5C31;&#x6210;&#x529F;&#x4E86;&#xFF0C;&#x8FDC;&#x7A0B;&#x767B;&#x9646;&#x65F6;&#x53EF;&#x80FD;&#x5BC6;&#x7801;&#x6B63;&#x786E;&#x4E5F;&#x65E0;&#x6CD5;&#x767B;&#x9646;&#xFF0C;&#x8FD9;&#x662F; postgres &#x7684;&#x8BA4;&#x8BC1;&#x914D;&#x7F6E;&#x5BFC;&#x81F4;&#x7684;&#xFF1A;</p>
 <pre><code class="lang-sh">$ cat /usr/<span class="hljs-built_in">local</span>/var/postgresql@11/pg_hba.conf |grep all
 <span class="hljs-built_in">local</span>   all             all                                     trust
 host    all             all             127.0.0.1/32            trust
@@ -2842,12 +2842,12 @@ host    all             all             ::1/128                 trust
 host    replication     all             127.0.0.1/32            trust
 host    replication     all             ::1/128                 trust
 </code></pre>
-<p>&#x9ED8;&#x8BA4;&#x53EA;&#x5BF9;&#x672C;&#x5730;&#x5168;&#x90E8;&#x4FE1;&#x4EFB;&#xFF08;<code>trust</code>&#xFF09;&#xFF0C;&#x6CA1;&#x6709;&#x914D;&#x7F6E;&#x5176;&#x5B83;&#x6765;&#x6E90;&#x8BBF;&#x95EE;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x5BF9;&#x672C;&#x5730;&#x5168;&#x90E8;&#x4FE1;&#x4EFB;&#xFF08;<code>trust</code>&#xFF09;&#xFF0C;&#x6CA1;&#x6709;&#x914D;&#x7F6E;&#x5176;&#x5B83;&#x6765;&#x6E90;&#x8BBF;&#x95EE;&#x3002;</p>
 <p>&#x7528;&#x4E0B;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x5141;&#x8BB8; postgresdemo &#x7528;&#x6237;&#x4ECE;&#x4EFB;&#x4F55;&#x5730;&#x5740;&#x8BBF;&#x95EE;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x901A;&#x8FC7;&#x5BC6;&#x7801;&#x8BA4;&#x8BC1;&#xFF1A;</p>
 <pre><code class="lang-sh"><span class="hljs-comment"># TYPE  DATABASE   USER          ADDRESS      METHOD</span>
   host  all        postgresdemo  0.0.0.0/0    password
 </code></pre>
-<p>&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x89C1;&#xFF1A;<a href="https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2018/09/28/postgres-user-manage.html" target="_blank"> Postgres &#x65B0;&#x5EFA;&#x7528;&#x6237;&#x600E;&#x6837;&#x624D;&#x80FD;&#x7528;&#x5BC6;&#x7801;&#x767B;&#x9646;&#xFF1F;</a></p>
+<p>&#x6DFB;&#x52A0;&#x914D;&#x7F6E;&#x540E;&#x9700;&#x8981;&#x91CD;&#x542F; postgresql&#xFF0C;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x89C1;&#xFF1A;<a href="https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2018/09/28/postgres-user-manage.html" target="_blank"> Postgres &#x65B0;&#x5EFA;&#x7528;&#x6237;&#x600E;&#x6837;&#x624D;&#x80FD;&#x7528;&#x5BC6;&#x7801;&#x767B;&#x9646;&#xFF1F;</a></p>
 <h3 id="&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;">&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;</h3>
 <p>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x6388;&#x6743;&#x7ED9; postgresdemo&#xFF1A;</p>
 <pre><code class="lang-mysql">create database postgresdemo;
@@ -2871,6 +2871,12 @@ grant all on database  postgresdemo to postgresdemo;
 </ol>
 <script type="text/javascript">var className='atoc';</script>
                                 
+<div style="display:flex;flex-direction:row;justify-content:center">
+<br>
+<a href="https://study.163.com/provider/400000000376006/course.htm?share=2&shareId=400000000376006"><img height="250px" alt="微信公众号：我的网课" src="https://www.lijiaocn.com/img/class.jpg"/></a>
+<a href="https://weibo.com/zuiniur/profile"><img height="250px" alt="微信公众号：我的资产" src="https://www.lijiaocn.com/money/img/self.jpg"/></a>
+</div>
+
 <div>
 <!-- 匹配内容 -->
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -2882,12 +2888,6 @@ grant all on database  postgresdemo to postgresdemo;
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-</div>
-
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;">
-<br>
-<p style="font-size:17px"><a href="https://www.lijiaocn.com/2010/10/10/about.html">作者微信（一般不闲聊）</a></p>
-<img src="https://www.lijiaocn.com/img/class.jpg"></img>
 </div>
 
 <!-- Page_Bottom -->
@@ -2942,7 +2942,7 @@ grant all on database  postgresdemo to postgresdemo;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"常用软件","level":"1.16.2","depth":2,"previous":{"title":"系统操作","level":"1.16.1","depth":2,"path":"mac/network.md","ref":"mac/network.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"mac/soft.md","mtime":"2020-02-02T06:20:24.803Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-02T06:20:42.642Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"常用软件","level":"1.16.2","depth":2,"previous":{"title":"系统操作","level":"1.16.1","depth":2,"path":"mac/network.md","ref":"mac/network.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"mac/soft.md","mtime":"2020-02-02T13:13:12.280Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-23T05:31:39.521Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
