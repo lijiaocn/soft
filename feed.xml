@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 23 Feb 2020 06:08:34 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 29 Feb 2020 08:13:55 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -779,6 +779,12 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
+            <title><![CDATA[Prometheus 进阶拓展]]></title>
+            <link>https://www.lijiaocn.com/soft/prometheus/more.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/prometheus/more.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
             <title><![CDATA[Ansible 使用手册]]></title>
             <description><![CDATA[这里是 ansible 学习笔记 的重新，内容随着工作学习的进行不断更新。]]></description>
             <link>https://www.lijiaocn.com/soft/ansible/index.html</link>
@@ -860,6 +866,20 @@
             <description><![CDATA[docker 的镜像服务器在境外，从国内拉取镜像会特别慢。给 docker 配置一个国内的镜像源可以大大缩短镜像的获取时间。]]></description>
             <link>https://www.lijiaocn.com/soft/docker/config.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/config.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[常用软件的 Docker 镜像的使用方法]]></title>
+            <description><![CDATA[收集常见数据库、缓存等软件的 Docker 镜像的使用方法。用 Docker 启动这些系统，简单、快速，可以极大提高工作效率。]]></description>
+            <link>https://www.lijiaocn.com/soft/docker/image/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/image/index.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[MySQL 的常规使用]]></title>
+            <description><![CDATA[MySQL 被 Oracle 收购后，分叉成了隶属 Oracle 的 MySQL 分支，和社区维护的 MariaDB 分支。在 CentOS 等开源系统上，现在通常默认提供的是 MariaDB。]]></description>
+            <link>https://www.lijiaocn.com/soft/docker/image/mysql.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/image/mysql.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
