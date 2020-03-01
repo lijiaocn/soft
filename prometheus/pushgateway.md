@@ -36,7 +36,7 @@ CONTAINER ID    IMAGE                     COMMAND              CREATED        ST
 
 用浏览器打开 pushgateway 的页面，端口为 9901：
 
-[Pushgateway页面](../img/prom/pushgateway.png)
+![Pushgateway页面](../img/prom/pushgateway.png)
 
 ## 向 pushgateway 推送数据
 
@@ -56,7 +56,7 @@ EOF
 
 推送数据后，在页面中可以看到对应的 metrics：
 
-[Pushgateway页面](../img/prom/pushgateway2.png)
+![Pushgateway页面](../img/prom/pushgateway2.png)
 
 [pushing metrics][4]
 
