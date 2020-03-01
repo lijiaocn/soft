@@ -11,18 +11,9 @@
 
 ## 准备依赖的软件
 
-安装 docker，要掌握用 byfn 搭建 fabric 的方法，必须要对 docker 有基本的了解。
+第一，安装 docker。要掌握用 byfn 搭建 fabric 的方法，必须要对 docker 有基本的了解，到 [Docker使用手册](../docker/index.md) 中学习。
 
-小鸟笔记的 [Docker使用手册](../docker/index.md) 还没开始整理，可以先通过其他材料学习，掌握 Docker 的基本用法即可，譬如：
-
-```sh
-$ docker pull XXXXXX  # 获取 docker 镜像
-$ docker run  XXXX    # 启动容器
-$ docker exec -it XXX # 进入容器
-$ docker rm -f XXX    # 删除容器
-```
-
-安装 git，git 是现在最常用的代码管理工具，我们要用 git 从 github 中拉取 fabric-sample 文件。小鸟笔记有一份简陋的 [Git使用手册](../git/index.md)，这里只用 git 获取代码，不需要掌握代码提交、合并等用法，虽然在以后的工作中一定会遇到。
+第二，安装 git。git 是现在最常用的代码管理工具，我们要用 git 从 github 中拉取 fabric-sample 文件，可以参考 [Git使用手册](../git/index.md)，这里只用 git 获取代码，不需要掌握代码提交、合并等用法，虽然在以后的工作中一定会遇到。
 
 ```sh
 $ yum install -y git      # CentOS 系统上
@@ -93,10 +84,14 @@ $ ./byfn.sh generate
 Generating certs and genesis block for channel 'mychannel' with CLI timeout of '10' seconds and CLI delay of '3' seconds
 Continue? [Y/n] y
 proceeding ...
-cryptogen tool not found. exiting
+cryptogen tool not found. exiting  # 如果没有把 bin 目录添加到环境变量 PATH 就会遇到这个问题！
 ```
 
-执行成功的结果如下，注意 ## 中的文字，“Generate certificates ...”，这就是为相应组织或者模块生成了证书。first-network 是由 Org1 和 Org2 两个成员组成的区块链网络，网络中只有一个 Orderer，Org1 有两个 Peer，Org2 有两个 Peer：
+执行成功的结果如下。
+
+注意 ## 中的文字，“Generate certificates ...”，这就是为相应组织或者模块生成了证书。
+
+first-network 是由 Org1 和 Org2 两个成员组成的区块链网络，网络中有一个 Orderer，Org1 有两个 Peer，Org2 有两个 Peer：
 
 ```sh
 ➜  first-network git:(v1.4.4) ./byfn.sh generate

@@ -126,7 +126,7 @@ $ docker rm -f Hello
 删除已经退出的容器： 
 
 ```sh
-$ docker rm -f Hello
+$ docker rm -Hello
 ```
 
 ## 端口映射 
