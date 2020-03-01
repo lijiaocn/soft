@@ -9,7 +9,7 @@ docker pull alpine:3.9.5
 
 [docker command][5] 中列出了所有命令的用法，下面只列举最常用的一些。
 
-## 前台运行容器
+## 前台运行
 
 ```sh
 $ docker run --rm -it  alpine:3.9.5 /bin/sh
@@ -26,7 +26,7 @@ docker help run 查看选项：
 -i    :交互运行
 ```
 
-## 后台运行容器
+## 后台运行
 
 ```sh
 $ docker run -d alpine:3.9.5 /bin/sh -c "while true;do echo hello world; sleep 1;done"
@@ -88,6 +88,17 @@ $ docker inspect Hello
             "-c",
             "while true;do echo hello world; sleep 1;done"
          ...省略...
+```
+
+## 进入运行中的容器
+
+docker exec 在指定容器中执行命令，可以通过它进入容器内部：
+
+```sh
+$ docker exec -it Hello /bin/sh
+/ # ip addr |grep eth0
+328: eth0@if329: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP
+    inet 172.17.0.3/16 brd 172.17.255.255 scope global eth0
 ```
 
 ## 停止容器 

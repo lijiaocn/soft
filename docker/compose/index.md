@@ -1,12 +1,20 @@
 <!-- toc -->
-# 常用软件的 Docker 镜像的使用方法
+# 用 docker-compose 提高 docker 使用效率
 
-收集常见数据库、缓存等软件的 Docker 镜像的使用方法。用 Docker 启动这些系统，简单、快速，可以极大提高工作效率。
+* [docker compose file][2]
+* [docker-compose cli][3]
+
+[doker-compose-files][4] 中会持续收集一些常用的 compose 文件：
+
+```sh
+git clone https://github.com/introclass/docker-compose-files.git
+```
 
 ## 参考
 
 1. [李佶澳的博客][1]
-2. [数据库相关笔记][2]
 
 [1]: https://www.lijiaocn.com "李佶澳的博客"
-[2]: https://www.lijiaocn.com/tags/all.html#database "数据库相关笔记"
+[2]: https://docs.docker.com/compose/compose-file/ "docker compose file"
+[3]: https://docs.docker.com/compose/reference/overview/ "docker-compose cli"
+[4]: https://github.com/introclass/docker-compose-files "doker-compose-files"
