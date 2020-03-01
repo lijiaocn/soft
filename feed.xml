@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 29 Feb 2020 08:13:55 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 01 Mar 2020 11:22:38 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -849,7 +849,7 @@
         </item>
         <item>
             <title><![CDATA[Docker 使用手册]]></title>
-            <description><![CDATA[这里是对 Docker 学习笔记 的重新整理，同时在不停地补充新的内容。]]></description>
+            <description><![CDATA[这个系列的内容来自过去几年工作中积攒的笔记：Docker 笔记。]]></description>
             <link>https://www.lijiaocn.com/soft/docker/index.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -862,24 +862,37 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[使用 docker 的建议配置]]></title>
-            <description><![CDATA[docker 的镜像服务器在境外，从国内拉取镜像会特别慢。给 docker 配置一个国内的镜像源可以大大缩短镜像的获取时间。]]></description>
-            <link>https://www.lijiaocn.com/soft/docker/config.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/config.html</guid>
+            <title><![CDATA[Docker 容器操作]]></title>
+            <description><![CDATA[Docker 镜像的管理方法在后面章节，这里先直接用下面的命令获取后面的演示中用到的镜像：]]></description>
+            <link>https://www.lijiaocn.com/soft/docker/container.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/container.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Docker 镜像的管理]]></title>
+            <description><![CDATA[用 docker search 找镜像：]]></description>
+            <link>https://www.lijiaocn.com/soft/docker/image.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/image.html</guid>
+            <dc:creator><![CDATA[李佶澳]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Docker 原理与容器文件讲解]]></title>
+            <link>https://www.lijiaocn.com/soft/docker/principle.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/principle.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[常用软件的 Docker 镜像的使用方法]]></title>
             <description><![CDATA[收集常见数据库、缓存等软件的 Docker 镜像的使用方法。用 Docker 启动这些系统，简单、快速，可以极大提高工作效率。]]></description>
-            <link>https://www.lijiaocn.com/soft/docker/image/index.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/image/index.html</guid>
+            <link>https://www.lijiaocn.com/soft/docker/compose/index.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/compose/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
             <title><![CDATA[MySQL 的常规使用]]></title>
             <description><![CDATA[MySQL 被 Oracle 收购后，分叉成了隶属 Oracle 的 MySQL 分支，和社区维护的 MariaDB 分支。在 CentOS 等开源系统上，现在通常默认提供的是 MariaDB。]]></description>
-            <link>https://www.lijiaocn.com/soft/docker/image/mysql.html</link>
-            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/image/mysql.html</guid>
+            <link>https://www.lijiaocn.com/soft/docker/compose/mysql.html</link>
+            <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/compose/mysql.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
