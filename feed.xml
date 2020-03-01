@@ -4,7 +4,7 @@
         <description><![CDATA[记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用]]></description>
         <link>https://www.lijiaocn.com/soft/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 01 Mar 2020 11:22:38 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 01 Mar 2020 13:55:33 GMT</lastBuildDate>
         <atom:link href="https://www.lijiaocn.com/soft/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[李佶澳]]></author>
         <item>
@@ -870,7 +870,7 @@
         </item>
         <item>
             <title><![CDATA[Docker 镜像的管理]]></title>
-            <description><![CDATA[用 docker search 找镜像：]]></description>
+            <description><![CDATA[docker search 默认搜索 docker hub 中的镜像：]]></description>
             <link>https://www.lijiaocn.com/soft/docker/image.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/image.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
@@ -882,8 +882,8 @@
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[常用软件的 Docker 镜像的使用方法]]></title>
-            <description><![CDATA[收集常见数据库、缓存等软件的 Docker 镜像的使用方法。用 Docker 启动这些系统，简单、快速，可以极大提高工作效率。]]></description>
+            <title><![CDATA[用 docker-compose 提高 docker 使用效率]]></title>
+            <description><![CDATA[doker-compose-files 中会持续收集一些常用的 compose 文件：]]></description>
             <link>https://www.lijiaocn.com/soft/docker/compose/index.html</link>
             <guid isPermaLink="true">https://www.lijiaocn.com/soft/docker/compose/index.html</guid>
             <dc:creator><![CDATA[李佶澳]]></dc:creator>
