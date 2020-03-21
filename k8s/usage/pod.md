@@ -13,6 +13,13 @@ env:
       fieldPath: status.podIP
 ```
 
+## 在 Pod 内用 ServcieAccount 访问 APIServer
+
+```sh
+KUBE_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+curl -sSk -H "Authorization: Bearer $KUBE_TOKEN"  https://kubernetes.default.svc/api/v1/nodes/172.29.128.12/proxy/metrics/cadvisor
+```
+
 ## 参考
 
 1. [李佶澳的博客][1]

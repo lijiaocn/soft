@@ -100,6 +100,34 @@ nginx 有很多 [内置变量][6]，在 lua 脚本中通过 [ngx.var.VARIABLE][7
 lua entry thread aborted: runtime error: ... variable "request_uri" not changeable
 ```
 
+## 与 nginx 共享内存的交互
+
+[ngx.shared.DICT][8] 获取用 [ua_shared_dict][9] 创建的共享内存。
+
+## 当前请求的上下文
+
+[ngx.ctx][11] 中存放当前请求的上下文，贯穿所有处理阶段：
+
+```lua
+ location /test {
+     rewrite_by_lua_block {
+         ngx.ctx.foo = 76
+     }
+     access_by_lua_block {
+         ngx.ctx.foo = ngx.ctx.foo + 3
+     }
+     content_by_lua_block {
+         ngx.say(ngx.ctx.foo)
+     }
+ }
+```
+
+## 常用 lua 数据结构
+
+[Lua的基本数据类型][10]
+
+
+
 ## 参考
 
 1. [李佶澳的博客][1]
@@ -111,3 +139,7 @@ lua entry thread aborted: runtime error: ... variable "request_uri" not changeab
 [5]: https://github.com/openresty/lua-nginx-module#directives "lua module directives"
 [6]: http://nginx.org/en/docs/varindex.html "nginx variables"
 [7]: https://github.com/openresty/lua-nginx-module#ngxvarvariable "ngx.var.VARIABLE"
+[8]: https://github.com/openresty/lua-nginx-module#ngxshareddict "ngx.shared.DICT"
+[9]: https://github.com/openresty/lua-nginx-module#lua_shared_dict "lua_shared_dict"
+[10]: https://www.lijiaocn.com/prog/lua/basic_type.html "Lua的基本数据类型"
+[11]: https://github.com/openresty/lua-nginx-module#ngxctx "ngx.ctx"
