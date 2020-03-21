@@ -2767,6 +2767,9 @@ var _hmt = _hmt || [];
 <li><a href="#openresty-&#x6267;&#x884C;-lua-&#x811A;&#x672C;">OpenResty &#x6267;&#x884C; Lua &#x811A;&#x672C;</a></li>
 <li><a href="#luamodule-&#x7684;&#x51E0;&#x4E2A;&#x6267;&#x884C;&#x9636;&#x6BB5;">lua_module &#x7684;&#x51E0;&#x4E2A;&#x6267;&#x884C;&#x9636;&#x6BB5;</a></li>
 <li><a href="#&#x4E0E;-nginx-&#x5185;&#x7F6E;&#x53D8;&#x91CF;&#x7684;&#x4EA4;&#x4E92;">&#x4E0E; nginx &#x5185;&#x7F6E;&#x53D8;&#x91CF;&#x7684;&#x4EA4;&#x4E92;</a></li>
+<li><a href="#&#x4E0E;-nginx-&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x7684;&#x4EA4;&#x4E92;">&#x4E0E; nginx &#x5171;&#x4EAB;&#x5185;&#x5B58;&#x7684;&#x4EA4;&#x4E92;</a></li>
+<li><a href="#&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x7684;&#x4E0A;&#x4E0B;&#x6587;">&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x7684;&#x4E0A;&#x4E0B;&#x6587;</a></li>
+<li><a href="#&#x5E38;&#x7528;-lua-&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x5E38;&#x7528; lua &#x6570;&#x636E;&#x7ED3;&#x6784;</a></li>
 <li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
 </ul>
 </li>
@@ -2845,17 +2848,30 @@ http {
 <p>&#x4FEE;&#x6539;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x7684;&#x53D8;&#x91CF;&#x65F6;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
 <pre><code class="lang-sh">lua entry thread aborted: runtime error: ... variable <span class="hljs-string">&quot;request_uri&quot;</span> not changeable
 </code></pre>
+<h2 id="&#x4E0E;-nginx-&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x7684;&#x4EA4;&#x4E92;">&#x4E0E; nginx &#x5171;&#x4EAB;&#x5185;&#x5B58;&#x7684;&#x4EA4;&#x4E92;</h2>
+<p><a href="https://github.com/openresty/lua-nginx-module#ngxshareddict" title="ngx.shared.DICT" target="_blank">ngx.shared.DICT</a> &#x83B7;&#x53D6;&#x7528; <a href="https://github.com/openresty/lua-nginx-module#lua_shared_dict" title="lua_shared_dict" target="_blank">ua_shared_dict</a> &#x521B;&#x5EFA;&#x7684;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x3002;</p>
+<h2 id="&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x7684;&#x4E0A;&#x4E0B;&#x6587;">&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x7684;&#x4E0A;&#x4E0B;&#x6587;</h2>
+<p><a href="https://github.com/openresty/lua-nginx-module#ngxctx" title="ngx.ctx" target="_blank">ngx.ctx</a> &#x4E2D;&#x5B58;&#x653E;&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x8D2F;&#x7A7F;&#x6240;&#x6709;&#x5904;&#x7406;&#x9636;&#x6BB5;&#xFF1A;</p>
+<pre><code class="lang-lua"> location /test {
+     rewrite_by_lua_block {
+         ngx.ctx.foo = <span class="hljs-number">76</span>
+     }
+     access_by_lua_block {
+         ngx.ctx.foo = ngx.ctx.foo + <span class="hljs-number">3</span>
+     }
+     content_by_lua_block {
+         ngx.say(ngx.ctx.foo)
+     }
+ }
+</code></pre>
+<h2 id="&#x5E38;&#x7528;-lua-&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x5E38;&#x7528; lua &#x6570;&#x636E;&#x7ED3;&#x6784;</h2>
+<p><a href="https://www.lijiaocn.com/prog/lua/basic_type.html" title="Lua&#x7684;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;" target="_blank">Lua&#x7684;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;</a></p>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <ol>
 <li><a href="https://www.lijiaocn.com" title="&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;" target="_blank">&#x674E;&#x4F76;&#x6FB3;&#x7684;&#x535A;&#x5BA2;</a></li>
 </ol>
 <script type="text/javascript">var className='atoc';</script>
                                 
-<div style="display:flex;flex-direction:row;justify-content:center">
-<br>
-<a href="https://weibo.com/zuiniur/profile"><img height="250px" alt="微信公众号:我的资产" src="https://www.lijiaocn.com/money/img/self.jpg"/></a>
-<a href="https://study.163.com/provider/400000000376006/course.htm?share=2&shareId=400000000376006"><img height="250px" alt="微信公众号:我的网课" src="https://www.lijiaocn.com/img/class.jpg"/></a>
-</div>
 
 <div>
 <!-- 匹配内容 -->
@@ -2882,6 +2898,12 @@ http {
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </div-->
+
+<div style="display:flex;flex-direction:row;justify-content:center">
+<br>
+<a href="https://study.163.com/provider/400000000376006/course.htm?share=2&shareId=400000000376006"><img height="250px" alt="微信公众号:我的网课" src="https://www.lijiaocn.com/img/class.jpg"/></a>
+<a href="https://weibo.com/zuiniur/profile"><img height="250px" alt="微信公众号:我的资产" src="https://www.lijiaocn.com/money/img/self.jpg"/></a>
+</div>
 
 
                                 
@@ -2926,7 +2948,7 @@ http {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"openresty lua 交互","level":"1.9.2","depth":2,"next":{"title":"openresty 常规操作","level":"1.9.3","depth":2,"path":"openresty/common.md","ref":"openresty/common.md","articles":[]},"previous":{"title":"openresty 环境准备","level":"1.9.1","depth":2,"path":"openresty/env.md","ref":"openresty/env.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"openresty/lua.md","mtime":"2020-03-01T13:55:55.275Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-01T16:43:32.726Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"openresty lua 交互","level":"1.9.2","depth":2,"next":{"title":"openresty 常规操作","level":"1.9.3","depth":2,"path":"openresty/common.md","ref":"openresty/common.md","articles":[]},"previous":{"title":"openresty 环境准备","level":"1.9.1","depth":2,"path":"openresty/env.md","ref":"openresty/env.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"openresty/lua.md","mtime":"2020-03-05T03:58:24.336Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-21T12:58:03.794Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
