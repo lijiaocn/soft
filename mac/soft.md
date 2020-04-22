@@ -26,6 +26,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ```sh
 brew cask install gitbook
 sudo gem install bundler jekyll
+brew install npm
+npm install -g gitbook-cli
 ```
 
 ## 数据库图形工具
