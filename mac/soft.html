@@ -66,8 +66,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="network.html" />
     
-    <link rel="prev" href="network.html" />
+    
+    <link rel="prev" href="./" />
     
 
     <link href="https://www.lijiaocn.com/soft/feed.xml" title="常见软件系统实用使用手册" rel="alternate" type="application/rss+xml" />
@@ -2631,12 +2633,12 @@ var _hmt = _hmt || [];
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.16.1" data-path="network.html">
+        <li class="chapter active" data-level="1.16.1" data-path="soft.html">
             
-                <a href="network.html">
+                <a href="soft.html">
             
                     
-                    系统操作
+                    常用软件
             
                 </a>
             
@@ -2644,12 +2646,12 @@ var _hmt = _hmt || [];
             
         </li>
     
-        <li class="chapter active" data-level="1.16.2" data-path="soft.html">
+        <li class="chapter " data-level="1.16.2" data-path="network.html">
             
-                <a href="soft.html">
+                <a href="network.html">
             
                     
-                    常用软件
+                    系统操作
             
                 </a>
             
@@ -2762,6 +2764,7 @@ var _hmt = _hmt || [];
                                 <!-- toc -->
 <ul>
 <li><a href="#&#x5E38;&#x7528;&#x8F6F;&#x4EF6;&#x5728;-mac-&#x4E0A;&#x7684;&#x5B89;&#x88C5;&#x548C;&#x4F7F;&#x7528;">&#x5E38;&#x7528;&#x8F6F;&#x4EF6;&#x5728; Mac &#x4E0A;&#x7684;&#x5B89;&#x88C5;&#x548C;&#x4F7F;&#x7528;</a><ul>
+<li><a href="#&#x5FC5;&#x5907;&#x8F6F;&#x4EF6;">&#x5FC5;&#x5907;&#x8F6F;&#x4EF6;</a></li>
 <li><a href="#&#x6570;&#x636E;&#x5E93;&#x56FE;&#x5F62;&#x5DE5;&#x5177;">&#x6570;&#x636E;&#x5E93;&#x56FE;&#x5F62;&#x5DE5;&#x5177;</a></li>
 <li><a href="#postgres">postgres</a><ul>
 <li><a href="#&#x5B89;&#x88C5;-postgres">&#x5B89;&#x88C5; postgres</a></li>
@@ -2778,6 +2781,23 @@ var _hmt = _hmt || [];
 </ul>
 <!-- tocstop -->
 <h1 id="&#x5E38;&#x7528;&#x8F6F;&#x4EF6;&#x5728;-mac-&#x4E0A;&#x7684;&#x5B89;&#x88C5;&#x548C;&#x4F7F;&#x7528;">&#x5E38;&#x7528;&#x8F6F;&#x4EF6;&#x5728; Mac &#x4E0A;&#x7684;&#x5B89;&#x88C5;&#x548C;&#x4F7F;&#x7528;</h1>
+<h2 id="&#x5FC5;&#x5907;&#x8F6F;&#x4EF6;">&#x5FC5;&#x5907;&#x8F6F;&#x4EF6;</h2>
+<p>&#x5B89;&#x88C5; <a href="https://brew.sh/" target="_blank">brew</a>:
+&#x3000;</p>
+<pre><code class="lang-sh">/bin/bash -c <span class="hljs-string">&quot;<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)</span>&quot;</span>
+</code></pre>
+<p>&#x5B89;&#x88C5; <a href="https://www.iterm2.com/" target="_blank">iterm2</a>:</p>
+<pre><code class="lang-sh">&#x4E0B;&#x8F7D;&#x89E3;&#x538B;&#xFF0C;&#x62D6;&#x52A8;&#x5230;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;
+</code></pre>
+<p>&#x5B89;&#x88C5;<a href="https://ohmyz.sh/" target="_blank">oh-my-zsh</a>:</p>
+<pre><code class="lang-sh">sh -c <span class="hljs-string">&quot;<span class="hljs-variable">$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span>
+</code></pre>
+<p>&#x5176;&#x5B83;&#x8F6F;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-sh">brew cask install gitbook
+sudo gem install bundler jekyll
+brew install npm
+npm install -g gitbook-cli
+</code></pre>
 <h2 id="&#x6570;&#x636E;&#x5E93;&#x56FE;&#x5F62;&#x5DE5;&#x5177;">&#x6570;&#x636E;&#x5E93;&#x56FE;&#x5F62;&#x5DE5;&#x5177;</h2>
 <p>mysql &#x56FE;&#x5F62;&#x754C;&#x9762;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF1A;sequel-pro&#x3001;mysqlworkbench&#xFF1A;</p>
 <pre><code class="lang-sh">brew cask install sequel-pro mysqlworkbench
@@ -2996,10 +3016,14 @@ grant all on database  postgresdemo to postgresdemo;
 
             
                 
-                <a href="network.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 系统操作">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Mac 使用手册">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="network.html" class="navigation navigation-next " aria-label="Next page: 系统操作">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -3008,7 +3032,7 @@ grant all on database  postgresdemo to postgresdemo;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"常用软件","level":"1.16.2","depth":2,"previous":{"title":"系统操作","level":"1.16.1","depth":2,"path":"mac/network.md","ref":"mac/network.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"mac/soft.md","mtime":"2020-03-01T16:45:15.441Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-21T12:58:03.794Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"常用软件","level":"1.16.1","depth":2,"next":{"title":"系统操作","level":"1.16.2","depth":2,"path":"mac/network.md","ref":"mac/network.md","articles":[]},"previous":{"title":"Mac 使用手册","level":"1.16","depth":1,"path":"mac/index.md","ref":"mac/index.md","articles":[{"title":"常用软件","level":"1.16.1","depth":2,"path":"mac/soft.md","ref":"mac/soft.md","articles":[]},{"title":"系统操作","level":"1.16.2","depth":2,"path":"mac/network.md","ref":"mac/network.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"mac/soft.md","mtime":"2020-04-22T01:54:03.936Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-22T01:54:13.913Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
