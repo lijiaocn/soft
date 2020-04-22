@@ -1,6 +1,33 @@
 <!-- toc -->
 # 常用软件在 Mac 上的安装和使用
 
+## 必备软件
+
+安装 [brew](https://brew.sh/):
+　
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
+安装 [iterm2](https://www.iterm2.com/):
+
+```sh
+下载解压，拖动到应用程序
+```
+
+安装[oh-my-zsh](https://ohmyz.sh/):
+
+```sh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+其它软件：
+
+```sh
+brew cask install gitbook
+sudo gem install bundler jekyll
+```
+
 ## 数据库图形工具
 
 mysql 图形界面管理工具：sequel-pro、mysqlworkbench：
