@@ -10,6 +10,14 @@ macOS 上的 **netstat** 命令用来查看本机的网络连接情况，但是�
            Show statistics about protocol, which is either a well-known name for a protocol or an alias for it.
 ```
 
+### 查看路由表
+
+[mac上面查看路由表](https://my.oschina.net/fxtxz2/blog/3060015)：
+
+```sh
+netstat -nr
+```
+
 ### 查看监听的端口和连接
 
 查看 tcp 监听端口，在 linux 上是 netstat -lnt，在 macOS 中是：
@@ -48,3 +56,5 @@ com.docke  6777 lijiao   35u  IPv6 0x65955d0d6aba74bb      0t0  TCP *:http (LIST
 ```
 
 [使用 lsof 代替 Mac OS X 中的 netstat 查看占用端口的程序](https://tonydeng.github.io/2016/07/07/use-lsof-to-replace-netstat/)
+
+
