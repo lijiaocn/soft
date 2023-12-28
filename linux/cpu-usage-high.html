@@ -316,7 +316,7 @@ Server internal error: Array
 <pre><code class="language-sh">perf record -ag  -- sleep 15;perf report
 </code></pre>
 <p>perf report中显示，stress进程的cpu事件占比是77%，它大量调用了随机数生成函数random()，确定是它导致CPU使用率高：</p>
-<p><img src="/img/perf-report-1.png" alt="perf-report" /></p>
+<p><img src="../img/perf-report-1.png" alt="perf-report" /></p>
 <h2 id="小结与execsnoop"><a class="header" href="#小结与execsnoop">小结与execsnoop</a></h2>
 <p>倪鹏飞设计的这个案例特别典型，问题根源特别隐蔽，导致CPU使用率高的stress进程很快退出，如果只观察进程的cpu使用率，是找不到问题根源的，需要从task中发现异常， 在用pstree厘清进程关系，从stress的父进程入手，最后用perf report坐实。</p>
 <p>排查过程和排查思路才是重点。</p>

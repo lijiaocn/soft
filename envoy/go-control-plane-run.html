@@ -207,22 +207,22 @@
 </code></pre>
 <h2 id="envoy-初始状态"><a class="header" href="#envoy-初始状态">envoy 初始状态</a></h2>
 <p>envoy 启动之后，通过 admin 地址（浏览器打开 IP:9901 ） 查看 envoy 的当前配置以及内部情况：</p>
-<p><img src="/img/envoy/envoy-admin.png" alt="envoy 的 admin 界面" /></p>
+<p><img src="../img/envoy/envoy-admin.png" alt="envoy 的 admin 界面" /></p>
 <p>envoy 的当前配置通过 IP:9901/config_dump 查看，通过该地址查询的配置文件是分为几段的：</p>
 <ul>
 <li>第一段为 &quot;@type&quot;: &quot;type.googleapis.com/envoy.admin.v2alpha.BootstrapConfigDump&quot;，是 envoy 启动时的配置</li>
 <li>第二段为 &quot;@type&quot;: &quot;type.googleapis.com/envoy.admin.v2alpha.ClustersConfigDump&quot;，是 cluster 配置，这里现在只有静态配置的 ads_cluster</li>
 <li>第三段为 &quot;@type&quot;: &quot;type.googleapis.com/envoy.admin.v2alpha.ListenersConfigDump&quot;，第三段现在是空的</li>
 </ul>
-<p><img src="/img/envoy/envoy-config-init.png" alt="envoy 的初始化配置界面" /></p>
+<p><img src="../img/envoy/envoy-config-init.png" alt="envoy 的初始化配置界面" /></p>
 <p>下发 listener 和 route 后会多出两段配置，里面是动态下发的 route：</p>
 <ul>
 <li>&quot;@type&quot;: &quot;type.googleapis.com/envoy.admin.v2alpha.ScopedRoutesConfigDump&quot; </li>
 <li>&quot;@type&quot;: &quot;type.googleapis.com/envoy.admin.v2alpha.RoutesConfigDump&quot; </li>
 </ul>
-<p><img src="/img/envoy/envoy-config-after.png" alt="envoy 的配置变化" /></p>
+<p><img src="../img/envoy/envoy-config-after.png" alt="envoy 的配置变化" /></p>
 <p>endpoint 在配置页面中看不到，要到 IP:9901/clusters 中查看：</p>
-<p><img src="/img/envoy/envoy-ed-init.png" alt="envoy 的初始化endpoint界面" /></p>
+<p><img src="../img/envoy/envoy-ed-init.png" alt="envoy 的初始化endpoint界面" /></p>
 <h2 id="启动控制平面"><a class="header" href="#启动控制平面">启动控制平面</a></h2>
 <p>演示实现的控制平面的功能如下，每按一次回车，下发一组配置：</p>
 <pre><code class="language-sh">$ ./xds
@@ -258,7 +258,7 @@ Enter to exit: ^C
 }
 </code></pre>
 <p>下发后多出一个名为  Cluster_With_Static_Endpoint 的 cluster，地址为 127.0.0.1:8081。</p>
-<p><img src="/img/envoy/envoy-static-cluster.png" alt="envoy中下发的静态cluster" /></p>
+<p><img src="../img/envoy/envoy-static-cluster.png" alt="envoy中下发的静态cluster" /></p>
 <h2 id="使用-eds-发现-endpoint-的-cluster"><a class="header" href="#使用-eds-发现-endpoint-的-cluster">使用 eds 发现 endpoint 的 cluster</a></h2>
 <pre><code class="language-go">{
     clusterName := &quot;Cluster_With_Dynamic_Endpoint&quot;
@@ -287,9 +287,9 @@ Enter to exit: ^C
 }
 </code></pre>
 <p>下发后多出一个名为 Cluster_With_Dynamic_Endpoint 的 cluster，地址为 127.0.0.1:8082。</p>
-<p><img src="/img/envoy/envoy-cluster-eds.png" alt="envoy中下发的静态cluster" /></p>
+<p><img src="../img/envoy/envoy-cluster-eds.png" alt="envoy中下发的静态cluster" /></p>
 <p>cluster 中没有直接配置 endpoint，指定从 xds_cluster 中获取，在 IP:9901/clusters 中可以看到 endpoint：</p>
-<p><img src="/img/envoy/envoy-dynamic-cls-ep.png" alt="envoy中动态获取的endpoints" /></p>
+<p><img src="../img/envoy/envoy-dynamic-cls-ep.png" alt="envoy中动态获取的endpoints" /></p>
 <h2 id="使用-ads-发现-endpoint-的-cluster"><a class="header" href="#使用-ads-发现-endpoint-的-cluster">使用 ads 发现 endpoint 的 cluster</a></h2>
 <pre><code class="language-go">{
     clusterName := &quot;Cluster_With_ADS_Endpoint&quot;
@@ -315,7 +315,7 @@ Enter to exit: ^C
 </code></pre>
 <p>下发后多出一个名为 Cluster_With_ADS_Endpoint 的 cluster，地址为 127.0.0.1:8083。</p>
 <p>ads 的配置和 xds 不同，不需要指定 cluster，声明使用 ADS 即可：</p>
-<p><img src="/img/envoy/envoy-cls-ads.png" alt="使用 ads 发现 endpoint 的 cluster" /></p>
+<p><img src="../img/envoy/envoy-cls-ads.png" alt="使用 ads 发现 endpoint 的 cluster" /></p>
 <h2 id="使用静态路由的-listener"><a class="header" href="#使用静态路由的-listener">使用静态路由的 listener</a></h2>
 <p>前面的几个步骤下发了 cluster，没有下发 listener，无法访问 cluster，要访问 cluster 必须配置一个指向它的 listener。</p>
 <pre><code class="language-go">{
@@ -342,7 +342,7 @@ Enter to exit: ^C
 <p>上面的代码下发了一个监听 84 端口、将请求转发到 172.17.0.2:8080 的 listener，转发规则为 Host 是 echo.example，prefix 是 /abc：
 这里的 172.17.0.2:8080，是 <a href="./echoserver.html">初次体验</a> 中启动的 echoserver 容器的地址。</p>
 <p>下发以后，在管理界面可以看到下面的配置：</p>
-<p><img src="/img/envoy/envoy-listener.png" alt="使用 ads 发现 endpoint 的 cluster" /></p>
+<p><img src="../img/envoy/envoy-listener.png" alt="使用 ads 发现 endpoint 的 cluster" /></p>
 <p>这时候可以通过 84 端口访问 cluster：</p>
 <pre><code class="language-sh">$ curl   -H &quot;Host: echo.example&quot; 127.0.0.1:84/abc
 

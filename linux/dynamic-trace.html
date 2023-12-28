@@ -200,7 +200,7 @@
 <h1 id="动态追踪技术"><a class="header" href="#动态追踪技术">动态追踪技术</a></h1>
 <p>主要的动态追踪工具有：ftrace、perf、eBPF(bcc)、SystemTap、sysdig。</p>
 <p>这里只简单整理一下，以后在实践中加深了解。</p>
-<p><img src="/img/linux/dynamic-trace-tool.png" alt="常用动态追踪场景和工具" /></p>
+<p><img src="../img/linux/dynamic-trace-tool.png" alt="常用动态追踪场景和工具" /></p>
 <p>如果使用的是新版本内核，eBPF和BCC是最灵活的动态追踪方法，在旧版本的内核中，因为eBPF受限，SystemTap和ftrace是比较好的选择。</p>
 <h2 id="ftrace与trace-cmd"><a class="header" href="#ftrace与trace-cmd">ftrace与trace-cmd</a></h2>
 <p>ftrace通过debugfs提供用户态接口，debugfs需要事先挂载：</p>
@@ -350,7 +350,7 @@ Available variables at readline
 <li><a href="https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md">BCC Python Developer Tutorial</a></li>
 <li><a href="https://github.com/iovisor/bcc/blob/master/docs/kernel-versions.md">BPF Features by Linux Kernel Version</a></li>
 </ol>
-<p><img src="/img/linux/bcc-tools.png" alt="bcc工具集" /></p>
+<p><img src="../img/linux/bcc-tools.png" alt="bcc工具集" /></p>
 <p>CentOS中用yum直接安装，有协议额</p>
 <pre><code class="language-sh">yum install bcc-tools
 </code></pre>
@@ -375,7 +375,7 @@ Traceback (most recent call last):
 Exception: Failed to compile BPF text
 </code></pre>
 <p><a href="https://github.com/iovisor/bcc/blob/master/docs/kernel-versions.md">BPF Features by Linux Kernel Version</a>汇总了每个特性需要的最低内核版本，下图提供了部分信息：</p>
-<p><img src="/img/linux/bcc-tool-version.png" alt="Linux事件和BPF支持" /></p>
+<p><img src="../img/linux/bcc-tool-version.png" alt="Linux事件和BPF支持" /></p>
 <p><a href="https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md">BCC Python Developer Tutorial</a>中介绍了eBPF应用程序的开发方法，掌握以后可以自行开发追踪工具。</p>
 <h2 id="支持旧内核的systemtap"><a class="header" href="#支持旧内核的systemtap">支持旧内核的SystemTap</a></h2>
 <p>和eBPF根植于内核不同，SystemTap是独立于内核的，并且在RHEL系统中好用，在其它发行版上容易出现各种异常问题。eBPF是比较新的内核特性，对内核版本要求高，SystemTap的先于eBPF诞生，支持3.x等旧版本的内核。</p>

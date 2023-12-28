@@ -6737,22 +6737,22 @@ go func() {
 </code></pre>
 <h2 id="envoy-初始状态"><a class="header" href="#envoy-初始状态">envoy 初始状态</a></h2>
 <p>envoy 启动之后，通过 admin 地址（浏览器打开 IP:9901 ） 查看 envoy 的当前配置以及内部情况：</p>
-<p><img src="envoy//img/envoy/envoy-admin.png" alt="envoy 的 admin 界面" /></p>
+<p><img src="envoy/../img/envoy/envoy-admin.png" alt="envoy 的 admin 界面" /></p>
 <p>envoy 的当前配置通过 IP:9901/config_dump 查看，通过该地址查询的配置文件是分为几段的：</p>
 <ul>
 <li>第一段为 &quot;@type&quot;: &quot;type.googleapis.com/envoy.admin.v2alpha.BootstrapConfigDump&quot;，是 envoy 启动时的配置</li>
 <li>第二段为 &quot;@type&quot;: &quot;type.googleapis.com/envoy.admin.v2alpha.ClustersConfigDump&quot;，是 cluster 配置，这里现在只有静态配置的 ads_cluster</li>
 <li>第三段为 &quot;@type&quot;: &quot;type.googleapis.com/envoy.admin.v2alpha.ListenersConfigDump&quot;，第三段现在是空的</li>
 </ul>
-<p><img src="envoy//img/envoy/envoy-config-init.png" alt="envoy 的初始化配置界面" /></p>
+<p><img src="envoy/../img/envoy/envoy-config-init.png" alt="envoy 的初始化配置界面" /></p>
 <p>下发 listener 和 route 后会多出两段配置，里面是动态下发的 route：</p>
 <ul>
 <li>&quot;@type&quot;: &quot;type.googleapis.com/envoy.admin.v2alpha.ScopedRoutesConfigDump&quot; </li>
 <li>&quot;@type&quot;: &quot;type.googleapis.com/envoy.admin.v2alpha.RoutesConfigDump&quot; </li>
 </ul>
-<p><img src="envoy//img/envoy/envoy-config-after.png" alt="envoy 的配置变化" /></p>
+<p><img src="envoy/../img/envoy/envoy-config-after.png" alt="envoy 的配置变化" /></p>
 <p>endpoint 在配置页面中看不到，要到 IP:9901/clusters 中查看：</p>
-<p><img src="envoy//img/envoy/envoy-ed-init.png" alt="envoy 的初始化endpoint界面" /></p>
+<p><img src="envoy/../img/envoy/envoy-ed-init.png" alt="envoy 的初始化endpoint界面" /></p>
 <h2 id="启动控制平面"><a class="header" href="#启动控制平面">启动控制平面</a></h2>
 <p>演示实现的控制平面的功能如下，每按一次回车，下发一组配置：</p>
 <pre><code class="language-sh">$ ./xds
@@ -6788,7 +6788,7 @@ Enter to exit: ^C
 }
 </code></pre>
 <p>下发后多出一个名为  Cluster_With_Static_Endpoint 的 cluster，地址为 127.0.0.1:8081。</p>
-<p><img src="envoy//img/envoy/envoy-static-cluster.png" alt="envoy中下发的静态cluster" /></p>
+<p><img src="envoy/../img/envoy/envoy-static-cluster.png" alt="envoy中下发的静态cluster" /></p>
 <h2 id="使用-eds-发现-endpoint-的-cluster"><a class="header" href="#使用-eds-发现-endpoint-的-cluster">使用 eds 发现 endpoint 的 cluster</a></h2>
 <pre><code class="language-go">{
     clusterName := &quot;Cluster_With_Dynamic_Endpoint&quot;
@@ -6817,9 +6817,9 @@ Enter to exit: ^C
 }
 </code></pre>
 <p>下发后多出一个名为 Cluster_With_Dynamic_Endpoint 的 cluster，地址为 127.0.0.1:8082。</p>
-<p><img src="envoy//img/envoy/envoy-cluster-eds.png" alt="envoy中下发的静态cluster" /></p>
+<p><img src="envoy/../img/envoy/envoy-cluster-eds.png" alt="envoy中下发的静态cluster" /></p>
 <p>cluster 中没有直接配置 endpoint，指定从 xds_cluster 中获取，在 IP:9901/clusters 中可以看到 endpoint：</p>
-<p><img src="envoy//img/envoy/envoy-dynamic-cls-ep.png" alt="envoy中动态获取的endpoints" /></p>
+<p><img src="envoy/../img/envoy/envoy-dynamic-cls-ep.png" alt="envoy中动态获取的endpoints" /></p>
 <h2 id="使用-ads-发现-endpoint-的-cluster"><a class="header" href="#使用-ads-发现-endpoint-的-cluster">使用 ads 发现 endpoint 的 cluster</a></h2>
 <pre><code class="language-go">{
     clusterName := &quot;Cluster_With_ADS_Endpoint&quot;
@@ -6845,7 +6845,7 @@ Enter to exit: ^C
 </code></pre>
 <p>下发后多出一个名为 Cluster_With_ADS_Endpoint 的 cluster，地址为 127.0.0.1:8083。</p>
 <p>ads 的配置和 xds 不同，不需要指定 cluster，声明使用 ADS 即可：</p>
-<p><img src="envoy//img/envoy/envoy-cls-ads.png" alt="使用 ads 发现 endpoint 的 cluster" /></p>
+<p><img src="envoy/../img/envoy/envoy-cls-ads.png" alt="使用 ads 发现 endpoint 的 cluster" /></p>
 <h2 id="使用静态路由的-listener"><a class="header" href="#使用静态路由的-listener">使用静态路由的 listener</a></h2>
 <p>前面的几个步骤下发了 cluster，没有下发 listener，无法访问 cluster，要访问 cluster 必须配置一个指向它的 listener。</p>
 <pre><code class="language-go">{
@@ -6872,7 +6872,7 @@ Enter to exit: ^C
 <p>上面的代码下发了一个监听 84 端口、将请求转发到 172.17.0.2:8080 的 listener，转发规则为 Host 是 echo.example，prefix 是 /abc：
 这里的 172.17.0.2:8080，是 <a href="envoy/./echoserver.html">初次体验</a> 中启动的 echoserver 容器的地址。</p>
 <p>下发以后，在管理界面可以看到下面的配置：</p>
-<p><img src="envoy//img/envoy/envoy-listener.png" alt="使用 ads 发现 endpoint 的 cluster" /></p>
+<p><img src="envoy/../img/envoy/envoy-listener.png" alt="使用 ads 发现 endpoint 的 cluster" /></p>
 <p>这时候可以通过 84 端口访问 cluster：</p>
 <pre><code class="language-sh">$ curl   -H &quot;Host: echo.example&quot; 127.0.0.1:84/abc
 
@@ -10291,27 +10291,27 @@ $ git push -u lijiaocn HEAD:master     # 推送到远程仓库 lijiaocn 的 mast
 <h2 id="方法论"><a class="header" href="#方法论">方法论</a></h2>
 <p>RED方法：监控服务的请求数（Rate）、错误数（Errors）、响应时间（Duration）。Weave Cloud在监控微服务性能时提出的思路。</p>
 <p>USE方法：监控系统资源的使用率（Utilization）、饱和度（Saturation）、错误数（Errors）。</p>
-<p><img src="linux//img/linux/use-metrics.png" alt="USE方法常见指标分类" /></p>
+<p><img src="linux/../img/linux/use-metrics.png" alt="USE方法常见指标分类" /></p>
 <h2 id="性能分析工具"><a class="header" href="#性能分析工具">性能分析工具</a></h2>
-<p><img src="linux//img/linux/analyst-tool.png" alt="性能分析工具" /></p>
+<p><img src="linux/../img/linux/analyst-tool.png" alt="性能分析工具" /></p>
 <h2 id="cpu分析思路"><a class="header" href="#cpu分析思路">CPU分析思路</a></h2>
-<p><img src="linux//img/linux/cpu-metrics.png" alt="CPU指标" /></p>
-<p><img src="linux//img/linux/cpu-analyst.png" alt="CPU性能分析" /></p>
-<p><img src="linux//img/linux/cpu-tools.png" alt="CPU分析工具" /></p>
+<p><img src="linux/../img/linux/cpu-metrics.png" alt="CPU指标" /></p>
+<p><img src="linux/../img/linux/cpu-analyst.png" alt="CPU性能分析" /></p>
+<p><img src="linux/../img/linux/cpu-tools.png" alt="CPU分析工具" /></p>
 <h2 id="内存分析思路"><a class="header" href="#内存分析思路">内存分析思路</a></h2>
-<p><img src="linux//img/linux/memory-metrics.png" alt="内存性能指标" /></p>
-<p><img src="linux//img/linux/cpu-analyst.png" alt="内存性能分析" /></p>
-<p><img src="linux//img/linux/memory-tools.png" alt="内存分析工具" /></p>
+<p><img src="linux/../img/linux/memory-metrics.png" alt="内存性能指标" /></p>
+<p><img src="linux/../img/linux/cpu-analyst.png" alt="内存性能分析" /></p>
+<p><img src="linux/../img/linux/memory-tools.png" alt="内存分析工具" /></p>
 <h2 id="io分析思路"><a class="header" href="#io分析思路">IO分析思路</a></h2>
-<p><img src="linux//img/linux/file-io-metrics.png" alt="文件系统IO指标" /></p>
-<p><img src="linux//img/linux/io-analyst.png" alt="IO性能分析" /></p>
-<p><img src="linux//img/linux/file-io-tools.png" alt="IO分析工具" /></p>
+<p><img src="linux/../img/linux/file-io-metrics.png" alt="文件系统IO指标" /></p>
+<p><img src="linux/../img/linux/io-analyst.png" alt="IO性能分析" /></p>
+<p><img src="linux/../img/linux/file-io-tools.png" alt="IO分析工具" /></p>
 <h2 id="网络分析思路"><a class="header" href="#网络分析思路">网络分析思路</a></h2>
-<p><img src="linux//img/linux/net-metrics.png" alt="网络性能指标" /></p>
-<p><img src="linux//img/linux/net-analyst.png" alt="网络性能分析" /></p>
-<p><img src="linux//img/linux/net-tools.png" alt="网络性能工具" /></p>
+<p><img src="linux/../img/linux/net-metrics.png" alt="网络性能指标" /></p>
+<p><img src="linux/../img/linux/net-analyst.png" alt="网络性能分析" /></p>
+<p><img src="linux/../img/linux/net-tools.png" alt="网络性能工具" /></p>
 <h2 id="基准测试工具"><a class="header" href="#基准测试工具">基准测试工具</a></h2>
-<p><img src="linux//img/linux/benchmark-tool.png" alt="基准测试工具" /></p>
+<p><img src="linux/../img/linux/benchmark-tool.png" alt="基准测试工具" /></p>
 <h2 id="参考-126"><a class="header" href="#参考-126">参考</a></h2>
 <p>相当一部分内容来自极客时间出品的倪鹏飞专栏《Linux性能优化》，是这个<a href="linux//">专栏</a>的学习笔记。</p>
 <p>另一份资料是IBM红宝书<a href="https://lihz1990.gitbooks.io/transoflptg/content/">Linux性能调优指南</a>。</p>
@@ -10321,15 +10321,15 @@ $ git push -u lijiaocn HEAD:master     # 推送到远程仓库 lijiaocn 的 mast
 <div style="break-before: page; page-break-before: always;"></div><h1 id="形成认识框架"><a class="header" href="#形成认识框架">形成认识框架</a></h1>
 <p>认识框架（也就是知识大纲）非常重要，宏观上有了理解之后：1）才能有的放矢的深入细节，并能将繁杂多样的细节串联起来；2）在遇到问题的时候，才有能够正确的思考，有头绪、有方法、有步骤的调查问题、解决问题。</p>
 <p>下面这张图是最宏观的图片，从上往下是“应用-&gt;库-&gt;系统调用-&gt;内核-&gt;设备”，如果发现一个应用的性能特别不理想，可以按照这个顺序查找问题所在，即先查应用、再查依赖库、然后查系统、最后查硬件。</p>
-<p><img src="linux//img/linux/02-framwork-1.png" alt="倪鹏飞，极客时间，Linux性能优化" />
+<p><img src="linux/../img/linux/02-framwork-1.png" alt="倪鹏飞，极客时间，Linux性能优化" />
 (图片来源：倪鹏飞，极客时间， [《Linux性能优化]》]<a href="https://www.lijiaocn.com/img/01-geek-linux-ercode.jpeg" title="倪鹏飞，极客时间，Linux性能优化">1</a> )</p>
 <p>Brendan Gregg制作了一份Linux性能工具图谱，这些工具可以用来定位各个方面的问题：</p>
-<p><img src="linux//img/linux/03-linux-performance-tools.png" alt="Linux性能工具图谱" /></p>
+<p><img src="linux/../img/linux/03-linux-performance-tools.png" alt="Linux性能工具图谱" /></p>
 <p>近几年比较流行的eBPF也提供了大量工具，eBPF的介绍见<a href="https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2019/02/25/ebpf-introduction-1.html">《Linux内核功能eBPF入门学习》</a>:</p>
-<p><img src="linux//img/linux/05-bcc_tracing_tools_2017.png" alt="05-bcc_tracing_tools_2017.png" /></p>
+<p><img src="linux/../img/linux/05-bcc_tracing_tools_2017.png" alt="05-bcc_tracing_tools_2017.png" /></p>
 <p>注意上面两张工具图使用的<code>分类方法</code>（图片中间部分），这个分类就是我们要在头脑中形成记忆的认知框架，有了这个认知框架之后，在遇到性能问题的时候才会有清晰、明确的排查思路，不再抓瞎。</p>
 <p>倪鹏飞的<a href="https://www.lijiaocn.com/img/01-geek-linux-ercode.jpeg" title="倪鹏飞，极客时间，Linux性能优化">Linux性能优化</a>专栏中给出的这张思维导图也是一个不错的知识框架，总共有10部分：<code>性能监控</code>、<code>性能测试</code>、<code>应用程序</code>、<code>架构设计</code>、<code>Linux内核</code>、<code>文件系统</code>、<code>CPU</code>、<code>内存</code>、<code>网络</code>、<code>磁盘</code>。</p>
-<p><img src="linux//img/linux/04-linux-performance-knowledge.png" alt="Linux性能优化知识框架" /></p>
+<p><img src="linux/../img/linux/04-linux-performance-knowledge.png" alt="Linux性能优化知识框架" /></p>
 <h2 id="参考-127"><a class="header" href="#参考-127">参考</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><!-- toc -->
 <h1 id="linux-kernel相关知识"><a class="header" href="#linux-kernel相关知识">Linux Kernel相关知识</a></h1>
@@ -10339,7 +10339,7 @@ $ git push -u lijiaocn HEAD:master     # 推送到远程仓库 lijiaocn 的 mast
 <h1 id="动态追踪技术"><a class="header" href="#动态追踪技术">动态追踪技术</a></h1>
 <p>主要的动态追踪工具有：ftrace、perf、eBPF(bcc)、SystemTap、sysdig。</p>
 <p>这里只简单整理一下，以后在实践中加深了解。</p>
-<p><img src="linux//img/linux/dynamic-trace-tool.png" alt="常用动态追踪场景和工具" /></p>
+<p><img src="linux/../img/linux/dynamic-trace-tool.png" alt="常用动态追踪场景和工具" /></p>
 <p>如果使用的是新版本内核，eBPF和BCC是最灵活的动态追踪方法，在旧版本的内核中，因为eBPF受限，SystemTap和ftrace是比较好的选择。</p>
 <h2 id="ftrace与trace-cmd"><a class="header" href="#ftrace与trace-cmd">ftrace与trace-cmd</a></h2>
 <p>ftrace通过debugfs提供用户态接口，debugfs需要事先挂载：</p>
@@ -10489,7 +10489,7 @@ Available variables at readline
 <li><a href="https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md">BCC Python Developer Tutorial</a></li>
 <li><a href="https://github.com/iovisor/bcc/blob/master/docs/kernel-versions.md">BPF Features by Linux Kernel Version</a></li>
 </ol>
-<p><img src="linux//img/linux/bcc-tools.png" alt="bcc工具集" /></p>
+<p><img src="linux/../img/linux/bcc-tools.png" alt="bcc工具集" /></p>
 <p>CentOS中用yum直接安装，有协议额</p>
 <pre><code class="language-sh">yum install bcc-tools
 </code></pre>
@@ -10514,7 +10514,7 @@ Traceback (most recent call last):
 Exception: Failed to compile BPF text
 </code></pre>
 <p><a href="https://github.com/iovisor/bcc/blob/master/docs/kernel-versions.md">BPF Features by Linux Kernel Version</a>汇总了每个特性需要的最低内核版本，下图提供了部分信息：</p>
-<p><img src="linux//img/linux/bcc-tool-version.png" alt="Linux事件和BPF支持" /></p>
+<p><img src="linux/../img/linux/bcc-tool-version.png" alt="Linux事件和BPF支持" /></p>
 <p><a href="https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md">BCC Python Developer Tutorial</a>中介绍了eBPF应用程序的开发方法，掌握以后可以自行开发追踪工具。</p>
 <h2 id="支持旧内核的systemtap"><a class="header" href="#支持旧内核的systemtap">支持旧内核的SystemTap</a></h2>
 <p>和eBPF根植于内核不同，SystemTap是独立于内核的，并且在RHEL系统中好用，在其它发行版上容易出现各种异常问题。eBPF是比较新的内核特性，对内核版本要求高，SystemTap的先于eBPF诞生，支持3.x等旧版本的内核。</p>
@@ -10665,7 +10665,7 @@ Overhead  Shared Object          Symbol
 <pre><code class="language-sh">perf record -ag  -- sleep 15;perf report
 </code></pre>
 <p>perf report中显示，stress进程的cpu事件占比是77%，它大量调用了随机数生成函数random()：</p>
-<p><img src="linux//img/perf-report-1.png" alt="perf-report" /></p>
+<p><img src="linux/../img/perf-report-1.png" alt="perf-report" /></p>
 <h2 id="vmstat查看上下文切换"><a class="header" href="#vmstat查看上下文切换">vmstat查看上下文切换</a></h2>
 <p><code>vmstat</code>命令显示系统整体状态，输出如下：</p>
 <pre><code class="language-bash">$ vmstat
@@ -10828,14 +10828,14 @@ PIW:          0          0          0          0   Posted-interrupt wakeup event
 <div style="break-before: page; page-break-before: always;"></div><!-- toc -->
 <h1 id="linux的内存管理方法"><a class="header" href="#linux的内存管理方法">Linux的内存管理方法</a></h1>
 <h2 id="虚拟内存地址空间划分"><a class="header" href="#虚拟内存地址空间划分">虚拟内存地址空间划分</a></h2>
-<p><img src="linux//img/linux/memory-space.png" alt="Linux虚拟地址空间划分" /></p>
-<p><img src="linux//img/linux/memory-space-detail.png" alt="Linux虚拟地址空间的详细划分" /></p>
+<p><img src="linux/../img/linux/memory-space.png" alt="Linux虚拟地址空间划分" /></p>
+<p><img src="linux/../img/linux/memory-space-detail.png" alt="Linux虚拟地址空间的详细划分" /></p>
 <h2 id="虚拟内存与物理内存的映射"><a class="header" href="#虚拟内存与物理内存的映射">虚拟内存与物理内存的映射</a></h2>
-<p><img src="linux//img/linux/memory-map.png" alt="Linux虚拟内存与物理内存的映射表" /></p>
-<p><img src="linux//img/linux/memory-page-table.png" alt="Linux系统内存的四级页表" /></p>
+<p><img src="linux/../img/linux/memory-map.png" alt="Linux虚拟内存与物理内存的映射表" /></p>
+<p><img src="linux/../img/linux/memory-page-table.png" alt="Linux系统内存的四级页表" /></p>
 <h2 id="numanode独立内存"><a class="header" href="#numanode独立内存">NUMA：node独立内存</a></h2>
 <p>在NUMA架构(多CPU)下，每个node（物理CPU）都有自己的本地内存，在分析内存的时候需要分析每个node的情况：</p>
-<p><img src="linux//img/linux/numa-memory.png" alt="NUMA架构中node的本地内存" /></p>
+<p><img src="linux/../img/linux/numa-memory.png" alt="NUMA架构中node的本地内存" /></p>
 <pre><code class="language-sh">$ numactl --hardware
 available: 1 nodes (0)
 node 0 cpus: 0 1
@@ -11236,14 +11236,14 @@ python  18940 root    3w   REG    8,1 117944320     303 /tmp/logtest.txt
 <h2 id="参考-143"><a class="header" href="#参考-143">参考</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="linux的文件系统"><a class="header" href="#linux的文件系统">Linux的文件系统</a></h1>
 <p>IO问题排查过程：</p>
-<p><img src="linux//img/linux/io-trace.png" alt="IO问题排查过程" /></p>
+<p><img src="linux/../img/linux/io-trace.png" alt="IO问题排查过程" /></p>
 <p>IO指标与工具映射表：</p>
-<p><img src="linux//img/linux/io-metric-tool.png" alt="指标工具映射表" /></p>
-<p><img src="linux//img/linux/io-tool-metrics.png" alt="工具指标映射表" /></p>
+<p><img src="linux/../img/linux/io-metric-tool.png" alt="指标工具映射表" /></p>
+<p><img src="linux/../img/linux/io-tool-metrics.png" alt="工具指标映射表" /></p>
 <h2 id="参考-144"><a class="header" href="#参考-144">参考</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="linux虚拟文件系统vfs"><a class="header" href="#linux虚拟文件系统vfs">Linux虚拟文件系统VFS</a></h1>
 <p>VFS是linux实现的虚拟文件系统，规定了数据结构和接口规范。</p>
-<p><img src="linux//img/linux/Linux-storage-stack-diagram_v4.10.png" alt="Linux的存储栈" /></p>
+<p><img src="linux/../img/linux/Linux-storage-stack-diagram_v4.10.png" alt="Linux的存储栈" /></p>
 <p><a href="https://www.thomas-krenn.com/en/wiki/Linux_Storage_Stack_Diagram">图片来源</a></p>
 <h2 id="文件系统层"><a class="header" href="#文件系统层">文件系统层</a></h2>
 <p>VFS内部通过超级块、索引节点、逻辑块和超级块等管理文件。</p>
@@ -11390,7 +11390,7 @@ Number  Start  End    Size   File system  Flags
 <pre><code class="language-sh">yum install -y dstat
 </code></pre>
 <p>dstat的运行效果如下，1表示每1秒输出一次，10表示一共输出10组数据：</p>
-<p><img src="linux//img/linux/dstat.png" alt="dstat输出" /></p>
+<p><img src="linux/../img/linux/dstat.png" alt="dstat输出" /></p>
 <h2 id="iostat查看磁盘设备io状态"><a class="header" href="#iostat查看磁盘设备io状态">iostat查看磁盘设备IO状态</a></h2>
 <p>iostat呈现的数据来自<code>/proc/diskstats</code>，<code>-d -x</code> 显示所有磁盘的I/O情况。</p>
 <pre><code class="language-sh">$ iostat -d -x 1
@@ -11426,10 +11426,10 @@ vdb          0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00  
 <pre><code>$ /usr/share/bcc/tools/filetop    
 $ /usr/share/bcc/tools/filetop -C   # 刷新数据前不清除屏幕，这样可以看到变化情况
 </code></pre>
-<p><img src="linux//img/linux/filetop.png" alt="filetop输出" /></p>
+<p><img src="linux/../img/linux/filetop.png" alt="filetop输出" /></p>
 <h2 id="opensnoop跟踪系统调用open"><a class="header" href="#opensnoop跟踪系统调用open">opensnoop跟踪系统调用open</a></h2>
 <p>opensnoop也是bcc工具箱中的一个，用来跟踪系统调用open，显示被打开的文件：</p>
-<p><img src="linux//img/linux/opensnoop.png" alt="opensnoop" /></p>
+<p><img src="linux/../img/linux/opensnoop.png" alt="opensnoop" /></p>
 <h2 id="iotop查看进程io排行"><a class="header" href="#iotop查看进程io排行">iotop查看进程I/O排行</a></h2>
 <p>iotop动态显示每个线程的IO操作情况，由高到底排序：</p>
 <pre><code class="language-bash">Total DISK READ :	0.00 B/s | Total DISK WRITE :      11.28 K/s
@@ -11462,15 +11462,15 @@ Actual DISK READ:	0.00 B/s | Actual DISK WRITE:       0.00 B/s
 <h1 id="理解linux的网络"><a class="header" href="#理解linux的网络">理解Linux的网络</a></h1>
 <p>Linux网络相关知识。</p>
 <h2 id="指标和工具映射表"><a class="header" href="#指标和工具映射表">指标和工具映射表</a></h2>
-<p><img src="linux//img/linux/net-metric-tool.png" alt="网络指标工具映射表" /></p>
-<p><img src="linux//img/linux/net-tool-metric.png" alt="网络指标工具映射表" /></p>
+<p><img src="linux/../img/linux/net-metric-tool.png" alt="网络指标工具映射表" /></p>
+<p><img src="linux/../img/linux/net-tool-metric.png" alt="网络指标工具映射表" /></p>
 <h2 id="报文处理流程"><a class="header" href="#报文处理流程">报文处理流程</a></h2>
-<p><img src="linux//img/linux/pkt-process.png" alt="报文处理流程" /></p>
+<p><img src="linux/../img/linux/pkt-process.png" alt="报文处理流程" /></p>
 <h2 id="tcp连接状态"><a class="header" href="#tcp连接状态">TCP连接状态</a></h2>
 <p><a href="https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2017/09/04/linux-net-tcp.html">TCP连接相关知识</a></p>
-<p><img src="linux//img/linux/tcp-stat.png" alt="TCP连接状态" /></p>
+<p><img src="linux/../img/linux/tcp-stat.png" alt="TCP连接状态" /></p>
 <h2 id="tcp参数调优"><a class="header" href="#tcp参数调优">TCP参数调优</a></h2>
-<p><img src="linux//img/linux/tcp-parameters.png" alt="TCP参数调优" /></p>
+<p><img src="linux/../img/linux/tcp-parameters.png" alt="TCP参数调优" /></p>
 <h2 id="其它文章"><a class="header" href="#其它文章">其它文章</a></h2>
 <p><a href="https://jvns.ca/blog/2017/09/05/finding-out-where-packets-are-being-dropped/">Finding out if/why a server is dropping packets</a></p>
 <p><a href="https://mp.weixin.qq.com/s/VYBs8iqf0HsNg9WAxktzYQ">SNAT端口冲突，导致容器访问外部服务偶尔超时</a>：</p>
@@ -11724,7 +11724,7 @@ net.ipv4.tcp_syncookies = 1
 <h2 id="参考-153"><a class="header" href="#参考-153">参考</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><!-- toc -->
 <h1 id="linux的netfilter"><a class="header" href="#linux的netfilter">Linux的netfilter</a></h1>
-<p><img src="linux//img/linux/net-filter.png" alt="net filter" /></p>
+<p><img src="linux/../img/linux/net-filter.png" alt="net filter" /></p>
 <h2 id="连接跟踪表参数"><a class="header" href="#连接跟踪表参数">连接跟踪表参数</a></h2>
 <p>连接跟踪表tcp超时时间，默认120秒：</p>
 <pre><code class="language-sh">sysctl net.netfilter.nf_conntrack_tcp_timeout_time_wait
@@ -11809,10 +11809,10 @@ probe timer.sec(5)
 <pre><code class="language-sh">$ perf record -a -g -- sleep 30
 $ perf report -g graph,0
 </code></pre>
-<p><img src="linux//img/nf_slow.png" alt="perf report" /></p>
+<p><img src="linux/../img/nf_slow.png" alt="perf report" /></p>
 <h2 id="tcpdump捕获报文"><a class="header" href="#tcpdump捕获报文">tcpdump捕获报文</a></h2>
 <p>tcpdump过滤表达式：</p>
-<p><img src="linux//img/linux/tcpdump-flag.png" alt="tcpdump过滤表达式" /></p>
+<p><img src="linux/../img/linux/tcpdump-flag.png" alt="tcpdump过滤表达式" /></p>
 <h2 id="参考-155"><a class="header" href="#参考-155">参考</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dns解析追踪"><a class="header" href="#dns解析追踪">DNS解析追踪</a></h1>
 <h2 id="dig跟踪dns解析过程"><a class="header" href="#dig跟踪dns解析过程">dig跟踪dns解析过程</a></h2>
@@ -11851,7 +11851,7 @@ geekbang.org.		86400	IN	NS	dns10.hichina.com.
 time.geekbang.org.	600	IN	A	39.106.233.176
 ;; Received 62 bytes from 140.205.41.16#53(dns10.hichina.com) in 4 ms
 </code></pre>
-<p><img src="linux//img/linux/dig-dns-trace.png" alt="dig的dns跟踪过程" /></p>
+<p><img src="linux/../img/linux/dig-dns-trace.png" alt="dig的dns跟踪过程" /></p>
 <h2 id="参考-156"><a class="header" href="#参考-156">参考</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><!-- toc -->
 <h1 id="linux高性能网络io处理"><a class="header" href="#linux高性能网络io处理">Linux高性能网络IO处理</a></h1>
@@ -11864,13 +11864,13 @@ time.geekbang.org.	600	IN	A	39.106.233.176
 <p><strong>惊群</strong>： 网络I/O事件发生时，同时有多个进程被唤醒，但最终只有一个进程响应事件，其它进程被不必要的唤醒。</p>
 <h2 id="多进程模式2端口复用"><a class="header" href="#多进程模式2端口复用">多进程模式2：端口复用</a></h2>
 <p>Linux3.9提供了<code>SO_REUSEPORT</code>，支持多进程复用同一个端口，内核保证将到达该端口的请求均衡分发给监听的进程。同时内核确保只有进程被唤醒，不存在惊群的问题。</p>
-<p><img src="linux//img/linux/port-reuse.png" alt="nginx1.9.1端口复用" /></p>
+<p><img src="linux/../img/linux/port-reuse.png" alt="nginx1.9.1端口复用" /></p>
 <h2 id="绕过内核协议栈1dpdk"><a class="header" href="#绕过内核协议栈1dpdk">绕过内核协议栈1：DPDK</a></h2>
 <p>DPDK直接在用户态轮询硬件网卡，绕过了内核协议栈，还通过huagepage、cpu绑定、内存对齐、流水线并发等多种机制，提高报文的处理效率：</p>
-<p><img src="linux//img/linux/dpdk.png" alt="dpdk工作原理" /></p>
+<p><img src="linux/../img/linux/dpdk.png" alt="dpdk工作原理" /></p>
 <h2 id="绕过内核协议栈2xdp"><a class="header" href="#绕过内核协议栈2xdp">绕过内核协议栈2：XDP</a></h2>
 <p>XDP（eXpress Data Path）是Linux内核（4.8以上）提供的高性能网络数据路径，在网络包进入内核协议栈之前进行处理。XDP是基于Linux内核的eBPF机制实现的：</p>
-<p><img src="linux//img/linux/xdp.png" alt="XDP工作原理" /></p>
+<p><img src="linux/../img/linux/xdp.png" alt="XDP工作原理" /></p>
 <h2 id="参考-157"><a class="header" href="#参考-157">参考</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="linux性能分析常用工具"><a class="header" href="#linux性能分析常用工具">Linux性能分析常用工具</a></h2>
 <p>这里汇总Linux性能分析时常用的工具，内容力求简洁明了，适合作为速查手册使用。</p>
@@ -11881,7 +11881,7 @@ time.geekbang.org.	600	IN	A	39.106.233.176
 并且贡献了一个火焰生成工具<a href="https://github.com/brendangregg/FlameGraph">FlameGraph</a>，这个工具可以将调用栈采样数据转换成火焰图，<a href="http://www.brendangregg.com/perf.html#FlameGraphs">Perf Examples</a>中提到了它的用法。采样数据也可以用其它工具采集，比如OpenResty的作者章宜春贡献的<a href="https://github.com/openresty/stapxx">stapxx</a>。</p>
 <p>Brendan D. Gregg的英文文章看起来吃力，可以参考阮一峰写的<a href="http://www.ruanyifeng.com/blog/2017/09/flame-graph.html">如何读懂火焰图？</a>。</p>
 <p>火焰图是这个样子的（它是一个动态图，右键查看图像）：</p>
-<p><img src="linux//img/linux/cpu-mysql-updated.svg" alt="火焰图" /></p>
+<p><img src="linux/../img/linux/cpu-mysql-updated.svg" alt="火焰图" /></p>
 <p>横向是按照字母顺序排序的函数名，每个函数的宽度占比等于这个函数在采样中出现次数占比，也就等同于它耗费的时间比例。越宽的函数，耗费的的时间占比越大。</p>
 <p>纵向是调用关系，上层的函数被下层的函数调用，最上层的函数是采样时正在占用CPU的函数。</p>
 <p>如果在最上层存在很宽的函数，那么这个函数就是导致性能无法提升的罪魁祸首，需要重点分析优化。</p>
@@ -11900,9 +11900,9 @@ Windows: Xperf.exe
 <h2 id="参考-159"><a class="header" href="#参考-159">参考</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="用火焰图分析cpu占用情况"><a class="header" href="#用火焰图分析cpu占用情况">用火焰图分析CPU占用情况</a></h1>
 <p>CPU火焰图是最常用、最好理解的火焰图，它展现的是函数对CPU的占用情况，火焰图最上层是采样时正在使用CPU的函数：</p>
-<p><img src="linux//img/linux/cpu-bash-flamegraph.svg" alt="CPU火焰图" /></p>
+<p><img src="linux/../img/linux/cpu-bash-flamegraph.svg" alt="CPU火焰图" /></p>
 <p>CPU火焰图展现的是在CPU上发生的事情，下图中的红色部分（蓝色部分是CPU之外的事情，用后文中的Off-CPU火焰图展现）：</p>
-<p><img src="linux//img/linux/hotcoldfigure.png" alt="Thread state transition diagram" /></p>
+<p><img src="linux/../img/linux/hotcoldfigure.png" alt="Thread state transition diagram" /></p>
 <p>CPU火焰图最常用也最简单，<a href="http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html">CPU Flame Graphs</a>介绍了几种制作方法，给出了C/C++/Jave/Node.js，以及其它语言编写的应用的CPU火焰图生成方法。</p>
 <h2 id="几种常用的采样工具"><a class="header" href="#几种常用的采样工具">几种常用的采样工具</a></h2>
 <h3 id="perf"><a class="header" href="#perf">perf</a></h3>
@@ -11937,28 +11937,28 @@ Windows: Xperf.exe
 <p><img src="http://www.brendangregg.com/Perf/thread_states.png" alt="进程的状态" /></p>
 <p>章宜春最早践行了Off-CPU的想法，在<a href="http://agentzh.org/misc/slides/off-cpu-flame-graphs.pdf">Introduction to off­CPU Time Flame Graphs</a>中生动简洁地介绍了自己的实践过程。</p>
 <p>与内存管理函数有多个一样，Off-CPU期间是有多件事情的：</p>
-<p><img src="linux//img/linux/offcputracing-1000.png" alt="Example off-CPU event, with enumerated approaches for analysis" /></p>
+<p><img src="linux/../img/linux/offcputracing-1000.png" alt="Example off-CPU event, with enumerated approaches for analysis" /></p>
 <p>I/O期间有File I/O、Block Device I/O，通过采集进程让出CPU时调用栈，可以知道哪些函数正在频繁地等待其它事件，以至于需要让出CPU，通过采集进程被唤醒时的调用栈，可以知道哪些函数让进程等待的时间比较长。</p>
 <h2 id="file-io-火焰图"><a class="header" href="#file-io-火焰图">File I/O 火焰图</a></h2>
-<p><img src="linux//img/linux/fileio-mysqld1.svg" alt="File I/O 火焰图" /></p>
+<p><img src="linux/../img/linux/fileio-mysqld1.svg" alt="File I/O 火焰图" /></p>
 <h2 id="block-io-火焰图"><a class="header" href="#block-io-火焰图">Block I/O 火焰图</a></h2>
-<p><img src="linux//img/linux/blockio-mysqld0.svg" alt="Block I/O 火焰图" /></p>
+<p><img src="linux/../img/linux/blockio-mysqld0.svg" alt="Block I/O 火焰图" /></p>
 <h2 id="off-cpu-火焰图"><a class="header" href="#off-cpu-火焰图">Off-CPU 火焰图</a></h2>
-<p><img src="linux//img/linux/off-mysqld3.svg" alt="Off-CPU 火焰图" /></p>
+<p><img src="linux/../img/linux/off-mysqld3.svg" alt="Off-CPU 火焰图" /></p>
 <h2 id="wakeup-火焰图"><a class="header" href="#wakeup-火焰图">Wakeup 火焰图</a></h2>
-<p><img src="linux//img/linux/wakeup-mysqld1.svg" alt="进程唤醒火焰图" /></p>
+<p><img src="linux/../img/linux/wakeup-mysqld1.svg" alt="进程唤醒火焰图" /></p>
 <h2 id="参考-162"><a class="header" href="#参考-162">参考</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="冷热火焰图将on-cpu火焰图与off-cpu火焰图合并"><a class="header" href="#冷热火焰图将on-cpu火焰图与off-cpu火焰图合并">冷热火焰图：将On-CPU火焰图与Off-CPU火焰图合并</a></h1>
 <p>把On-CPU火焰图和Off-CPU火焰图合并在一起或许更便于分析。</p>
 <h2 id="独立排列"><a class="header" href="#独立排列">独立排列</a></h2>
 <p>这种方式其实就是放在一起而已，勉强算是一种融合方法吧。</p>
-<p><img src="linux//img/linux/cpu-mysql-filt-500.png" alt="冷热火焰图组合-独立排列" /></p>
+<p><img src="linux/../img/linux/cpu-mysql-filt-500.png" alt="冷热火焰图组合-独立排列" /></p>
 <h2 id="共享横轴"><a class="header" href="#共享横轴">共享横轴</a></h2>
 <p>这种方式是将火焰图的横轴轴对接起来共用，纵轴上依然是泾渭分明，有明确的边界：</p>
-<p><img src="linux//img/linux/hotcoldthread-kernel.svg" alt="冷热火焰图组合-共享横轴" /></p>
+<p><img src="linux/../img/linux/hotcoldthread-kernel.svg" alt="冷热火焰图组合-共享横轴" /></p>
 <h2 id="融合显示"><a class="header" href="#融合显示">融合显示</a></h2>
 <p>这种方式是尽可能的On-CPU和Off-CPU糅合在一起：</p>
-<p><img src="linux//img/linux/eflame-blocking.png" alt="冷热火焰图组合-融合显示" /></p>
+<p><img src="linux/../img/linux/eflame-blocking.png" alt="冷热火焰图组合-融合显示" /></p>
 <h2 id="参考-163"><a class="header" href="#参考-163">参考</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="差异火焰图展示两个火焰图之间的差异"><a class="header" href="#差异火焰图展示两个火焰图之间的差异">差异火焰图：展示两个火焰图之间的差异</a></h1>
 <p>火焰图是用来做性能分析的，通过火焰度了解了程序运行期间的情况以后，接下来是有针对性地修改调优。
@@ -11966,7 +11966,7 @@ Windows: Xperf.exe
 <p>有时候可能发现系统升级之后，某些指标突然升高，这时候也可以对比升级前和升级后的火焰图，找到那些耗时增加的函数。</p>
 <p>最简单的对比方式就是将修改前后两个火焰图并行排列，肉眼找不同，这样显然很不方便。Brendan Gregg想出了一招：差异火焰图（Differential Flame Graphs）。</p>
 <p>在最近一次制作的火焰图上，耗时相比前一次增加的函数用红色，耗时减少的函数用蓝色：</p>
-<p><img src="linux//img/linux/zfs-flamegraph-diff.svg" alt="差异火焰图" /></p>
+<p><img src="linux/../img/linux/zfs-flamegraph-diff.svg" alt="差异火焰图" /></p>
 <h2 id="参考-164"><a class="header" href="#参考-164">参考</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="火焰图生成命令"><a class="header" href="#火焰图生成命令">火焰图生成命令</a></h1>
 <p>火焰图的生成分为采集数据和生成图片两个过程，这两个过程中有多种工具可选。</p>
@@ -12151,7 +12151,7 @@ Server internal error: Array
 <pre><code class="language-sh">perf record -ag  -- sleep 15;perf report
 </code></pre>
 <p>perf report中显示，stress进程的cpu事件占比是77%，它大量调用了随机数生成函数random()，确定是它导致CPU使用率高：</p>
-<p><img src="linux//img/perf-report-1.png" alt="perf-report" /></p>
+<p><img src="linux/../img/perf-report-1.png" alt="perf-report" /></p>
 <h2 id="小结与execsnoop"><a class="header" href="#小结与execsnoop">小结与execsnoop</a></h2>
 <p>倪鹏飞设计的这个案例特别典型，问题根源特别隐蔽，导致CPU使用率高的stress进程很快退出，如果只观察进程的cpu使用率，是找不到问题根源的，需要从task中发现异常， 在用pstree厘清进程关系，从stress的父进程入手，最后用perf report坐实。</p>
 <p>排查过程和排查思路才是重点。</p>

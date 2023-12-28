@@ -199,14 +199,14 @@
                         <!-- toc -->
 <h1 id="linux的内存管理方法"><a class="header" href="#linux的内存管理方法">Linux的内存管理方法</a></h1>
 <h2 id="虚拟内存地址空间划分"><a class="header" href="#虚拟内存地址空间划分">虚拟内存地址空间划分</a></h2>
-<p><img src="/img/linux/memory-space.png" alt="Linux虚拟地址空间划分" /></p>
-<p><img src="/img/linux/memory-space-detail.png" alt="Linux虚拟地址空间的详细划分" /></p>
+<p><img src="../img/linux/memory-space.png" alt="Linux虚拟地址空间划分" /></p>
+<p><img src="../img/linux/memory-space-detail.png" alt="Linux虚拟地址空间的详细划分" /></p>
 <h2 id="虚拟内存与物理内存的映射"><a class="header" href="#虚拟内存与物理内存的映射">虚拟内存与物理内存的映射</a></h2>
-<p><img src="/img/linux/memory-map.png" alt="Linux虚拟内存与物理内存的映射表" /></p>
-<p><img src="/img/linux/memory-page-table.png" alt="Linux系统内存的四级页表" /></p>
+<p><img src="../img/linux/memory-map.png" alt="Linux虚拟内存与物理内存的映射表" /></p>
+<p><img src="../img/linux/memory-page-table.png" alt="Linux系统内存的四级页表" /></p>
 <h2 id="numanode独立内存"><a class="header" href="#numanode独立内存">NUMA：node独立内存</a></h2>
 <p>在NUMA架构(多CPU)下，每个node（物理CPU）都有自己的本地内存，在分析内存的时候需要分析每个node的情况：</p>
-<p><img src="/img/linux/numa-memory.png" alt="NUMA架构中node的本地内存" /></p>
+<p><img src="../img/linux/numa-memory.png" alt="NUMA架构中node的本地内存" /></p>
 <pre><code class="language-sh">$ numactl --hardware
 available: 1 nodes (0)
 node 0 cpus: 0 1

@@ -202,7 +202,7 @@
 并且贡献了一个火焰生成工具<a href="https://github.com/brendangregg/FlameGraph">FlameGraph</a>，这个工具可以将调用栈采样数据转换成火焰图，<a href="http://www.brendangregg.com/perf.html#FlameGraphs">Perf Examples</a>中提到了它的用法。采样数据也可以用其它工具采集，比如OpenResty的作者章宜春贡献的<a href="https://github.com/openresty/stapxx">stapxx</a>。</p>
 <p>Brendan D. Gregg的英文文章看起来吃力，可以参考阮一峰写的<a href="http://www.ruanyifeng.com/blog/2017/09/flame-graph.html">如何读懂火焰图？</a>。</p>
 <p>火焰图是这个样子的（它是一个动态图，右键查看图像）：</p>
-<p><img src="/img/linux/cpu-mysql-updated.svg" alt="火焰图" /></p>
+<p><img src="../img/linux/cpu-mysql-updated.svg" alt="火焰图" /></p>
 <p>横向是按照字母顺序排序的函数名，每个函数的宽度占比等于这个函数在采样中出现次数占比，也就等同于它耗费的时间比例。越宽的函数，耗费的的时间占比越大。</p>
 <p>纵向是调用关系，上层的函数被下层的函数调用，最上层的函数是采样时正在占用CPU的函数。</p>
 <p>如果在最上层存在很宽的函数，那么这个函数就是导致性能无法提升的罪魁祸首，需要重点分析优化。</p>

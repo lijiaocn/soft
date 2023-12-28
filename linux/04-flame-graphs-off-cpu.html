@@ -207,16 +207,16 @@
 <p><img src="http://www.brendangregg.com/Perf/thread_states.png" alt="进程的状态" /></p>
 <p>章宜春最早践行了Off-CPU的想法，在<a href="http://agentzh.org/misc/slides/off-cpu-flame-graphs.pdf">Introduction to off­CPU Time Flame Graphs</a>中生动简洁地介绍了自己的实践过程。</p>
 <p>与内存管理函数有多个一样，Off-CPU期间是有多件事情的：</p>
-<p><img src="/img/linux/offcputracing-1000.png" alt="Example off-CPU event, with enumerated approaches for analysis" /></p>
+<p><img src="../img/linux/offcputracing-1000.png" alt="Example off-CPU event, with enumerated approaches for analysis" /></p>
 <p>I/O期间有File I/O、Block Device I/O，通过采集进程让出CPU时调用栈，可以知道哪些函数正在频繁地等待其它事件，以至于需要让出CPU，通过采集进程被唤醒时的调用栈，可以知道哪些函数让进程等待的时间比较长。</p>
 <h2 id="file-io-火焰图"><a class="header" href="#file-io-火焰图">File I/O 火焰图</a></h2>
-<p><img src="/img/linux/fileio-mysqld1.svg" alt="File I/O 火焰图" /></p>
+<p><img src="../img/linux/fileio-mysqld1.svg" alt="File I/O 火焰图" /></p>
 <h2 id="block-io-火焰图"><a class="header" href="#block-io-火焰图">Block I/O 火焰图</a></h2>
-<p><img src="/img/linux/blockio-mysqld0.svg" alt="Block I/O 火焰图" /></p>
+<p><img src="../img/linux/blockio-mysqld0.svg" alt="Block I/O 火焰图" /></p>
 <h2 id="off-cpu-火焰图"><a class="header" href="#off-cpu-火焰图">Off-CPU 火焰图</a></h2>
-<p><img src="/img/linux/off-mysqld3.svg" alt="Off-CPU 火焰图" /></p>
+<p><img src="../img/linux/off-mysqld3.svg" alt="Off-CPU 火焰图" /></p>
 <h2 id="wakeup-火焰图"><a class="header" href="#wakeup-火焰图">Wakeup 火焰图</a></h2>
-<p><img src="/img/linux/wakeup-mysqld1.svg" alt="进程唤醒火焰图" /></p>
+<p><img src="../img/linux/wakeup-mysqld1.svg" alt="进程唤醒火焰图" /></p>
 <h2 id="参考"><a class="header" href="#参考">参考</a></h2>
 
                     </main>

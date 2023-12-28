@@ -233,7 +233,7 @@ Overhead  Shared Object          Symbol
 <pre><code class="language-sh">perf record -ag  -- sleep 15;perf report
 </code></pre>
 <p>perf report中显示，stress进程的cpu事件占比是77%，它大量调用了随机数生成函数random()：</p>
-<p><img src="/img/perf-report-1.png" alt="perf-report" /></p>
+<p><img src="../img/perf-report-1.png" alt="perf-report" /></p>
 <h2 id="vmstat查看上下文切换"><a class="header" href="#vmstat查看上下文切换">vmstat查看上下文切换</a></h2>
 <p><code>vmstat</code>命令显示系统整体状态，输出如下：</p>
 <pre><code class="language-bash">$ vmstat

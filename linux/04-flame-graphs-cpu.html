@@ -198,9 +198,9 @@
                     <main>
                         <h1 id="用火焰图分析cpu占用情况"><a class="header" href="#用火焰图分析cpu占用情况">用火焰图分析CPU占用情况</a></h1>
 <p>CPU火焰图是最常用、最好理解的火焰图，它展现的是函数对CPU的占用情况，火焰图最上层是采样时正在使用CPU的函数：</p>
-<p><img src="/img/linux/cpu-bash-flamegraph.svg" alt="CPU火焰图" /></p>
+<p><img src="../img/linux/cpu-bash-flamegraph.svg" alt="CPU火焰图" /></p>
 <p>CPU火焰图展现的是在CPU上发生的事情，下图中的红色部分（蓝色部分是CPU之外的事情，用后文中的Off-CPU火焰图展现）：</p>
-<p><img src="/img/linux/hotcoldfigure.png" alt="Thread state transition diagram" /></p>
+<p><img src="../img/linux/hotcoldfigure.png" alt="Thread state transition diagram" /></p>
 <p>CPU火焰图最常用也最简单，<a href="http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html">CPU Flame Graphs</a>介绍了几种制作方法，给出了C/C++/Jave/Node.js，以及其它语言编写的应用的CPU火焰图生成方法。</p>
 <h2 id="几种常用的采样工具"><a class="header" href="#几种常用的采样工具">几种常用的采样工具</a></h2>
 <h3 id="perf"><a class="header" href="#perf">perf</a></h3>

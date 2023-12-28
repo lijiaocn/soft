@@ -203,7 +203,7 @@
 <pre><code class="language-sh">yum install -y dstat
 </code></pre>
 <p>dstat的运行效果如下，1表示每1秒输出一次，10表示一共输出10组数据：</p>
-<p><img src="/img/linux/dstat.png" alt="dstat输出" /></p>
+<p><img src="../img/linux/dstat.png" alt="dstat输出" /></p>
 <h2 id="iostat查看磁盘设备io状态"><a class="header" href="#iostat查看磁盘设备io状态">iostat查看磁盘设备IO状态</a></h2>
 <p>iostat呈现的数据来自<code>/proc/diskstats</code>，<code>-d -x</code> 显示所有磁盘的I/O情况。</p>
 <pre><code class="language-sh">$ iostat -d -x 1
@@ -239,10 +239,10 @@ vdb          0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00  
 <pre><code>$ /usr/share/bcc/tools/filetop    
 $ /usr/share/bcc/tools/filetop -C   # 刷新数据前不清除屏幕，这样可以看到变化情况
 </code></pre>
-<p><img src="/img/linux/filetop.png" alt="filetop输出" /></p>
+<p><img src="../img/linux/filetop.png" alt="filetop输出" /></p>
 <h2 id="opensnoop跟踪系统调用open"><a class="header" href="#opensnoop跟踪系统调用open">opensnoop跟踪系统调用open</a></h2>
 <p>opensnoop也是bcc工具箱中的一个，用来跟踪系统调用open，显示被打开的文件：</p>
-<p><img src="/img/linux/opensnoop.png" alt="opensnoop" /></p>
+<p><img src="../img/linux/opensnoop.png" alt="opensnoop" /></p>
 <h2 id="iotop查看进程io排行"><a class="header" href="#iotop查看进程io排行">iotop查看进程I/O排行</a></h2>
 <p>iotop动态显示每个线程的IO操作情况，由高到底排序：</p>
 <pre><code class="language-bash">Total DISK READ :	0.00 B/s | Total DISK WRITE :      11.28 K/s
