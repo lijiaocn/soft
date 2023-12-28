@@ -1,3187 +1,601 @@
-
 <!DOCTYPE HTML>
-<html lang="zh-hans" >
+<html lang="en" class="light" dir="ltr">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Bookinfo Application · 小鸟笔记·李佶澳·影响一万人</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Bookinfo Application</title>
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        <meta name="author" content="lijiaocn@foxmail.com">
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
 
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-atoc/atoc.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-        
-    
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
-
-    
-    <link rel="next" href="route.html" />
-    
-    
-    <link rel="prev" href="httprecord.html" />
-    
-
-    <link href="https://www.lijiaocn.com/soft/feed.xml" title="常见软件系统实用使用手册" rel="alternate" type="application/rss+xml" />
-
-        
-<!--Google ads -->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-8176866190626448",
-    enable_page_level_ads: true
-  });
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105389858-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-105389858-1');
-</script>
-
-<!--百度统计-->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?8f59ea10145df28da8932c8743ec1d60";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-<!--百度收录-->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
+        <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="输入并搜索" />
-</div>
-
-            
-                
-<div style="text-align:center">
-    <h2><a href="https://www.lijiaocn.com/note/" style="color:#afa790">小鸟笔记（主页）</a></h2>
-    <p style="font-weight:bold"><a style="color:lightgray;" href="https://www.lijiaocn.com">www.lijiaocn.com，影响一万人</a></p>
-</div>
-
-<div style="text-align:center">
-    <a href="/prog/" style="color:#afa790;font-weight:bold">编程</a>&nbsp;
-    <a href="/soft/" style="color:#afa790;font-weight:bold">软件</a>&nbsp;
-    <a href="/book/" style="color:#afa790;font-weight:bold">读书</a>&nbsp;
-    <a href="/note/" style="color:#afa790;font-weight:bold">其它</a>
-</div>
-<div>
-<br>
-<ul class="summary"><li>
-<a style="color:red" target="_blank" href="https://study.163.com/provider/400000000376006/course.htm?share=2&shareId=400000000376006">云课堂·视频讲解（点我了解）</a>
-</li></ul>
-</div>
-
-<!--div style="text-align:center">
-< 250x250 >
-<ins class="adsbygoogle"
-     style="display:inline-block;width:250px;height:250px"
-     data-ad-client="ca-pub-8176866190626448"
-     data-ad-slot="9490087185"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div-->
-
-
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    小鸟笔记—软件篇
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../tools/">
-            
-                <a href="../tools/">
-            
-                    
-                    常用工具
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.1" data-path="../tools/domainip.html">
-            
-                <a href="../tools/domainip.html">
-            
-                    
-                    域名和IP相关
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="../tools/http.html">
-            
-                <a href="../tools/http.html">
-            
-                    
-                    HTTP协议相关
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3" data-path="../tools/benchmark.html">
-            
-                <a href="../tools/benchmark.html">
-            
-                    
-                    性能测试相关
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../linuxsys/">
-            
-                <a href="../linuxsys/">
-            
-                    
-                    Linux 系统手册
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../linuxsys/tpproxy.html">
-            
-                <a href="../linuxsys/tpproxy.html">
-            
-                    
-                    透明代理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../linuxsys/iptables.html">
-            
-                <a href="../linuxsys/iptables.html">
-            
-                    
-                    iptables
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.2.1" data-path="../linuxsys/iptables-match.html">
-            
-                <a href="../linuxsys/iptables-match.html">
-            
-                    
-                    报文匹配规则
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2.2" data-path="../linuxsys/iptables-target.html">
-            
-                <a href="../linuxsys/iptables-target.html">
-            
-                    
-                    报文处理动作
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../linuxsys/localip.html">
-            
-                <a href="../linuxsys/localip.html">
-            
-                    
-                    网络设置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.4" data-path="../linuxsys/resource.html">
-            
-                <a href="../linuxsys/resource.html">
-            
-                    
-                    资源管理
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../hyperledger/">
-            
-                <a href="../hyperledger/">
-            
-                    
-                    HyperLedger 超级账本
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../hyperledger/demo.html">
-            
-                <a href="../hyperledger/demo.html">
-            
-                    
-                    Fabric 单机极简部署
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../hyperledger/explorer.html">
-            
-                <a href="../hyperledger/explorer.html">
-            
-                    
-                    Fabric 浏览器安装
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="../hyperledger/plan.html">
-            
-                <a href="../hyperledger/plan.html">
-            
-                    
-                    后续安排...
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    Istio 服务网格
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="install.html">
-            
-                <a href="install.html">
-            
-                    
-                    部署环境准备
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="demo-install.html">
-            
-                <a href="demo-install.html">
-            
-                    
-                    预览版部署
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" data-path="command.html">
-            
-                <a href="command.html">
-            
-                    
-                    操作命令
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.4" data-path="config.html">
-            
-                <a href="config.html">
-            
-                    
-                    配置参数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5" data-path="concept.html">
-            
-                <a href="concept.html">
-            
-                    
-                    功能概念
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.5.1" data-path="vsvc.html">
-            
-                <a href="vsvc.html">
-            
-                    
-                    VirtualService
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.2" data-path="dstrule.html">
-            
-                <a href="dstrule.html">
-            
-                    
-                    DestinationRule
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.3" data-path="gateway.html">
-            
-                <a href="gateway.html">
-            
-                    
-                    Gateway
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.4" data-path="entry.html">
-            
-                <a href="entry.html">
-            
-                    
-                    ServiceEntry
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.5" data-path="egress.html">
-            
-                <a href="egress.html">
-            
-                    
-                    Engress Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.6" data-path="sample.html">
-            
-                <a href="sample.html">
-            
-                    
-                    istio 示例拆解
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.6.1" data-path="httprecord.html">
-            
-                <a href="httprecord.html">
-            
-                    
-                    Http-Record Application
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.5.6.2" data-path="bookinfo.html">
-            
-                <a href="bookinfo.html">
-            
-                    
-                    Bookinfo Application
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7" data-path="route.html">
-            
-                <a href="route.html">
-            
-                    
-                    转发路由
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.8" data-path="shift.html">
-            
-                <a href="shift.html">
-            
-                    
-                    流量切换
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.9" data-path="injection.html">
-            
-                <a href="injection.html">
-            
-                    
-                    错误注入
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.10" data-path="timeout.html">
-            
-                <a href="timeout.html">
-            
-                    
-                    超时设置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.11" data-path="tpolicy.html">
-            
-                <a href="tpolicy.html">
-            
-                    
-                    负载均衡
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.12" data-path="mirror.html">
-            
-                <a href="mirror.html">
-            
-                    
-                    流量复制
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.13" data-path="tracing.html">
-            
-                <a href="tracing.html">
-            
-                    
-                    链路跟踪
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.14" data-path="metrics.html">
-            
-                <a href="metrics.html">
-            
-                    
-                    指标采集
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.15" data-path="log.html">
-            
-                <a href="log.html">
-            
-                    
-                    日志收集
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.16" data-path="policy.html">
-            
-                <a href="policy.html">
-            
-                    
-                    访问控制
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.17" data-path="modify.html">
-            
-                <a href="modify.html">
-            
-                    
-                    请求改写
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../k8s/">
-            
-                <a href="../k8s/">
-            
-                    
-                    Kubernetes 使用手册
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../minikube/">
-            
-                <a href="../minikube/">
-            
-                    
-                    minikube 本地部署
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1.1" data-path="../minikube/install.html">
-            
-                <a href="../minikube/install.html">
-            
-                    
-                    安装 minikube
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.1.2" data-path="../minikube/deploy.html">
-            
-                <a href="../minikube/deploy.html">
-            
-                    
-                    启动 kubernetes
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.1.3" data-path="../minikube/vm.html">
-            
-                <a href="../minikube/vm.html">
-            
-                    
-                    进入 minikube
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.1.4" data-path="../minikube/config.html">
-            
-                <a href="../minikube/config.html">
-            
-                    
-                    修改 kubernetes
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.1.5" data-path="../minikube/oper.html">
-            
-                <a href="../minikube/oper.html">
-            
-                    
-                    操作 kubernetes
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.1.6" data-path="../minikube/request.html">
-            
-                <a href="../minikube/request.html">
-            
-                    
-                    访问 kubernetes
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../k8s/res.html">
-            
-                <a href="../k8s/res.html">
-            
-                    
-                    k8s API 定义列表
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="../k8s/code.html">
-            
-                <a href="../k8s/code.html">
-            
-                    
-                    k8s 源码阅读指引
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.4" data-path="../k8s/svc/external.html">
-            
-                <a href="../k8s/svc/external.html">
-            
-                    
-                    k8s 导入外部服务
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="../k8s/usage/pod.html">
-            
-                <a href="../k8s/usage/pod.html">
-            
-                    
-                    k8s 操作技巧收集
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.6" data-path="../k8s/ingress-nginx/">
-            
-                <a href="../k8s/ingress-nginx/">
-            
-                    
-                    ingress-nginx 用法
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.6.1" data-path="../k8s/ingress-nginx/tls.html">
-            
-                <a href="../k8s/ingress-nginx/tls.html">
-            
-                    
-                    传输加密
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.6.2" data-path="../k8s/ingress-nginx/auth.html">
-            
-                <a href="../k8s/ingress-nginx/auth.html">
-            
-                    
-                    自带认证
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.6.3" data-path="../k8s/ingress-nginx/auth-ext.html">
-            
-                <a href="../k8s/ingress-nginx/auth-ext.html">
-            
-                    
-                    外部认证
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.6.4" data-path="../k8s/ingress-nginx/rewrite.html">
-            
-                <a href="../k8s/ingress-nginx/rewrite.html">
-            
-                    
-                    请求改写
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.6.5" data-path="../k8s/ingress-nginx/mirror.html">
-            
-                <a href="../k8s/ingress-nginx/mirror.html">
-            
-                    
-                    请求复制
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.6.6" data-path="../k8s/ingress-nginx/ratelimit.html">
-            
-                <a href="../k8s/ingress-nginx/ratelimit.html">
-            
-                    
-                    源IP限速
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.6.7" data-path="../k8s/ingress-nginx/canary.html">
-            
-                <a href="../k8s/ingress-nginx/canary.html">
-            
-                    
-                    金丝雀发布
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.6.8" data-path="../k8s/ingress-nginx/anno.html">
-            
-                <a href="../k8s/ingress-nginx/anno.html">
-            
-                    
-                    常用注解
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.6.9" data-path="../k8s/ingress-nginx/note.html">
-            
-                <a href="../k8s/ingress-nginx/note.html">
-            
-                    
-                    相关笔记
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../envoy/">
-            
-                <a href="../envoy/">
-            
-                    
-                    Envoy 使用手册
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../envoy/install.html">
-            
-                <a href="../envoy/install.html">
-            
-                    
-                    安装运行
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../envoy/echoserver.html">
-            
-                <a href="../envoy/echoserver.html">
-            
-                    
-                    初次体验
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../envoy/config.html">
-            
-                <a href="../envoy/config.html">
-            
-                    
-                    配置文件
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.4" data-path="../envoy/config-static.html">
-            
-                <a href="../envoy/config-static.html">
-            
-                    
-                    静态配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5" data-path="../envoy/config-dynamic.html">
-            
-                <a href="../envoy/config-dynamic.html">
-            
-                    
-                    动态配置
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.5.1" data-path="../envoy/xds.html">
-            
-                <a href="../envoy/xds.html">
-            
-                    
-                    用 XDS 下发配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5.2" data-path="../envoy/ads.html">
-            
-                <a href="../envoy/ads.html">
-            
-                    
-                    用 ADS 下发配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5.3" data-path="../envoy/mds.html">
-            
-                <a href="../envoy/mds.html">
-            
-                    
-                    lds/cds/rds/sds/eds
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.6" data-path="../envoy/control.html">
-            
-                <a href="../envoy/control.html">
-            
-                    
-                    控制平面实现
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.6.1" data-path="../envoy/go-control-plane-api.html">
-            
-                <a href="../envoy/go-control-plane-api.html">
-            
-                    
-                    go-control-plane 配置定义
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.6.2" data-path="../envoy/go-control-plane-send.html">
-            
-                <a href="../envoy/go-control-plane-send.html">
-            
-                    
-                    go-control-plane 使用介绍
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.6.3" data-path="../envoy/go-control-plane-env.html">
-            
-                <a href="../envoy/go-control-plane-env.html">
-            
-                    
-                    go-control-plane 示例准备
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.6.4" data-path="../envoy/go-control-plane-code.html">
-            
-                <a href="../envoy/go-control-plane-code.html">
-            
-                    
-                    go-control-plane 示例说明
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.6.5" data-path="../envoy/go-control-plane-run.html">
-            
-                <a href="../envoy/go-control-plane-run.html">
-            
-                    
-                    go-control-plane 示例运行
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.7" data-path="../envoy/cluster.html">
-            
-                <a href="../envoy/cluster.html">
-            
-                    
-                    Cluster 详解
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.8" data-path="../envoy/listener.html">
-            
-                <a href="../envoy/listener.html">
-            
-                    
-                    Listener 详解
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.9" data-path="../envoy/filter.html">
-            
-                <a href="../envoy/filter.html">
-            
-                    
-                    Filter 详解
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.9.1" data-path="../envoy/filter-def.html">
-            
-                <a href="../envoy/filter-def.html">
-            
-                    
-                    filter 的定义与下发
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.9.2" data-path="../envoy/listener-filter.html">
-            
-                <a href="../envoy/listener-filter.html">
-            
-                    
-                    listener filter
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.9.3" data-path="../envoy/network-filter.html">
-            
-                <a href="../envoy/network-filter.html">
-            
-                    
-                    network filter
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.9.4" data-path="../envoy/http-filter.html">
-            
-                <a href="../envoy/http-filter.html">
-            
-                    
-                    http filter
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.10" data-path="../envoy/l4.html">
-            
-                <a href="../envoy/l4.html">
-            
-                    
-                    4 层 TCP/UDP 转发
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.11" data-path="../envoy/qa.html">
-            
-                <a href="../envoy/qa.html">
-            
-                    
-                    常见问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../nginx/">
-            
-                <a href="../nginx/">
-            
-                    
-                    Nginx 使用手册
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../nginx/env.html">
-            
-                <a href="../nginx/env.html">
-            
-                    
-                    nginx 试验环境
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../nginx/config.html">
-            
-                <a href="../nginx/config.html">
-            
-                    
-                    nginx 配置文件
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.3" data-path="../nginx/comm.html">
-            
-                <a href="../nginx/comm.html">
-            
-                    
-                    nginx 常用配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.4" data-path="../nginx/performance.html">
-            
-                <a href="../nginx/performance.html">
-            
-                    
-                    nginx 性能参数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.5" data-path="../nginx/important.html">
-            
-                <a href="../nginx/important.html">
-            
-                    
-                    nginx 注意事项
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.6" data-path="../nginx/status.html">
-            
-                <a href="../nginx/status.html">
-            
-                    
-                    nginx 状态数据
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.7" data-path="../nginx/mirror.html">
-            
-                <a href="../nginx/mirror.html">
-            
-                    
-                    nginx 请求复制
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.8" data-path="../nginx/abtest.html">
-            
-                <a href="../nginx/abtest.html">
-            
-                    
-                    nginx A/B 测试
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.9" data-path="../nginx/proxy.html">
-            
-                <a href="../nginx/proxy.html">
-            
-                    
-                    nginx 透明代理
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../openresty/">
-            
-                <a href="../openresty/">
-            
-                    
-                    OpenResty 使用手册
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../openresty/env.html">
-            
-                <a href="../openresty/env.html">
-            
-                    
-                    openresty 环境准备
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../openresty/lua.html">
-            
-                <a href="../openresty/lua.html">
-            
-                    
-                    openresty lua 交互
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.3" data-path="../openresty/common.html">
-            
-                <a href="../openresty/common.html">
-            
-                    
-                    openresty 常规操作
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../prometheus/">
-            
-                <a href="../prometheus/">
-            
-                    
-                    Prometheus 使用手册
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../prometheus/start.html">
-            
-                <a href="../prometheus/start.html">
-            
-                    
-                    安装配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.2" data-path="../prometheus/types.html">
-            
-                <a href="../prometheus/types.html">
-            
-                    
-                    数据类型
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.3" data-path="../prometheus/query.html">
-            
-                <a href="../prometheus/query.html">
-            
-                    
-                    查询语法
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.4" data-path="../prometheus/query-compute.html">
-            
-                <a href="../prometheus/query-compute.html">
-            
-                    
-                    数值运算
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.5" data-path="../prometheus/query-function.html">
-            
-                <a href="../prometheus/query-function.html">
-            
-                    
-                    查询函数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.6" data-path="../prometheus/exporters.html">
-            
-                <a href="../prometheus/exporters.html">
-            
-                    
-                    各种 exporter
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.6.1" data-path="../prometheus/blackbox.html">
-            
-                <a href="../prometheus/blackbox.html">
-            
-                    
-                    blackbox exporter
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.7" data-path="../prometheus/pushgateway.html">
-            
-                <a href="../prometheus/pushgateway.html">
-            
-                    
-                    pushgateway
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.8" data-path="../prometheus/more.html">
-            
-                <a href="../prometheus/more.html">
-            
-                    
-                    进阶拓展
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../ansible/">
-            
-                <a href="../ansible/">
-            
-                    
-                    Ansible 使用手册
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="../ansible/privilege.html">
-            
-                <a href="../ansible/privilege.html">
-            
-                    
-                    用户权限提升
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.2" data-path="../ansible/file.html">
-            
-                <a href="../ansible/file.html">
-            
-                    
-                    文件和url处理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.3" data-path="../ansible/install.html">
-            
-                <a href="../ansible/install.html">
-            
-                    
-                    软件安装
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.4" data-path="../ansible/docker.html">
-            
-                <a href="../ansible/docker.html">
-            
-                    
-                    操作 docker
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.12" data-path="../perf/">
-            
-                <a href="../perf/">
-            
-                    
-                    Perf 使用手册
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.12.1" data-path="../perf/basic.html">
-            
-                <a href="../perf/basic.html">
-            
-                    
-                    perf 技术原理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.12.2" data-path="../perf/usage1.html">
-            
-                <a href="../perf/usage1.html">
-            
-                    
-                    perf 基本用法
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.12.3" data-path="../perf/pmu.html">
-            
-                <a href="../perf/pmu.html">
-            
-                    
-                    PMU 事件
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.13" data-path="../docker/">
-            
-                <a href="../docker/">
-            
-                    
-                    Docker 使用手册
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.13.1" data-path="../docker/install.html">
-            
-                <a href="../docker/install.html">
-            
-                    
-                    安装配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.13.2" data-path="../docker/container.html">
-            
-                <a href="../docker/container.html">
-            
-                    
-                    容器操作
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.13.3" data-path="../docker/image.html">
-            
-                <a href="../docker/image.html">
-            
-                    
-                    镜像管理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.13.4" data-path="../docker/principle.html">
-            
-                <a href="../docker/principle.html">
-            
-                    
-                    原理进阶
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.13.5" data-path="../docker/compose/">
-            
-                <a href="../docker/compose/">
-            
-                    
-                    docker-compose
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.13.6" data-path="../docker/compose/mysql.html">
-            
-                <a href="../docker/compose/mysql.html">
-            
-                    
-                    MySQL镜像使用
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14" data-path="../git/">
-            
-                <a href="../git/">
-            
-                    
-                    Git 使用手册
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.14.1" data-path="../git/rebase.html">
-            
-                <a href="../git/rebase.html">
-            
-                    
-                    提交准备 rebase
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14.2" data-path="../git/repo-cross.html">
-            
-                <a href="../git/repo-cross.html">
-            
-                    
-                    跨越多个 repo
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15" data-path="../linux/">
-            
-                <a href="../linux/">
-            
-                    
-                    性能优化与问题诊断
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.1" data-path="../linux/01-concept.html">
-            
-                <a href="../linux/01-concept.html">
-            
-                    
-                    认知框架
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.2" data-path="../linux/kernel.html">
-            
-                <a href="../linux/kernel.html">
-            
-                    
-                    理解内核
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.2.1" data-path="../linux/dynamic-trace.html">
-            
-                <a href="../linux/dynamic-trace.html">
-            
-                    
-                    动态追踪
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3" data-path="../linux/03-cpu.html">
-            
-                <a href="../linux/03-cpu.html">
-            
-                    
-                    理解 CPU
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.3.1" data-path="../linux/02-process-3.html">
-            
-                <a href="../linux/02-process-3.html">
-            
-                    
-                    CPU 的工作状态
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.2" data-path="../linux/03-cpu-1.html">
-            
-                <a href="../linux/03-cpu-1.html">
-            
-                    
-                    CPU 上下文切换
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.3" data-path="../linux/cpu-usage-analysis.html">
-            
-                <a href="../linux/cpu-usage-analysis.html">
-            
-                    
-                    CPU 的使用情况
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.4" data-path="../linux/memory.html">
-            
-                <a href="../linux/memory.html">
-            
-                    
-                    理解内存
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.4.1" data-path="../linux/memory-manage.html">
-            
-                <a href="../linux/memory-manage.html">
-            
-                    
-                    内存管理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.4.2" data-path="../linux/memory-cache.html">
-            
-                <a href="../linux/memory-cache.html">
-            
-                    
-                    内存缓存
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.4.3" data-path="../linux/memory-stat.html">
-            
-                <a href="../linux/memory-stat.html">
-            
-                    
-                    内存状态
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.5" data-path="../linux/interrupt.html">
-            
-                <a href="../linux/interrupt.html">
-            
-                    
-                    理解中断
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.5.1" data-path="../linux/sys-interrupt.html">
-            
-                <a href="../linux/sys-interrupt.html">
-            
-                    
-                    系统中断
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.6" data-path="../linux/02-process.html">
-            
-                <a href="../linux/02-process.html">
-            
-                    
-                    理解进程
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.6.1" data-path="../linux/02-process-1.html">
-            
-                <a href="../linux/02-process-1.html">
-            
-                    
-                    进程的分类
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.6.2" data-path="../linux/02-process-2.html">
-            
-                <a href="../linux/02-process-2.html">
-            
-                    
-                    进程的状态
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.6.3" data-path="../linux/process-resouce.html">
-            
-                <a href="../linux/process-resouce.html">
-            
-                    
-                    进程占用的资源
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.7" data-path="../linux/01-filesystem.html">
-            
-                <a href="../linux/01-filesystem.html">
-            
-                    
-                    理解文件系统
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.7.1" data-path="../linux/vfs.html">
-            
-                <a href="../linux/vfs.html">
-            
-                    
-                    VFS
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.7.2" data-path="../linux/disk.html">
-            
-                <a href="../linux/disk.html">
-            
-                    
-                    磁盘
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.7.3" data-path="../linux/filesystem-stat.html">
-            
-                <a href="../linux/filesystem-stat.html">
-            
-                    
-                    文件系统状态
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.7.4" data-path="../linux/02-io.html">
-            
-                <a href="../linux/02-io.html">
-            
-                    
-                    I/O 操作分类
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.7.5" data-path="../linux/process_sys_io.html">
-            
-                <a href="../linux/process_sys_io.html">
-            
-                    
-                    系统 I/O 状态
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.8" data-path="../linux/network.html">
-            
-                <a href="../linux/network.html">
-            
-                    
-                    理解网络
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.8.1" data-path="../linux/network-metrics.html">
-            
-                <a href="../linux/network-metrics.html">
-            
-                    
-                    性能指标与检测
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.8.2" data-path="../linux/network-nic-stat.html">
-            
-                <a href="../linux/network-nic-stat.html">
-            
-                    
-                    网卡状态
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.8.3" data-path="../linux/network-stat.html">
-            
-                <a href="../linux/network-stat.html">
-            
-                    
-                    连接/协议栈状态
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.8.4" data-path="../linux/network-netfilter.html">
-            
-                <a href="../linux/network-netfilter.html">
-            
-                    
-                    连接跟踪 netfilter
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.8.5" data-path="../linux/network-trace-pkt.html">
-            
-                <a href="../linux/network-trace-pkt.html">
-            
-                    
-                    报文跟踪
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.8.6" data-path="../linux/network-dns-trace.html">
-            
-                <a href="../linux/network-dns-trace.html">
-            
-                    
-                    DNS 解析追踪
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.8.7" data-path="../linux/netio-high-performance.html">
-            
-                <a href="../linux/netio-high-performance.html">
-            
-                    
-                    高性能网络 IO
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.9" data-path="../linux/04-tool.html">
-            
-                <a href="../linux/04-tool.html">
-            
-                    
-                    分析工具
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.9.1" data-path="../linux/04-flame-graphs.html">
-            
-                <a href="../linux/04-flame-graphs.html">
-            
-                    
-                    火焰图介绍
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.9.1.1" data-path="../linux/04-flame-graphs-cpu.html">
-            
-                <a href="../linux/04-flame-graphs-cpu.html">
-            
-                    
-                    CPU 火焰图
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.9.1.2" data-path="../linux/04-flame-graphs-memory.html">
-            
-                <a href="../linux/04-flame-graphs-memory.html">
-            
-                    
-                    内存火焰图
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.9.1.3" data-path="../linux/04-flame-graphs-off-cpu.html">
-            
-                <a href="../linux/04-flame-graphs-off-cpu.html">
-            
-                    
-                    Off-CPU 火焰图
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.9.1.4" data-path="../linux/04-flame-graphs-hot-code.html">
-            
-                <a href="../linux/04-flame-graphs-hot-code.html">
-            
-                    
-                    冷热火焰图
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.9.1.5" data-path="../linux/04-flame-graphs-differential.html">
-            
-                <a href="../linux/04-flame-graphs-differential.html">
-            
-                    
-                    差异火焰图
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.9.1.6" data-path="../linux/04-flame-generate.html">
-            
-                <a href="../linux/04-flame-generate.html">
-            
-                    
-                    火焰图生成
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.9.2" data-path="../linux/04-bcc-tools.html">
-            
-                <a href="../linux/04-bcc-tools.html">
-            
-                    
-                    BCC系列工具
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.10" data-path="../linux/cpu-usage-high.html">
-            
-                <a href="../linux/cpu-usage-high.html">
-            
-                    
-                    案例: CPU 使用率很高
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.11" data-path="../linux/todo.html">
-            
-                <a href="../linux/todo.html">
-            
-                    
-                    待学习
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.16" data-path="../mac/">
-            
-                <a href="../mac/">
-            
-                    
-                    Mac 使用手册
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.16.1" data-path="../mac/soft.html">
-            
-                <a href="../mac/soft.html">
-            
-                    
-                    常用软件
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.16.2" data-path="../mac/network.html">
-            
-                <a href="../mac/network.html">
-            
-                    
-                    系统操作
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.lijiaocn.com" target="blank" class="gitbook-link">
-            www.lijiaocn.com 提供
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-                
-<br>
-<!--div style="text-align:center"-->
-<!-- Summary_Bottom -->
-<!--ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-8176866190626448"
-     data-ad-slot="2156601384"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div-->
-
-
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Bookinfo Application</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                
-<!-- Page_Top -->
-<!--div>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-8176866190626448"
-     data-ad-slot="5702052586"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br>
-</div-->
-
-<div style="text-align:center">
-<!-- 小鸟笔记-375*90 -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:375px;height:90px"
-     data-ad-client="ca-pub-8176866190626448"
-     data-ad-slot="4394865767"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-<!-- 小鸟笔记-375*90-2 -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:375px;height:90px"
-     data-ad-client="ca-pub-8176866190626448"
-     data-ad-slot="7071988236"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-
-
-                                <!-- toc -->
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <div style="width:100%;text-align:center">
+                  <h2 style="color:#afa790">小鸟笔记-系统软件</h2>
+                  <p style="font-weight:bold"><a style="color:lightgray;" href="https://www.lijiaocn.com">www.lijiaocn.com</a></p>
+                </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> 小鸟笔记—软件篇</a></li><li class="chapter-item expanded "><a href="../tools/index.html"><strong aria-hidden="true">2.</strong> 常用工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tools/domainip.html"><strong aria-hidden="true">2.1.</strong> 域名和IP相关</a></li><li class="chapter-item expanded "><a href="../tools/http.html"><strong aria-hidden="true">2.2.</strong> HTTP协议相关</a></li><li class="chapter-item expanded "><a href="../tools/benchmark.html"><strong aria-hidden="true">2.3.</strong> 性能测试相关</a></li></ol></li><li class="chapter-item expanded "><a href="../linuxsys/index.html"><strong aria-hidden="true">3.</strong> Linux 系统手册</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linuxsys/tpproxy.html"><strong aria-hidden="true">3.1.</strong> 透明代理</a></li><li class="chapter-item expanded "><a href="../linuxsys/iptables.html"><strong aria-hidden="true">3.2.</strong> iptables</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linuxsys/iptables-match.html"><strong aria-hidden="true">3.2.1.</strong> 报文匹配规则</a></li><li class="chapter-item expanded "><a href="../linuxsys/iptables-target.html"><strong aria-hidden="true">3.2.2.</strong> 报文处理动作</a></li></ol></li><li class="chapter-item expanded "><a href="../linuxsys/localip.html"><strong aria-hidden="true">3.3.</strong> 网络设置</a></li><li class="chapter-item expanded "><a href="../linuxsys/resource.html"><strong aria-hidden="true">3.4.</strong> 资源管理</a></li></ol></li><li class="chapter-item expanded "><a href="../hyperledger/index.html"><strong aria-hidden="true">4.</strong> HyperLedger 超级账本</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../hyperledger/demo.html"><strong aria-hidden="true">4.1.</strong> Fabric 单机极简部署</a></li><li class="chapter-item expanded "><a href="../hyperledger/explorer.html"><strong aria-hidden="true">4.2.</strong> Fabric 浏览器安装</a></li><li class="chapter-item expanded "><a href="../hyperledger/plan.html"><strong aria-hidden="true">4.3.</strong> 后续安排...</a></li></ol></li><li class="chapter-item expanded "><a href="../istio/index.html"><strong aria-hidden="true">5.</strong> Istio 服务网格</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../istio/install.html"><strong aria-hidden="true">5.1.</strong> 部署环境准备</a></li><li class="chapter-item expanded "><a href="../istio/demo-install.html"><strong aria-hidden="true">5.2.</strong> 预览版部署</a></li><li class="chapter-item expanded "><a href="../istio/command.html"><strong aria-hidden="true">5.3.</strong> 操作命令</a></li><li class="chapter-item expanded "><a href="../istio/config.html"><strong aria-hidden="true">5.4.</strong> 配置参数</a></li><li class="chapter-item expanded "><a href="../istio/concept.html"><strong aria-hidden="true">5.5.</strong> 功能概念</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../istio/vsvc.html"><strong aria-hidden="true">5.5.1.</strong> VirtualService</a></li><li class="chapter-item expanded "><a href="../istio/dstrule.html"><strong aria-hidden="true">5.5.2.</strong> DestinationRule</a></li><li class="chapter-item expanded "><a href="../istio/gateway.html"><strong aria-hidden="true">5.5.3.</strong> Gateway</a></li><li class="chapter-item expanded "><a href="../istio/entry.html"><strong aria-hidden="true">5.5.4.</strong> ServiceEntry</a></li><li class="chapter-item expanded "><a href="../istio/egress.html"><strong aria-hidden="true">5.5.5.</strong> Engress Control</a></li></ol></li><li class="chapter-item expanded "><a href="../istio/sample.html"><strong aria-hidden="true">5.6.</strong> istio 示例拆解</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../istio/httprecord.html"><strong aria-hidden="true">5.6.1.</strong> Http-Record Application</a></li><li class="chapter-item expanded "><a href="../istio/bookinfo.html" class="active"><strong aria-hidden="true">5.6.2.</strong> Bookinfo Application</a></li></ol></li><li class="chapter-item expanded "><a href="../istio/route.html"><strong aria-hidden="true">5.7.</strong> 转发路由</a></li><li class="chapter-item expanded "><a href="../istio/shift.html"><strong aria-hidden="true">5.8.</strong> 流量切换</a></li><li class="chapter-item expanded "><a href="../istio/injection.html"><strong aria-hidden="true">5.9.</strong> 错误注入</a></li><li class="chapter-item expanded "><a href="../istio/timeout.html"><strong aria-hidden="true">5.10.</strong> 超时设置</a></li><li class="chapter-item expanded "><a href="../istio/tpolicy.html"><strong aria-hidden="true">5.11.</strong> 负载均衡</a></li><li class="chapter-item expanded "><a href="../istio/mirror.html"><strong aria-hidden="true">5.12.</strong> 流量复制</a></li><li class="chapter-item expanded "><a href="../istio/tracing.html"><strong aria-hidden="true">5.13.</strong> 链路跟踪</a></li><li class="chapter-item expanded "><a href="../istio/metrics.html"><strong aria-hidden="true">5.14.</strong> 指标采集</a></li><li class="chapter-item expanded "><a href="../istio/log.html"><strong aria-hidden="true">5.15.</strong> 日志收集</a></li><li class="chapter-item expanded "><a href="../istio/policy.html"><strong aria-hidden="true">5.16.</strong> 访问控制</a></li><li class="chapter-item expanded "><a href="../istio/modify.html"><strong aria-hidden="true">5.17.</strong> 请求改写</a></li></ol></li><li class="chapter-item expanded "><a href="../k8s/index.html"><strong aria-hidden="true">6.</strong> Kubernetes 使用手册</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../minikube/index.html"><strong aria-hidden="true">6.1.</strong> minikube 本地部署</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../minikube/install.html"><strong aria-hidden="true">6.1.1.</strong> 安装 minikube</a></li><li class="chapter-item expanded "><a href="../minikube/deploy.html"><strong aria-hidden="true">6.1.2.</strong> 启动 kubernetes</a></li><li class="chapter-item expanded "><a href="../minikube/vm.html"><strong aria-hidden="true">6.1.3.</strong> 进入 minikube</a></li><li class="chapter-item expanded "><a href="../minikube/config.html"><strong aria-hidden="true">6.1.4.</strong> 修改 kubernetes</a></li><li class="chapter-item expanded "><a href="../minikube/oper.html"><strong aria-hidden="true">6.1.5.</strong> 操作 kubernetes</a></li><li class="chapter-item expanded "><a href="../minikube/request.html"><strong aria-hidden="true">6.1.6.</strong> 访问 kubernetes</a></li></ol></li><li class="chapter-item expanded "><a href="../k8s/res.html"><strong aria-hidden="true">6.2.</strong> k8s API 定义列表</a></li><li class="chapter-item expanded "><a href="../k8s/code.html"><strong aria-hidden="true">6.3.</strong> k8s 源码阅读指引</a></li><li class="chapter-item expanded "><a href="../k8s/svc/external.html"><strong aria-hidden="true">6.4.</strong> k8s 导入外部服务</a></li><li class="chapter-item expanded "><a href="../k8s/usage/pod.html"><strong aria-hidden="true">6.5.</strong> k8s 操作技巧收集</a></li><li class="chapter-item expanded "><a href="../k8s/ingress-nginx/index.html"><strong aria-hidden="true">6.6.</strong> ingress-nginx 用法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../k8s/ingress-nginx/tls.html"><strong aria-hidden="true">6.6.1.</strong> 传输加密</a></li><li class="chapter-item expanded "><a href="../k8s/ingress-nginx/auth.html"><strong aria-hidden="true">6.6.2.</strong> 自带认证</a></li><li class="chapter-item expanded "><a href="../k8s/ingress-nginx/auth-ext.html"><strong aria-hidden="true">6.6.3.</strong> 外部认证</a></li><li class="chapter-item expanded "><a href="../k8s/ingress-nginx/rewrite.html"><strong aria-hidden="true">6.6.4.</strong> 请求改写</a></li><li class="chapter-item expanded "><a href="../k8s/ingress-nginx/mirror.html"><strong aria-hidden="true">6.6.5.</strong> 请求复制</a></li><li class="chapter-item expanded "><a href="../k8s/ingress-nginx/ratelimit.html"><strong aria-hidden="true">6.6.6.</strong> 源IP限速</a></li><li class="chapter-item expanded "><a href="../k8s/ingress-nginx/canary.html"><strong aria-hidden="true">6.6.7.</strong> 金丝雀发布</a></li><li class="chapter-item expanded "><a href="../k8s/ingress-nginx/anno.html"><strong aria-hidden="true">6.6.8.</strong> 常用注解</a></li><li class="chapter-item expanded "><a href="../k8s/ingress-nginx/note.html"><strong aria-hidden="true">6.6.9.</strong> 相关笔记</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../envoy/index.html"><strong aria-hidden="true">7.</strong> Envoy 使用手册</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../envoy/install.html"><strong aria-hidden="true">7.1.</strong> 安装运行</a></li><li class="chapter-item expanded "><a href="../envoy/echoserver.html"><strong aria-hidden="true">7.2.</strong> 初次体验</a></li><li class="chapter-item expanded "><a href="../envoy/config.html"><strong aria-hidden="true">7.3.</strong> 配置文件</a></li><li class="chapter-item expanded "><a href="../envoy/config-static.html"><strong aria-hidden="true">7.4.</strong> 静态配置</a></li><li class="chapter-item expanded "><a href="../envoy/config-dynamic.html"><strong aria-hidden="true">7.5.</strong> 动态配置</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../envoy/xds.html"><strong aria-hidden="true">7.5.1.</strong> 用 XDS 下发配置</a></li><li class="chapter-item expanded "><a href="../envoy/ads.html"><strong aria-hidden="true">7.5.2.</strong> 用 ADS 下发配置</a></li><li class="chapter-item expanded "><a href="../envoy/mds.html"><strong aria-hidden="true">7.5.3.</strong> lds/cds/rds/sds/eds</a></li></ol></li><li class="chapter-item expanded "><a href="../envoy/control.html"><strong aria-hidden="true">7.6.</strong> 控制平面实现</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../envoy/go-control-plane-api.html"><strong aria-hidden="true">7.6.1.</strong> go-control-plane 配置定义</a></li><li class="chapter-item expanded "><a href="../envoy/go-control-plane-send.html"><strong aria-hidden="true">7.6.2.</strong> go-control-plane 使用介绍</a></li><li class="chapter-item expanded "><a href="../envoy/go-control-plane-env.html"><strong aria-hidden="true">7.6.3.</strong> go-control-plane 示例准备</a></li><li class="chapter-item expanded "><a href="../envoy/go-control-plane-code.html"><strong aria-hidden="true">7.6.4.</strong> go-control-plane 示例说明</a></li><li class="chapter-item expanded "><a href="../envoy/go-control-plane-run.html"><strong aria-hidden="true">7.6.5.</strong> go-control-plane 示例运行</a></li></ol></li><li class="chapter-item expanded "><a href="../envoy/cluster.html"><strong aria-hidden="true">7.7.</strong> Cluster 详解</a></li><li class="chapter-item expanded "><a href="../envoy/listener.html"><strong aria-hidden="true">7.8.</strong> Listener 详解</a></li><li class="chapter-item expanded "><a href="../envoy/filter.html"><strong aria-hidden="true">7.9.</strong> Filter 详解</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../envoy/filter-def.html"><strong aria-hidden="true">7.9.1.</strong> filter 的定义与下发</a></li><li class="chapter-item expanded "><a href="../envoy/listener-filter.html"><strong aria-hidden="true">7.9.2.</strong> listener filter</a></li><li class="chapter-item expanded "><a href="../envoy/network-filter.html"><strong aria-hidden="true">7.9.3.</strong> network filter</a></li><li class="chapter-item expanded "><a href="../envoy/http-filter.html"><strong aria-hidden="true">7.9.4.</strong> http filter</a></li></ol></li><li class="chapter-item expanded "><a href="../envoy/l4.html"><strong aria-hidden="true">7.10.</strong> 4 层 TCP/UDP 转发</a></li><li class="chapter-item expanded "><a href="../envoy/qa.html"><strong aria-hidden="true">7.11.</strong> 常见问题</a></li></ol></li><li class="chapter-item expanded "><a href="../nginx/index.html"><strong aria-hidden="true">8.</strong> Nginx 使用手册</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../nginx/env.html"><strong aria-hidden="true">8.1.</strong> nginx 试验环境</a></li><li class="chapter-item expanded "><a href="../nginx/config.html"><strong aria-hidden="true">8.2.</strong> nginx 配置文件</a></li><li class="chapter-item expanded "><a href="../nginx/comm.html"><strong aria-hidden="true">8.3.</strong> nginx 常用配置</a></li><li class="chapter-item expanded "><a href="../nginx/performance.html"><strong aria-hidden="true">8.4.</strong> nginx 性能参数</a></li><li class="chapter-item expanded "><a href="../nginx/important.html"><strong aria-hidden="true">8.5.</strong> nginx 注意事项</a></li><li class="chapter-item expanded "><a href="../nginx/status.html"><strong aria-hidden="true">8.6.</strong> nginx 状态数据</a></li><li class="chapter-item expanded "><a href="../nginx/mirror.html"><strong aria-hidden="true">8.7.</strong> nginx 请求复制</a></li><li class="chapter-item expanded "><a href="../nginx/abtest.html"><strong aria-hidden="true">8.8.</strong> nginx A/B 测试</a></li><li class="chapter-item expanded "><a href="../nginx/proxy.html"><strong aria-hidden="true">8.9.</strong> nginx 透明代理</a></li></ol></li><li class="chapter-item expanded "><a href="../openresty/index.html"><strong aria-hidden="true">9.</strong> OpenResty 使用手册</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../openresty/env.html"><strong aria-hidden="true">9.1.</strong> openresty 环境准备</a></li><li class="chapter-item expanded "><a href="../openresty/lua.html"><strong aria-hidden="true">9.2.</strong> openresty lua 交互</a></li><li class="chapter-item expanded "><a href="../openresty/common.html"><strong aria-hidden="true">9.3.</strong> openresty 常规操作</a></li></ol></li><li class="chapter-item expanded "><a href="../prometheus/index.html"><strong aria-hidden="true">10.</strong> Prometheus 使用手册</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../prometheus/start.html"><strong aria-hidden="true">10.1.</strong> 安装配置</a></li><li class="chapter-item expanded "><a href="../prometheus/types.html"><strong aria-hidden="true">10.2.</strong> 数据类型</a></li><li class="chapter-item expanded "><a href="../prometheus/query.html"><strong aria-hidden="true">10.3.</strong> 查询语法</a></li><li class="chapter-item expanded "><a href="../prometheus/query-compute.html"><strong aria-hidden="true">10.4.</strong> 数值运算</a></li><li class="chapter-item expanded "><a href="../prometheus/query-function.html"><strong aria-hidden="true">10.5.</strong> 查询函数</a></li><li class="chapter-item expanded "><a href="../prometheus/exporters.html"><strong aria-hidden="true">10.6.</strong> 各种 exporter</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../prometheus/blackbox.html"><strong aria-hidden="true">10.6.1.</strong> blackbox exporter</a></li></ol></li><li class="chapter-item expanded "><a href="../prometheus/pushgateway.html"><strong aria-hidden="true">10.7.</strong> pushgateway</a></li><li class="chapter-item expanded "><a href="../prometheus/more.html"><strong aria-hidden="true">10.8.</strong> 进阶拓展</a></li></ol></li><li class="chapter-item expanded "><a href="../ansible/index.html"><strong aria-hidden="true">11.</strong> Ansible 使用手册</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ansible/privilege.html"><strong aria-hidden="true">11.1.</strong> 用户权限提升</a></li><li class="chapter-item expanded "><a href="../ansible/file.html"><strong aria-hidden="true">11.2.</strong> 文件和url处理</a></li><li class="chapter-item expanded "><a href="../ansible/install.html"><strong aria-hidden="true">11.3.</strong> 软件安装</a></li><li class="chapter-item expanded "><a href="../ansible/docker.html"><strong aria-hidden="true">11.4.</strong> 操作 docker</a></li></ol></li><li class="chapter-item expanded "><a href="../perf/index.html"><strong aria-hidden="true">12.</strong> Perf 使用手册</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../perf/basic.html"><strong aria-hidden="true">12.1.</strong> perf 技术原理</a></li><li class="chapter-item expanded "><a href="../perf/usage1.html"><strong aria-hidden="true">12.2.</strong> perf 基本用法</a></li><li class="chapter-item expanded "><a href="../perf/pmu.html"><strong aria-hidden="true">12.3.</strong> PMU 事件</a></li></ol></li><li class="chapter-item expanded "><a href="../docker/index.html"><strong aria-hidden="true">13.</strong> Docker 使用手册</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../docker/install.html"><strong aria-hidden="true">13.1.</strong> 安装配置</a></li><li class="chapter-item expanded "><a href="../docker/container.html"><strong aria-hidden="true">13.2.</strong> 容器操作</a></li><li class="chapter-item expanded "><a href="../docker/image.html"><strong aria-hidden="true">13.3.</strong> 镜像管理</a></li><li class="chapter-item expanded "><a href="../docker/principle.html"><strong aria-hidden="true">13.4.</strong> 原理进阶</a></li><li class="chapter-item expanded "><a href="../docker/compose/index.html"><strong aria-hidden="true">13.5.</strong> docker-compose</a></li><li class="chapter-item expanded "><a href="../docker/compose/mysql.html"><strong aria-hidden="true">13.6.</strong> MySQL镜像使用</a></li></ol></li><li class="chapter-item expanded "><a href="../git/index.html"><strong aria-hidden="true">14.</strong> Git 使用手册</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../git/rebase.html"><strong aria-hidden="true">14.1.</strong> 提交准备 rebase</a></li><li class="chapter-item expanded "><a href="../git/repo-cross.html"><strong aria-hidden="true">14.2.</strong> 跨越多个 repo</a></li></ol></li><li class="chapter-item expanded "><a href="../linux/index.html"><strong aria-hidden="true">15.</strong> 性能优化与问题诊断</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/01-concept.html"><strong aria-hidden="true">15.1.</strong> 认知框架</a></li><li class="chapter-item expanded "><a href="../linux/kernel.html"><strong aria-hidden="true">15.2.</strong> 理解内核</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/dynamic-trace.html"><strong aria-hidden="true">15.2.1.</strong> 动态追踪</a></li></ol></li><li class="chapter-item expanded "><a href="../linux/03-cpu.html"><strong aria-hidden="true">15.3.</strong> 理解 CPU</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/02-process-3.html"><strong aria-hidden="true">15.3.1.</strong> CPU 的工作状态</a></li><li class="chapter-item expanded "><a href="../linux/03-cpu-1.html"><strong aria-hidden="true">15.3.2.</strong> CPU 上下文切换</a></li><li class="chapter-item expanded "><a href="../linux/cpu-usage-analysis.html"><strong aria-hidden="true">15.3.3.</strong> CPU 的使用情况</a></li></ol></li><li class="chapter-item expanded "><a href="../linux/memory.html"><strong aria-hidden="true">15.4.</strong> 理解内存</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/memory-manage.html"><strong aria-hidden="true">15.4.1.</strong> 内存管理</a></li><li class="chapter-item expanded "><a href="../linux/memory-cache.html"><strong aria-hidden="true">15.4.2.</strong> 内存缓存</a></li><li class="chapter-item expanded "><a href="../linux/memory-stat.html"><strong aria-hidden="true">15.4.3.</strong> 内存状态</a></li></ol></li><li class="chapter-item expanded "><a href="../linux/interrupt.html"><strong aria-hidden="true">15.5.</strong> 理解中断</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/sys-interrupt.html"><strong aria-hidden="true">15.5.1.</strong> 系统中断</a></li></ol></li><li class="chapter-item expanded "><a href="../linux/02-process.html"><strong aria-hidden="true">15.6.</strong> 理解进程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/02-process-1.html"><strong aria-hidden="true">15.6.1.</strong> 进程的分类</a></li><li class="chapter-item expanded "><a href="../linux/02-process-2.html"><strong aria-hidden="true">15.6.2.</strong> 进程的状态</a></li><li class="chapter-item expanded "><a href="../linux/process-resouce.html"><strong aria-hidden="true">15.6.3.</strong> 进程占用的资源</a></li></ol></li><li class="chapter-item expanded "><a href="../linux/01-filesystem.html"><strong aria-hidden="true">15.7.</strong> 理解文件系统</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/vfs.html"><strong aria-hidden="true">15.7.1.</strong> VFS</a></li><li class="chapter-item expanded "><a href="../linux/disk.html"><strong aria-hidden="true">15.7.2.</strong> 磁盘</a></li><li class="chapter-item expanded "><a href="../linux/filesystem-stat.html"><strong aria-hidden="true">15.7.3.</strong> 文件系统状态</a></li><li class="chapter-item expanded "><a href="../linux/02-io.html"><strong aria-hidden="true">15.7.4.</strong> I/O 操作分类</a></li><li class="chapter-item expanded "><a href="../linux/process_sys_io.html"><strong aria-hidden="true">15.7.5.</strong> 系统 I/O 状态</a></li></ol></li><li class="chapter-item expanded "><a href="../linux/network.html"><strong aria-hidden="true">15.8.</strong> 理解网络</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/network-metrics.html"><strong aria-hidden="true">15.8.1.</strong> 性能指标与检测</a></li><li class="chapter-item expanded "><a href="../linux/network-nic-stat.html"><strong aria-hidden="true">15.8.2.</strong> 网卡状态</a></li><li class="chapter-item expanded "><a href="../linux/network-stat.html"><strong aria-hidden="true">15.8.3.</strong> 连接/协议栈状态</a></li><li class="chapter-item expanded "><a href="../linux/network-netfilter.html"><strong aria-hidden="true">15.8.4.</strong> 连接跟踪 netfilter</a></li><li class="chapter-item expanded "><a href="../linux/network-trace-pkt.html"><strong aria-hidden="true">15.8.5.</strong> 报文跟踪</a></li><li class="chapter-item expanded "><a href="../linux/network-dns-trace.html"><strong aria-hidden="true">15.8.6.</strong> DNS 解析追踪</a></li><li class="chapter-item expanded "><a href="../linux/netio-high-performance.html"><strong aria-hidden="true">15.8.7.</strong> 高性能网络 IO</a></li></ol></li><li class="chapter-item expanded "><a href="../linux/04-tool.html"><strong aria-hidden="true">15.9.</strong> 分析工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/04-flame-graphs.html"><strong aria-hidden="true">15.9.1.</strong> 火焰图介绍</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/04-flame-graphs-cpu.html"><strong aria-hidden="true">15.9.1.1.</strong> CPU 火焰图</a></li><li class="chapter-item expanded "><a href="../linux/04-flame-graphs-memory.html"><strong aria-hidden="true">15.9.1.2.</strong> 内存火焰图</a></li><li class="chapter-item expanded "><a href="../linux/04-flame-graphs-off-cpu.html"><strong aria-hidden="true">15.9.1.3.</strong> Off-CPU 火焰图</a></li><li class="chapter-item expanded "><a href="../linux/04-flame-graphs-hot-code.html"><strong aria-hidden="true">15.9.1.4.</strong> 冷热火焰图</a></li><li class="chapter-item expanded "><a href="../linux/04-flame-graphs-differential.html"><strong aria-hidden="true">15.9.1.5.</strong> 差异火焰图</a></li><li class="chapter-item expanded "><a href="../linux/04-flame-generate.html"><strong aria-hidden="true">15.9.1.6.</strong> 火焰图生成</a></li></ol></li><li class="chapter-item expanded "><a href="../linux/04-bcc-tools.html"><strong aria-hidden="true">15.9.2.</strong> BCC系列工具</a></li></ol></li><li class="chapter-item expanded "><a href="../linux/cpu-usage-high.html"><strong aria-hidden="true">15.10.</strong> 案例: CPU 使用率很高</a></li><li class="chapter-item expanded "><a href="../linux/todo.html"><strong aria-hidden="true">15.11.</strong> 待学习</a></li></ol></li><li class="chapter-item expanded "><a href="../mac/index.html"><strong aria-hidden="true">16.</strong> Mac 使用手册</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mac/soft.html"><strong aria-hidden="true">16.1.</strong> 常用软件</a></li><li class="chapter-item expanded "><a href="../mac/network.html"><strong aria-hidden="true">16.2.</strong> 系统操作</a></li></ol></li></ol>
+               <div style="width:100%;text-align:center">
+                  <img style="width:100%" src="https://www.lijiaocn.com/img/ercode/cur.jpg"/>
+               </div>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div style="text-align:center;width:100%">
+                    <!--h1>顶部条幅广告</h1-->
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8176866190626448"
+                     crossorigin="anonymous"></script>
+                     <!-- 顶部条幅广告 -->
+                    <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8176866190626448"
+                     data-ad-slot="1000173679"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                     <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                     </script>
+                </div>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- toc -->
+<h1 id="istio-的-bookinfo-application-示例拆解"><a class="header" href="#istio-的-bookinfo-application-示例拆解">istio 的 Bookinfo Application 示例拆解</a></h1>
+<p>Istio 文档中给出了一个 <a href="https://istio.io/docs/examples/bookinfo/" title="Bookinfo Application">Bookinfo Application</a> 示例，这里拆解它的实现。</p>
+<h2 id="bookinfo-app-组成"><a class="header" href="#bookinfo-app-组成">Bookinfo APP 组成</a></h2>
+<p>Bookinfo APP 由四个子系统组成，分别是：</p>
 <ul>
-<li><a href="#istio-&#x7684;-bookinfo-application-&#x793A;&#x4F8B;&#x62C6;&#x89E3;">istio &#x7684; Bookinfo Application &#x793A;&#x4F8B;&#x62C6;&#x89E3;</a><ul>
-<li><a href="#bookinfo-app-&#x7EC4;&#x6210;">Bookinfo APP &#x7EC4;&#x6210;</a></li>
-<li><a href="#&#x90E8;&#x7F72;&#x5230;-istio-&#x7F51;&#x683C;">&#x90E8;&#x7F72;&#x5230; istio &#x7F51;&#x683C;</a><ul>
-<li><a href="#&#x9A8C;&#x8BC1;-productpage">&#x9A8C;&#x8BC1; Productpage</a></li>
-<li><a href="#&#x9A8C;&#x8BC1;-detail">&#x9A8C;&#x8BC1; Detail</a></li>
-<li><a href="#&#x9A8C;&#x8BC1;-ratings">&#x9A8C;&#x8BC1; Ratings</a></li>
-<li><a href="#&#x9A8C;&#x8BC1;-reviews">&#x9A8C;&#x8BC1; Reviews</a></li>
+<li>productpage，产品页，展示图书信息，依赖 details 和 reviews</li>
+<li>details，图书详情查询</li>
+<li>reviews，用户评论查询，依赖 ratings</li>
+<li>ratings，图书排行榜查询</li>
 </ul>
-</li>
-<li><a href="#&#x521B;&#x5EFA;-gateway&#xFF0C;ingress-envoy-&#x5F00;&#x59CB;&#x76D1;&#x542C;">&#x521B;&#x5EFA; Gateway&#xFF0C;ingress envoy &#x5F00;&#x59CB;&#x76D1;&#x542C;</a></li>
-<li><a href="#&#x521B;&#x5EFA;-virtualservice&#xFF0C;&#x8F6C;&#x53D1;&#x8BF7;&#x6C42;">&#x521B;&#x5EFA; VirtualService&#xFF0C;&#x8F6C;&#x53D1;&#x8BF7;&#x6C42;</a></li>
-<li><a href="#&#x901A;&#x8FC7;&#x8FB9;&#x754C;-envoy-&#x8BBF;&#x95EE;&#x5E94;&#x7528;">&#x901A;&#x8FC7;&#x8FB9;&#x754C; envoy &#x8BBF;&#x95EE;&#x5E94;&#x7528;</a></li>
-<li><a href="#&#x8BBE;&#x7F6E;&#x7F51;&#x683C;&#x5185;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF1A;destinationrule">&#x8BBE;&#x7F6E;&#x7F51;&#x683C;&#x5185;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF1A;DestinationRule</a></li>
-<li><a href="#&#x6309;&#x7167;&#x7528;&#x6237;&#x8F6C;&#x53D1;">&#x6309;&#x7167;&#x7528;&#x6237;&#x8F6C;&#x53D1;</a></li>
-<li><a href="#&#x66F4;&#x591A;&#x64CD;&#x4F5C;">&#x66F4;&#x591A;&#x64CD;&#x4F5C;</a></li>
-<li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-<h1 id="istio-&#x7684;-bookinfo-application-&#x793A;&#x4F8B;&#x62C6;&#x89E3;">istio &#x7684; Bookinfo Application &#x793A;&#x4F8B;&#x62C6;&#x89E3;</h1>
-<p>Istio &#x6587;&#x6863;&#x4E2D;&#x7ED9;&#x51FA;&#x4E86;&#x4E00;&#x4E2A; <a href="https://istio.io/docs/examples/bookinfo/" title="Bookinfo Application" target="_blank">Bookinfo Application</a> &#x793A;&#x4F8B;&#xFF0C;&#x8FD9;&#x91CC;&#x62C6;&#x89E3;&#x5B83;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
-<h2 id="bookinfo-app-&#x7EC4;&#x6210;">Bookinfo APP &#x7EC4;&#x6210;</h2>
-<p>Bookinfo APP &#x7531;&#x56DB;&#x4E2A;&#x5B50;&#x7CFB;&#x7EDF;&#x7EC4;&#x6210;&#xFF0C;&#x5206;&#x522B;&#x662F;&#xFF1A;</p>
-<ul>
-<li>productpage&#xFF0C;&#x4EA7;&#x54C1;&#x9875;&#xFF0C;&#x5C55;&#x793A;&#x56FE;&#x4E66;&#x4FE1;&#x606F;&#xFF0C;&#x4F9D;&#x8D56; details &#x548C; reviews</li>
-<li>details&#xFF0C;&#x56FE;&#x4E66;&#x8BE6;&#x60C5;&#x67E5;&#x8BE2;</li>
-<li>reviews&#xFF0C;&#x7528;&#x6237;&#x8BC4;&#x8BBA;&#x67E5;&#x8BE2;&#xFF0C;&#x4F9D;&#x8D56; ratings</li>
-<li>ratings&#xFF0C;&#x56FE;&#x4E66;&#x6392;&#x884C;&#x699C;&#x67E5;&#x8BE2;</li>
-</ul>
-<p>&#x8FD9;&#x4E9B;&#x5B50;&#x7CFB;&#x7EDF;&#x5206;&#x522B;&#x7528; python&#x3001;ruby&#x3001;java&#x3001;node &#x5F00;&#x53D1;&#xFF0C;&#x5176;&#x4E2D; reviews &#x7CFB;&#x7EDF;&#x6709;&#x4E09;&#x4E2A;&#x7248;&#x672C;&#xFF1A;v1&#x3001;v2&#x3001;v3&#x3002;</p>
-<p><img src="../img/envoy/bookinfo.svg" alt="Bookinfo Application"></p>
-<p>&#x793A;&#x4F8B;&#x4E2D;&#x628A;&#x4E0A;&#x8FF0;&#x56DB;&#x4E2A;&#x7CFB;&#x7EDF;&#x90E8;&#x7F72;&#x5728; Kubernetes &#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x7CFB;&#x7EDF;&#x7531; Service&#x3001;ServiceAccount&#x3001;Deployment &#x7EC4;&#x6210;&#x3002;reviews &#x6709;&#x4E09;&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x5BF9;&#x5E94;&#x4E09;&#x4E2A; Deployment&#x3002;</p>
-<h2 id="&#x90E8;&#x7F72;&#x5230;-istio-&#x7F51;&#x683C;">&#x90E8;&#x7F72;&#x5230; istio &#x7F51;&#x683C;</h2>
-<p>&#x8981;&#x628A; Bookinfo Application &#x90E8;&#x7F72;&#x5728; istio &#x7F51;&#x683C;&#x4E2D;&#xFF0C;&#x4EC5;&#x4EC5;&#x5728;&#x5B89;&#x88C5;&#x4E86; istio &#x7684; kubernetes &#x521B;&#x5EFA;&#x5E94;&#x7528;&#x662F;&#x4E0D;&#x884C;&#x7684;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x5E26;&#x6709; <code>istio-injection=enabled</code> &#x6807;&#x7B7E;&#x7684; namespace &#x4E2D;&#x521B;&#x5EFA;&#x624D;&#x53EF;&#x4EE5;&#x3002;</p>
-<p>&#x6240;&#x4EE5; <a href="https://istio.io/docs/examples/bookinfo/" title="Bookinfo Application" target="_blank">&#x6587;&#x6863;</a> &#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x6B65;&#x64CD;&#x4F5C;&#x5728;&#x76EE;&#x6807; namespace &#x4E0A;&#x6253;&#x6807;&#x7B7E;&#xFF1A;</p>
-<pre><code class="lang-sh">kubectl label namespace default istio-injection=enabled
+<p>这些子系统分别用 python、ruby、java、node 开发，其中 reviews 系统有三个版本：v1、v2、v3。</p>
+<p><img src="../img/envoy/bookinfo.svg" alt="Bookinfo Application" /></p>
+<p>示例中把上述四个系统部署在 Kubernetes 中，每个系统由 Service、ServiceAccount、Deployment 组成。reviews 有三个版本，对应三个 Deployment。</p>
+<h2 id="部署到-istio-网格"><a class="header" href="#部署到-istio-网格">部署到 istio 网格</a></h2>
+<p>要把 Bookinfo Application 部署在 istio 网格中，仅仅在安装了 istio 的 kubernetes 创建应用是不行的，需要在带有 <code>istio-injection=enabled</code> 标签的 namespace 中创建才可以。</p>
+<p>所以 <a href="https://istio.io/docs/examples/bookinfo/" title="Bookinfo Application">文档</a> 中的第一步操作在目标 namespace 上打标签：</p>
+<pre><code class="language-sh">kubectl label namespace default istio-injection=enabled
 </code></pre>
-<p>&#x7136;&#x540E;&#x5728;&#x6253;&#x4E86;&#x6807;&#x7B7E;&#x7684; namespace &#x4E2D;&#x521B;&#x5EFA;&#x5E94;&#x7528;&#xFF1A;</p>
-<pre><code class="lang-sh">kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/platform/kube/bookinfo.yaml
+<p>然后在打了标签的 namespace 中创建应用：</p>
+<pre><code class="language-sh">kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 </code></pre>
-<p>&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x7ED9; namesapce &#x6253;&#x6807;&#x7B7E;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x8C03;&#x6574; yaml &#x6587;&#x4EF6;&#xFF1A;</p>
-<pre><code class="lang-sh">kubectl apply <span class="hljs-_">-f</span> &lt;(istioctl kube-inject <span class="hljs-_">-f</span> samples/bookinfo/platform/kube/bookinfo.yaml)
+<p>如果不想给 namesapce 打标签，可以用下面的命令调整 yaml 文件：</p>
+<pre><code class="language-sh">kubectl apply -f &lt;(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
 </code></pre>
-<h3 id="&#x9A8C;&#x8BC1;-productpage">&#x9A8C;&#x8BC1; Productpage</h3>
-<p>&#x90E8;&#x7F72;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x9A8C;&#x8BC1; productpage&#xFF0C;&#x5728;&#x96C6;&#x7FA4;&#x5185;&#x7528;&#x5B83;&#x7684; cluster ip &#x6216;&#x8005; pod ip &#x8BBF;&#x95EE;&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl get svc productpage -o wide
+<h3 id="验证-productpage"><a class="header" href="#验证-productpage">验证 Productpage</a></h3>
+<p>部署完成后，验证 productpage，在集群内用它的 cluster ip 或者 pod ip 访问：</p>
+<pre><code class="language-sh">$ kubectl get svc productpage -o wide
 NAME          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELECTOR
 productpage   ClusterIP   10.110.29.37     &lt;none&gt;        9080/TCP   76d   app=productpage
 </code></pre>
-<pre><code class="lang-sh">$ curl 10.110.29.37:9080
-...&#x7701;&#x7565;...
+<pre><code class="language-sh">$ curl 10.110.29.37:9080
+...省略...
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>&#x6216;&#x8005;&#x5728; Productpage &#x7B49;&#x5BB9;&#x5668;&#x5185;&#x5B89;&#x88C5; curl&#xFF0C;&#x7528; curl &#x9A8C;&#x8BC1;&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl <span class="hljs-built_in">exec</span> -it productpage-v1-667bc85676-sgbqp /bin/sh
+<p>或者在 Productpage 等容器内安装 curl，用 curl 验证：</p>
+<pre><code class="language-sh">$ kubectl exec -it productpage-v1-667bc85676-sgbqp /bin/sh
 $ apt-get update
 $ apt-get install -y curl
 $ curl http://productpage:9080
-...&#x7701;&#x7565;...
+...省略...
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>Productpage &#x662F; bookinfo app &#x7684;&#x5165;&#x53E3;&#xFF0C;&#x4F7F;&#x7528; python &#x5F00;&#x53D1;&#xFF0C;&#x4ECE;&#x4EE3;&#x7801;&#x4E2D;&#x627E;&#x5230;&#x53E6;&#x5916;&#x51E0;&#x4E2A;&#x670D;&#x52A1;&#x7684;&#x63A5;&#x53E3;&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl <span class="hljs-built_in">exec</span> -it productpage-v1-8554d58bff-wlkg7 cat  productpage.py &gt;/tmp/productpage.py
+<p>Productpage 是 bookinfo app 的入口，使用 python 开发，从代码中找到另外几个服务的接口：</p>
+<pre><code class="language-sh">$ kubectl exec -it productpage-v1-8554d58bff-wlkg7 cat  productpage.py &gt;/tmp/productpage.py
 </code></pre>
-<p>&#x67E5;&#x770B;&#x4EE3;&#x7801;&#x5F97;&#x77E5;&#x5176;&#x5B83;&#x51E0;&#x4E2A;&#x670D;&#x52A1;&#x7684; http &#x63A5;&#x53E3;&#xFF0C;&#x540E;&#x9762;&#x5C06;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x63A5;&#x53E3;&#x9A8C;&#x8BC1;&#x670D;&#x52A1;&#xFF1A;</p>
-<pre><code class="lang-sh">details:  http://details:9080/details/0
+<p>查看代码得知其它几个服务的 http 接口，后面将使用这些接口验证服务：</p>
+<pre><code class="language-sh">details:  http://details:9080/details/0
 ratings:  http://ratings:9080/ratings/0
 reviews:  http://reviews:9080/reviews/0
 </code></pre>
-<p>Productpage service &#x90E8;&#x7F72; yaml&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> Service
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> productpage
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    app:</span> productpage
-<span class="hljs-attr">    service:</span> productpage
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  ports:</span>
-<span class="hljs-attr">  - port:</span> <span class="hljs-number">9080</span>
-<span class="hljs-attr">    name:</span> http
-<span class="hljs-attr">  selector:</span>
-<span class="hljs-attr">    app:</span> productpage
-<span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> ServiceAccount
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> bookinfo-productpage
-<span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> apps/v1
-<span class="hljs-attr">kind:</span> Deployment
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> productpage-v1
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    app:</span> productpage
-<span class="hljs-attr">    version:</span> v1
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  replicas:</span> <span class="hljs-number">1</span>
-<span class="hljs-attr">  selector:</span>
-<span class="hljs-attr">    matchLabels:</span>
-<span class="hljs-attr">      app:</span> productpage
-<span class="hljs-attr">      version:</span> v1
-<span class="hljs-attr">  template:</span>
-<span class="hljs-attr">    metadata:</span>
-<span class="hljs-attr">      labels:</span>
-<span class="hljs-attr">        app:</span> productpage
-<span class="hljs-attr">        version:</span> v1
-<span class="hljs-attr">    spec:</span>
-<span class="hljs-attr">      serviceAccountName:</span> bookinfo-productpage
-<span class="hljs-attr">      containers:</span>
-<span class="hljs-attr">      - name:</span> productpage
-<span class="hljs-attr">        image:</span> docker.io/istio/examples-bookinfo-productpage-v1:<span class="hljs-number">1.15</span><span class="hljs-number">.0</span>
-<span class="hljs-attr">        imagePullPolicy:</span> IfNotPresent
-<span class="hljs-attr">        ports:</span>
-<span class="hljs-attr">        - containerPort:</span> <span class="hljs-number">9080</span>
+<p>Productpage service 部署 yaml：</p>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: productpage
+  labels:
+    app: productpage
+    service: productpage
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: productpage
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-productpage
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productpage-v1
+  labels:
+    app: productpage
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productpage
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: productpage
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-productpage
+      containers:
+      - name: productpage
+        image: docker.io/istio/examples-bookinfo-productpage-v1:1.15.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
 </code></pre>
-<h3 id="&#x9A8C;&#x8BC1;-detail">&#x9A8C;&#x8BC1; Detail</h3>
-<p>&#x5B8C;&#x6210;&#x90E8;&#x7F72;&#x540E;&#xFF0C;&#x9A8C;&#x8BC1; details &#x670D;&#x52A1;&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl get svc details -o wide
+<h3 id="验证-detail"><a class="header" href="#验证-detail">验证 Detail</a></h3>
+<p>完成部署后，验证 details 服务：</p>
+<pre><code class="language-sh">$ kubectl get svc details -o wide
 NAME      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELECTOR
 details   ClusterIP   10.107.162.106   &lt;none&gt;        9080/TCP   76d   app=details
 </code></pre>
-<pre><code class="lang-sh">$ curl http://10.107.162.106:9080/details/0
-{<span class="hljs-string">&quot;id&quot;</span>:0,<span class="hljs-string">&quot;author&quot;</span>:<span class="hljs-string">&quot;William Shakespeare&quot;</span>,<span class="hljs-string">&quot;year&quot;</span>:1595,<span class="hljs-string">&quot;type&quot;</span>:<span class="hljs-string">&quot;paperback&quot;</span>,<span class="hljs-string">&quot;pages&quot;</span>:200,<span class="hljs-string">&quot;publisher...&#x7701;&#x7565;...
-</span></code></pre>
-<p>details &#x670D;&#x52A1;&#x7684;&#x90E8;&#x7F72;&#x6587;&#x4EF6;&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-comment">##################################################################################</span>
-<span class="hljs-comment"># Details service</span>
-<span class="hljs-comment">###################################################################################</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> Service
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> details
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    app:</span> details
-<span class="hljs-attr">    service:</span> details
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  ports:</span>
-<span class="hljs-attr">  - port:</span> <span class="hljs-number">9080</span>
-<span class="hljs-attr">    name:</span> http
-<span class="hljs-attr">  selector:</span>
-<span class="hljs-attr">    app:</span> details
-<span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> ServiceAccount
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> bookinfo-details
-<span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> apps/v1
-<span class="hljs-attr">kind:</span> Deployment
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> details-v1
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    app:</span> details
-<span class="hljs-attr">    version:</span> v1
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  replicas:</span> <span class="hljs-number">1</span>
-<span class="hljs-attr">  selector:</span>
-<span class="hljs-attr">    matchLabels:</span>
-<span class="hljs-attr">      app:</span> details
-<span class="hljs-attr">      version:</span> v1
-<span class="hljs-attr">  template:</span>
-<span class="hljs-attr">    metadata:</span>
-<span class="hljs-attr">      labels:</span>
-<span class="hljs-attr">        app:</span> details
-<span class="hljs-attr">        version:</span> v1
-<span class="hljs-attr">    spec:</span>
-<span class="hljs-attr">      serviceAccountName:</span> bookinfo-details
-<span class="hljs-attr">      containers:</span>
-<span class="hljs-attr">      - name:</span> details
-<span class="hljs-attr">        image:</span> docker.io/istio/examples-bookinfo-details-v1:<span class="hljs-number">1.15</span><span class="hljs-number">.0</span>
-<span class="hljs-attr">        imagePullPolicy:</span> IfNotPresent
-<span class="hljs-attr">        ports:</span>
-<span class="hljs-attr">        - containerPort:</span> <span class="hljs-number">9080</span>
-<span class="hljs-meta">---</span>
+<pre><code class="language-sh">$ curl http://10.107.162.106:9080/details/0
+{&quot;id&quot;:0,&quot;author&quot;:&quot;William Shakespeare&quot;,&quot;year&quot;:1595,&quot;type&quot;:&quot;paperback&quot;,&quot;pages&quot;:200,&quot;publisher...省略...
 </code></pre>
-<h3 id="&#x9A8C;&#x8BC1;-ratings">&#x9A8C;&#x8BC1; Ratings</h3>
-<p>&#x5B8C;&#x6210;&#x90E8;&#x7F72;&#x540E;&#xFF0C;&#x9A8C;&#x8BC1; ratings &#x670D;&#x52A1;&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl get svc ratings -o wide
+<p>details 服务的部署文件：</p>
+<pre><code class="language-yaml">##################################################################################
+# Details service
+###################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: details
+  labels:
+    app: details
+    service: details
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: details
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-details
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: details-v1
+  labels:
+    app: details
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: details
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: details
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-details
+      containers:
+      - name: details
+        image: docker.io/istio/examples-bookinfo-details-v1:1.15.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
+---
+</code></pre>
+<h3 id="验证-ratings"><a class="header" href="#验证-ratings">验证 Ratings</a></h3>
+<p>完成部署后，验证 ratings 服务：</p>
+<pre><code class="language-sh">$ kubectl get svc ratings -o wide
 NAME      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE   SELECTOR
 ratings   ClusterIP   10.107.67.216   &lt;none&gt;        9080/TCP   76d   app=ratings
 </code></pre>
-<pre><code class="lang-sh">$ curl http://10.107.67.216:9080/ratings/0
-{<span class="hljs-string">&quot;id&quot;</span>:0,<span class="hljs-string">&quot;ratings&quot;</span>:{<span class="hljs-string">&quot;Reviewer1&quot;</span>:5,<span class="hljs-string">&quot;Reviewer2&quot;</span>:4}}$
+<pre><code class="language-sh">$ curl http://10.107.67.216:9080/ratings/0
+{&quot;id&quot;:0,&quot;ratings&quot;:{&quot;Reviewer1&quot;:5,&quot;Reviewer2&quot;:4}}$
 </code></pre>
-<p>ratings &#x670D;&#x52A1;&#x7684;&#x90E8;&#x7F72;&#x6587;&#x4EF6;&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-comment">###################################################################################</span>
-<span class="hljs-comment"># Ratings service</span>
-<span class="hljs-comment">##################################################################################</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> Service
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> ratings
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    app:</span> ratings
-<span class="hljs-attr">    service:</span> ratings
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  ports:</span>
-<span class="hljs-attr">  - port:</span> <span class="hljs-number">9080</span>
-<span class="hljs-attr">    name:</span> http
-<span class="hljs-attr">  selector:</span>
-<span class="hljs-attr">    app:</span> ratings
-<span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> ServiceAccount
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> bookinfo-ratings
-<span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> apps/v1
-<span class="hljs-attr">kind:</span> Deployment
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> ratings-v1
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    app:</span> ratings
-<span class="hljs-attr">    version:</span> v1
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  replicas:</span> <span class="hljs-number">1</span>
-<span class="hljs-attr">  selector:</span>
-<span class="hljs-attr">    matchLabels:</span>
-<span class="hljs-attr">      app:</span> ratings
-<span class="hljs-attr">      version:</span> v1
-<span class="hljs-attr">  template:</span>
-<span class="hljs-attr">    metadata:</span>
-<span class="hljs-attr">      labels:</span>
-<span class="hljs-attr">        app:</span> ratings
-<span class="hljs-attr">        version:</span> v1
-<span class="hljs-attr">    spec:</span>
-<span class="hljs-attr">      serviceAccountName:</span> bookinfo-ratings
-<span class="hljs-attr">      containers:</span>
-<span class="hljs-attr">      - name:</span> ratings
-<span class="hljs-attr">        image:</span> docker.io/istio/examples-bookinfo-ratings-v1:<span class="hljs-number">1.15</span><span class="hljs-number">.0</span>
-<span class="hljs-attr">        imagePullPolicy:</span> IfNotPresent
-<span class="hljs-attr">        ports:</span>
-<span class="hljs-attr">        - containerPort:</span> <span class="hljs-number">9080</span>
+<p>ratings 服务的部署文件：</p>
+<pre><code class="language-yaml">###################################################################################
+# Ratings service
+##################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: ratings
+  labels:
+    app: ratings
+    service: ratings
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: ratings
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-ratings
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ratings-v1
+  labels:
+    app: ratings
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ratings
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: ratings
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-ratings
+      containers:
+      - name: ratings
+        image: docker.io/istio/examples-bookinfo-ratings-v1:1.15.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
 </code></pre>
-<h3 id="&#x9A8C;&#x8BC1;-reviews">&#x9A8C;&#x8BC1; Reviews</h3>
-<p>&#x5B8C;&#x6210;&#x90E8;&#x7F72;&#x540E;&#xFF0C;&#x9A8C;&#x8BC1; reviews &#x670D;&#x52A1;&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl get svc reviews -o wide
+<h3 id="验证-reviews"><a class="header" href="#验证-reviews">验证 Reviews</a></h3>
+<p>完成部署后，验证 reviews 服务：</p>
+<pre><code class="language-sh">$ kubectl get svc reviews -o wide
 NAME      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELECTOR
 reviews   ClusterIP   10.100.249.106   &lt;none&gt;        9080/TCP   76d   app=reviews
 </code></pre>
-<pre><code class="lang-sh">$ curl http://10.100.249.106:9080/reviews/0
-{<span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;0&quot;</span>,<span class="hljs-string">&quot;reviews&quot;</span>: [{  <span class="hljs-string">&quot;reviewer&quot;</span>: <span class="hljs-string">&quot;Reviewer1&quot;</span>,  <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;An extremely entertaining play by Shakespeare....&#x7701;&#x7565;...
-</span></code></pre>
-<p>Reviews &#x6709;&#x4E09;&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x5BF9;&#x5E94;&#x4E09;&#x4E2A; Deployment&#xFF0C;&#x96B6;&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x4E2A; Service&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-comment">###################################################################################</span>
-<span class="hljs-comment"># Reviews service</span>
-<span class="hljs-comment">###################################################################################</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> Service
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> reviews
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    app:</span> reviews
-<span class="hljs-attr">    service:</span> reviews
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  ports:</span>
-<span class="hljs-attr">  - port:</span> <span class="hljs-number">9080</span>
-<span class="hljs-attr">    name:</span> http
-<span class="hljs-attr">  selector:</span>
-<span class="hljs-attr">    app:</span> reviews
-<span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> ServiceAccount
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> bookinfo-reviews
+<pre><code class="language-sh">$ curl http://10.100.249.106:9080/reviews/0
+{&quot;id&quot;: &quot;0&quot;,&quot;reviews&quot;: [{  &quot;reviewer&quot;: &quot;Reviewer1&quot;,  &quot;text&quot;: &quot;An extremely entertaining play by Shakespeare....省略...
 </code></pre>
-<p>&#x4E09;&#x4E2A;&#x7248;&#x672C;&#x7684; deployment&#xFF1A;</p>
-<p>V1&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> apps/v1
-<span class="hljs-attr">kind:</span> Deployment
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> reviews-v1
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    app:</span> reviews
-<span class="hljs-attr">    version:</span> v1
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  replicas:</span> <span class="hljs-number">1</span>
-<span class="hljs-attr">  selector:</span>
-<span class="hljs-attr">    matchLabels:</span>
-<span class="hljs-attr">      app:</span> reviews
-<span class="hljs-attr">      version:</span> v1
-<span class="hljs-attr">  template:</span>
-<span class="hljs-attr">    metadata:</span>
-<span class="hljs-attr">      labels:</span>
-<span class="hljs-attr">        app:</span> reviews
-<span class="hljs-attr">        version:</span> v1
-<span class="hljs-attr">    spec:</span>
-<span class="hljs-attr">      serviceAccountName:</span> bookinfo-reviews
-<span class="hljs-attr">      containers:</span>
-<span class="hljs-attr">      - name:</span> reviews
-<span class="hljs-attr">        image:</span> docker.io/istio/examples-bookinfo-reviews-v1:<span class="hljs-number">1.15</span><span class="hljs-number">.0</span>
-<span class="hljs-attr">        imagePullPolicy:</span> IfNotPresent
-<span class="hljs-attr">        ports:</span>
-<span class="hljs-attr">        - containerPort:</span> <span class="hljs-number">9080</span>
+<p>Reviews 有三个版本，对应三个 Deployment，隶属于同一个 Service：</p>
+<pre><code class="language-yaml">###################################################################################
+# Reviews service
+###################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: reviews
+  labels:
+    app: reviews
+    service: reviews
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: reviews
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-reviews
+</code></pre>
+<p>三个版本的 deployment：</p>
+<p>V1：</p>
+<pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reviews-v1
+  labels:
+    app: reviews
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reviews
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: reviews
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-reviews
+      containers:
+      - name: reviews
+        image: docker.io/istio/examples-bookinfo-reviews-v1:1.15.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
 </code></pre>
 <p>V2:</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> apps/v1
-<span class="hljs-attr">kind:</span> Deployment
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> reviews-v2
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    app:</span> reviews
-<span class="hljs-attr">    version:</span> v2
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  replicas:</span> <span class="hljs-number">1</span>
-<span class="hljs-attr">  selector:</span>
-<span class="hljs-attr">    matchLabels:</span>
-<span class="hljs-attr">      app:</span> reviews
-<span class="hljs-attr">      version:</span> v2
-<span class="hljs-attr">  template:</span>
-<span class="hljs-attr">    metadata:</span>
-<span class="hljs-attr">      labels:</span>
-<span class="hljs-attr">        app:</span> reviews
-<span class="hljs-attr">        version:</span> v2
-<span class="hljs-attr">    spec:</span>
-<span class="hljs-attr">      serviceAccountName:</span> bookinfo-reviews
-<span class="hljs-attr">      containers:</span>
-<span class="hljs-attr">      - name:</span> reviews
-<span class="hljs-attr">        image:</span> docker.io/istio/examples-bookinfo-reviews-v2:<span class="hljs-number">1.15</span><span class="hljs-number">.0</span>
-<span class="hljs-attr">        imagePullPolicy:</span> IfNotPresent
-<span class="hljs-attr">        ports:</span>
-<span class="hljs-attr">        - containerPort:</span> <span class="hljs-number">9080</span>
+<pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reviews-v2
+  labels:
+    app: reviews
+    version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reviews
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: reviews
+        version: v2
+    spec:
+      serviceAccountName: bookinfo-reviews
+      containers:
+      - name: reviews
+        image: docker.io/istio/examples-bookinfo-reviews-v2:1.15.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
 </code></pre>
 <p>V3:</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> apps/v1
-<span class="hljs-attr">kind:</span> Deployment
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> reviews-v3
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    app:</span> reviews
-<span class="hljs-attr">    version:</span> v3
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  replicas:</span> <span class="hljs-number">1</span>
-<span class="hljs-attr">  selector:</span>
-<span class="hljs-attr">    matchLabels:</span>
-<span class="hljs-attr">      app:</span> reviews
-<span class="hljs-attr">      version:</span> v3
-<span class="hljs-attr">  template:</span>
-<span class="hljs-attr">    metadata:</span>
-<span class="hljs-attr">      labels:</span>
-<span class="hljs-attr">        app:</span> reviews
-<span class="hljs-attr">        version:</span> v3
-<span class="hljs-attr">    spec:</span>
-<span class="hljs-attr">      serviceAccountName:</span> bookinfo-reviews
-<span class="hljs-attr">      containers:</span>
-<span class="hljs-attr">      - name:</span> reviews
-<span class="hljs-attr">        image:</span> docker.io/istio/examples-bookinfo-reviews-v3:<span class="hljs-number">1.15</span><span class="hljs-number">.0</span>
-<span class="hljs-attr">        imagePullPolicy:</span> IfNotPresent
-<span class="hljs-attr">        ports:</span>
-<span class="hljs-attr">        - containerPort:</span> <span class="hljs-number">9080</span>
+<pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reviews-v3
+  labels:
+    app: reviews
+    version: v3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reviews
+      version: v3
+  template:
+    metadata:
+      labels:
+        app: reviews
+        version: v3
+    spec:
+      serviceAccountName: bookinfo-reviews
+      containers:
+      - name: reviews
+        image: docker.io/istio/examples-bookinfo-reviews-v3:1.15.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9080
 </code></pre>
-<h2 id="&#x521B;&#x5EFA;-gateway&#xFF0C;ingress-envoy-&#x5F00;&#x59CB;&#x76D1;&#x542C;">&#x521B;&#x5EFA; Gateway&#xFF0C;ingress envoy &#x5F00;&#x59CB;&#x76D1;&#x542C;</h2>
-<p>&#x521B;&#x5EFA; Gateway&#xFF0C;&#x6307;&#x793A;&#x8FB9;&#x754C; envoy &#x76D1;&#x542C; 80 &#x7AEF;&#x53E3;&#xFF0C;&#x5141;&#x8BB8;&#x901A;&#x8FC7; ingress envoy &#x7684; 80 &#x7AEF;&#x53E3;&#x8BBF;&#x95EE; Bookinfo&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/networking/bookinfo-gateway.yaml
+<h2 id="创建-gatewayingress-envoy-开始监听"><a class="header" href="#创建-gatewayingress-envoy-开始监听">创建 Gateway，ingress envoy 开始监听</a></h2>
+<p>创建 Gateway，指示边界 envoy 监听 80 端口，允许通过 ingress envoy 的 80 端口访问 Bookinfo：</p>
+<pre><code class="language-sh">$ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 </code></pre>
-<p>Gateway &#x5B9A;&#x4E49;&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
-<span class="hljs-attr">kind:</span> Gateway
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> bookinfo-gateway
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  selector:</span>
-<span class="hljs-attr">    istio:</span> ingressgateway <span class="hljs-comment"># use istio default controller</span>
-<span class="hljs-attr">  servers:</span>
-<span class="hljs-attr">  - port:</span>
-<span class="hljs-attr">      number:</span> <span class="hljs-number">80</span>
-<span class="hljs-attr">      name:</span> http
-<span class="hljs-attr">      protocol:</span> HTTP
-<span class="hljs-attr">    hosts:</span>
-<span class="hljs-bullet">    -</span> <span class="hljs-string">&quot;*&quot;</span>
+<p>Gateway 定义：</p>
+<pre><code class="language-yaml">apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: bookinfo-gateway
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - &quot;*&quot;
 </code></pre>
-<p>&#x5982;&#x679C;&#x8FD9;&#x65F6;&#x5019;&#x8FD8;&#x6CA1;&#x6709;&#x521B;&#x5EFA; VirtualService&#xFF0C;ingress envoy &#x8FD8;&#x4E0D;&#x77E5;&#x9053;&#x8981;&#x8F6C;&#x53D1;&#x5230;&#x54EA;&#x91CC;&#x3002;</p>
-<h2 id="&#x521B;&#x5EFA;-virtualservice&#xFF0C;&#x8F6C;&#x53D1;&#x8BF7;&#x6C42;">&#x521B;&#x5EFA; VirtualService&#xFF0C;&#x8F6C;&#x53D1;&#x8BF7;&#x6C42;</h2>
-<p>&#x521B;&#x5EFA; VirtualService&#xFF0C;&#x6307;&#x793A; ingress envoy &#x5C06;&#x5916;&#x90E8;&#x5230;&#x6765;&#x7684;&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x5230; productpage &#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/networking/bookinfo-gateway.yaml
+<p>如果这时候还没有创建 VirtualService，ingress envoy 还不知道要转发到哪里。</p>
+<h2 id="创建-virtualservice转发请求"><a class="header" href="#创建-virtualservice转发请求">创建 VirtualService，转发请求</a></h2>
+<p>创建 VirtualService，指示 ingress envoy 将外部到来的请求转发到 productpage ：</p>
+<pre><code class="language-sh">$ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml  
 </code></pre>
-<p>VirtualService &#x5B9A;&#x4E49;&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
-<span class="hljs-attr">kind:</span> VirtualService
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> bookinfo
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  hosts:</span>
-<span class="hljs-bullet">  -</span> <span class="hljs-string">&quot;*&quot;</span>
-<span class="hljs-attr">  gateways:</span>
-<span class="hljs-bullet">  -</span> bookinfo-gateway
-<span class="hljs-attr">  http:</span>
-<span class="hljs-attr">  - match:</span>
-<span class="hljs-attr">    - uri:</span>
-<span class="hljs-attr">        exact:</span> /productpage
-<span class="hljs-attr">    - uri:</span>
-<span class="hljs-attr">        prefix:</span> /static
-<span class="hljs-attr">    - uri:</span>
-<span class="hljs-attr">        exact:</span> /login
-<span class="hljs-attr">    - uri:</span>
-<span class="hljs-attr">        exact:</span> /logout
-<span class="hljs-attr">    - uri:</span>
-<span class="hljs-attr">        prefix:</span> /api/v1/products
-<span class="hljs-attr">    route:</span>
-<span class="hljs-attr">    - destination:</span>
-<span class="hljs-attr">        host:</span> productpage
-<span class="hljs-attr">        port:</span>
-<span class="hljs-attr">          number:</span> <span class="hljs-number">9080</span>
+<p>VirtualService 定义：</p>
+<pre><code class="language-yaml">apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: bookinfo
+spec:
+  hosts:
+  - &quot;*&quot;
+  gateways:
+  - bookinfo-gateway
+  http:
+  - match:
+    - uri:
+        exact: /productpage
+    - uri:
+        prefix: /static
+    - uri:
+        exact: /login
+    - uri:
+        exact: /logout
+    - uri:
+        prefix: /api/v1/products
+    route:
+    - destination:
+        host: productpage
+        port:
+          number: 9080
 </code></pre>
-<p>&#x8FD9;&#x65F6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FB9;&#x754C; envoy &#x8BBF;&#x95EE; bookinfo&#x3002;&#x8FD9;&#x91CC;&#x7684; hosts &#x914D;&#x7F6E;&#x662F; <code>*</code>&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x6539;&#x6210;&#x5177;&#x4F53;&#x7684;&#x57DF;&#x540D;&#x3002;</p>
-<h2 id="&#x901A;&#x8FC7;&#x8FB9;&#x754C;-envoy-&#x8BBF;&#x95EE;&#x5E94;&#x7528;">&#x901A;&#x8FC7;&#x8FB9;&#x754C; envoy &#x8BBF;&#x95EE;&#x5E94;&#x7528;</h2>
-<p>&#x8FB9;&#x754C; envoy &#x662F; istio &#x7684;&#x7EC4;&#x4EF6;&#x4E4B;&#x4E00;&#xFF0C;&#x7531;&#x4E24;&#x4E2A;&#x670D;&#x52A1;&#x7EC4;&#x6210;&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl -n istio-system get deployment | grep gateway
+<p>这时可以通过边界 envoy 访问 bookinfo。这里的 hosts 配置是 <code>*</code>，可以根据需要改成具体的域名。</p>
+<h2 id="通过边界-envoy-访问应用"><a class="header" href="#通过边界-envoy-访问应用">通过边界 envoy 访问应用</a></h2>
+<p>边界 envoy 是 istio 的组件之一，由两个服务组成：</p>
+<pre><code class="language-sh">$ kubectl -n istio-system get deployment | grep gateway
 istio-egressgateway      1/1     1            1           45h
 istio-ingressgateway     1/1     1            1           45h
 </code></pre>
-<p>&#x4E00;&#x4E2A;&#x8D1F;&#x8D23;&#x4ECE;&#x5916;&#x90E8;&#x6D41;&#x5165;&#x7F51;&#x683C;&#x7684;&#x6D41;&#x91CF;&#xFF08;ingress&#xFF09;&#xFF0C;&#x4E00;&#x4E2A;&#x8D1F;&#x8D23;&#x4ECE;&#x7F51;&#x683C;&#x6D41;&#x5411;&#x5916;&#x90E8;&#x7684;&#x6D41;&#x91CF;&#xFF08;egress&#xFF09;&#x3002;</p>
-<p>&#x7EA6;&#x5B9A; istio-ingressgateway &#x5904;&#x7406;&#x5916;&#x90E8;&#x8FDB;&#x5165;&#x7F51;&#x683C;&#x7684;&#x6D41;&#x91CF;&#xFF0C;istio-egressgateway &#x5904;&#x7406;&#x7F51;&#x683C;&#x6D41;&#x5411;&#x5916;&#x90E8;&#x7684;&#x6D41;&#x91CF;&#xFF0C;&#x79BB;&#x5F00;&#x7F51;&#x683C;&#x7684;&#x6D41;&#x91CF;&#x7684;&#x5904;&#x7406;&#x53C2;&#x8003; <a href="egress.html">Engress Control</a>&#x3002;</p>
-<p>&#x901A;&#x8FC7; kubernetes &#x63D0;&#x4F9B;&#x7684;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE; istio-ingressgateway&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl -n istio-system get service | grep gateway
+<p>一个负责从外部流入网格的流量（ingress），一个负责从网格流向外部的流量（egress）。</p>
+<p>约定 istio-ingressgateway 处理外部进入网格的流量，istio-egressgateway 处理网格流向外部的流量，离开网格的流量的处理参考 <a href="./egress.html">Engress Control</a>。</p>
+<p>通过 kubernetes 提供的方式访问 istio-ingressgateway：</p>
+<pre><code class="language-sh">$ kubectl -n istio-system get service | grep gateway
 istio-egressgateway      ClusterIP      10.111.134.223   &lt;none&gt;     80/TCP,443/TCP,15443/TCP
 istio-ingressgateway     LoadBalancer   10.101.187.91    &lt;pending&gt;  15020:31270/TCP,80:31380/TCP,
                                                                     443:31390/TCP,31400:31400/TCP,
@@ -3189,9 +603,9 @@ istio-ingressgateway     LoadBalancer   10.101.187.91    &lt;pending&gt;  15020:
                                                                     15031:30269/TCP,15032:30249/TCP,
                                                                     15443:31829/TCP
 </code></pre>
-<p>&#x53EF;&#x4EE5;&#x770B;&#x5230; istio-ingressgateway &#x4F7F;&#x7528; LoadBalancer &#x6A21;&#x5F0F;&#xFF0C;&#x5B83;&#x7684; 80 &#x7AEF;&#x53E3;&#x5BF9;&#x5E94;&#x7684;&#x6620;&#x5C04;&#x7AEF;&#x53E3;&#x662F; 31380&#x3002;</p>
-<p>&#x5982;&#x679C;&#x662F;&#x7528; minikube &#x90E8;&#x7F72;&#x7684; kubernetes&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x5F0F;&#x83B7;&#x53D6; istio-ingressgateway &#x7684;&#x8BBF;&#x95EE;&#x5730;&#x5740;&#xFF1A;</p>
-<pre><code class="lang-sh">$ minikube service list
+<p>可以看到 istio-ingressgateway 使用 LoadBalancer 模式，它的 80 端口对应的映射端口是 31380。</p>
+<p>如果是用 minikube 部署的 kubernetes，可以用下面的方式获取 istio-ingressgateway 的访问地址：</p>
+<pre><code class="language-sh">$ minikube service list
 |---------------|------------------------|--------------------------------|
 |   NAMESPACE   |          NAME          |              URL               |
 |---------------|------------------------|--------------------------------|
@@ -3206,303 +620,241 @@ istio-ingressgateway     LoadBalancer   10.101.187.91    &lt;pending&gt;  15020:
 |               |                        | http://192.168.99.100:31829    |
 |---------------|------------------------|--------------------------------|
 </code></pre>
-<p>&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x4E86; minikube&#xFF0C;&#x7528;&#x4E0B;&#x9762;&#x7684; url &#x8BBF;&#x95EE; bookinfo&#xFF0C;path &#x4E3A; <code>productpage</code>&#xFF0C;&#x4E0E; VirtualService &#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x4E00;&#x81F4;&#xFF1A;</p>
-<pre><code class="lang-sh">http://192.168.99.100:31380/productpage
+<p>这里使用了 minikube，用下面的 url 访问 bookinfo，path 为 <code>productpage</code>，与 VirtualService 中的配置一致：</p>
+<pre><code class="language-sh">http://192.168.99.100:31380/productpage
 </code></pre>
-<p><img src="../img/envoy/bookinfo.png" alt="bookinfo&#x7F51;&#x9875;"></p>
-<p>&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FB9;&#x754C; envoy &#x8BBF;&#x95EE;&#x5E94;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF0C;&#x56DB;&#x4E2A;&#x5B50;&#x7CFB;&#x7EDF;&#x4E4B;&#x95F4;&#x7684;&#x4E92;&#x76F8;&#x8BBF;&#x95EE;&#x548C;&#x901A;&#x8FC7; kubernetes &#x4E2D;&#x7684; svc &#x8BBF;&#x95EE;&#x6548;&#x679C;&#x76F8;&#x540C;&#x3002;</p>
-<p>&#x5237;&#x65B0;&#x9875;&#x9762;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x5728;&#x53D8;&#x5316;&#xFF1A;</p>
-<p><img src="../img/envoy/bookinfo.png" alt="bookinfo&#x7F51;&#x9875;"></p>
-<p><img src="../img/envoy/bookinfo2.png" alt="bookinfo&#x7F51;&#x9875;"></p>
-<p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A; reviews &#x670D;&#x52A1;&#x6709; v1&#x3001;v2&#x3001;v3 &#x4E09;&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x8BBF;&#x95EE; productpage &#x65F6;&#xFF0C;productpage &#x968F;&#x673A;&#x4ECE; reviews &#x7684;&#x4E09;&#x4E2A;&#x7248;&#x672C;&#x7684; pod &#x4E2D;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x8BC4;&#x8BBA;&#x6570;&#x636E;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x770B;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x9875;&#x9762;&#x3002;</p>
-<p>&#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; VirtualService &#x548C; Destination&#xFF0C;&#x7CBE;&#x7EC6;&#x7BA1;&#x63A7;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#x3002;</p>
-<h2 id="&#x8BBE;&#x7F6E;&#x7F51;&#x683C;&#x5185;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF1A;destinationrule">&#x8BBE;&#x7F6E;&#x7F51;&#x683C;&#x5185;&#x7684;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF1A;DestinationRule</h2>
-<p>&#x4E3A;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; DestinationRule&#xFF0C;&#x8BBE;&#x7F6E;&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/networking/destination-rule-all.yaml
+<p><img src="../img/envoy/bookinfo.png" alt="bookinfo网页" /></p>
+<p>虽然可以通过边界 envoy 访问应用，但是因为没有设置转发策略，四个子系统之间的互相访问和通过 kubernetes 中的 svc 访问效果相同。</p>
+<p>刷新页面会看到页面在变化：</p>
+<p><img src="../img/envoy/bookinfo.png" alt="bookinfo网页" /></p>
+<p><img src="../img/envoy/bookinfo2.png" alt="bookinfo网页" /></p>
+<p>这是因为 reviews 服务有 v1、v2、v3 三个版本，访问 productpage 时，productpage 随机从 reviews 的三个版本的 pod 中获取用户评论数据，所以会看到不同的页面。</p>
+<p>可以为每个服务创建一个 VirtualService 和 Destination，精细管控每个服务的转发策略。</p>
+<h2 id="设置网格内的转发策略destinationrule"><a class="header" href="#设置网格内的转发策略destinationrule">设置网格内的转发策略：DestinationRule</a></h2>
+<p>为每个服务创建一个 DestinationRule，设置转发策略：</p>
+<pre><code class="language-sh">$ kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
 </code></pre>
-<p>&#x8FD9;&#x91CC;&#x5728; DestinationRule &#x4E2D;&#x5C06; Pod &#x6309;&#x7167; Label &#x8FDB;&#x884C;&#x4E86;&#x5206;&#x7EC4;&#xFF0C;&#x62C6;&#x5206;&#x6210;&#x591A;&#x4E2A; subnet&#xFF1A;</p>
-<p>productpage&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
-<span class="hljs-attr">kind:</span> DestinationRule
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> productpage
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  host:</span> productpage
-<span class="hljs-attr">  subsets:</span>
-<span class="hljs-attr">  - name:</span> v1
-<span class="hljs-attr">    labels:</span>
-<span class="hljs-attr">      version:</span> v1
+<p>这里在 DestinationRule 中将 Pod 按照 Label 进行了分组，拆分成多个 subnet：</p>
+<p>productpage：</p>
+<pre><code class="language-yaml">apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: productpage
+spec:
+  host: productpage
+  subsets:
+  - name: v1
+    labels:
+      version: v1
 </code></pre>
-<p>ratings&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
-<span class="hljs-attr">kind:</span> DestinationRule
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> ratings
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  host:</span> ratings
-<span class="hljs-attr">  subsets:</span>
-<span class="hljs-attr">  - name:</span> v1
-<span class="hljs-attr">    labels:</span>
-<span class="hljs-attr">      version:</span> v1
-<span class="hljs-attr">  - name:</span> v2
-<span class="hljs-attr">    labels:</span>
-<span class="hljs-attr">      version:</span> v2
-<span class="hljs-attr">  - name:</span> v2-mysql
-<span class="hljs-attr">    labels:</span>
-<span class="hljs-attr">      version:</span> v2-mysql
-<span class="hljs-attr">  - name:</span> v2-mysql-vm
-<span class="hljs-attr">    labels:</span>
-<span class="hljs-attr">      version:</span> v2-mysql-vm
+<p>ratings：</p>
+<pre><code class="language-yaml">apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: ratings
+spec:
+  host: ratings
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+  - name: v2
+    labels:
+      version: v2
+  - name: v2-mysql
+    labels:
+      version: v2-mysql
+  - name: v2-mysql-vm
+    labels:
+      version: v2-mysql-vm
 </code></pre>
 <p>details:</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
-<span class="hljs-attr">kind:</span> DestinationRule
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> details
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  host:</span> details
-<span class="hljs-attr">  subsets:</span>
-<span class="hljs-attr">  - name:</span> v1
-<span class="hljs-attr">    labels:</span>
-<span class="hljs-attr">      version:</span> v1
-<span class="hljs-attr">  - name:</span> v2
-<span class="hljs-attr">    labels:</span>
-<span class="hljs-attr">      version:</span> v2
+<pre><code class="language-yaml">apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: details
+spec:
+  host: details
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+  - name: v2
+    labels:
+      version: v2
 </code></pre>
 <p>reviews:</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
-<span class="hljs-attr">kind:</span> DestinationRule
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> reviews
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  host:</span> reviews
-<span class="hljs-attr">  subsets:</span>
-<span class="hljs-attr">  - name:</span> v1
-<span class="hljs-attr">    labels:</span>
-<span class="hljs-attr">      version:</span> v1
-<span class="hljs-attr">  - name:</span> v2
-<span class="hljs-attr">    labels:</span>
-<span class="hljs-attr">      version:</span> v2
-<span class="hljs-attr">  - name:</span> v3
-<span class="hljs-attr">    labels:</span>
-<span class="hljs-attr">      version:</span> v3
+<pre><code class="language-yaml">apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: reviews
+spec:
+  host: reviews
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+  - name: v2
+    labels:
+      version: v2
+  - name: v3
+    labels:
+      version: v3
 </code></pre>
-<p>&#x8F6C;&#x53D1;&#x7B56;&#x7565;&#x88AB; VirtualService &#x5F15;&#x7528;&#x540E;&#x624D;&#x751F;&#x6548;&#xFF0C;&#x53C2;&#x8003; <a href="https://istio.io/docs/tasks/traffic-management/request-routing/" title="Apply a virtual service" target="_blank">Apply a virtual service</a>&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x4E3A;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; VirtualService&#xFF0C;&#x5728; VirtualService &#x4E2D;&#x5F15;&#x7528; DestinationRule &#x4E2D;&#x7684; subset&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/networking/virtual-service-all-v1.yaml
+<p>转发策略被 VirtualService 引用后才生效，参考 <a href="https://istio.io/docs/tasks/traffic-management/request-routing/" title="Apply a virtual service">Apply a virtual service</a>，还需要为每个服务创建一个 VirtualService，在 VirtualService 中引用 DestinationRule 中的 subset：</p>
+<pre><code class="language-sh">$ kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
 </code></pre>
-<p>productpage &#x7684; VirtualService&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
-<span class="hljs-attr">kind:</span> VirtualService
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> productpage
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  hosts:</span>
-<span class="hljs-bullet">  -</span> productpage
-<span class="hljs-attr">  http:</span>
-<span class="hljs-attr">  - route:</span>
-<span class="hljs-attr">    - destination:</span>
-<span class="hljs-attr">        host:</span> productpage
-<span class="hljs-attr">        subset:</span> v1
+<p>productpage 的 VirtualService：</p>
+<pre><code class="language-yaml">apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: productpage
+spec:
+  hosts:
+  - productpage
+  http:
+  - route:
+    - destination:
+        host: productpage
+        subset: v1
 </code></pre>
-<p>details &#x7684; VirtualService&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
-<span class="hljs-attr">kind:</span> VirtualService
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> details
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  hosts:</span>
-<span class="hljs-bullet">  -</span> details
-<span class="hljs-attr">  http:</span>
-<span class="hljs-attr">  - route:</span>
-<span class="hljs-attr">    - destination:</span>
-<span class="hljs-attr">        host:</span> details
-<span class="hljs-attr">        subset:</span> v1
+<p>details 的 VirtualService：</p>
+<pre><code class="language-yaml">apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: details
+spec:
+  hosts:
+  - details
+  http:
+  - route:
+    - destination:
+        host: details
+        subset: v1
 </code></pre>
-<p>ratings &#x7684; VirtualService&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
-<span class="hljs-attr">kind:</span> VirtualService
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> ratings
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  hosts:</span>
-<span class="hljs-bullet">  -</span> ratings
-<span class="hljs-attr">  http:</span>
-<span class="hljs-attr">  - route:</span>
-<span class="hljs-attr">    - destination:</span>
-<span class="hljs-attr">        host:</span> ratings
-<span class="hljs-attr">        subset:</span> v1
+<p>ratings 的 VirtualService：</p>
+<pre><code class="language-yaml">apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: ratings
+spec:
+  hosts:
+  - ratings
+  http:
+  - route:
+    - destination:
+        host: ratings
+        subset: v1
 </code></pre>
-<p>reviews &#x7684; VirtualService&#xFF1A;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
-<span class="hljs-attr">kind:</span> VirtualService
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> reviews
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  hosts:</span>
-<span class="hljs-bullet">  -</span> reviews
-<span class="hljs-attr">  http:</span>
-<span class="hljs-attr">  - route:</span>
-<span class="hljs-attr">    - destination:</span>
-<span class="hljs-attr">        host:</span> reviews
-<span class="hljs-attr">        subset:</span> v1
+<p>reviews 的 VirtualService：</p>
+<pre><code class="language-yaml">apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+  - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
 </code></pre>
-<p>reviews &#x7684; VirtualService &#x7ED1;&#x5B9A;&#x4E86; reviews &#x7684; <code>subset: v1</code>&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x8BBF;&#x95EE; bookinfo&#xFF0C;&#x9875;&#x9762;&#x4E0D;&#x518D;&#x53D8;&#x5316;&#x3002;</p>
-<p><img src="../img/envoy/bookinfo3.png" alt="bookinfo&#x7F51;&#x9875;"></p>
-<h2 id="&#x6309;&#x7167;&#x7528;&#x6237;&#x8F6C;&#x53D1;">&#x6309;&#x7167;&#x7528;&#x6237;&#x8F6C;&#x53D1;</h2>
-<p>&#x66F4;&#x65B0; reviews &#x7684; VirtualService&#xFF0C;&#x5C06; jason &#x7528;&#x6237;&#x7684;&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x5230; v2 &#x7248;&#x672C;&#xFF1A;</p>
-<pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
+<p>reviews 的 VirtualService 绑定了 reviews 的 <code>subset: v1</code>，这时候访问 bookinfo，页面不再变化。</p>
+<p><img src="../img/envoy/bookinfo3.png" alt="bookinfo网页" /></p>
+<h2 id="按照用户转发"><a class="header" href="#按照用户转发">按照用户转发</a></h2>
+<p>更新 reviews 的 VirtualService，将 jason 用户的请求转发到 v2 版本：</p>
+<pre><code class="language-sh">$ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
 </code></pre>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.istio.io/v1alpha3
-<span class="hljs-attr">kind:</span> VirtualService
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> reviews
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  hosts:</span>
-<span class="hljs-bullet">    -</span> reviews
-<span class="hljs-attr">  http:</span>
-<span class="hljs-attr">  - match:</span>
-<span class="hljs-attr">    - headers:</span>
-<span class="hljs-attr">        end-user:</span>
-<span class="hljs-attr">          exact:</span> jason
-<span class="hljs-attr">    route:</span>
-<span class="hljs-attr">    - destination:</span>
-<span class="hljs-attr">        host:</span> reviews
-<span class="hljs-attr">        subset:</span> v2
-<span class="hljs-attr">  - route:</span>
-<span class="hljs-attr">    - destination:</span>
-<span class="hljs-attr">        host:</span> reviews
-<span class="hljs-attr">        subset:</span> v1
+<pre><code class="language-yaml">apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+    - reviews
+  http:
+  - match:
+    - headers:
+        end-user:
+          exact: jason
+    route:
+    - destination:
+        host: reviews
+        subset: v2
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
 </code></pre>
-<p>&#x70B9;&#x51FB;&#x754C;&#x9762;&#x53F3;&#x4E0A;&#x89D2;&#x7684; login&#xFF0C;&#x4EE5;&#x7528;&#x6237; jason &#x7684;&#x8EAB;&#x4EFD;&#x767B;&#x5F55;&#xFF08;&#x5BC6;&#x7801;&#x4E3A;&#x7A7A;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x5237;&#x65B0;&#x9875;&#x9762;&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;&#x9875;&#x9762;&#x53D8;&#x6210;&#x4E86; v2 &#x7248;&#x672C;&#xFF1A;</p>
-<p><img src="../img/envoy/bookinfo4.png" alt="bookinfo&#x7F51;&#x9875;"></p>
-<p>&#x9000;&#x51FA; jason &#x8D26;&#x53F7;&#x540E;&#xFF0C;&#x9875;&#x9762;&#x53C8;&#x56DE;&#x5230;&#x4E86; v1 &#x7248;&#x672C;&#x3002;</p>
-<h2 id="&#x66F4;&#x591A;&#x64CD;&#x4F5C;">&#x66F4;&#x591A;&#x64CD;&#x4F5C;</h2>
-<p><a href="https://istio.io/docs/tasks/traffic-management/request-routing/" title="Traffic Management" target="_blank">Traffic Management</a> &#x4E2D;&#x6709;&#x66F4;&#x591A;&#x793A;&#x8303;&#x64CD;&#x4F5C;&#xFF0C;&#x8B6C;&#x5982;&#x6309;&#x7167; user &#x8F6C;&#x53D1;&#x3001;&#x9519;&#x8BEF;&#x6CE8;&#x5165;&#x3001;&#x6D41;&#x91CF;&#x6574;&#x5F62;&#x3001;&#x65AD;&#x8DEF;&#x5668;&#x3001;&#x6D41;&#x91CF;&#x590D;&#x5236;&#x7B49;&#xFF0C;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x653E;&#x5728;&#x540E;&#x9762;&#x5355;&#x72EC;&#x6574;&#x7406;&#x3002;</p>
-<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
-<script type="text/javascript">var className='atoc';</script>
-                                
+<p>点击界面右上角的 login，以用户 jason 的身份登录（密码为空），然后刷新页面，会发现页面变成了 v2 版本：</p>
+<p><img src="../img/envoy/bookinfo4.png" alt="bookinfo网页" /></p>
+<p>退出 jason 账号后，页面又回到了 v1 版本。</p>
+<h2 id="更多操作"><a class="header" href="#更多操作">更多操作</a></h2>
+<p><a href="https://istio.io/docs/tasks/traffic-management/request-routing/" title="Traffic Management">Traffic Management</a> 中有更多示范操作，譬如按照 user 转发、错误注入、流量整形、断路器、流量复制等，这些内容放在后面单独整理。</p>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
 
-<div>
-<!-- 匹配内容 -->
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="autorelaxed"
-     data-ad-client="ca-pub-8176866190626448"
-     data-ad-slot="6443696990"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
+                    </main>
 
-<!-- Page_Bottom -->
-<!--div>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-8176866190626448"
-     data-ad-slot="7945072540"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div-->
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../istio/httprecord.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-<div style="display:flex;flex-direction:row;justify-content:center">
-<br>
-<a href="https://study.163.com/provider/400000000376006/course.htm?share=2&shareId=400000000376006"><img height="250px" alt="微信公众号:我的网课" src="https://www.lijiaocn.com/img/class.jpg"/></a>
-<a href="https://weibo.com/zuiniur/profile"><img height="250px" alt="微信公众号:我的资产" src="https://www.lijiaocn.com/money/img/self.jpg"/></a>
-</div>
+                            <a rel="next prefetch" href="../istio/route.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
-
-                        </div>
-                    </div>
-                
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+                <div style="text-align:center;width:100%">
+                    <!--h1>底部相关广告</h1-->
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8176866190626448"
+                         crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-format="autorelaxed"
+                         data-ad-client="ca-pub-8176866190626448"
+                         data-ad-slot="6443696990"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
             </div>
 
-            
-                
-                <a href="httprecord.html" class="navigation navigation-prev " aria-label="Previous page: Http-Record Application">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="route.html" class="navigation navigation-next " aria-label="Next page: 转发路由">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../istio/httprecord.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../istio/route.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Bookinfo Application","level":"1.5.6.2","depth":3,"next":{"title":"转发路由","level":"1.5.7","depth":2,"path":"istio/route.md","ref":"istio/route.md","articles":[]},"previous":{"title":"Http-Record Application","level":"1.5.6.1","depth":3,"path":"istio/httprecord.md","ref":"istio/httprecord.md","articles":[]},"dir":"ltr"},"config":{"plugins":[{"name":"theme-lijiaocn","version":"git+https://github.com/lijiaocn/theme-lijiaocn.git"},"atoc","toggle-chapters","rss"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":[],"title":"常见软件系统实用使用手册","description":"记录工作中接触的一些重要的系统软件的使用方法，譬如Linux问题诊断与性能优化，envoy、nginx、openresty的使用","author":"李佶澳","site_url":"https://www.lijiaocn.com/soft/","feed_url":"https://www.lijiaocn.com/soft/feed.xml"},"highlight":{},"theme-lijiaocn":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"lijiaocn@foxmail.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"language":"zh-hans","gitbook":">=3.0.0"},"file":{"path":"istio/bookinfo.md","mtime":"2020-04-22T01:54:03.878Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-22T01:54:13.913Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-atoc/atoc.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
     </body>
 </html>
-
