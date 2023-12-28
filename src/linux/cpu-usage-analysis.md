@@ -54,7 +54,7 @@ perf record -ag  -- sleep 15;perf report
 
 perf report中显示，stress进程的cpu事件占比是77%，它大量调用了随机数生成函数random()：
 
-![perf-report](/img/perf-report-1.png)
+![perf-report](../img/perf-report-1.png)
 
 ## vmstat查看上下文切换
 

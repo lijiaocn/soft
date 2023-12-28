@@ -1,7 +1,7 @@
 <!-- toc -->
 # Linux的netfilter
 
-![net filter](/img/linux/net-filter.png)
+![net filter](../img/linux/net-filter.png)
 
 ## 连接跟踪表参数
 

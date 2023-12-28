@@ -40,6 +40,6 @@ time.geekbang.org.	600	IN	A	39.106.233.176
 ;; Received 62 bytes from 140.205.41.16#53(dns10.hichina.com) in 4 ms
 ```
 
-![dig的dns跟踪过程](/img/linux/dig-dns-trace.png)
+![dig的dns跟踪过程](../img/linux/dig-dns-trace.png)
 
 ## 参考

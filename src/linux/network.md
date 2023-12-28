@@ -5,23 +5,23 @@ Linux网络相关知识。
 
 ## 指标和工具映射表
 
-![网络指标工具映射表](/img/linux/net-metric-tool.png)
+![网络指标工具映射表](../img/linux/net-metric-tool.png)
 
-![网络指标工具映射表](/img/linux/net-tool-metric.png)
+![网络指标工具映射表](../img/linux/net-tool-metric.png)
 
 ## 报文处理流程
 
-![报文处理流程](/img/linux/pkt-process.png)
+![报文处理流程](../img/linux/pkt-process.png)
 
 ## TCP连接状态
 
 [TCP连接相关知识](https://www.lijiaocn.com/%E6%8A%80%E5%B7%A7/2017/09/04/linux-net-tcp.html)
 
-![TCP连接状态](/img/linux/tcp-stat.png)
+![TCP连接状态](../img/linux/tcp-stat.png)
 
 ## TCP参数调优
 
-![TCP参数调优](/img/linux/tcp-parameters.png)
+![TCP参数调优](../img/linux/tcp-parameters.png)
 
 ## 其它文章
 

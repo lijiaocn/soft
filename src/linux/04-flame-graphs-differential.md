@@ -9,6 +9,6 @@
 
 在最近一次制作的火焰图上，耗时相比前一次增加的函数用红色，耗时减少的函数用蓝色：
 
-![差异火焰图](/img/linux/zfs-flamegraph-diff.svg)
+![差异火焰图](../img/linux/zfs-flamegraph-diff.svg)
 
 ## 参考

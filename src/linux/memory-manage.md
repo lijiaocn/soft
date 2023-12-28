@@ -3,21 +3,21 @@
 
 ## 虚拟内存地址空间划分
 
-![Linux虚拟地址空间划分](/img/linux/memory-space.png)
+![Linux虚拟地址空间划分](../img/linux/memory-space.png)
 
-![Linux虚拟地址空间的详细划分](/img/linux/memory-space-detail.png)
+![Linux虚拟地址空间的详细划分](../img/linux/memory-space-detail.png)
 
 ## 虚拟内存与物理内存的映射
 
-![Linux虚拟内存与物理内存的映射表](/img/linux/memory-map.png)
+![Linux虚拟内存与物理内存的映射表](../img/linux/memory-map.png)
 
-![Linux系统内存的四级页表](/img/linux/memory-page-table.png)
+![Linux系统内存的四级页表](../img/linux/memory-page-table.png)
 
 ## NUMA：node独立内存
 
 在NUMA架构(多CPU)下，每个node（物理CPU）都有自己的本地内存，在分析内存的时候需要分析每个node的情况：
 
-![NUMA架构中node的本地内存](/img/linux/numa-memory.png)
+![NUMA架构中node的本地内存](../img/linux/numa-memory.png)
 
 ```sh
 $ numactl --hardware

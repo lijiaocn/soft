@@ -19,18 +19,18 @@ epoll在内核中用红黑树管理文件描述符集合，避免了文件描述
 
 Linux3.9提供了`SO_REUSEPORT`，支持多进程复用同一个端口，内核保证将到达该端口的请求均衡分发给监听的进程。同时内核确保只有进程被唤醒，不存在惊群的问题。
 
-![nginx1.9.1端口复用](/img/linux/port-reuse.png)
+![nginx1.9.1端口复用](../img/linux/port-reuse.png)
 
 ## 绕过内核协议栈1：DPDK
 
 DPDK直接在用户态轮询硬件网卡，绕过了内核协议栈，还通过huagepage、cpu绑定、内存对齐、流水线并发等多种机制，提高报文的处理效率：
 
-![dpdk工作原理](/img/linux/dpdk.png)
+![dpdk工作原理](../img/linux/dpdk.png)
 
 ## 绕过内核协议栈2：XDP
 
 XDP（eXpress Data Path）是Linux内核（4.8以上）提供的高性能网络数据路径，在网络包进入内核协议栈之前进行处理。XDP是基于Linux内核的eBPF机制实现的：
 
-![XDP工作原理](/img/linux/xdp.png)
+![XDP工作原理](../img/linux/xdp.png)
 
 ## 参考

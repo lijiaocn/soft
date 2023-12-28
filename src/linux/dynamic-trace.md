@@ -5,7 +5,7 @@
 
 这里只简单整理一下，以后在实践中加深了解。
 
-![常用动态追踪场景和工具](/img/linux/dynamic-trace-tool.png)
+![常用动态追踪场景和工具](../img/linux/dynamic-trace-tool.png)
 
 如果使用的是新版本内核，eBPF和BCC是最灵活的动态追踪方法，在旧版本的内核中，因为eBPF受限，SystemTap和ftrace是比较好的选择。
 
@@ -222,7 +222,7 @@ eBPF以及BCC的原理和用途，以及BCC系列工具的用法：
 4. [BCC Python Developer Tutorial](https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md)
 5. [BPF Features by Linux Kernel Version](https://github.com/iovisor/bcc/blob/master/docs/kernel-versions.md)
 
-![bcc工具集](/img/linux/bcc-tools.png)
+![bcc工具集](../img/linux/bcc-tools.png)
 
 CentOS中用yum直接安装，有协议额
 
@@ -258,7 +258,7 @@ Exception: Failed to compile BPF text
 
 [BPF Features by Linux Kernel Version](https://github.com/iovisor/bcc/blob/master/docs/kernel-versions.md)汇总了每个特性需要的最低内核版本，下图提供了部分信息：
 
-![Linux事件和BPF支持](/img/linux/bcc-tool-version.png)
+![Linux事件和BPF支持](../img/linux/bcc-tool-version.png)
 
 [BCC Python Developer Tutorial](https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md)中介绍了eBPF应用程序的开发方法，掌握以后可以自行开发追踪工具。
 

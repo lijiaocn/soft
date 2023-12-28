@@ -11,7 +11,7 @@ yum install -y dstat
 
 dstat的运行效果如下，1表示每1秒输出一次，10表示一共输出10组数据：
 
-![dstat输出](/img/linux/dstat.png)
+![dstat输出](../img/linux/dstat.png)
 
 ## iostat查看磁盘设备IO状态
 
@@ -71,13 +71,13 @@ $ /usr/share/bcc/tools/filetop
 $ /usr/share/bcc/tools/filetop -C   # 刷新数据前不清除屏幕，这样可以看到变化情况
 ```
 
-![filetop输出](/img/linux/filetop.png)
+![filetop输出](../img/linux/filetop.png)
 
 ## opensnoop跟踪系统调用open
 
 opensnoop也是bcc工具箱中的一个，用来跟踪系统调用open，显示被打开的文件：
 
-![opensnoop](/img/linux/opensnoop.png)
+![opensnoop](../img/linux/opensnoop.png)
 ## iotop查看进程I/O排行
 
 iotop动态显示每个线程的IO操作情况，由高到底排序：

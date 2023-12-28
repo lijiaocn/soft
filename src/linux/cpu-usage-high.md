@@ -162,7 +162,7 @@ perf record -ag  -- sleep 15;perf report
 
 perf report中显示，stress进程的cpu事件占比是77%，它大量调用了随机数生成函数random()，确定是它导致CPU使用率高：
 
-![perf-report](/img/perf-report-1.png)
+![perf-report](../img/perf-report-1.png)
 
 ## 小结与execsnoop
 

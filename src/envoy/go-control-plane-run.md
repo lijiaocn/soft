@@ -17,7 +17,7 @@
 
 envoy 启动之后，通过 admin 地址（浏览器打开 IP:9901 ） 查看 envoy 的当前配置以及内部情况：
 
-![envoy 的 admin 界面](/img/envoy/envoy-admin.png)
+![envoy 的 admin 界面](../img/envoy/envoy-admin.png)
 
 envoy 的当前配置通过 IP:9901/config_dump 查看，通过该地址查询的配置文件是分为几段的：
 
@@ -25,18 +25,18 @@ envoy 的当前配置通过 IP:9901/config_dump 查看，通过该地址查询�
 * 第二段为 "@type": "type.googleapis.com/envoy.admin.v2alpha.ClustersConfigDump"，是 cluster 配置，这里现在只有静态配置的 ads_cluster
 * 第三段为 "@type": "type.googleapis.com/envoy.admin.v2alpha.ListenersConfigDump"，第三段现在是空的
 
-![envoy 的初始化配置界面](/img/envoy/envoy-config-init.png)
+![envoy 的初始化配置界面](../img/envoy/envoy-config-init.png)
 
 下发 listener 和 route 后会多出两段配置，里面是动态下发的 route：
 
 * "@type": "type.googleapis.com/envoy.admin.v2alpha.ScopedRoutesConfigDump" 
 * "@type": "type.googleapis.com/envoy.admin.v2alpha.RoutesConfigDump" 
 
-![envoy 的配置变化](/img/envoy/envoy-config-after.png)
+![envoy 的配置变化](../img/envoy/envoy-config-after.png)
 
 endpoint 在配置页面中看不到，要到 IP:9901/clusters 中查看：
 
-![envoy 的初始化endpoint界面](/img/envoy/envoy-ed-init.png)
+![envoy 的初始化endpoint界面](../img/envoy/envoy-ed-init.png)
 
 ## 启动控制平面
 
@@ -81,7 +81,7 @@ Enter to exit: ^C
 
 下发后多出一个名为  Cluster_With_Static_Endpoint 的 cluster，地址为 127.0.0.1:8081。
 
-![envoy中下发的静态cluster](/img/envoy/envoy-static-cluster.png)
+![envoy中下发的静态cluster](../img/envoy/envoy-static-cluster.png)
 
 ## 使用 eds 发现 endpoint 的 cluster
 
@@ -115,11 +115,11 @@ Enter to exit: ^C
 
 下发后多出一个名为 Cluster_With_Dynamic_Endpoint 的 cluster，地址为 127.0.0.1:8082。
 
-![envoy中下发的静态cluster](/img/envoy/envoy-cluster-eds.png)
+![envoy中下发的静态cluster](../img/envoy/envoy-cluster-eds.png)
 
 cluster 中没有直接配置 endpoint，指定从 xds_cluster 中获取，在 IP:9901/clusters 中可以看到 endpoint：
 
-![envoy中动态获取的endpoints](/img/envoy/envoy-dynamic-cls-ep.png)
+![envoy中动态获取的endpoints](../img/envoy/envoy-dynamic-cls-ep.png)
 
 ## 使用 ads 发现 endpoint 的 cluster
 
@@ -151,7 +151,7 @@ cluster 中没有直接配置 endpoint，指定从 xds_cluster 中获取，在 I
 
 ads 的配置和 xds 不同，不需要指定 cluster，声明使用 ADS 即可：
 
-![使用 ads 发现 endpoint 的 cluster](/img/envoy/envoy-cls-ads.png)
+![使用 ads 发现 endpoint 的 cluster](../img/envoy/envoy-cls-ads.png)
 
 ## 使用静态路由的 listener
 
@@ -185,7 +185,7 @@ ads 的配置和 xds 不同，不需要指定 cluster，声明使用 ADS 即可�
 
 下发以后，在管理界面可以看到下面的配置：
 
-![使用 ads 发现 endpoint 的 cluster](/img/envoy/envoy-listener.png)
+![使用 ads 发现 endpoint 的 cluster](../img/envoy/envoy-listener.png)
 
 这时候可以通过 84 端口访问 cluster：
 

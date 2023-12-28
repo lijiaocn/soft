@@ -2,7 +2,7 @@
 
 VFS是linux实现的虚拟文件系统，规定了数据结构和接口规范。
 
-![Linux的存储栈](/img/linux/Linux-storage-stack-diagram_v4.10.png)
+![Linux的存储栈](../img/linux/Linux-storage-stack-diagram_v4.10.png)
 
 [图片来源](https://www.thomas-krenn.com/en/wiki/Linux_Storage_Stack_Diagram)
 

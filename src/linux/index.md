@@ -45,48 +45,48 @@ RED方法：监控服务的请求数（Rate）、错误数（Errors）、响应�
 
 USE方法：监控系统资源的使用率（Utilization）、饱和度（Saturation）、错误数（Errors）。
 
-![USE方法常见指标分类](/img/linux/use-metrics.png)
+![USE方法常见指标分类](../img/linux/use-metrics.png)
 
 ## 性能分析工具
 
-![性能分析工具](/img/linux/analyst-tool.png)
+![性能分析工具](../img/linux/analyst-tool.png)
 
 ## CPU分析思路
 
-![CPU指标](/img/linux/cpu-metrics.png)
+![CPU指标](../img/linux/cpu-metrics.png)
 
-![CPU性能分析](/img/linux/cpu-analyst.png)
+![CPU性能分析](../img/linux/cpu-analyst.png)
 
-![CPU分析工具](/img/linux/cpu-tools.png)
+![CPU分析工具](../img/linux/cpu-tools.png)
 
 ## 内存分析思路
 
-![内存性能指标](/img/linux/memory-metrics.png)
+![内存性能指标](../img/linux/memory-metrics.png)
 
-![内存性能分析](/img/linux/cpu-analyst.png)
+![内存性能分析](../img/linux/cpu-analyst.png)
 
-![内存分析工具](/img/linux/memory-tools.png)
+![内存分析工具](../img/linux/memory-tools.png)
 
 ## IO分析思路
 
-![文件系统IO指标](/img/linux/file-io-metrics.png)
+![文件系统IO指标](../img/linux/file-io-metrics.png)
 
-![IO性能分析](/img/linux/io-analyst.png)
+![IO性能分析](../img/linux/io-analyst.png)
 
-![IO分析工具](/img/linux/file-io-tools.png)
+![IO分析工具](../img/linux/file-io-tools.png)
 
 
 ## 网络分析思路
 
-![网络性能指标](/img/linux/net-metrics.png)
+![网络性能指标](../img/linux/net-metrics.png)
 
-![网络性能分析](/img/linux/net-analyst.png)
+![网络性能分析](../img/linux/net-analyst.png)
 
-![网络性能工具](/img/linux/net-tools.png)
+![网络性能工具](../img/linux/net-tools.png)
 
 ## 基准测试工具
 
-![基准测试工具](/img/linux/benchmark-tool.png)
+![基准测试工具](../img/linux/benchmark-tool.png)
 
 ## 参考
 
